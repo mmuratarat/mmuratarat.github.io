@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "About"
+title: "About Me"
 author: "MMA"
+tags: ['html', 'css']
 permalink: /about/
 ---
 
