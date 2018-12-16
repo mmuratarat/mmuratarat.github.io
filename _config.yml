@@ -1,7 +1,6 @@
 # Site settings
 title:          Mustafa Murat ARAT
 description:    "Minimal Jekyll theme for storytellers"
-baseurl:        "/tale"
 url:            "https://mmuratarat.github.io/"
 
 # Google Analytics
