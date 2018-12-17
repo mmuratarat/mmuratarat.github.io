@@ -14,7 +14,7 @@ Hello! I'm Murat, I am currently a Doctor of Philosophy student, conducting rese
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/){:target="_blank"} of [Hacettepe University](https://www.hacettepe.edu.tr/){:target="_blank"} in Ankara, Turkey. I received my degree at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. I remain to be research assistant in this department. 
 
-You can find my full resume on [here](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf)
+You can find my full resume on [here](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf){:target="_blank"}
 
 **Mustafa Murat ARAT** (M.Sc.)<br>
 Department of Business Analytics and Statistics<br>
@@ -39,3 +39,6 @@ If you are interested in collaborating and doing some great work please reach ou
 <P CLASS="footnote" style="line-height:0.75; font-size:15px">
 <i class="fa fa-asterisk" style="font-size:1em"></i> <i>All opinions and views are my own and do not represent my employer(s).</i>
 </P>
+
+
+> It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate, I am the captain of my soul." - William Hernest Henley
