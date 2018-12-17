@@ -3,12 +3,13 @@
     &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name }}. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
   </span>
   
+  <ul>
   {% if site.twitter_username %}
   <li>
     <a href="https://twitter.com/{{ site.twitter_username }}">
       <i class="fa fa-twitter"></i> Twitter
     </a>
   </li>
-{% endif %}
-  
+  {% endif %}
+  </ul>
 </footer>
