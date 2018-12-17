@@ -14,11 +14,7 @@ Hello! I'm Murat, I am currently a Doctor of Philosophy student, conducting rese
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/){:target="_blank"} of [Hacettepe University](https://www.hacettepe.edu.tr/){:target="_blank"} in Ankara, Turkey. I received my M.Sc. at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. I remain to be research assistant in this department. 
 
-**Mustafa Murat ARAT** (M.Sc.)
-
-marat 'at' utk.edu<br>
-Ph.D. Student
-
+**Mustafa Murat ARAT** (M.Sc.)<br>
 Department of Business Analytics and Statistics<br>
 James A. Haslam II College of Business<br>
 University of Tennessee<br>
@@ -29,15 +25,15 @@ If you are interested in collaborating and doing some great work please reach ou
 
 <div class="contact-buttons" style="line-height:160%;margin-left:30px;margin-top:10px">
 <p>
-<a href="https://twitter.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-twitter"></i> &nbsp; Twitter<br></a> 
-<a href="mailto:bradleyboehmke@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i> &nbsp; Email<br></a> 
-<a href="https://github.com/bradleyboehmke" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i> &nbsp; GitHub<br></a> 
-<a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i> &nbsp; LinkedIn<br></a>
+<a href="https://scholar.google.com/citations?user=TnkvSpsAAAAJ" target="_blank" style="color:#515151;"><i class="fas fa-graduation-cap"></i> &nbsp; Google Scholar<br></a> 
+ <a href="https://stackexchange.com/users/1720655/mustafa-murat-arat" target="_blank" style="color:#515151;"><i class="fab fa-stack-exchange"></i> &nbsp; Stack Exchange<br></a> 
+<a href="mailto:arat.murat@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i> &nbsp; Email<br></a> 
+<a href="https://github.com/mmuratarat" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i> &nbsp; GitHub<br></a> 
+<a href="https://www.linkedin.com/in/mmuratarat/" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i> &nbsp; LinkedIn<br></a>
 </p>
 </div>
 
 <br>
-
 <P CLASS="footnote" style="line-height:0.75; font-size:15px">
 <i class="fa fa-asterisk" style="font-size:1em"></i> <i>All opinions and views are my own and do not represent my employer(s).</i>
 </P>
