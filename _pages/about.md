@@ -14,7 +14,7 @@ Hello! I'm Murat, I am currently a Doctor of Philosophy student, conducting rese
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/) of [Hacettepe University](https://www.hacettepe.edu.tr/) in Ankara, Turkey. I received my M.Sc. at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. I remain to be research assistant in this department. 
 
-Mustafa Murat ARAT (M.Sc.)
+**Mustafa Murat ARAT** (M.Sc.)
 
 marat 'at' utk.edu<br>
 Ph.D. Student
