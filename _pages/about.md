@@ -2,6 +2,7 @@
 layout: post
 title: "About Me"
 author: "MMA"
+social: true
 permalink: /about/
 ---
 
