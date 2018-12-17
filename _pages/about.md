@@ -32,6 +32,7 @@ If you are interested in collaborating and doing some great work please reach ou
 <a href="mailto:arat.murat@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i> &nbsp; Email<br></a> 
 <a href="https://github.com/mmuratarat" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i> &nbsp; GitHub<br></a> 
 <a href="https://www.linkedin.com/in/mmuratarat/" target="_blank" style="color:#515151;"><i class="fa fa-linkedin" style="font-size:1em"></i> &nbsp; LinkedIn<br></a>
+ <a href="https://www.instagram.com/mustafamuratarat/" target="_blank" style="color:#515151;"><i class="fa fa-instagram" style="font-size:1em"></i> &nbsp; Instagram<br></a>
 </p>
 </div>
 
