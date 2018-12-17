@@ -16,14 +16,14 @@ I was a Master of Science student at [Department of Statistics](http://www.stat.
 
 Mustafa Murat ARAT (M.Sc.)
 
-marat 'at' utk.edu
+marat 'at' utk.edu<br>
 Ph.D. Student
 
-Department of Business Analytics and Statistics
-James A. Haslam II College of Business
-University of Tennessee
-916 Volunteer Blvd, 249 Stokely Management Center
-Knoxville, TN 37996
+Department of Business Analytics and Statistics<br>
+James A. Haslam II College of Business<br>
+University of Tennessee<br>
+916 Volunteer Blvd, 249 Stokely Management Center<br>
+Knoxville, TN 37996<br>
 
 If you are interested in collaborating and doing some great work please reach out to me via:
 
