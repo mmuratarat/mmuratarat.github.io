@@ -21,6 +21,10 @@ layout: default
   <div class="post-line"></div>
 
   {{ content }}
+  
+  {% if page.social %}
+    {% include social.html %}
+  {% endif %}
 
 </div>
 
