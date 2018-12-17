@@ -10,25 +10,20 @@ permalink: /about/
 <img src="/assets/2017-09-03-23.35.54.jpg" alt="MMA" align="right" style="width: 35%; height: 35%; margin:15px">
 </center> 
 
-Hello! I'm Brad, Director of Data Science at [84.51°](https://www.8451.com/) where we develop algorithmic processes, solutions, and tools that enable 84.51° and its analysts to efficiently extract insights from data and provide solution alternatives to decision-makers.  
+Hello! I'm Murat, I am currently a Doctor of Philosophy student, conducting research in Customer Analytics and Deep Learning (specifically Recurrent Neural Networks and Long Short-term Memory) under the supervision of [Dr. Michel Ballings](http://ballings.co/). My current research interests include, but not limited to the following areas: forecasting and modeling, machine learning and deep learning algorithms, big data, distribution theory, bayesian statistics, statistical data analysis, operational research, customer analytics. I am also Graduate Teaching Assistant at the [Department of Business Analytics & Statistics](https://haslam.utk.edu/business-analytics-statistics) of [University of Tennessee, Knoxville](https://www.utk.edu/).
 
-I work on applied analytic [research](http://bradleyboehmke.github.io/papers/), develop data analysis [software](http://bradleyboehmke.github.io/software/), create data science educational [content](http://bradleyboehmke.github.io/education/), write [books](http://bradleyboehmke.github.io/books/), and provide analytic [consulting services](http://bradleyboehmke.github.io/consulting/). 
+I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/) of [Hacettepe University](https://www.hacettepe.edu.tr/) in Ankara, Turkey. I received my M.Sc. at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. I remain to be research assistant in this department. 
 
-I am also an Adjunct Professor at the [University of Cincinnati](http://business.uc.edu/departments/obais.html), [Wake Forest University](http://business.wfu.edu/ms-analytics/), and [Air Force Institute of Technology](http://www.afit.edu/ENS/) where I teach [business analytics and R programming courses](http://bradleyboehmke.github.io/courses). Previously, I was a Senior Operations Research Analyst with the Air Force and spent many years developing life cycle forecasting, risk and decision analysis models.
+Mustafa Murat ARAT (M.Sc.)
 
+marat 'at' utk.edu
+Ph.D. Student
 
- $h_\theta(x) = \Large\frac{1}{1 + \mathcal{e}^{(-\theta^\top x)}}$ 
- 
- {% highlight python %}
-# Sample python code
-s = "Python syntax highlighting"
-print s
-{% endhighlight %}
-
-## Contribute
-Feel free to create an issue or make a pull request on [GitHub](https://github.com/chesterhow/tale).
-
-Thanks for reading!
+Department of Business Analytics and Statistics
+James A. Haslam II College of Business
+University of Tennessee
+916 Volunteer Blvd, 249 Stokely Management Center
+Knoxville, TN 37996
 
 If you are interested in collaborating and doing some great work please reach out to me via:
 
