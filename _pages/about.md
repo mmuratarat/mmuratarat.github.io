@@ -7,7 +7,7 @@ permalink: /about/
 ---
 
 <center>
-<img src="/public/Brad Boehmke.jpg" alt="Brad" align="right" style="width: 42%; height: 42%; margin:8px">
+<img src="/assets/2017-09-03-23.35.54.jpg" alt="Brad" align="right" style="width: 42%; height: 42%; margin:8px">
 </center> 
 
 Hello! I'm Brad, Director of Data Science at [84.51°](https://www.8451.com/) where we develop algorithmic processes, solutions, and tools that enable 84.51° and its analysts to efficiently extract insights from data and provide solution alternatives to decision-makers.  
