@@ -6,9 +6,16 @@ social: true
 permalink: /about/
 ---
 
-A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn't have to buy a domain and a server.
+<center>
+<img src="/public/Brad Boehmke.jpg" alt="Brad" align="right" style="width: 42%; height: 42%; margin:8px">
+</center> 
 
-While doing some research up on GitHub Pages, I accidentally chanced upon this _simple, blog-aware, static site generator_ called [Jekyll](https://jekyllrb.com/) which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a _book-ish_ vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of [Poole](https://github.com/poole/poole), the Jekyll Butler, I was able to build **Tale**.
+Hello! I'm Brad, Director of Data Science at [84.51°](https://www.8451.com/) where we develop algorithmic processes, solutions, and tools that enable 84.51° and its analysts to efficiently extract insights from data and provide solution alternatives to decision-makers.  
+
+I work on applied analytic [research](http://bradleyboehmke.github.io/papers/), develop data analysis [software](http://bradleyboehmke.github.io/software/), create data science educational [content](http://bradleyboehmke.github.io/education/), write [books](http://bradleyboehmke.github.io/books/), and provide analytic [consulting services](http://bradleyboehmke.github.io/consulting/). 
+
+I am also an Adjunct Professor at the [University of Cincinnati](http://business.uc.edu/departments/obais.html), [Wake Forest University](http://business.wfu.edu/ms-analytics/), and [Air Force Institute of Technology](http://www.afit.edu/ENS/) where I teach [business analytics and R programming courses](http://bradleyboehmke.github.io/courses). Previously, I was a Senior Operations Research Analyst with the Air Force and spent many years developing life cycle forecasting, risk and decision analysis models.
+
 
  $h_\theta(x) = \Large\frac{1}{1 + \mathcal{e}^{(-\theta^\top x)}}$ 
  
