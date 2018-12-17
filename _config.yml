@@ -3,8 +3,14 @@ title:          Mustafa Murat ARAT
 description:    "Minimal Jekyll theme for storytellers"
 url:            "https://mmuratarat.github.io/"
 
+# Social integration
+github_username: # your GitHub user name
+twitter_username: # your Twitter handle
+linkedin_username: # your LinkedIn user name
+scholar_userid: # your Google Scholar ID
+orcid_id: # your ORCID ID
 # Google Analytics
-google_analytics: UA—XXXXXXXX-X
+google_analytics: UA—XXXXXXXX-X # out your google-analytics code
 
 # Author
 author:
