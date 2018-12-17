@@ -1,6 +1,6 @@
 # Site settings
 title:          Mustafa Murat ARAT
-description:    "Minimal Jekyll theme for storytellers"
+description:    "Homepage"
 url:            "https://mmuratarat.github.io/"
 
 # Social integration
@@ -19,9 +19,9 @@ google_analytics: UA—XXXXXXXX-X # out your google-analytics code
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         Mustafa Murat ARAT
+  url:          https://mmuratarat.github.io/
+  email:        arat.murat@gmail.com
 
 # Build settings
 markdown:       kramdown
@@ -38,7 +38,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
-  # - jemoji #Uncomment this to allow emoji in your post
+  - jemoji #Uncomment this to allow emoji in your post
 
 # Permalinks
 permalink:      /:year-:month-:day/:title
