@@ -20,7 +20,7 @@ You can find my full resume on [here](https://github.com/mmuratarat/MMA-CV/blob/
 Department of Business Analytics and Statistics<br>
 James A. Haslam II College of Business<br>
 University of Tennessee<br>
-916 Volunteer Blvd, 249 Stokely Management Center<br>
+916 Volunteer Blvd, 252A Stokely Management Center<br>
 Knoxville, TN 37996<br>
 
 If you are interested in collaborating and doing some great work please reach out to me via:
