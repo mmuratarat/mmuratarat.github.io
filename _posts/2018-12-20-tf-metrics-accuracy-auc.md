@@ -12,7 +12,7 @@ Tensorflow has many built-in evaluation-related metrics which can be seen [here]
 
 How to use `tf.metrics.accuracy` is pretty straightforward:
 
-```
+{% highlight python %}
 labels = ...
 predictions = ...
 
@@ -21,33 +21,34 @@ accuracy, update_op_acc = tf.metrics.accuracy(labels, predictions, name = 'accur
 with tf.Session() as sess:
     sess.run(tf.local_variables_initializer())
     print("tf accuracy: {}".format(sess.run([accuracy, update_op_acc])))
-```
+{% endhighlight %}
 
 However, one needs to be sure to initialize and/or reset the running variables correctly. `tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES` will print all the local variables. However, resetting local variables by running `sess.run(tf.local_variables_initializer())` can be a terrible idea because one might accidentally reset other local variables unintentionally. By being explicit about which variables to reset, we can avoid having troubles later with other local variables in our computational graph. Two running variables created for `tf.metrics.accuracy`  and can be called using `scope` argument of `tf.get.collection()`.
 
-```
+{% highlight python %}
 running_vars_auc = tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES, scope='accuracy')
-```
+{% endhighlight %}
 
 `running_vars_auc` will contain:
 
-```
+{% highlight python %}
 <tf.Variable 'accuracy/total:0' shape=() dtype=float32_ref>,
 <tf.Variable 'accuracy/count:0' shape=() dtype=float32_ref>
-```
+{% endhighlight %}
 Now, we need to specify an operation that will perform the initialization/resetting of those running variables.
 
-```
+{% highlight python %}
 running_vars_auc_initializer = tf.variables_initializer(var_list=running_vars_auc)
-```
+{% endhighlight %}
 
 Now, we need to this operation in out Tensorflow session in order to initialize/re-initalize/reset local variables of `tf.metrics.accuracy`, using:
 
-```
+{% highlight python %}
 session.run(running_vars_auc_initializer)
-```
+{% endhighlight %}
+
 # Full Example 
-```
+{% highlight python %}
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score
@@ -81,7 +82,8 @@ with tf.Session() as sess:
     #tf accuracy/update_op: [0.0, 0.6875]
     print("tf accuracy: {}".format(sess.run(accuracy)))
     #tf accuracy: 0.6875
-```
+{% endhighlight %}
+
 ** NOTE: ** One must be careful how to reset variables when processing the data in batches. Arranging the operations while calculating overall accuracy and batch accuracy is different. One needs to reset the running variables to zero before calculating accuracy values of each new batch of data.
 
 # tf.metrics.auc
@@ -91,7 +93,7 @@ Using `tf.metrics.auc` is completely similar. It computes the approximate AUC vi
 One must be aware that AUC result of `tf.metrics.auc` does not necessarily need to be matched with sklearn's because Tensorflow AUC is an approximate AUC via a Riemann sum. So, one might expect that the results will be a slightly different.
 
 # Full Example
-```
+{% highlight python %}
 # import numpy as np
 import tensorflow as tf
 from sklearn.metrics import roc_auc_score
@@ -121,7 +123,7 @@ with tf.Session() as sess:
     #tf auc/update_op: [0.74999976, 0.74999976]
     print("tf auc: {}".format(sess.run(auc)))
     #tf auc/update_op: [0.74999976, 0.74999976]
-```
+{% endhighlight %}
 
 ## Links
 1. [https://stackoverflow.com/a/46414395/1757224](https://stackoverflow.com/a/46414395/1757224){:target="_blank"}
