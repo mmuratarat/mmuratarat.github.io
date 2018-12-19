@@ -115,7 +115,7 @@ print(tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES))
 # <tf.Variable 'AUC/false_negatives:0' shape=(200,) dtype=float32_ref>, 
 # <tf.Variable 'AUC/true_negatives:0' shape=(200,) dtype=float32_ref>, 
 # <tf.Variable 'AUC/false_positives:0' shape=(200,) dtype=float32_ref>]
-
+# The shape is (200,) because number of thresholds is 200 by default.
 
 with tf.Session() as sess:
     sess.run(tf.local_variables_initializer())
