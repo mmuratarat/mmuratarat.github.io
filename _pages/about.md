@@ -42,4 +42,4 @@ If you are interested in collaborating and doing some great work please reach ou
 </P>
 
 
-> It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate, I am the captain of my soul." - William Hernest Henley
+<blockquote> It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate, I am the captain of my soul." - William Hernest Henley</blockquote>
