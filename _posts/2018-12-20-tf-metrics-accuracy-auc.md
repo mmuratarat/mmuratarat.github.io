@@ -5,7 +5,6 @@ author: "MMA"
 ---
 
 ## tf.metrics
-{:target="_blank"}
 Tensorflow has many built-in evaluation-related metrics which can be seen [here](https://www.tensorflow.org/api_docs/python/tf/metrics){:target="_blank"}. However, sometimes, it can be hard to use them. In this post, I will briefly talk about accuracy and AUC measures. Calculation both metrics can be tricky and a bit counter-intuitive because both maintain a running measurements.
 
 # tf.metrics.accuracy
@@ -127,3 +126,4 @@ with tf.Session() as sess:
 ## Links
 1. [https://stackoverflow.com/a/46414395/1757224](https://stackoverflow.com/a/46414395/1757224){:target="_blank"}
 2. [http://ronny.rest/blog/post_2017_09_11_tf_metrics/](http://ronny.rest/blog/post_2017_09_11_tf_metrics/){:target="_blank"}
+3. [https://stackoverflow.com/a/50746989/1757224](https://stackoverflow.com/a/50746989/1757224){:target="_blank"}
