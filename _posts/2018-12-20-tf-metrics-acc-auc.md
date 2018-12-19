@@ -84,7 +84,7 @@ with tf.Session() as sess:
     #tf accuracy: 0.6875
 {% endhighlight %}
 
-** NOTE: ** One must be careful how to reset variables when processing the data in batches. Arranging the operations while calculating overall accuracy and batch accuracy is different. One needs to reset the running variables to zero before calculating accuracy values of each new batch of data.
+**NOTE:** One must be careful how to reset variables when processing the data in batches. Arranging the operations while calculating overall accuracy and batch accuracy is different. One needs to reset the running variables to zero before calculating accuracy values of each new batch of data.
 
 # tf.metrics.auc
 
@@ -125,7 +125,7 @@ with tf.Session() as sess:
     #tf auc: 0.7499997615814209
 {% endhighlight %}
 
-** NOTE ** Tensorflow's AUC metric supports only binary classification. Its first argument is `labels` which is a Tensor whose shape matches predictions and will be cast to bool. Its second argument is is `predictions` which is a floating point Tensor of arbitrary shape and whose values are in the range `[0, 1]`.  That is, each element in `labels` states whether the class is "positive" or "negative" for a single observation. It is not a 1-hot encoded vector. Therefore, if you use softmax layer at the end of network, you can slice the predictions tensor to only consider the positive (or negative) class, which will represent the binary class:
+**NOTE** Tensorflow's AUC metric supports only binary classification. Its first argument is `labels` which is a Tensor whose shape matches predictions and will be cast to bool. Its second argument is is `predictions` which is a floating point Tensor of arbitrary shape and whose values are in the range `[0, 1]`.  That is, each element in `labels` states whether the class is "positive" or "negative" for a single observation. It is not a 1-hot encoded vector. Therefore, if you use softmax layer at the end of network, you can slice the predictions tensor to only consider the positive (or negative) class, which will represent the binary class:
 
 {% highlight python %}
 auc_value, auc_op = tf.metrics.auc(labels, predictions[:, 1])
