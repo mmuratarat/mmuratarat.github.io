@@ -125,6 +125,12 @@ with tf.Session() as sess:
     #tf auc/update_op: [0.74999976, 0.74999976]
 {% endhighlight %}
 
+** NOTE ** Tensorflow's AUC metric supports only binary classification. Its first argument is `labels` which is Tensor whose shape matches predictions and will be cast to bool. Its second argument is is `predictions` which is a floating point Tensor of arbitrary shape and whose values are in the range `[0, 1]`.  That is, each element in `labels` states whether the class is "positive" or "negative" for a single observation. It is not a 1-hot encoded vector. Therefore, if you use softmax layer at the end of network, you can slice the predictions tensor to only consider the positive (or negative) class, which will represent the binary class:
+
+{% highlight python %}
+auc_value, auc_op = tf.metrics.auc(labels, predictions[:, 1])
+{% endhighlight %}
+
 ## Links
 1. [https://stackoverflow.com/a/46414395/1757224](https://stackoverflow.com/a/46414395/1757224){:target="_blank"}
 2. [http://ronny.rest/blog/post_2017_09_11_tf_metrics/](http://ronny.rest/blog/post_2017_09_11_tf_metrics/){:target="_blank"}
