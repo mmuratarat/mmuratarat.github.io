@@ -5,7 +5,7 @@ author: "MMA"
 ---
 
 ## tf.metrics
-Tensorflow has many built-in evaluation-related metrics which can be seen [here](https://www.tensorflow.org/api_docs/python/tf/metrics){:target="_blank"}. However, sometimes, it can be hard to use them. In this post, I will briefly talk about accuracy and AUC measures. Calculation both metrics can be tricky and a bit counter-intuitive because both maintain a running measurements.
+Tensorflow has many built-in evaluation-related metrics which can be seen [here](https://www.tensorflow.org/api_docs/python/tf/metrics){:target="_blank"}. However, sometimes, Calculation those metrics can be tricky and a bit counter-intuitive. In this post, I will briefly talk about accuracy and AUC measures...
 
 # tf.metrics.accuracy
 `tf.metrics.accuracy` calculates how often predictions matches labels. `tf.metrics.accuracy` has many arguments and in the end returns two tensorflow operations: accuracy value and an update operation (whose purpose is to collect samples and build up your statistics). Two running variables are created and placed into the computational graph: `total` and `count` which are equivalent to number of correctly classified observations and number of observations, respectively. 
