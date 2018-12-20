@@ -9,13 +9,13 @@ A logit (also called a score) is a raw unscaled value associated with a class be
 # BINARY CROSS-ENTROPY
 Binary cross-entropy (a.k.a. log-loss/logistic loss) is a special case of categorical cross entropy. Withy binary cross entropy, you can classify only two classes, With categorical cross entropy, you are not limited to how many classes your model can classify.
 
-\[ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]\]
+$$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]$$
 
 where i indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class (we already have 2 classes. we need to choose one of them).
 
 # CATEGORICAL CROSS-ENTROPY
 Multi-class cross entropy formula is as follows:
-\[ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]\]
+$$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
 
 where i indexes samples/observations and j indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. 
 
