@@ -15,6 +15,7 @@ where i indexes samples/observations. In the simplest case, each $y$ and $p$ is 
 
 # CATEGORICAL CROSS-ENTROPY
 Multi-class cross entropy formula is as follows:
+
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
 
 where i indexes samples/observations and j indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. 
