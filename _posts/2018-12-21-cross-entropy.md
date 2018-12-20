@@ -3,6 +3,17 @@ title: "Cross Entropy for Tensorflow"
 output: html_document
 ---
 
+Cross entropy can be used to define a loss function (cost function) in machine learning and optimization.
+
+# WHAT IS A COST (LOSS) FUNCTION?
+In simple terms the model learns a function $f$ such that $f(X)$ maps to $y$. Stated in other words, the model learns how to take $X$ (i.e. features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable). In the end, one get a predicted model, which consists of some parameters.
+
+Once the model learns these parameters, they can be used to compute estimated values of $y$ given new values of $X$. In other words, you can use these learned parameters to predict values of $y$ when you don’t know what $y$ is, i.e., one has a predictive model!
+
+In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between $X$ and $y$. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against "ground truth", i.e., the known values of y.
+
+The objective here, therefore, is to find parameters, weights/biases or a structure that minimises the cost function.
+
 # WHAT IS A LOGIT?
 A logit (also called a score) is a raw unscaled value associated with a class before computing the probability. In terms of a neural network architecture, this means that a logit is an output of a dense (fully-connected) layer. 
 
@@ -11,14 +22,14 @@ Binary cross-entropy (a.k.a. log-loss/logistic loss) is a special case of catego
 
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]$$
 
-where i indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class (we already have 2 classes. we need to choose one of them).
+where $i$ indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class (we already have 2 classes. we need to choose one of them).
 
 # CATEGORICAL CROSS-ENTROPY
 Multi-class cross entropy formula is as follows:
 
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
 
-where i indexes samples/observations and j indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. 
+where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. 
 
 When $K=2$, one will get binary cross entropy formula. 
 
@@ -39,10 +50,10 @@ The terms cost and loss functions are synonymous, some people also call it error
 
 However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function is the average of the loss functions of the entire training set.
 
-# HOW TO COMPUTE CROSS ENTROPU FOR BINARY CLASSIFICATION?
+# HOW TO COMPUTE CROSS ENTROPY FOR BINARY CLASSIFICATION?
 <script src="https://gist.github.com/mmuratarat/3db39c59e0436ec4768f27a3ad524808.js"></script>
 
-# HOW TO COMPUTE CROSS ENTROPU FOR MULTICLASS CLASSIFICATION?
+# HOW TO COMPUTE CROSS ENTROPY FOR MULTICLASS CLASSIFICATION?
 <script src="https://gist.github.com/mmuratarat/b7469a36d88fa88056b8511d8b1aac26.js"></script>
 
 # DIFFERENCE BETWEEN tf.nn.softmax_cross_entropy_with_logits AND tf.nn.sparse_softmax_cross_entropy_with_logits
@@ -72,3 +83,4 @@ Labels used in softmax_cross_entropy_with_logits are the one hot version of labe
 9. [https://stats.stackexchange.com/questions/260505/machine-learning-should-i-use-a-categorical-cross-entropy-or-binary-cross-entro](https://stats.stackexchange.com/questions/260505/machine-learning-should-i-use-a-categorical-cross-entropy-or-binary-cross-entro){:target="_blank"}
 10. [https://stackoverflow.com/questions/49044398/is-there-any-difference-between-cross-entropy-loss-and-logistic-loss](https://stackoverflow.com/questions/49044398/is-there-any-difference-between-cross-entropy-loss-and-logistic-loss){:target="_blank"}
 11. [https://stackoverflow.com/a/37317322/1757224](https://stackoverflow.com/a/37317322/1757224){:target="_blank"}
+12. [https://datascience.stackexchange.com/a/9408/54046](https://datascience.stackexchange.com/a/9408/54046){:target="_blank"}
