@@ -62,7 +62,7 @@ The function arguments for `tf.losses.softmax_cross_entropy` and `tf.losses.spar
 
 The difference is simple:
 
-* For `sparse_softmax_cross_entropy_with_logits`, labels must have the shape `[batch_size]` and the dtype is int32 or int64. Each label is an integer in range [0, num_classes-1].
+* For `sparse_softmax_cross_entropy_with_logits`, labels must have the shape `[batch_size]` and the dtype is int32 or int64. Each label is an integer in range `[0, num_classes-1]`.
 * For `softmax_cross_entropy_with_logits`, labels must have the shape `[batch_size, num_classes]` and dtype is float32 or float64.
 
 Labels used in softmax_cross_entropy_with_logits are the one hot version of labels used in sparse_softmax_cross_entropy_with_logits.
