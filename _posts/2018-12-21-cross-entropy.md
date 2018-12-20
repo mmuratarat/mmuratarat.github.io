@@ -44,9 +44,9 @@ From Section 4.3 in "Deep Learning" by Ian Goodfellow, Yoshua Bengio, Aaaron Cou
 In this book, at least, loss and cost are the same.
 
 In Andrew NG's words:
-<blockquote>Finally, the loss function was defined with respect to a single training example. It measures how well you're doing on a single training example. I'm now going to define something called the cost function, which measures how well you're doing an entire training set. So the cost function J which is applied to your parameters W and B is going to be the average with one of the m of the sum of the loss function applied to each of the training examples and turn.</blockquote>
+<blockquote>Finally, the loss function was defined with respect to a single training example. It measures how well you're doing on a single training example. I'm now going to define something called the cost function, which measures how well you're doing an entire training set. So the cost function J which is applied to your parameters *W* and *B* is going to be the average with one of the m of the sum of the loss function applied to each of the training examples and turn.</blockquote>
 
-The terms cost and loss functions are synonymous, some people also call it error function. 
+The terms *cost function* and *loss function* are synonymous, some people also call it *error function*. 
 
 However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function is the average of the loss functions of the entire training set.
 
