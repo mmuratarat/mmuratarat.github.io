@@ -27,7 +27,7 @@ When $K=2$, one will get binary cross entropy formula.
 
 
 # DIFFERENCE BETWEEN OBJECTIVE FUNCTION, COST FUNCTION AND LOSS FUNCTION
-From Section 4.3 in "Deep Learning" by ian goodfellow, Yoshua Bengio, Aaaron Courville:
+From Section 4.3 in "Deep Learning" by Ian Goodfellow, Yoshua Bengio, Aaaron Courville:
 ![Placeholder image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/assets/DL_CE.jpeg "Image with caption")
 
 In this book, at least, loss and cost are the same.
