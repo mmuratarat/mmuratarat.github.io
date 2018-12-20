@@ -65,7 +65,7 @@ The difference is simple:
 * For `sparse_softmax_cross_entropy_with_logits`, labels must have the shape `[batch_size]` and the dtype is int32 or int64. Each label is an integer in range `[0, num_classes-1]`.
 * For `softmax_cross_entropy_with_logits`, labels must have the shape `[batch_size, num_classes]` and dtype is float32 or float64.
 
-Labels used in softmax_cross_entropy_with_logits are the one hot version of labels used in sparse_softmax_cross_entropy_with_logits.
+Labels used in `softmax_cross_entropy_with_logits` are the one hot version of labels used in `sparse_softmax_cross_entropy_with_logits`.
 
 **NOTE:** `tf.losses.softmax_cross_entropy` creates a cross-entropy loss using `tf.nn.softmax_cross_entropy_with_logits_v2`. Similarly, `tf.losses.sparse_softmax_cross_entropy` creates cross-entropy loss using `tf.nn.sparse_softmax_cross_entropy_with_logits`. Convenience is that using `tf.nn.softmax_cross_entropy_with_logits_v2` or `tf.nn.sparse_softmax_cross_entropy_with_logits`, one can calculate individual entropy values and then using `tf.reduce_mean`, one can find the average of the loss values of the entire training set.
 
