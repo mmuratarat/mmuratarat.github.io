@@ -58,7 +58,7 @@ However, there are also some different definitions out there. The loss function 
 
 # DIFFERENCE BETWEEN tf.nn.softmax_cross_entropy_with_logits AND tf.nn.sparse_softmax_cross_entropy_with_logits
 
-The input targets format for `tf.losses.softmax_cross_entropy` and `tf.losses.sparse_softmax_cross_entropy` is different, however, they produce the same result. 
+The function arguments for `tf.losses.softmax_cross_entropy` and `tf.losses.sparse_softmax_cross_entropy` are different, however, they produce the same result. 
 
 The difference is simple:
 
