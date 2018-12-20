@@ -11,6 +11,7 @@ Binary cross-entropy (a.k.a. log-loss/logistic loss) is a special case of catego
 
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]$$
 where i indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class (we already have 2 classes. we need to choose one of them).
+
 # CATEGORICAL CROSS-ENTROPY
 Multi-class cross entropy formula is as follows:
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
