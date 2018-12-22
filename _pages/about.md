@@ -36,6 +36,9 @@ If you are interested in collaborating and doing some great work please reach ou
 </p>
 </div>
 
+
+I appreciate any and all feedback. If I've made an error or if you have a suggestion, you can email me.
+
 <br>
 <P CLASS="footnote" style="line-height:0.75; font-size:15px">
 <i class="fa fa-asterisk" style="font-size:1em"></i> <i>All opinions and views are my own and do not represent my employer(s).</i>
