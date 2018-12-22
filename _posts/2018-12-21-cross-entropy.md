@@ -5,15 +5,15 @@ author: "MMA"
 ---
 Cross entropy can be used to define a loss function (cost function) in machine learning and optimization. It is defined on probability distributions, not single values. It works for classification because classifier output is (often) a probability distribution over class labels. 
 
-For discrete distributions $p$ and $q$, it's:
+For discrete distributions $p$ and $q$, it's given as follows:
  
 $$H(p, q) = -\sum_y p(y) \log q(y)$$
  
-When the cross entropy loss is used with 'hard' class labels, what this really amounts to is treating $p$ as the conditional empirical distribution over class labels. This is a distribution where the probability is 1 for the observed class label and 0 for all others. $q$ is the conditional distribution (probability of class label, given input) learned by the classifier. For a single observed data point with input $x_0$ and class $y_0$, we can see that the expression above reduces to the standard log loss (which would be averaged over all data points):
+When the cross entropy loss is used with 'hard' class labels, what this really amounts to is treating $p$ as the conditional empirical distribution over class labels. This is a distribution where the probability is 1 for the observed class label and 0 for all others. $q$ is the conditional distribution (probability of class label, given input) learned by the classifier. For a single observed data point with input $x_0$ and class $y_0$, we can see that the expression above reduces to the standard log loss (which is averaged over all data points):
 
 $$-\sum_y I\{y = y_0\} \log q(y \mid x_0) = -\log q(y_0 \mid x_0)$$
 
-Here, $I\{\cdot\}$ is the indicator function, which is $1$ when its argument is true or $0$ otherwise. The sum is taken over the set of possible class labels.
+Here, $I\\{\cdot\\}$ is the indicator function, which is $1$ when its argument is true or $0$ otherwise. The sum is taken over the set of possible class labels.
 
 The concept of cross entropy applies equally well to continuous distributions. But, it can't be used for regression models that output a point estimate (e.g. the conditional mean because the regression function is the conditional mean of $Y$ over $X$, $E[Y|X]$.) but it can be used for models that output a full probability distribution. 
 
