@@ -15,7 +15,7 @@ $$-\sum_y I\{y = y_0\} \log q(y \mid x_0) = -\log q(y_0 \mid x_0)$$
 
 Here, $I\\{\cdot\\}$ is the indicator function, which is $1$ when its argument is true or $0$ otherwise. The sum is taken over the set of possible class labels.
 
-The concept of cross entropy applies equally well to continuous distributions. But, it can't be used for regression models that output a point estimate (e.g. the conditional mean because the regression function is the conditional mean of $Y$ over $X$, $E[Y|X]$.) but it can be used for models that output a full probability distribution. 
+The concept of cross entropy applies equally well to continuous distributions. But, it can't be used for regression models that output a point estimate (e.g. the conditional mean because the regression function is the conditional mean of $Y$ over $X$, $E [ Y \mid X]$.) but it can be used for models that output a full probability distribution. 
 
 If you have a model that gives the full conditional distribution (probability of output given input), you can use cross entropy as a loss function.
 
