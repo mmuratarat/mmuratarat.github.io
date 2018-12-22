@@ -36,8 +36,7 @@ If you are interested in collaborating and doing some great work please reach ou
 </p>
 </div>
 
-
-I appreciate any and all feedback. If I've made an error or if you have a suggestion, please, do not hesitate to reach out to me!
+I appreciate any and all feedback. If I've made an error or if you have a suggestion, please, do not hesitate to send me an email!
 
 <br>
 <P CLASS="footnote" style="line-height:0.75; font-size:15px">
