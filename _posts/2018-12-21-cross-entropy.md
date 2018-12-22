@@ -3,11 +3,36 @@ layout: post
 title: "Cross Entropy for Tensorflow"
 author: "MMA"
 ---
+Cross entropy can be used to define a loss function (cost function) in machine learning and optimization. It is defined on probability distributions, not single values. It works for classification because classifier output is (often) a probability distribution over class labels. 
 
-Cross entropy can be used to define a loss function (cost function) in machine learning and optimization.
+For discrete distributions $p$ and $q$, it's:
+ 
+$$H(p, q) = -\sum_y p(y) \log q(y)$$
+ 
+When the cross entropy loss is used with 'hard' class labels, what this really amounts to is treating $p$ as the conditional empirical distribution over class labels. This is a distribution where the probability is 1 for the observed class label and 0 for all others. $q$ is the conditional distribution (probability of class label, given input) learned by the classifier. For a single observed data point with input $x_0$ and class $y_0$, we can see that the expression above reduces to the standard log loss (which would be averaged over all data points):
+
+$$-\sum_y I\{y = y_0\} \log q(y \mid x_0) = -\log q(y_0 \mid x_0)$$
+
+Here, $I\{\cdot\}$ is the indicator function, which is $1$ when its argument is true or $0$ otherwise. The sum is taken over the set of possible class labels.
+
+The concept of cross entropy applies equally well to continuous distributions. But, it can't be used for regression models that output a point estimate (e.g. the conditional mean because the regression function is the conditional mean of $Y$ over $X$, $E[Y|X]$.) but it can be used for models that output a full probability distribution. 
+
+If you have a model that gives the full conditional distribution (probability of output given input), you can use cross entropy as a loss function.
+
+For continuous distributions $p$ and $q$, the cross entropy is defined as:
+$$H(p, q) = -\int_{Y} p(y) \log q(y) dy$$
+
+Just considering a single observed input/output pair $(x, y)$, $p$ would be the empirical conditional distribution (a delta function over the observed output value), and $q$ would be the modeled conditional distribution (probability of output given input). In this case, the cross entropy reduces to $-\log q(y \mid x)$. Summing over data points, this is just the negative log likelihood!
+
 
 # WHAT IS A COST (LOSS) FUNCTION?
-In simple terms the model learns a function $f$ such that $f(X)$ maps to $y$. Stated in other words, the model learns how to take $X$ (i.e. features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable). In the end, one get a predicted model, which consists of some parameters.
+
+
+In simple terms, predictive modeling can be described as the mathematical problem of approximating a mapping function ($f$) from input variables ($X$) to output variables ($y$):  $f: X \rightarrow y$. This is called the problem of function approximation.Stated in other words, the model learns how to take $X$ (i.e. features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable).  
+
+If $y$ is discrete/categorical variable, then this is classification problem. If $y$ is real number/continuous, then this is a regression problem.
+
+The goal is to approximate mapping function as accurately as possible, which consists of some parameters, given the time and resources available.
 
 Once the model learns these parameters, they can be used to compute estimated values of $y$ given new values of $X$. In other words, you can use these learned parameters to predict values of $y$ when you don’t know what $y$ is, i.e., one has a predictive model!
 
@@ -20,6 +45,8 @@ A logit (also called a score) is a raw unscaled value associated with a class be
 
 # BINARY CROSS-ENTROPY
 Binary cross-entropy (a.k.a. log-loss/logistic loss) is a special case of categorical cross entropy. Withy binary cross entropy, you can classify only two classes, With categorical cross entropy, you are not limited to how many classes your model can classify.
+
+Binary cross entropy formula is as follows:
 
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]$$
 
@@ -49,7 +76,7 @@ In Andrew NG's words:
 
 The terms *cost function* and *loss function* are synonymous, some people also call it *error function*. 
 
-However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function is the average of the loss functions of the entire training set.
+However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function will be average over all data points.
 
 # HOW TO COMPUTE CROSS ENTROPY FOR BINARY CLASSIFICATION?
 <script src="https://gist.github.com/mmuratarat/3db39c59e0436ec4768f27a3ad524808.js"></script>
@@ -85,3 +112,5 @@ Labels used in `softmax_cross_entropy_with_logits` are the one hot version of la
 10. [https://stackoverflow.com/questions/49044398/is-there-any-difference-between-cross-entropy-loss-and-logistic-loss](https://stackoverflow.com/questions/49044398/is-there-any-difference-between-cross-entropy-loss-and-logistic-loss){:target="_blank"}
 11. [https://stackoverflow.com/a/37317322/1757224](https://stackoverflow.com/a/37317322/1757224){:target="_blank"}
 12. [https://datascience.stackexchange.com/a/9408/54046](https://datascience.stackexchange.com/a/9408/54046){:target="_blank"}
+13. [https://stats.stackexchange.com/a/215484/16534](https://stats.stackexchange.com/a/215484/16534){:target="_blank"}
+14. [https://stats.stackexchange.com/a/215495/16534](https://stats.stackexchange.com/a/215495/16534){:target="_blank"}
