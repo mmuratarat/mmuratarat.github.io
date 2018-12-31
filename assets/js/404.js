@@ -1,4 +1,3 @@
-      <script type="text/javascript">
         var errorMessages = ["I'll be back!",
                              'Hello, IT. Have you tried turning it off and on again?',
                              'Welcome to This Page. The first rule of This Page is: you do not talk about This Page.',
@@ -13,4 +12,3 @@
                             ];
       var item = errorMessages[Math.floor(Math.random() * errorMessages.length)];
       document.getElementById("error-message").innerHTML = "<p>" + item + "</p>";
-      </script>
