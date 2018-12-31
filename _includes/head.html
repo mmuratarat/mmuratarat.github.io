@@ -32,8 +32,3 @@
   {% if site.google_analytics and jekyll.environment == 'production' %}
   {% include analytics.html %}
   {% endif %}
-
-  <!-- Custom JavaScript files set in YAML front matter -->
-  {% for js in page.customjs %}
-  <script async type="text/javascript" src="{{ js }}"></script>
-  {% endfor %}
