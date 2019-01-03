@@ -63,16 +63,15 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 When $K=2$, one will get binary cross entropy formula. 
 
 # TENSORFLOW IMPLEMENTATIONS
-Tensorflow has many built-in Cross Entropy functions
+Tensorflow has many built-in Cross Entropy functions.
 
 ## Sigmoid functions family
 
 * [tf.nn.sigmoid_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits){:target="_blank"}
-
 * [tf.nn.weighted_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/weighted_cross_entropy_with_logits){:target="_blank"}
 * [tf.losses.sigmoid_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/sigmoid_cross_entropy){:target="_blank"}
 
-Sigmoid loss function is for binary classification. But tensorflow functions are more general and allow to do multi-label classification, when the classes are independent. In other words, `tf.nn.sigmoid_cross_entropy_with_logits` solves N binary classifications at once. 
+Sigmoid loss function is for binary classification. But tensorflow functions are more general and allow to do multi-label classification, when the classes are independent. In other words, `tf.nn.sigmoid_cross_entropy_with_logits` solves $N$ binary classifications at once. 
 
 The labels must be one-hot encoded or can contain soft class probabilities.
 
@@ -85,7 +84,7 @@ ___
 * [tf.nn.softmax_cross_entropy_with_logits_v2](https://www.tensorflow.org/api_docs/python/tf/nn/softmax_cross_entropy_with_logits_v2){:target="_blank"}
 * [tf.losses.softmax_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/softmax_cross_entropy){:target="_blank"}
 
-These loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of N classes. Also applicable when N = 2.
+These loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of $N$ classes. Also applicable when $N = 2$.
 
 The labels must be one-hot encoded or can contain soft class probabilities: a particular example can belong to class A with 70% probability and class B with 30% probability. 
 
@@ -97,7 +96,7 @@ ___
 * [tf.nn.sparse_softmax_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/sparse_softmax_cross_entropy_with_logits){:target="_blank"}
 * [tf.losses.sparse_softmax_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/sparse_softmax_cross_entropy){:target="_blank"}
 
-Like ordinary softmax above, these loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of N classes. The difference is in labels encoding: the classes are specified as integers (class index), not one-hot vectors. Obviously, this doesn't allow soft classes, but it can save some memory when there are thousands or millions of classes. However, note that logits argument must still contain logits per each class, thus it consumes at least `[batch_size, classes]` memory.
+Like ordinary softmax above, these loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of $N$ classes. The difference is in labels encoding: the classes are specified as integers (class index), not one-hot vectors. Obviously, this doesn't allow soft classes, but it can save some memory when there are thousands or millions of classes. However, note that logits argument must still contain logits per each class, thus it consumes at least `[batch_size, classes]` memory.
 
 Like above, tf.losses version has a `weights` argument which allows to set the in-batch weights.
 
