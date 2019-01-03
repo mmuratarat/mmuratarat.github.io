@@ -63,8 +63,62 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 When $K=2$, one will get binary cross entropy formula. 
 
 # TENSORFLOW IMPLEMENTATIONS
+Tensorflow has many built-in Cross Entropy functions
 
+## Sigmoid functions family
 
+* [tf.nn.sigmoid_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits){:target="_blank"}
+
+* [tf.nn.weighted_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/weighted_cross_entropy_with_logits){:target="_blank"}
+* [tf.losses.sigmoid_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/sigmoid_cross_entropy){:target="_blank"}
+
+Sigmoid loss function is for binary classification. But tensorflow functions are more general and allow to do multi-label classification, when the classes are independent. In other words, `tf.nn.sigmoid_cross_entropy_with_logits` solves N binary classifications at once. 
+
+The labels must be one-hot encoded or can contain soft class probabilities.
+
+`tf.losses.sigmoid_cross_entropy` in addition allows to set the in-batch weights, i.e. make some examples more important than others. `tf.nn.weighted_cross_entropy_with_logits` allows to set class weights (remember, the classification is binary), i.e. make positive errors larger than negative errors. This is useful when the training data is unbalanced.
+___
+
+## Softmax functions family
+
+* [tf.nn.softmax_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/softmax_cross_entropy_with_logits){:target="_blank"} (DEPRECATED IN 1.5)
+* [tf.nn.softmax_cross_entropy_with_logits_v2](https://www.tensorflow.org/api_docs/python/tf/nn/softmax_cross_entropy_with_logits_v2){:target="_blank"}
+* [tf.losses.softmax_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/softmax_cross_entropy){:target="_blank"}
+
+These loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of N classes. Also applicable when N = 2.
+
+The labels must be one-hot encoded or can contain soft class probabilities: a particular example can belong to class A with 70% probability and class B with 30% probability. 
+
+Just like in sigmoid family, `tf.losses.softmax_cross_entropy` allows to set the in-batch weights, i.e. make some examples more important than others. 
+___
+
+## Sparse functions family
+
+* [tf.nn.sparse_softmax_cross_entropy_with_logits](https://www.tensorflow.org/api_docs/python/tf/nn/sparse_softmax_cross_entropy_with_logits){:target="_blank"}
+* [tf.losses.sparse_softmax_cross_entropy](https://www.tensorflow.org/api_docs/python/tf/losses/sparse_softmax_cross_entropy){:target="_blank"}
+
+Like ordinary softmax above, these loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of N classes. The difference is in labels encoding: the classes are specified as integers (class index), not one-hot vectors. Obviously, this doesn't allow soft classes, but it can save some memory when there are thousands or millions of classes. However, note that logits argument must still contain logits per each class, thus it consumes at least `[batch_size, classes]` memory.
+
+Like above, tf.losses version has a `weights` argument which allows to set the in-batch weights.
+
+Like above, labels are not one-hot encoded, but have the shape `[batch_size, num_true]`.
+___
+
+## Sampled softmax functions family
+
+* [tf.nn.sampled_softmax_loss](https://www.tensorflow.org/api_docs/python/tf/nn/sampled_softmax_loss){:target="_blank"}
+* [tf.contrib.nn.rank_sampled_softmax_loss](https://www.tensorflow.org/api_docs/python/tf/contrib/nn/rank_sampled_softmax_loss){:target="_blank"}
+* [tf.nn.nce_loss](https://www.tensorflow.org/api_docs/python/tf/nn/nce_loss){:target="_blank"}
+
+These functions provide another alternative for dealing with huge number of classes. Instead of computing and comparing an exact probability distribution, they compute a loss estimate from a random sample.
+
+The arguments `weights` and `biases` specify a separate fully-connected layer that is used to compute the logits for a chosen sample.
+
+Sampled functions are only suitable for training. In test time, it's recommended to use a standard softmax loss (either sparse or one-hot) to get an actual distribution.
+
+Another alternative loss is tf.nn.nce_loss, which performs noise-contrastive estimation. NCE guarantees approximation to softmax in the limit.
+___
+See [below](#difference-between-tfnnsoftmax_cross_entropy_with_logits-and-tfnnsparse_softmax_cross_entropy_with_logits) for the difference between `tf.nn` and `tf.loses`.
 
 # DIFFERENCE BETWEEN OBJECTIVE FUNCTION, COST FUNCTION AND LOSS FUNCTION
 From Section 4.3 in "Deep Learning" by Ian Goodfellow, Yoshua Bengio, Aaaron Courville:
