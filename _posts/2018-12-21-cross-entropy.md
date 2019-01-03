@@ -76,7 +76,6 @@ Sigmoid loss function is for binary classification. But tensorflow functions are
 The labels must be one-hot encoded or can contain soft class probabilities.
 
 `tf.losses.sigmoid_cross_entropy` in addition allows to set the in-batch weights, i.e. make some examples more important than others. `tf.nn.weighted_cross_entropy_with_logits` allows to set class weights (remember, the classification is binary), i.e. make positive errors larger than negative errors. This is useful when the training data is unbalanced.
-___
 
 ## Softmax functions family
 
@@ -89,7 +88,6 @@ These loss functions should be used for multinomial mutually exclusive classific
 The labels must be one-hot encoded or can contain soft class probabilities: a particular example can belong to class A with 70% probability and class B with 30% probability. 
 
 Just like in sigmoid family, `tf.losses.softmax_cross_entropy` allows to set the in-batch weights, i.e. make some examples more important than others. 
-___
 
 ## Sparse functions family
 
@@ -101,7 +99,6 @@ Like ordinary softmax above, these loss functions should be used for multinomial
 Like above, tf.losses version has a `weights` argument which allows to set the in-batch weights.
 
 Like above, labels are not one-hot encoded, but have the shape `[batch_size, num_true]`.
-___
 
 ## Sampled softmax functions family
 
@@ -116,8 +113,9 @@ The arguments `weights` and `biases` specify a separate fully-connected layer th
 Sampled functions are only suitable for training. In test time, it's recommended to use a standard softmax loss (either sparse or one-hot) to get an actual distribution.
 
 Another alternative loss is tf.nn.nce_loss, which performs noise-contrastive estimation. NCE guarantees approximation to softmax in the limit.
-___
-See [below](#difference-between-tfnnsoftmax_cross_entropy_with_logits-and-tfnnsparse_softmax_cross_entropy_with_logits) for the difference between `tf.nn` and `tf.loses`.
+
+
+**NOTE**: See [below](#difference-between-tfnnsoftmax_cross_entropy_with_logits-and-tfnnsparse_softmax_cross_entropy_with_logits) for the difference between `tf.nn` and `tf.loses`.
 
 # DIFFERENCE BETWEEN OBJECTIVE FUNCTION, COST FUNCTION AND LOSS FUNCTION
 From Section 4.3 in "Deep Learning" by Ian Goodfellow, Yoshua Bengio, Aaaron Courville:
