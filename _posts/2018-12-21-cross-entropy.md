@@ -96,7 +96,7 @@ Just like in sigmoid family, `tf.losses.softmax_cross_entropy` allows to set the
 
 Like ordinary softmax above, these loss functions should be used for multinomial mutually exclusive classification, i.e. pick one out of $N$ classes. The difference is in labels encoding: the classes are specified as integers (class index), not one-hot vectors. Obviously, this doesn't allow soft classes, but it can save some memory when there are thousands or millions of classes. However, note that logits argument must still contain logits per each class, thus it consumes at least `[batch_size, classes]` memory.
 
-Like above, tf.losses version has a `weights` argument which allows to set the in-batch weights.
+Like above, `tf.losses` version has a `weights` argument which allows to set the in-batch weights.
 
 Like above, labels are not one-hot encoded, but have the shape `[batch_size, num_true]`.
 
@@ -112,8 +112,7 @@ The arguments `weights` and `biases` specify a separate fully-connected layer th
 
 Sampled functions are only suitable for training. In test time, it's recommended to use a standard softmax loss (either sparse or one-hot) to get an actual distribution.
 
-Another alternative loss is tf.nn.nce_loss, which performs noise-contrastive estimation. NCE guarantees approximation to softmax in the limit.
-
+Another alternative loss is `tf.nn.nce_loss`, which performs noise-contrastive estimation. NCE guarantees approximation to softmax in the limit.
 
 **NOTE**: See [below](#difference-between-tfnnsoftmax_cross_entropy_with_logits-and-tfnnsparse_softmax_cross_entropy_with_logits) for the difference between `tf.nn` and `tf.loses`.
 
