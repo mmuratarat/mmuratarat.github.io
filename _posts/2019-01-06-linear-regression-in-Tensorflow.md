@@ -15,7 +15,7 @@ $$\hat{y} = h_{\theta} ( \mathbf{x} ) =  \theta^{T} \cdot \mathbf{x}$$
 
 where $\theta$ is the model's parameter vector, containing the bias term $\theta_{0}$ and the feature weights, i.e., $\theta_{1}$ to $\theta_{n}$. $\theta^{T}$ is the transpose of $\theta$ (a row vector instead of a column vector). $\mathbf{x}$ is the instance's feature vector, containing $x_{0}$ ro $x_{n}$ with $x_{0}$ always equal to $1$. $\left(\theta^{T} \cdot  \mathbf{x} \right)$ is the dot product of $\theta^{T}$ and $\mathbf{x}$. $ h_{\theta} ( \bullet ) $ is the hypothesis function, using the model parameters $\theta$.
 
-We need to train this model in order to find the best parameters. Training a model means setting its paramters so that the model best fits the training set. For this purpose, we first need a measure of well (or poorly) the model fits the training data. The most common performance measure of a regression model is the Mean Square Error (MSE) which is given below:
+We need to train this model in order to find the best parameters. Training a model means setting its paramters so that the model best fits the training set. For this purpose, we first need a measure of how well (or poorly) the model fits the training data. The most common performance measure of a regression model is the Mean Square Error (MSE) which is given below:
 
 $$MSE (\mathbf{X}, \theta) = \frac{1}{m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right)^{2}$$
 
