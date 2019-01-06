@@ -21,7 +21,7 @@ $$MSE (\mathbf{X}, \theta) = \frac{1}{m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf
 
 Therefore, to train a LR model, you need to find the value of $\theta$ that minimizes the MSE.
 
-In order to find the value of $\theta$ that minimized the cost function, there is a closed-form solution - in other words, a mathematical equation that gives the results directly. This is called the \textit{Normal Equations}:
+In order to find the value of $\theta$ that minimized the cost function, there is a closed-form solution - in other words, a mathematical equation that gives the results directly. This is called the *Normal Equations*:
 
 $$\hat{\theta} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X} \cdot \mathbf{y} $$
 
