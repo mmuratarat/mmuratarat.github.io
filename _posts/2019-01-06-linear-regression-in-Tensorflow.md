@@ -27,7 +27,7 @@ $$\hat{\theta} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathb
 
 where $\hat{\theta}$ is the estimation of $\theta$ that minimizes the cost function and $\mathbf{y}$ is the vector of target values containing $y^{(1)}$ to $y^{(m)}$.
 
-Other approach that you can take to compute $\hat{\theta}$ is to use Gradient Descent algorithm. To implement it, you need to compute the gradient of the cost function with regards to each model parameter $\theta_{j}$. In other words, you need to calculate how much the cost function will change if you change $\theta_{j}$ just a little. This is called a \textit{partial derivative}.
+Other approach that you can take to compute $\hat{\theta}$ is to use Gradient Descent algorithm. To implement it, you need to compute the gradient of the cost function with regards to each model parameter $\theta_{j}$. In other words, you need to calculate how much the cost function will change if you change $\theta_{j}$ just a little. This is called a *partial derivative*.
 
 Partial derivatives of this cost function with regards to $\theta_{j}$ are computed as follows:
 
