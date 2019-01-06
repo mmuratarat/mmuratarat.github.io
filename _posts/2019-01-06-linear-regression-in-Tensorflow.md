@@ -44,7 +44,7 @@ In order to get next step of $\theta$, you use the formula below:
 
 $$\theta^{(\text{next step})} = \theta - \alpha \nabla_{\theta} \text{MSE} (\theta)$$
 
-where, here, $\alpha$ is the learning step, a.k.a., the size of steps in Gradient Descent.
+where, here, $\alpha$ is the learning rate, a.k.a., the size of steps in Gradient Descent.
 
 ## Implementing Normal Equations in Tensorflow
 
