@@ -25,11 +25,11 @@ In order to find the value of $\theta$ that minimized the cost function, there i
 
 $$\hat{\theta} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X} \cdot \mathbf{y} $$
 
-where $\hat{\theta}$ is the estimation of $\theta$ that minimizes the cost function and $\mathbf{y}$ is the vector od target values constaining $y^{(1)}$ to $y^{(m)}$.
+where $\hat{\theta}$ is the estimation of $\theta$ that minimizes the cost function and $\mathbf{y}$ is the vector of target values containing $y^{(1)}$ to $y^{(m)}$.
 
-Other approach you can take to compute $\hat{\theta}$ is to use Gradient Descent algorithm. To implement is, you need to compute the gradient of the cost function with regards to each model parameter $\theta_{j}$. In other words, you need to calculate how much the cost function will change if you change $\theta_{j}$ just a little. This is called a \textit{partial derivative}.
+Other approach that you can take to compute $\hat{\theta}$ is to use Gradient Descent algorithm. To implement it, you need to compute the gradient of the cost function with regards to each model parameter $\theta_{j}$. In other words, you need to calculate how much the cost function will change if you change $\theta_{j}$ just a little. This is called a \textit{partial derivative}.
 
-Partial derivative of this cost function with regards to $\theta_{j}$ are computed as follows:
+Partial derivatives of this cost function with regards to $\theta_{j}$ are computed as follows:
 
 $$\dfrac{\partial}{\partial \theta_{j}} MSE (\theta) = \frac{2}{m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right) x_{j}^{(i)}$$
 
