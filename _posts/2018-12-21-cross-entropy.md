@@ -51,7 +51,10 @@ Binary cross entropy formula is as follows:
 
 $$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]$$
 
-where $i$ indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class (we already have 2 classes. we need to choose one of them).
+where $i$ indexes samples/observations. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class.
+
+Two properties in particular make it reasonable to interpret the cross-entropy as a cost function. First, it's non-negative, that is, $L(\theta) > 0$. To see this, notice that: (a) all the individual terms in the sum in the equation are negative, since both logarithms are of numbers in the range 0 to 1; and (b) there is a minus sign out the front of the sum.
+Second, if the neuron's actual output is close to the desired output for all training inputs, $x$, then the cross-entropy will be close to zero. To see this, suppose for example that $y =0$ and $p \approx 0$ for some input $x$. This is a case when the neuron is doing a good job on that input. We see that the first term in the equation for the cost function vanishes, since $y=0$, while the second term is just $−ln(1 -p) \approx 0$. A similar analysis holds when $y=1$ and  $p \approx 1$. And so the contribution to the cost will be low provided the actual output is close to the desired output.
 
 # CATEGORICAL CROSS-ENTROPY
 Multi-class cross entropy formula is as follows:
@@ -165,3 +168,4 @@ Labels used in `softmax_cross_entropy_with_logits` are the one hot version of la
 12. [https://datascience.stackexchange.com/a/9408/54046](https://datascience.stackexchange.com/a/9408/54046){:target="_blank"}
 13. [https://stats.stackexchange.com/a/215484/16534](https://stats.stackexchange.com/a/215484/16534){:target="_blank"}
 14. [https://stats.stackexchange.com/a/215495/16534](https://stats.stackexchange.com/a/215495/16534){:target="_blank"}
+15. [http://neuralnetworksanddeeplearning.com/chap3.html](http://neuralnetworksanddeeplearning.com/chap3.html){:target="_blank"}
