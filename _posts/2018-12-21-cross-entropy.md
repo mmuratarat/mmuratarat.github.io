@@ -25,6 +25,38 @@ $$H(p, q) = -\int_{Y} p(y) \log q(y) dy$$
 
 Just considering a single observed input/output pair $(x, y)$, $p$ would be the empirical conditional distribution (a delta function over the observed output value), and $q$ would be the modeled conditional distribution (probability of output given input). In this case, the cross entropy reduces to $-\log q(y \mid x)$. Summing over data points, this is just the negative log likelihood!
 
+# ENTROPY
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$. In a scenario of binary classification, we will have two classes: positive class and negative class. If all the points are positive, the uncertainty of that distribution will be zero. After all, there would be no doubt about the class of a data point: it is always positive! So, entropy is zero!
+
+On the other hand, what if we knew exactly half of the points were positive and the other half, negative? That’s the worst case scenario. It is totally random! For that case, entropy is given by the formula for a half-half distribution (we have two classes — hence, 2):
+
+$$ H(p) = -log(2)$$
+
+For every other case in between, we can compute the entropy of a distribution, using the formula below, where K is the number of classes:
+
+$$H(q) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})$$
+
+if we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with some other distribution, say, $q(y)$.
+
+Let’s assume data points follow this other distribution $q(y)$. But we know they are actually coming from the true (unknown) distribution $p(y)$.
+
+If we compute entropy like this, we are actually computing the cross-entropy between both distributions:
+
+$$H(p, q) = -\sum_{k=1}^{K} p(y_{k}) \log q(y_{k})$$
+
+If we can find a distribution $q(y)$ as close as possible to $p(y)$, values for both cross-entropy and entropy will match as well. However, this is not the always case. Therefore, cross-entropy will be greater than the entropy computed on the true distribution.
+
+$$ H(p, q) - H(q) > 0 $$
+
+This difference between cross-entropy and entropy is called *Kullback-Leibler Divergence*.
+
+# KL DIVERGENCE
+The Kullback-Leibler Divergence,or `KL Divergence` for short, is a measure of dissimilarity between two distributions:
+
+$$ D_{KL} (q || p) = H(p, q) - H(q) = \sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]
+
+This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and, consequently, the cross-entropy, will be. Therefore, we need to find a good distribution by using the classifier. 
+
 
 # WHAT IS A COST (LOSS) FUNCTION?
 
