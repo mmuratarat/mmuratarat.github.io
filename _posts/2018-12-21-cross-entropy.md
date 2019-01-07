@@ -36,11 +36,11 @@ For every other case in between, we can compute the entropy of a distribution, u
 
 $$H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})$$
 
-if we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with some other distribution, say, $q(y)$.
+if we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
 
 Let’s assume data points follow this other distribution $q(y)$. But we know they are actually coming from the true (unknown) distribution $p(y)$.
 
-If we compute entropy like this, we are actually computing the cross-entropy between both distributions:
+If we compute entropy (uncertainty) between these two distributions, we are actually computing the cross-entropy between them:
 
 $$H(p, q) = -\sum_{k=1}^{K} p(y_{k}) \log q(y_{k})$$
 
