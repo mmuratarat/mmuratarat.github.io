@@ -55,11 +55,10 @@ The Kullback-Leibler Divergence,or `KL Divergence` for short, is a measure of di
 
 $$ D_{KL} (q || p) = H(p, q) - H(p) = \sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]$$
 
-This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and, consequently, the cross-entropy, will be. Therefore, we need to find a good distribution by using the classifier. 
+This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. Therefore, we need to find a good distribution by using the classifier. 
 
 
 # WHAT IS A COST (LOSS) FUNCTION?
-
 
 In simple terms, predictive modeling can be described as the mathematical problem of approximating a mapping function ($f$) from input variables ($X$) to output variables ($y$):  $f: X \rightarrow y$. This is called the problem of function approximation.Stated in other words, the model learns how to take $X$ (i.e. features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable).  
 
