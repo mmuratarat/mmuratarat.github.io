@@ -69,5 +69,5 @@ Let's compare it with `sklearn` module.
 <script src="https://gist.github.com/mmuratarat/0a1045a14212c3a2f9e9e10ff54a0889.js"></script>
 
 
-**NOTE**: Do not forget to reset graph and set seed if you want to have a reproducible results.
+**NOTE**: Do not forget to reset graph and set seed if you want to have reproducible results.
 <script src="https://gist.github.com/mmuratarat/c6d227805e351010c0dbfcd0353e8439.js"></script>
