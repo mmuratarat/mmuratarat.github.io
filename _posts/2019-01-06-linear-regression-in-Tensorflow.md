@@ -2,6 +2,7 @@
 layout: post
 title: "Linear Regression in Tensorflow"
 author: "MMA"
+comments: true
 ---
 Linear regression (LR) is a linear approach to modelling the relationship between a scalar response (or dependent variable) and one or more explanatory variables (or independent variables). More generally, a linear model makes a prediction by simply computing a weighted sum of the input features, plus a constant the *bias term* (also called the *intercept*) as shown below:
 
