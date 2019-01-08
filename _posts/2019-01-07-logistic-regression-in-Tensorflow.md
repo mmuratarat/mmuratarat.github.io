@@ -206,4 +206,8 @@ The likelihood of the entire dataset $\mathbf{X}$ is the product of the individu
 
 $$ P(\mathbf{X}|\mathbf{y}) = \prod_{i=1}^{m} P(\mathbf{x}^{(i)} \mid y^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
 
+Now Maximum Likelihood principle says that we need to find the parameters that maximise likelihood $P(\mathbf{X}|\mathbf{y})$.
 
+Logarithms are used because they convert products into sums and do not alter the maximization search, as they are monotone increasing functions. Here too we have a product form in the likelihood.So we take the natural logarithm as maximising the likelihood is same as maximising the log likelihood, so log likelihood $L(\theta)$ is now:
+
+$$ L(\theta) = \log(P(\mathbf{X}|\mathbf{y}) =  \sum_{i=1}^{m} y_i \log(h_{\theta}(\mathbf{x}_i)) + (1-y_i) \log(1 - h_{\theta}(\mathbf{x}_i)) $$.
