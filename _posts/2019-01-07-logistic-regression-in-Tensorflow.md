@@ -221,9 +221,7 @@ J(\theta) &=  - \dfrac{1}{m} L(\theta)\\
 \end{align}
 $$
 
-Now we can also understand why the cost for single data point comes as follows:
-
-the cost for a single data point is \\(-\log ( P(\mathbf{x}^{(i)} | y^{(i)}))\\), which can be written as:
+Now we can also understand why the cost for single data point comes as follows... The cost for a single data point is $- \log ( P( \mathbf{x}^{(i)} \mid y^{(i)} )) $, which can be written as:
 
 $$ -\left( y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)})) \right)$$
 
