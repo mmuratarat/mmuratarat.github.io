@@ -186,7 +186,7 @@ First, let's create the moons dataset using Scikit-Learn's `make_moons()` functi
 #### Hardcoding cost function
 <script src="https://gist.github.com/mmuratarat/224eb0d61d9837406165ef64502196a3.js"></script>
 
-# Additional Material
+# Relation between Maximum Likelihood and Cross-Entropy
 
 A very common scenario in Machine Learning is supervised learning, where we have data points $\mathbf{x}^{(i)}$ and their labels $y^{(i)}$, for $i=1, 2, \cdots, m$, building up our dataset where we’re interested in estimating the conditional probability of $y^{(i)}$ given $\mathbf{x}^{(i)}$, or more precisely $P(\mathbf{y} \mid \mathbf{X}, \theta)$.
 
