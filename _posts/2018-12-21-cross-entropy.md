@@ -2,6 +2,7 @@
 layout: post
 title: "Cross Entropy for Tensorflow"
 author: "MMA"
+comments: true
 ---
 Cross entropy can be used to define a loss function (cost function) in machine learning and optimization. It is defined on probability distributions, not single values. It works for classification because classifier output is (often) a probability distribution over class labels. 
 
