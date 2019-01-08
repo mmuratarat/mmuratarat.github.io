@@ -58,7 +58,7 @@ $$ D_{KL} (q || p) = H(p, q) - H(p) = \sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}
 
 This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. Therefore, we need to approximate to a good distribution by using the classifier. 
 
-Now, for one particular data poin, if $p \in \\{y,1-y\\}$ and $q \in \\{\hat{y}, 1-\hat{y}\\}$, we can re-write cross-entropy as:
+Now, for one particular data point, if $p \in \\{y,1-y\\}$ and $q \in \\{\hat{y}, 1-\hat{y}\\}$, we can re-write cross-entropy as:
 \begin{equation}
 H(p, q) = -\sum_{k=1}^{K=2} p(y_{k}) \log q(y_{k}) =-y\log \hat{y}-(1-y)\log (1-\hat{y})
 \end{equation}
