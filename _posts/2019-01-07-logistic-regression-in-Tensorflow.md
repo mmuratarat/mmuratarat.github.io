@@ -13,7 +13,7 @@ Logistic Regression is one of the methods that have been used for classification
 
 A Logistic Regression model computes a weighted sum of input features (plus a bias term), but instead of outputting the result directly like Linear Regression model does, it outputs logistic of this result. 
 
-So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, ..., m$ can be modelled as follows:
+So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, \cdots, m$ can be modelled as follows:
 
 $$P(y^{(i)}) = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
 
@@ -30,8 +30,8 @@ Therefore, we can re-write Logistic Regression model equation as follows:
 $$
 \begin{align}
 P(y^{(i)}) = \sigma\left( \theta^{T} \cdot \mathbf{x}^{(i)} \right) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}\\
-&= \dfrac{1}{1+exp(-(\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)})} \\
-&= \dfrac{exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}{1+exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}
+&= \dfrac{1}{1+exp(-(\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)}))} \\
+&= \dfrac{exp(\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)})}{1+exp(\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)})}
 \end{align}$$
 
 where $n$ is the number of features in the data, $x_{i}$ is the $i$th feature value and $\theta_{j}$ is the $j$th model parameter (including the bias term $\theta_{0}$).
