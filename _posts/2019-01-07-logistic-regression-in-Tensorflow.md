@@ -78,7 +78,7 @@ Taking the average over all the observations, the logistic regression cost funct
 $$
 \begin{align}
 J(\theta) & = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(\mathbf{x}^{(i)}),y^{(i)}) \\
-& = - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \left[\log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))\right] \\
+& = - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)})) \\
 \end{align}
 $$
 
@@ -217,6 +217,6 @@ Since in linear regression we found the $\theta$ that minimizes our cost functio
 $$
 \begin{align}
 J(\theta) &=  - \dfrac{1}{m} L(\theta)\\
-&= - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \left[\log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))\right]
+&= - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))
 \end{align}
 $$
