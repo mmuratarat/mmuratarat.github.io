@@ -56,7 +56,7 @@ The Kullback-Leibler Divergence,or `KL Divergence` for short, is a measure of di
 
 $$ D_{KL} (q || p) = H(p, q) - H(p) = \sum_{k=1}^{K} p(y_{k}) \log\left[\frac{p(y_{k})}{q(y_{k})}\right] =\sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]$$
 
-This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. Therefore, we need to approximate to a good distribution by using the classifier. 
+This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. In other words, minimizing cross-entropy will make $q(y)$ converge to $p(y)$, and $H(p, q)$ itself will converge to $H(p)$ Therefore, we need to approximate to a good distribution by using the classifier. 
 
 Now, for one particular data point, if $p \in \\{y,1-y\\}$ and $q \in \\{\hat{y}, 1-\hat{y}\\}$, we can re-write cross-entropy as:
 \begin{equation}
