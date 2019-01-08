@@ -202,8 +202,6 @@ This can be combined into a single equation as follows because, for binary class
 
 $$P(y^{(i)} \mid \mathbf{x}^{(i)}) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
 
-$P(y^{(i)})$ is known as the likelihood of single data point $\mathbf{x}^{(i)}$, i.e. given the value of $y^{(i)}$ what is the probability of $\mathbf{x}^{(i)}$ occurring. It is the conditional probability $P(\mathbf{x}^{(i)} \mid y^{(i)})$.
-
 The likelihood of the entire dataset $\mathbf{X}$ is the product of the individual data point likelihoods. Thus,
 
 $$ L(\theta) = \prod_{i=1}^{m} P(\mathbf{y} = y^{(i)} \mid \mathbf{X} = \mathbf{x}^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
