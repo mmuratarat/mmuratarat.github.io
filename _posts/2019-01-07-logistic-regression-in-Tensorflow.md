@@ -15,9 +15,9 @@ A Logistic Regression model computes a weighted sum of input features (plus a bi
 
 So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class.
 
-$$P(y^{(i)}) = P(y^{(i)}=1 \mid \mathbf{x}, \theta) = h_{\theta} ( \mathbf{x} ) = \sigma \left( \theta^{T} \cdot \mathbf{x} \right)$$
+$$P(y^{(i)}) = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
 
-where $\theta^{T} \cdot \mathbf{x}$ can be written as $\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n}$.
+where $\theta^{T} \cdot \mathbf{x}^{(i)}$ can be written as $\theta_{0} + \theta_{1}x_{i1} + \theta_{2}x_{i2} + \cdots + \theta_{n}x_{in}$.
 
 The logistic - also called the *logit*, noted $\sigma(\cdot)$ - is a *sigmoid* function (i.e., S-shaped) that outputs a number between 0 and 1. It is defined as the following:
 
@@ -29,7 +29,7 @@ Therefore, we can re-write Logistic Regression model equation as follows:
 
 $$
 \begin{align}
-\hat{p} = \sigma\left( \theta^{T} \cdot \mathbf{x} \right) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x})}\\
+P(y^{(i)}) = \sigma\left( \theta^{T} \cdot \mathbf{x}^{(i)} \right) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i))}\\
 &= \dfrac{1}{1+exp(-(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n}))} \\
 &= \dfrac{exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}{1+exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}
 \end{align}$$
