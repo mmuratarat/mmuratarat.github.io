@@ -206,7 +206,7 @@ $P(y^{(i)})$ is known as the likelihood of single data point $\mathbf{x}^{(i)}$,
 
 The likelihood of the entire dataset $\mathbf{X}$ is the product of the individual data point likelihoods. Thus,
 
-$$ L(\theta) = \prod_{i=1}^{m} P(\mathbf{x}^{(i)} \mid y^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
+$$ L(\theta) = \prod_{i=1}^{m} P(\mathbf{y} = y^{(i)} \mid \mathbf{X} = \mathbf{x}^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
 
 Now, Maximum Likelihood principle says that we need to find the parameters that maximise the likelihood $L(\theta)$.
 
