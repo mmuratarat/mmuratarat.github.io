@@ -29,7 +29,7 @@ Therefore, we can re-write Logistic Regression model equation as follows:
 
 $$
 \begin{align}
-P(y^{(i)}) = \sigma\left( \theta^{T} \cdot \mathbf{x}^{(i)} \right) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i))}\\
+P(y^{(i)}) = \sigma\left( \theta^{T} \cdot \mathbf{x}^{(i)} \right) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}\\
 &= \dfrac{1}{1+exp(-(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n}))} \\
 &= \dfrac{exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}{1+exp(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n})}
 \end{align}$$
