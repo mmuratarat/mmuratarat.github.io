@@ -54,7 +54,7 @@ This difference between cross-entropy and entropy is called *Kullback-Leibler Di
 # KL DIVERGENCE
 The Kullback-Leibler Divergence,or `KL Divergence` for short, is a measure of dissimilarity between two distributions:
 
-$$ D_{KL} (q || p) = H(p, q) - H(p) = \sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]$$
+$$ D_{KL} (q || p) = H(p, q) - H(p) = \sum_{k=1}^{K} p(y_{k}) \log\left[\frac{p(y_{k})}{q(y_{k})}\right] =\sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]$$
 
 This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. Therefore, we need to approximate to a good distribution by using the classifier. 
 
