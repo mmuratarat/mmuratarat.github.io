@@ -200,7 +200,7 @@ Since $P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1- P(y^{(i)}=1 \mid \mathbf{
 
 This can be combined into a single equation as follows because, for binary classification, $y^{(i)}$ follows a Bernoulli distribution:
 
-$$P(y^{(i)}) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
+$$P(y^{(i)} \mid \mathbf{x}^{(i)}) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
 
 $P(y^{(i)})$ is known as the likelihood of single data point $\mathbf{x}^{(i)}$, i.e. given the value of $y^{(i)}$ what is the probability of $\mathbf{x}^{(i)}$ occurring. It is the conditional probability $P(\mathbf{x}^{(i)} \mid y^{(i)})$.
 
