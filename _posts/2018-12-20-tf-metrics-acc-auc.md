@@ -2,6 +2,7 @@
 layout: post
 title:  "Tensorflow Metrics - Accuracy/AUC"
 author: "MMA"
+comments: true
 ---
 
 ## tf.metrics
