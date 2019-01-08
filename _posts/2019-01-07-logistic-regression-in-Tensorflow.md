@@ -59,7 +59,8 @@ $$\mathrm{Cost}(h_{\theta}(\mathbf{x}^{(i)}), y^{(i)}) =
 -\log(1-h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 0$}
 \end{cases}$$
 
-In words this is the cost the algorithm pays if it predicts a value $h_{\theta}(\mathbf{x}^{(i)})$ while the actual cost label turns out to be $y^{(i)}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
+(If you are curious how we get this piecewise function, look [here](#relation-between-maximum-likelihood-and-cross-entropy))
+In words, this is the cost the algorithm pays if it predicts a value $h_{\theta}(\mathbf{x}^{(i)})$ while the actual cost label turns out to be $y^{(i)}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
 
 In case $y^{(i)}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\theta}(\mathbf{x}^{(i)})$  approaches to 1. Conversely, the cost to pay grows to infinity as $h_{\theta}(\mathbf{x}^{(i)})$  approaches to $0$. You can clearly see it in the plot. below, left side. This is a desirable property: we want a bigger penalty as the algorithm predicts something far away from the actual value. If the label is $y^{(i)}=1$ but the algorithm predicts $h_{\theta}(\mathbf{x}^{(i)})=0$, the outcome is completely wrong.
 
