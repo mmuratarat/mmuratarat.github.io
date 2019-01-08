@@ -212,7 +212,7 @@ Logarithms are used because they convert products into sums and do not alter the
 
 $$ L(\theta) = \log(P(\mathbf{X} \mid \mathbf{y}) =  \sum_{i=1}^{m} y^{(i)} \log(h_{\theta} ( \mathbf{x}^{(i)} )) + (1 - y^{(i)} ) \log(1− h_{\theta} ( \mathbf{x}^{(i)} )) $$
 
-Since in linear regression we found the $\theta$ that minimizes our cost function , here too for the sake of consistency, we would like to have a minimization problem. And we want the average cost over all the data points. Currently, we have a maximimzation of $L(\theta)$. Maximization of $L(\theta)$ is equivalent to minimization of $ -L(\theta)$. And using the average cost over all data points, our cost function for logistic regresion comes out to be:
+Since in linear regression we found the $\theta$ that minimizes our cost function , here too for the sake of consistency, we would like to have a minimization problem. And we want the average cost over all the data points. Currently, we have a maximimization of $L(\theta)$. Maximization of $L(\theta)$ is equivalent to minimization of $ -L(\theta)$. And using the average cost over all data points, our cost function for logistic regresion comes out to be:
 
 $$
 \begin{align}
@@ -220,6 +220,8 @@ J(\theta) &=  - \dfrac{1}{m} L(\theta)\\
 &= - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))
 \end{align}
 $$
+
+As you can see, maximizing the (log) likelihood is equivalent to minimizing the binary cross entropy. 
 
 Now we can also understand why the cost for single data point comes as follows... The cost for a single data point is $- \log ( P( \mathbf{x}^{(i)} \mid y^{(i)} )) $, which can be written as:
 
