@@ -185,3 +185,25 @@ First, let's create the moons dataset using Scikit-Learn's `make_moons()` functi
 
 #### Hardcoding cost function
 <script src="https://gist.github.com/mmuratarat/224eb0d61d9837406165ef64502196a3.js"></script>
+
+# Additional Material
+
+A very common scenario in Machine Learning is supervised learning, where we have data points $\mathbf{x}^{(i)}$ and their labels $y^{(i)}$, for $i=1, 2, \cdots, m$, building up our dataset where we’re interested in estimating the conditional probability of $y^{(i)}$ given $\mathbf{x}^{(i)}$, or more precisely $P(\mathbf{y} \mid \mathbf{X}, \theta)$.
+
+Now logistic regression says that the probability that class variable value $y^{(i)} = 1$, for $i=1, 2, \cdots, m$ can be modelled as follows
+
+$$P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})} $$
+
+Since $P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1- P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) $, we can say that so $y^{(i)}=1$ with probability $ h_{\theta} ( \mathbf{x}^{(i)} )$ and $y^{(i)}=0$ with probability $1− h_{\theta} ( \mathbf{x}^{(i)} )$.
+
+This can be combined into a single equation as follows because, for binary classification, $y^{(i)}$ follows a Bernoulli distribution:
+
+$$P(y^{(i)}) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
+
+$P(y^{(i)})$ is known as the likelihood of single data point $\mathbf{x}^{(i)}$, i.e. given the value of $y^{(i)}$ what is the probability of $\mathbf{x}^{(i)}$ occurring. it is the conditional probability $P(\mathbf{x}^{(i)} \mid y^{(i)})$.
+
+The likelihood of the entire dataset $\mathbf{X}$ is the product of the individual data point likelihoods. Thus,
+
+$$ P(\mathbf{X}|\mathbf{y}) = \prod_{i=1}^{m} P(\mathbf{x}^{(i)} \mid y^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
+
+
