@@ -19,6 +19,7 @@ $$\hat{p} = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}
 
 where $\theta^{T} \cdot \mathbf{x}^{(i)}$ can be written as $\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)}$.
 
+# Sigmoid Function
 The logistic - also called the *logit*, noted $\sigma(\cdot)$ - is a *sigmoid* function (i.e., S-shaped) that outputs a number between 0 and 1. It is defined as the following:
 
 $$ \sigma(t) = \dfrac{1}{1+exp(-t)}$$
