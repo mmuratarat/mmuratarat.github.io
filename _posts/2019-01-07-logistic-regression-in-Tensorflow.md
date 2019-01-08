@@ -42,7 +42,7 @@ $$ \hat{y}^{(i)}  = \left\{ \begin{array}{ll}
          0 & \mbox{if $\hat{p} < 0.5$};\\
         1 & \mbox{if $\hat{p} \geq 0.5$}.\end{array} \right. $$
         
-Notice that $\sigma (t) < 0.5$ when $t<0$ and $\sigma (t) \geq 0.5$ when $t \geq 0$, so, a Logistic Regression model predicts 1 if $\theta^{T} \cdot \mathbf{x}$ is positive, and 0 if it is negative.
+Notice that $\sigma (t) < 0.5$ when $t<0$ and $\sigma (t) \geq 0.5$ when $t \geq 0$, so, a Logistic Regression model predicts 1 if $\theta^{T} \cdot \mathbf{x}^{(i)}$ is positive, and 0 if it is negative.
 
 # Cost Function
 Cost function which has been used for linear can not be used for logistic regression. Linear regression uses mean squared error as its cost function. If this is used for logistic regression, then it will be a non-convex function of parameters ($\theta$). Gradient descent will converge into global minimum only if the function is convex.
