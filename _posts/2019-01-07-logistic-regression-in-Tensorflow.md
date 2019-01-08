@@ -13,7 +13,7 @@ Logistic Regression is one of the methods that have been used for classification
 
 A Logistic Regression model computes a weighted sum of input features (plus a bias term), but instead of outputting the result directly like Linear Regression model does, it outputs logistic of this result. 
 
-$$\hat{p} = P(y=1 \mid \mathbf{x}, \theta) = h_{\theta} ( \mathbf{x} ) = \sigma \left( \theta^{T} \cdot \mathbf{x} \right)$$
+$$P(y_i) = P(y_{i}=1 \mid \mathbf{x}, \theta) = h_{\theta} ( \mathbf{x} ) = \sigma \left( \theta^{T} \cdot \mathbf{x} \right)$$
 
 where $\theta^{T} \cdot \mathbf{x}$ can be written as $\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \cdots + \theta_{n}x_{n}$.
 
