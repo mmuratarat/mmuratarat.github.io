@@ -36,9 +36,9 @@ P(y^{(i)}) = \sigma\left( \theta^{T} \cdot \mathbf{x}^{(i)} \right) &= \dfrac{1}
 
 where $n$ is the number of features in the data, $x_{i}$ is the $i$th feature value and $\theta_{j}$ is the $j$th model parameter (including the bias term $\theta_{0}$).
 
-Once the Logistic Regression model has estimated the probability $\hat{p} = h_{\theta} ( \mathbf{x} )$ that an instance $\mathbf{x}$ belongs to the positive class, it can make its prediction $\hat{y}$ easily. In order to predict which class a data belongs, a threshold can be set. Based upon this threshold, the obtained estimated probability is classified into classes:
+Once the Logistic Regression model has estimated the probability $\hat{p} = h_{\theta} ( \mathbf{x}^{(i)} )$ that an instance $\mathbf{x}^{(i)}$ belongs to the positive class, it can make its prediction $\hat{y}^{(i)}$ easily. In order to predict which class a data belongs, a threshold can be set. Based upon this threshold, the obtained estimated probability is classified into classes:
 
-$$ \hat{y}  = \left\{ \begin{array}{ll}
+$$ \hat{y}^{(i)}  = \left\{ \begin{array}{ll}
          0 & \mbox{if $\hat{p} < 0.5$};\\
         1 & \mbox{if $\hat{p} \geq 0.5$}.\end{array} \right. $$
         
