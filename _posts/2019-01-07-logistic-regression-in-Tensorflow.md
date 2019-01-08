@@ -223,7 +223,9 @@ $$
 
 Now we can also understand why the cost for single data point comes as follows:
 
-the cost for a single data point is $-\log( P(\mathbf{x}^{(i)} | y^{(i)}))$, which can be written as $ -\left( y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)})) \right)$.
+the cost for a single data point is $-\log( P(\mathbf{x}^{(i)} | y^{(i)}))$, which can be written as:
+
+$$ -\left( y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)})) \right)$$
 
 We can now split the above into two depending upon the value of $y^{(i)}$. Thus we get:
 
