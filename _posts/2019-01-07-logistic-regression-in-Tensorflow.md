@@ -53,23 +53,23 @@ This strange outcome is due to the fact that in logistic regression we have the 
 
 Instead of Mean Squared Error, we use a cost function called Cross-Entropy, also known as Log Loss. Cross-entropy loss can be divided into two separate cost functions: one for $y^{(i)}=1$ and one for $y^{(i)}=0$ for $i$th observation.
 
-$$\mathrm{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) =
+$$\mathrm{Cost}(h_{\theta}(\mathbf{x}^{(i)}), y^{(i)}) =
 \begin{cases}
--\log(h_\theta(x^{(i)})) & \mbox{if $y^{(i)} = 1$} \\
--\log(1-h_\theta(x^{(i)})) & \mbox{if $y^{(i)} = 0$}
+-\log(h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 1$} \\
+-\log(1-h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 0$}
 \end{cases}$$
 
-In words this is the cost the algorithm pays if it predicts a value $h_{\theta}(x^{(i)})$ while the actual cost label turns out to be $y^{(i)}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
+In words this is the cost the algorithm pays if it predicts a value $h_{\theta}(\mathbf{x}^{(i)})$ while the actual cost label turns out to be $y^{(i)}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
 
-In case $y^{(i)}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\theta}(x^{(i)})$  approaches to 1. Conversely, the cost to pay grows to infinity as $h_{\theta}(x^{(i)})$  approaches to $0$. You can clearly see it in the plot. below, left side. This is a desirable property: we want a bigger penalty as the algorithm predicts something far away from the actual value. If the label is $y^{(i)}=1$ but the algorithm predicts $h_{\theta}(x^{(i)})=0$, the outcome is completely wrong.
+In case $y^{(i)}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\theta}(\mathbf{x}^{(i)})$  approaches to 1. Conversely, the cost to pay grows to infinity as $h_{\theta}(\mathbf{x}^{(i)})$  approaches to $0$. You can clearly see it in the plot. below, left side. This is a desirable property: we want a bigger penalty as the algorithm predicts something far away from the actual value. If the label is $y^{(i)}=1$ but the algorithm predicts $h_{\theta}(\mathbf{x}^{(i)})=0$, the outcome is completely wrong.
 
-Conversely, the same intuition applies when $y^{(i)}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y^{(i)}=0$ but the algorithm predicts $h_{\theta}(x^{(i)})=1$.
+Conversely, the same intuition applies when $y^{(i)}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y^{(i)}=0$ but the algorithm predicts $h_{\theta}(\mathbf{x}^{(i)})=1$.
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/cost-function-logistic-regression.png)
 
 We can make the cost function equation more compact into a one-line expression for one particular observation:
 
-$$\mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) = -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1-h_\theta(x^{(i)}))$$
+$$\mathrm{Cost}(h_\theta(\mathbf{x}^{(i)}),y^{(i)}) = -y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) - (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))$$
 
 If you try to replace $y^{(i)}$ with 0 or 1 and you will end up with the two pieces of the original function.
 
@@ -77,8 +77,8 @@ Taking the average over all the observations, the logistic regression cost funct
 
 $$
 \begin{align}
-J(\theta) & = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\
-& = - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \left[\log(h_\theta(x^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(x^{(i)}))\right] \\
+J(\theta) & = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(\mathbf{x}^{(i)}),y^{(i)}) \\
+& = - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \left[\log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))\right] \\
 \end{align}
 $$
 
@@ -111,41 +111,41 @@ Let's find the partial derivatives then:
 $$\begin{align} 
 \frac{\partial J(\theta)}{\partial \theta_j}  &= 
 \frac{\partial}{\partial \theta_j} \,\frac{-1}{m}\sum_{i=1}^m 
-\left[ y^{(i)}\left(\log(h_\theta \left(x^{(i)}\right)\right) +
-(1 -y^{(i)})\left(\log(1-h_\theta \left(x^{(i)}\right)\right)\right]\\[2ex]
+\left[ y^{(i)}\left(\log(h_\theta \left(\mathbf{x}^{(i)}\right)\right) +
+(1 -y^{(i)})\left(\log(1-h_\theta \left(\mathbf{x}^{(i)}\right)\right)\right]\\[2ex]
 &\underset{\text{linearity}}= \,\frac{-1}{m}\,\sum_{i=1}^m 
 \left[ 
-y^{(i)}\frac{\partial}{\partial \theta_j}\log\left(h_\theta \left(x^{(i)}\right)\right) +
-(1 -y^{(i)})\frac{\partial}{\partial \theta_j}\left(\log(1-h_\theta \left(x^{(i)}\right)\right)
+y^{(i)}\frac{\partial}{\partial \theta_j}\log\left(h_\theta \left(\mathbf{x}^{(i)}\right)\right) +
+(1 -y^{(i)})\frac{\partial}{\partial \theta_j}\left(\log(1-h_\theta \left(\mathbf{x}^{(i)}\right)\right)
 \right]\\[2ex]
 &\underset{\text{chain rule}}= \,\frac{-1}{m}\,\sum_{i=1}^m 
 \left[ 
-y^{(i)}\frac{\frac{\partial}{\partial \theta_j}(h_\theta \left(x^{(i)}\right)}{h_\theta\left(x^{(i)}\right)} +
-(1 -y^{(i)})\frac{\frac{\partial}{\partial \theta_j}\left(1-h_\theta \left(x^{(i)}\right)\right)}{1-h_\theta\left(x^{(i)}\right)}
+y^{(i)}\frac{\frac{\partial}{\partial \theta_j}(h_\theta \left(\mathbf{x}^{(i)}\right)}{h_\theta\left(\mathbf{x}^{(i)}\right)} +
+(1 -y^{(i)})\frac{\frac{\partial}{\partial \theta_j}\left(1-h_\theta \left(\mathbf{x}^{(i)}\right)\right)}{1-h_\theta\left(\mathbf{x}^{(i)}\right)}
 \right]\\[2ex]
 &\underset{h_\theta(x)=\sigma\left(\theta^\top x\right)}=\,\frac{-1}{m}\,\sum_{i=1}^m 
 \left[ 
-y^{(i)}\frac{\frac{\partial}{\partial \theta_j}\sigma\left(\theta^\top x^{(i)}\right)}{h_\theta\left(x^{(i)}\right)} +
-(1 -y^{(i)})\frac{\frac{\partial}{\partial \theta_j}\left(1-\sigma\left(\theta^\top x^{(i)}\right)\right)}{1-h_\theta\left(x^{(i)}\right)}
+y^{(i)}\frac{\frac{\partial}{\partial \theta_j}\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)}{h_\theta\left(\mathbf{x}^{(i)}\right)} +
+(1 -y^{(i)})\frac{\frac{\partial}{\partial \theta_j}\left(1-\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)\right)}{1-h_\theta\left(\mathbf{x}^{(i)}\right)}
 \right]\\[2ex]
 &\underset{\sigma'}=\frac{-1}{m}\,\sum_{i=1}^m 
 \left[ y^{(i)}\,
-\frac{\sigma\left(\theta^\top x^{(i)}\right)\left(1-\sigma\left(\theta^\top x^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top x^{(i)}\right)}{h_\theta\left(x^{(i)}\right)}\\ -
-(1 -y^{(i)})\,\frac{\sigma\left(\theta^\top x^{(i)}\right)\left(1-\sigma\left(\theta^\top x^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top x^{(i)}\right)}{1-h_\theta\left(x^{(i)}\right)}
+\frac{\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)\left(1-\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top \mathbf{x}^{(i)}\right)}{h_\theta\left(\mathbf{x}^{(i)}\right)}\\ -
+(1 -y^{(i)})\,\frac{\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)\left(1-\sigma\left(\theta^\top \mathbf{x}^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top \mathbf{x}^{(i)}\right)}{1-h_\theta\left(\mathbf{x}^{(i)}\right)}
 \right]\\[2ex]
 &\underset{\sigma\left(\theta^\top x\right)=h_\theta(x)}= \,\frac{-1}{m}\,\sum_{i=1}^m 
 \left[ 
-y^{(i)}\frac{h_\theta\left( x^{(i)}\right)\left(1-h_\theta\left( x^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top x^{(i)}\right)}{h_\theta\left(x^{(i)}\right)} \\-
-(1 -y^{(i)})\frac{h_\theta\left( x^{(i)}\right)\left(1-h_\theta\left(x^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left( \theta^\top x^{(i)}\right)}{1-h_\theta\left(x^{(i)}\right)}
+y^{(i)}\frac{h_\theta\left( \mathbf{x}^{(i)}\right)\left(1-h_\theta\left( \mathbf{x}^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left(\theta^\top \mathbf{x}^{(i)}\right)}{h_\theta\left(\mathbf{x}^{(i)}\right)} \\-
+(1 -y^{(i)})\frac{h_\theta\left( \mathbf{x}^{(i)}\right)\left(1-h_\theta\left(\mathbf{x}^{(i)}\right)\right)\frac{\partial}{\partial \theta_j}\left( \theta^\top \mathbf{x}^{(i)}\right)}{1-h_\theta\left(\mathbf{x}^{(i)}\right)}
 \right]\\[2ex]
-&\underset{\frac{\partial}{\partial \theta_j}\left(\theta^\top x^{(i)}\right)=x_j^{(i)}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{(i)}\left(1-h_\theta\left(x^{(i)}\right)\right)x_j^{(i)}-
-\left(1-y^{i}\right)\,h_\theta\left(x^{(i)}\right)x_j^{(i)}
+&\underset{\frac{\partial}{\partial \theta_j}\left(\theta^\top \mathbf{x}^{(i)}\right)=x_j^{(i)}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{(i)}\left(1-h_\theta\left(\mathbf{x}^{(i)}\right)\right)x_j^{(i)}-
+\left(1-y^{i}\right)\,h_\theta\left(\mathbf{x}^{(i)}\right)x_j^{(i)}
 \right]\\[2ex]
-&\underset{\text{distribute}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{i}-y^{i}h_\theta\left(x^{(i)}\right)-
-h_\theta\left(x^{(i)}\right)+y^{(i)}h_\theta\left(x^{(i)}\right)
+&\underset{\text{distribute}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{i}-y^{i}h_\theta\left(\mathbf{x}^{(i)}\right)-
+h_\theta\left(\mathbf{x}^{(i)}\right)+y^{(i)}h_\theta\left(\mathbf{x}^{(i)}\right)
 \right]\,x_j^{(i)}\\[2ex]
-&\underset{\text{cancel}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{(i)}-h_\theta\left(x^{(i)}\right)\right]\,x_j^{(i)}\\[2ex]
-&=\frac{1}{m}\sum_{i=1}^m\left[h_\theta\left(x^{(i)}\right)-y^{(i)}\right]\,x_j^{(i)}
+&\underset{\text{cancel}}=\,\frac{-1}{m}\,\sum_{i=1}^m \left[y^{(i)}-h_\theta\left(\mathbf{x}^{(i)}\right)\right]\,x_j^{(i)}\\[2ex]
+&=\frac{1}{m}\sum_{i=1}^m\left[h_\theta\left(\mathbf{x}^{(i)}\right)-y^{(i)}\right]\,x_j^{(i)}
 \end{align}$$
 
 
@@ -164,7 +164,7 @@ So the loop above can be rewritten as:
 
 $$\begin{align} 
 \text{repeat until convergence \{} \\
-\theta_j & := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^{m} \left[h_\theta(x^{(i)}) - y^{(i)}\right] x_j^{(i)} \\ 
+\theta_j & := \theta_j - \alpha \dfrac{1}{m} \sum_{i=1}^{m} \left[h_\theta(\mathbf{x}^{(i)}) - y^{(i)}\right] x_j^{(i)} \\ 
 \text{\}}
 \end{align}$$
 
