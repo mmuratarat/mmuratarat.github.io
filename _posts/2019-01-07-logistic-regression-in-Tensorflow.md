@@ -65,6 +65,7 @@ Conversely, the same intuition applies when $y_{i}=0$, depicted in the plot. bel
 ![](images/cost-function-logistic-regression.png)
 
 We can make the cost function equation more compact into a one-line expression for one particular observation:
+
 $$\mathrm{Cost}(h_\theta(x^{(i)}),y_{i}) = -y_{i} \log(h_\theta(x^{(i)})) - (1 - y_{i}) \log(1-h_\theta(x^{(i)}))$$
 
 If you try to replace $y_{i}$ with 0 or 1 and you will end up with the two pieces of the original function.
@@ -101,6 +102,7 @@ $$\begin{align}
 \end{align}$$
 
 Let's find the partial derivatives then:
+
 $$\begin{align} 
 \frac{\partial J(\theta)}{\partial \theta_j}  &= 
 \frac{\partial}{\partial \theta_j} \,\frac{-1}{m}\sum_{i=1}^m 
@@ -144,14 +146,14 @@ h_\theta\left(x^{(i)}\right)+y^{(i)}h_\theta\left(x^{(i)}\right)
 
 where the derivative of the sigmoid function is:
 
-$\begin{align}\frac{d}{dx}\sigma(x)&=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right)\\[2ex]
-&=\frac{-(1+e^{-x})'}{(1+e^{-x})^2}\\[2ex]
-&=\frac{e^{-x}}{(1+e^{-x})^2}\\[2ex]
-&=\left(\frac{1}{1+e^{-x}}\right)\left(\frac{e^{-x}}{1+e^{-x}}\right)\\[2ex]
-&=\left(\frac{1}{1+e^{-x}}\right)\,\left(\frac{1+e^{-x}}{1+e^{-x}}-\frac{1}{1+e^{-x}}\right)\\[2ex]
-&=\sigma(x)\,\left(\frac{1+e^{-x}}{1+e^{-x}}-\sigma(x)\right)\\[2ex]
+$$\begin{align}\frac{d}{dx}\sigma(x)&=\frac{d}{dx}\left(\frac{1}{1+e^{-x}}\right)\\
+&=\frac{-(1+e^{-x})'}{(1+e^{-x})^2}\\
+&=\frac{e^{-x}}{(1+e^{-x})^2}\\
+&=\left(\frac{1}{1+e^{-x}}\right)\left(\frac{e^{-x}}{1+e^{-x}}\right)\\
+&=\left(\frac{1}{1+e^{-x}}\right)\,\left(\frac{1+e^{-x}}{1+e^{-x}}-\frac{1}{1+e^{-x}}\right)\\
+&=\sigma(x)\,\left(\frac{1+e^{-x}}{1+e^{-x}}-\sigma(x)\right)\\
 &=\sigma(x)\,(1-\sigma(x))
-\end{align}$
+\end{align}$$
 
 So the loop above can be rewritten as:
 
