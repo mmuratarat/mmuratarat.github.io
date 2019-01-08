@@ -81,11 +81,13 @@ $$
 
 # Plugging the cost function and the gradient descent together
 We apply the gradient descent algorithm
+
 $$ \begin{align} 
 \text{repeat until convergence \{} \\
 \theta_j & := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \\ 
 \text{\}}
 \end{align}$$
+
 to the cost function in order to minimize it, that is
 
 $$\min_{\theta_0, \theta_1, \theta_2, ...,\theta_n} J(\theta_0, \theta_1, \theta_2, ...,\theta_n)$$
