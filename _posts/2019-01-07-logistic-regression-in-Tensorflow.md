@@ -222,7 +222,7 @@ J(\theta) &=  - \dfrac{1}{m} L(\theta)\\
 \end{align}
 $$
 
-As you can see, maximizing the (log) likelihood is equivalent to minimizing the binary cross entropy. 
+As you can see, maximizing the log-likelihood (minimizing the *negative* log-likelihood) is equivalent to minimizing the binary cross entropy. 
 
 Now we can also understand why the cost for single data point comes as follows... The cost for a single data point is $- \log ( P( \mathbf{x}^{(i)} \mid y^{(i)} )) $, which can be written as:
 
