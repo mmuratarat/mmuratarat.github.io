@@ -74,7 +74,7 @@ Let's compare it with `sklearn` module.
 **NOTE**: Do not forget to reset graph and set seed if you want to have a reproducible results.
 <script src="https://gist.github.com/mmuratarat/c6d227805e351010c0dbfcd0353e8439.js"></script>
 
-**NOTE:** In some books/tutorials/books, you can see that the cost function for linear regression is defined as follows:
+**NOTE:** In some books/tutorials/articles, you can see that the cost function for linear regression is defined as follows:
 $$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right)^{2}$$
 
 The $\frac{1}{m}$ is to "average" the squared error over the number of observations so that the number of observations doesn't affect the function.
