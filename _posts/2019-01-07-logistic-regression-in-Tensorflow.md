@@ -210,7 +210,7 @@ $$ L(\theta) = \prod_{i=1}^{m} P(\mathbf{x}^{(i)} \mid y^{(i)}) = \prod_{i=1}^{m
 
 Now, Maximum Likelihood principle says that we need to find the parameters that maximise the likelihood $L(\theta)$.
 
-Logarithms are used because they convert products into sums and do not alter the maximization search, as they are monotone increasing functions. Here too we have a product form in the likelihood. So, we take the natural logarithm as maximising the likelihood is same as maximising the log likelihood, so log likelihood $L(\theta)$ is now:
+Logarithms are used because they convert products into sums and do not alter the maximization search, as they are monotone increasing functions. Here too we have a product form in the likelihood. So, we take the natural logarithm as maximising the likelihood is same as maximising the log likelihood, so log likelihood $\mathcal{L}(\theta)$ is now:
 
 $$ \mathcal{L}(\theta) = \log L(\theta) =  \sum_{i=1}^{m} y^{(i)} \log(h_{\theta} ( \mathbf{x}^{(i)} )) + (1 - y^{(i)} ) \log(1− h_{\theta} ( \mathbf{x}^{(i)} )) $$
 
