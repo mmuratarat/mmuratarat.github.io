@@ -62,7 +62,7 @@ In case $y_{i}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\t
 
 Conversely, the same intuition applies when $y_{i}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y_{i}=0$ but the algorithm predicts $h_{\theta}(x^{(i)})=1$.
 
-![](images/cost-function-logistic-regression.png)
+![Placeholder image](images/cost-function-logistic-regression.png)
 
 We can make the cost function equation more compact into a one-line expression for one particular observation:
 
