@@ -13,7 +13,7 @@ Logistic Regression is one of the methods that have been used for classification
 
 A Logistic Regression model computes a weighted sum of input features (plus a bias term), but instead of outputting the result directly like Linear Regression model does, it outputs logistic of this result. 
 
-So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, \cdot m$ can be modelled as follows:
+So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, ..., m$ can be modelled as follows:
 
 $$P(y^{(i)}) = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
 
