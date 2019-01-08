@@ -20,7 +20,7 @@ The logistic - also called the *logit*, noted $\sigma(\cdot)$ - is a *sigmoid* f
 
 $$ \sigma(t) = \dfrac{1}{1+exp(-t)}$$
 
-![](images/sigmoid_function.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigmoid_function.png?raw=true)
 
 Therefore, we can re-write Logistic Regression model equation as follows:
 
@@ -44,7 +44,7 @@ Notice that $\sigma (t) < 0.5$ when $t<0$ and $\sigma (t) \geq 0.5$ when $t \geq
 # Cost Function
 Cost function which has been used for linear can not be used for logistic regression. Linear regression uses mean squared error as its cost function. If this is used for logistic regression, then it will be a non-convex function of parameters ($\theta$). Gradient descent will converge into global minimum only if the function is convex.
 
-![](images/non-convex-function.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/non-convex-function.png?raw=true)
 
 This strange outcome is due to the fact that in logistic regression we have the sigmoid function around, which is non-linear (i.e. not a line). The gradient descent algorithm might get stuck in a local minimum point. That's why we still need a neat convex function as we did for linear regression: a bowl-shaped function that eases the gradient descent function's work to converge to the optimal minimum point.
 
@@ -62,7 +62,7 @@ In case $y_{i}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\t
 
 Conversely, the same intuition applies when $y_{i}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y_{i}=0$ but the algorithm predicts $h_{\theta}(x^{(i)})=1$.
 
-![Placeholder image](images/cost-function-logistic-regression.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/cost-function-logistic-regression.png)
 
 We can make the cost function equation more compact into a one-line expression for one particular observation:
 
