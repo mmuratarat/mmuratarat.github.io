@@ -92,7 +92,7 @@ to the cost function in order to minimize it, that is
 
 $$\min_{\theta_0, \theta_1, \theta_2, ...,\theta_n} J(\theta_0, \theta_1, \theta_2, ...,\theta_n)$$
 
-Remember to simultaneously update all $\theta_j$ as we did in the [linear regression counterpart](https://mmuratarat.github.io/2019-01-06/linear-regression-in-Tensorflow): if you have $n$ features, all those parameters have to be updated simultaneously on each iteration:
+Remember to simultaneously update all $\theta_j$ as we did in the [linear regression counterpart](https://mmuratarat.github.io/2019-01-06/linear-regression-in-Tensorflow){:target="_blank"}: if you have $n$ features, all those parameters have to be updated simultaneously on each iteration:
 
 $$\begin{align} 
 \text{repeat until convergence \{} \\
