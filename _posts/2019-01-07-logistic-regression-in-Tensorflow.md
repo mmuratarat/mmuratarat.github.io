@@ -204,7 +204,7 @@ $$P(y^{(i)} \mid \mathbf{x}^{(i)}) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\righ
 
 The likelihood of independent training labels, which is the entire dataset $\mathbf{X}$, is the product of the individual data point likelihoods. Thus,
 
-$$ L(\theta) = \prod_{i=1}^{m} P(\mathbf{y} = y^{(i)} \mid \mathbf{X} = \mathbf{x}^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
+$$ L(\theta) = \prod_{i=1}^{m} L(\theta; y^{(i)} \mid \mathbf{x}^{(i)}) =\prod_{i=1}^{m} P(\mathbf{y} = y^{(i)} \mid \mathbf{X} = \mathbf{x}^{(i)}) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
 
 Now, Maximum Likelihood principle says that we need to find the parameters that maximise the likelihood $L(\theta)$.
 
