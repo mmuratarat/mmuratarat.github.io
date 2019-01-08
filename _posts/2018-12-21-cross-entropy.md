@@ -37,6 +37,8 @@ For every other case in between, we can compute the entropy of a distribution, u
 
 $$H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})$$
 
+(This can also be thought as in the following. There are $K$ distinct events. Each event k has probability p(y_{k}))
+
 if we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
 
 Let’s assume data points follow this other distribution $q(y)$. But we know they are actually coming from the true (unknown) distribution $p(y)$.
