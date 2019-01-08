@@ -51,27 +51,27 @@ Cost function which has been used for linear can not be used for logistic regres
 
 This strange outcome is due to the fact that in logistic regression we have the sigmoid function around, which is non-linear (i.e. not a line). The gradient descent algorithm might get stuck in a local minimum point. That's why we still need a neat convex function as we did for linear regression: a bowl-shaped function that eases the gradient descent function's work to converge to the optimal minimum point.
 
-Instead of Mean Squared Error, we use a cost function called Cross-Entropy, also known as Log Loss. Cross-entropy loss can be divided into two separate cost functions: one for $y^{i}=1$ and one for $y^{i}=0$ for $i$th observation.
+Instead of Mean Squared Error, we use a cost function called Cross-Entropy, also known as Log Loss. Cross-entropy loss can be divided into two separate cost functions: one for $y^{(i)}=1$ and one for $y^{(i)}=0$ for $i$th observation.
 
-$$\mathrm{Cost}(h_{\theta}(x^{(i)}), y^{i}) =
+$$\mathrm{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) =
 \begin{cases}
--\log(h_\theta(x^{(i)})) & \mbox{if $y^{i} = 1$} \\
--\log(1-h_\theta(x^{(i)})) & \mbox{if $y^{i} = 0$}
+-\log(h_\theta(x^{(i)})) & \mbox{if $y^{(i)} = 1$} \\
+-\log(1-h_\theta(x^{(i)})) & \mbox{if $y^{(i)} = 0$}
 \end{cases}$$
 
-In words this is the cost the algorithm pays if it predicts a value $h_{\theta}(x^{(i)})$ while the actual cost label turns out to be $y^{i}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
+In words this is the cost the algorithm pays if it predicts a value $h_{\theta}(x^{(i)})$ while the actual cost label turns out to be $y^{(i)}$. By using this function we will grant the convexity to the function the gradient descent algorithm has to process, as discussed above.
 
-In case $y^{i}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\theta}(x^{(i)})$  approaches to 1. Conversely, the cost to pay grows to infinity as $h_{\theta}(x^{(i)})$  approaches to $0$. You can clearly see it in the plot. below, left side. This is a desirable property: we want a bigger penalty as the algorithm predicts something far away from the actual value. If the label is $y^{i}=1$ but the algorithm predicts $h_{\theta}(x^{(i)})=0$, the outcome is completely wrong.
+In case $y^{(i)}=1$, the output (i.e. the cost to pay) approaches to $0$ as $h_{\theta}(x^{(i)})$  approaches to 1. Conversely, the cost to pay grows to infinity as $h_{\theta}(x^{(i)})$  approaches to $0$. You can clearly see it in the plot. below, left side. This is a desirable property: we want a bigger penalty as the algorithm predicts something far away from the actual value. If the label is $y^{(i)}=1$ but the algorithm predicts $h_{\theta}(x^{(i)})=0$, the outcome is completely wrong.
 
-Conversely, the same intuition applies when $y^{i}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y^{i}=0$ but the algorithm predicts $h_{\theta}(x^{(i)})=1$.
+Conversely, the same intuition applies when $y^{(i)}=0$, depicted in the plot. below, right side. Bigger penalties when the label is $y^{(i)}=0$ but the algorithm predicts $h_{\theta}(x^{(i)})=1$.
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/cost-function-logistic-regression.png)
 
 We can make the cost function equation more compact into a one-line expression for one particular observation:
 
-$$\mathrm{Cost}(h_\theta(x^{(i)}),y^{i}) = -y^{i} \log(h_\theta(x^{(i)})) - (1 - y^{i}) \log(1-h_\theta(x^{(i)}))$$
+$$\mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) = -y^{(i)} \log(h_\theta(x^{(i)})) - (1 - y^{(i)}) \log(1-h_\theta(x^{(i)}))$$
 
-If you try to replace $y^{i}$ with 0 or 1 and you will end up with the two pieces of the original function.
+If you try to replace $y^{(i)}$ with 0 or 1 and you will end up with the two pieces of the original function.
 
 Taking the average over all the observations, the logistic regression cost function can be rewritten as:
 
