@@ -39,7 +39,7 @@ Instead of computing these partial derivatives individually, you can use the equ
 
 $$\nabla_{\theta} \text{MSE} (\theta) = \begin{bmatrix}\dfrac{\partial}{\partial \theta_{0}} MSE (\theta)\\ \dfrac{\partial}{\partial \theta_{1}} MSE (\theta) \\ \vdots  \\ \dfrac{\partial}{\partial \theta_{n}} MSE (\theta)\end{bmatrix} = \dfrac{2}{m} \mathbf{X}^{T} \cdot \left(\mathbf{X} \cdot \theta - \mathbf{y} \right) $$
 
-Once you have the gradient vector, which points uphill, just go in the opposite direction to go downhill. This means subtracting $\nabla_{\theta} \text{MSE} (\theta)$ from $\theta$. Because, basically, MSE cost function happens to be a convex optimization problem and we are trying find one global minimum of it. 
+Once you have the gradient vector, which points uphill, just go in the opposite direction to go downhill. This means subtracting $\nabla_{\theta} \text{MSE} (\theta)$ from $\theta$. Because, basically, MSE cost function happens to be a convex optimization problem (because MSE equation is a convex function. Its Hessian is positive semi-definite. Look [here](https://math.stackexchange.com/a/2774380/45210){:target="_blank"} for proof) and we are trying find one global minimum of it. 
 
 In order to get next step of $\theta$, you use the formula below:
 
