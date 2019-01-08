@@ -68,6 +68,7 @@ which is nothing but logistic loss.
 
 The final step is to compute the average of all points in both classes, positive and negative will give [binary cross-entropy formula](#binary-cross-entropy).
 
+**NOTE**: Why don't we use KL-Divergence in machine learning models instead of the cross entropy? The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that's why we build the model.
 
 # WHAT IS A COST (LOSS) FUNCTION?
 
