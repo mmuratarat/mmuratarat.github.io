@@ -2,6 +2,7 @@
 title: "Logistic Regression in Tensorflow"
 author: "MMA"
 layout: post
+comments: true
 ---
 
 Linear regression assumes linear relationships between variables. This assumption is usually violated when the dependent variable is categorical. The logistic regression equation expresses the multiple linear regression equation in logarithmic terms and thereby overcomes the problem of violating the linearity assumption.
