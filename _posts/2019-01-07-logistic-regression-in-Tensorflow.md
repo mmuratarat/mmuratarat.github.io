@@ -15,7 +15,7 @@ A Logistic Regression model computes a weighted sum of input features (plus a bi
 
 So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Actually $y^{(i)}$ follows a Bernoulli distribution for binary classification. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, \cdots, m$ can be modelled as follows:
 
-$$\hat{p} = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
+$$\hat{p}^{(i)}  = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
 
 where $\theta^{T} \cdot \mathbf{x}^{(i)}$ can be written as $\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)}$.
 
@@ -37,11 +37,11 @@ P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta)= \sigma\left( \theta^{T} \cdot \mathb
 
 where $n$ is the number of features in the data, $x_{i}$ is the $i$th feature value and $\theta_{j}$ is the $j$th model parameter (including the bias term $\theta_{0}$).
 
-Once the Logistic Regression model has estimated the probability $\hat{p} = h_{\theta} ( \mathbf{x}^{(i)} )$ that an instance $\mathbf{x}^{(i)}$ belongs to the positive class, it can make its prediction $\hat{y}^{(i)}$ easily. In order to predict which class a data belongs, a threshold can be set. Based upon this threshold, the obtained estimated probability is classified into classes:
+Once the Logistic Regression model has estimated the probability $\hat{p}^{(i)} = h_{\theta} ( \mathbf{x}^{(i)} )$ that an instance $\mathbf{x}^{(i)}$ belongs to the positive class, it can make its prediction $\hat{y}^{(i)}$ easily. In order to predict which class a data belongs, a threshold can be set. Based upon this threshold, the obtained estimated probability is classified into classes:
 
 $$ \hat{y}^{(i)}  = \left\{ \begin{array}{ll}
-         0 & \mbox{if $\hat{p} < 0.5$};\\
-        1 & \mbox{if $\hat{p} \geq 0.5$}.\end{array} \right. $$
+         0 & \mbox{if $\hat{p}^{(i)}  < 0.5$};\\
+        1 & \mbox{if $\hat{p}^{(i)}  \geq 0.5$}.\end{array} \right. $$
         
 Notice that $\sigma (t) < 0.5$ when $t<0$ and $\sigma (t) \geq 0.5$ when $t \geq 0$, so, a Logistic Regression model predicts 1 if $\theta^{T} \cdot \mathbf{x}^{(i)}$ is positive, and 0 if it is negative.
 
