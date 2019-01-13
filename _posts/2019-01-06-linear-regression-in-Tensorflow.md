@@ -20,6 +20,10 @@ We need to train this model in order to find the best parameters. Training a mod
 
 $$MSE (\mathbf{X}, \theta) = \frac{1}{m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right)^{2}$$
 
+We'll define the "design matrix" $\mathbf{X}$ as a matrix of $m$ rows (observations), in which each row is the $i$-th sample (the vector $\mathbf{x}^{(i)}$). With this, we can rewrite the MSE cost as following, replacing the explicit sum by matrix multiplication:
+
+$$MSE (\mathbf{X}, \theta) = \frac{1}{m} \left( mathbf{X} \theta - \mathbf{y}\right)^{T} \left( mathbf{X} \theta - \mathbf{y}\right)$$
+
 Therefore, to train a LR model, you need to find the value of $\theta$ that minimizes the MSE.
 
 In order to find the value of $\theta$ that minimized the cost function, there is a closed-form solution - in other words, a mathematical equation that gives the results directly. This is called the *Normal Equations*:
