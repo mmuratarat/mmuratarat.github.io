@@ -6,7 +6,11 @@ comments: true
 ---
 The softmax function is used in various multiclass classification methods. It takes an un-normalized vector, and normalizes it into a probability distribution. It is often used in neural networks, to map the non-normalized output to a probability distribution over predicted output classes. It is a function which gets applied to a vector in $x \in R^{k}$ and returns a vector in $[0, 1]^{K}$ with the property that the sum of all elements is 1:
 
-$$ \varphi(\mathbb{x})_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}} \;\;\;\text{ for } j=1, \dots, K $$
+$$ \varphi(x)_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}} \;\;\;\text{ for } j=1, \dots, K $$
+
+or 
+
+$$  \varphi(x)_j = \frac{e^{-x_j}}{\sum_{k=1}^K e^{-x_k}} \;\;\;\text{ for } j=1, \dots, K $$
 
 # Python implementation
 
