@@ -8,10 +8,6 @@ The softmax function is used in various multiclass classification methods. It ta
 
 $$ \varphi(x)_j = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}} \;\;\;\text{ for } j=1, \dots, K $$
 
-or 
-
-$$  \varphi(x)_j = \frac{e^{-x_j}}{\sum_{k=1}^K e^{-x_k}} \;\;\;\text{ for } j=1, \dots, K $$
-
 # Python implementation
 
 {% highlight python %}
