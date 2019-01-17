@@ -119,7 +119,7 @@ For this implementation, the shape of the input must be `[input_height, input_wi
 <script src="https://gist.github.com/mmuratarat/67d78a5d8b1f1c0f31517f3af7c09e4c.js"></script>
 
 ## tf.nn.conv2d()
-Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts:
+Tensorflow's `tf.nn.conv2d()` accepts:
 1. `input`, which is a input mini-batch, a 4D tensor shape of `[batch_size, input_height, input_width, input_depth]`. In our case, `batch_size` will be 1 because we are only using one image.
 
 2. `filters` is the set of filters to apply. They are represented as a 4D tensor of shape `[filter_height, filter_width, filter_depth, number_of_filters]`. If we use one filter, `number_of_filters` argument will equal to 1. If we have multiple filters, say, `K`, we will have `K` feature maps (K output channels - the depth of the output layer will be `K`).
