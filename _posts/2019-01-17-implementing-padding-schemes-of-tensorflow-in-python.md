@@ -149,7 +149,6 @@ output1 = convolution2d(china, filter[:,:,:,0], bias=0, strides = (2,2), padding
 
 import tensorflow as tf
 
-
 image = china.reshape((-1, height, width, depth))
 
 X= tf.placeholder(tf.float32, shape=(None, height, width, depth))
@@ -181,7 +180,6 @@ output1 = multi_convolution2d(china, filters, strides = (2,2), padding='SAME')
 ##################################################################################
 
 import tensorflow as tf
-
 
 image = china.reshape((-1, height, width, depth))
 
