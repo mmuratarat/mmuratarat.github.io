@@ -25,7 +25,7 @@ Note that $2P$ comes from the fact that there should be a padding on each side, 
 
 However, the height or width of the output image, calculated from these equations, might be a non-integer value. In that case, you might want to handle the situation in any way to satisfy the desired output dimention. Here, we explain how Tensorflow approaches this issue. The spatial semantics of the convolution ops depend on the padding scheme chosen: 'SAME' or 'VALID'. Note that the padding values are always zero.
 
-Let's assume that the 4D input has shape `[batch_size, input_height, input_width, num_of_channels]`, and the 4D filter has shape `[filter_height, filter_width, filter_channel, number_of_filters]`. Here, the number of channels in input image must be the same with the depth of the filter.
+Let's assume that the 4D input has shape `[batch_size, input_height, input_width, input_depth]`, and the 4D filter has shape `[filter_height, filter_width, filter_depth, number_of_filters]`. Here, the number of channels (depth) in input image must be the same with the depth of the filter, meaning `input_depth = filter_depth`.
 
 First let's consider `'SAME'` padding scheme. The output height and width are computed as:
 
@@ -36,6 +36,7 @@ Here, $\left \lceil \cdot \right \rceil$ is the ceiling function.
 Here is how Tensorflow calculates required total padding applied along the height and width:
 
 if $H_{1} \% S_{h} == 0$:
+
 $$ \text{padding along height} = P_{h} = max (F_{h} - S_{h}, 0) $$
 
 else:
@@ -45,6 +46,7 @@ $$ \text{padding along height} = P_{h} = max (F_{h} - (H_{1} \% S_{h}), 0) $$
 Similarly, for padding along the width,
 
 if $W_{1} \% S_{w} == 0$:
+
 $$ \text{padding along width} = P_{w} = max (F_{w} - S_{w}, 0) $$
 
 else:
