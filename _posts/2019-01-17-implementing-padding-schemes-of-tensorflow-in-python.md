@@ -5,7 +5,7 @@ layout: post
 comments: true
 ---
 
-We don’t have to manually calculate the dimension (the spatial size) of the output, but it’s a good idea to do so to keep a mental account of how our inputs are being transformed at each step. We can compute the spatial size on each dimension (width/height/depth).
+While using convolutional neural network, we don’t have to manually calculate the dimension (the spatial size) of the output(s), but it’s a good idea to do so to keep a mental account of how our inputs are being transformed at each step. We can compute the spatial size on each dimension (width/height/depth(channel)).
 
 1. The input volume size ($W_{1}$ and $H_{1}$, generally they are equal and $D_{1}$)
 3. Number of filters ($K)$
