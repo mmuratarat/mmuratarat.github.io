@@ -7,7 +7,7 @@ comments: true
 
 While using convolutional neural network, we don’t have to manually calculate the dimension (the spatial size) of the output(s), but it’s a good idea to do so to keep a mental account of how our inputs are being transformed at each step. We can compute the spatial size on each dimension (width/height/depth(channel)).
 
-1. The input volume size ($W_{1}$ and $H_{1}$, generally they are equal and $D_{1}$)
+1. The input volume size (input width $W_{1}$ and input height $H_{1}$, generally they are equal and input depth $D_{1}$)
 3. Number of filters ($K)$
 3. The receptive field size of filter. You can have different filters horizontally and vertically ($F_{w}$ for width and $F_{h}$ for height).
 4. The stride with which they are applied. You can have different strides horizontally and vertically ($S_{w}$ for width and $S_{h}$ for height)
@@ -17,14 +17,13 @@ produces an output of shape $W_{2} \times H_{2} \times D_{2}$ where:
 
 $W_{2} = \dfrac{W_{1} - F_{w} + 2P}{S_{w}} + 1$
 
-$H_{2} = \dfrac{H_{1} - F_{h} + 2P}{S_{h}} + 1$ (\scriptsize{i.e., width and height are computed equally by symmetry})
+$H_{2} = \dfrac{H_{1} - F_{h} + 2P}{S_{h}} + 1$ (i.e., width and height are computed equally by symmetry)
 
-\normalsize
 $D_{2}= K$ 
 
 Note that $2P$ comes from the fact that there should be a padding on each side, left/right and top/bottom.
 
-However, the output width or height calculated from these equations might be a non-integer value. In that case, you might want to handle the situation in any way to satisfy the desired output dimention. Here, we explain how Tensorflow approachs the issue. The spatial semantics of the convolution ops depend on the padding scheme chosen: 'SAME' or 'VALID'. Note that the padding values are always zero.
+However, the height or width of the output image, calculated from these equations, might be a non-integer value. In that case, you might want to handle the situation in any way to satisfy the desired output dimention. Here, we explain how Tensorflow approaches this issue. The spatial semantics of the convolution ops depend on the padding scheme chosen: 'SAME' or 'VALID'. Note that the padding values are always zero.
 
 Let's assume that the 4D input has shape `[batch_size, input_height, input_width, num_of_channels]`, and the 4D filter has shape `[filter_height, filter_width, filter_channel, number_of_filters]`. Here, the number of channels in input image must be the same with the depth of the filter.
 
