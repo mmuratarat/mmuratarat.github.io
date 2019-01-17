@@ -127,7 +127,7 @@ Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts
 4. `padding` must be either `'VALID'` or `'SAME'` which we explained them earlier.
 
 # Comparisons
-For both using one filter and multiple filters, if we compare out Python implemetations with Tensorflow's, we will see that they are equal.
+For using both one filter and multiple filters, if we compare our Python implemetations with Tensorflow's, we will see that the output arrays are the same. 
 
 {% highlight python %}
 from sklearn.datasets import load_sample_image
