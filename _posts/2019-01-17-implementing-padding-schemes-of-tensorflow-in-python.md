@@ -109,20 +109,20 @@ plt.show()
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/filters.png)
 
 ## Single Feature Map (Single Output Channel)
-For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have only one filter.
+For this implementation, the shape of the input must be `[input_height, input_width, input_depth]` and the shape of the filter must be `[filter_height, filter_width, filter_depth, number_of_filters]` since we have only one filter.
 
 <script src="https://gist.github.com/mmuratarat/7c90584910c8db04b3a4ca10752cf1c6.js"></script>
 
 ## Multiple Feature Maps (Multiple Output Channels)
-For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have multiple filters.
+For this implementation, the shape of the input must be `[input_height, input_width, input_depth]` and the shape of the filter must be `[filter_height, filter_width, filter_depth, number_of_filters]` since we have multiple filters.
 
 <script src="https://gist.github.com/mmuratarat/67d78a5d8b1f1c0f31517f3af7c09e4c.js"></script>
 
 ## tf.nn.conv2d()
 Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts:
-1. `input`, which is a input mini-batch, a 4D tensor shape of `[batch_size, input_height, input_width, num_of_channels]`. In our case, `batch_size` will be 1 because we are only using one image.
+1. `input`, which is a input mini-batch, a 4D tensor shape of `[batch_size, input_height, input_width, input_depth]`. In our case, `batch_size` will be 1 because we are only using one image.
 
-2. `filters` is the set of filters to apply. They are represented as a 4D tensor of shape `[filter_height, filter_width, filter_channel, number_of_filters]`. If we use one filter, `number_of_filters` argument will equal to 1. If we have multiple filters, say, `K`, we will have `K` feature maps (K output channels - the depth of the output layer will be `K`).
+2. `filters` is the set of filters to apply. They are represented as a 4D tensor of shape `[filter_height, filter_width, filter_depth, number_of_filters]`. If we use one filter, `number_of_filters` argument will equal to 1. If we have multiple filters, say, `K`, we will have `K` feature maps (K output channels - the depth of the output layer will be `K`).
 
 3. `strides` is a four-element 1D array, where the two central elements are the vertical and horizontal strides ($S_{h}$ and $S_{w}$). The first and the last elements must currently be equal to 1. They may one day be used to specify a batch stride (to skip some instances) and a channel stride (to skip some of the previous layer's feature maps or channels).
 
