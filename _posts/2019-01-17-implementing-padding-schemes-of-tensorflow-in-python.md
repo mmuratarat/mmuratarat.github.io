@@ -80,6 +80,7 @@ When the input has 3 channels, we will have 3 filters (one for each channel) ins
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rgb.gif)
 
+# Implementing Convolution Operator in Python
 Implementing convolution operator in Python is pretty straight forward. Here, we will use a image from `sklearn` datasets. The shape of the image is `(427, 640, 3)`, which means that its height is `427`, its width is `640` and it consists of three input channels, RGB image.
 
 {% highlight python %}
@@ -108,17 +109,17 @@ plt.show()
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/filters.png)
 
-# SINGLE FEATURE MAP (SINGLE OUTPUT CHANNEL)
+## Single Feature Map (Single Output Channel)
 For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have only one filter.
 
 <script src="https://gist.github.com/mmuratarat/7c90584910c8db04b3a4ca10752cf1c6.js"></script>
 
-# MULTIPLE FEATURE MAPS (MULTIPLE OUTPUT CHANNELS)
+## Multiple Feature Maps (Multiple Output Channels)
 For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have multiple filters.
 
 <script src="https://gist.github.com/mmuratarat/67d78a5d8b1f1c0f31517f3af7c09e4c.js"></script>
 
-# tf.nn.conv2d()
+## tf.nn.conv2d()
 Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts:
 1. `input`, which is a input mini-batch, a 4D tensor shape of `[batch_size, input_height, input_width, num_of_channels]`. In our case, `batch_size` will be 1 because we are only using one image.
 
@@ -128,7 +129,7 @@ Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts
 
 4. `padding` must be either `'VALID'` or `'SAME'` which we explained them earlier.
 
-# Comparisons
+### Comparisons
 For using both one filter and multiple filters, if we compare our Python implemetations with Tensorflow's, we will see that the output arrays are the same. 
 
 {% highlight python %}
@@ -136,7 +137,7 @@ from sklearn.datasets import load_sample_image
 china = load_sample_image("china.jpg")
 
 filter = np.zeros(shape=(7, 7, 3, 1), dtype=np.float32)
-#We use one filter.
+# We use one filter.
 filter[:, 3, :, 0] = 1 #vertical line
 
 output1 = convolution2d(china, filter[:,:,:,0], bias=0, strides = (2,2), padding='SAME')
@@ -154,14 +155,14 @@ with tf.Session() as sess:
     output2 = sess.run(convolution,feed_dict = {X: image})
 ##################################################################################
 np.array_equal(output2[0, :, :, 0], output1)
-#True
+# True
 {% endhighlight %}
 
 {% highlight python %}
 from sklearn.datasets import load_sample_image
 china = load_sample_image("china.jpg")
 filters = np.zeros(shape=(7, 7, channels, 2), dtype=np.float32)
-#We use multiple filters
+# We use multiple filters
 filters[:, 3, :, 0] = 1 #vertical line
 filters[3, :, :, 1] = 1 #horizontal line
 
@@ -180,7 +181,7 @@ with tf.Session() as sess:
     output2 = sess.run(convolution,feed_dict = {X: image})
 ##################################################################################
 np.array_equal(output2[0, :, :, :], output1)
-#True
+# True
 {% endhighlight %}
 
 # References
