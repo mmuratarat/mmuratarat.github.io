@@ -132,55 +132,69 @@ Let's compare the results with Tensorflow `tf.nn.conv2d()`. The function accepts
 For using both one filter and multiple filters, if we compare our Python implemetations with Tensorflow's, we will see that the output arrays are the same. 
 
 {% highlight python %}
+#One filter on RGB image
 from sklearn.datasets import load_sample_image
 china = load_sample_image("china.jpg")
+height, width, depth = china.shape
 
-filter = np.zeros(shape=(7, 7, 3, 1), dtype=np.float32)
-# We use one filter.
+##################################################################################
+
+filter = np.zeros(shape=(7, 7, depth, 1), dtype=np.float32)
+#We use one filter.
 filter[:, 3, :, 0] = 1 #vertical line
 
 output1 = convolution2d(china, filter[:,:,:,0], bias=0, strides = (2,2), padding='SAME')
 
 ##################################################################################
+
 import tensorflow as tf
 
-height, width, channels = china.shape
-image = china.reshape((-1, height, width, channels))
 
-X= tf.placeholder(tf.float32, shape=(None, height, width, channels))
+image = china.reshape((-1, height, width, depth))
+
+X= tf.placeholder(tf.float32, shape=(None, height, width, depth))
 convolution = tf.nn.conv2d(input = X, filter = filter, strides = [1,2,2,1], padding="SAME")
 
 with tf.Session() as sess:
     output2 = sess.run(convolution,feed_dict = {X: image})
+    
 ##################################################################################
+
 np.array_equal(output2[0, :, :, 0], output1)
-# True
+#True
 {% endhighlight %}
 
 {% highlight python %}
+#Multiple filter on RGB image
 from sklearn.datasets import load_sample_image
 china = load_sample_image("china.jpg")
-filters = np.zeros(shape=(7, 7, channels, 2), dtype=np.float32)
-# We use multiple filters
-filters[:, 3, :, 0] = 1 #vertical line
-filters[3, :, :, 1] = 1 #horizontal line
+height, width, depth = china.shape
+
+##################################################################################
+
+filters = np.zeros(shape=(7, 7, depth, 2), dtype=np.float32)
+filters[:, 3, :, 0] = 1#vertical line
+filters[3, :, :, 1] = 1#horizontal line
 
 output1 = multi_convolution2d(china, filters, strides = (2,2), padding='SAME')
 
 ##################################################################################
+
 import tensorflow as tf
 
-height, width, channels = china.shape
-image = china.reshape((-1, height, width, channels))
 
-X= tf.placeholder(tf.float32, shape=(None, height, width, channels))
+image = china.reshape((-1, height, width, depth))
+
+X= tf.placeholder(tf.float32, shape=(None, height, width, depth))
 convolution = tf.nn.conv2d(input = X, filter = filters, strides = [1,2,2,1], padding="SAME")
 
 with tf.Session() as sess:
     output2 = sess.run(convolution,feed_dict = {X: image})
+    
 ##################################################################################
+
 np.array_equal(output2[0, :, :, :], output1)
-# True
+#True
 {% endhighlight %}
 
 # References
