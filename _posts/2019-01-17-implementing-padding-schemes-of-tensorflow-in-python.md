@@ -33,7 +33,7 @@ $$H_{2} = \left\lceil \dfrac{H_{1}}{S_{h}} \right\rceil \qquad \qquad W_{2} = \l
 
 Here, $\left \lceil \cdot \right \rceil$ is the ceiling function. 
 
-Here is how Tensorflow calculates required total padding applied along the height and width:
+Here is how Tensorflow calculates the required total padding, applied along the height and width:
 
 if $H_{1} \% S_{h} == 0$:
 
@@ -55,7 +55,7 @@ $$ \text{padding along width} = P_{w} = max (F_{w} - (W_{1} \% S_{w}), 0) $$
 
 Here, $\%$ represents [modulo operation](https://en.wikipedia.org/wiki/Modulo_operation){:target="_blank"}. In computing, the modulo operation finds the remainder after division of one number by another (sometimes called modulus).
 
-Finally, the padding on the top, bottom, left and right are:
+Finally, the padding on the top/bottom and left/right are:
 
 $$ \text{padding top} = P_t = \left\lfloor \dfrac{P_h}{2} \right \rfloor \qquad \qquad \text{padding bottom} = P_h - P_t  $$
 
@@ -71,7 +71,8 @@ $$H_{2} = \left\lceil \dfrac{H_{1} - F_{h} + 1}{S_{h}} \right\rceil \qquad \qqua
 
 Again, $\left \lceil \cdot \right \rceil$ is the ceiling function. 
 
-Generally, we can consider an image as a matrix whose elements are numbers between 0 and 255. The size of this matrix is $\text{image height} \times \text{image width} \times \text{the number of image channels}$. A grayscale image has 1 channel (such as infamous MNIST dataset) where a color image has 3 channels (for an RGB). Based on the input, a convolution layer can have either multiple input channels (each is a 2D matrix) or one input channel (still a 2D matrix) and resulting layer can have either multiple output channels (multiple kernel, again, each is a 2D matrix) or one output channel (one kernel, still a 2D matrix). 
+# What's an image?
+Generally, we can consider an image as a matrix whose elements are numbers between 0 and 255. The size of this matrix is $\text{image height} \times \text{image width} \times \text{image depth}$. A grayscale image has 1 channel (such as infamous MNIST dataset) where a color image has 3 channels (for an RGB). Based on the input, a convolution layer can have either multiple input channels (each is a 2D matrix) or one input channel (still a 2D matrix) and resulting layer can have either multiple output channels (multiple kernel, again, each is a 2D matrix) or one output channel (one kernel, still a 2D matrix). 
 
 Each convolution acts like a feature-extractor over the image. The number of output channels defines the number of kernels, which convolve over your input volume. So even if your input image is a grayscale image (1 channel), a lot of different kernels can learn different things. In any case, computations are almost similar with a slight tweak. 
 
