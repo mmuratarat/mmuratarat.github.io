@@ -22,7 +22,7 @@ $H_{2} = \dfrac{H_{1} - F_{h} + 2P}{S_{h}} + 1$ (\scriptsize{i.e., width and hei
 \normalsize
 $D_{2}= K$ 
 
-Note that $2P$ comes from the fact that there should be a padding on each side.
+Note that $2P$ comes from the fact that there should be a padding on each side, left/right and top/bottom.
 
 However, the output width or height calculated from these equations might be a non-integer value. In that case, you might want to handle the situation in any way to satisfy the desired output dimention. Here, we explain how Tensorflow approachs the issue. The spatial semantics of the convolution ops depend on the padding scheme chosen: 'SAME' or 'VALID'. Note that the padding values are always zero.
 
