@@ -26,7 +26,7 @@ Note that $2P$ comes from the fact that there should be a padding on each side.
 
 However, the output width or height calculated from these equations might be a non-integer value. In that case, you might want to handle the situation in any way to satisfy the desired output dimention. Here, we explain how Tensorflow approachs the issue. The spatial semantics of the convolution ops depend on the padding scheme chosen: 'SAME' or 'VALID'. Note that the padding values are always zero.
 
-Let's assume that the 4-D input has shape `[batch_size, input_height, input_width, num_channels]` and the 4-D filter has shape `[filter_height, filter_width, num_channels]`. Here, the number of channels in input image must be the same with the depth of the filter.
+Let's assume that the 4D input has shape `[batch_size, input_height, input_width, num_of_channels]`, and the 4D filter has shape `[filter_height, filter_width, filter_channel, number_of_filters]`. Here, the number of channels in input image must be the same with the depth of the filter.
 
 First let's consider `'SAME'` padding scheme. The output height and width are computed as:
 
@@ -107,9 +107,13 @@ plt.show()
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/filters.png)
 
 # SINGLE FEATURE MAP (SINGLE OUTPUT CHANNEL)
+For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have only one filter.
+
 <script src="https://gist.github.com/mmuratarat/7c90584910c8db04b3a4ca10752cf1c6.js"></script>
 
 # MULTIPLE FEATURE MAPS (MULTIPLE OUTPUT CHANNELS)
+For this implementation, the shape of the input must be `[input_height, input_width, num_of_channels]` and the shape of the filter must be `[filter_height, filter_width, filter_channel, number_of_filters]` since we have multiple filters.
+
 <script src="https://gist.github.com/mmuratarat/67d78a5d8b1f1c0f31517f3af7c09e4c.js"></script>
 
 # tf.nn.conv2d()
