@@ -13,7 +13,7 @@ While using convolutional neural network, we don’t have to manually calculate 
 4. The stride with which they are applied. You can have different strides horizontally and vertically ($S_{w}$ for width and $S_{h}$ for height)
 5. The amount of zero padding used ($P$) on the border. 
 
-produces a volume of size $W_{2} \times H_{2} \times D_{2}$ where:
+produces an output of shape $W_{2} \times H_{2} \times D_{2}$ where:
 
 $W_{2} = \dfrac{W_{1} - F_{w} + 2P}{S_{w}} + 1$
 
