@@ -90,7 +90,7 @@ plt.savefig('china.jpg')
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/china.jpg)
  
-We are going to use `7\ times 7 \times 3` filters (kernels) (One with a vertical line in the middle, and the other with horizontal white line in the middle). We will apply them to the image using a convolutional layer built using Tensorflow's `tf.nn.conv2d()` function and our python implementations with a stride of 2. `'VALID'` padding scheme will not zero pad. 
+We are going to use $7\ times 7 \times 3`$ filters (kernels/weights) (One with a vertical line in the middle, and the other with horizontal white line in the middle). We will apply them to the image using a convolutional layer built using Tensorflow's `tf.nn.conv2d()` function and our python implementations with a stride of 2. `'VALID'` padding scheme will not zero pad. 
 
 
 {% highlight python %}
