@@ -79,7 +79,7 @@ Considering that we have a data, shape of `[batch_size, time_steps, number_featu
 
 Each of the $W_{xi}$, $W_{xf}$, $W_{xc}$ and $W_{xo}$, is an array with the shape of `[num_features, num_units]` and, similarly, each of the $W_{hi}$, $W_{hf}$, $W_{hc}$ and $W_{ho}$ is an array with the shape of `[num_units, num_units]`. If we first concatenate each gate weight matrices, corresponding to input and hidden state, vertically, we will have separate $W_{i}$, $W_{c}$, $W_{f}$ and $W_{o}$ matrices, which each will have the shape of `[num_features + num_units, num_units]`. Then, if we concatenate $W_{i}$,  $W_{c}$, $W_{f}$ and $W_{o}$ matrices horizontally, we will have kernel (weights) matrix, given by Tensorflow, which has shape `[num_features + num_units, 4 * num_units]`.
 
-**NOTE**: Tensorflow uses the letter 'j' to denote new input (candidate), we use the letter 'c'.
+**NOTE**: Tensorflow uses the letter `j` to denote new input (candidate), we use the letter `c`.
 
 # Mathematical Representation
 Let's denote $B$ as batch size, $F$ as number of features and $U$ as number of units in an LSTM block, therefore, the dimensions will be computed as follows:
