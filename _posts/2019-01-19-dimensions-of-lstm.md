@@ -7,7 +7,7 @@ comments: true
 
 A general LSTM block can be shown as given below.
 
-![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
+![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
 If we write down the equations, we will have:
 
