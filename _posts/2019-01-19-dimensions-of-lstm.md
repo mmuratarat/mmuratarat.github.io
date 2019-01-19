@@ -29,9 +29,9 @@ $$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + b_{o})$$
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 
-here, $\circ$ represents Hadamard product (elementwise product).
+Here, $\circ$ represents the Hadamard product (elementwise product).
 
-We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ and write the equations above as follows:
+We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ vertically, we can rewrite the equations above as the following:
 
 1. Input gate:
 $$ i_{t} = \sigma (W_{i} \cdot [X_{t}, h_{t-1}] + b_{i})$$
