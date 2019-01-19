@@ -1,13 +1,15 @@
 ---
 layout: post
-title: "Dimensions of LSTM"
+title: "Dimensions of matrices in an LSTM Block"
 author: "MMA"
 comments: true
 ---
 
-Let’s start with a general LSTM model to understand and write down the equations and break down equations into weights (kernels), biases and vectors. 
+A general LSTM block can be shown as given below.
 
 ![](lstm.png)
+
+If we write down the equations, we will have:
 
 1. Input gate:
 $$ i_{t} = \sigma (W_{xi}X_{t} + W_{hi}h_{t-1} + b_{i})$$
