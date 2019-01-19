@@ -31,7 +31,7 @@ $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 
 Here, $\circ$ represents the Hadamard product (elementwise product).
 
-We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ vertically, we can rewrite the equations above as the following:
+We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ horizontally, we can rewrite the equations above as the following:
 
 1. Input gate:
 $$ i_{t} = \sigma (W_{i} \cdot [X_{t}, h_{t-1}] + b_{i})$$
@@ -75,12 +75,12 @@ The gates are defined this way:
 i, j, f, o = array_ops.split(value=gate_inputs, num_or_size_splits=4, axis=one)
 {% endhighlight %}
 
-Considering  we have a data, shape of `[batch_size, time_steps, number_features]`, $X_{t}$ is the input of time-step $t$ which is an array with the shape of `[batch_size, num_features]`, $h_{t-1}$ is the hidden state of previous time-step which is an array with the shape of `[batch_size, num_units]`, and $C_{t-1}$ is the cell state of previous time-step, which is an array with the shape of `[batch_size, num_units]`. In that case, Tensorflow will concatenate inputs ($X_{t}$) and hidden state ($h_{t-1}$) by column and multiple it with kernel (weight) matrix that we talked about above. For more info, look at [here](https://github.com/tensorflow/tensorflow/blob/f52351444551016d7dd949a5aa599da489a97045/tensorflow/python/ops/rnn_cell_impl.py#L763).
+Considering that we have a data, shape of `[batch_size, time_steps, number_features]`, $X_{t}$ is the input of time-step $t$ which is an array with the shape of `[batch_size, num_features]`, $h_{t-1}$ is the hidden state of previous time-step which is an array with the shape of `[batch_size, num_units]`, and $C_{t-1}$ is the cell state of previous time-step, which is an array with the shape of `[batch_size, num_units]`. In that case, Tensorflow will concatenate inputs ($X_{t}$) and hidden state ($h_{t-1}$) by column and multiple it with kernel (weight) matrix that we mentioned previously. For more info, look at [here](https://github.com/tensorflow/tensorflow/blob/f52351444551016d7dd949a5aa599da489a97045/tensorflow/python/ops/rnn_cell_impl.py#L763).
 
-Each of the $W_{xi}$, $W_{xf}$, $W_{xc}$ and $W_{xo}$, is an array with the shape of `[num_features, num_units]` and, similarly, each of the $W_{hi}$, $W_{hf}$, $W_{hc}$ and $W_{ho}$ is an array with the shape of `[num_units, num_units]`. If we first concatenate each gate weight matrices, correspoding to inputs and hidden state, vertically, we will have separate $W_{i}$, $W_{c}$, $W_{f}$ and $W_{o}$ matrices, each matrix will have the shape of `[num_features + num_units, num_units]`. Then, if we concatenate $W_{i}$,  $W_{c}$, $W_{f}$ and $W_{o}$ matrices horizontally, we will have kernel (weights) matrix, given by Tensorflow, which has shape `[num_features + num_units, 4 * num_units ]`. 
+Each of the $W_{xi}$, $W_{xf}$, $W_{xc}$ and $W_{xo}$, is an array with the shape of `[num_features, num_units]` and, similarly, each of the $W_{hi}$, $W_{hf}$, $W_{hc}$ and $W_{ho}$ is an array with the shape of `[num_units, num_units]`. If we first concatenate each gate weight matrices, corresponding to inputs and hidden state, vertically, we will have separate $W_{i}$, $W_{c}$, $W_{f}$ and $W_{o}$ matrices, which each will have the shape of `[num_features + num_units, num_units]`. Then, if we concatenate $W_{i}$,  $W_{c}$, $W_{f}$ and $W_{o}$ matrices horizontally, we will have kernel (weights) matrix, given by Tensorflow, which has shape `[num_features + num_units, 4 * num_units]`. 
 
 # Mathematical Representation
-Let's denote B as batch size, F as number of features and U as number of units in an LSTM block, therefore, the dimensions will be computed as follows:
+Let's denote $B$ as batch size, $F$ as number of features and $U$ as number of units in an LSTM block, therefore, the dimensions will be computed as follows:
 
 $X_{t} \in \mathbb{R}^{B \times F}$
 
