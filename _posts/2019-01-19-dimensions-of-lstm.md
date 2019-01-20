@@ -66,7 +66,7 @@ self._bias = self.add_variable(
     initializer=init_ops.zeros_initializer(dtype=self.dtype))
 {% endhighlight %}
 
-As one can see easily, there's just one `[input_depth + h_depth, 4 * self._num_units]` shaped weight matrix and `[4 * self._num_units]` shaped bias vector,, not 8 different matrices for weights and 4 different vectors for biases, and all of them are multiplied simultaneously in a batch.
+As one can see easily, there's just one `[input_depth + h_depth, 4 * self._num_units]` shaped weight matrix and `[4 * self._num_units]` shaped bias vector, not 8 different matrices for weights and 4 different vectors for biases, and all of them are multiplied simultaneously in a batch.
 
 The gates are defined this way:
 
