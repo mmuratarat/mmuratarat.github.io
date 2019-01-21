@@ -72,7 +72,7 @@ The final step is to compute the average of all points in both classes, positive
 
 # WHAT IS A COST (LOSS) FUNCTION?
 
-In simple terms, predictive modeling can be described as the mathematical problem of approximating a mapping function ($f$) from input variables ($X$) to output variables ($y$):  $f: X \rightarrow y$. This is called the problem of function approximation.Stated in other words, the model learns how to take $X$ (i.e. features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable).  
+In simple terms, predictive modeling can be described as the mathematical problem of approximating a mapping function ($f$) from input variables ($X$) to output variables ($y$):  $f: X \rightarrow y$. This is called the problem of function approximation. Stated in other words, the model learns how to take $X$ (i.e., features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable).  
 
 If $y$ is discrete/categorical variable, then this is classification problem. If $y$ is real number/continuous, then this is a regression problem.
 
