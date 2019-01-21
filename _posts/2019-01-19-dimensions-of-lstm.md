@@ -128,7 +128,7 @@ $i_{t} \in \mathbb{R}^{B \times U}$
 
 $f_{t} \in \mathbb{R}^{B \times U}$
 
-$c_{t} \in \mathbb{R}^{B \times U}$
+$C_{t} \in \mathbb{R}^{B \times U}$
 
 $h_{t} \in \mathbb{R}^{B \times U}$
 
