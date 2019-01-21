@@ -21,7 +21,7 @@ $$ f_{t} = \sigma (W_{xf}X_{t} + W_{hf}h_{t-1} + b_{f})$$
 $$ \widetilde{C}_{t} = tanh (W_{xc}X_{t} + W_{hc}h_{t-1} + b_{c})$$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t} + i_{t}  \circ \widetilde{C}_{t}$$
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
 $$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + b_{o})$$
@@ -43,7 +43,7 @@ $$ f_{t} = \sigma (W_{f} \cdot [X_{t}, h_{t-1}] + b_{f})$$
 $$ \widetilde{C}_{t} = tanh (W_{c} \cdot [X_{t}, h_{t-1}] + b_{c})$$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t} + i_{t}  \circ \widetilde{C}_{t}$$
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
 $$ o_{t} = \sigma (W_{o} \cdot [X_{t}, h_{t-1}] + b_{o})$$
