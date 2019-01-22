@@ -135,3 +135,30 @@ $h_{t} \in \mathbb{R}^{B \times U}$
 $o_{t} \in \mathbb{R}^{B \times U}$
 
 **NOTE**: Batch size can be $1$. In that case, $B=1$.
+
+# LSTM with Peephole Connections
+In a basic LSTM cell, the gate controllers can look only st the input $X_{t}$, and the previous short-term state $h_{t-1}$. It may be a good idea to give them a bit more context by letting them peek at the long-term state as well. This ;STM variant with extra connections called peephole connections which lead from the cells to the gates: the previous long-term state $C_{t-1}$ is added as an input to the controllers of the forget gate and input gate, and the current long-term state $C_{t}$ is added to the controller of the output gate.
+
+![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm_peepholes.png)
+
+Based on the information above, if we write down the equations, we will have:
+
+1. Input gate:
+$$ i_{t} = \sigma (W_{xi}X_{t} + W_{hi}h_{t-1} + W_{ci} \circ C_{t-1} + b_{i})$$
+
+2. Forget gate:
+$$ f_{t} = \sigma (W_{xf}X_{t} + W_{hf}h_{t-1} + W_{cf} \circ C_{t-1} + b_{f})$$
+
+3. New Candidate:
+$$ \widetilde{C}_{t} = tanh (W_{xc}X_{t} + W_{hc}h_{t-1} + b_{c})$$
+
+4. Cell State:
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+
+5. Output gate:
+$$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + W_{co} \circ C_{t} + b_{o})$$
+
+6. Hidden State:
+$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+
+Here, $\circ$ represents the Hadamard product (elementwise product).
