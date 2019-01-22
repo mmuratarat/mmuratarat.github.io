@@ -162,3 +162,22 @@ $$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + W_{co} \circ C_{t} + b_{o})$$
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 
 Here, $\circ$ represents the Hadamard product (elementwise product).
+
+Tensorflow implementation is given as follows:
+{% highlight python %} 
+      # Diagonal connections
+      if self._use_peepholes:
+        w_f_diag = vs.get_variable(
+            "W_F_diag", shape=[self._num_units], dtype=dtype)
+        w_i_diag = vs.get_variable(
+            "W_I_diag", shape=[self._num_units], dtype=dtype)
+        w_o_diag = vs.get_variable(
+            "W_O_diag", shape=[self._num_units], dtype=dtype)
+      if self._use_peepholes:
+        c = (sigmoid(f + 1 + w_f_diag * c_prev) * c_prev +
+             sigmoid(i + w_i_diag * c_prev) * tanh(j))
+      else:
+        c = (sigmoid(f + 1) * c_prev + sigmoid(i) * tanh(j))
+{% endhighlight %}
+
+As one can easily see that, the weights for peephole connections are 1D vectors, shape of `[num_units]`.
