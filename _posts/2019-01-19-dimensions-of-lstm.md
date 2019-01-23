@@ -137,7 +137,7 @@ $o_{t} \in \mathbb{R}^{B \times U}$
 **NOTE**: Batch size can be $1$. In that case, $B=1$.
 
 # LSTM with Peephole Connections
-In a basic LSTM cell, the gate controllers can look only st the input $X_{t}$, and the previous short-term state $h_{t-1}$. It may be a good idea to give them a bit more context by letting them peek at the long-term state as well. This ;STM variant with extra connections called peephole connections which lead from the cells to the gates: the previous long-term state $C_{t-1}$ is added as an input to the controllers of the forget gate and input gate, and the current long-term state $C_{t}$ is added to the controller of the output gate.
+In a basic LSTM cell, the gate controllers can look only at the input $X_{t}$, and the previous short-term state $h_{t-1}$. It may be a good idea to give them a bit more context by letting them peek at the long-term state as well. This LSTM variant with extra connections called peephole connections which lead from the cells to the gates: the previous long-term state $C_{t-1}$ is added as an input to the controllers of the forget gate and input gate, and the current long-term state $C_{t}$ is added to the controller of the output gate.
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm_peepholes.png)
 
