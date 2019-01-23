@@ -180,4 +180,4 @@ Tensorflow implementation is given as follows:
         c = (sigmoid(f + 1) * c_prev + sigmoid(i) * tanh(j))
 {% endhighlight %}
 
-As one can easily see that, the weights for peephole connections are 1D vectors, shape of `[num_units]`.
+As one can easily see that, the weights for peephole connections are one dimensional array, shape of `[num_units]`.
