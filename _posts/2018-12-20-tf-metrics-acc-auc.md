@@ -24,7 +24,7 @@ with tf.Session() as sess:
     print("tf accuracy: {}".format(sess.run([accuracy, update_op_acc])))
 {% endhighlight %}
 
-However, one needs to be sure to initialize and/or reset the running variables correctly. `tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES` will print all the local variables. However, resetting local variables by running `sess.run(tf.local_variables_initializer())` can be a terrible idea because one might accidentally reset other local variables unintentionally. By being explicit about which variables to reset, we can avoid having troubles later with other local variables in our computational graph. Two running variables created for `tf.metrics.accuracy`  and can be called using `scope` argument of `tf.get.collection()`.
+However, one needs to be sure to initialize and/or reset the running variables correctly. `tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES)` will print all the local variables. However, resetting local variables by running `sess.run(tf.local_variables_initializer())` can be a terrible idea because one might accidentally reset other local variables unintentionally. By being explicit about which variables to reset, we can avoid having troubles later with other local variables in our computational graph. Two running variables created for `tf.metrics.accuracy`  and can be called using `scope` argument of `tf.get.collection()`.
 
 {% highlight python %}
 running_vars_auc = tf.get_collection(tf.GraphKeys.LOCAL_VARIABLES, scope='accuracy')
