@@ -208,7 +208,7 @@ As one can easily see that, the weights for peephole connections are one dimensi
 
 # NOTES
 
-Dot product can be confusing so I am hoping that these definitions might help. The hypothesis of each sample can be vectorized using following formula:
+Dot product can be confusing so I am hoping that these definitions might help. The hypothesis of each data point can be vectorized using following formula:
 
 $$ h_{\theta}(x^{(i)}) = \theta^{T}x^{(i)} = \begin{bmatrix}\theta_{0} & \theta_{1} & \cdots & \theta_{n} \end{bmatrix} \begin{bmatrix} x_{0}^{(i)} \\ x_{1}^{(i)} \\ \cdots \\ x_{n}^{(i)} \end{bmatrix} $$
 
