@@ -216,6 +216,6 @@ which is nothing but a linear regression equation for one instance in the data. 
 
 In order to achieve the hypothesis for all the instances, we use the following array dot product:
 
-$$h_{\theta}(\mathbf{X}) = \mathbf{X} \theta = \begin{bmatrix}x_{0}^{(1)} & x_{1}^{(1)} & \cdots & x_{n}^{(1)} \\ x_{0}^{(2)} & x_{2}^{(2)} & \cdots & x_{n}^{(2)} \\ \vdots & \vdots & \cdots & \vdots \\ x_{0}^{(m)} & x_{2}^{(m)} & \cdots & x_{n}^{(m)}\\ \end{bmatrix} \begin{bmatrix}\theta_{0} \\ \theta_{1} \\ \cdots \\ \theta_{n}\end{bmatrix}$$
+$$h_{\theta}(\mathbf{X}) = \mathbf{X} \theta = \begin{bmatrix} 1 & x_{1}^{(1)} & \cdots & x_{n}^{(1)} \\ 1 & x_{2}^{(2)} & \cdots & x_{n}^{(2)} \\ \vdots & \vdots & \cdots & \vdots \\ 1 & x_{2}^{(m)} & \cdots & x_{n}^{(m)}\\ \end{bmatrix} \begin{bmatrix}\theta_{0} \\ \theta_{1} \\ \cdots \\ \theta_{n}\end{bmatrix}$$
 
 Here, we assume that we have $m$ observations and $n$ input variables (features).
