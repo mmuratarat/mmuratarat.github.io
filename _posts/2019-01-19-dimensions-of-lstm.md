@@ -168,7 +168,7 @@ In a basic LSTM cell, the gate controllers can look only at the input $X_{t}$, a
 Based on the information above, if we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (X_{t} \cot W_{xi} + h_{t-1} \cot W_{hi} + W_{ci} \circ C_{t-1} + b_{i})$$
+$$ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + W_{ci} \circ C_{t-1} + b_{i})$$
 
 2. Forget gate:
 $$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + W_{cf} \circ C_{t-1} + b_{f})$$
