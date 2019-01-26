@@ -205,3 +205,15 @@ Tensorflow implementation is given as follows:
 {% endhighlight %}
 
 As one can easily see that, the weights for peephole connections are one dimensional array, shape of `[num_units]`.
+
+# NOTES
+
+Dot product can be confusing so I am hoping that these definitions might help. The hypothesis of each sample can be vectorized using following formula:
+
+$$ h_{\theta}(x^{(i)}) = \theta^{T}x^{(i)} = \begin{matrix}\theta_{0} & \theta_{1} & \cdots & \theta_{n} \end{matrix} \begin{matrix} x_{0}^{(i)} \\ x_{1}^{(i)} \\ \cdots \\ x_{n}^{(i)} \end{matrix}
+
+In order to achieve the hypothesis for all the instances, we use the following array dot product:
+
+$$ h_{\theta}(\mathbf{X}) = \mathbf{X} \theta = \begin{matrix}x_{0}^{(1)} & x_{1}^{(1)} & \cdots & x_{n}^{(1)} \\ x_{0}^{(2)} & x_{2}^{(2)} & \cdots & x_{n}^{(2)} \\ \vdots & \vdots & \cdots & \vdots \\ x_{0}^{(m)} & x_{2}^{(m)} & \cdots & x_{n}^{(m)}\\ \end{matrix} \begin{matrix}\theta_{0} \\ \theta_{1} \\ \cdots \\ \theta_{n}\end{matrix}$$
+
+Here, we assume that we have $m$ observations and $n$ input variables (features).
