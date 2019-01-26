@@ -12,10 +12,10 @@ A general LSTM block can be shown as given below.
 Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for **a single instance** (the equations for a whole mini-batch are very similar).
 
 1. Input gate:
-$$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \ccdot h_{t-1}  + b_{i})$$
+$$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$$
 
 2. Forget gate:
-$$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \ccdot h_{t-1} + b_{f})$$
+$$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \cdot h_{t-1} + b_{f})$$
 
 3. New Candidate:
 $$ \widetilde{C}_{t} = tanh (W_{xc} \cdot X_{t} + W_{hc} \cdot h_{t-1} + b_{c})$$
