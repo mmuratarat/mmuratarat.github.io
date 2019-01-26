@@ -54,7 +54,7 @@ $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 # Tensorflow Dimensions
 In Tensorflow, LSTM variables are defined in `LSTMCell.build` method. The source code can be found in [rnn_cell_impl.py](https://github.com/tensorflow/tensorflow/blob/f52351444551016d7dd949a5aa599da489a97045/tensorflow/python/ops/rnn_cell_impl.py#L728){:target="_blank"}:
 
-{% highlight python %} 
+{% highlight python %}
 self._kernel = self.add_variable(
     _WEIGHTS_VARIABLE_NAME,
     shape=[input_depth + h_depth, 4 * self._num_units],
@@ -70,7 +70,7 @@ As one can see easily, there's just one `[input_depth + h_depth, 4 * self._num_u
 
 The gates are defined this way:
 
-{% highlight python %} 
+{% highlight python %}
 # i = input_gate, j = new_input, f = forget_gate, o = output_gate
 i, j, f, o = array_ops.split(value=gate_inputs, num_or_size_splits=4, axis=one)
 {% endhighlight %}
