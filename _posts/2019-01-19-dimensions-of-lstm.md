@@ -29,11 +29,11 @@ $$ o_{t} = \sigma (W_{xo} \cdot X_{t} + W_{ho} \cdot h_{t-1} + b_{o})$$
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 
-1. $W_{xi}$, $W_{xf}$, $W_{xc}$, $W_{xo}$ are the weight matrices of each of the four layers for their connection to the input vector $X_{t}$.
-2. $W_{hi}$, $W_{hf}$, $W_{hc}$, $W_{ho}$ are the weight matrices of each of the four layers for their connection to the previous short-term state $h_{t-1}$.
-3. $b_{i}$, $b_{f}$, $b_{c}$ and $b_{o}$ are the bias terms for each of the four layers. 
-4. $\sigma$ is an element-wise activation function of the neurons, and $U$ is the number of neurons in this LSTM layer and $F$ is the number of features in the data.
-5. $\circ$ represents the Hadamard product (elementwise product).
+*  $W_{xi}$, $W_{xf}$, $W_{xc}$, $W_{xo}$ are the weight matrices of each of the four layers for their connection to the input vector $X_{t}$.
+*  $W_{hi}$, $W_{hf}$, $W_{hc}$, $W_{ho}$ are the weight matrices of each of the four layers for their connection to the previous short-term state $h_{t-1}$.
+*  $b_{i}$, $b_{f}$, $b_{c}$ and $b_{o}$ are the bias terms for each of the four layers. 
+*  $\sigma$ is an element-wise activation function of the neurons, and $U$ is the number of neurons in this LSTM layer and $F$ is the number of features in the data.
+*  $\circ$ represents the Hadamard product (elementwise product).
 
 Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
 
