@@ -9,7 +9,29 @@ A general LSTM block can be shown as given below.
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
-If we write down the equations for **all instances in a mini-batch**, we will have:
+Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for **a single instance** (the equations for a whole mini-batch are very similar).
+
+1. Input gate:
+$$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \ccdot h_{t-1}  + b_{i})$$
+
+2. Forget gate:
+$$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \ccdot h_{t-1} + b_{f})$$
+
+3. New Candidate:
+$$ \widetilde{C}_{t} = tanh (W_{xc} \cdot X_{t} + W_{hc} \cdot h_{t-1} + b_{c})$$
+
+4. Cell State:
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+
+5. Output gate:
+$$ o_{t} = \sigma (W_{xo} \cdot X_{t} + W_{ho} \cdot h_{t-1} + b_{o})$$
+
+6. Hidden State:
+$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+
+Here, $\circ$ represents the Hadamard product (elementwise product).
+
+Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
 $$ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$$
