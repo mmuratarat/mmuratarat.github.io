@@ -34,7 +34,7 @@ Here, $\circ$ represents the Hadamard product (elementwise product).
 We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ horizontally, we can rewrite the equations above as the following:
 
 1. Input gate:
-$$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cot W_{i}  + b_{i})$$
+$$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cdot W_{i}  + b_{i})$$
 
 2. Forget gate:
 $$ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$$
@@ -46,7 +46,7 @@ $$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$$
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
-$$ o_{t} = \sigma ([X_{t} h_{t-1}] \cot W_{o}+ b_{o})$$
+$$ o_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{o}+ b_{o})$$
 
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
