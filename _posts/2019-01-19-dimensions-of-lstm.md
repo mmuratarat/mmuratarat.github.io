@@ -9,22 +9,22 @@ A general LSTM block can be shown as given below.
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
-If we write down the equations, we will have:
+If we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (W_{xi}X_{t} + W_{hi}h_{t-1} + b_{i})$$
+$$ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$$
 
 2. Forget gate:
-$$ f_{t} = \sigma (W_{xf}X_{t} + W_{hf}h_{t-1} + b_{f})$$
+$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + b_{f})$$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (W_{xc}X_{t} + W_{hc}h_{t-1} + b_{c})$$
+$$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$$
 
 4. Cell State:
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
-$$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + b_{o})$$
+$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + b_{o})$$
 
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
@@ -34,19 +34,19 @@ Here, $\circ$ represents the Hadamard product (elementwise product).
 We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ horizontally, we can rewrite the equations above as the following:
 
 1. Input gate:
-$$ i_{t} = \sigma (W_{i} \cdot [X_{t}, h_{t-1}] + b_{i})$$
+$$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cot W_{i}  + b_{i})$$
 
 2. Forget gate:
-$$ f_{t} = \sigma (W_{f} \cdot [X_{t}, h_{t-1}] + b_{f})$$
+$$ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (W_{c} \cdot [X_{t}, h_{t-1}] + b_{c})$$
+$$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$$
 
 4. Cell State:
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
-$$ o_{t} = \sigma (W_{o} \cdot [X_{t}, h_{t-1}] + b_{o})$$
+$$ o_{t} = \sigma ([X_{t} h_{t-1}] \cot W_{o}+ b_{o})$$
 
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
@@ -141,22 +141,22 @@ In a basic LSTM cell, the gate controllers can look only at the input $X_{t}$, a
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm_peepholes.png)
 
-Based on the information above, if we write down the equations, we will have:
+Based on the information above, if we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (W_{xi}X_{t} + W_{hi}h_{t-1} + W_{ci} \circ C_{t-1} + b_{i})$$
+$$ i_{t} = \sigma (X_{t} \cot W_{xi} + h_{t-1} \cot W_{hi} + W_{ci} \circ C_{t-1} + b_{i})$$
 
 2. Forget gate:
-$$ f_{t} = \sigma (W_{xf}X_{t} + W_{hf}h_{t-1} + W_{cf} \circ C_{t-1} + b_{f})$$
+$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + W_{cf} \circ C_{t-1} + b_{f})$$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (W_{xc}X_{t} + W_{hc}h_{t-1} + b_{c})$$
+$$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$$
 
 4. Cell State:
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
-$$ o_{t} = \sigma (W_{xo}X_{t} + W_{ho}h_{t-1} + W_{co} \circ C_{t} + b_{o})$$
+$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + W_{co} \circ C_{t} + b_{o})$$
 
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
