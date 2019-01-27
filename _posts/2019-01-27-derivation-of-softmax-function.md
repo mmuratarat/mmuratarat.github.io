@@ -80,9 +80,9 @@ Similarly, deriving the off diagonal entries of the Jacobian matrix will yield:
 If we summarize:
 
 \begin{equation}
-\frac{\partial S_{i}}{\partial x_{j}} = \left \\{ \begin{array}{ll}
-         S_{i} (1-S_{j}) & \mbox{if $i = j$};\\
-        -S_{j}S_{i} & \mbox{if $i \neq j$}.\end{array}  \right.
+\frac{\partial S_{i}}{\partial x_{j}} = \begin{cases}
+         S_{i} (1-S_{j}) & \mbox{if $i = j$}\\
+        -S_{j}S_{i} & \mbox{if $i \neq j$}\end{cases}
 \end{equation}
 
 Sometimes, this piecewise function can be put together using [Kronecker delta function](https://en.wikipedia.org/wiki/Kronecker_delta){:target="_blank"}:
@@ -93,11 +93,11 @@ Sometimes, this piecewise function can be put together using [Kronecker delta fu
 
 where,
 
-\begin{equation}
-\delta_{ij} = \left \\{ \begin{cases}
+$$
+\delta_{ij} = \begin{cases}
          1 & \mbox{if $i = j$}\\
-         0 & \mbox{if $i \neq j$} \end{cases}  \right.
-\end{equation}
+         0 & \mbox{if $i \neq j$} \end{cases}
+$$
 
 # REFERENCES:
 1. [http://cs231n.github.io/linear-classify/#softmax](http://cs231n.github.io/linear-classify/#softmax){:target="_blank"}
