@@ -188,7 +188,7 @@ $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 Here, $\circ$ represents the Hadamard product (elementwise product).
 
 Tensorflow implementation is given as follows:
-{% highlight python %} 
+{% highlight python %}
       # Diagonal connections
       if self._use_peepholes:
         w_f_diag = vs.get_variable(
