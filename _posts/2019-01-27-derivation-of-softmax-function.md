@@ -94,9 +94,9 @@ Sometimes, this piecewise function can be put together using [Kronecker delta fu
 where,
 
 \begin{equation}
-\delta_{ij} = \left \\{ \begin{array}{ll}
+\delta_{ij} = \left \\{ \begin{matrix}{ll}
          1 & \mbox{if $i = j$};\\
-         0 & \mbox{if $i \neq j$}.\end{array}  \right.
+         0 & \mbox{if $i \neq j$}.\end{matrix}  \right.
 \end{equation}
 
 # REFERENCES:
