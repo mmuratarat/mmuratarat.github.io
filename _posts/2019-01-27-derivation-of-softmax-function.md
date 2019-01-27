@@ -72,7 +72,7 @@ Similarly, deriving the off diagonal entries of the Jacobian matrix will yield:
 $$
 \begin{split}
 \dfrac{\partial \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}} }{\partial x_{j}} &= \frac{0 \sum_{k=1}^{K} e^{x_k}- e^{x_{j}}e^{x_{i}}}{\left[\sum_{k=1}^{K} e^{x_k} \right]^{2}}\\
-&=-\frac{e^{x_{j}}}{\sum_{k=1}^{K} e^{x_k}} \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}}
+&=-\frac{e^{x_{j}}}{\sum_{k=1}^{K} e^{x_k}} \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}}\\
 &=-S_{j}S_{i}
 \end{split}
 $$
