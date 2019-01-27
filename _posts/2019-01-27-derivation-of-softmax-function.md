@@ -80,7 +80,7 @@ Similarly, deriving the off diagonal entries of the Jacobian matrix will yield:
 If we summarize:
 
 \begin{equation}
-\frac{\partial S_{i}}{\partial x_{j}} = \left \{ \begin{array}{ll}
+\frac{\partial S_{i}}{\partial x_{j}} = \left \\{ \begin{array}{ll}
          S_{i} (1-S_{j}) & \mbox{if $i = j$};\\
         -S_{j}S_{i} & \mbox{if $i \neq j$}.\end{array}  \right.
 \end{equation}
