@@ -59,23 +59,23 @@ Derivative of $g_{i}$ with respect to $x_{j}$ is $e^{x_{j}}$ only if $i = j$ bec
 
 Therefore, if we derive the gradient of the diagonal of the Jacobian matrix, which is to say that $i = j$, we will have
 
-\begin{align}
+$$
 \begin{split}
 \dfrac{\partial \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}} }{\partial x_{j}} &= \frac{e^{x_{i}} \sum_{k=1}^{K} e^{x_k}- e^{x_{j}}e^{x_{i}}}{\left[\sum_{k=1}^{K} e^{x_k} \right]^{2}}\\
 &=\frac{e^{x_{i}}\left(\sum_{k=1}^{K} e^{x_k} - e^{x_{j}}\right)}{\left[\sum_{k=1}^{K} e^{x_k} \right]^{2}}\\
 &=S_{i} (1-S_{j})
 \end{split}
-\end{align}
+$$
 
 Similarly, deriving the off diagonal entries of the Jacobian matrix will yield:
 
-\begin{equation}
+$$
 \begin{split}
 \dfrac{\partial \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}} }{\partial x_{j}} &= \frac{0 \sum_{k=1}^{K} e^{x_k}- e^{x_{j}}e^{x_{i}}}{\left[\sum_{k=1}^{K} e^{x_k} \right]^{2}}\\
 &=-\frac{e^{x_{j}}}{\sum_{k=1}^{K} e^{x_k}} \frac{e^{x_{i}}}{\sum_{k=1}^{K} e^{x_k}}
 &=-S_{j}S_{i}
 \end{split}
-\end{align}
+$$
 
 If we summarize:
 
