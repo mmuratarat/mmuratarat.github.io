@@ -79,11 +79,11 @@ Similarly, deriving the off diagonal entries of the Jacobian matrix will yield:
 
 If we summarize:
 
-\begin{equation}
+$$
 \frac{\partial S_{i}}{\partial x_{j}} = \begin{cases}
          S_{i} (1-S_{j}) & \mbox{if $i = j$}\\
         -S_{j}S_{i} & \mbox{if $i \neq j$}\end{cases}
-\end{equation}
+$$
 
 Sometimes, this piecewise function can be put together using [Kronecker delta function](https://en.wikipedia.org/wiki/Kronecker_delta){:target="_blank"}:
 
