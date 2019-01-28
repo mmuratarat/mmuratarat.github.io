@@ -109,7 +109,7 @@ plt.show()
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/filters.png)
 
 ## Single Feature Map (Single Output Channel)
-For this implementation, the shape of the input must be `[input_height, input_width, input_depth]` and the shape of the filter must be `[filter_height, filter_width, filter_depth, number_of_filters]` since we have only one filter.
+For this implementation, the shape of the input must be `[input_height, input_width, input_depth]` and the shape of the filter must be `[filter_height, filter_width, filter_depth]` since we have only one filter.
 
 <script src="https://gist.github.com/mmuratarat/7c90584910c8db04b3a4ca10752cf1c6.js"></script>
 
