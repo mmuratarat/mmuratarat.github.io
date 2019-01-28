@@ -196,7 +196,7 @@ np.array_equal(output2[0, :, :, :], output1)
 {% endhighlight %}
 
 # A Note on TensorFlow's tf.nn.conv2d
-TensorFlow's `tf.nn.conv2d` function has an argument `data_format` which is an optional string from: "NHWC", "NCHW". NHWC is by default. NHWC simply means the order of dimensions in a 4D tensor is:
+TensorFlow's `tf.nn.conv2d` function has an argument `data_format` which is an optional string from: "NHWC", "NCHW". NHWC is by default. NHWC simply means the order of dimensions in a 4D tensor, which is:
 
 N: batch
 H: height (spatial dimension)
