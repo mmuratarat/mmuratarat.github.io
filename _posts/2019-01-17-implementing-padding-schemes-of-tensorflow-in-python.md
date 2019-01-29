@@ -198,10 +198,13 @@ np.array_equal(output2[0, :, :, :], output1)
 # A Note on TensorFlow's tf.nn.conv2d
 TensorFlow's `tf.nn.conv2d` function has an argument `data_format` which is an optional string from: "NHWC", "NCHW". NHWC is by default. NHWC simply means the order of dimensions in a 4D tensor, which is:
 
-N: batch
-H: height (spatial dimension)
-W: width (spatial dimension)
-C: channel (depth)
+**N**: batch
+
+**H**: height (spatial dimension)
+
+**W**: width (spatial dimension)
+
+**C**: number of channels of the image (ex: 3 for RGB, 1 for grayscale...) (depth)
 
 NHWC is the default layout for TensorFlow; another commonly used layout is NCHW, because it's the format preferred by NVIDIA's DNN libraries. 
 
