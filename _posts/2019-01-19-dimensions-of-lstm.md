@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-A general LSTM block can be shown as given below.
+A general LSTM block can be shown as given below ([source](https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714){:target="_blank"}.
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
