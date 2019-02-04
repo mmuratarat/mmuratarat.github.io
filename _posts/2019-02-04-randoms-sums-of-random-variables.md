@@ -49,7 +49,7 @@ $$
 \begin{split}
 E_{N} \left[E_{X_{i}} \left[\left(\sum_{i=1}^{N} X_{i}\right)^{2}\middle| N = n\right]\right] &=E_{N} \left[nVar(X) + \left[n E(X) \right]^{2}\right]\\
 &= E_{N} \left[nVar(X) + n^{2} E(X)^{2}\right]\\
-&=\sum_{n=1}^{\infty} \left[nVar(X) + n^{2} E(X)^{2}\right] P(N = n)
+&=\sum_{n=1}^{\infty} \left[nVar(X) + n^{2} E(X)^{2}\right] P(N = n)\\
 &=E[N]Var[X] + E\left[N^{2} \right] E[X]^{2}
 \end{split}
 $$
