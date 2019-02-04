@@ -26,7 +26,7 @@ $$
 Var \left[\sum_{i=1}^{N} X_{i} \right] = E \left[\left(\sum_{i=1}^{N} X_{i}\right)^{2}\right] - \left( E \left[\sum_{i=1}^{N} X_{i}   \right]\right)^{2}
 $$
 
-We know how to evaluate the second term. Let’s work on the first term. Condition on N.
+We know how to evaluate the second term. Let’s work on the first term, conditioned on N.
 
 $$
 E \left[\left(\sum_{i=1}^{N} X_{i}\right)^{2}\right] =  E_{N} \left[E_{X_{i}} \left[\left(\sum_{i=1}^{N} X_{i}\right)^{2}\middle| N = n\right]\right]
