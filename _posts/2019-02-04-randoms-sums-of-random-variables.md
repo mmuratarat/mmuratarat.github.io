@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-Let $N$ be a random variable assuming positive integer values $1, 2, 3, \dots$. Let $X_{i}$ be a sequence of independent random variables which are also independent of $N$ and with $E[X_{i}] = E[X]$ the same for all $i$. Then,
+Let $N$ be a random variable assuming positive integer values $1, 2, 3, \dots$. Let $X_{i}$ be a sequence of independent random variables which are also independent of $N$ and with common mean $E[X_{i}] = E[X]$ the same for all $i$ and common variance $Var[X_{i}] = Var[X] $the same for all $i$, meaning that they do not depend on $i$. Then,
 
 $$
 \begin{split}
