@@ -74,27 +74,27 @@ $$
 
 Training of the unfolded recurrent neural network is done across multiple time steps using backpropagation where the overall error gradient is equal to the sum of the individual error gradients at each time step. The red lines in the image is where we calculate the gradients.
 
-This algorithm is known as backpropagation through time (BPTT). If we take a total of $T$ time steps, the error is given by the following equation:
+This algorithm is known as backpropagation through time (BPTT). If we take a total of $T$ time steps, the loss is given by the following equation:
 
 $$
-\frac{\partial \textbf{E}}{\partial \textbf{W}} = \sum_{t=1}^{T} \frac{\partial \textbf{E}_{t}}{\partial \textbf{W}}
+\frac{\partial L}{\partial W} = \sum_{t=1}^{T} \frac{\partial L_{t}}{\partial W}
 $$
 
 Applying chain rule to compute the overall error gradient we have the following
 
 $$4
-\frac{\partial \textbf{E}}{\partial \textbf{W}} = \sum_{t=1}^{T} \frac{\partial \textbf{E}}{\partial \textbf{y}_{t}} \frac{\partial \textbf{y}_{t}}{\partial \textbf{h}_{t}} \overbrace{\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}}}^{ \bigstar } \frac{\partial \textbf{h}_{k}}{\partial \textbf{W}} $$
+\frac{\partial L}{\partial W} = \sum_{t=1}^{T} \frac{\partial L}{\partial y_{t}} \frac{\partial y_{t}}{\partial h_{t}} \overbrace{\frac{\partial h_{t}}{\partial h_{k}}}^{ \bigstar } \frac{\partial h_{k}}{\partial W} $$
 
-The term marked $\bigstar$, i.e., $\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}}$, is the derivative of the hidden state at time $t$ with respect to the hidden state at time $k$.  This term involves products of Jacobians $\frac{\partial \textbf{h}_{i}}{\partial \textbf{h}_{i-1}}$ over subsequences linking an event at time $t$ and one at time $k$ given by:
+The term marked $\bigstar$, i.e., $\frac{\partial h_{t}}{\partial h_{k}}$, is the derivative of the hidden state at time $t$ with respect to the hidden state at time $k$.  This term involves products of Jacobians $\frac{\partial h_{i}}{\partial h_{i-1}}$ over subsequences linking an event at time $t$ and one at time $k$ given by:
 
 $$
 \begin{split}
-\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}} &= \frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{t-1}} \frac{\partial \textbf{h}_{t-1}}{\partial \textbf{h}_{t-2}} \cdots \frac{\partial \textbf{h}_{k+1}}{\partial \textbf{h}_{k}}  \\
-&= \prod_{i=k+1}^{t} \frac{\partial \textbf{h}_{i}}{\partial \textbf{h}_{i-1}}
+\frac{\partial h_{t}}{\partial h_{k}} &= \frac{\partial h_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial h_{t-2}} \cdots \frac{\partial h_{k+1}}{\partial h_{k}}  \\
+&= \prod_{i=k+1}^{t} \frac{\partial h_{i}}{\partial h_{i-1}}
 \end{split}
 $$
 
-The product of Jacobians in Equation above features the derivative of the term $h_{t}$ with respect to $h_{t-1}$ (i.e., \frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{t-1}}) which when evaluated on RNN definition ($h_{t} = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$) yields $W_{hh}^{T}\left[f^{'}(h_{t-1}) \right]$, therefore:
+The product of Jacobians in Equation above features the derivative of the term $h_{t}$ with respect to $h_{t-1}$ (i.e., $\frac{\partial h_{t}}{\partial h_{t-1}}$) which when evaluated on RNN definition ($h_{t} = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$) yields $W_{hh}^{T}\left[f^{'}(h_{t-1}) \right]$, therefore:
 
 # Vanishing and Exploding Gradients
 The backpropagation algorithm works by going from the output layer to the input layer, propagatinf the error gradient on the way back. Once the algorithm has computed the gradient of the cost function with regards to each parameter in the network, it uses these gradients to update each parameter with a Gradient Descent step. Unfortunately, sometimes, gradients get smaller and smaller as the algorithm progresses back to the lower layers. As a result, gradient descent update leaves the lower connection weights unchanged (relatively) and training never converges to a good solution. However, lower layers (sometimes called earlier layers) in the network are important because they are responsible to learn and detecting the simple patterns and are actually the building blocks of the network. Obviously, if they give improper and inaccurate results, then the next layers and thus, the complete network, will not perform nicely and produce accurate results. This phenomenon is called *vanishing gradient problem*. In some cases, the opposire can happen: the gradients can grow bigger and bigger, so many layers get insanely large weight updates and the algorithm diverges, This is *exploding gradients* problem. Both problems are mostly encountered in recurrent nural networks. There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. Therefore, choosing a proper weight initialization and activation function play an important role for the model we are training on. 
