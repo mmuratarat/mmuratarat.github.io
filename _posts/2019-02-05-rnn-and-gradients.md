@@ -94,7 +94,16 @@ $$
 \end{split}
 $$
 
-The product of Jacobians in Equation above features the derivative of the term $h_{t}$ with respect to $h_{t-1}$ (i.e., $\frac{\partial h_{t}}{\partial h_{t-1}}$) which when evaluated on RNN definition ($h_{t} = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$) yields $W_{hh}^{T}\left[f^{'}(h_{t-1}) \right]$, therefore:
+The product of Jacobians in Equation above features the derivative of the term $h_{t}$ with respect to $h_{t-1}$ (i.e., $\frac{\partial h_{t}}{\partial h_{t-1}}$) which when evaluated on RNN definition ($h_{t} = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$) yields $W^{T}\left[f^{'}(h_{t-1}) \right]$, therefore:
+
+$$
+\prod_{i=k+1}^{t} \frac{\partial h_{i}}{\partial h_{i-1}} = \prod_{i=k+1}^{t} W^\top \text{diag} \left[ f'\left(h_{i-1}\right) \right] 
+$$
+
+If we perform eigendecomposition on the Jacobian matrix $\frac{\partial h_{t}}{\partial h_{t-1}}$ given by $W^\top \text{diag} \left[ f'\left(h_{t-1}\right) \right]$, we get the eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ where $\lvert\lambda_{1}\rvert \gt \lvert\lambda_{2}\rvert \gt\cdots \gt \lvert\lambda_{n}\rvert$ and the corresponding eigenvectors $v_{1}, v_{1},\cdots,v_{n}$.
+
+
+
 
 # Vanishing and Exploding Gradients
 The backpropagation algorithm works by going from the output layer to the input layer, propagatinf the error gradient on the way back. Once the algorithm has computed the gradient of the cost function with regards to each parameter in the network, it uses these gradients to update each parameter with a Gradient Descent step. Unfortunately, sometimes, gradients get smaller and smaller as the algorithm progresses back to the lower layers. As a result, gradient descent update leaves the lower connection weights unchanged (relatively) and training never converges to a good solution. However, lower layers (sometimes called earlier layers) in the network are important because they are responsible to learn and detecting the simple patterns and are actually the building blocks of the network. Obviously, if they give improper and inaccurate results, then the next layers and thus, the complete network, will not perform nicely and produce accurate results. This phenomenon is called *vanishing gradient problem*. In some cases, the opposire can happen: the gradients can grow bigger and bigger, so many layers get insanely large weight updates and the algorithm diverges, This is *exploding gradients* problem. Both problems are mostly encountered in recurrent nural networks. There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. Therefore, choosing a proper weight initialization and activation function play an important role for the model we are training on. 
