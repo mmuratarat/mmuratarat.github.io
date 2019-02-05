@@ -18,19 +18,22 @@ An illustration of the RNN model is given below:
 
 The dynamical system is defined by:
 
-\begin{equation}
+$$
 \begin{split}
     h_{t} & = f_{h} (X_{t}, h_{t-1})\\
     y_{t} &= f_{o}(h_{t})
 \end{split}
-\end{equation}
+$$
+
 A conventional RNN is constructed by defining the transition function and the output function for a single instance:
-\begin{equation}
+
+$$
 \begin{split}
     h_{t} & = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})\\
     y_{t} &= f_{o}(h_{t}) = \phi_{o}(W_{yh}^{T}\cdot h_{t} + b_{y})
 \end{split}
-\end{equation}
+$$
+
 where $W_{xh}$, $W_{hh}$ and $W_{yh}$ are respectively the input, the transition (hidden state), and the output weight matrices and $\phi_{h}$ and $\phi_{o}$ are element-wise nonlinear functions. It is usual to use a saturating nonlinear function such as sigmoid function or a hyperbolic tangent function for $\phi_{h}$. $\phi_{o}$  is generally softmax activation for classification problem. 
 
 Just like for feedforward neural networks, we can compute a recurrent layer’s output in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$:
@@ -82,7 +85,7 @@ Applying chain rule to compute the overall error gradient we have the following
 $$4
 \frac{\partial \textbf{E}}{\partial \textbf{W}} = \sum_{t=1}^{T} \frac{\partial \textbf{E}}{\partial \textbf{y}_{t}} \frac{\partial \textbf{y}_{t}}{\partial \textbf{h}_{t}} \overbrace{\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}}}^{ \bigstar } \frac{\partial \textbf{h}_{k}}{\partial \textbf{W}} $$
 
-The term marked $\bigstar$, i.e., $\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}}$, is the derivative of the hidden state at time $t$ with respect to the hidden state at time $k$.  This term involves products of Jacobians \frac{\partial \textbf{h}_{i}}{\partial \textbf{h}_{i-1}} over subsequences linking an event at time $t$ and one at time $k$ given by:
+The term marked $\bigstar$, i.e., $\frac{\partial \textbf{h}_{t}}{\partial \textbf{h}_{k}}$, is the derivative of the hidden state at time $t$ with respect to the hidden state at time $k$.  This term involves products of Jacobians $\frac{\partial \textbf{h}_{i}}{\partial \textbf{h}_{i-1}}$ over subsequences linking an event at time $t$ and one at time $k$ given by:
 
 $$
 \begin{split}
