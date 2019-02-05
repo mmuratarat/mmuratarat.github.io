@@ -63,7 +63,7 @@ Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as 
 
 In literature, $\phi_{h}$ is chosen to be the hyperbolic tangent function which is is the non-linearity added to the hidden states while $\phi_{o}$ is softmax activation function used in the output layer.
 
-RNNs are trained in a sequential supervised manner. For time step $t$, the error is given by the difference between the predicted and targeted: $(\hat{y}_{t}−y_{t})$. The overall loss $L(\hat{y}_{t}−y_{t})$ is usually a sum of time step specific losses found in the range of intrest $[t,T]$ given by:
+RNNs are trained in a sequential supervised manner. For time step $t$, the error is given by the difference between the predicted and targeted: $(\hat{y}_{t} - y_{t})$. The overall loss $L(\hat{y}_{t}−y_{t})$ is usually a sum of time step specific losses found in the range of intrest $[t,T]$ given by:
 
 $$
 L (\hat{y}, y) = \sum_{t = 1}^{T} L(\hat{y}_{t}, y_{t}) 
@@ -148,7 +148,7 @@ plt.title("Derivative of ReLU Activation Function", fontsize=14)
 plt.savefig('relu_derivative.png')
 
 plt.figure()
-plt.plot(z, relu(z), "b-.", linewidth=2, label="ReLU Derivation")
+plt.plot(z, relu(z), "b-.", linewidth=2, label="ReLU")
 plt.grid(True)
 plt.legend(loc='upper left', fontsize=12)
 plt.title("ReLU Activation Function", fontsize=14)
@@ -168,6 +168,7 @@ Implementing ReLU in TensorFlow is trivial, just specify the activation function
 #### Leaky ReLU & Parametric ReLU (PReLU)
 
 Leaky ReLU has a small slope for negative values, instead of altogether zero.
+
 $$
 LeakyReLU(x) = max(\alpha x, x)
 $$
@@ -241,7 +242,7 @@ The main drawback of the ELU activation function is that it is slower to compute
 
 Implementing ELU in TensorFlow is trivial, just specify the activation function when building each layer using `tf.nn.elu`.
 
-Scaled exponential linear unit (SELU) has been also proposed in the literature. SELU is some kind of ELU but with a little twist. $\alpha$ and $\lambda$ are two pre-defined constants, meaning we don’t backpropagate through them and they are not hyperparameters to make decisions about. $\alpha$ and $\lambda$ are derived from the inputs. $\lambda$ is called as a scale parameter. Essentially, SELU is `scale * elu(x, alpha)`. 
+Scaled exponential linear unit (SELU) has also been proposed in the literature. SELU is some kind of ELU but with a little twist. $\alpha$ and $\lambda$ are two pre-defined constants, meaning we don’t backpropagate through them and they are not hyperparameters to make decisions about. $\alpha$ and $\lambda$ are derived from the inputs. $\lambda$ is called as a scale parameter. Essentially, SELU is `scale * elu(x, alpha)`. 
 
 $$
 SELU(x) = \lambda \begin{cases} \alpha (exp(x)-1) & \mbox{if $x < 0$}\\ x & \mbox{if $x \geq 0$} \end{cases}
