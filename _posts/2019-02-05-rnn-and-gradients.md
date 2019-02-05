@@ -9,12 +9,12 @@ Up to now we have mostly looked at feedforward neural networks, where the activa
 
 RNN, composed of just one neuron receiving inputs, producing an output, and sending that output back to itself (left). At each time step $t$ (also called a frame), this recurrent neuron receives the inputs $x_{t}$ as well as its own output from the previous time step, $y_{t–1}$. We can represent this tiny network against the time axis (right). This is called *unrolling the network through time*.
 
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rnn.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rnn.png)
 
 Here, each layer on the RNN represents a distinct time step and the weights are shared across time and this property helps reducing the number of parameters!
 
 An illustration of the RNN model is given below:
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rnn_full_model.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rnn_full_model.png)
 
 The dynamical system is defined by:
 
@@ -70,7 +70,7 @@ L (\hat{y}, y) = \sum_{t = 1}^{T} L(\hat{y}_{t}, y_{t})
 $$
 
 ## Backpropagation Through Time
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/BPTT.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/BPTT.png)
 
 Training of the unfolded recurrent neural network is done across multiple time steps using backpropagation where the overall error gradient is equal to the sum of the individual error gradients at each time step. The red lines in the image is where we calculate the gradients.
 
@@ -82,7 +82,7 @@ $$
 
 Applying chain rule to compute the overall error gradient we have the following
 
-$$4
+$$
 \frac{\partial L}{\partial W} = \sum_{t=1}^{T} \frac{\partial L}{\partial y_{t}} \frac{\partial y_{t}}{\partial h_{t}} \overbrace{\frac{\partial h_{t}}{\partial h_{k}}}^{ \bigstar } \frac{\partial h_{k}}{\partial W} $$
 
 The term marked $\bigstar$, i.e., $\frac{\partial h_{t}}{\partial h_{k}}$, is the derivative of the hidden state at time $t$ with respect to the hidden state at time $k$.  This term involves products of Jacobians $\frac{\partial h_{i}}{\partial h_{i-1}}$ over subsequences linking an event at time $t$ and one at time $k$ given by:
@@ -155,7 +155,7 @@ plt.title("ReLU Activation Function", fontsize=14)
 plt.savefig('relu.png')
 {% endhighlight %}
 
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/relu.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/relu.png)
 
 ReLU is cheap to compute because it has an easy function and a simple derivative. It converges faster. It does not saturate. It doesn’t have the vanishing gradient problem suffered by other activation functions like sigmoid or tanh. It introduces sparsity in the network. Sparsity results in concise models that often have better predictive power and less overfitting/noise. A sparse network is faster than a dense network, as there are fewer things to compute.
 
@@ -199,7 +199,7 @@ plt.savefig("leaky_relu_plot")
 plt.show()
 {% endhighlight %}
 
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/leaky_relu_plot.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/leaky_relu_plot.png)
 
 Parametric ReLU (PReLU) is a type of leaky ReLU that, instead of having $\alpha$ predetermined slope like $0.01$, $\alpha$ is to be learned during training. It is reported that PReLU strongly outperform ReLU on large image datasets but on smaller datasets, it runs the risk of overfitting the training set.
 
@@ -274,7 +274,7 @@ plt.savefig("selu_plot")
 plt.show()
 {% endhighlight %}
 
-![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/selu_plot.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/selu_plot.png)
 
 Implementing SELU in TensorFlow is trivial, just specify the activation function when building each layer using `tf.nn.selu`.
 
@@ -285,7 +285,7 @@ Implementing SELU in TensorFlow is trivial, just specify the activation function
 # Proposed Solutions For Vanishing Gradients
 
 # REFERENCES
-1. [Paul J. Werbos. Backpropagation through time: what it does and how to do it.Proceedings of the IEEE, 78(10): 1550 – 1560, 1990.](http://axon.cs.byu.edu/~martinez/classes/678/Papers/Werbos_BPTT.pdf){:target="_blank"}
+1. [Paul J. Werbos. Backpropagation through time: what it does and how to do it. Proceedings of the IEEE, 78(10): 1550 – 1560, 1990.](http://axon.cs.byu.edu/~martinez/classes/678/Papers/Werbos_BPTT.pdf){:target="_blank"}
 
 2. [https://www.utc.fr/~bordesan/dokuwiki/_media/en/glorot10nipsworkshop.pdf](https://www.utc.fr/~bordesan/dokuwiki/_media/en/glorot10nipsworkshop.pdf){:target="_blank"}
 
