@@ -115,8 +115,131 @@ Note that the cause for vanishing gradients is the same for typical feedforward 
 # Activation Functions
 
 ## Sigmoid Function
+Sigmoid function is one of the mostly-used and well-known activation functions. The function itself is defined as:
+
+$$
+sigmoid (x)=\dfrac{1}{1+e^{-x}}
+$$
+
+and its first-order derivative is given by
+
+$$
+\begin{split}
+\frac{\partial}{\partial x}  sigmoid (x) &= \dfrac{\partial}{\partial x} \left(\dfrac{1}{1+e^{-x}}\right)\\
+&=\dfrac{e^{-x}}{(1+e^{-x})^{2}} = \dfrac{e^{-x} +1 -1}{(1+e^{-x})^{2}}\\
+&=\dfrac{e^{-x} +1}{(1+e^{-x})^{2}} - \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
+&=\dfrac{1}{1+e^{-x}} -  \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
+&=sigmoid(z)- sigmoid^{2}(z)\\
+&=sigmoid(z) \left(1- sigmoid(z)\right)
+\end{split}
+$$
+
+This turns out to be a convenient form for efficiently calculating gradients used in neural networks. If one keeps in memory the feed-forward activations of the sigmoid (logistic) function for a given layer, the gradients for that layer can be evaluated using simple multiplication and subtraction rather than performing any re-evaluating the sigmoid function, which requires extra exponentiation.
+
+{% highlight python %}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+def sigmoid(z):
+    return 1/ (1+np.exp(-z))
+
+def sigmoid_derivation(z):
+    return sigmoid(z)*(1-sigmoid(z))
+
+z = np.linspace(-5, 5, 200)
+plt.figure()
+plt.style.use('seaborn-darkgrid')
+plt.plot(z, sigmoid(z), "b-.", linewidth=2)
+props = dict(facecolor='black', shrink=0.1)
+plt.annotate('Saturating', xytext=(3.5, 0.7), xy=(5, 1), arrowprops=props, fontsize=14, ha="center")
+plt.annotate('Saturating', xytext=(-3.5, 0.3), xy=(-5, 0), arrowprops=props, fontsize=14, ha="center")
+plt.title("Sigmoid Activation Function", fontsize=14)
+plt.savefig('sigmoid.png')
+
+z = np.linspace(-5, 5, 200)
+plt.figure()
+plt.style.use('seaborn-darkgrid')
+plt.plot(z, sigmoid_derivation(z), "b-.", linewidth=2)
+props = dict(facecolor='black', shrink=0.1)
+plt.annotate('Max Value', xytext=(0, 0.15), xy=(0, 0.25), arrowprops=props, fontsize=14, ha="center")
+plt.title("Derivation of Sigmoid Function", fontsize=14)
+plt.savefig('sigmoid_derivation.png')
+{% endhighlight %}
+
+The plot of sigmoid function and its derivative are shown as follows:
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/sigmoid.png)
+
+Sigmoid function is non-linear in nature. Combinations of this function are also non-linear. So, stacking layers is possible. Non-binary activations is also feasible because it will spit out intermediate activation values unlike step function. It has a smooth gradient too. 
+
+Figure shows that between x values -2 to 2, y values are very steep, which means that any small changes in the values of x in that region will cause values of y to change significantly. That means this function has a tendency to bring the y values to either end of the curve, which will make clear distinctions on prediction. The output of the activation function is always going to be in range $(0,1)$ compared to $(-\infty, \infty)$ of linear function. So we have our activations bound in a range. The activations will not blow up then. However, there are couple of problems with sigmoid function.
+
+Towards either end of the sigmoid function, the y values tend to respond very less to changes in x. The gradient at that region is going to be small. It gives rise to a problem of "vanishing gradients" because derivative of sigmoid is always less than 0.25 for all inputs except 0. Sigmoid neurons will stop learning when they saturate. Gradient is small or has vanished and it cannot make significant change because of the extremely small value. The network refuses to learn further or is drastically slow depending on the case and until gradient/computation gets hit by floating point value limits. Because If one multiples a bunch of terms which are less than 1, the result will tend towards the zero. Hence gradients will vanish as going further from the output. There are ways to work around this problem and sigmoid is still very popular in classification problems.
 
 ## Hyperbolic Tangent Function
+Another popular activation function is Hyperbolic Tangent function. Hyperbolic Tangent function, also known as tanh function, is a rescaled version of the sigmoid function. The function itself is defined as
+
+$$
+tanh(x)= \dfrac{sinh(x)}{cosh(x)} =\dfrac{e^{x}-e^{-x}}{e^{x}+e^{-x}} = 2 \times sigmoid(2x)-1
+$$
+
+and its derivative is given by
+
+$$
+\begin{split}
+\dfrac{\partial}{\partial x}  tanh(x) & =\dfrac{\partial}{\partial x} \dfrac{sinh(x)}{cosh(x)} \\
+&= \dfrac{cosh^{2} (x) - sinh^{2}(x)}{cosh^{2} (x)} \\
+&= 1- \dfrac{sinh^{2}(x)}{cosh^{2} (x)}\\
+& =1- tanh^{2}(x)\\
+&= \left(1- (tanh(x))^{2}\right)
+\end{split}
+$$
+
+{% highlight python %}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+def tanh(z):
+    return (np.exp(2*z)-1)/(np.exp(2*z)+1)
+
+def tanh_derivation(z):
+    return (1- tanh(z)**2)
+
+z = np.linspace(-5, 5, 200)
+plt.figure()
+plt.style.use('seaborn-darkgrid')
+plt.plot(z, sigmoid(z), "b-.", linewidth=2)
+props = dict(facecolor='black', shrink=0.1)
+plt.annotate('Saturating', xytext=(3.5, 0.7), xy=(5, 1), arrowprops=props, fontsize=14, ha="center")
+plt.annotate('Saturating', xytext=(-3.5, 0.3), xy=(-5, 0), arrowprops=props, fontsize=14, ha="center")
+plt.title("Hyperbolic Tangent Activation Function", fontsize=14)
+plt.savefig('tanh.png')
+
+z = np.linspace(-5, 5, 200)
+plt.figure()
+plt.style.use('seaborn-darkgrid')
+plt.plot(z, sigmoid_derivation(z), "b-.", linewidth=2)
+props = dict(facecolor='black', shrink=0.1)
+plt.annotate('Max Value', xytext=(2.9, 0.8), xy=(0, 1), arrowprops=props, fontsize=14, ha="center")
+plt.title("Derivation of Hyperbolic Tangent Function", fontsize=14)
+plt.savefig('tanh_derivation.png')
+{% endhighlight %}
+
+The plot of sigmoid function and its derivative are shown as follows:
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/tanh.png)
+
+Similar to the derivative for the sigmoid function, the same caching trick can be used for layers that implement tanh activation functions.
+
+It has characteristics similar to sigmoid function. It is nonlinear in nature, so, we can stack layers. The tanh non-linearity squashes real numbers to range between $[-1,1]$ so one needs not to worry about activations blowing up. The gradient is stronger for tanh than sigmoid (derivatives are steeper). Deciding between the sigmoid or tanh will depend on your requirement of gradient strength. However, unlike the sigmoid neuron, the output of tanh function is zero-centered. Therefore, in practice the tanh non-linearity is always preferred to the sigmoid nonlinearity ([source](http://cs231n.github.io/neural-networks-1/){:target="_blank"}).
+
+Like sigmoid function, tanh function also has the vanishing gradient problem because the derivative of the function is always less than 1 for all inputs except 0. 
+
+Instead of sigmoid function and tanh function because of all these problems associated, the most recent deep learning networks use rectified linear units (ReLUs) for the hidden layers which might be a solution for vanishing gradient problem.
 
 ## Rectified Linear Unit (ReLU) 
 ReLU is a piecewise non-linear function that corresponds to:
@@ -300,7 +423,7 @@ plt.show()
 Implementing SELU in TensorFlow is trivial, just specify the activation function when building each layer using `tf.nn.selu`.
 
 #### Concatenated ReLU (CReLU)
-Concatenates a ReLU which selects only the positive part of the activation with a ReLU which selects only the negative part of the activation. In other words, for positive $x$ it produces $[x, 0]$, and for negative $x$ it produces $[0, x]$. Note that it has two outputs, as a result this non-linearity doubles the depth of the activations. 
+It concatenates a ReLU which selects only the positive part of the activation with a ReLU which selects only the negative part of the activation. In other words, for positive $x$ it produces $[x, 0]$, and for negative $x$ it produces $[0, x]$. Note that it has two outputs, as a result this non-linearity doubles the depth of the activations. 
 
 Implementing CReLU in TensorFlow is trivial, just specify the activation function when building each layer using `tf.nn.crelu`.
 
@@ -326,7 +449,7 @@ plt.title("ReLU-6 Activation Function", fontsize=14)
 plt.savefig('relu-6.png')
 {% endhighlight %}
 
-![](relu-6.png)
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/relu-6.png)
 
 It was first used in [this paper](http://www.cs.utoronto.ca/~kriz/conv-cifar10-aug2010.pdf){:target="_blank"} for CIFAR-10, and 6 is an arbitrary choice that worked well. According to the authors, the upper bound encouraged their model to learn sparse features earlier.
 
