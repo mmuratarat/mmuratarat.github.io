@@ -206,8 +206,8 @@ Tensorflow implementation is given as follows:
 
 As one can easily see that, the weights for peephole connections are one dimensional array, shape of `[num_units]`.
 
-# What is number of units in an LSTM cell?
-It can be hard to understand what number of units in an LSTM cell stand for. Most LSTM diagrams just show the hidden cells but never the units of those cells. The image below from [this source](https://jasdeep06.github.io/posts/Understanding-LSTM-in-Tensorflow-MNIST/){:target="_blank"} explains it very well. `num_units` can be interpreted as the analogy of hidden layer from the feed forward neural network. The number of units in an LSTM cell can be thought of number of neurons in a hidden layer. It is a direct representation of the learning capacity of a neural network.
+# What is the number of units in an LSTM cell?
+It can be hard to understand what number of units in an LSTM cell stands for. Most LSTM diagrams just show the hidden cells but never the units of those cells. The image below from [this source](https://jasdeep06.github.io/posts/Understanding-LSTM-in-Tensorflow-MNIST/){:target="_blank"} explains it very well. `num_units` can be interpreted as the analogy of hidden layer from the feed forward neural network. The number of units in an LSTM cell can be thought of number of neurons in a hidden layer. It is a direct representation of the learning capacity of a neural network.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/num_units.png?raw=true)
 
