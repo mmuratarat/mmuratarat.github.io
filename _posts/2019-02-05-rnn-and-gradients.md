@@ -63,7 +63,7 @@ Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as 
 
 In literature, $\phi_{h}$ is chosen to be the hyperbolic tangent function which is is the non-linearity added to the hidden states while $\phi_{o}$ is softmax activation function used in the output layer.
 
-RNNs are trained in a sequential supervised manner. For time step $t$, the error is given by the difference between the predicted and targeted: $(\hat{y}_{t} - y_{t})$. The overall loss $L(\hat{y}_{t}−y_{t})$ is usually a sum of time step specific losses found in the range of intrest $[t,T]$ given by:
+RNNs are trained in a sequential supervised manner. For time step $t$, the error is given by the difference between the predicted and targeted: ($\hat{y}_{t} - y_{t}$). The overall loss $L(\hat{y}_{t}−y_{t})$ is usually a sum of time step specific losses found in the range of interest $[t,T]$ given by:
 
 $$
 L (\hat{y}, y) = \sum_{t = 1}^{T} L(\hat{y}_{t}, y_{t}) 
