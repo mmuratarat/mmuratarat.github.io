@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Dimensions of matrices in an LSTM Block"
+title: "Dimensions of matrices in an LSTM Cell"
 author: "MMA"
 comments: true
 ---
 
-A general LSTM block can be shown as given below ([source](https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714){:target="_blank"}).
+A general LSTM cell can be shown as given below ([source](https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714){:target="_blank"}).
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
@@ -106,7 +106,7 @@ Each of the $W_{xi}$, $W_{xf}$, $W_{xc}$ and $W_{xo}$, is an array with the shap
 **NOTE**: Tensorflow uses the letter `j` to denote new input (candidate), we use the letter `c`.
 
 # Mathematical Representation
-Let's denote $B$ as batch size, $F$ as number of features and $U$ as number of units in an LSTM block, therefore, the dimensions will be computed as follows:
+Let's denote $B$ as batch size, $F$ as number of features and $U$ as number of units in an LSTM cell, therefore, the dimensions will be computed as follows:
 
 $X_{t} \in \mathbb{R}^{B \times F}$
 
