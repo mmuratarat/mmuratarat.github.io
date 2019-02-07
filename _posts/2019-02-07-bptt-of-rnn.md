@@ -60,10 +60,10 @@ Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as 
 In order to do backpropagation through time to train an RNN, we need to compute the loss function first:
 
 $$
-L (\hat{y}, y) = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) = -\sum_{t = 1}^{T}y_{t} log \hat{y}_{t}
+L (\hat{y}, y) = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) = - \sum_{t = 1}^{T}y_{t} \log \hat{y}_{t}
 $$
 
-Since we have $o_{t} = W_{yh}^{T}\cdot h_{t} + b_{y}$, then, $\hat{y}_{t} = \text{softmax} (o_{t})$.
+Since we have $o_{t} = W_{yh}^{T}\cdot h_{t} + b_{y}$, then, $\hat{y}_{t} = \textrm{softmax} (o_{t})$.
 
 $$
 L (\hat{y}, y) = -\sum_{t = 1}^{T}y_{t} log \left[softmax(o_{t}) \right]
