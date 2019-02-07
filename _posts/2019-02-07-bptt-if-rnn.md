@@ -39,11 +39,10 @@ where
 In order to do backpropagation through time to train an RNN, we need to compute the loss function first:
 
 $$
-L (\hat{y}, y) = \sum_{t = 1}^{T} L(\hat{y}_{t}, y_{t}) = -\sum_{t = 1}^{T}y_{t} log \hat{y}_{t}
+L (\hat{y}, y) = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) = -\sum_{t = 1}^{T}y_{t} log \hat{y}_{t}
 $$
 
-We have $o_{t} = W_{yh}^{T}\cdot h_{t} + b_{y}$, then $\hat{y}_{t} = softmax(o_{t})$.
-
+Since we have $o_{t} = W_{yh}^{T}\cdot h_{t} + b_{y}$, then, $\hat{y}_{t} = softmax ( o_{t} )$.
 
 $$
 L (\hat{y}, y) = -\sum_{t = 1}^{T}y_{t} log \left[softmax(o_{t}) \right]
@@ -56,16 +55,16 @@ $$
 \frac{\partial}{\partial o_{t}} L (\hat{y}, y) = -(y_{t} - \hat{y}_{t})
 $$
 
-Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore, we can differentiate to it at the each time step and summ all together:
+Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore, we can differentiate to it at the each time step and sum all together:
 
 $$
-\frac{\partial L (\hat{y}, y)}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial W_{yh}}
+\frac{\partial L}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
 $$
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 
 $$
-\frac{\partial L (\hat{y}, y)}{\partial b_{y}}  = \sum_{t = 1}^{T} \frac{\partial L}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial b_{y}}
+\frac{\partial L}{\partial b_{y}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}
 $$
 
 Further, let's use $L_{t+1}$ to denote the output of the time-step $t+1$, $L_{t+1} = -y_{t+1} log \hat{y}_{t+1}$.
@@ -132,3 +131,4 @@ Do not forget that $\frac{\partial h_{t+1}}{\partial h_{k}}$ is a chain rule in 
 1. [http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/){:target="_blank"}
 2. [https://arxiv.org/abs/1610.02583](https://arxiv.org/abs/1610.02583){:target="_blank"}
 3. [https://github.com/go2carter/nn-learn/blob/master/grad-deriv-tex/rnn-grad-deriv.pdf](https://github.com/go2carter/nn-learn/blob/master/grad-deriv-tex/rnn-grad-deriv.pdf){:target="_blank"}
+4. [http://willwolf.io/2016/10/18/recurrent-neural-network-gradients-and-lessons-learned-therein/](http://willwolf.io/2016/10/18/recurrent-neural-network-gradients-and-lessons-learned-therein/){:target="_blank"}
