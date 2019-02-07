@@ -7,35 +7,56 @@ comments: true
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/BPTT.png)
 
-The dynamical system of a Recurrent Neural Network is defined by:
+
+
+The dynamical system is defined by:
 
 $$
 \begin{split}
     h_{t} & = f_{h} (X_{t}, h_{t-1})\\
-    y_{t} &= f_{o}(h_{t})
+    \hat{y}_{t} &= f_{o}(h_{t})
 \end{split}
 $$
-
 
 A conventional RNN is constructed by defining the transition function and the output function for a single instance:
 
 $$
 \begin{split}
-    h_{t} & = f_{h} (X_{t}, h_{t-1}) = tanh(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})\\
-    o_{t} &= W_{yh}^{T}\cdot h_{t} + b_{y}\\
-    \hat{y}_{t} &= f_{o}(h_{t}) = softmax(o_{t})
+    h_{t} & = f_{h} (X_{t}, h_{t-1}) = \phi_{h}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})\\
+    \hat{y}_{t} &= f_{o}(h_{t}) = \phi_{o}(W_{yh}^{T}\cdot h_{t} + b_{y})
 \end{split}
 $$
 
-where 
+where $W_{xh}$, $W_{hh}$ and $W_{yh}$ are weight matrices for the input, reccurent connections, and the output,  respectively and $\phi_{h}$ and $\phi_{o}$ are element-wise nonlinear functions. It is usual to use a saturating nonlinear function such as logistic sigmoid function or a hyperbolic tangent function for $\phi_{h}$. $\phi_{o}$  is generally softmax activation for classification problem. 
 
-1. $h_{t}$: Hidden state at the time-step $t$.
-2. $h_{t-1}$: Hidden state at the time-step $t-1$.
-3. $W_{xh}$ Weight matrix for input to hidden layer.
-4. $W_{hh}$ Weight matrix for recurrent connections.
-5. tanh: Hyperbolic tangent activation function
-6. $X_{t}$ Input at the time-step $t$.
+**NOTE**: Reusing same weight matrix every time step! $W$ is shared across time - reduces the number of parameters!
 
+Just like for feedforward neural networks, we can compute a recurrent layer’s output in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$:
+
+$$
+\begin{split}
+    h_{t} & = tanh(X_{t}\cdot W_{xh} + h_{t-1}\cdot  W_{hh} + b_{h})\\
+    &= \phi_{h}( [X_{t} h_{t-1}] \cdot W + b_{h})\\
+    o_{t} &= h_{t}\cdot W_{yh} + b_{y}\\
+    \hat{y}_{t} &= softmax(o_{t})
+\end{split}
+$$
+
+1. The weight matrices $W_{xh}$ and $W_{yh}$ are often concatenated vertically into a single weight matrix $W$ of shape $(n_{inputs} +  n_{neurons}) \times  n_{neurons}$.
+2. The notation $[X_{t} h_{t-1}]$ represents the horizontal concatenation of the matrices $X_{t}$ and $h_{t-1}$, shape of $m \times (n_{inputs} + n_{neurons})$  
+
+Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as the number of neurons, and $n_{inputs}$ as the number of input features.
+
+1. $X_{t}$ is an $m \times n_{inputs}$ matrix containing the inputs for all instances.
+2. $h_{t-1}$ is an $m \times n_{neurons}$ matrix containing the hidden state of the previous time-step for all instances.
+3. $W_{xh}$ is an $n_{inputs} \times n_{neurons}$ matrix containing the connection weights between input and the hidden layer.
+4. $W_{hh}$ is an $n_{neurons} \times n_{neurons}$ matrix containing the connection weights between two hidden layers.
+5. $W_{yh}$ is an $n_{neurons} \times n_{neurons}$ matrix containing the connection weights between the hidden layer and the output.
+6. $b_{h}$ is a vector of size $n_{neurons}$ containing each neuron’s bias term.
+7. $b_{y}$ is a vector of size $n_{neurons}$ containing each output’s bias term.
+8. $y_{t}$ is an $m \times n_{neurons}$ matrix containing the layer’s outputs at time step $t$ for each instance in the mini-batch 
+
+# Backpropagation Through Time
 In order to do backpropagation through time to train an RNN, we need to compute the loss function first:
 
 $$
