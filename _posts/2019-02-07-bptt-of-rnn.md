@@ -60,13 +60,11 @@ Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as 
 In order to do backpropagation through time to train an RNN, we need to compute the loss function first:
 
 $$
-L (\hat{y}, y) = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) = - \sum_{t = 1}^{T} y_{t} \log \hat{y}_{t}
-$$
-
-Since we have $o_{t} = W_{yh}^{T}\cdot h_{t} + b_{y}$, then, \( \widehat{y}_{t} = \textrm{softmax} (o_{t})\).
-
-$$
-L (\hat{y}, y) = -\sum_{t = 1}^{T}y_{t} log \left[softmax(o_{t}) \right]
+\begin{split}
+L (\hat{y}, y) & = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) \\
+& = - \sum_{t = 1}^{T} y_{t} \log \hat{y}_{t} \\
+& = -\sum_{t = 1}^{T}y_{t} log \left[softmax(o_{t}) \right]
+\end{split}
 $$
 
 By taking the derivative of $L$ with respect to $o_{t}$, we get the following:
@@ -101,7 +99,7 @@ $$
 \frac{\partial L_{t+1}}{\partial W_{hh}} =  \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}\frac{\partial h_{t+1}}{\partial h_{t}} \frac{\partial h_{t}}{\partial W_{hh}}
 $$
 
-Thus, at the time-step $t+1$, we can compute the gradient with respect to \(\widehat{y}_{t+1}\) and further use backpropagation through time from t to 1 to compute the gradient with respect to $W_{hh}$. Therefore, if we only consider the output $y_{t+1}$ at the time-step $t+1$
+Thus, at the time-step $t+1$, we can compute the gradient with respect and further use backpropagation through time from t to 1 to compute the gradient with respect to $W_{hh}$. Therefore, if we only consider the output $y_{t+1}$ at the time-step $t+1$
 
 $$
 \frac{\partial L_{t+1}}{\partial W_{hh}} = \sum_{k=1}^{t+1} \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}\frac{\partial h_{t+1}}{\partial h_{k}} \frac{\partial h_{k}}{\partial W_{hh}}
