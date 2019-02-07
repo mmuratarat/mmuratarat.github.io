@@ -30,7 +30,7 @@ $$
 where 
 
 1. $h_{t}$: Hidden state at the time-step $t$.
-2. $h_{t-1}$: Hidden state at the timne step $t-1$.
+2. $h_{t-1}$: Hidden state at the time-step $t-1$.
 3. $W_{xh}$ Weight matrix for input to hidden layer.
 4. $W_{hh}$ Weight matrix for recurrent connections.
 5. tanh: Hyperbolic tangent activation function
