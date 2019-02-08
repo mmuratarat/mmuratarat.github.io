@@ -93,13 +93,13 @@ $$
 \frac{\partial L_{t+1}}{\partial W_{hh}} =  \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}} \frac{\partial h_{t+1}}{\partial W_{hh}}
 $$
 
-where we consider only one time-step ($t \rightarrow t+1$). But, because the hidden state $h_{t+1}$ partially depends also on $h_{t}$, we can use backpropagation through time to compute the partial derivative above. Thinking further, $W_{hh}$ is shared across the whole time sequence, according to the recursive formulation ($h_{t} = tanh(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$). Thus, at the time-step $t-1 \rightarrow t$, we can further get the partial derivative with respect to $W_{hh}$ as the following:
+where we consider only one time-step ($t \rightarrow t+1$). But, the hidden state $h_{t+1}$ partially depends also on $h_{t}$ according to the recursive formulation ($h_{t} = tanh(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t-1} +b_{h})$). Thus, at the time-step $t-1 \rightarrow t$, we can further get the partial derivative with respect to $W_{hh}$ as the following:
 
 $$
 \frac{\partial L_{t+1}}{\partial W_{hh}} =  \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}\frac{\partial h_{t+1}}{\partial h_{t}} \frac{\partial h_{t}}{\partial W_{hh}}
 $$
 
-Thus, at the time-step $t+1$, we can compute the gradient with respect and further use backpropagation through time from t to 1 to compute the gradient with respect to $W_{hh}$. Therefore, if we only consider the output $y_{t+1}$ at the time-step $t+1$
+Thus, at the time-step $t+1$, we can compute the gradient and further use backpropagation through time from $t+1$ to $1$ to compute the overall gradient with respect to $W_{hh}$:
 
 $$
 \frac{\partial L_{t+1}}{\partial W_{hh}} = \sum_{k=1}^{t+1} \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}\frac{\partial h_{t+1}}{\partial h_{k}} \frac{\partial h_{k}}{\partial W_{hh}}
