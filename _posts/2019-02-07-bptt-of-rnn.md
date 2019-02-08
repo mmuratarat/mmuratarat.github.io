@@ -67,16 +67,10 @@ L (\hat{y}, y) & = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) \\
 \end{split}
 $$
 
-By taking the derivative of $L$ with respect to $o_{t}$, we get the following:
-
-$$
-\frac{\partial}{\partial o_{t}} L_{t} (\hat{y}, y) = - (y_{t} - \hat{y}_{t})
-$$
-
 Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore, we can differentiate to it at the each time step and sum all together:
 
 $$
-\frac{\partial L}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
+\frac{\partial L}{\partial W_{yh}} = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
 $$
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
