@@ -168,10 +168,10 @@ In a basic LSTM cell, the gate controllers can look only at the input $X_{t}$, a
 Based on the information above, if we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + \circ C_{t-1}W_{ci}  + b_{i})$$
+$$ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + C_{t-1}\circ W_{ci}  + b_{i})$$
 
 2. Forget gate:
-$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + \circ C_{t-1}W_{cf}  + b_{f})$$
+$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + C_{t-1}\circ W_{cf}  + b_{f})$$
 
 3. New Candidate:
 $$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$$
@@ -180,7 +180,7 @@ $$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 5. Output gate:
-$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + \circ C_{t}W_{co}  + b_{o})$$
+$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + C_{t}\circ W_{co}  + b_{o})$$
 
 6. Hidden State:
 $$ h_{t} = o_{t}\circ tanh(C_{t})$$
