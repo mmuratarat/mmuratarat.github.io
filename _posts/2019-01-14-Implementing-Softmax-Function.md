@@ -40,3 +40,5 @@ softmax([0.9, -10])
 softmax([0, 10])
 #array([4.53978687e-05, 9.99954602e-01])
 {% endhighlight %}
+
+**NOTE**: Sigmoid function is special case of softmax function. It is easy to prove. Whereas the softmax outputs a valid probability distribution over $K > 2$ distinct outputs, the sigmoid does the same for $K=2$.
