@@ -207,9 +207,8 @@ Tensorflow implementation is given as follows:
 As one can easily see that, the weights for peephole connections are one dimensional array, shape of `[num_units]`.
 
 
-# Backpropagation Through Time of LSTM
 # Backward Pass
-Backpropagation Through Time of LSTM is computed as follows and all those equations are provided in [this paper](https://arxiv.org/abs/1503.04069){:target="_blank"}:
+Backward pass of LSTM is computed as follows and all those equations are provided in [this paper](https://arxiv.org/abs/1503.04069){:target="_blank"}:
 $$
 \begin{split}
 \delta h_{t} &= \Delta_{t} + \Delta h_{t} \\
