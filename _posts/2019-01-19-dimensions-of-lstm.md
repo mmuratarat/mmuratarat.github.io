@@ -223,6 +223,8 @@ $$
 \end{split}
 $$
 
+Here $\Delta_{t}$ is the vector of deltas passed down from the layer above. If $L$ is the loss function it formally corresponds to $\frac{\partial L}{\partial y_{t}}$ but not including the recurrent dependencies.
+
 The final updates to the internal parameters is computed as:
 
 $$
