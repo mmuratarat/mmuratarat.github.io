@@ -35,6 +35,8 @@ $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 *  $\sigma$ is an element-wise sigmoid activation function of the neurons, and $tanh$ is an element-wise hyperbolic tangent activation function of the neurons
 *  $\circ$ represents the Hadamard product (elementwise product).
 
+**NOTE**: Sometimes, $h_t$ is called as the outgoing state and $c_t$ is called as the internal cell state.
+
 Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
