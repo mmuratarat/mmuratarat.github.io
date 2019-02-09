@@ -206,6 +206,41 @@ Tensorflow implementation is given as follows:
 
 As one can easily see that, the weights for peephole connections are one dimensional array, shape of `[num_units]`.
 
+
+# Backpropagation Through Time of LSTM
+# Backward Pass
+Backpropagation Through Time of LSTM is computed as follows and all those equations are provided in [this paper](https://arxiv.org/abs/1503.04069){:target="_blank"}:
+$$
+\begin{split}
+\delta h_{t} &= \Delta_{t} + \Delta h_{t} \\
+\delta C_{t} &= \delta h_{t} \circ o_{t} \circ (1-tanh^{2}(C_{t})) + \delta C_{t+1} \circ f_{t+1}\\
+\delta \widetilde{C}_{t} &= \delta C_{t} \circ i_{t} \circ (1-\widetilde{C}^{2}_{t})\\
+\delta i_{t} &= \delta C_{t} \circ \widetilde{C}_{t} \circ i_{t} \circ (1-i_{t})\\
+\delta f_{t} &= \delta C_{t} \circ C_{t-1} \circ f_{t} \circ (1-f_{t})\\
+\delta o_{t} &= \delta h_{t} \circ tanh(C_{t}) \circ o_{t} \circ (1-o_{t})\\
+\delta X_{t} &= W^{T}_{x} \cdot \delta gates_{t}\\
+\Delta h_{t-1} &= W^{T}_{h} \cdot \delta gates_{t}
+\end{split}
+$$
+
+The final updates to the internal parameters is computed as:
+
+$$
+\begin{split}
+\delta W_{x} &= \sum_{t=0}^{T} \delta gates_{t} \otimes X_{t} \\
+\delta W_{h} &= \sum_{t=0}^{T-1} \delta gates_{t+1} \otimes h_{t} \\
+\delta b &= \sum_{t=0}^{T} \delta gates_{t+1}
+\end{split}
+$$
+
+where
+
+$$
+gates_{t} = \begin{bmatrix}\widetilde{C}_{t} \\ i_{t} \\ f_{t} \\ o_{t} \end{bmatrix}\,\,\,\,\, W_{x} = \begin{bmatrix}W_{xc} \\ W_{xi} \\ W_{xf} \\ W_{xo}\end{bmatrix}\,\,\,\,\, W_{h} = \begin{bmatrix}W_{hc} \\ W_{hi} \\ W_{hf} \\ W_{ho}\end{bmatrix}\,\,\,\,\, b = \begin{bmatrix}b_{c} \\ b_{i} \\ b_{f} \\ b_{o}\end{bmatrix}
+$$
+
+$\circ$ represents Hadamard product. $\cdot$ is inner product. $\otimes$ is the outer product. $\Delta_{t}$ is differential difference between predicted output and actual output.
+
 # What is the number of units in an LSTM cell?
 It can be hard to understand what number of units in an LSTM cell stands for. Most LSTM diagrams just show the hidden cells but never the units of those cells. The image below from [this source](https://jasdeep06.github.io/posts/Understanding-LSTM-in-Tensorflow-MNIST/){:target="_blank"} explains it very well. `num_units` can be interpreted as the analogy of hidden layer from the feed forward neural network. The number of units in an LSTM cell can be thought of number of neurons in a hidden layer. It is a direct representation of the learning capacity of a neural network.
 
