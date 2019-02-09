@@ -209,6 +209,7 @@ As one can easily see that, the weights for peephole connections are one dimensi
 
 # Backward Pass
 Backward pass of LSTM is computed as follows and all those equations are provided in [this paper](https://arxiv.org/abs/1503.04069){:target="_blank"}:
+
 $$
 \begin{split}
 \delta h_{t} &= \Delta_{t} + \Delta h_{t} \\
