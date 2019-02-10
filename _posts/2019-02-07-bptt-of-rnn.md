@@ -175,6 +175,7 @@ Looking at the sequence $\lambda_{i}^{1}\Delta h_{1}, \lambda_{i}^{2}\Delta h_{2
 
 This means that if the largest eigenvalue $\lambda_{1} <1$ then the gradient will vanish while if the value of $\lambda_{1} > 1$, the gradient explodes.
 
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/tanh.png)
 
 As also shown in [this paper](https://arxiv.org/pdf/1211.5063.pdf){:target="_blank"}, if the dominant eigenvalue of the matrix $W_{hh}$ is greater than 1, the gradient explodes. If it is less than 1, the gradient vanishes. The fact that this equation leads to either vanishing or exploding gradients should make intuitive sense. Note that the values of $\phi_{h}^{\prime}$ will always be less than 1. Because in vanilla RNN, the activation function  $\phi_{h}$ is used to be hyperbolic tangent whose derivative is at most $0.25$. So if the magnitude of the values of $W_{hh}$ are too small, then inevitably the derivative will go to 0. The repeated multiplications of values less than one would overpower the repeated multiplications of $W_{hh}$. On the contrary, make $W_{hh}$ too big and the derivative will go to infinity since the exponentiation of $W_{hh}$ will overpower the repeated multiplication of the values less than 1. In practice, the vanishing gradient is more common.
 
