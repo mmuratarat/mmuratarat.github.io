@@ -156,20 +156,20 @@ $$
 Now let us look at a single one of these terms by taking the derivative of $h_{j+1}$ with respect to $h_{j}$ where diag turns a vector into a diagonal matrix because this recursive partial derivative is a Jacobian matrix:
 
 $$
-\frac{\partial h_{j+1}}{\partial h_{j}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}))W_{hh}
+\frac{\partial h_{j+1}}{\partial h_{j}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h})W_{hh}
 $$
 
 Thus, if we want to backpropagate through $t-k$ timesteps, this gradient will be :
 
 $$
-\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \prod^{t}_{j=k} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}))W_{hh}
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \prod^{t}_{j=k} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h})W_{hh}
 $$
 
 If we perform eigendecomposition on the Jacobian matrix $\frac{\partial h_{j+1}}{\partial h_{j}}$, we get the eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ where $\lvert\lambda_{1}\rvert \gt \lvert\lambda_{2}\rvert \gt\cdots \gt \lvert\lambda_{n}\rvert$ and the corresponding eigenvectors $v_{1}, v_{1},\cdots,v_{n}$.
 
-Any change on the hidden state $\delta h_{j+1}$ in the direction of a vector $v_{i}$ has the effect of multiplying the change with the eigenvalue associated with this eigenvector i.e $\lambda_{i}\delta h_{j+1}$.
+Any change on the hidden state $\Delta h_{j+1}$ in the direction of a vector $v_{i}$ has the effect of multiplying the change with the eigenvalue associated with this eigenvector i.e $\lambda_{i}\Delta h_{j+1}$.
 
-The product of these Jacobians implies that subsequent time steps, will result in scaling the change with a factor equivalent to λti.
+The product of these Jacobians implies that subsequent time steps, will result in scaling the change with a factor equivalent to $\lambda_{i}^{t}$, where $\lambda_{i}^{t}$ represents the $i$-th eigenvalue raised to the power of the current time step $t$.
 
 
 As shown in [this paper](https://arxiv.org/pdf/1211.5063.pdf){:target="_blank"}, if the dominant eigenvalue of the matrix $W_{hh}$ is greater than 1, the gradient explodes. If it is less than 1, the gradient vanishes. The fact that this equation leads to either vanishing or exploding gradients should make intuitive sense. Note that the values of $\phi_{h}^{\prime}$ will always be less than 1. Because in vanilla RNN, the activation function  $\phi_{h}$ is used to be hyperbolic tangent whose derivative is at most $0.25$. So if the magnitude of the values of $W_{hh}$ are too small, then inevitably the derivative will go to 0. The repeated multiplications of values less than one would overpower the repeated multiplications of $W_{hh}$. On the contrary, make $W_{hh}$ too big and the derivative will go to infinity since the exponentiation of $W_{hh}$ will overpower the repeated multiplication of the values less than 1. In practice, the vanishing gradient is more common.
