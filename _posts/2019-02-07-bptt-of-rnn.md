@@ -75,7 +75,7 @@ $$
 \end{split}
 $$
 
-where derivative of Loss Function w.r.t. softmax function is proved [here](https://mmuratarat.github.io/2019-02-10/derivative-of-softmax-loss){:target="_blank"} and  $\frac{\partial o_{t}}{\partial W_{yh}} = h_{t}$ since $o_{t} = h_{t}\cdot W_{yh} + b_{y}$ and $\otimes$ is outer product of two vectors.
+where derivative of Loss Function w.r.t. softmax function is proved [here](https://mmuratarat.github.io/2019-02-10/derivative-of-softmax-loss){:target="_blank"} and  $\frac{\partial o_{t}}{\partial W_{yh}} = h_{t}$ since $o_{t} = h_{t}\cdot W_{yh} + b_{y}$ and $\otimes$ is the outer product of two vectors.
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 
