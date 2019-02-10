@@ -71,11 +71,11 @@ $$
 \begin{split}
 \frac{\partial L}{\partial W_{yh}} &= \sum_{t}^{T} \frac{\partial L_{t}}{\partial W_{yh}} \\
 &= \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}\\
-&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t}) \bigotimes h_{t}
+&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t}) \otimes h_{t}
 \end{split}
 $$
 
-where derivative of Loss Function w.r.t. softmax function is proved [here](https://mmuratarat.github.io/2019-02-10/derivative-of-softmax-loss){:target="_blank"} and  $\frac{\partial o_{t}}{\partial W_{yh}} = h_{t}$ since $o_{t} = h_{t}\cdot W_{yh} + b_{y}$.
+where derivative of Loss Function w.r.t. softmax function is proved [here](https://mmuratarat.github.io/2019-02-10/derivative-of-softmax-loss){:target="_blank"} and  $\frac{\partial o_{t}}{\partial W_{yh}} = h_{t}$ since $o_{t} = h_{t}\cdot W_{yh} + b_{y}$ and $\otimes$ is outer product of two vectors.
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 
