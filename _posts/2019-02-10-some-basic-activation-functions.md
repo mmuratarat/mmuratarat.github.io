@@ -242,7 +242,7 @@ Implementing Leaky ReLU in TensorFlow is trivial, just specify the activation fu
 
 Similarly, implementing Parametric ReLU in TensorFlow is trivial, just specify the activation function when building each layer using `tf.keras.layers.PReLU`.
 
-NOTE: The ideas behind the LReLU and PReLU are similar. However, Leaky ReLUs have $\alpha$ as a hyperparameter and Parametric ReLUs have 𝛼 as a parameter.
+NOTE: The ideas behind the LReLU and PReLU are similar. However, Leaky ReLUs have $\alpha$ as a hyperparameter and Parametric ReLUs have $\alpha$ as a parameter.
 
 #### Exponential Linear (ELU, SELU)
 Similar to leaky ReLU, ELU has a small slope for negative values. Instead of a straight line, it uses a log curve. ELU outperformed all the ReLU variants in the original paper's experiments: training time was reduced and the neural network performed better on the test set. ELU is given by:
