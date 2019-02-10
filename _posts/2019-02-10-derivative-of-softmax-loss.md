@@ -20,6 +20,7 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 The loss for a single istance can be computed by,
 
 $$ L = - \sum_{j} \left[y_{j} \log (p_{j}) \right]$$
+
 Most of the time, $p_{j} = softmax(o_{i})$ where $o_{i}$ is the unscaled score (logit), which is also a vector. 
 
 Since we know the derivative of softmax function with respect to its vector input, we can compute the derivative of the loss with respect to unscaled logit vector $o_{i}$. We have two options here: $i = j$ and $i \neq j$.
