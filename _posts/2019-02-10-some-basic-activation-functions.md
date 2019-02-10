@@ -23,7 +23,7 @@ $$
 &=\dfrac{e^{-x} +1}{(1+e^{-x})^{2}} - \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
 &=\dfrac{1}{1+e^{-x}} -  \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
 &=sigmoid(x)- sigmoid^{2}(x)\\
-&=sigmoid(x) \left(1- sigmoid(z)\right)
+&=sigmoid(x) \left(1- sigmoid(x)\right)
 \end{split}
 $$
 
@@ -69,7 +69,7 @@ Sigmoid function is non-linear in nature. Combinations of this function are also
 
 Figure shows that between x values -2 to 2, y values are very steep, which means that any small changes in the values of x in that region will cause values of y to change significantly. That means this function has a tendency to bring the y values to either end of the curve, which will make clear distinctions on prediction. The output of the activation function is always going to be in range $(0,1)$ compared to $(-\infty, \infty)$ of linear function. So we have our activations bound in a range. The activations will not blow up then. However, there are couple of problems with sigmoid function.
 
-Towards either end of the sigmoid function, the y values tend to respond very less to changes in x. The gradient at that region is going to be small. It gives rise to a problem of "vanishing gradients" because derivative of sigmoid is always less than 0.25 for all inputs except 0. Sigmoid neurons will stop learning when they saturate. Gradient is small or has vanished and it cannot make significant change because of the extremely small value. The network refuses to learn further or is drastically slow depending on the case and until gradient/computation gets hit by floating point value limits. Because if one multiples a bunch of terms which are less than 1, the result will tend towards the zero. Hence gradients will vanish as going further from the output layer. There are ways to work around this problem and sigmoid is still very popular in classification problems.
+Towards either end of the sigmoid function, the y values tend to respond very less to changes in x. The gradient at that region is going to be small. It gives rise to a problem of "vanishing gradients" because derivative of sigmoid is always less than 0.25 for all inputs except 0. Sigmoid neurons will stop learning when they saturate. Gradient is small or has vanished and it cannot make significant change because of the extremely small value. The network refuses to learn further or is drastically slow depending on the case and until gradient/computation gets hit by floating point value limits. Because if one multiples a bunch of terms which are less than 1, the result will tend towards the zero. Hence gradients will vanish as going further away from the output layer. There are ways to work around this problem and sigmoid is still very popular in classification problems.
 
 ## Hyperbolic Tangent Function
 Another popular activation function is Hyperbolic Tangent function. Hyperbolic Tangent function, also known as tanh function, is a rescaled version of the sigmoid function. The function itself is defined as
@@ -128,11 +128,11 @@ The plot of hyperbolic tangent function and its derivative are shown as follows:
 
 Similar to the derivative of the sigmoid function, the same caching trick can be used for layers that implement tanh activation function.
 
-It has characteristics similar to sigmoid function. It is nonlinear in nature, so, we can stack layers. The tanh non-linearity squashes real numbers to range between $[-1,1]$ so one needs not to worry about activations blowing up. The gradient is stronger for tanh than sigmoid (derivatives are steeper). Deciding between the sigmoid or tanh will depend on your requirement of gradient strength. However, unlike the sigmoid neuron, the output of tanh function is zero-centered. Therefore, in practice the tanh non-linearity is always preferred to the sigmoid nonlinearity ([source](http://cs231n.github.io/neural-networks-1/){:target="_blank"}).
+It has characteristics similar to sigmoid function. It is nonlinear in nature, so, we can stack layers. The tanh non-linearity squashes real numbers to range between $[-1,1]$ so one needs not to worry about activations blowing up. The gradient is stronger for tanh than sigmoid (derivatives are steeper). Deciding between the sigmoid or tanh will depend on your requirement of gradient strength. However, unlike the sigmoid neuron, the output of tanh function is zero-centered. Therefore, in practice the tanh non-linearity is always preferred to the sigmoid nonlinearity ([source](http://cs231n.github.io/neural-networks-1/#actfun){:target="_blank"}).
 
 Like sigmoid function, tanh function also has the vanishing gradient problem because the derivative of the function is always less than 1 for all inputs except 0. 
 
-Instead of sigmoid function and tanh function because of all these problems associated, the most recent deep learning networks use rectified linear units (ReLUs) for the hidden layers which might be a solution for vanishing gradient problem.
+Instead of sigmoid function and tanh function because of all these problems associated with them, the most recent deep learning networks use rectified linear units (ReLUs) for the hidden layers which might be a solution for vanishing gradient problem.
 
 ## Rectified Linear Unit (ReLU) 
 ReLU is a piecewise non-linear function that corresponds to:
