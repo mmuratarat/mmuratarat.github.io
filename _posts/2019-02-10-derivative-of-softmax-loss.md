@@ -15,7 +15,7 @@ Multi-class cross entropy formula is as follows:
 
 $$ L = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
 
-where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. More details are provided [here](https://mmuratarat.github.io/2018-12-21/cross-entropy){:target="_blank"}..
+where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits. More details are provided [here](https://mmuratarat.github.io/2018-12-21/cross-entropy){:target="_blank"}.
 
 The loss for a single istance can be computed by,
 
