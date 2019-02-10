@@ -68,13 +68,22 @@ $$
 Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore, we can differentiate to it at the each time step and sum all together:
 
 $$
-\frac{\partial L}{\partial W_{yh}} = \sum_{t}^{T} \frac{\partial L_{t}}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
+\begin{split}
+\frac{\partial L}{\partial W_{yh}} &= \sum_{t}^{T} \frac{\partial L_{t}}{\partial W_{yh}} \\
+&= \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}\\
+&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t}) \bigotimes h_{t}
+\end{split}
 $$
+
+where derivative of Loss Function w.r.t. softmax function is proved [here](https://mmuratarat.github.io/2019-02-10/derivative-of-softmax-loss){:target="_blank"} and  $\frac{\partial o_{t}}{\partial W_{yh}} = h_{t}$ since $o_{t} = h_{t}\cdot W_{yh} + b_{y}$.
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 
 $$
-\frac{\partial L}{\partial b_{y}}  = \sum_{t}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}
+\begin{split}
+\frac{\partial L}{\partial b_{y}}  &= \sum_{t}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}\\
+&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t})
+\end{split}
 $$
 
 Further, let's use $L_{t+1}$ to denote the output of the time-step $t+1$, $L_{t+1} = -y_{t+1} log \hat{y}_{t+1}$.
