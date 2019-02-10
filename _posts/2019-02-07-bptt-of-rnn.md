@@ -188,7 +188,7 @@ Vanishing gradients aren’t exclusive to RNNs. They also happen in deep Feedfor
 
 These problems ultimately shows that if the gradient vanishes it means the earlier hidden states have no real effect on the later hidden states, meaning no long term dependencies are learned! 
 
-Fortunately, there are a few ways to combat the vanishing gradient problem. Proper initialization of the W matrix can reduce the effect of vanishing gradients. So can regularization. A more preferred solution is to use ReLU instead of tanh or sigmoid activation functions. The ReLU derivative is a constant of either 0 or 1, so it isn’t as likely to suffer from vanishing gradients. An even more popular solution is to use Long Short-Term Memory (LSTM) or Gated Recurrent Unit (GRU) architectures. 
+Fortunately, there are a few ways to come over the vanishing gradient problem. Proper initialization of the weight matrices can reduce the effect of vanishing gradients. So can regularization. A more preferred solution is to use ReLU activation function instead of hyperbolic tangent or sigmoid activation functions. The ReLU derivative is a constant of either 0 or 1, so it isn’t as likely to suffer from vanishing gradients. An even more popular solution is to use Long Short-Term Memory (LSTM) or Gated Recurrent Unit (GRU) architectures. 
 
 # Additinal Explanation
 
