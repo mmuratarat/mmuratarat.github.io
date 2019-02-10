@@ -159,12 +159,11 @@ $$
 \frac{\partial h_{j+1}}{\partial h_{j}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t} +b_{h}))W_{hh}
 $$
 
-Thus, if we want to backpropagate through $j$ timesteps, this gradient will be :
+Thus, if we want to backpropagate through $t-k$ timesteps, this gradient will be :
 
 $$
-\prod^{j}_{i} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t} 
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \prod^{t}_{j=k} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t} 
 $$
-
 
 If we perform eigendecomposition on the Jacobian matrix $\frac{\partial h_{j+1}}{\partial h_{j}}$, we get the eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ where $\lvert\lambda_{1}\rvert \gt \lvert\lambda_{2}\rvert \gt\cdots \gt \lvert\lambda_{n}\rvert$ and the corresponding eigenvectors $v_{1}, v_{1},\cdots,v_{n}$.
 
