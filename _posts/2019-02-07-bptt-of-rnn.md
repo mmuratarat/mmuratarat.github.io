@@ -171,8 +171,12 @@ Any change on the hidden state $\Delta h_{j+1}$ in the direction of a vector $v_
 
 The product of these Jacobians implies that subsequent time steps, will result in scaling the change with a factor equivalent to $\lambda_{i}^{t}$, where $\lambda_{i}^{t}$ represents the $i$-th eigenvalue raised to the power of the current time step $t$.
 
+Looking at the sequence $\lambda_{i}^{1}\Delta h_{1}, \lambda_{i}^{2}\Delta h_{2}, \dots, \lambda_{n}^{1}\Delta h_{n}$, it is easy to see that the factor $\lambda_{i}^{t}$ will end up dominating the $\Delta h_{t}$’s because this term grows exponentially fast as $t$ goes to infinity.
 
-As shown in [this paper](https://arxiv.org/pdf/1211.5063.pdf){:target="_blank"}, if the dominant eigenvalue of the matrix $W_{hh}$ is greater than 1, the gradient explodes. If it is less than 1, the gradient vanishes. The fact that this equation leads to either vanishing or exploding gradients should make intuitive sense. Note that the values of $\phi_{h}^{\prime}$ will always be less than 1. Because in vanilla RNN, the activation function  $\phi_{h}$ is used to be hyperbolic tangent whose derivative is at most $0.25$. So if the magnitude of the values of $W_{hh}$ are too small, then inevitably the derivative will go to 0. The repeated multiplications of values less than one would overpower the repeated multiplications of $W_{hh}$. On the contrary, make $W_{hh}$ too big and the derivative will go to infinity since the exponentiation of $W_{hh}$ will overpower the repeated multiplication of the values less than 1. In practice, the vanishing gradient is more common.
+This means that if the largest eigenvalue $\lambda_{1} <1$ then the gradient will vanish while if the value of $\lambda_{1} > 1$, the gradient explodes.
+
+
+As also shown in [this paper](https://arxiv.org/pdf/1211.5063.pdf){:target="_blank"}, if the dominant eigenvalue of the matrix $W_{hh}$ is greater than 1, the gradient explodes. If it is less than 1, the gradient vanishes. The fact that this equation leads to either vanishing or exploding gradients should make intuitive sense. Note that the values of $\phi_{h}^{\prime}$ will always be less than 1. Because in vanilla RNN, the activation function  $\phi_{h}$ is used to be hyperbolic tangent whose derivative is at most $0.25$. So if the magnitude of the values of $W_{hh}$ are too small, then inevitably the derivative will go to 0. The repeated multiplications of values less than one would overpower the repeated multiplications of $W_{hh}$. On the contrary, make $W_{hh}$ too big and the derivative will go to infinity since the exponentiation of $W_{hh}$ will overpower the repeated multiplication of the values less than 1. In practice, the vanishing gradient is more common.
 
 
 
