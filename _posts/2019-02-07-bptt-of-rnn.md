@@ -145,8 +145,31 @@ $$
 
 Do not forget that $\frac{\partial h_{t+1}}{\partial h_{k}}$ is a chain rule in itself, again!
 
+# Vanishing/Exploding Gradients with vanilla RNNs
+
+There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. In vanilla RNNs, vanishing/exploding gradient comes from the repeated application of the recurrent connections. More explicitly, they happen because of recursive derivative we need to compute \frac{\partial h_{t+1}}{\partial h_k}
+$$
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k+1}}{\partial h_k} 
+$$
+
+Now let us look at a single one of these terms by taking the derivative of $h_{j+1}$ with respect to $h_{j}$ where diag turns a vector into a diagonal matrix because this recursive partial derivative is a Jacobianmatrix:
+
+$$
+\frac{\partial h_{j+1}}{\partial h_{j}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{t} + W_{hh}^{T}\cdot h_{t} +b_{h}))$W_{hh}$
+$$
+
+As shown in [this paper](https://arxiv.org/pdf/1211.5063.pdf){:target="_blank"}, if the dominant eigenvalue of the matrix $W_{hh}$ is greater than 1, the gradient explodes. If it is less than 1, the gradient vanishes. The fact that this equation leads to either vanishing or exploding gradients should make intuitive sense. Note that the values of $\phi_{h}^{\prime}$ will always be less than 1. Because in vanilla RNN, the activation function  $\phi_{h}$ is used to be hyperbolic tangent whose derivative is at most $0.25$. So if the magnitude of the values of $W_{hh}$ are too small, then inevitably the derivative will go to 0. The repeated multiplications of values less than one would overpower the repeated multiplications of $W_{hh}$. On the contrary, make $W_{hh}$ too big and the derivative will go to infinity since the exponentiation of $W_{hh}$ will overpower the repeated multiplication of the values less than 1. In practice, the vanishing gradient is more common.
+
+
+**Note**: LSTM does not protect you from exploding gradients! Therefore, successful LSTM applications typically use gradient clipping.
+
+
 # REFERENCES
 1. [http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/){:target="_blank"}
 2. [https://arxiv.org/abs/1610.02583](https://arxiv.org/abs/1610.02583){:target="_blank"}
 3. [https://github.com/go2carter/nn-learn/blob/master/grad-deriv-tex/rnn-grad-deriv.pdf](https://github.com/go2carter/nn-learn/blob/master/grad-deriv-tex/rnn-grad-deriv.pdf){:target="_blank"}
 4. [http://willwolf.io/2016/10/18/recurrent-neural-network-gradients-and-lessons-learned-therein/](http://willwolf.io/2016/10/18/recurrent-neural-network-gradients-and-lessons-learned-therein/){:target="_blank"}
+5. [https://weberna.github.io/blog/2017/11/15/LSTM-Vanishing-Gradients.html](https://weberna.github.io/blog/2017/11/15/LSTM-Vanishing-Gradients.html){:target="_blank"}
+6. [https://medium.com/datadriveninvestor/how-do-lstm-networks-solve-the-problem-of-vanishing-gradients-a6784971a577](https://medium.com/datadriveninvestor/how-do-lstm-networks-solve-the-problem-of-vanishing-gradients-a6784971a577){:target="_blank"}
+7. [https://arxiv.org/abs/1211.5063](https://arxiv.org/abs/1211.5063){:target="_blank"}
+8. [https://www.jefkine.com/general/2018/05/21/2018-05-21-vanishing-and-exploding-gradient-problems/](https://www.jefkine.com/general/2018/05/21/2018-05-21-vanishing-and-exploding-gradient-problems/){:target="_blank"}
