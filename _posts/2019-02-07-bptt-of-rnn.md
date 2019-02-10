@@ -147,7 +147,8 @@ Do not forget that $\frac{\partial h_{t+1}}{\partial h_{k}}$ is a chain rule in 
 
 # Vanishing/Exploding Gradients with vanilla RNNs
 
-There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. In vanilla RNNs, vanishing/exploding gradient comes from the repeated application of the recurrent connections. More explicitly, they happen because of recursive derivative we need to compute \frac{\partial h_{t+1}}{\partial h_k}
+There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. In vanilla RNNs, vanishing/exploding gradient comes from the repeated application of the recurrent connections. More explicitly, they happen because of recursive derivative we need to compute $\frac{\partial h_{t+1}}{\partial h_k}$:
+
 $$
 \prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k+1}}{\partial h_k} 
 $$
