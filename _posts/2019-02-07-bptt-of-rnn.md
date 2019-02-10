@@ -100,13 +100,13 @@ $$
 Note that $\frac{\partial h_{t+1}}{\partial h_{k}}$ is a chain rule in itself!  For example, $\frac{\partial h_{3}}{\partial h_{1}} = \frac{\partial h_{3}}{\partial h_{2}}\frac{\partial h_{2}}{\partial h_{1}}$. Also note that because we are taking the derivative of a vector function with respect to a vector, the result is a matrix (called the Jacobian matrix) whose elements are all the pointwise derivatives. We can rewrite the above gradient:
 
 $$
-\frac{\partial L_{t+1}}{\partial W_{hh}} = \sum_{k=1}^{t+1} \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}  \left( \prod_{j = k} ^{t+1} \frac{\partial h_{j}}{\partial h_{j-1}} \right) \frac{\partial h_{k}}{\partial W_{hh}}
+\frac{\partial L_{t+1}}{\partial W_{hh}} = \sum_{k=1}^{t+1} \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}}  \left( \prod_{j = k} ^{t} \frac{\partial h_{j+1}}{\partial h_{j}} \right) \frac{\partial h_{k}}{\partial W_{hh}}
 $$
 
 where
 
 $$
-\prod_{j = k} ^{t+1} \frac{\partial h_{j}}{\partial h_{j-1}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k}}{\partial h_{k-1}} 
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k+1}}{\partial h_k} 
 $$
 
 **NOTE:** It turns out that the 2-norm, which you can think of it as an absolute value, of the above Jacobian matrix has an upper bound of 1. This makes intuitive sense because our tanh (or sigmoid) activation function maps all values into a range between -1 and 1, and the derivative is bounded by 1 (1/4 in the case of sigmoid) as well.
@@ -152,24 +152,24 @@ Do not forget that $\frac{\partial h_{t+1}}{\partial h_{k}}$ is a chain rule in 
 There are two factors that affect the magnitude of gradients - the weights and the activation functions (or more precisely, their derivatives) that the gradient passes through. In vanilla RNNs, vanishing/exploding gradient comes from the repeated application of the recurrent connections. More explicitly, they happen because of recursive derivative we need to compute $\frac{\partial h_{t+1}}{\partial h_k}$:
 
 $$
-\prod_{j = k} ^{t+1} \frac{\partial h_{j}}{\partial h_{j-1}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k}}{\partial h_{k-1}} 
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \frac{\partial h_{t+1}}{\partial h_k} = \frac{\partial h_{t+1}}{\partial h_{t}}\frac{\partial h_{t}}{\partial h_{t-1}}...\frac{\partial h_{k+1}}{\partial h_k} 
 $$
 
-Now let us look at a single one of these terms by taking the derivative of $h_{j}$ with respect to $h_{j-1}$ where diag turns a vector into a diagonal matrix because this recursive partial derivative is a Jacobian matrix:
+Now let us look at a single one of these terms by taking the derivative of $h_{j+1}$ with respect to $h_{j}$ where diag turns a vector into a diagonal matrix because this recursive partial derivative is a Jacobian matrix:
 
 $$
-\frac{\partial h_{j}}{\partial h_{j-1}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j} + W_{hh}^{T}\cdot h_{j-1} +b_{h})W_{hh}
+\frac{\partial h_{j+1}}{\partial h_{j}} =  diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h})W_{hh}
 $$
 
-Thus, if we want to backpropagate through $t+1-k$ timesteps, this gradient will be :
+Thus, if we want to backpropagate through $t-k$ timesteps, this gradient will be:
 
 $$
-\prod_{j = k} ^{t+1} \frac{\partial h_{j}}{\partial h_{j-1}}  = \prod^{t}_{j=k} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j} + W_{hh}^{T}\cdot h_{j-1} +b_{h})W_{hh}
+\prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} = \prod^{t}_{j=k} diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h})W_{hh}
 $$
 
-If we perform eigendecomposition on the Jacobian matrix $\frac{\partial h_{j}}{\partial h_{j-1}}$, we get the eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ where $\lvert\lambda_{1}\rvert \gt \lvert\lambda_{2}\rvert \gt\cdots \gt \lvert\lambda_{n}\rvert$ and the corresponding eigenvectors $v_{1}, v_{1},\cdots,v_{n}$.
+If we perform eigendecomposition on the Jacobian matrix $\frac{\partial h_{j+1}}{\partial h_{j}}$, we get the eigenvalues $\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$ where $\lvert\lambda_{1}\rvert \gt \lvert\lambda_{2}\rvert \gt\cdots \gt \lvert\lambda_{n}\rvert$ and the corresponding eigenvectors $v_{1}, v_{1},\cdots,v_{n}$.
 
-Any change on the hidden state $\Delta h_{j}$ in the direction of a vector $v_{i}$ has the effect of multiplying the change with the eigenvalue associated with this eigenvector i.e $\lambda_{i}\Delta h_{j}$.
+Any change on the hidden state $\Delta h_{j+1}$ in the direction of a vector $v_{i}$ has the effect of multiplying the change with the eigenvalue associated with this eigenvector i.e $\lambda_{i}\Delta h_{j+1}$.
 
 The product of these Jacobians implies that subsequent time steps, will result in scaling the change with a factor equivalent to $\lambda_{i}^{t}$, where $\lambda_{i}^{t}$ represents the $i$-th eigenvalue raised to the power of the current time step $t$.
 
