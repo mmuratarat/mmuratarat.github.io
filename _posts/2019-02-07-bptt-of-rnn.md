@@ -62,7 +62,7 @@ In order to do backpropagation through time to train an RNN, we need to compute 
 $$
 \begin{split}
 L (\hat{y}, y) & = \sum_{t = 1}^{T} L_{t}(\hat{y}_{t}, y_{t}) \\
-& = - \sum_{t = 1}^{T} y_{t} \log \hat{y}_{t} \\
+& = - \sum_{t}^{T} y_{t} \log \hat{y}_{t} \\
 & = -\sum_{t = 1}^{T}y_{t} log \left[softmax(o_{t}) \right]
 \end{split}
 $$
@@ -70,13 +70,13 @@ $$
 Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore, we can differentiate to it at the each time step and sum all together:
 
 $$
-\frac{\partial L}{\partial W_{yh}} = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
+\frac{\partial L}{\partial W_{yh}} = \sum_{t}^{T} \frac{\partial L_{t}}{\partial W_{yh}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}
 $$
 
 Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 
 $$
-\frac{\partial L}{\partial b_{y}}  = \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}
+\frac{\partial L}{\partial b_{y}}  = \sum_{t}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}
 $$
 
 Further, let's use $L_{t+1}$ to denote the output of the time-step $t+1$, $L_{t+1} = -y_{t+1} log \hat{y}_{t+1}$.
