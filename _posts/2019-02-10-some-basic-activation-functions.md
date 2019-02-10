@@ -22,8 +22,8 @@ $$
 &=\dfrac{e^{-x}}{(1+e^{-x})^{2}} = \dfrac{e^{-x} +1 -1}{(1+e^{-x})^{2}}\\
 &=\dfrac{e^{-x} +1}{(1+e^{-x})^{2}} - \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
 &=\dfrac{1}{1+e^{-x}} -  \left(\dfrac{1}{1+e^{-x}}\right)^{2}\\
-&=sigmoid(z)- sigmoid^{2}(z)\\
-&=sigmoid(z) \left(1- sigmoid(z)\right)
+&=sigmoid(x)- sigmoid^{2}(x)\\
+&=sigmoid(x) \left(1- sigmoid(z)\right)
 \end{split}
 $$
 
