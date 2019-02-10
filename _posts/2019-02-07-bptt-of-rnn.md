@@ -70,8 +70,8 @@ Note that the weight $W_{yh}$ is shared across all the time sequence. Therefore,
 $$
 \begin{split}
 \frac{\partial L}{\partial W_{yh}} &= \sum_{t}^{T} \frac{\partial L_{t}}{\partial W_{yh}} \\
-&= \sum_{t = 1}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}\\
-&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t}) \otimes h_{t}
+&= \sum_{t}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial W_{yh}}\\
+&=\sum_{t}^{T} (\hat{y}_{t} - y_{t}) \otimes h_{t}
 \end{split}
 $$
 
@@ -82,7 +82,7 @@ Similarly, we can get the gradient w.r.t. bias $b_{y}$:
 $$
 \begin{split}
 \frac{\partial L}{\partial b_{y}}  &= \sum_{t}^{T} \frac{\partial L_{t}}{\partial \hat{y}_{t}} \frac{\partial \hat{y}_{t}}{\partial o_{t}} \frac{\partial o_{t}}{\partial b_{y}}\\
-&=\sum_{t = 1}^{T} (\hat{y}_{t} - y_{t})
+&=\sum_{t}^{T} (\hat{y}_{t} - y_{t})
 \end{split}
 $$
 
