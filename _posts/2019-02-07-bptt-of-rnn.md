@@ -228,6 +228,8 @@ In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/lstm_internal_state.png?raw=true)
 
+which we can re-write it as:
+
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 The original motivation behind this LSTM was to make this recursive derivative have a constant value, which was equal to 1 because of the  truncated BPTT algorithm. In other words, the gradient calculation was truncated so as not to flow back to the input or candidate gates. If this is the case, then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more modern formulation:
@@ -238,10 +240,10 @@ However, there are so many documents out there online, that claim that the reaso
 
 **NOTE:** In the case of the forget gate LSTM, the recursive derivative will still be a produce of many terms between 0 and 1 (the forget gates at each time step), however in practice this is not as much of a problem compared to the case of RNNs. One thing to remember is that our network has direct control over what the values of $f$ will be. If it needs to remember something, it can easily set the value of $f$ to be high (lets say around 0.95). These values thus tend to shrink at a much slower rate than when compared to the derivative values of hyperbolic tangent function, which later on during the training processes, are likely to be saturated and thus have a value close to 0.
 
-Additionally, one thing that is often forgotten about derivation of $C_{t}$ with respect to $C_{t-1}$ is that $f_{t}$, $i_{t}$ andf $\widetilde{C}_{t}$ are all functions of $C_{t}$ and so we have to take them into consideration when calculating the gradient.
+Additionally, one thing that is often forgotten about derivation of $C_{t}$ with respect to $C_{t-1}$ is that $f_{t}$, $i_{t}$ andf $\widetilde{C_{t}}$ are all functions of $C_{t}$ and so we have to take them into consideration when calculating the gradient.
 
-Therefore, let's find the full derivative $\frac{\partial C_{t}}{\partial C_{t-1}}$. Remember that $C_{t}$ is a function of $f_{t}$ (the forget gate), $i_{t}$ (input gate) and $\widetilde{C}_{t}$ (candidate input), each of these being a function of 
-$C_{t-1}$(since they are all functions of $h_{t-1}$). Via the multivariate chain rule we get:
+Therefore, let's find the full derivative $\frac{\partial C_{t}}{\partial C_{t-1}}$. Remember that $C_{t}$ is a function of $f_{t}$ (the forget gate), $i_{t}$ (input gate) and $\widetilde{C_{t}}$ (candidate input), each of these being a function of 
+$C_{t-1}$ (since they are all functions of $h_{t-1}$). Via the multivariate chain rule we get:
 
 $$
 \frac{\partial C_{t}}{\partial C_{t-1}} = \frac{\partial C_{t}}{\partial f_{t}} \frac{\partial f_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial i_{t}} \frac{\partial i_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial \widetilde{C}_{t}} \frac{\partial \widetilde{C}_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial C_{t-1}}
