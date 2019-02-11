@@ -233,13 +233,24 @@ The original motivation behind this LSTM was to make this recursive derivative h
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 
-However, there are so many documents out there online that claims that the reason of LSTM solving this vanishing gradient problem is that under this update rule the recursive derivative is equal to 1 in the case of original LSTM or $f$ (forget gate) in the case of modern LSTM. In the case of the forget gate LSTM, the recursive derivative will still be a produce of many terms between 0 and 1 (the forget gates at each time step), however in practice this is not as much of a problem compared to the case of RNNs. One thing to remember is that our network has direct control over what the values of $f$ will be. If it needs to remember something, it can easily set the value of $f$ to be high (lets say around 0.95). These values thus tend to shrink at a much slower rate than when compared to the derivative values of hyperbolic tangent function, which later on during the training processes, are likely to be saturated and thus have a value close to 0.
+However, there are so many documents out there online, that claim that the reason of LSTM solving this vanishing gradient problem is that under this update rule the recursive derivative is equal to 1 in the case of original LSTM or $f$ (forget gate) in the case of modern LSTM. 
 
-Additionally, one thing that is often forgotten about derivation of $C_{t}$ with respect to $C_{t-1}$ is that $f_{t}$, $i_{t}$ andf $\widetilde{C}$ are all functions of $C_{t}$ and so we have to take them into consideration when calculating the gradient.
+**NOTE:** In the case of the forget gate LSTM, the recursive derivative will still be a produce of many terms between 0 and 1 (the forget gates at each time step), however in practice this is not as much of a problem compared to the case of RNNs. One thing to remember is that our network has direct control over what the values of $f$ will be. If it needs to remember something, it can easily set the value of $f$ to be high (lets say around 0.95). These values thus tend to shrink at a much slower rate than when compared to the derivative values of hyperbolic tangent function, which later on during the training processes, are likely to be saturated and thus have a value close to 0.
 
+Additionally, one thing that is often forgotten about derivation of $C_{t}$ with respect to $C_{t-1}$ is that $f_{t}$, $i_{t}$ andf $\widetilde{C}_{t}$ are all functions of $C_{t}$ and so we have to take them into consideration when calculating the gradient.
 
-**Note**: LSTM does not protect you from exploding gradients! Therefore, successful LSTM applications typically use gradient clipping.
+Therefore, let's find the full derivative $\frac{\partial C_{t}}{\partial C_{t-1}}$. Remember that $C_{t}$ is a function of $f_{t}$ (the forget gate), $i_{t}$ (input gate) and $\widetilde{C}_{t}$ (candidate input), each of these being a function of 
+$C_{t-1}$(since they are all functions of $h_{t-1}$). Via the multivariate chain rule we get:
 
+$$
+\frac{\partial C_{t}}{\partial C_{t-1}} = \frac{\partial C_{t}}{\partial f_{t}} \frac{\partial f_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial i_{t}} \frac{\partial i_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial \widetilde{C}_{t}} \frac{\partial \widetilde{C}_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial C_{t-1}}
+$$
+
+Now if we want to backpropagate back $k$ time steps, all we need to do is to multiple the equation above $k$ times. 
+
+In vanilla RNNs, the terms $\frac{\partial h_{t+1}}{\partial h_{t}}$ will eventually take on a values that are either always above $1$ or always in the range $[0, 1]$, this is essentially what leads to the vanishing/exploding gradient problem. The terms here, $\frac{\partial C_{t}}{\partial C_{t-1}}$, at any time step can take on either values that are greater than 1 or values in the range $[0, 1]$. Thus if we extend to an infinite amount of time steps, it is not guarenteed that we will end up converging to 0 or infinity (unlike in vanilla RNNs). If we start to converge to zero, we can always set the values of $f_{t}$ (and other gate values) to be higher in order to bring the value of $\frac{\partial C_{t}}{\partial C_{t-1}}$ closer to 1, thus preventing the gradients from vanishing (or at the very least, preventing them from vanishing too quickly). One important thing to note is that the values $f_{t}$ (the forget gate), $i_{t}$ (input gate), $o_{t}$ (output gate) and $\widetilde{C}_{t}$ (candidate input) are things that the network learns to set (The values that they take on are learned functions of the current input and hidden state). Thus, in this way the network learns to decide when to let the gradient vanish, and when to preserve it, by setting the gate values accordingly!
+
+**Note**: LSTM does not always protect you from exploding gradients! Therefore, successful LSTM applications typically use gradient clipping.
 
 # REFERENCES
 1. [http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/](http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/){:target="_blank"}
