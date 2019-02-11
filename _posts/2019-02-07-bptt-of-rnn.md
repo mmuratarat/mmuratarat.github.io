@@ -222,13 +222,13 @@ As the sequence gets longer (i.e the distance between $t$ and $k$ increases), th
 Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t+1−k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for$\gamma > 1$ the gradient tends to explode.
 
 # Vanishing/Exploding Gradients with LSTMs
-As can be seen easily above, the biggest problem with causing gradients to vanish is the multiplication of recursive derivatives. One of the approaches that were proposed to overcome this issue is to use gated structures such as Long Short-Term Memory Networks. 
+As can be seen easily above, the biggest problem with causing gradients to vanish is the multiplication of recursive derivatives. One of the approaches that was proposed to overcome this issue is to use gated structures such as Long Short-Term Memory Networks. 
 
 In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2604.pdf){:target="_blank"}, the value of $C_{t}$ depends on the previous value of cell state and an update term weighted by the input gate:
 
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
-The original motivation behind this LSTM was to make this recursive derivative have a constant value. If this is the case then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more modern formulation:
+The original motivation behind this LSTM was to make this recursive derivative have a constant value, which was equal to 1 because of the  truncated BPTT algorithm. In other words, the gradient calculation was truncated so as not to flow back to the input or candidate gates. If this is the case, then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more modern formulation:
 
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
