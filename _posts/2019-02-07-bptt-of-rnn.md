@@ -224,14 +224,13 @@ Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h
 # Vanishing/Exploding Gradients with LSTMs
 As can be seen easily above, the biggest problem with causing gradients to vanish is the multiplication of recursive derivatives. One of the approaches that were proposed to overcome this issue is to use gated structures such as Long Short-Term Memory Networks. 
 
-In the original LSTM formulation, the value of $C_{t}$ depends on the previous value of cell state and an update term weighted by the input gate:
+In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2604.pdf){:target="_blank"}, the value of $C_{t}$ depends on the previous value of cell state and an update term weighted by the input gate:
 
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
 The original motivation behind this LSTM was to make this recursive derivative have a constant value. If this is the case then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more modern formulation:
 
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
-
 
 However, there are so many documents out there online, that claim that the reason of LSTM solving this vanishing gradient problem is that under this update rule the recursive derivative is equal to 1 in the case of original LSTM or $f$ (forget gate) in the case of modern LSTM. 
 
