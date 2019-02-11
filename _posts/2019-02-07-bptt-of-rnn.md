@@ -197,7 +197,29 @@ These problems ultimately shows that if the gradient vanishes it means the earli
 Fortunately, there are a few ways to come over the vanishing gradient problem. Proper initialization of the weight matrices can reduce the effect of vanishing gradients. So can regularization. A more preferred solution is to use ReLU activation function instead of hyperbolic tangent or sigmoid activation functions. The ReLU derivative is a constant of either 0 or 1, so it isn’t as likely to suffer from vanishing gradients. An even more popular solution is to use Long Short-Term Memory (LSTM) or Gated Recurrent Unit (GRU) architectures. 
 
 # Additinal Explanation
+If we take the norms of these Jacobians:
 
+$$
+\left\Vert \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq \left\Vert W_{hh} \right\Vert \left\Vert diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}) \right\Vert
+$$
+
+In this equation, we set $\gamma_{W}$, the largest eigenvalue associated with $\left\Vert W_{hh} \right\Vert$ as its upper bound, while $\gamma_{h}$ largest eigenvalue associated with $\left\Vert diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}) \right\Vert$ as its corresponding upper-bound.
+
+Depending on the chosen activation function $\phi_{h}$, the derivative $\phi^{\prime}_{h}$ will be upper bounded by different values. For hyperbolic tangent function, we have $\gamma_{h} = 1$ while for sigmoid function, we have $\gamm_{h} = 0.25$. Thus, The chosen upper bounds $\gamma_{W}$ and $\gamm_{h}$ end up being a constant term resulting from their product:
+
+$$
+\left\Vert \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq \left\Vert W_{hh} \right\Vert \left\Vert diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}) \right\Vert \leq \gamma_{W} \gamm_{h}
+$$
+
+The gradient $\frac{\partial h_{t+1}}{\partial h_k}$ is a product of Jacobian matrices that are multiplied many times, $t+1-k$ in our case:
+
+$$
+\left\Vert \frac{\partial h_{t+1}}{\partial h_k} \right\Vert = \left\Vert \prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq (\gamma_{W} \gamm_{h})^{t+1-k}
+$$
+
+As the sequence gets longer (i.e the distance between $t+1$ and $k$ increases), then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
+
+Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t+1−k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for$\gamma > 1$ the gradient tends to explode.
 
 # Vanishing/Exploding Gradients with LSTMs
 
