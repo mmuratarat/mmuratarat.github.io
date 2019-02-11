@@ -251,9 +251,20 @@ $$
 \frac{\partial C_{t}}{\partial C_{t-1}} = \frac{\partial C_{t}}{\partial f_{t}} \frac{\partial f_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial i_{t}} \frac{\partial i_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial \widetilde{C}_{t}} \frac{\partial \widetilde{C}_{t}}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial C_{t-1}} + \frac{\partial C_{t}}{\partial C_{t-1}}
 $$
 
+If we explicitly write out these derivatives:
+
+$$
+\begin{split}
+\frac{\partial C_t}{\partial C_{t-1}} &= C_{t-1}\sigma^{\prime}(\cdot)W_{hf}*o_{t-1}tanh^{\prime}(C_{t-1}) \\
+&+ \widetilde{C}_t\sigma^{\prime}(\cdot)W_{hi}*o_{t-1}tanh^{\prime}(C_{t-1}) \\
+&+ i_t\tanh^{\prime}(\cdot)W_C*o_{t-1}tanh^{\prime}(C_{t-1}) \\
+&+ f_t
+\end{split}
+$$
+
 Now if we want to backpropagate back $k$ time steps, all we need to do is to multiple the equation above $k$ times. 
 
-In vanilla RNNs, the terms $\frac{\partial h_{t+1}}{\partial h_{t}}$ will eventually take on a values that are either always above $1$ or always in the range $[0, 1]$, this is essentially what leads to the vanishing/exploding gradient problem. The terms here, $\frac{\partial C_{t}}{\partial C_{t-1}}$, at any time step can take on either values that are greater than 1 or values in the range $[0, 1]$. Thus if we extend to an infinite amount of time steps, it is not guarenteed that we will end up converging to 0 or infinity (unlike in vanilla RNNs). If we start to converge to zero, we can always set the values of $f_{t}$ (and other gate values) to be higher in order to bring the value of $\frac{\partial C_{t}}{\partial C_{t-1}}$ closer to 1, thus preventing the gradients from vanishing (or at the very least, preventing them from vanishing too quickly). One important thing to note is that the values that $f_{t}$ (the forget gate), $i_{t}$ (input gate), $o_{t}$ (output gate) and $\widetilde{C_{t}}$ (candidate input) take on are learned functions of the current input and hidden state by the network. Thus, in this way the network learns to decide when to let the gradient vanish, and when to preserve it, by setting the gate values accordingly!
+In vanilla RNNs, the terms $\frac{\partial h_{t+1}}{\partial h_{t}}$ will eventually take on a values that are either always above $1$ or always in the range $[0, 1]$, this is essentially what leads to the vanishing/exploding gradient problem. The terms here, $\frac{\partial C_{t}}{\partial C_{t-1}}$, at any time step can take on either values that are greater than 1 or values in the range $[0, 1]$. Thus if we extend to an infinite amount of time steps, it is not guarenteed that we will end up converging to 0 or infinity (unlike in vanilla RNNs). If we start to converge to zero, we can always set the values of $f_{t}$ (and other gate values) to be higher in order to bring the value of $\frac{\partial C_{t}}{\partial C_{t-1}}$ closer to 1, thus preventing the gradients from vanishing (or at the very least, preventing them from vanishing too quickly). One important thing to note is that the values that $f_{t}$ (the forget gate), $i_{t}$ (input gate), $o_{t}$ (output gate) and $\widetilde{C_{t}}$ (candidate input) take on are learned functions of the current input and hidden state by the network. Thus, in this way the network learns to decide when to let the gradient vanish, and when to preserve it, by setting the gate values accordingly, meaning that the model would regulate its forget gate value to prevent that from vanishing gradients.
 
 **Note**: LSTM does not always protect you from exploding gradients! Therefore, successful LSTM applications typically use gradient clipping.
 
