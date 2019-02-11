@@ -211,13 +211,13 @@ $$
 \left\Vert \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq \left\Vert W_{hh} \right\Vert \left\Vert diag(\phi_{h}^{\prime}(W_{xh}^{T} \cdot X_{j+1} + W_{hh}^{T}\cdot h_{j} +b_{h}) \right\Vert \leq \gamma_{W} \gamma_{h}
 $$
 
-The gradient $\frac{\partial h_{t+1}}{\partial h_k}$ is a product of Jacobian matrices that are multiplied many times, $t+1-k$ in our case:
+The gradient $\frac{\partial h_{t+1}}{\partial h_k}$ is a product of Jacobian matrices that are multiplied many times, $t-k$ times in our case:
 
 $$
 \left\Vert \frac{\partial h_{t+1}}{\partial h_k} \right\Vert = \left\Vert \prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq (\gamma_{W} \gamma_{h})^{t+1-k}
 $$
 
-As the sequence gets longer (i.e the distance between $t+1$ and $k$ increases), then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
+As the sequence gets longer (i.e the distance between $t$ and $k$ increases), then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
 
 Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t+1−k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for$\gamma > 1$ the gradient tends to explode.
 
