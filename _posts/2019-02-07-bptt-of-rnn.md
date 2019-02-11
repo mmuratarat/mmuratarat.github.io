@@ -228,7 +228,7 @@ In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/lstm_internal_state.png?raw=true)
 
-which we can re-write it as:
+which we can re-write it in our terms as:
 
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
@@ -236,7 +236,7 @@ The original motivation behind this LSTM was to make this recursive derivative h
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/modern_lstm_internal_state.png?raw=true)
 
-which we can re-write it as:
+which we can re-write it in our terms as:
 
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
