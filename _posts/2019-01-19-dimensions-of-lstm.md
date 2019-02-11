@@ -253,6 +253,9 @@ $$
 
 where $\alpha$ is the step size (sometimes called the learning rate in machine learning).
 
+**NOTE:** If you are cuyrious how LSTM netwoirks prevent vanishing gradients problem, click [here](#tensorflow-dimensions).
+vanishingexploding-gradients-with-lstms
+
 # What is the number of units in an LSTM cell?
 It can be hard to understand what number of units in an LSTM cell stands for. Most LSTM diagrams just show the hidden cells but never the units of those cells. The image below from [this source](https://jasdeep06.github.io/posts/Understanding-LSTM-in-Tensorflow-MNIST/){:target="_blank"} explains it very well. `num_units` can be interpreted as the analogy of hidden layer from the feed forward neural network. The number of units in an LSTM cell can be thought of number of neurons in a hidden layer. It is a direct representation of the learning capacity of a neural network.
 
