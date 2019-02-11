@@ -224,7 +224,9 @@ Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h
 # Vanishing/Exploding Gradients with LSTMs
 As can be seen easily above, the biggest problem with causing gradients to vanish is the multiplication of recursive derivatives. One of the approaches that was proposed to overcome this issue is to use gated structures such as Long Short-Term Memory Networks. 
 
-In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2604.pdf){:target="_blank"}, the value of $C_{t}$ depends on the previous value of cell state and an update term weighted by the input gate:
+In the [original LSTM formulation](http://www.bioinf.jku.at/publications/older/2604.pdf){:target="_blank"}, the value of $C_{t}$ depends on the previous value of cell state and an update term weighted by the input gate (pp. 7):
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/lstm_internal_state.png?raw=true)
 
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
