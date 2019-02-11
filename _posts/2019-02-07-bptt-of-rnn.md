@@ -232,7 +232,11 @@ which we can re-write it as:
 
 $$ C_{t} = C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
-The original motivation behind this LSTM was to make this recursive derivative have a constant value, which was equal to 1 because of the  truncated BPTT algorithm. In other words, the gradient calculation was truncated so as not to flow back to the input or candidate gates. If this is the case, then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more modern formulation:
+The original motivation behind this LSTM was to make this recursive derivative have a constant value, which was equal to 1 because of the  truncated BPTT algorithm. In other words, the gradient calculation was truncated so as not to flow back to the input or candidate gates. If this is the case, then our gradients would neither explode or vanish. However, this formulation doesn’t work well because the cell state tends to grow uncontrollably. In order to prevent this unbounded growth, a forget gate was added to scale the previous cell state, leading to the more [modern formulation (Appendix A](ftp://ftp.idsia.ch/pub/juergen/nn_2005.pdf){:target="_blank"}:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/modern_lstm_internal_state.png?raw=true)
+
+which we can re-write it as:
 
 $$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
 
