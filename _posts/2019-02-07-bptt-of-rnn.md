@@ -54,6 +54,8 @@ Let's denote $m$ as the number of instances in the mini-batch, $n_{neurons}$ as 
 7. $b_{y}$ is a vector of size $n_{neurons}$ containing each output’s bias term.
 8. $y_{t}$ is an $m \times n_{neurons}$ matrix containing the layer’s outputs at time step $t$ for each instance in the mini-batch 
 
+**NOTE:** At the first time step, $t = 0$, there are no previous outputs, so they are typically assumed to be all zeros.
+
 # Backpropagation Through Time
 In order to do backpropagation through time to train an RNN, we need to compute the loss function first:
 
