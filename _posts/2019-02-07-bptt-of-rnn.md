@@ -214,10 +214,10 @@ $$
 The gradient $\frac{\partial h_{t+1}}{\partial h_k}$ is a product of Jacobian matrices that are multiplied many times, $t-k$ times in our case:
 
 $$
-\left\Vert \frac{\partial h_{t+1}}{\partial h_k} \right\Vert = \left\Vert \prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq (\gamma_{W} \gamma_{h})^{t+1-k}
+\left\Vert \frac{\partial h_{t+1}}{\partial h_k} \right\Vert = \left\Vert \prod^{t}_{j=k} \frac{\partial h_{j+1}}{\partial h_{j}} \right\Vert \leq (\gamma_{W} \gamma_{h})^{t-k}
 $$
 
-As the sequence gets longer (i.e the distance between $t$ and $k$ increases), then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
+This can become very small or very large quickly, and the locality assumption of gradient descent breaks down as the sequence gets longer (i.e the distance between $t$ and $k$ increases). Then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
 
 Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t+1−k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for$\gamma > 1$ the gradient tends to explode.
 
