@@ -110,4 +110,4 @@ with tf.Session() as sess:
 
 As can be seen easily, here, we are using [`.take()`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#take){:target="_blank"} and [`.skip()`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#skip) function of Tensorflow data API.
 
-Additionally, we use `Reinitializable Iterator` here so then we switch dynamically between different input data streams. We create an iterator for different datasets. Note that all the datasets must have the same datatype and shape. Do not also forget that iterator has to be initialized with dataset before it starts running.
+Additionally, we use `Reinitializable Iterator` here so then we switch dynamically between different input data streams. We create an iterator for different datasets. Note that all the datasets must have the same datatype and shape. Do not also forget that iterator has to be initialized before it starts running.
