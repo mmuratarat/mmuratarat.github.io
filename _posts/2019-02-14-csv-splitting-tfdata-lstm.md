@@ -20,7 +20,7 @@ print(my_df.shape)
 #(204, 34)
 {% endhighlight %}
 
-What we are also going to do here is to explain how we can transform this dataset into a structure where we can implement a LSTM network. LSTM accepts data in the shape of `[batch_size, time_steps, number_of_features]`. Here, batch_size will be kept dynamic. Let's choose `time_steps = 6`. We already know that number of features is 33. Therefore, the rows in CSV file will represent time-steps and every 6 time-steps will denote one person (one customer, one observation, et cetera). Total number of observations is then `206/6 = 34`. 
+What we are also going to do here is to explain how we can transform this dataset into a structure, where we can use it in a LSTM network. LSTM accepts data in the shape of `[batch_size, time_steps, number_of_features]`. Here, batch_size will be kept dynamic. Let's choose `time_steps = 6`. We already know that number of features is 33. Therefore, the rows in CSV file will represent time-steps and every 6 time-steps will denote one person (one customer, one observation, et cetera). Total number of observations is then `206/6 = 34`. 
 
 Let's split the dataset into two and use $80\%$ of it for training and the rest for testing. Therefore, we will have 27 observations (162 rows) for training and 7 observations (42 rows) for testing.
 
