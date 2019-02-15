@@ -46,7 +46,7 @@ def input_fn(dataset):
     return dataset
 {% endhighlight %}
 
-`input_fn()` function will decode the CSV. First, it combines 6 lines into a single observation, then reads 33 float columns for features and one integer column for labels. It also one-hot-encodes the label variable. 
+`input_fn()` function will decode the CSV. First, it combines 6 lines into a single observation, then reads 33 float columns of features and one integer column of label. It also one-hot-encodes the label variable. 
 
 Let's choose `batch_size = 3` which means that every batch will consists of 3 observations (18 rows). Therefore, training set will have 9 total batches without a remainder and total number of batches for testing set will be 3 with the last batch only having one observation (6 rows).
 
