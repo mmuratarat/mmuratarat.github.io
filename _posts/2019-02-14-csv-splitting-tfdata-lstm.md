@@ -20,7 +20,7 @@ print(my_df.shape)
 #(204, 34)
 {% endhighlight %}
 
-What we are also going to do here is to explain how we can transform this dataset into a structure, where we can use it in a LSTM network. LSTM accepts data in the shape of `[batch_size, time_steps, number_of_features]`. Here, batch_size will be kept dynamic. Let's choose `time_steps = 6`. We already know that number of features is 33. Therefore, the rows in CSV file will represent time-steps and every 6 time-steps will denote one person (one customer, one observation, et cetera). Total number of observations is then `206/6 = 34`. 
+What we are also going to do here is to explain how we can transform this dataset into a structure, where we can use it in a LSTM network. LSTM accepts a structure in the shape of `[batch_size, time_steps, number_of_features]`. Here, batch_size will be kept dynamic. Let's choose `time_steps = 6`. We already know that number of features is 33. Therefore, the rows in CSV file will represent time-steps and every 6 time-steps will denote one person (one customer, one observation, et cetera). Total number of observations is then `204/6 = 34`. 
 
 Let's split the dataset into two and use $80\%$ of it for training and the rest for testing. Therefore, we will have 27 observations (162 rows) for training and 7 observations (42 rows) for testing.
 
@@ -46,7 +46,7 @@ def input_fn(dataset):
     return dataset
 {% endhighlight %}
 
-`input_fn()` function will decode the CSV. First combine 6 lines into a single observation, then read 33 float columns for features and one integer column for labels. It also one-hot-encodes the label variable. 
+`input_fn()` function will decode the CSV. First, it combines 6 lines into a single observation, then reads 33 float columns for features and one integer column for labels. It also one-hot-encodes the label variable. 
 
 Let's choose `batch_size = 3` which means that every batch will consists of 3 observations (18 rows). Therefore, training set will have 9 total batches without a remainder and total number of batches for testing set will be 3 with the last batch only having one observation (6 rows).
 
