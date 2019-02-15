@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-There might be times where you only have your data in a one big `CSV` file and you need to feed it into Tensorflow and at the same time, you need to split into two sets: training and testing sets.
+There might be times when you only have your data in a one big `CSV` file and you need to feed it into Tensorflow and at the same time, you need to split into two sets: training and testing sets. Using [`train_test_split` function of Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html){:target="_blank"} cannot be proper because of using a `TextLineReader` of [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} so the data is now a tensor. Scikit-Learn works on Numpy arrays not Tensorflow's tensors.
 
 Here, we will show how you can do it using [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} efficiently. Firstly, let's create a CSV file, consisting of 204 observations, 33 features and one binary labels and save it into our directory.
 
@@ -110,4 +110,4 @@ with tf.Session() as sess:
 
 As can be seen easily, here, we are using [`.take()`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#take){:target="_blank"} and [`.skip()`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#skip) function of Tensorflow data API.
 
-Additionally, we use Reinitializable Iterator here so then we switch dynamically between different input data streams. We create an iterator for different datasets. Note that all the datasets must have the same datatype and shape. Do not also forget that iterator has to be initialized with dataset before it starts running.
+Additionally, we use `Reinitializable Iterator` here so then we switch dynamically between different input data streams. We create an iterator for different datasets. Note that all the datasets must have the same datatype and shape. Do not also forget that iterator has to be initialized with dataset before it starts running.
