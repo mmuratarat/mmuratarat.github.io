@@ -58,12 +58,12 @@ num_steps = 6
 num_classes = 2
 num_inputs = 33
 prefetch_batch_buffer = 2
+number_of_rows = 204
 num_parallel_calls = multiprocessing.cpu_count()
 
 file_name = 'data.csv'
 dataset = tf.data.TextLineDataset(file_name)
 
-number_of_rows = 204
 number_of_observations = number_of_rows/num_steps
 number_of_rows_training = int(np.floor(number_of_observations*80/100)*num_steps)
 
