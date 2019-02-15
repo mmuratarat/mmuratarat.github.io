@@ -5,9 +5,9 @@ author: "MMA"
 comments: true
 ---
 
-There might be times when you only have your data in a one big `CSV` file and you need to feed it into Tensorflow and at the same time, you need to split into two sets: training and testing sets. Using [`train_test_split` function of Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html){:target="_blank"} cannot be proper because of using a [`TextLineReader`](https://www.tensorflow.org/api_docs/python/tf/data/TextLineDataset){:target="_blank"} of [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} so the data is now a tensor. Scikit-Learn works on Numpy arrays not Tensorflow's tensors.
+There might be times when you have your data only in a one huge `CSV` file and you need to feed it into Tensorflow and at the same time, you need to split it into two sets: training and testing. Using [`train_test_split` function of Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html){:target="_blank"} cannot be proper because of using a [`TextLineReader`](https://www.tensorflow.org/api_docs/python/tf/data/TextLineDataset){:target="_blank"} of [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} so the data is now a tensor. Scikit-Learn works on Numpy arrays not Tensorflow's tensors.
 
-Here, we will show how you can do it using [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} efficiently. Firstly, let's create a CSV file, consisting of 204 observations, 33 features and one binary labels and save it into our directory.
+Here, we will show how you can do it using [Tensorflow Data API](https://www.tensorflow.org/api_docs/python/tf/data){:target="_blank"} efficiently. Firstly, let's create a Pandas's dataframe, consisting of 204 observations, 33 features and one binary labels and save it as a CSV file into our directory.
 
 {% highlight python %}
 import numpy as np
