@@ -19,7 +19,7 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 
 The loss for a single istance can be computed by,
 
-$$ L = - \sum_{j} \left[y_{j} \log (p_{j}) \right]$$
+$$ L = - \sum_{j}^{K} \left[y_{j} \log (p_{j}) \right]$$
 
 Most of the time, $p_{j} = softmax(o_{i})$ where $o_{i}$ is the unscaled score (logit), which is also a vector. 
 
