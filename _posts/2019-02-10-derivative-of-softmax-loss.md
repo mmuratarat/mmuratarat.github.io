@@ -38,4 +38,4 @@ $$
 
 given that $\sum_{j}y_{j} = 1$ because $y$ is one-hot encoded vector.
 
-Here, one needs to remember $\frac{\partial \log{f(x)}}{\partial x}=\frac{1}{f(x)}\frac{\partial f(x)}{\partial x}$, $\frac{\partial p_j}{\partial o_i} = p_i(1 - p_i),\quad i = j$ and $\frac{\partial p_j}{\partial o_i} = -p_i p_j,\quad i \neq j$.
+Here, one needs to remember $\frac{\partial \log{f(x)}}{\partial x}=\frac{1}{f(x)}\frac{\partial f(x)}{\partial x}$, $\frac{\partial p_j}{\partial o_i} = p_i(1 - p_i),\quad i = j$ and $\frac{\partial p_j}{\partial o_i} = -p_i p_j,\quad i \neq j$, which the last two equations are nothing but derivative of softmax function with respect to logits. which can be found [here](https://mmuratarat.github.io/2019-01-27/derivation-of-softmax-function){:target="_blank"}.
