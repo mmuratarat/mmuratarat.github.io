@@ -7,7 +7,7 @@ comments: true
 
 Softmax function is given by:
 
-$$ S(x_{i}) = \frac{e^{x_i}}{\sum_{k=1}^K e^{x_k}} \;\;\;\text{ for } i = 1, \dots, K$$
+$$ S(x_{i}) = S_{i} = \frac{e^{x_i}}{\sum_{k=1}^K e^{x_k}} \;\;\;\text{ for } i = 1, \dots, K$$
 
 Softmax is fundamentally a vector function. It takes a vector as input and produces a vector as output. In other words, it has multiple inputs and outputs. Therefore, when we try to find the derivative of the softmax function, we talk about a Jacobian matrix, which is the matrix of all first-order partial derivatives of a vector-valued function. More details are provided [here](https://mmuratarat.github.io/2019-01-27/derivation-of-softmax-function){:target="_blank"}.
 
