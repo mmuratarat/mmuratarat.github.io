@@ -66,7 +66,7 @@ H(p, q) = -\sum_{k=1}^{K=2} p(y_{k}) \log q(y_{k}) =-y\log \hat{y}-(1-y)\log (1-
 \end{equation}
 which is nothing but logistic loss.
 
-The final step is to compute the average of all points in both classes, positive and negative will give [binary cross-entropy formula](#binary-cross-entropy).
+The final step is to compute the average of all points in both classes, positive and negative, will give [binary cross-entropy formula](#binary-cross-entropy).
 
 **NOTE**: Why don't we use KL-Divergence in machine learning models instead of the cross entropy? The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that's why we build the model.
 
@@ -82,7 +82,7 @@ Once the model learns these parameters, they can be used to compute estimated va
 
 In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between $X$ and $y$. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against "ground truth", i.e., the known values of y.
 
-The objective here, therefore, is to find parameters, weights/biases or a structure that minimises the cost function.
+The objective here, therefore, is to find parameters, weights/biases or a structure that minimizes the cost function.
 
 # WHAT IS A LOGIT?
 A logit (also called a score) is a raw unscaled value associated with a class before computing the probability. In terms of a neural network architecture, this means that a logit is an output of a dense (fully-connected) layer. 
