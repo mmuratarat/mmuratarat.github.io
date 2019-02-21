@@ -216,3 +216,4 @@ Labels used in `softmax_cross_entropy_with_logits` are the one hot version of la
 15. [http://neuralnetworksanddeeplearning.com/chap3.html](http://neuralnetworksanddeeplearning.com/chap3.html){:target="_blank"}
 16. [https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a){:target="_blank"}
 17. [https://math.stackexchange.com/a/1672834/45210](https://math.stackexchange.com/a/1672834/45210){:target="_blank"}
+18. [http://www.awebb.info/blog/cross_entropy](http://www.awebb.info/blog/cross_entropy){:target="_blank"}
