@@ -26,7 +26,7 @@ Since softmax is a $\mathbb{R}^{K} \rightarrow \mathbb{R}^{K}$ mapping function,
 $$\frac{\partial S}{\partial x} =
 \begin{bmatrix}
 \frac{\partial S_{1}}{\partial x_{1}} & \frac{\partial S_{1}}{\partial x_{2}} & \cdots & \frac{\partial S_{1}}{\partial x_{K}} \\
-\frac{\partial S_{2}}{\partial x_{1}} & \frac{\partial S_{1}}{\partial x_{2}} & \cdots & \frac{\partial S_{K}}{\partial x_{K}} \\
+\frac{\partial S_{2}}{\partial x_{1}} & \frac{\partial S_{2}}{\partial x_{2}} & \cdots & \frac{\partial S_{K}}{\partial x_{K}} \\
 \vdots & \vdots & \cdots & \vdots \\
 \frac{\partial S_{K}}{\partial x_{1}} & \frac{\partial S_{K}}{\partial x_{2}} & \cdots & \frac{\partial S_{K}}{\partial x_{K}} \\
 \end{bmatrix}
