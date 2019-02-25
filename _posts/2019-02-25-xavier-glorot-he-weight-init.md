@@ -93,8 +93,8 @@ Some papers in the literature have provided similar strategies for different act
 
 | Activation Function         	| Uniform Distribution [-r, +r]                   	| Normal Distribution                             	|
 |-----------------------------	|-------------------------------------------------	|-------------------------------------------------	|
-| Sigmoid Function            	| $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$         	| $\sigma = \sqrt{\frac{2}{n_{in} + n_{out}}}$         	|
-| Hyperbolic Tangent Function 	| $r = 4\sqrt{\frac{6}{n_{in} + n_{out}}}$        	| $\sigma = 4\sqrt{\frac{2}{n_{in} + n_{out}}}$        	|
+| Hyperbolic Tangent Function            	| $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$         	| $\sigma = \sqrt{\frac{2}{n_{in} + n_{out}}}$         	|
+| Sigmoid Function 	| $r = 4\sqrt{\frac{6}{n_{in} + n_{out}}}$        	| $\sigma = 4\sqrt{\frac{2}{n_{in} + n_{out}}}$        	|
 | ReLU (and its variants)     	| $r = \sqrt{2}\sqrt{\frac{6}{n_{in} + n_{out}}}$ 	| $\sigma = \sqrt{2}\sqrt{\frac{2}{n_{in} + n_{out}}}$ 	|
 
 # Tensorflow Implementation
