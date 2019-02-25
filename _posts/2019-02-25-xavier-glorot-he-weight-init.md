@@ -91,7 +91,7 @@ Glorot and Bengio considered logistic sigmoid activation function, which was the
 # Different Activation Functions
 Some papers in the literature have provided similar strategies for different activation functions which is shown below:
 
-| Activation Function         	| Uniform Distribution [-r, +r]                   	| Normal Distribution                             	|
+| **Activation Function**         	| **Uniform Distribution [-r, +r]**                   	| **Normal Distribution**                             	|
 |-----------------------------	|-------------------------------------------------	|-------------------------------------------------	|
 | Hyperbolic Tangent Function            	| $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$         	| $\sigma = \sqrt{\frac{2}{n_{in} + n_{out}}}$         	|
 | Sigmoid Function 	| $r = 4\sqrt{\frac{6}{n_{in} + n_{out}}}$        	| $\sigma = 4\sqrt{\frac{2}{n_{in} + n_{out}}}$        	|
