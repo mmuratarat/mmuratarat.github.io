@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Initialization Schemes"
+title: "Weight Initialization Schemes - Xavier (Glorot) and He"
 author: "MMA"
 comments: true
 ---
