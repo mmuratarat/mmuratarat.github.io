@@ -59,7 +59,7 @@ where $n_{avg} = \frac{n_{in} + n_{out}}{2}$.
 Note that when the number of input connections is roughly equal to the number of output connections, you get the simpler equations:
 
 $$
-Var(W_{i}) = \frac{1}{n_{in}}
+\sigma^{2} = \frac{1}{n_{in}}
 $$
 
 ## Uniform Distribution
