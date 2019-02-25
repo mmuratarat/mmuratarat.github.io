@@ -80,6 +80,8 @@ $$
 # He Initialization
 Glorot and Bengio considered logistic sigmoid activation function, which was the default choice at that moment for their weight initialization scheme. Later on, the sigmoid activation was surpassed by ReLu, because it allowed to solve vanishing / exploding gradients problem. However, it turns out  Xavier (Glorot) Initialization isn’t quite as optimal for ReLU functions. Consequently, there appeared a new initialization technique, which applied the same idea (balancing of the variance of the activation) to this new activation function and now it often referred to as He initialization. The initialization strategy for ReLU activation function and its variants is sometimes called He initialization. There is only one tiny adjustment we need to make, which is to multiply the variance of the weights by 2! 
 
+
+# Different Activation Functions
 Some papers in the literature have provided similar strategies for different activation functions which is shown below:
 
 | Activation Function         	| Uniform Distribution [-r, +r]                   	| Normal Distribution                             	|
