@@ -56,6 +56,13 @@ $$
 
 where $n_{avg} = \frac{n_{in} + n_{out}}{2}$.
 
+So, the idea is to initialize weights from Gaussian Distribution with mean = 0.0 and variance:
+
+$$
+\sigma = \sqrt{\frac{2}{n_{in} + n_{out}}}
+$$
+
+
 Note that when the number of input connections is roughly equal to the number of output connections, you get the simpler equations:
 
 $$
@@ -86,9 +93,9 @@ Some papers in the literature have provided similar strategies for different act
 
 | Activation Function         	| Uniform Distribution [-r, +r]                   	| Normal Distribution                             	|
 |-----------------------------	|-------------------------------------------------	|-------------------------------------------------	|
-| Sigmoid Function            	| $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$         	| $r = \sqrt{\frac{2}{n_{in} + n_{out}}}$         	|
-| Hyperbolic Tangent Function 	| $r = 4\sqrt{\frac{6}{n_{in} + n_{out}}}$        	| $r = 4\sqrt{\frac{2}{n_{in} + n_{out}}}$        	|
-| ReLU (and its variants)     	| $r = \sqrt{2}\sqrt{\frac{6}{n_{in} + n_{out}}}$ 	| $r = \sqrt{2}\sqrt{\frac{2}{n_{in} + n_{out}}}$ 	|
+| Sigmoid Function            	| $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$         	| $\sigma = \sqrt{\frac{2}{n_{in} + n_{out}}}$         	|
+| Hyperbolic Tangent Function 	| $r = 4\sqrt{\frac{6}{n_{in} + n_{out}}}$        	| $\sigma = 4\sqrt{\frac{2}{n_{in} + n_{out}}}$        	|
+| ReLU (and its variants)     	| $r = \sqrt{2}\sqrt{\frac{6}{n_{in} + n_{out}}}$ 	| $ = \sqrt{2}\sqrt{\frac{2}{n_{in} + n_{out}}}$ 	|
 
 # Tensorflow Implementation
 In Tensorflow, He initialization is implemented in [variance_scaling_initializer()](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/VarianceScaling){:target="_blank"} function (which is, in fact, a more general initializer, but by default performs He initialization), while Xavier initializer is logically [xavier_initializer()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer){:target="_blank"}.
