@@ -89,7 +89,7 @@ Some papers in the literature have provided similar strategies for different act
 | ReLU (and its variants)     | $r = \sqrt{2}\sqrt{\frac{6}{n_{in} + n_{out}}}$ | $r = \sqrt{2}\sqrt{\frac{2}{n_{in} + n_{out}}}$ |
 
 # Tensorflow Implementation
-In tensorflow, He initialization is implemented in [variance_scaling_initializer()](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/VarianceScaling){:target="_blank"} function (which is, in fact, a more general initializer, but by default performs He initialization), while Xavier initializer is logically [xavier_initializer()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer){:target="_blank"}.
+In Tensorflow, He initialization is implemented in [variance_scaling_initializer()](https://www.tensorflow.org/api_docs/python/tf/keras/initializers/VarianceScaling){:target="_blank"} function (which is, in fact, a more general initializer, but by default performs He initialization), while Xavier initializer is logically [xavier_initializer()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer){:target="_blank"}.
 
 # REFERENCES
 1. [Understanding the difficulty of training deep feedforward neural networks, Xavier Glorot, Yoshua Bengio ; PMLR 9:249–256](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf){:target="_blank"}
