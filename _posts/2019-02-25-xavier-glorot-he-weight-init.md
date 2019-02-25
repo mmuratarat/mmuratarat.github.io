@@ -105,3 +105,4 @@ In Tensorflow, He initialization is implemented in [variance_scaling_initializer
 2. [https://towardsdatascience.com/hyper-parameters-in-action-part-ii-weight-initializers-35aee1a28404](https://towardsdatascience.com/hyper-parameters-in-action-part-ii-weight-initializers-35aee1a28404){:target="_blank"}
 3. [Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification by Kaiming He,  Xiangyu Zhang, Shaoqing Ren and Jian Sun](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf){:target="_blank"}
 4. [http://andyljones.tumblr.com/post/110998971763/an-explanation-of-xavier-initialization](http://andyljones.tumblr.com/post/110998971763/an-explanation-of-xavier-initialization){:target="_blank"}
+5. [https://mnsgrg.com/2017/12/21/xavier-initialization/](https://mnsgrg.com/2017/12/21/xavier-initialization/){:target="_blank"}
