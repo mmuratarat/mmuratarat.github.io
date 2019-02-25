@@ -97,7 +97,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 def tanh(z):
-    return (np.exp(2*z)-1)/(np.exp(2*z)+1)
+    return (np.exp(z)-np.exp(-z))/(np.exp(z)+np.exp(-z))
 
 def tanh_derivation(z):
     return (1- tanh(z)**2)
@@ -105,7 +105,7 @@ def tanh_derivation(z):
 z = np.linspace(-5, 5, 200)
 plt.figure()
 plt.style.use('seaborn-darkgrid')
-plt.plot(z, sigmoid(z), "b-.", linewidth=2)
+plt.plot(z, tanh(z), "b-.", linewidth=2)
 props = dict(facecolor='black', shrink=0.1)
 plt.annotate('Saturating', xytext=(3.5, 0.7), xy=(5, 1), arrowprops=props, fontsize=14, ha="center")
 plt.annotate('Saturating', xytext=(-3.5, 0.3), xy=(-5, 0), arrowprops=props, fontsize=14, ha="center")
@@ -115,7 +115,7 @@ plt.savefig('tanh.png')
 z = np.linspace(-5, 5, 200)
 plt.figure()
 plt.style.use('seaborn-darkgrid')
-plt.plot(z, sigmoid_derivation(z), "b-.", linewidth=2)
+plt.plot(z, tanh_derivation(z), "b-.", linewidth=2)
 props = dict(facecolor='black', shrink=0.1)
 plt.annotate('Max Value', xytext=(2.9, 0.8), xy=(0, 1), arrowprops=props, fontsize=14, ha="center")
 plt.title("Derivation of Hyperbolic Tangent Function", fontsize=14)
