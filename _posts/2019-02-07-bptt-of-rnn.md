@@ -221,7 +221,7 @@ $$
 
 This can become very small or very large quickly, and the locality assumption of gradient descent breaks down as the sequence gets longer (i.e the distance between $t$ and $k$ increases). Then the value of $\gamma$ will determine if the gradient either gets very large (explodes) or gets very small (vanishes).
 
-Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t+1−k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for $\gamma > 1$ the gradient tends to explode.
+Since $\gamma$  is associated with the leading eigenvalues of $ \frac{\partial h_{j+1}}{\partial h_{j}}$, the recursive product of $t-k$ Jacobian matrices makes it possible to influence the overall gradient in such a way that for $\gamma < 1$ the gradient tends to vanish while for $\gamma > 1$ the gradient tends to explode.
 
 # Vanishing/Exploding Gradients with LSTMs
 As can be seen easily above, the biggest problem with causing gradients to vanish is the multiplication of recursive derivatives. One of the approaches that was proposed to overcome this issue is to use gated structures such as Long Short-Term Memory Networks. 
