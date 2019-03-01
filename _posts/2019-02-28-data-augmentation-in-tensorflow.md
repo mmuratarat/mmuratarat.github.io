@@ -9,7 +9,7 @@ This post is a comprehensive review of Data Augmentation techniques for Deep Lea
 
 It will reduce the overfitting. The trick is to generate realistic training instances. Ideally a human should not be able to tell which instances were generated and which ones were not. Many of this tricks are used in Convolutional Neural Network. However, instances should be generated on the fly during training, which computationally efficient, rather than wasting storage space and network bandwidth. Tensorflow offers several image manipulation operations such as transposing (shifting), rotating, resizing, flipping and cropping, as well as adjusting the brightness, contrast, saturation and hue. This makes it easy to implement data augmentation for image dataset.
 
-To illustrate the different augmentation techniques we need a image, which is a cute corgi ouppy picture that I found online! ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/heart_emoji.png?raw=true)
+To illustrate the different augmentation techniques we need a image, which is a cute corgi puppy picture! ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/heart_emoji.png?raw=true)
 
 {% highlight python %}
 import matplotlib.image as mpimg 
