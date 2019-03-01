@@ -158,7 +158,6 @@ brght_img_random = tf.image.random_brightness(img, max_delta=0.5)
 with tf.Session() as sess:
     brght_img_random_eval = brght_img_random.eval()
     plt.imshow(brght_img_random_eval.astype(np.uint8))
-#NOTE: 
 {% endhighlight %}
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/random_bright_img.png?raw=true)
