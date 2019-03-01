@@ -231,7 +231,7 @@ with tf.Session() as sess:
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cropped_img.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cropped_img_resized_to_original.png?raw=true)
 
-Since we set the seed, it will always crop the same area. However, if seed=None, every time you run this cell, a different part of the image will be cropped and resized to original size.
+Since we set the seed, it will always crop the same area. However, if `seed=None`, every time you run this cell, a different part of the image will be cropped and resized to original size.
 
 
 # Gaussian Noise
