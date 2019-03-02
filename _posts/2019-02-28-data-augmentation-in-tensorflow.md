@@ -99,9 +99,6 @@ with tf.Session() as sess:
 {% endhighlight %}
 
 # Rotation
-
-One key thing to note about this operation is that image dimensions may not be preserved after rotation. If your image is a square, rotating it at right angles will preserve the image size. If it’s a rectangle, rotating it by 180 degrees would preserve the size. Rotating the image by finer angles will also change the final image size. 
-
 **NOTE**: `k` denotes the number of times the image is rotated by 90 degrees anti-clockwise.
 
 {% highlight python %}
