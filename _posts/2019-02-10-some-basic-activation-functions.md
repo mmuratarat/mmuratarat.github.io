@@ -152,8 +152,40 @@ where  $x$ is the input to a neuron. In other words, when the input is smaller t
 ReLU is less computationally expensive than tanh and sigmoid neurons due to its linear, non-saturating form and involving simpler mathematical operations. It’s very fast to compute because its derivative is easy to handle. When the input is greater or equal to zero, the output is simply the input, and hence the derivative is equal to one. The function is not differentiable at zero, though. In other words, when the input is smaller than zero, the function will output zero. Else, the function will mimic the identity function. It is linear in positive axis. Therefore, the derivative of ReLU is:
 
 $$
-\frac{d}{d x} ReLU(x) = \begin{cases} 0 & \mbox{if $x < 0$}\\ 1 & \mbox{if $x \geq 0$} \end{cases}
+\frac{d}{d x} ReLU(x) = \begin{cases} 0 & \mbox{if $x < 0$}\\ 1 & \mbox{if $x > 0$} \end{cases}
 $$
+
+Note that derivative of ReLU function at $x=0$ does not exist.
+
+A function is only differentiable if the derivative exists for each value in the function's domain (for instance, at each point). One criterion for the derivative to exist at a given point is continuity at that point. However, the continuity is not sufficient for the derivative to exist. For the derivative to exist, we require the left-hand and the right-hand limit to exist and be equal.
+
+General definition of the derivative of a continuous function $f(x)$ is given by:
+
+$$
+f^{\prime} = \frac{d f}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+where $\lim_{h \rightarrow 0}$ means "as the change in h becomes infitely small (for instance h approaches to zero)".
+
+Let's get back to ReLU function. If we substitute the ReLU equation into the limit definition of derivative above:
+
+$$
+f^{\prime} (x) = \frac{d f}{dx} = \lim_{x \rightarrow 0} \frac{max(0, x + \Delta x) - max(0, x)}{\Delta x}
+$$
+
+Next, let us compute the left- and right-side limits. Starting from the left side, where $\Delta x$ is an infinitely small, negative number, we get,
+
+$$
+f^{\prime} (0) = \lim_{x \rightarrow 0^{-}} \frac{0 - 0}{\Delta x} = 0.
+$$
+
+And for the right-hand limit, where $\Delta x$ is an infinitely small, positive number, we get:
+
+$$
+f^{\prime} (0) = \lim_{x \rightarrow 0^{+}} \frac{0+\Delta x - 0}{\Delta x} = 1.
+$$
+
+The left- and right-hand limits are not equal at $x=0$; hence, the derivstive of ReLU function at $x=0$ is not defined. 
 
 {% highlight python %}
 import numpy as np
