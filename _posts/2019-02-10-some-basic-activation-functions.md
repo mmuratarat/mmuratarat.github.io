@@ -162,7 +162,7 @@ A function is only differentiable if the derivative exists for each value in the
 General definition of the derivative of a continuous function $f(x)$ is given by:
 
 $$
-f^{\prime} = \frac{d f}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+f^{\prime}(x) = \frac{d f}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
 $$
 
 where $\lim_{h \rightarrow 0}$ means "as the change in h becomes infitely small (for instance h approaches to zero)".
@@ -185,7 +185,7 @@ $$
 f^{\prime} (0) = \lim_{x \rightarrow 0^{+}} \frac{0+\Delta x - 0}{\Delta x} = 1.
 $$
 
-The left- and right-hand limits are not equal at $x=0$; hence, the derivstive of ReLU function at $x=0$ is not defined. 
+The left- and right-hand limits are not equal at $x=0$; hence, the derivative of ReLU function at $x=0$ is not defined. 
 
 {% highlight python %}
 import numpy as np
