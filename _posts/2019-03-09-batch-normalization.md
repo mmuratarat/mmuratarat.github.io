@@ -75,7 +75,7 @@ $$
 where
 
 $$
-\mu_{\phi_{l}} = \frac{1}{N}\sum_{p=1}^{N} h_{pl}
+\mu_{\phi_{l}} = \frac{1}{N}\sum_{p=1}^{N} x_{pl}
 $$
 
 and
