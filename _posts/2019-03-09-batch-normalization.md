@@ -230,7 +230,7 @@ $$
 
 We already know 
 
-$$\frac{\partial L}{\partial \hat{x}_{i}}$$ 
+$$\frac{\partial L}{\partial \hat{x_{i}}}$$ 
 
 and 
 
