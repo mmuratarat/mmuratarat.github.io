@@ -48,17 +48,6 @@ In other words, we've now allowed the network to normalize a layer into whicheve
 * $\epsilon$ is added for numerical stability, just in case ${\sigma_\phi}^2$ turns out to be 0 for some estimates. This is also called a smoothing term.
 * $y_i$ is the output of the BN operation. It is the scaled and shifted version of the inputs. $y_{i}=BN_{\gamma,\beta}(x_{i})$
 
-For notational simplicity, we can express the entire layer as
-
-$$
-\begin{split}
-  \hat{X} &= \frac{X - \mu}{\sqrt{\sigma^2 + \epsilon}} \\
-  Y &= \gamma \odot \hat{X} + \beta
-\end{split}
-$$
-
-where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamma \odot \hat{X}$, where $Y$ is a row vector and $\hat{X}$ is a matrix, each row of $\hat{X}$ is multiplied element-wise by $\gamma$.
-
 **NOTE**:  the authors did something really clever. They realized that by normalizing the output of a layer they could limit its representational power and, therefore, they wanted to make sure that the Batch Norm layer could fall back to the identity function. If $\beta$ is set to $\mu_\phi$ and $\gamma$ to $\sqrt{\sigma_{\phi}^{2} + \epsilon}$, $\hat{x_i}$ equals to $x_i$,  thus working as an identity function. That means that the network has the ability to ignore the Batch Norm layer if that is the optimal thing to do and introducing batch normalization alone would not reduce the accuracy because the optimizer still has the option to select no normalization effect using the identity function and it would be used by the optimizer to only improve the results.
 
 **NOTE**: $\gamma$ and $\beta$ are learnable parameters that are initialized with $\gamma =1$ and $\beta = 0$.
