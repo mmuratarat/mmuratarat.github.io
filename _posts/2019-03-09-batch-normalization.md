@@ -224,7 +224,9 @@ $$\frac{\partial L}{\partial \hat{x}_{i}}$$
 
 and 
 
-$$\frac{\partial L}{\partial \sigma^2_\phi}$$, so, let's put them all together:
+$$\frac{\partial L}{\partial \sigma^2_\phi}$$, 
+
+so, let's put them all together:
 
 $$
 \begin{split}
@@ -281,6 +283,21 @@ So,
 $$
 \frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}}  \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} +  \frac{\partial L}{\partial \sigma^{2}_\phi} \frac{2(x_i - {\mu_\phi})}{N} + \frac{\partial L}{\partial \mu_\phi}\frac{1}{N}
 $$
+
+When we substitute the partial derivatives into and do some simplifications using the fact that 
+
+$$
+\hat{x_i} = \frac{x_i - \mu_{\phi}}{\sqrt{\sigma^{2}_{\phi} + \epsilon}}
+$$
+
+then, we will have:
+
+$$
+\frac{\partial L}{\partial x_{i}} = \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \hat{x}_{i} -  \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}}  \right)
+$$
+
+This is a simpler expression. Translating this to python, we can end up with a much more compact method.
+
 
 ## Batch Normalization in Tensorflow
 
