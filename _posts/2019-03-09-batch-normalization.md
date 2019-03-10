@@ -293,7 +293,10 @@ $$
 then, we will have:
 
 $$
-\frac{\partial L}{\partial x_{i}} = \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \hat{x}_{i} -  \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}}  \right)
+\begin{split}
+\frac{\partial L}{\partial x_{i}} &= \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \hat{x}_{i} -  \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}}  \right) \\
+&= \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i}  \frac{\partial L}{\partial \gamma} -  \frac{\partial L}{\partial \beta}  \right) 
+\end{split}
 $$
 
 This is a simpler expression. Translating this to python, we can end up with a much more compact method.
