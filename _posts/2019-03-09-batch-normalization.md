@@ -294,12 +294,65 @@ then, we will have:
 
 $$
 \begin{split}
-\frac{\partial L}{\partial x_{i}} &= \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \hat{x}_{i} -  \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}}  \right) \\
-&= \frac{\gamma \left(\sigma^{2}_{\phi} \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i}  \frac{\partial L}{\partial \gamma} -  \frac{\partial L}{\partial \beta}  \right) 
+\frac{\partial L}{\partial x_{i}} &= \frac{\gamma \left(\sigma^{2}_{\phi} + \epsilon \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \hat{x}_{i} -  \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}}  \right) \\
+&= \frac{\gamma \left(\sigma^{2}_{\phi} + \epsilon \right)^{-1/2}}{N} \left(N\frac{\partial L}{\partial y_{i}} - \hat{x}_{i}  \frac{\partial L}{\partial \gamma} -  \frac{\partial L}{\partial \beta}  \right) 
 \end{split}
 $$
 
 This is a simpler expression. Translating this to python, we can end up with a much more compact method.
+
+## Python Implementation
+
+Forward Pass:
+
+{% highlight python %} 
+def batchnorm_forward(x, gamma, beta, eps):
+  # Step 1
+  mu = np.mean(x, axis=0)
+
+  # Step 2
+  xcorrected = x - mu
+
+  # Step 3
+  xsquarred = xcorrected**2
+
+  # Step 4
+  var = np.mean(xsquarred, axis=0)
+
+  # Step 5
+  std = np.sqrt(var + eps)
+
+  # Step 6
+  istd = 1 / std
+
+  # Step 7
+  xhat = xcorrected * istd
+
+  # Step 8 and 9
+  y = xhat * gamma + beta
+
+  # Store some variables that will be needed for the backward pass
+  cache = (gamma, xhat, xcorrected, istd, std)
+
+  return y, cache
+{% endhighlight %}
+
+
+Backward Pass:
+
+{% highlight python %} 
+def batchnorm_backward(dout, cache):
+  N, D = dout.shape
+  x_mu, inv_var, x_hat, gamma = cache
+  gamma, xhat, istd = cache
+
+
+  dbeta = np.sum(dout, axis=0)
+  dgamma = np.sum(xhat * dout, axis=0)
+  dx = (gamma*istd/N) * (N*dout - xhat*dgamma - dbeta)
+
+  return dx, dgamma, dbeta
+{% endhighlight %}
 
 
 ## Batch Normalization in Tensorflow
