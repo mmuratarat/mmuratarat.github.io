@@ -44,7 +44,7 @@ In other words, we've now allowed the network to normalize a layer into whicheve
 * $\gamma \in R^{1 \times D}$ is the scaling parameter for the layer.
 * $\beta \in R^{1 \times D}$ is the shifting parameter (offset) for the layer.
 * $\epsilon$ is added for numerical stability, just in case ${\sigma_\phi}^2$ turns out to be 0 for some estimates. This is also called a smoothing term.
-* $y_i$ is the output of the BN operation. It is the scaled and shifted version of the inputs. ${y_i}=BN_{\gamma,\beta}{(x_i)}}$
+* $y_i$ is the output of the BN operation. It is the scaled and shifted version of the inputs. $y_{i}=BN_{\gamma,\beta}(x_{i})$
 
 For notational simplicity, we can express the entire layer as
 
