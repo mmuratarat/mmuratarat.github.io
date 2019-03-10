@@ -19,7 +19,7 @@ However, there is a one drawback of Batch Normalization, which is that it makes 
 
 ## Batch Normalization Equations
 
-For a given input batch $\phi$ of size $(N,F)$ going through a hidden layer of size $H$, some weights $w$ of size $(F,H)$ and a bias $b$ of size $(H)$, we first do an affine transformation $X = Z \cdot W + b$ where $Z$ contains the results of the linear transformation (size $(N,H)$).
+For a given input batch $\phi$ of size $(N,F)$ going through a hidden layer of size $H$, some weights $w$ of size $(F,H)$ and a bias $b$ of size $(H)$, we first do an affine transformation $X = Z \cdot W + b$ where $X$ contains the results of the linear transformation (size $(N,H)$).
 
 Then, a Batch Normalization layer is given a batch of $N$ examples, each of which is a $H$-dimensional vector in a mini-batch $\phi$, where $H$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times H}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
