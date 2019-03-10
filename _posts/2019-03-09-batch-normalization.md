@@ -344,9 +344,9 @@ def batchnorm_backward(dout, cache):
 
   dbeta = np.sum(dout, axis=0)
   dgamma = np.sum(X_hat * dout, axis=0)
-  dx = (gamma*inv_std_phi/N) * (N*dout - X_hat*dgamma - dbeta)
+  dX = (gamma*inv_std_phi/N) * (N*dout - X_hat*dgamma - dbeta)
 
-  return dx, dgamma, dbeta
+  return dX, dgamma, dbeta
 {% endhighlight %}
 
 ## Batch Normalization in Tensorflow
