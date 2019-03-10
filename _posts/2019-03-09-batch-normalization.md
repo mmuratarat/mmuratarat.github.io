@@ -71,7 +71,7 @@ Note that, all the expressions above implicitly assume broadcasting as $X$ is of
 A more correct expression would be
 
 $$
-\hat{x_{kl}}= (hx{kl}-\mu_{\phi}_{l})(\sigma_{\phi}_{l}^{2}+\epsilon)^{-1/2}
+\hat{x_{il}}= \frac{x_{il}-\mu_{\phi}_{l}}{\sqrt{\sigma_{\phi}_{l}^{2}+\epsilon}}
 $$
 
 where
@@ -86,7 +86,7 @@ $$
 \sigma_{\phi}_{l}^{2} = \frac{1}{N}\sum_{p=1}^{N} (x_{pl}- \mu_{\phi}_{l})^2.
 $$
 
-with $k = 1\dots ,N$ and $l = 1,\dots ,H$.
+with $i = 1\dots ,N$ and $l = 1,\dots ,H$.
 
 However, for the rest, we will stick to original paper's definitions.
 
