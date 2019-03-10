@@ -236,7 +236,7 @@ and
 
 $$\frac{\partial L}{\partial \sigma_{\phi}^{2}}$$
 
-so, let's put them all together:
+So, let's put them all together:
 
 $$
 \begin{split}
