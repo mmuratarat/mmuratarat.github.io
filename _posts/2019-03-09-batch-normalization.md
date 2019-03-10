@@ -70,24 +70,24 @@ While it is acceptable to compute the mean and variance on a mini-batch when we 
 
 At test time, there is no mini-batch to compute the empirical mean and standard deviation, so instead you simply use the whole training set's mean and standard deviation, meaning that population instead of the mini-batch statistics.
 
-we calculate “population average” of mean and variances after training, using all the batches' means and variances, and at inference time, we fix the mean and variance to be this value and use it in normalization. This provides more accurate value of mean and variance.
+We calculate “population average” of mean and variances after training, using all the batches' means and variances, and at inference time, we fix the mean and variance to be this value and use it in normalization. This provides more accurate value of mean and variance.
 
 $$
-    \begin{split}
-        E(x) &\leftarrow E_{\phi}(\mu_\phi)\\
-        Var(x)&\leftarrow \frac{m}{m-1} E_{\phi}(\sigma^2_\phi) \quad (\text{unbiased variance estimate})
-    \end{split}
+\begin{split}
+E(x) &\leftarrow E_{\phi}(\mu_\phi)\\
+Var(x)&\leftarrow \frac{m}{m-1} E_{\phi}(\sigma^2_\phi) \quad (\text{unbiased variance estimate})
+\end{split}
 $$
 
 Then, at inference time, using those population mean and variance, we do normalization:
 
 $$
-    \begin{split}
-        \hat{x} &= \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}\\
-        y &= \gamma \hat{x} + \beta \\
-        y &= \gamma \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}} + \beta\\
-        y &= \frac{\gamma x}{\sqrt{Var(x) + \epsilon}} + \left(\beta - \frac{\gamma E(x)}{\sqrt{Var(x) + \epsilon}} \right)
-    \end{split}
+\begin{split}
+\hat{x} &= \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}\\
+y &= \gamma \hat{x} + \beta \\
+y &= \gamma \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}} + \beta\\
+y &= \frac{\gamma x}{\sqrt{Var(x) + \epsilon}} + \left(\beta - \frac{\gamma E(x)}{\sqrt{Var(x) + \epsilon}} \right)
+\end{split}
 $$
 
 But, sometimes, it is difficult to keep track of all the mini-batch mean and variances. In such cases, exponentially weighted "moving average" can be used as global statistics to update population mean and variance:
@@ -124,153 +124,153 @@ Notice that we sum from 1 to N, because we are working with batches.
 
 Similarly, we compute the gradient with respect to $\beta$ as follows:
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \beta} &= \frac{\partial L}{\partial y_{i}} \frac{\partial y_{i}}{\partial \beta}\\
 &=\sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} 
 \end{split}
-\end{equation}
+$$
 
 What we need to compute next is the partial derivative of the loss with respect to the input $x_{i}$. So, the previous layers can compute their gradients and update their parameters. We need to gather all the expressions where $x_{i}$ is used that has influence on $y_{i}$. 
 
 $x_{i}$ is used to compute $\hat{x}_{i}$, $\mu_\phi$ and $\sigma_\phi$. Therefore,
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial x_{i}} &= \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} \\
 & +  \frac{\partial L}{\partial \sigma^{2}_\phi}\frac{\partial \sigma^{2}_\phi}{\partial x_{i}}\\
 &+ \frac{\partial L}{\partial \mu_\phi}\frac{\partial \mu_\phi}{\partial x_{i}}
 \end{split}
-\end{equation}
+$$
 
 Let's compute and simplify each of these terms individually
 
 The first one is the easiest to derive:
 
-\begin{equation}
+$$
 \frac{\partial L}{\partial \hat{x}_{i}} =  \frac{\partial L}{\partial y_{i}}  \cdot \gamma
-\end{equation}
+$$
 
 and 
 
-\begin{equation}
+$$
 \frac{\partial \hat{x}_{i}}{\partial x_{i}} = \left(\sigma^2_\phi + \epsilon \right)^{-1/2}
-\end{equation}
+$$
 
 Therefore,
 
-\begin{equation}
+$$
 \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} =  \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \left(\sigma^2_\phi + \epsilon \right)^{-1/2}
-\end{equation}
+$$
 
 The very next expression is a bit longer.
 
-\begin{equation}
+$$
 \frac{\partial L}{\partial \sigma^2_\phi} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma^2_\phi}
-\end{equation}
+$$
 
 We know that $\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}$. Here $(x_i-{\mu_\phi})$ is constant, so:
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \sigma^2_\phi} &= \sum_{i=1}^{N}\frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma^2_\phi}\\
 &= \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \cdot \gamma \cdot (x_i-{\mu_\phi})\left(\frac{-1}{2} \right) \left(\sigma^2_\phi + \epsilon \right)^{-3/2}\\
 &=-\frac{\gamma \left(\sigma^2_\phi + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi}) 
 \end{split}
-\end{equation}
+$$
 
 As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^2_\phi$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_\phi$ as it is also a $D$-dimensional vector. However, this time, $\sigma^2_\phi$ is also a function of $\mu_\phi$.
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \mu_\phi} &= \frac{\partial L}{\partial \hat{x}_{i}}\frac{\partial \hat{x}_{i}}{\partial \mu_\phi}\\
 &+ \frac{\partial L}{\partial \sigma^2_\phi}\frac{\partial \sigma^2_\phi}{\partial \mu_\phi}
 \end{split}
-\end{equation}
+$$
 
 Let's compute the missing partials one at a time.
 
 From
 
-\begin{equation}
+$$
 \hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}
-\end{equation}
+$$
 
 we compute
 
-\begin{equation}
+$$
 \frac{\partial \hat{x}_{i}}{\partial \mu_\phi} = \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} \cdot (-1)
-\end{equation}
+$$
 
 and from
 
-\begin{equation}
+$$
 \sigma^2_\phi = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
-\end{equation}
+$$
 
 we calculate
 
-\begin{equation}
+$$
 \frac{\partial \sigma^2_\phi}{\partial \mu_\phi}= \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi})
-\end{equation}
+$$
 
 We already know $\frac{\partial L}{\partial \hat{x}_{i}}$ and $\frac{\partial L}{\partial \sigma^2_\phi}$, so, let's put them all together:
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \mu_\phi} &= \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} \cdot (-1)\\
 &+ \left(-\frac{\gamma \left(\sigma^2_\phi + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi})  \cdot \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi}) \right)
 \end{split}
-\end{equation}
+$$
 
 It seems complicated but it is actually super easy to simplify. Since $\sum_{i=1}^{N} (x_{i} - \mu_\phi) = 0$, the second term of this expression will be 0. Then,
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \mu_\phi} &= -\gamma \cdot \left(\sigma^2_\phi + \epsilon \right)^{-1/2} \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}   
 \end{split}
-\end{equation}
+$$
 
 Now, we can easily compute:
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial x_{i}} &= \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} \\
 & +  \frac{\partial L}{\partial \sigma^{2}_\phi}\frac{\partial \sigma^{2}_\phi}{\partial x_{i}}\\
 &+ \frac{\partial L}{\partial \mu_\phi}\frac{\partial \mu_\phi}{\partial x_{i}}
 \end{split}
-\end{equation}
+$$
 
 We still have some missing gradients which are really easy to calculate:
 
 
-\begin{equation}
+$$
 \frac{\partial \sigma^{2}_\phi}{\partial x_{i}} = \frac{2(x_i - {\mu_\phi})}{N}
-\end{equation}
+$$
 
 since 
 
-\begin{equation}
+$$
 {\sigma^2_\phi} = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
-\end{equation}
+$$
 
 and
 
-\begin{equation}
+$$
 \frac{\partial \mu_\phi}{\partial x_{i}} = \frac{1}{N}
-\end{equation}
+$$
 
 since
 
-\begin{equation}
+$$
 {\mu_\phi} = {\frac{1}{N}}{\sum_{i=1}^N}x_i
-\end{equation}
+$$
 
 So,
 
-\begin{equation}
+$$
 \frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}}  \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} +  \frac{\partial L}{\partial \sigma^{2}_\phi} \frac{2(x_i - {\mu_\phi})}{N} + \frac{\partial L}{\partial \mu_\phi}\frac{1}{N}
-\end{equation}
+$$
 
 ## Batch Normalization in Tensorflow
 
