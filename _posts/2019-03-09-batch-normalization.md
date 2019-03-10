@@ -7,19 +7,19 @@ comments: true
 
 Normalizing the input of your network is a well-established technique for improving the convergence properties of a network. A few years ago, a technique known as [batch normalization](https://arxiv.org/abs/1502.03167){:target="_blank"} was proposed to extend this improved loss function topology to more of the parameters of the network.
 
-The method consists of adding an operation in the model just before the activation function of each layer, simply, zero-centering and normalizing the inputs of that patricular layer and then scaling and shifting the result using two new parameters per layer (one for scaling, the other for shifting). In other words, this operation lets the model learn the optimal scale and mean of the inputs fir each layer.
+The method consists of adding an operation in the model just before the activation function of each layer, simply, zero-centering and normalizing the inputs of that patricular layer and then scaling and shifting the result using two new parameters per layer (one for scaling, the other for shifting). In other words, this operation lets the model learn the optimal scale and mean of the inputs for each layer.
 
-In order to zero-center and normalize the inputs, the algorithm needs to estimate the inputs' mean and standard deviation. It does so by evaluating the mean and standard deviation of the inputs over the current mini-bathc (hence the name "Batch Normlization"). 
+In order to zero-center and normalize the inputs, the algorithm needs to estimate the inputs' mean and standard deviation. It does so by evaluating the mean and standard deviation of the inputs over the current mini-batch (hence the name "Batch Normalization"). 
 
 It is a widely used technique for normalizing the internal representation of data on models that can lead to substantial reduction in convergence time.
 
-It introduces some noise into the network, so it can regularize the model a bit. However, regularization is a side effect of BN, rather than the main objective. 
+It introduces some noise into the network, so it can regularize the model a bit. However, regularization is a side effect of Batch Normalization, rather than the main objective. 
 
-However, there is a one drawback of batch normalization, which is that it makes the training slower due to extra computations required at each layer.
+However, there is a one drawback of Batch Normalization, which is that it makes the training slower due to extra computations required at each layer.
 
 ## Batch Normalization Equations
 
-A batch normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
+A Batch Normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
 $$
 \begin{split}
@@ -66,7 +66,7 @@ where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamm
 ### Inference
 During testing time, the implementation of batch normalization is quite different.
 
-While it is acceptable to compute the mean and variance on a mini-batch when we are training the network, the same does not hold on test time. When the batch is large enough, its mean and variance will be close to the population’s. The non-deterministic mean and variance has regularizing effects.On test time, we want the model to be deterministic. 
+While it is acceptable to compute the mean and variance on a mini-batch when we are training the network, the same does not hold on test time. When the batch is large enough, its mean and variance will be close to the population’s. The non-deterministic mean and variance has regularizing effects. On test time, we want the model to be deterministic. 
 
 At test time, there is no mini-batch to compute the empirical mean and standard deviation, so instead you simply use the whole training set's mean and standard deviation, meaning that population instead of the mini-batch statistics.
 
@@ -133,14 +133,8 @@ $$
 
 What we need to compute next is the partial derivative of the loss with respect to the input $x_{i}$. So, the previous layers can compute their gradients and update their parameters. We need to gather all the expressions where $x_{i}$ is used that has influence on $y_{i}$. 
 
-$x_{i}$ is used to compute $\hat{x}_{i}$, $\mu_\phi$ and $\sigma_\phi$. Therefore,
-
 $$
-\begin{split}
-\frac{\partial L}{\partial x_{i}} &= \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} \\
-& +  \frac{\partial L}{\partial \sigma^{2}_\phi}\frac{\partial \sigma^{2}_\phi}{\partial x_{i}}\\
-&+ \frac{\partial L}{\partial \mu_\phi}\frac{\partial \mu_\phi}{\partial x_{i}}
-\end{split}
+\frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} +  \frac{\partial L}{\partial \sigma^{2}_\phi}\frac{\partial \sigma^{2}_\phi}{\partial x_{i}} + \frac{\partial L}{\partial \mu_\phi}\frac{\partial \mu_\phi}{\partial x_{i}}
 $$
 
 Let's compute and simplify each of these terms individually
@@ -183,7 +177,7 @@ $$
 \end{split}
 $$
 
-As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^{2}_{\phi}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_{\phi}$ as it is also a $D$-dimensional vector. However, this time, $\sigma^{2}_{\phi}$ is also a function of $\mu_{\phi}$.
+As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of , we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_{\phi}$ as it is also a $D$-dimensional vector. However, this time, $\sigma^{2}_{\phi}$ is also a function of $\mu_{\phi}$.
 
 $$
 \begin{split}
