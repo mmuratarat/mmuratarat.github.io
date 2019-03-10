@@ -22,11 +22,11 @@ However, there is a one drawback of batch normalization, which is that it makes 
 A batch normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
 \begin{equation}
-    \begin{split}
-        {\mu_\phi} &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N}x_i \qquad \mathsf(mini-batch\ mean)\\
-        {\sigma^2_\phi} &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2} \qquad \mathbf(mini-batch\ variance)\\
-        {\hat{x_i}} &\leftarrow \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}} \qquad \mathbf(\text{An affine transform - normalize})
-    \end{split}
+\begin{split}
+\mu_\phi &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N}x_i \qquad (\text{mini-batch mean})\\
+\sigma^2_\phi &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2} \qquad (\text{mini-batch variance})\\
+\hat{x_i} &\leftarrow \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}} \qquad (\text{An affine transform - normalize})
+\end{split}
 \end{equation}
 
 Every component of $\hat{x}$ has zero mean and unit variance. However, we want hidden units to have different distributions. In fact, this would perform poorly for some activation functions such as the sigmoid function. Thus, we'll allow our normalization scheme to learn the optimal distribution by scaling our normalized values by $\gamma$ and shifting by $\beta$:
