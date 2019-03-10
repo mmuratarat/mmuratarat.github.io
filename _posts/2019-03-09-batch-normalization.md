@@ -71,19 +71,19 @@ Note that, all the expressions above implicitly assume broadcasting as $X$ is of
 A more correct expression would be
 
 $$
-\hat{x_{il}}= \frac{x_{il}-\mu_{\phi}_{l}}{\sqrt{\sigma_{\phi}_{l}^{2}+\epsilon}}
+\hat{x_{il}}= \frac{x_{il} - \mu_{\phi_{l}}}{\sqrt{\sigma_{\phi_{l}}^{2}+\epsilon}}
 $$
 
 where
 
 $$
-\mu_{\phi}_{l} = \frac{1}{N}\sum_{p=1}^{N} h_{pl}
+\mu_{\phi_{l}} = \frac{1}{N}\sum_{p=1}^{N} h_{pl}
 $$
 
 and
 
 $$
-\sigma_{\phi}_{l}^{2} = \frac{1}{N}\sum_{p=1}^{N} (x_{pl}- \mu_{\phi}_{l})^2.
+\sigma_{\phi_{l}}^{2} = \frac{1}{N}\sum_{p=1}^{N} (x_{pl}- \mu_{\phi_{l}})^2.
 $$
 
 with $i = 1\dots ,N$ and $l = 1,\dots ,H$.
