@@ -228,15 +228,7 @@ $$
 \frac{\partial \sigma_{\phi}^{2}}{\partial \mu_\phi}= \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi})
 $$
 
-We already know 
-
-$$\frac{\partial L}{\partial \hat{x_{i}}}$$ 
-
-and 
-
-$$\frac{\partial L}{\partial \sigma_{\phi}^{2}}$$
-
-So, let's put them all together:
+We already know $\frac{\partial L}{\partial \hat{x_{i}}}$ and $\frac{\partial L}{\partial \sigma_{\phi}^{2}}$. So, let's put them all together:
 
 $$
 \begin{split}
