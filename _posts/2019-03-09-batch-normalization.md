@@ -169,7 +169,11 @@ $$
 \frac{\partial L}{\partial \sigma^2_\phi} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma^2_\phi}
 $$
 
-We know that $\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}$. Here $(x_i-{\mu_\phi})$ is constant, so:
+We know that 
+
+$$\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}$$.
+
+Here $(x_i-{\mu_{\phi}})$ is constant, so:
 
 $$
 \begin{split}
@@ -179,7 +183,7 @@ $$
 \end{split}
 $$
 
-As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^2_\phi$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_\phi$ as it is also a $D$-dimensional vector. However, this time, $\sigma^2_\phi$ is also a function of $\mu_\phi$.
+As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^{2}_{\phi}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_\phi$ as it is also a $D$-dimensional vector. However, this time, $\sigma^2_\phi$ is also a function of $\mu_\phi$.
 
 $$
 \begin{split}
@@ -214,7 +218,13 @@ $$
 \frac{\partial \sigma^2_\phi}{\partial \mu_\phi}= \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi})
 $$
 
-We already know $\frac{\partial L}{\partial \hat{x}_{i}}$ and $\frac{\partial L}{\partial \sigma^2_\phi}$, so, let's put them all together:
+We already know 
+
+$$\frac{\partial L}{\partial \hat{x}_{i}}$$ 
+
+and 
+
+$$\frac{\partial L}{\partial \sigma^2_\phi}$$, so, let's put them all together:
 
 $$
 \begin{split}
