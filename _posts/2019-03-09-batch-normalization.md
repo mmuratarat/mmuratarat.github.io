@@ -183,7 +183,7 @@ $$
 \end{split}
 $$
 
-As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^{2}_{\phi}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_\phi$ as it is also a $D$-dimensional vector. However, this time, $\sigma^2_\phi$ is also a function of $\mu_\phi$.
+As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma^{2}_{\phi}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_{\phi}$ as it is also a $D$-dimensional vector. However, this time, $\sigma^{2}_{\phi}$ is also a function of $\mu_{\phi}$.
 
 $$
 \begin{split}
