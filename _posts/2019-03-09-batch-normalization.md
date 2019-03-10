@@ -133,6 +133,8 @@ $$
 
 What we need to compute next is the partial derivative of the loss with respect to the input $x_{i}$. So, the previous layers can compute their gradients and update their parameters. We need to gather all the expressions where $x_{i}$ is used that has influence on $y_{i}$. 
 
+$x_{i}$ is used to compute $\hat{x_{i}}$, $\mu_{\phi}$ and $\sigma_{\phi}^{2}$, therefore,
+
 $$
 \frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} +  \frac{\partial L}{\partial \sigma^{2}_\phi}\frac{\partial \sigma^{2}_\phi}{\partial x_{i}} + \frac{\partial L}{\partial \mu_\phi}\frac{\partial \mu_\phi}{\partial x_{i}}
 $$
