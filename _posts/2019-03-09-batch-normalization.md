@@ -310,17 +310,17 @@ def batchnorm_forward(X, gamma, beta, eps):
   mu_phi = np.mean(x, axis=0)
 
   # mini-batch variance
-  std = np.sqrt(np.mean((X - mean) ** 2, axis=0))
-  inv_std = 1.0 / std 
+  std_phi = np.sqrt(np.mean((X - mean) ** 2, axis=0))
+  inv_std_phi = 1.0 / std 
 
   # normalize
-  X_hat = (X - mean) * inv_std
+  X_hat = (X - mu_phi) * inv_std_phi
 
   # scale and shift
   out = gamma * X_hat + beta
 
   # Store some variables that will be needed for the backward pass
-  cache = (gamma, X_hat, inv_std)
+  cache = (gamma, X_hat, inv_std_phi)
 
   return out, cache
 {% endhighlight %}
@@ -330,11 +330,11 @@ def batchnorm_forward(X, gamma, beta, eps):
 {% highlight python %} 
 def batchnorm_backward(dout, cache):
   N, D = dout.shape
-  gamma, X_hat, inv_std = cache
+  gamma, X_hat, inv_std_phi = cache
 
   dbeta = np.sum(dout, axis=0)
   dgamma = np.sum(X_hat * dout, axis=0)
-  dx = (gamma*inv_std/N) * (N*dout - X_hat*dgamma - dbeta)
+  dx = (gamma*inv_std_phi/N) * (N*dout - X_hat*dgamma - dbeta)
 
   return dx, dgamma, dbeta
 {% endhighlight %}
