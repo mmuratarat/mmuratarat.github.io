@@ -23,9 +23,9 @@ A batch normalization layer is given a batch of $N$ examples, each of which is a
  
 \begin{equation}
 \begin{split}
-\mu_\phi &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N}x_i \qquad (\text{mini-batch mean})\\
-\sigma^2_\phi &\leftarrow {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2} \qquad (\text{mini-batch variance})\\
-\hat{x_i} &\leftarrow \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}} \qquad (\text{An affine transform - normalize})
+\mu_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} x_{i} \qquad (\text{mini-batch mean})\\
+\sigma^2_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} (x_i - {\mu_\phi})^2 \qquad (\text{mini-batch variance})\\
+\hat{x_i} &\leftarrow \frac{x_i - \mu_{\phi}}{\sqrt{\sigma^{2}_{\phi} + \epsilon}} \qquad (\text{An affine transform - normalize})
 \end{split}
 \end{equation}
 
