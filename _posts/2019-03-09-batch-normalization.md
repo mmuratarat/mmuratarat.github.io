@@ -304,7 +304,6 @@ This is a simpler expression. Translating this to python, we can end up with a m
 ## Python Implementation
 
 *Forward Pass*:
-
 {% highlight python %} 
 def batchnorm_forward(X, gamma, beta, eps):
   # mini-batch mean
@@ -328,7 +327,6 @@ def batchnorm_forward(X, gamma, beta, eps):
 
 
 *Backward Pass*:
-
 {% highlight python %} 
 def batchnorm_backward(dout, cache):
   N, D = dout.shape
@@ -381,3 +379,4 @@ Batch normalization offers some regularization effect, reducing generalization e
 # REFERENCES
 1. [https://medium.com/deeper-learning/glossary-of-deep-learning-batch-normalisation-8266dcd2fa82](https://medium.com/deeper-learning/glossary-of-deep-learning-batch-normalisation-8266dcd2fa82){:target="_blank"}
 2. [https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html){:target="_blank"}
+3. [https://wiseodd.github.io/techblog/2016/07/04/batchnorm/](https://wiseodd.github.io/techblog/2016/07/04/batchnorm/){:target="_blank"}
