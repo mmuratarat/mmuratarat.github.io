@@ -68,8 +68,6 @@ where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamm
 ### CORRECTION
 Note that, all the expressions above implicitly assume broadcasting as $X$ is of size $(N,H)$ and both $\mu_{\phi}$ and $\sigma_{\phi}^{2}$ have size equal to $(H)$. A more correct expression would be
 
-A more correct expression would be
-
 $$
 \hat{x_{il}}= \frac{x_{il} - \mu_{\phi_{l}}}{\sqrt{\sigma_{\phi_{l}}^{2}+\epsilon}}
 $$
