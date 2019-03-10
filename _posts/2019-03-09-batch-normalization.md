@@ -65,6 +65,31 @@ where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamm
 
 **NOTE**: Batch Normalization is done individually at every hidden unit. 
 
+### CORRECTION
+Note that, all the expressions above implicitly assume broadcasting as $X$ is of size $(N,H)$ and both $\mu_{\phi}$ and $\sigma_{\phi}^{2}$ have size equal to $(H)$. A more correct expression would be
+
+A more correct expression would be
+
+$$
+\hat{x_{kl}}= (hx{kl}-\mu_{\phi}_{l})(\sigma_{\phi}_{l}^{2}+\epsilon)^{-1/2}
+$$
+
+where
+
+$$
+\mu_{\phi}_{l} = \frac{1}{N}\sum_{p=1}^{N} h_{pl}
+$$
+
+and
+
+$$
+\sigma_{\phi}_{l}^{2} = \frac{1}{N}\sum_{p=1}^{N} (x_{pl}- \mu_{\phi}_{l})^2.
+$$
+
+with $k = 1\dots ,N$ and $l = 1,\dots ,H$.
+
+However, for the rest, we will stick to original paper's definitions.
+
 ### Inference
 During testing time, the implementation of batch normalization is quite different.
 
