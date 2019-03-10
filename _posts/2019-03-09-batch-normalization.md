@@ -234,7 +234,7 @@ $$\frac{\partial L}{\partial \hat{x_{i}}}$$
 
 and 
 
-$$\frac{\partial L}{\partial \sigma_{\phi}^{2}}$$, 
+$$\frac{\partial L}{\partial \sigma_{\phi}^{2}}$$
 
 so, let's put them all together:
 
