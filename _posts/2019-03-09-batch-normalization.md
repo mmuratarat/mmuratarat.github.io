@@ -19,7 +19,9 @@ However, there is a one drawback of Batch Normalization, which is that it makes 
 
 ## Batch Normalization Equations
 
-A Batch Normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
+For a given input batch $\phi$ of size $(N,F) going through a hidden layer of size $H$, some weights $w$ of size $(F,H)$ and a bias $b$ of size $(H)$, we first do an affine transformation $X = Z \cdot W + b$ where $Z$ contains the results of the linear transformation (size $(N,H)$).
+
+Then, a Batch Normalization layer is given a batch of $N$ examples, each of which is a $H$-dimensional vector in a mini-batch $\phi$, where $H$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times H}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
 $$
 \begin{split}
@@ -37,12 +39,12 @@ $$
 
 In other words, we've now allowed the network to normalize a layer into whichever distribution is most optimal for learning.
 
-* $\mu_\phi \in R^{1 \times D}$: is the empirical mean of each input dimension across the whole mini-batch. 
-* $\sigma_\phi \in R^{1 \times D}$ is the empirical standard deviation of each input dimension across the whole mini-batch.
+* $\mu_\phi \in R^{1 \times H}$: is the empirical mean of each input dimension across the whole mini-batch. 
+* $\sigma_\phi \in R^{1 \times H}$ is the empirical standard deviation of each input dimension across the whole mini-batch.
 * $N$ is the number of instances in the mini-batch
 * $\hat{x_i}$ is the zero-centered and normalized input.
-* $\gamma \in R^{1 \times D}$ is the scaling parameter for the layer.
-* $\beta \in R^{1 \times D}$ is the shifting parameter (offset) for the layer.
+* $\gamma \in R^{1 \times H}$ is the scaling parameter for the layer.
+* $\beta \in R^{1 \times H}$ is the shifting parameter (offset) for the layer.
 * $\epsilon$ is added for numerical stability, just in case ${\sigma_\phi}^2$ turns out to be 0 for some estimates. This is also called a smoothing term.
 * $y_i$ is the output of the BN operation. It is the scaled and shifted version of the inputs. $y_{i}=BN_{\gamma,\beta}(x_{i})$
 
@@ -105,11 +107,11 @@ Here $\alpha$ is the "momentum" given to previous moving statistic, around $0.99
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/batch-norm-computational-graph.png?raw=true)
 We follow the dark arrows for the forward pass and then we backpropagate the error using the red ones. The dimension of the output of each node is displayed on top of each node.
 
-Let $L$ be the loss function and we are given $\frac{\partial L}{\partial Y} \in R^{N \times D}$, the gradient of loss with respect to $Y$. Our goal is to compute three gradients:
+Let $L$ be the loss function and we are given $\frac{\partial L}{\partial Y} \in R^{N \times H}$, the gradient of loss with respect to $Y$. Our goal is to compute three gradients:
 
-1. $\frac{\partial L}{\partial \gamma} \in R^{1 \times D}$ to perform gradient descent update on $\gamma$.
-2. $\frac{\partial L}{\partial \beta} \in R^{1 \times D}$ to perform gradient descent update on $\beta$.
-3. $\frac{\partial L}{\partial X} \in R^{N \times D}$ to pass on the gradient signal to lower layers.
+1. $\frac{\partial L}{\partial \gamma} \in R^{1 \times H}$ to perform gradient descent update on $\gamma$.
+2. $\frac{\partial L}{\partial \beta} \in R^{1 \times H}$ to perform gradient descent update on $\beta$.
+3. $\frac{\partial L}{\partial X} \in R^{N \times H}$ to pass on the gradient signal to lower layers.
 
 Both $\frac{\partial L}{\partial \gamma}$ and $\frac{\partial L}{\partial \beta}$ are straightforward to compute. Let $y_{i}$ be the $i$-th row of $Y$.
 
@@ -179,7 +181,7 @@ $$
 \end{split}
 $$
 
-As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma_{\phi}^{2}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_{\phi}$ as it is also a $D$-dimensional vector. However, this time, $\sigma_{\phi}^{2}$ is also a function of $\mu_{\phi}$.
+As what happened with the gradients of $\gamma$ and $\beta$, to compute the gradient of $\sigma_{\phi}^{2}$, we need to sum over the contributions of all elements from the batch. The same happens to the gradient of $\mu_{\phi}$ as it is also a $H$-dimensional vector. However, this time, $\sigma_{\phi}^{2}$ is also a function of $\mu_{\phi}$.
 
 $$
 \begin{split}
@@ -325,7 +327,7 @@ def batchnorm_forward(X, gamma, beta, eps):
 *Backward Pass*:
 {% highlight python %} 
 def batchnorm_backward(dout, cache):
-  N, D = dout.shape
+  N, H = dout.shape
   gamma, X_hat, inv_std_phi = cache
 
   dbeta = np.sum(dout, axis=0)
@@ -376,3 +378,4 @@ Batch normalization offers some regularization effect, reducing generalization e
 1. [https://medium.com/deeper-learning/glossary-of-deep-learning-batch-normalisation-8266dcd2fa82](https://medium.com/deeper-learning/glossary-of-deep-learning-batch-normalisation-8266dcd2fa82){:target="_blank"}
 2. [https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html){:target="_blank"}
 3. [https://wiseodd.github.io/techblog/2016/07/04/batchnorm/](https://wiseodd.github.io/techblog/2016/07/04/batchnorm/){:target="_blank"}
+4. [http://cthorey.github.io./backpropagation/](http://cthorey.github.io./backpropagation/){:target="_blank"}
