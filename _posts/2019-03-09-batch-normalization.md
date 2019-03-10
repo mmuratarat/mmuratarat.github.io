@@ -24,7 +24,7 @@ A Batch Normalization layer is given a batch of $N$ examples, each of which is a
 $$
 \begin{split}
 \mu_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} x_{i} \qquad (\text{mini-batch mean})\\
-\sigma^2_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} (x_i - {\mu_\phi})^2 \qquad (\text{mini-batch variance})\\
+\sigma_{\phi}^{2} &\leftarrow \frac{1}{N} \sum_{i=1}^{N} (x_i - {\mu_\phi})^2 \qquad (\text{mini-batch variance})\\
 \hat{x_i} &\leftarrow \frac{x_i - \mu_{\phi}}{\sqrt{\sigma^{2}_{\phi} + \epsilon}} \qquad (\text{An affine transform - normalize})
 \end{split}
 $$
@@ -57,7 +57,7 @@ $$
 
 where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamma \odot \hat{X}$, where $Y$ is a row vector and $\hat{X}$ is a matrix, each row of $\hat{X}$ is multiplied element-wise by $\gamma$.
 
-**NOTE**:  the authors did something really clever. They realized that by normalizing the output of a layer they could limit its representational power and, therefore, they wanted to make sure that the Batch Norm layer could fall back to the identity function. If $\beta$ is set to $\mu_\phi$ and $\gamma$ to $\sqrt{\sigma^2_\phi + \epsilon}$, $\hat{x_i}$ equals to $x_i$,  thus working as an identity function. That means that the network has the ability to ignore the Batch Norm layer if that is the optimal thing to do and introducing batch normalization alone would not reduce the accuracy because the optimizer still has the option to select no normalization effect using the identity function and it would be used by the optimizer to only improve the results.
+**NOTE**:  the authors did something really clever. They realized that by normalizing the output of a layer they could limit its representational power and, therefore, they wanted to make sure that the Batch Norm layer could fall back to the identity function. If $\beta$ is set to $\mu_\phi$ and $\gamma$ to $\sqrt{\sigma_{\phi}^{2} + \epsilon}$, $\hat{x_i}$ equals to $x_i$,  thus working as an identity function. That means that the network has the ability to ignore the Batch Norm layer if that is the optimal thing to do and introducing batch normalization alone would not reduce the accuracy because the optimizer still has the option to select no normalization effect using the identity function and it would be used by the optimizer to only improve the results.
 
 **NOTE**: $\gamma$ and $\beta$ are learnable parameters that are initialized with $\gamma =1$ and $\beta = 0$.
 
@@ -75,7 +75,7 @@ We calculate “population average” of mean and variances after training, usin
 $$
 \begin{split}
 E(x) &\leftarrow E_{\phi}(\mu_\phi)\\
-Var(x)&\leftarrow \frac{m}{m-1} E_{\phi}(\sigma^2_\phi) \quad (\text{unbiased variance estimate})
+Var(x)&\leftarrow \frac{m}{m-1} E_{\phi}(\sigma_{\phi}^{2}) \quad (\text{unbiased variance estimate})
 \end{split}
 $$
 
@@ -95,7 +95,7 @@ But, sometimes, it is difficult to keep track of all the mini-batch mean and var
 $$
 \begin{split}
 \mu_{mov} &= \alpha \mu_{mov} + (1-\alpha) \mu_\phi \\
-\sigma^2_{mov} &= \alpha \sigma^2_{mov} + (1-\alpha) \sigma^2_\phi
+\sigma^2_{mov} &= \alpha \sigma^2_{mov} + (1-\alpha) \sigma_{\phi}^{2}
 \end{split}
 $$
 
@@ -148,32 +148,32 @@ $$
 and 
 
 $$
-\frac{\partial \hat{x}_{i}}{\partial x_{i}} = \left(\sigma^2_\phi + \epsilon \right)^{-1/2}
+\frac{\partial \hat{x}_{i}}{\partial x_{i}} = \left(\sigma_{\phi}^{2} + \epsilon \right)^{-1/2}
 $$
 
 Therefore,
 
 $$
-\frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} =  \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \left(\sigma^2_\phi + \epsilon \right)^{-1/2}
+\frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial x_{i}} =  \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \left(\sigma_{\phi}^{2} + \epsilon \right)^{-1/2}
 $$
 
 The very next expression is a bit longer.
 
 $$
-\frac{\partial L}{\partial \sigma^2_\phi} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma^2_\phi}
+\frac{\partial L}{\partial \sigma_{\phi}^{2}} = \frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma_{\phi}^{2}}
 $$
 
 We know that 
 
-$$\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}$$.
+$$\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma_{\phi}^{2} + \epsilon}}$$.
 
 Here $(x_i-{\mu_{\phi}})$ is constant, so:
 
 $$
 \begin{split}
-\frac{\partial L}{\partial \sigma^2_\phi} &= \sum_{i=1}^{N}\frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma^2_\phi}\\
-&= \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \cdot \gamma \cdot (x_i-{\mu_\phi})\left(\frac{-1}{2} \right) \left(\sigma^2_\phi + \epsilon \right)^{-3/2}\\
-&=-\frac{\gamma \left(\sigma^2_\phi + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi}) 
+\frac{\partial L}{\partial \sigma_{\phi}^{2}} &= \sum_{i=1}^{N}\frac{\partial L}{\partial \hat{x}_{i}} \frac{\partial \hat{x}_{i}}{\partial \sigma_{\phi}^{2}}\\
+&= \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \cdot \gamma \cdot (x_i-{\mu_\phi})\left(\frac{-1}{2} \right) \left(\sigma_{\phi}^{2} + \epsilon \right)^{-3/2}\\
+&=-\frac{\gamma \left(\sigma_{\phi}^{2} + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi}) 
 \end{split}
 $$
 
@@ -182,7 +182,7 @@ As what happened with the gradients of $\gamma$ and $\beta$, to compute the grad
 $$
 \begin{split}
 \frac{\partial L}{\partial \mu_\phi} &= \frac{\partial L}{\partial \hat{x}_{i}}\frac{\partial \hat{x}_{i}}{\partial \mu_\phi}\\
-&+ \frac{\partial L}{\partial \sigma^2_\phi}\frac{\partial \sigma^2_\phi}{\partial \mu_\phi}
+&+ \frac{\partial L}{\partial \sigma_{\phi}^{2}}\frac{\partial \sigma_{\phi}^{2}}{\partial \mu_\phi}
 \end{split}
 $$
 
@@ -191,25 +191,25 @@ Let's compute the missing partials one at a time.
 From
 
 $$
-\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma^2_\phi + \epsilon}}
+\hat{x_i} = \frac{x_i-{\mu_\phi}}{\sqrt{\sigma_{\phi}^{2} + \epsilon}}
 $$
 
 we compute
 
 $$
-\frac{\partial \hat{x}_{i}}{\partial \mu_\phi} = \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} \cdot (-1)
+\frac{\partial \hat{x}_{i}}{\partial \mu_\phi} = \frac{1}{\sqrt{\sigma_{\phi}^{2} + \epsilon}} \cdot (-1)
 $$
 
 and from
 
 $$
-\sigma^2_\phi = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
+\sigma_{\phi}^{2} = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
 $$
 
 we calculate
 
 $$
-\frac{\partial \sigma^2_\phi}{\partial \mu_\phi}= \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi})
+\frac{\partial \sigma_{\phi}^{2}}{\partial \mu_\phi}= \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi})
 $$
 
 We already know 
@@ -218,14 +218,14 @@ $$\frac{\partial L}{\partial \hat{x}_{i}}$$
 
 and 
 
-$$\frac{\partial L}{\partial \sigma^2_\phi}$$, 
+$$\frac{\partial L}{\partial \sigma_{\phi}^{2}}$$, 
 
 so, let's put them all together:
 
 $$
 \begin{split}
-\frac{\partial L}{\partial \mu_\phi} &= \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} \cdot (-1)\\
-&+ \left(-\frac{\gamma \left(\sigma^2_\phi + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi})  \cdot \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi}) \right)
+\frac{\partial L}{\partial \mu_\phi} &= \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}  \cdot \gamma \cdot \frac{1}{\sqrt{\sigma_{\phi}^{2} + \epsilon}} \cdot (-1)\\
+&+ \left(-\frac{\gamma \left(\sigma_{\phi}^{2} + \epsilon \right)^{-3/2}}{2} \sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} (x_i-{\mu_\phi})  \cdot \frac{-2}{N} \sum_{i=1}^{N} (x_i-{\mu_\phi}) \right)
 \end{split}
 $$
 
@@ -233,7 +233,7 @@ It seems complicated but it is actually super easy to simplify. Since $\sum_{i=1
 
 $$
 \begin{split}
-\frac{\partial L}{\partial \mu_\phi} &= -\gamma \cdot \left(\sigma^2_\phi + \epsilon \right)^{-1/2} \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}   
+\frac{\partial L}{\partial \mu_\phi} &= -\gamma \cdot \left(\sigma_{\phi}^{2} + \epsilon \right)^{-1/2} \sum_{i=1}^N \frac{\partial L}{\partial y_{i}}   
 \end{split}
 $$
 
@@ -257,7 +257,7 @@ $$
 since 
 
 $$
-{\sigma^2_\phi} = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
+\sigma_{\phi}^{2} = {\frac{1}{N}}{\sum_{i=1}^N} {(x_i - {\mu_\phi})^2}
 $$
 
 and
@@ -275,7 +275,7 @@ $$
 So,
 
 $$
-\frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}}  \frac{1}{\sqrt{\sigma^2_\phi + \epsilon}} +  \frac{\partial L}{\partial \sigma^{2}_\phi} \frac{2(x_i - {\mu_\phi})}{N} + \frac{\partial L}{\partial \mu_\phi}\frac{1}{N}
+\frac{\partial L}{\partial x_{i}} = \frac{\partial L}{\partial \hat{x}_{i}}  \frac{1}{\sqrt{\sigma_{\phi}^{2} + \epsilon}} +  \frac{\partial L}{\partial \sigma^{2}_\phi} \frac{2(x_i - {\mu_\phi})}{N} + \frac{\partial L}{\partial \mu_\phi}\frac{1}{N}
 $$
 
 When we substitute the partial derivatives into and do some simplifications using the fact that 
