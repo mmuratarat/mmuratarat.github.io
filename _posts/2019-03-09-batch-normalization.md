@@ -21,19 +21,19 @@ However, there is a one drawback of batch normalization, which is that it makes 
 
 A batch normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
-\begin{equation}
+$$
 \begin{split}
 \mu_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} x_{i} \qquad (\text{mini-batch mean})\\
 \sigma^2_\phi &\leftarrow \frac{1}{N} \sum_{i=1}^{N} (x_i - {\mu_\phi})^2 \qquad (\text{mini-batch variance})\\
 \hat{x_i} &\leftarrow \frac{x_i - \mu_{\phi}}{\sqrt{\sigma^{2}_{\phi} + \epsilon}} \qquad (\text{An affine transform - normalize})
 \end{split}
-\end{equation}
+$$
 
 Every component of $\hat{x}$ has zero mean and unit variance. However, we want hidden units to have different distributions. In fact, this would perform poorly for some activation functions such as the sigmoid function. Thus, we'll allow our normalization scheme to learn the optimal distribution by scaling our normalized values by $\gamma$ and shifting by $\beta$:
 
-\begin{equation}
-    {y_i}\leftarrow {\gamma \cdot \hat{x_i}} + \beta \equiv BN_{\gamma,\beta}{(x_i)}\qquad \mathbf(scale \ and \ shift)
-\end{equation}
+$$
+{y_i}\leftarrow {\gamma \cdot \hat{x_i}} + \beta \equiv BN_{\gamma,\beta}{(x_i)}\qquad \mathbf(scale \ and \ shift)
+$$
 
 In other words, we've now allowed the network to normalize a layer into whichever distribution is most optimal for learning.
 
@@ -48,18 +48,18 @@ In other words, we've now allowed the network to normalize a layer into whicheve
 
 For notational simplicity, we can express the entire layer as
 
-\begin{equation}
+$$
 \begin{split}
   \hat{X} &= \frac{X - \mu}{\sqrt{\sigma^2 + \epsilon}} \\
   Y &= \gamma \odot \hat{X} + \beta
 \end{split}
-\end{equation}
+$$
 
 where $\odot$ denotes the Hadamard (element-wise) product. In the case of $\gamma \odot \hat{X}$, where $Y$ is a row vector and $\hat{X}$ is a matrix, each row of $\hat{X}$ is multiplied element-wise by $\gamma$.
 
 **NOTE**:  the authors did something really clever. They realized that by normalizing the output of a layer they could limit its representational power and, therefore, they wanted to make sure that the Batch Norm layer could fall back to the identity function. If $\beta$ is set to $\mu_\phi$ and $\gamma$ to $\sqrt{\sigma^2_\phi + \epsilon}$, $\hat{x_i}$ equals to $x_i$,  thus working as an identity function. That means that the network has the ability to ignore the Batch Norm layer if that is the optimal thing to do and introducing batch normalization alone would not reduce the accuracy because the optimizer still has the option to select no normalization effect using the identity function and it would be used by the optimizer to only improve the results.
 
-**NOTE**: $\gamma$ and $\beta$ are learnable parameters that are initialized with $\gamma =1$ and $\beta = 1$.
+**NOTE**: $\gamma$ and $\beta$ are learnable parameters that are initialized with $\gamma =1$ and $\beta = 0$.
 
 **NOTE**: Batch Normalization is done individually at every hidden unit. 
 
@@ -72,31 +72,32 @@ At test time, there is no mini-batch to compute the empirical mean and standard 
 
 we calculate “population average” of mean and variances after training, using all the batches' means and variances, and at inference time, we fix the mean and variance to be this value and use it in normalization. This provides more accurate value of mean and variance.
 
-\begin{equation}
+$$
     \begin{split}
         E(x) &\leftarrow E_{\phi}(\mu_\phi)\\
         Var(x)&\leftarrow \frac{m}{m-1} E_{\phi}(\sigma^2_\phi) \quad (\text{unbiased variance estimate})
     \end{split}
-\end{equation}
+$$
 
 Then, at inference time, using those population mean and variance, we do normalization:
-\begin{equation}
+
+$$
     \begin{split}
         \hat{x} &= \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}\\
         y &= \gamma \hat{x} + \beta \\
         y &= \gamma \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}} + \beta\\
         y &= \frac{\gamma x}{\sqrt{Var(x) + \epsilon}} + \left(\beta - \frac{\gamma E(x)}{\sqrt{Var(x) + \epsilon}} \right)
     \end{split}
-\end{equation}
+$$
 
 But, sometimes, it is difficult to keep track of all the mini-batch mean and variances. In such cases, exponentially weighted "moving average" can be used as global statistics to update population mean and variance:
 
-\begin{equation}
-    \begin{split}
-    \mu_{mov} &= \alpha \mu_{mov} + (1-\alpha) \mu_\phi\\
-    \sigma^2_{mov} &= \alpha \sigma^2_{mov} + (1-\alpha) \sigma^2_\phi
-    \end{split}
-\end{equation}
+$$
+\begin{split}
+\mu_{mov} &= \alpha \mu_{mov} + (1-\alpha) \mu_\phi \\
+\sigma^2_{mov} &= \alpha \sigma^2_{mov} + (1-\alpha) \sigma^2_\phi
+\end{split}
+$$
 
 Here $\alpha$ is the "momentum" given to previous moving statistic, around $0.99$, and those with $\phi$ subscript are mini-batch mean and mini-batch variance. This is the implementation found in most libraries, where the momentum can be set manually.
 
@@ -112,12 +113,12 @@ Let $L$ be the loss function and we are given $\frac{\partial L}{\partial Y} \in
 
 Both $\frac{\partial L}{\partial \gamma}$ and $\frac{\partial L}{\partial \beta}$ are straightforward to compute. Let $y_{i}$ be the $i$-th row of $Y$.
 
-\begin{equation}
+$$
 \begin{split}
 \frac{\partial L}{\partial \gamma} &= \frac{\partial L}{\partial y_{i}} \frac{\partial y_{i}}{\partial \gamma}\\
 &=\sum_{i=1}^{N} \frac{\partial L}{\partial y_{i}} \cdot \hat{x}_{i}
 \end{split}
-\end{equation}
+$$
 
 Notice that we sum from 1 to N, because we are working with batches.
 
