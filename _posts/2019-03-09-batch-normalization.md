@@ -7,11 +7,11 @@ comments: true
 
 Normalizing the input of your network is a well-established technique for improving the convergence properties of a network. A few years ago, a technique known as [batch normalization](https://arxiv.org/abs/1502.03167){:target="_blank"} was proposed to extend this improved loss function topology to more of the parameters of the network.
 
-The method consists of adding an operation in the model just before the activation function of each layer, simply, zero-centering and normalizing the inputs of that patricular layer and then scaling and shifting the result using two new parameters per layer (one for scaling, the other for shifting). In other words, this operation lets the model learn the optimal scale and mean of the inputs for each layer.
+The method consists of adding an operation in the model just before the activation function of each layer, simply, zero-centering and normalizing the inputs of that particular layer and then scaling and shifting the result using two new parameters per layer (one for scaling, the other for shifting). In other words, this operation lets the model learn the optimal scale and mean of the inputs for each layer.
 
 In order to zero-center and normalize the inputs, the algorithm needs to estimate the inputs' mean and standard deviation. It does so by evaluating the mean and standard deviation of the inputs over the current mini-batch (hence the name "Batch Normalization"). 
 
-It is a widely used technique for normalizing the internal representation of data on models that can lead to substantial reduction in convergence time.
+It is a widely used technique for normalizing the internal representation of data on models that can lead to substantial reduction in convergence time. It also helps to reduce something called "internal covariate shift" of the network. 
 
 It introduces some noise into the network, so it can regularize the model a bit. However, regularization is a side effect of Batch Normalization, rather than the main objective. 
 
