@@ -70,6 +70,8 @@ The final step is to compute the average of all points in both classes, positive
 
 **NOTE**: Why don't we use KL-Divergence in machine learning models instead of the cross entropy? The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that's why we build the model.
 
+**NOTE**: It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL} (p || q)$ may not be equal to $D_{KL} (q || p)$.
+
 # WHAT IS A COST (LOSS) FUNCTION?
 
 In simple terms, predictive modeling can be described as the mathematical problem of approximating a mapping function ($f$) from input variables ($X$) to output variables ($y$):  $f: X \rightarrow y$. This is called the problem of function approximation. Stated in other words, the model learns how to take $X$ (i.e., features, or independent variable(s)) in order to predict $y$ (the target, the response or the dependent variable).  
