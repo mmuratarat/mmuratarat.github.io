@@ -76,7 +76,7 @@ The final step is to compute the average of all points in both classes, positive
 
 **NOTE**: Why don't we use KL-Divergence in machine learning models instead of the cross entropy? The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that's why we build the model.
 
-**NOTE**: It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL} (p 	\| q)$ may not be equal to $D_{KL} (q 	\| p)$.
+**NOTE**: It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL} (p 	\|\| q)$ may not be equal to $D_{KL} (q 	\|\| p)$.
 
 # WHAT IS A COST (LOSS) FUNCTION?
 
