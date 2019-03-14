@@ -21,6 +21,8 @@ However, there is a one drawback of Batch Normalization, which is that it makes 
 
 For a given input batch $\phi$ of size $(N,F)$ going through a hidden layer of size $D$, some weights $w$ of size $(F,D)$ and a bias $b$ of size $(D)$, we first do an affine transformation $X = Z \cdot W + b$ where $X$ contains the results of the linear transformation (size $(N,D)$).
 
+![An example of Batch normalization for 2 neurons in a single layer](images/batch_norm_example.png)
+
 Then, a Batch Normalization layer is given a batch of $N$ examples, each of which is a $D$-dimensional vector in a mini-batch $\phi$, where $D$ is the number of hidden units. We can represent the inputs as a matrix $X \in R^{N \times D}$ where each row $x_{i}$ is a single example. Each example $x_{i}$ is normalized by
  
 $$
