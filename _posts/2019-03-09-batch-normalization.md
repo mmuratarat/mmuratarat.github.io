@@ -385,3 +385,4 @@ Batch normalization offers some regularization effect, reducing generalization e
 2. [https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html){:target="_blank"}
 3. [https://wiseodd.github.io/techblog/2016/07/04/batchnorm/](https://wiseodd.github.io/techblog/2016/07/04/batchnorm/){:target="_blank"}
 4. [http://cthorey.github.io./backpropagation/](http://cthorey.github.io./backpropagation/){:target="_blank"}
+5. [https://r2rt.com/implementing-batch-normalization-in-tensorflow.html](https://r2rt.com/implementing-batch-normalization-in-tensorflow.html){:target="_blank"}
