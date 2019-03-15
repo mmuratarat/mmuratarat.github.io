@@ -114,6 +114,7 @@ For this implementation, the shape of the input must be `[input_height, input_wi
 <script src="https://gist.github.com/mmuratarat/7c90584910c8db04b3a4ca10752cf1c6.js"></script>
 
 ## Multiple Feature Maps (Multiple Output Channels)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/convolution-with-multiple-filters2.png?raw=true)
 For this implementation, the shape of the input must be `[input_height, input_width, input_depth]` and the shape of the filter must be `[filter_height, filter_width, filter_depth, number_of_filters]` since we have multiple filters.
 
 <script src="https://gist.github.com/mmuratarat/67d78a5d8b1f1c0f31517f3af7c09e4c.js"></script>
