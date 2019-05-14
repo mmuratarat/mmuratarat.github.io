@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-Maximizing likelihood is equivalent to minimizing KL-Divergence. Considering $P(\cdot | \theta^{*})$ is the true distribution and $P(\cdot | \theta)$ is our estimate, we already know that KL-Divergence is written as:
+Maximizing likelihood is equivalent to minimizing KL-Divergence. Considering $P( \cdot \mid \theta^{*})$ is the true distribution and $P(\cdot \mid \theta)$ is our estimate, we already know that KL-Divergence is written as:
 
 $$
 \begin{split}
