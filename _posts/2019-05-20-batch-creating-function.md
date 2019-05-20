@@ -7,8 +7,7 @@ comments: true
 
 This is a basic function to create batches from a data set.
 
-{% highlight python %} 
-import math
+{% highlight python %} import math
 import numpy as np
 
 def miniBatch(x, y, batchSize):
@@ -34,8 +33,7 @@ def miniBatch(x, y, batchSize):
 
 Here $x$ and $y$ should be numpy array. Let's create an example dataset and see how the function works:
 
-{% highlight python %} 
-from sklearn.datasets import make_classification
+{% highlight python %} from sklearn.datasets import make_classification
 from sklearn.preprocessing import OneHotEncoder
 
 # Define dummy training data, N examples
@@ -88,8 +86,7 @@ y_train
 
 Here, if number of observations in the dataset is not divisible by batch size, the last batch should not be dropped in the case it has fewer than batch size elements.
 
-{% highlight python %} 
-miniBatches = miniBatch(X_train, y_train, batchSize=64)
+{% highlight python %} miniBatches = miniBatch(X_train, y_train, batchSize=64)
 total_batch = len(miniBatches)
 # Loop over all batches
 for batch in miniBatches:
