@@ -13,7 +13,7 @@ Softmax is fundamentally a vector function. It takes a vector as input and produ
 
 Multi-class cross entropy formula is as follows:
 
-$$ L = - \frac{1}{n} \sum_{n=1}^{N}  \sum_{j=1}^{K} \left[y_{nj} \log (p_{nj}) \right]$$
+$$ L = - \frac{1}{N} \sum_{n=1}^{N}  \sum_{j=1}^{K} \left[y_{nj} \log (p_{nj}) \right]$$
 
 where $n$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{nj}$ is one-hot encoded ground truths (actual output/labels) and $p_{nj}$ is scaled (softmax) logits. More details are provided [here](https://mmuratarat.github.io/2018-12-21/cross-entropy){:target="_blank"}.
 
