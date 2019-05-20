@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-This is a basic function to create batches from the data set.
+This is a basic function to create batches from a data set.
 
 {% highlight python %} 
 import math
@@ -35,6 +35,9 @@ def miniBatch(x, y, batchSize):
 Here $x$ and $y$ should be numpy array. Let's create an example dataset and see how the function works:
 
 {% highlight python %} 
+from sklearn.datasets import make_classification
+from sklearn.preprocessing import OneHotEncoder
+
 # Define dummy training data, N examples
 N = 1000
 # Create a simulated feature matrix and output vector with 100 samples,
