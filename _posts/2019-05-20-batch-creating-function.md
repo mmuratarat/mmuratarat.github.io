@@ -7,8 +7,6 @@ comments: true
 
 This is a basic function to create batches from a data set.
 
-
-
 {% highlight python %}import math
 import numpy as np
 
