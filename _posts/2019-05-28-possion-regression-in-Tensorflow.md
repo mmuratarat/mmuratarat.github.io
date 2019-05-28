@@ -114,7 +114,7 @@ print(best_parameters)
 # Comparison with the statsmodels package
 To check the results, we repeat solving the same regression problem using the statsmodels library:
 
-## # statsmodels.api
+## statsmodels.api
 
 {% highlight python %}
 output = dtrain['response']
@@ -125,7 +125,7 @@ poisson_model.summary()
 
 ![alt text](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/statsmodels.png?raw=true)
 
-## # statsmodels.formula.api
+## statsmodels.formula.api
 
 {% highlight python %}
 #In statsmodels.formula.api, a constant is automatically added to your data and an intercept in fitted
