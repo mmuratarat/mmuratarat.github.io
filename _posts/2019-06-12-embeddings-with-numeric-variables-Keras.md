@@ -17,11 +17,13 @@ The vectors of each embedding are learned while training the neural network.The 
  
 For instance, a 4-dimensional version of an embedding for day of week could look like:
 
+{% highlight markdown %}
 | Days    	| Embeddings       	|
 |---------	|------------------	|
 | Sunday  	| [.8, .2, .1, .1] 	|
 | Monday  	| [.1, .2, .9, .9] 	|
 | Tuesday 	| [.2, .1, .9, .8] 	|
+{% endhighlight %}
 
 Here, Monday and Tuesday are fairly similar, yet they are both quite different from Sunday. Again, this is a toy example.
 
@@ -30,7 +32,7 @@ The advantage of doing this compared to the traditional approach of creating dum
 Another advantage of embeddings is that the learned embeddings can be visualized to show which categories are similar to each other. The most popular method for this is t-SNE, which is a technique for dimensionality reduction that works particularly well for visualizing data sets with high-dimensionality.
  
 # Embedding Dimensionality
-The embedding-size defines the dimensionality in which we map the categorical variables. Jeremy Howard provides a general rule of thumb about the number of embedding dimensions: embedding size = min(50, number of categories/2). This [Google Blog](https://developers.googleblog.com/2017/11/introducing-tensorflow-feature-columns.html) also tells that a good rule of thumb is 4th root of the number of categories. Therefore, So it’s kind of experimental. However, literature shows that embedding dimensions of size 50 produces the most accurate results.
+The embedding-size defines the dimensionality in which we map the categorical variables. Jeremy Howard provides a general rule of thumb about the number of embedding dimensions: embedding size = min(50, number of categories/2). This [Google Blog](https://developers.googleblog.com/2017/11/introducing-tensorflow-feature-columns.html){:target="_blank"} also tells that a good rule of thumb is 4th root of the number of categories. Therefore, So it’s kind of experimental. However, literature shows that embedding dimensions of size 50 produces the most accurate results.
 
 # How to use embedding layer with numeric variables?
 Using embeddings with numeric variables is pretty straightforward. In order to combine the categorical data with numerical data, the model should use multiple inputs using [Keras functional API](https://keras.io/getting-started/functional-api-guide/){:target="_blank"}. One for each categorical variable and one for the numerical inputs. For the other non-categorical data columns, we simply send them to the model like we would do for any regular network. So once we have the individual models merged into a full model, we can add layers on top of it network and train it.
