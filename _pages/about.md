@@ -15,7 +15,9 @@ Hello! I'm Murat, I am currently a Doctor of Philosophy student, conducting rese
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/){:target="_blank"} of [Hacettepe University](https://www.hacettepe.edu.tr/){:target="_blank"} in Ankara, Turkey. I received my degree at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. I remain to be research assistant in this department. 
 
-You can find my full resume on [here](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf){:target="_blank"}
+You can find my one-page resume and full CV below:
+[Resumé](https://github.com/mmuratarat/MMA-CV/blob/master/Arat_s_One_page_CV.pdf){:target="_blank"}(1 Page) 
+[Full](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf){:target="_blank"}(4 Pages)
 
 **Mustafa Murat ARAT** (M.Sc.)<br>
 Department of Business Analytics and Statistics<br>
