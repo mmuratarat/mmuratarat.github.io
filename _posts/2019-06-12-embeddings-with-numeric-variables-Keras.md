@@ -7,14 +7,12 @@ comments: true
 
 # Why should you use an embedding layer? 
 
-Here are the two main reasons:
- 
 One-Hot encoding is a commonly used method for converting a categorical input variable into continuous variable. For every level present, one new variable will be created. Presence of a level is represent by 1 and absence is represented by 0. However, one-hot encoded vectors are high-dimensional and sparse. One-hot encoding of high cardinality features often results in an unrealistic amount of computational resource requirement. It also treats different values of categorical variables completely independent of each other and often ignores the informative relations between them.
 
 For an example, considering days of the week in a dataset, this is how we create dummies for that particular columns:
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/dummying.png?raw=true)
 
-The vectors of each embedding are learned while training the neural network.The embedding reduces the memory usage and speeds up the training comparing with one-hot encoding. More importantly though, this approach allows for relationships between categories to be captured. Perhaps Saturday and Sunday have similar behavior, and maybe Friday behaves like an average of a weekend and a weekday.
+The vectors of each embedding, though, are learned while training the neural network. The embedding reduces the memory usage and speeds up the training comparing with one-hot encoding. More importantly though, this approach allows for relationships between categories to be captured. Perhaps Saturday and Sunday have similar behavior, and maybe Friday behaves like an average of a weekend and a weekday.
  
 For instance, a 4-dimensional version of an embedding for day of week could look like:
 
