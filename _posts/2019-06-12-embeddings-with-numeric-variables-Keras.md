@@ -53,5 +53,61 @@ Using embeddings with numeric variables is pretty straightforward. In order to c
                   output_layer 
 {% endhighlight %}
 
+{% highlight python %}
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+
+#Three numerical variables
+num_data = np.random.random(size=(10,3))
+
+#One categorical variables with 4 levels
+cat_data = np.random.randint(0,4,10)
+
+#Let's create one-hot encoded matrix since expected input_1 to have shape (4,)
+one_hot_encoded_cat_data = np.eye(cat_data.max()+1)[cat_data]
+
+target =  np.random.random(size=(10,1))
+
+no_of_unique_cat  = len(np.unique(cat_data))
+#Jeremy Howard provides the following rule of thumb; embedding size = min(50, number of categories/2).
+embedding_size = min(np.ceil((no_of_unique_cat)/2), 50 )
+embedding_size = int(embedding_size)
+
+# Use Input layers, specify input shape (dimensions except first)
+inp_cat_data = keras.layers.Input(shape=(no_of_unique_cat,))
+inp_num_data = keras.layers.Input(shape=(num_data.shape[1],))
+# Bind nulti_hot to embedding layer
+emb = keras.layers.Embedding(input_dim=no_of_unique_cat, output_dim=embedding_size)(inp_cat_data)  
+# Also you need flatten embedded output of shape (?,3,2) to (?, 6) -
+# otherwise it's not possible to concatenate it with inp_num_data
+flatten = keras.layers.Flatten()(emb)
+# Concatenate two layers
+conc = keras.layers.Concatenate()([flatten, inp_num_data])
+dense1 = keras.layers.Dense(3, activation=tf.nn.relu, )(conc)
+# Creating output layer
+out = keras.layers.Dense(1, activation=None)(dense1)
+model = keras.Model(inputs=[inp_cat_data, inp_num_data], outputs=out)
+
+model.compile(optimizer=tf.train.AdamOptimizer(0.01),
+              loss=keras.losses.mean_squared_error,
+              metrics=[keras.metrics.mean_squared_error])
+{% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model_summary_embedding.png?raw=true)
+
+{% highlight python %}
+model.fit([one_hot_encoded_cat_data, num_data], target)
+# WARNING:tensorflow:From /anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+# Instructions for updating:
+# Use tf.cast instead.
+# 10/10 [==============================] - 0s 13ms/sample - loss: 0.1767 - mean_squared_error: 0.1767
+# <tensorflow.python.keras.callbacks.History at 0xb2ff1efd0>
+model.layers[1].get_weights()[0]
+# array([[0.03832028, 0.01142023],
+#        [0.0013773 , 0.05999473],
+#        [0.04026476, 0.04118952],
+#        [0.03986621, 0.0390432 ]], dtype=float32)
+{% endhighlight %}
 # REFERENCES
 1. [https://towardsdatascience.com/decoded-entity-embeddings-of-categorical-variables-in-neural-networks-1d2468311635](https://towardsdatascience.com/decoded-entity-embeddings-of-categorical-variables-in-neural-networks-1d2468311635){:target="_blank"}
