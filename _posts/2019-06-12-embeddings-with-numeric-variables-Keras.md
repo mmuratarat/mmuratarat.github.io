@@ -14,7 +14,7 @@ For an example, considering days of the week in a dataset, this is how we create
 
 The vectors of each embedding, though, are learned while training the neural network. The embedding reduces the memory usage and speeds up the training comparing with one-hot encoding. More importantly though, this approach allows for relationships between categories to be captured. Perhaps Saturday and Sunday have similar behavior, and maybe Friday behaves like an average of a weekend and a weekday.
  
-For instance, a 4-dimensional version of an embedding for day of week could look like:
+For instance, a 4-dimensional version of an embedding for some days of the week could look like:
 
 {% highlight markdown %}
 | Days    	| Embeddings       	|
