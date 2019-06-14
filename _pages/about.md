@@ -21,6 +21,7 @@ You can find my one-page resume and full CV below:
 
 [Full](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf){:target="_blank"} (4 Pages)
 
+<br>
 **Mustafa Murat ARAT** (M.Sc.)<br>
 Department of Business Analytics and Statistics<br>
 James A. Haslam II College of Business<br>
