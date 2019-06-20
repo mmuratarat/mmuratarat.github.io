@@ -28,3 +28,5 @@ args = vars(ap.parse_args())
 # display a friendly message to the user
 print("Hi there {}, it's nice to meet you!".format(args["name"]))
 {% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cla_simple_example.png?raw=true)
