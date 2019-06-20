@@ -13,6 +13,15 @@ We must specify shorthand and longhand versions ( -i  and --input ) where either
 
 `vars` turns the parsed command line arguments into a Python dictionary where the key to the dictionary is the name of the command line argument and the value is value of the dictionary supplied for the command line argument.  Use `print` to see the dictionary.
 
+For this simple example, it will be:
+
+{% highlight python %}
+print(args)
+#{'name': 'Murat'}
+{% endhighlight %}
+
+You can then use those arguments in your model!
+
 Let's create a `simple_example.py` file and see how it works!
 
 {% highlight python %}
