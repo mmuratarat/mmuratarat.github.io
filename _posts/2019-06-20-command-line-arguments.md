@@ -38,4 +38,6 @@ args = vars(ap.parse_args())
 print("Hi there {}, it's nice to meet you!".format(args["name"]))
 {% endhighlight %}
 
+Go do it, yourself! You can use either `-n` or `--name` to assign a value to the argument!
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cla_simple_example.png?raw=true)
