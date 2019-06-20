@@ -7,7 +7,9 @@ comments: true
 
 Command line arguments are flags given to a program/script at runtime. They contain additional information for our program so that it can execute. Not all programs have command line arguments as not all programs need them. Command line arguments allows us to give our program different input on the fly without changing the code. You can draw the analogy that a command line argument is similar to a function parameter. If you know how functions are declared and called in various programming languages, then you’ll immediately feel comfortable when you discover how to use command line arguments.
 
-We must specify shorthand and longhand versions ( -i  and --input ) where either flag could be used in the command line. This is a required argument as is noted by required=True . The help  string will give additional information in the terminal.
+We must specify shorthand and longhand versions ( -i  and --input ) where either flag could be used in the command line. This is a required argument as is noted by required=True . The `help` string will give additional information in the terminal.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cla_help.png?raw=true)
 
 `vars` turns the parsed command line arguments into a Python dictionary where the key to the dictionary is the name of the command line argument and the value is value of the dictionary supplied for the command line argument.  Use `print` to see the dictionary.
 
