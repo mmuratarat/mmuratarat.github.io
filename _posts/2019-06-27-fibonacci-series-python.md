@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-This is the basic Python function to print out Fibonacci series up to term that has been defined by the user:
+This is the basic Python function to print out Fibonacci series up to the term that has been defined by the user:
 
 {% highlight python %}
 def Fibonacci(nterms):
