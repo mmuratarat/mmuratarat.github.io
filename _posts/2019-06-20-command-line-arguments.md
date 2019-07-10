@@ -43,4 +43,4 @@ Go do it, yourself! You can use either `-n` or `--name` to assign a value to the
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cla_simple_example.png?raw=true)
 
 
-**EDIT**: The `tf.app.flags` module is a functionality provided by Tensorflow to implement command line flags for your Tensorflow program, which Google requires internally for its developers to use.
+**EDIT**: The `tf.app.flags` module is a functionality provided by Tensorflow to implement command line flags for your Tensorflow program, which Google requires internally for its developers to use. Look [here](https://stackoverflow.com/questions/33932901/whats-the-purpose-of-tf-app-flags-in-tensorflow){:target="_blank"}, [here](https://planspace.org/20170314-command_line_apps_and_tensorflow/){:target="_blank"} and [here](https://abhisheksaurabh1985.github.io/2017-12-30-flags-in-python-tf/){:target="_blank"} for more!
