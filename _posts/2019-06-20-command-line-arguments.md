@@ -41,3 +41,6 @@ print("Hi there {}, it's nice to meet you!".format(args["name"]))
 Go do it, yourself! You can use either `-n` or `--name` to assign a value to the argument!
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cla_simple_example.png?raw=true)
+
+
+**EDIT**: The `tf.app.flags` module is a functionality provided by Tensorflow to implement command line flags for your Tensorflow program, which Google requires internally for its developers to use.
