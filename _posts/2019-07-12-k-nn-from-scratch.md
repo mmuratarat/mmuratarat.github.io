@@ -170,6 +170,7 @@ predictions = kNearestNeighbor(X_train, y_train, X_test, 7)
 
 accuracy = accuracy_score(y_test, predictions)
 print('\nThe accuracy of our classifier is {}%'.format(accuracy*100))
+#The accuracy of our classifier is 98.0%
 {% endhighlight %}
 
 # REFERENCES
