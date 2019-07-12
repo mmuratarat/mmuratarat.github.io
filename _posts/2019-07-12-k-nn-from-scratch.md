@@ -5,23 +5,23 @@ author: "MMA"
 comments: true
 ---
 
-Let’s first start by establishing some definitions and notations. We will use x to denote a feature (aka. predictor, attribute) and y to denote the target (aka. label, class) we are trying to predict.
+Let’s first start by establishing some definitions and notations. We will use $x$ to denote a feature (aka. predictor, attribute) and $y$ to denote the target (aka. label, class) we are trying to predict.
 
-KNN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consiting of training observations (x,y) and would like to capture the relationship between x and y. More formally, our goal is to learn a function h:X→Y so that given an unseen observation x, h(x) can confidently predict the corresponding output y.
+K-NN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consiting of training observations $(x,y)$ and would like to capture the relationship between $x$ and $y$. More formally, our goal is to learn a function $h: X \Rightarrow Y$ so that given an unseen observation $x$, $h(x)$ can confidently predict the corresponding output y.
 
-The KNN classifier is also a non parametric, instance-based and a lazy  learning algorithm.
+The K-NN classifier is also a non parametric, instance-based and a lazy  learning algorithm.
 
-**Non-parametric** means there is no assumption for underlying data distribution. In other words, the model structure determined from the dataset. This will be very helpful in practice where most of the real world datasets do not follow mathematical theoretical assumptions. it makes no explicit assumptions about the functional form of h, avoiding the dangers of mismodeling the underlying distribution of the data. For example, suppose our data is highly non-Gaussian but the learning model we choose assumes a Gaussian form. In that case, our algorithm would make extremely poor predictions.
+**Non-parametric** means there is no assumption for underlying data distribution. In other words, the model structure determined from the dataset. This will be very helpful in practice where most of the real world datasets do not follow mathematical theoretical assumptions. it makes no explicit assumptions about the functional form of $h$, avoiding the dangers of mismodeling the underlying distribution of the data. For example, suppose our data is highly non-Gaussian but the learning model we choose assumes a Gaussian form. In that case, our algorithm would make extremely poor predictions.
 
 **Instance-based** learning means that our algorithm doesn’t explicitly learn a model. Instead, it chooses to memorize the training instances which are subsequently used as “knowledge” for the prediction phase. Concretely, this means that only when a query to our database is made (i.e. when we ask it to predict a label given an input), will the algorithm use the training instances to spit out an answer.
 
-**Lazy algorithm** means it doesn’t learn a discriminative function from the training data but memorizes the training dataset instead (there is no need for learning or training of the model and all of the data points used at the time of prediction). For example, the logistic regression algorithm learns the model weights during training time. In contrast, there is no training time in K-NN algorithm. It does not need any training data points for model generation. All training data used in the testing phase. This makes training faster and testing phase slower and costlier. Costly testing phase means time and memory. In the worst case, KNN needs more time to scan all data points and scanning all data points will require more memory for storing training data.
+**Lazy algorithm** means it doesn’t learn a discriminative function from the training data but memorizes the training dataset instead (there is no need for learning or training of the model and all of the data points used at the time of prediction). For example, the logistic regression algorithm learns the model weights during training time. In contrast, there is no training time in K-NN algorithm. It does not need any training data points for model generation. All training data used in the testing phase. This makes training faster and testing phase slower and costlier. Costly testing phase means time and memory. In the worst case, K-NN needs more time to scan all data points and scanning all data points will require more memory for storing training data.
 
 Lazy learners do less work in the training phase and more work in the testing phase to make a classification. Lazy learners are also known as instance-based learners because lazy learners store the training points or instances, and all learning is based on instances.
 
-## How does the KNN algorithm work?
+## How does the K-NN algorithm work?
 
-In KNN, K is the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When K=1, then the algorithm is known as the nearest neighbor algorithm. This is the simplest case
+In K-NN, K is the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When $K = 1$, then the algorithm is known as the nearest neighbor algorithm. This is the simplest case
 
 In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances (K-nearest neighbors) to a given “unseen” observation. Similarity is defined according to a distance metric between two data points. A case is classified by a majority vote of its neighbors, with the case being assigned to the class most common amongst its K nearest neighbors measured by a distance function. 
 
@@ -35,7 +35,7 @@ but other measures can be more suitable for a given setting and include the Manh
 
 It should also be noted that all three distance measures are only valid for continuous variables. In the instance of categorical variables the Hamming distance must be used. It also brings up the issue of standardization of the numerical variables between 0 and 1 when there is a mixture of numerical and categorical variables in the dataset.
 
-More formally, given a positive integer K, an unseen observation x and a similarity metric d, KNN classifier performs the following two steps:
+More formally, given a positive integer K, an unseen observation $x$ and a similarity metric $d$, K-NN classifier performs the following two steps:
 
 1. It runs through the whole dataset computing d between x and each training observation. We’ll call the K points in the training data that are closest to x the set $\mathcal{A}$. Note that K is usually odd to prevent tie situations.
 
@@ -47,32 +47,32 @@ $$
 
 Finally, our input x gets assigned to the class with the largest probability.
 
-## How do you decide the number of neighbors in KNN?
-The number of neighbors(K) in KNN is a hyperparameter that you need choose at the time of model building. You can think of K as a controlling variable for the prediction model. Choosing the optimal value for K is best done by first inspecting the data. Research has shown that no optimal number of neighbors suits all kind of data sets. In general, a large K value is more precise as it reduces the overall noise, is more resilient to outliers. Larger values of K will have smoother decision boundaries which means lower variance but increased bias, unlike a small value for K provides the most flexible fit, which will have low bias but high variance, but there is no guarantee. 
+## How do you decide the number of neighbors in K-NN?
+The number of neighbors (K) in K-NN is a hyperparameter that you need choose at the time of model building. You can think of K as a controlling variable for the prediction model. Choosing the optimal value for K is best done by first inspecting the data. Research has shown that no optimal number of neighbors suits all kind of data sets. In general, a large K value is more precise as it reduces the overall noise, is more resilient to outliers. Larger values of K will have smoother decision boundaries which means lower variance but increased bias, unlike a small value for K provides the most flexible fit, which will have low bias but high variance, but there is no guarantee. 
 
 Cross-validation is another way to retrospectively determine a good K value by using an independent dataset to validate the K value. Historically, the optimal K for most datasets has been between 3-10. That produces much better results than 1NN.
 
-## Pros and Cons of KNN
+## Pros and Cons of this algorithm
 
 ### Pros
 1. It is simple to understand and easy to implement.
 
 2. The training phase of K-nearest neighbor classification is much faster compared to other classification algorithms. There is no need to train a model for generalization
 
-3. KNN can be useful in case of nonlinear data.
+3. K-NN can be useful in case of nonlinear data.
 
 4. It can be used with the regression problem. Output value for the object is computed by the average of k closest neighbors value.
 
 ### Cons
 1. The testing phase of K-nearest neighbor classification is slower and costlier in terms of time and memory, which is impractical in industry settings. It requires large memory for storing the entire training dataset for prediction.
 
-2. KNN requires scaling of data because KNN uses the Euclidean distance between two data points to find nearest neighbors. Euclidean distance is sensitive to magnitudes. The features with high magnitudes will weight more than features with low magnitudes. 
+2. K-NN requires scaling of data because K-NN uses the Euclidean distance between two data points to find nearest neighbors. Euclidean distance is sensitive to magnitudes. The features with high magnitudes will weight more than features with low magnitudes. 
 
-3. KNN can suffer from skewed class distributions. For example, if a certain class is very frequent in the training set, it will tend to dominate the majority voting of the new example (large number = more common). A simple and effective way to remedy skewed class distributions is by implementing weighed voting. The class of each of the K neighbors is multiplied by a weight proportional to the inverse of the distance from that point to the given test point. This ensures that nearer neighbors contribute more to the final vote than the more distant ones.
+3. K-NN can suffer from skewed class distributions. For example, if a certain class is very frequent in the training set, it will tend to dominate the majority voting of the new example (large number = more common). A simple and effective way to remedy skewed class distributions is by implementing weighed voting. The class of each of the K neighbors is multiplied by a weight proportional to the inverse of the distance from that point to the given test point. This ensures that nearer neighbors contribute more to the final vote than the more distant ones.
 
-4. KNN also not suitable for high dimensional data because there is little difference between the nearest and farthest neighbor.
+4. K-NN also not suitable for high dimensional data because there is little difference between the nearest and farthest neighbor.
 
-5. KNN performs better with a lower number of features than a large number of features. You can say that when the number of features increases than it requires more data. Increase in dimension also leads to the problem of overfitting. To avoid overfitting, the needed data will need to grow exponentially as you increase the number of dimensions. This problem of higher dimension is known as the Curse of Dimensionality.
+5. K-NN performs better with a lower number of features than a large number of features. You can say that when the number of features increases than it requires more data. Increase in dimension also leads to the problem of overfitting. To avoid overfitting, the needed data will need to grow exponentially as you increase the number of dimensions. This problem of higher dimension is known as the Curse of Dimensionality.
 
 # DATA: Iris Flower Dataset 
 {% highlight python %}
@@ -89,7 +89,7 @@ y = data['target']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 {% endhighlight %}
 
-# KNN in Sci-kit Learn
+# K-NN in Sci-kit Learn
 {% highlight python %}
 # loading library
 from sklearn.neighbors import KNeighborsClassifier
@@ -177,5 +177,3 @@ print('\nThe accuracy of our classifier is {}%'.format(accuracy*100))
 2. [https://kevinzakka.github.io/2016/07/13/k-nearest-neighbor/](https://kevinzakka.github.io/2016/07/13/k-nearest-neighbor/){:target="_blank"} 
 3. [https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn](https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn){:target="_blank"} 
 4. [https://lyfat.wordpress.com/2012/05/22/euclidean-vs-chebyshev-vs-manhattan-distance/](https://lyfat.wordpress.com/2012/05/22/euclidean-vs-chebyshev-vs-manhattan-distance/){:target="_blank"} 
-    
-    
