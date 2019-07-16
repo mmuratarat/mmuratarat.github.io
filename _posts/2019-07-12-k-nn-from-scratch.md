@@ -88,9 +88,9 @@ We are given a training data set with n = 6 observations of $p = 2$ input variab
 
 and we are interested in predicting the output for $x^{test} = \begin{bmatrix}1 & 2 \end{bmatrix}^{T}$. For this purpose, we will explore two different k-NN classifiers, one using $k = 1$ and one using $k = 3$.
 
-First, we compute the Euclidian distance $||x_{i} -  x^{test}||$ between each training data point $x_{i}$ and the test data point $x^{test}$, and then sort them in descending order.
+First, we compute the Euclidian distance $\lVert x_{i} -  x^{test} \rVert$ between each training data point $x_{i}$ and the test data point $x^{test}$, and then sort them in descending order.
  
-| i 	| $||x_{i} - x^{test}||$ 	| $y_{i}$ 	|
+| i 	| $\lVert x_{i} - x^{test} \rVert$ 	| $y_{i}$ 	|
 |---	|---------------------	|---------	|
 | 6 	| $\sqrt{1}$          	| Red     	|
 | 2 	| $\sqrt{2}$          	| Blue    	|
