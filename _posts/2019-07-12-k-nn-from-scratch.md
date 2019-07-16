@@ -77,7 +77,6 @@ Cross-validation is another way to retrospectively determine a good K value by u
 # A Basic Example
 We are given a training data set with n = 6 observations of $p = 2$ input variables $x_1$, $x_2$ and one (qualitative) output $y$, the color Red or Blue:
 
-{:class="table table-bordered"}
 | i 	| $x_{1}$ 	| $x_{2}$ 	| y    	|
 |---	|---------	|---------	|------	|
 | 1 	| -1      	| 3       	| Red  	|
@@ -86,12 +85,12 @@ We are given a training data set with n = 6 observations of $p = 2$ input variab
 | 4 	| -1      	| 2       	| Blue 	|
 | 5 	| -1      	| 0       	| Blue 	|
 | 6 	| 1       	| 1       	| Red  	|
+{:.table-striped}
 
 and we are interested in predicting the output for $x^{test} = \begin{bmatrix}1 & 2 \end{bmatrix}^{T}$. For this purpose, we will explore two different k-NN classifiers, one using $k = 1$ and one using $k = 3$.
 
 First, we compute the Euclidean distance $\lVert x_{i} -  x^{test} \rVert$ between each training data point $x_{i}$ and the test data point $x^{test}$, and then sort them in descending order.
  
-{:class="table table-bordered"}
 | i 	| $\lVert x_{i} - x^{test} \rVert$ 	| $y_{i}$ 	|
 |---	|---------------------	|---------	|
 | 6 	| $\sqrt{1}$          	| Red     	|
@@ -100,18 +99,7 @@ First, we compute the Euclidean distance $\lVert x_{i} -  x^{test} \rVert$ betwe
 | 1 	| $\sqrt{5}$          	| Red     	|
 | 5 	| $\sqrt{8}$          	| Blue    	|
 | 3 	| $\sqrt{9}$          	| Red     	|
-
-\begin{table}[]
-\begin{tabular}{lll}
-i & $||x_{i} - x^{*}||$ & $y_{i}$ \\
-6 & $\sqrt{1}$          & Red     \\
-2 & $\sqrt{2}$          & Blue    \\
-4 & $\sqrt{4}$          & Blue    \\
-1 & $\sqrt{5}$          & Red     \\
-5 & $\sqrt{8}$          & Blue    \\
-3 & $\sqrt{9}$          & Red    
-\end{tabular}
-\end{table}
+{:.table-striped}
 
 Since the closest training data point to $x^{test}$ is the data point $i = 6$ (Red), it means that for k-NN with $k = 1$, we get the model $p\left(\text{Red}\,\,\, \mid  \,\,\, x^{test} \right) = 1$ and $p\left(\text{Blue}\,\,\, \mid  \,\,\,x^{test}\right) = 0$. This gives the prediction $\hat{y}^{test} = Red$.
 
