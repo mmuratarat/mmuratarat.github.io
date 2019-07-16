@@ -37,9 +37,9 @@ It should also be noted that all three distance measures are only valid for cont
 
 More formally, given a positive integer K, an unseen observation $x$ and a similarity metric $d$, K-NN classifier performs the following two steps:
 
-1. It runs through the whole dataset computing d between x and each training observation. We’ll call the K points in the training data that are closest to x the set $\mathcal{A}$. Note that K is usually odd to prevent tie situations.
+1. It runs through the whole dataset computing d between x and each training observation. We’ll call 'the K points in the training data that are closest to x' the set $\mathcal{A}$. Note that K is usually odd to prevent tie situations.
 
-2. It then estimates the conditional probability for each class, that is, the fraction of points in $\mathcal{A}$ with that given class label. (Note I(x) is the indicator function which evaluates to 1 when the argument x is true and 0 otherwise)
+2. It then estimates the conditional probability for each class, that is, the fraction of points in $\mathcal{A}$ with that given class label. (Note $I(x)$ is the indicator function which evaluates to 1 when the argument x is true and 0 otherwise)
 
 $$
 P(y = j | X = x) = \frac{1}{K} \sum_{i \in \mathcal{A}} I(y^{(i)} = j)
