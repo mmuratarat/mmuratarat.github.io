@@ -99,9 +99,9 @@ First, we compute the Euclidean distance $\lVert x_{i} -  x^{test} \rVert$ betwe
 | 5 	| $\sqrt{8}$          	| Blue    	|
 | 3 	| $\sqrt{9}$          	| Red     	|
 
-Since the closest training data point to $x^{test}$ is the data point $i = 6$ (Red), it means that for k-NN with $k = 1$, we get the model $p(\text{Red}\,\,\, \mid  \,\,\, x^{test}) = 1$ and $p(\text{Blue}\,\,\, \mid  \,\,\,x^{test}) = 0$. This gives the prediction $\hat{y}^{test} = Red$.
+Since the closest training data point to $x^{test}$ is the data point $i = 6$ (Red), it means that for k-NN with $k = 1$, we get the model $p\left(\text{Red}\,\,\, \mid  \,\,\, x^{test} \right) = 1$ and $p\left(\text{Blue}\,\,\, \mid  \,\,\,x^{test}\right) = 0$. This gives the prediction $\hat{y}^{test} = Red$.
 
-Further, for $k = 3$, the 3 nearest neighbors are $i = 6$ (Red), $i = 2$ (Blue), and $i = 4$ (Blue), which gives the model $p(\text{Red}\,\,\, \mid  \,\,\, x^{test}) = \frac{1}{3}$ and $p(\text{Blue}\,\,\, \mid  \,\,\, x^{test}) = \frac{2}{3}$. The prediction, which also can be seen as a majority vote among those 3 training data points, thus becomes $\hat{y}^{test} = Blue$.
+Further, for $k = 3$, the 3 nearest neighbors are $i = 6$ (Red), $i = 2$ (Blue), and $i = 4$ (Blue), which gives the model $p\left(\text{Red}\,\,\, \mid  \,\,\, x^{test}\right) = \frac{1}{3}$ and $p\left(\text{Blue}\,\,\, \mid  \,\,\, x^{test}\right) = \frac{2}{3}$. The prediction, which also can be seen as a majority vote among those 3 training data points, thus becomes $\hat{y}^{test} = Blue$.
 
 # DATA: Iris Flower Dataset 
 {% highlight python %}
