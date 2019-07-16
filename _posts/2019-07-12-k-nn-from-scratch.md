@@ -77,6 +77,7 @@ Cross-validation is another way to retrospectively determine a good K value by u
 # A Basic Example
 We are given a training data set with n = 6 observations of $p = 2$ input variables $x_1$, $x_2$ and one (qualitative) output $y$, the color Red or Blue:
 
+{:class="table table-bordered"}
 | i 	| $x_{1}$ 	| $x_{2}$ 	| y    	|
 |---	|---------	|---------	|------	|
 | 1 	| -1      	| 3       	| Red  	|
@@ -90,6 +91,7 @@ and we are interested in predicting the output for $x^{test} = \begin{bmatrix}1 
 
 First, we compute the Euclidean distance $\lVert x_{i} -  x^{test} \rVert$ between each training data point $x_{i}$ and the test data point $x^{test}$, and then sort them in descending order.
  
+{:class="table table-bordered"}
 | i 	| $\lVert x_{i} - x^{test} \rVert$ 	| $y_{i}$ 	|
 |---	|---------------------	|---------	|
 | 6 	| $\sqrt{1}$          	| Red     	|
