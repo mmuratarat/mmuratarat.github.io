@@ -86,11 +86,11 @@ We are given a training data set with n = 6 observations of $p = 2$ input variab
 | 5 	| -1      	| 0       	| Blue 	|
 | 6 	| 1       	| 1       	| Red  	|
 
-and we are interested in predicting the output for $x^{*} = \begin{bmatrix}1 & 2 \end{bmatrix}^{T}$. For this purpose, we will explore two different k-NN classifiers, one using $k = 1$ and one using $k = 3$.
+and we are interested in predicting the output for $x^{test} = \begin{bmatrix}1 & 2 \end{bmatrix}^{T}$. For this purpose, we will explore two different k-NN classifiers, one using $k = 1$ and one using $k = 3$.
 
-First, we compute the Euclidian distance $||x_{i} -  x^{*}||$ between each training data point $x_{i}$ and the test data point $x^{*}$, and then sort them in descending order.
+First, we compute the Euclidian distance $||x_{i} -  x^{test}||$ between each training data point $x_{i}$ and the test data point $x^{test}$, and then sort them in descending order.
  
-| i 	| $||x_{i} - x^{*}||$ 	| $y_{i}$ 	|
+| i 	| $||x_{i} - x^{test}||$ 	| $y_{i}$ 	|
 |---	|---------------------	|---------	|
 | 6 	| $\sqrt{1}$          	| Red     	|
 | 2 	| $\sqrt{2}$          	| Blue    	|
@@ -99,9 +99,9 @@ First, we compute the Euclidian distance $||x_{i} -  x^{*}||$ between each train
 | 5 	| $\sqrt{8}$          	| Blue    	|
 | 3 	| $\sqrt{9}$          	| Red     	|
 
-Since the closest training data point to $x^{*}$ is the data point $i = 6$ (Red), it means that for k-NN with $k = 1$, we get the model $p(\text{Red}\,\,\, | \,\,\, x^{*}) = 1$ and $p(\text{Blue}\,\,\, | \,\,\,x^{*}) = 0$. This gives the prediction $\hat{y}^{*} = Red$.
+Since the closest training data point to $x^{test}$ is the data point $i = 6$ (Red), it means that for k-NN with $k = 1$, we get the model $p(\text{Red}\,\,\, | \,\,\, x^{test}) = 1$ and $p(\text{Blue}\,\,\, | \,\,\,x^{test}) = 0$. This gives the prediction $\hat{y}^{test} = Red$.
 
-Further, for $k = 3$, the 3 nearest neighbors are $i = 6$ (Red), $i = 2$ (Blue), and $i = 4$ (Blue), which gives the model $p(\text{Red}\,\,\, |\,\,\, x^{*}) = \frac{1}{3}$ and $p(\text{Blue}\,\,\, |\,\,\, x^{*}) = \frac{2}{3}$. The prediction, which also can be seen as a majority vote among those 3 training data points, thus becomes $\hat{y}^{*} = Blue$.
+Further, for $k = 3$, the 3 nearest neighbors are $i = 6$ (Red), $i = 2$ (Blue), and $i = 4$ (Blue), which gives the model $p(\text{Red}\,\,\, |\,\,\, x^{test}) = \frac{1}{3}$ and $p(\text{Blue}\,\,\, |\,\,\, x^{test}) = \frac{2}{3}$. The prediction, which also can be seen as a majority vote among those 3 training data points, thus becomes $\hat{y}^{test} = Blue$.
 
 # DATA: Iris Flower Dataset 
 {% highlight python %}
