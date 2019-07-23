@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-# K-Means Clustering
+# K-means Clustering
 
 K-means algorithm is is one of the simplest and popular unsupervised machine learning algorithms, that solve the well-known clustering problem, with no pre-determined labels defined, meaning that we don’t have any target variable as in the case of supervised learning. 
 
