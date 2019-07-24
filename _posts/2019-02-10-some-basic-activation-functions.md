@@ -165,7 +165,7 @@ $$
 f^{\prime}(x) = \frac{d f}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
 $$
 
-where $\lim_{h \rightarrow 0}$ means "as the change in h becomes infitely small (for instance h approaches to zero)".
+where $\lim_{h \rightarrow 0}$ means "as the change in h becomes infinitely small (for instance h approaches to zero)".
 
 Let's get back to ReLU function. If we substitute the ReLU equation into the limit definition of derivative above:
 
