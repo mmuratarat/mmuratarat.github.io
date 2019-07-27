@@ -57,11 +57,13 @@ Cross-validation is another way to retrospectively determine a good K value by u
 ### Pros
 1. It is simple to understand and easy to implement.
 
-2. The training phase of K-nearest neighbor classification is much faster compared to other classification algorithms. There is no need to train a model for generalization
+2. KNN is called Lazy Learner (Instance based learning). The training phase of K-nearest neighbor classification is much faster compared to other classification algorithms. There is no need to train a model for generalization
 
 3. K-NN can be useful in case of nonlinear data.
 
 4. It can be used with the regression problem. Output value for the object is computed by the average of k closest neighbors value.
+
+5. Since the KNN algorithm requires no training before making predictions, new data can be added seamlessly which will not impact the accuracy of the algorithm.
 
 ### Cons
 1. The testing phase of K-nearest neighbor classification is slower and costlier in terms of time and memory, which is impractical in industry settings. It requires large memory for storing the entire training dataset for prediction.
