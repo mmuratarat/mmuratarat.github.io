@@ -9,8 +9,8 @@ Maximizing likelihood is equivalent to minimizing KL-Divergence. Considering $P(
 
 $$
 \begin{split}
-D_{KL} \left[P(x | \theta^{*}) ||   P(x \theta)\right] & = E_{x {\sim} P(x | \theta^{*})}
-\left[\log \frac{P(x | \theta^{*}) }{P(x \theta)} \right]\\
+D_{KL} \left[P(x | \theta^{*}) ||   P(x | \theta)\right] & = E_{x {\sim} P(x | \theta^{*})}
+\left[\log \frac{P(x | \theta^{*}) }{P(x | \theta)} \right]\\
 & =  E_{x {\sim} P(x | \theta^{*})} \left[\log P(x | \theta^{*}) - \log P(x | \theta)   \right]\\
 & = E_{x {\sim} P(x | \theta^{*})}\left[ \log P(x | \theta^{*}) \right] - E_{x {\sim} P(x | \theta^{*})} \left[ \log P(x | \theta) \right]\\
 \end{split}
