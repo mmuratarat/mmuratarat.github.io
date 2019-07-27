@@ -78,7 +78,6 @@ We often know the value of K. In that case we use the value of K. In general, th
 
 A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method, and the G-means algorithm. In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K.
 
-
 ## Constraints of the algorithm
 Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. 
 
@@ -87,6 +86,10 @@ The standard K-means algorithm isn't directly applicable to categorical data, fo
 Categorical data (i.e., category labels such as gender, country, browser type) needs to be encoded (e.g., one-hot encoding for nominal categorical variable or label encoding for ordinal categorical variable) or separated in a way that can still work with the algorithm, which is still not perfectly right. 
 
 There's a variation of K-means known as K-modes, introduced in [this paper](http://www.cs.ust.hk/~qyang/Teaching/537/Papers/huang98extensions.pdf) by Zhexue Huang, which is suitable for categorical data. 
+
+K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes.
+
+It is important to scale the input features before you run K-Means, or else the clusters may be very stretched, and K-Means will perform poorly. Scaling the features does not guarantee that all the clusters will be nice and spherical, but it generally improves things.
 
 # DATA: Iris Flower Dataset 
 
