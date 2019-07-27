@@ -59,7 +59,6 @@ $$c_i=\frac{1}{\lvert S_i \rvert}\sum_{x_i \in S_i} x_i$$
 
 where $S_{i}$ is the set of all points assigned to the $i$th cluster.
 
-
 **Step 4**
 
 The algorithm iterates between steps one and two until a stopping criteria is met (i.e., no data points change clusters, the sum of the distances is minimized, or some maximum number of iterations is reached).
@@ -68,7 +67,9 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Clustering_kmeans_c.png?raw=true)
 
-**NOTE** This algorithm is guaranteed to converge to a result. The result may be a local optimum (i.e. not necessarily the best possible outcome), meaning that assessing more than one run of the algorithm with randomized starting centroids may give a better outcome.
+**NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome): this depends on the centroid initialization. 
+
+**NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances n, the number of clusters K and the number of dimensions n. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
 
 # Choosing the Value of K
 We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K, but an accurate estimate can be obtained using the Elbow Method. We run the algorithm for different values of K (say K = 10 to 1) and plot the K values against SSE (Sum of Squared Errors). And select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
