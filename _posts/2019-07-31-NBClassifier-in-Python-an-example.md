@@ -116,7 +116,7 @@ P(Income = 120 \mid Evade = No) =  \frac{1}{\sqrt{2 \times \pi \times 2975}} \ex
 $$
 
 $$
-P(Income = 120 \mid Evade = Yes) =  \frac{1}{\sqrt{2 \times \pi \times 25}} \exp \left(- \frac{\left(120 - 90\right)^{2}}{2 \times 25} \right) = 1.2151765699646572e-09
+P(Income = 120 \mid Evade = Yes) =  \frac{1}{\sqrt{2 \times \pi \times 25}} \exp \left(- \frac{\left(120 - 90\right)^{2}}{2 \times 25} \right) = 1.2151765699646572e^{-9}
 $$
 
 Let's compute the posterior probabilities.
