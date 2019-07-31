@@ -58,13 +58,13 @@ We calculate probability for all 'k' classes using the above function and take o
 
 2. **Gaussian Naive Bayes**: It is used in classification and it assumes that the predictors/features take up a continuous value and are not discrete, we assume that these values are sampled from a gaussian distribution (follow a normal distribution). The parameters of the Gaussian are the mean and variance of the feature values. Since the way the values are present in the dataset changes, the formula for conditional probability changes to:
 
-$$
+    $$
 P(x_{i} \mid y) = \frac{1}{\sqrt{2 \pi \sigma^{2}_{y}}} \exp \left(- \frac{\left(x_{i} - \mu_{y}\right)^{2}}{2\sigma^{2}_{y}} \right)
 $$
 
-If continuous features do not have normal distribution, we should use transformation or different methods to convert it in normal distribution.
+    If continuous features do not have normal distribution, we should use transformation or different methods to convert it in normal distribution.
 
-Alternatively, a continuous feature could be discretized by binning its values, but doing so throws away information, and results could be sensitive to the binning scheme.
+    Alternatively, a continuous feature could be discretized by binning its values, but doing so throws away information, and results could be sensitive to the binning scheme.
 
 3. **Bernoulli Naive Bayes**: This is similar to the multinomial naive bayes but the predictors are boolean variables. The parameters that we use to predict the class variable take up only values yes or no, for example if a word occurs in the text or not.
 
@@ -109,7 +109,7 @@ $$
    * Sample mean: 90
    * Sample Variance = 25
    
-Therefore,
+Therefore, likelihoods are:
 
 $$
 P(Income = 120 \mid Evade = No) =  \frac{1}{\sqrt{2 \times \pi \times 2975}} \exp \left(- \frac{\left(120 - 110\right)^{2}}{2 \times 2975} \right) = 0.007192295359419549
