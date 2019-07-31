@@ -78,7 +78,7 @@ Alternatively, a continuous feature could be discretized by binning its values, 
 
 * It is often a good first thing to try. For problems with a small amount of training data, it can achieve better results than other classifiers, thanks to Occam’s Razor because it has a low propensity to overfit.
 
-* Easily handles missing feature values — by re-training and predicting without that feature! (See, [https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification/answer/Muhammad-Zaheer-6?ch=10&share=fbcb0773&srid=CM1bE](https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification/answer/Muhammad-Zaheer-6?ch=10&share=fbcb0773&srid=CM1bE){:target="_blank"})
+* Easily handles missing feature values — by re-training and predicting without that feature! (See [this quora answer](https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification/answer/Muhammad-Zaheer-6?ch=10&share=fbcb0773&srid=CM1bE){:target="_blank"})
 
 # Disadvantages
 
@@ -121,21 +121,21 @@ $$
 
 Let's compute the posterior probabilities.
 
-\begin{equation}
+$$
 \begin{split}
 P(X \mid Class = No) &= P(Refund = No \mid Class = No) \times P(Married \mid Class = No) \times P(Income = 120K \mid Class = No) \\
 &= \frac{4}{7} \times \frac{4}{7} \times 0.007192295359419549 \\
 &= 0.0023485046071574033
 \end{split}
-\end{equation}
+$$
 
-\begin{equation}
+$$
 \begin{split}
 P(X \mid Class = Yes) &= P(Refund = No \mid Class = Yes) \times P(Married \mid Class = Yes) \times P(Income = 120K \mid Class = Yes) \\
 &= \frac{3}{3} \times 0 \times 1.2151765699646572e-09 \\
 &= 0
 \end{split}
-\end{equation}
+$$
 
 Since $P(X \mid Class = No) \times P(Class = No) > P(X \mid Class = Yes) \times P(Class = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the class of this instance is then **No**.
 
