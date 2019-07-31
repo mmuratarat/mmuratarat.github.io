@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Implementing K-means Clustering from Scratch - in Python"
+title: "Naive Bayes Classifier example by hand and how to do in Scikit-Learn"
 author: "MMA"
 comments: true
 ---
