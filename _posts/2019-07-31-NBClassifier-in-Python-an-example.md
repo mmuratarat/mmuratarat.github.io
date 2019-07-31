@@ -82,7 +82,7 @@ Alternatively, a continuous feature could be discretized by binning its values, 
 
 # Disadvantages
 
-* "ensembling, boosting, bagging" won’t work here since their purpose is to reduce variance. Naive Bayes has no variance to minimize.
+* Ensembling, boosting, bagging will not work here since the purpose of these methods is to reduce variance. Naive Bayes has no variance to minimize.
 
 * It is important to note that categorical variables need to be factors with the same levels in both training and new data (testing dataset). This can be problematic in a predictive context if the new data obtained in the future does not contain all the levels, meaning it will be unable to make a prediction. This is often known as "Zero Frequency". To solve this, we can use a smoothing technique. One of the simplest smoothing techniques is called Laplace smoothing. 
 
