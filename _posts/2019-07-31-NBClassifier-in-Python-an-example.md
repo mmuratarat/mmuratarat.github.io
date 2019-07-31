@@ -137,7 +137,7 @@ P(X \mid Evade = Yes) &= P(Refund = No \mid Evade = Yes) \times P(Married \mid E
 \end{split}
 $$
 
-Since $P(X \mid Evade = No) \times P(Evade = No) > P(X \mid Evade = Yes) \times P(Evade = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the Evade of this instance is then **No**.
+Since $P(X \mid Evade = No) \times P(Evade = No) > P(X \mid Evade = Yes) \times P(Evade = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the class of this instance is then **No**.
 
 # DATA: Iris Flower Dataset
 
