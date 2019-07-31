@@ -102,10 +102,10 @@ $$
 X=(Refund = No, Married, Income = 120K
 $$
 
-* For income variable when class = No:
+* For income variable when Evade = No:
    * Sample mean: 110
    * Sample Variance = 2975
-* For income variable when class = Yes:
+* For income variable when Evade = Yes:
    * Sample mean: 90
    * Sample Variance = 25
    
