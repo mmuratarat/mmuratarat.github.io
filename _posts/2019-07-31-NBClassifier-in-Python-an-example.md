@@ -132,7 +132,7 @@ $$
 $$
 \begin{split}
 P(X \mid Evade = Yes) &= P(Refund = No \mid Evade = Yes) \times P(Married \mid Evade = Yes) \times P(Income = 120K \mid Evade = Yes) \\
-&= \frac{3}{3} \times 0 \times 1.2151765699646572e-09 \\
+&= \frac{3}{3} \times 0 \times 1.2151765699646572e^{-9} \\
 &= 0
 \end{split}
 $$
