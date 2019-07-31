@@ -123,7 +123,7 @@ Let's compute the posterior probabilities.
 
 $$
 \begin{split}
-P(X \mid Class = No) &= P(Refund = No \mid Class = No) \times P(Married \mid Class = No) \times P(Income = 120K \mid Class = No) \\
+P(X \mid Evade = No) &= P(Refund = No \mid Evade = No) \times P(Married \mid Evade = No) \times P(Income = 120K \mid Evade = No) \\
 &= \frac{4}{7} \times \frac{4}{7} \times 0.007192295359419549 \\
 &= 0.0023485046071574033
 \end{split}
@@ -131,13 +131,13 @@ $$
 
 $$
 \begin{split}
-P(X \mid Class = Yes) &= P(Refund = No \mid Class = Yes) \times P(Married \mid Class = Yes) \times P(Income = 120K \mid Class = Yes) \\
+P(X \mid Evade = Yes) &= P(Refund = No \mid Evade = Yes) \times P(Married \mid Evade = Yes) \times P(Income = 120K \mid Evade = Yes) \\
 &= \frac{3}{3} \times 0 \times 1.2151765699646572e-09 \\
 &= 0
 \end{split}
 $$
 
-Since $P(X \mid Class = No) \times P(Class = No) > P(X \mid Class = Yes) \times P(Class = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the class of this instance is then **No**.
+Since $P(X \mid Evade = No) \times P(Evade = No) > P(X \mid Evade = Yes) \times P(Evade = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the Evade of this instance is then **No**.
 
 # DATA: Iris Flower Dataset
 
