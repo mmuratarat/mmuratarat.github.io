@@ -106,6 +106,8 @@ where $i$ indexes samples/observations. where $y$ is the label (1 for positive c
 
 Reading this formula, it tells you that, for each positive point ($y_{i}=1$), it adds $log(p_{i})$ to the loss, that is, the log probability of it being positive. Conversely, it adds $log(1-p_{i})$, that is, the log probability of it being negative, for each negative point ($y_{i}=0$). 
 
+Let’s take a closer look at this relationship. The plot below shows the Log Loss contribution from a single positive instance where the predicted probability ranges from 0 (the completely wrong prediction) to 1 (the correct prediction). It’s apparent from the gentle downward slope towards the right that the Log Loss gradually declines as the predicted probability improves. Moving in the opposite direction though, the Log Loss ramps up very rapidly as the predicted probability approaches 0. 
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/log-loss-curve.png?raw=true)
 
 Two properties in particular make it reasonable to interpret the cross-entropy as a cost function. First, it's non-negative, that is, $L(\theta) \geq 0$. To see this, notice that: (a) all the individual terms in the sum in the equation are negative, since both logarithms are of numbers in the range 0 to 1; and (b) there is a minus sign out the front of the sum.
