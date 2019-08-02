@@ -7,14 +7,15 @@ comments: true
 
 # Naive Bayes Classifier
 
-A Naive Bayes classifier is a probabilistic machine learning model that’s used for classification task. The crux of the classifier is based on the Bayes theorem.
+A Naive Bayes classifier is a generative (not discriminative) probabilistic machine learning model that’s used for classification task. The crux of the classifier is based on the Bayes theorem.
 
 $$
 P(A \mid B) = \frac{P(A, B)}{P(B)} = \frac{P(B\mid A) \times P (A)}{P(B)}
 $$
 
-It is termed as 'Naive' because it assumes independence between every pair of feature in the data. That is presence of one particular feature does not affect the other. Bayes’ rule without the independence assumption is called a bayesian network. 
+**NOTE**: Generative Classifiers learn a model of the joint probability $p(x, y)$, of the inputs $x$ and the output $y$, and make their predictions by using Bayes rule to calculate $p(y \mid x)$ and then picking the most likely $y$. Discriminative classifers model the posterior $p(y \mid x)$ directly or learn a direct map from inputs $x$ to the class labels. There are several compelling reasons for using discriminative rather than generative classifiers, one of which, succinctly articulated by Vapnik, is that "one should solve the classification problem directly, and never solve a more general problem as an intermediate step (such as modelling $p(y \mid x)$)". Indeed, leaving aside computational issues and matters such as handling missing data, the prevailing consensus seems to be that the discriminative classifiers are almost always preferred to generative ones. 
 
+It is termed as 'Naive' because it assumes independence between every pair of feature in the data. That is presence of one particular feature does not affect the other. Bayes’ rule without the independence assumption is called a bayesian network. 
 
 Let $(x_{1}, x_{2},..., x_{p})$ be a feature vector and $y$ be the class label corresponding to this feature vector. Applying Bayes' theorem,
 
@@ -28,9 +29,7 @@ $$
 P(y \mid x_{1}, x_{2},..., x_{p}) = \frac{P(x_{1}, x_{2},..., x_{p}, y)}{P(x_{1}, x_{2},..., x_{p})} = \frac{P(x_{1}, x_{2},..., x_{p}\mid y) \times P (y)}{P(x_{1}, x_{2},..., x_{p})}
 $$
 
-
 Since, $(x_{1}, x_{2},..., x_{p})$ are independent of each other,
-
 
 $$
 P(y \mid x_{1}, x_{2},..., x_{p}) = \frac{P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)}{\prod_{i=1}^{p} P(x_{i})}
@@ -47,7 +46,7 @@ In our case, the response variable ($y$) has only two outcomes, binary (e.g., ye
 To complete the specification of our classifier, we adopt the MAP (Maximum A Posteriori) decision rule, which assigns the label to the class with the highest posterior.
 
 $$
-\hat{y} = \operatorname*{argmax}_{k \in \{1,2, ...,K\}} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
+\hat{y} = p(y, X) = p(y, x_{1}, x_{2},..., x_{p}) = \operatorname*{argmax}_{k \in \{1,2, ...,K\}} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
 $$
 
 We calculate probability for all 'K' classes using the above function and take one with the maximum value to classify a new point belongs to that class.
