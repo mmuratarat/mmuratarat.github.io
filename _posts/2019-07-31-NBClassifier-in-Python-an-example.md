@@ -47,10 +47,10 @@ In our case, the response variable ($y$) has only two outcomes, binary (e.g., ye
 To complete the specification of our classifier, we adopt the MAP (Maximum A Posteriori) decision rule, which assigns the label to the class with the highest posterior.
 
 $$
-\hat{y} = \operatorname*{argmax}_{y} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
+\hat{y} = \operatorname*{argmax}_{k \in \{1,2, ...,K\}} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
 $$
 
-We calculate probability for all 'k' classes using the above function and take one with the maximum value to classify a new point belongs to that class.
+We calculate probability for all 'K' classes using the above function and take one with the maximum value to classify a new point belongs to that class.
 
 # Types of NB Classifier
 
@@ -66,7 +66,7 @@ $$
 
     Alternatively, a continuous feature could be discretized by binning its values, but doing so throws away information, and results could be sensitive to the binning scheme.
 
-3. **Bernoulli Naive Bayes**: This is similar to the multinomial naive bayes but the predictors are boolean variables. The parameters that we use to predict the class variable take up only values yes or no, for example if a word occurs in the text or not.
+3. **Bernoulli Naive Bayes**: This is similar to the multinomial naive bayes. In the multivariate Bernoulli event model, features are independent booleans (binary variables) describing inputs, for example if a word occurs in the text or not.
 
 # Advantages
 
