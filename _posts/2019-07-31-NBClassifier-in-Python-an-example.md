@@ -68,7 +68,9 @@ $$
 
 3. **Bernoulli Naive Bayes**: This is similar to the multinomial naive bayes. In the multivariate Bernoulli event model, features are independent booleans (binary variables) describing inputs, for example if a word occurs in the text or not.
 
+    $$
     P(x_{1}, x_{2},..., x_{p}\mid y) =  \prod_{i=1}^{p} p_{ki}^{x_{i}} (1-p_{ki})^{(1-x_{i})}
+    $$
     
     where where $p_{ki}$ is the probability of class k generating the term $x_{i}$. 
 
