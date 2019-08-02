@@ -6,7 +6,7 @@ comments: true
 ---
 
 
-When you are working with deep neural networks, initializing the network with the right weights can be the hard to deal with. 
+When you are working with deep neural networks, initializing the network with the right weights can be the hard to deal with because Deep Neural Networks suffer from problems called Vanishing/Exploding Gradients. Therefore, we need the signal to flow properly in both directions: in the forward direction when making predictions, and in the reverse direction when backpropagating gradients. We don’t want the signal to die out, nor do we want it to explode and saturate.
 
 ## Normal Distribution
 We don’t know anything about the data, so we are not sure how to assign the weights that would work in that particular case. One good way is to assign the weights from a Gaussian distribution. Obviously this distribution would have zero mean and some finite variance. 
