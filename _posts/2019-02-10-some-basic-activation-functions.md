@@ -6,6 +6,7 @@ comments: true
 ---
 
 # Activation Functions
+Activation functions help in achieving non-linearity in deep learning models. If we don't use these non-linear activation functions, neural network would not be able to solve the complex real life problems like image, video, audio, voice and text processing, natural language processing etc. because our neural network would still be linear and linear models cannot solve real life complex problems. These activation functions are also called squashing functions as these functions squash the output under certain range. We will also see various advantages and disadvantages of different activation functions. 
 
 ## Sigmoid Function
 Sigmoid function is one of the mostly-used and well-known activation functions. The function itself is defined as:
