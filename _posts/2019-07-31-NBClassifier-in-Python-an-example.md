@@ -46,7 +46,7 @@ In our case, the response variable ($y$) has only two outcomes, binary (e.g., ye
 To complete the specification of our classifier, we adopt the MAP (Maximum A Posteriori) decision rule, which assigns the label to the class with the highest posterior.
 
 $$
-\hat{y} = p(y, X) = p(y, x_{1}, x_{2},..., x_{p}) = \operatorname*{argmax}_{k \in \{1,2, ...,K\}} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
+\hat{y} = p(X, y) = p(y, x_{1}, x_{2},..., x_{p}) = \operatorname*{argmax}_{k \in \{1,2, ...,K\}} P (y) \times \prod_{i=1}^{p} P(x_{i} \mid y)
 $$
 
 We calculate probability for all 'K' classes using the above function and take one with the maximum value to classify a new point belongs to that class.
