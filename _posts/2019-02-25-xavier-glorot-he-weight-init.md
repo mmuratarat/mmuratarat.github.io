@@ -11,7 +11,7 @@ When you are working with deep neural networks, initializing the network with th
 ## Normal Distribution
 We don’t know anything about the data, so we are not sure how to assign the weights that would work in that particular case. One good way is to assign the weights from a Gaussian distribution. Obviously this distribution would have zero mean and some finite variance. 
 
-Suppose we have an inout $X$ with $n$ components and a linear neuron with random weights $W$ that spits out an output $Y$. The variance of $y$ can be written as:
+Suppose we have an input $X$ with $n$ components and a linear neuron with random weights $W$ that spits out an output $Y$. The variance of $y$ can be written as:
 
 $$
 Y = W_{1}X_{1} + W_{2}X_{2} + \cdots + W_{n}X_{n}
@@ -39,7 +39,7 @@ $$
 Var(W_{i}) = \frac{1}{n} = \frac{1}{n_{in}}
 $$
 
-This is Xavier Initialization formula. We need to pick the weights from a Gaussian distribution with zero mean and a variance of $\frac{1}{n_{in}}$ where $n_{in}$ is the number of input neurons. That is how Xavier (Glorot) initialization is implemented in Caffee library. 
+This is Xavier Initialization formula. We need to pick the weights from a Gaussian distribution with zero mean and a variance of $\frac{1}{n_{in}}$ where $n_{in}$ is the number of input neurons in the weight tensor.. That is how Xavier (Glorot) initialization is implemented in Caffee library. 
 
 Similarly, if we go through backpropagation, we apply the same steps and get:
 
