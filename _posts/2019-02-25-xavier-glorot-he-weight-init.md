@@ -6,7 +6,7 @@ comments: true
 ---
 
 
-When you are working with deep neural networks, initializing the network with the right weights can be the hard to deal with because Deep Neural Networks suffer from problems called Vanishing/Exploding Gradients. Therefore, we need the signal to flow properly in both directions: in the forward direction when making predictions, and in the reverse direction when backpropagating gradients. We don’t want the signal to die out, nor do we want it to explode and saturate.
+When you are working with deep neural networks, initializing the network with the right weights can be the hard to deal with because Deep Neural Networks suffer from problems called Vanishing/Exploding Gradients. Therefore, we need the signal to flow properly in both directions: in the forward direction when making predictions, and in the reverse direction when backpropagating gradients. We don’t want the signal to die out, nor do we want it to explode and saturate. Therefore, the authors argue that we need the variance of the outputs of each layer to be equal to the variance of its inputs, and we also need the gradients to have equal variance before and after flowing through a layer in the reverse direction.
 
 ## Normal Distribution
 We don’t know anything about the data, so we are not sure how to assign the weights that would work in that particular case. One good way is to assign the weights from a Gaussian distribution. Obviously this distribution would have zero mean and some finite variance. 
