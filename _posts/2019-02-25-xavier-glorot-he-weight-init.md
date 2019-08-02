@@ -72,7 +72,7 @@ $$
 ## Uniform Distribution
 What if we want to use a Uniform distribution? 
 
-If sampling from a uniform distribution, this translates to sampling the interval $[−r,r]$, where $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$. The weird-looking $\sqrt{6}$ factor comes from the fact that the variance of a uniform distribution over the interval $[−r,r]$ is $r^{2}/3$. So for forward pass, if we want the variance of weights to be equal to $\frac{1}{n_{in}}$, we need to choose $r = \sqrt{\frac{3}{n_{in}}}$. If you go through the same steps for the backpropagated signal and use Glorot and Bengio implementation to reconcile Forward and Backward Passes, we will have:
+If sampling from a uniform distribution, this translates to sampling the interval $[−r,r]$, where $r = \sqrt{\frac{6}{n_{in} + n_{out}}}$. The weird-looking $\sqrt{6}$ factor comes from the fact that the variance of a uniform distribution over the interval $[−r,r]$ is $r^{2}/3$ (	$\frac{(b-a)^{2}}{12}$ for a random variable following Uniform Distribution (a, b)). So for forward pass, if we want the variance of weights to be equal to $\frac{1}{n_{in}}$, we need to choose $r = \sqrt{\frac{3}{n_{in}}}$. If you go through the same steps for the backpropagated signal and use Glorot and Bengio implementation to reconcile Forward and Backward Passes, we will have:
 
 $$
 r = \sqrt{\frac{6}{n_{in} + n_{out}}}
