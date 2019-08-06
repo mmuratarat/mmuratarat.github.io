@@ -936,7 +936,7 @@ It is actually possible to train several different blenders this way (e.g., one 
 
 Unfortunately, Scikit-Learn does not support stacking directly, but it is not too hard to roll out your own implementation.
 
-## Exercise for Stacking Layers
+## Exercise for Stacking Ensemble
 Run the individual classifiers from the previous exercise to make predictions on the validation set, and create a new training set with the resulting predictions: each training instance is a vector containing the set of predictions from all your classifiers for an image, and the target is the image's class. Train a Random Forest classifier as a blender on this new training set.
 
 {% highlight python %}
