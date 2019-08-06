@@ -80,7 +80,7 @@ For classification problem the class outputted by each model can be seen as a vo
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bagging2.png?raw=true)
 
-Idea of bagging comes from the fact that average models to reduce model variance.. As one can see easily, averaging variances reduce overall variance. Let $Z_{1}, Z_{2},..., Z_{N}$ be i.i.d. random variables,
+Idea of bagging comes from the fact that averaging models reduces model variance.. As one can see easily, averaging variances reduce overall variance. Let $Z_{1}, Z_{2},..., Z_{N}$ be i.i.d. random variables,
 
 $$
 Var \left(\frac{1}{N} \sum_{i=1}^{N} Z_{i} \right) = \frac{1}{N} Var \left(Z_{i} \right)
