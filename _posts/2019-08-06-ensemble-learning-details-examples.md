@@ -1017,4 +1017,5 @@ print(accuracy_score(y_test, y_pred))
 5. [https://sebastianraschka.com/Articles/2014_ensemble_classifier.html](https://sebastianraschka.com/Articles/2014_ensemble_classifier.html){:target="_blank"}
 6. [http://datajango.com/heterogeneous-ensemble-learning-hard-voting-soft-voting/](http://datajango.com/heterogeneous-ensemble-learning-hard-voting-soft-voting/){:target="_blank"}
 7. [https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf){:target="_blank"}
-
+8. Aurélien Géron, _Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow_, 2nd Edition, O'Reilly Media, Inc., [https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/){:target="_blank"}
+9. Michel Ballings' _BZAN 554: Customer Analytics_ course notes at University of Tennessee, Knoxville, [http://ballings.co/](http://ballings.co/){:target="_blank"}
