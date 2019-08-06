@@ -55,11 +55,11 @@ In this method, we create predictions for each model and saved them in a matrix 
 Note: The accuracy of the VotingClassifier is generally higher than the individual classifiers. Make sure to include diverse classifiers so that models which fall prey to similar types of errors do not aggregate the errors.
 
 # Bootstrap Aggregation (Bagging) And Pasting
-Bootstrap Aggregation (or Bagging for short also called Parallel ensemble), is a simple and very powerful ensemble method. Ensembles are combinations of multiple diverse (potentially weak) models trained on a different set of datasets and almost always outperform the best model in the ensemble. It aims at producing an ensemble model that is more robust than the individual models composing it. The basic motivation of parallel methods is to exploit independence between the base learners since the error can be reduced dramatically by averaging.
+Bootstrap Aggregation (or _Bagging_ for short, also called _Parallel Ensemble_), is a simple and very powerful ensemble method. Ensembles are combinations of multiple diverse (potentially weak) models trained on a different set of datasets and almost always outperform the best model in the ensemble. It aims at producing an ensemble model that is more robust than the individual models composing it. The basic motivation of parallel methods is to exploit independence between the base learners since the error can be reduced dramatically by averaging.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bagging1.png?raw=true)
 
-**NOTE**: It is a general procedure that can be used to __reduce the variance__ for those algorithm that have high variance such as decision trees, like classification and regression trees (CART) (Ensembling can reduce variance without increasing bias. It is however, only helpful if bias is low).
+**NOTE**: It is a general procedure that can be used to __reduce the variance__ for those algorithm that have high variance such as decision trees, like Classification And Regression Trees (CART) (Ensembling can reduce variance without increasing bias. It is however, only helpful if bias is low).
 
 A bootstrap sample is created with sampling with replacement, and is of equal size as the original sample. It is a method of data perturbation and diversity generation. Because trees are very sensitive to small changes in the data, building multiple trees and averaging the predictions can yield drastic improvements in predictive performance
 
@@ -67,7 +67,7 @@ When sampling is performed without replacement, it is called pasting.
 
 Both bagging and pasting allow training instances to be sampled several times across multiple predictors but only bagging allows training instances to be sampled several times for the same predictor.
 
-# How does Bagging work?
+## How does Bagging work?
 Let’s assume we have a sample dataset of 1000 instances (x) and we are using the CART algorithm (it can, as well, be different algorithms). Bagging of the CART algorithm would work as follows.
 
 1. Create many (e.g. 100) random sub-samples of our dataset with replacement (or no replacement).
@@ -205,7 +205,7 @@ for clf in (log_clf, rnd_clf, svm_clf, gnb_clf, voting_clf):
 # VotingClassifier 0.896
 {% endhighlight %}
 
-# Bagging ensembles
+## Bagging Ensembles
 
 Scikit-Learn offers a simple API for both bagging and pasting with the `BaggingClassifier` class (or `BaggingRegressor` for regression). The following code trains an ensemble of 500 Decision Tree classifiers, each trained on 100 training instances randomly sampled from the training set with replacement (this is an example of bagging, but if you want to use pasting instead, just set `bootstrap=False`). The `n_jobs` parameter tells Scikit-Learn the number of CPU cores to use for training and predictions (–1 tells Scikit-Learn to use all available cores).
 
@@ -270,7 +270,7 @@ plt.show()
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bagging_example1.png?raw=true)
 
-# Out-of-bag Evaluation
+## Out-of-bag Evaluation
 
 Out of bag (OOB) score is a way of validating the ensemble methods.
 
@@ -323,6 +323,8 @@ bag_clf.oob_decision_function_[0:5]
 The `BaggingClassifier` class supports sampling the features as well. This is controlled by two hyperparameters: `max_features` and `bootstrap_features`. They work the same way as `max_samples` and `bootstrap` arguments of the class but for feature sampling instead of instance sampling. Thus each predictor will be trained on a random subset of input features. 
 
 Sampling both training instances and features is called the **Random Patches** method. Keeping all training instances (i.e., `bootstrap = False` and `max_sample = 1.0`) but sampling features (i.e., `bootstrap_features = True` and/or `max_features` smaller than 1.0)  is called the **Random Subspaces** method. Sampling features in even more predictor diversity, trading a bit more bias for a lower variance. 
+
+# Random Forest
 
 Decision trees tend to have high variance. A small change in the training data can produce big changes in the estimated Tree. It also involves the greedy selection of the best split point from the dataset at each step.
 
