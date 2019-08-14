@@ -387,6 +387,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_moons
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import export_graphviz
+import pydot
 
 X, y = make_moons(n_samples=1000, noise=0.30, random_state=42)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
@@ -468,9 +470,6 @@ rnd_clf.estimators_
 
 # Extract the fifth tree
 fifth_small = rnd_clf.estimators_[5]
-
-from sklearn.tree import export_graphviz
-import pydot
 
 # Save the tree as a png image
 export_graphviz(fifth_small, out_file = 'fifth_tree.dot', feature_names = ['Feature 1', 'Feature 2'], class_names=['0','1'], rounded = True, precision = 1)
