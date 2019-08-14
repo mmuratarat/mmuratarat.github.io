@@ -344,13 +344,18 @@ Each tree is grown as follows:
 
 So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name ‘random forest.’ 
 
-To perform the prediction using the trained random forest algorithm we need to pass the test features through the rules of each randomly created trees, store the predictions and then take an average of all the individual decision tree estimates. (This is the case for a regression task. For classification, the random forest will take a majority vote for the predicted class). 
+## Predictions in Random Forest
+
+When it comes time to make a prediction, the random forest takes an average of all the individual decision tree estimates in the case for a regression task. For classification, the random forest will take a majority vote for the predicted class.
+
+
+## Advantages and Disadvantages of Random Forest
 
 The procedure is easy to implement: only two parameters are to be set (number of trees and the number of variables considered at each split). We follow the recommendations of Breiman, 2001 and use a large number of trees (1000) and the sqrt(p) as the size of the variable subsets where p is the total number of variables.  We can also choose the number of variables to be selected at each split using Cross-Validation. 
 
 Random forests does not overfit. You can run as many trees as you want. It is fast. 
 
-Random Forest works well with both categorical and continuous variables.
+It is versatile. It can handle binary features, categorical features, and numerical features. There is very little pre-processing that needs to be done.
 
 Random Forest handles higher dimensionality data very well.
 
@@ -372,8 +377,6 @@ It is parallelizable: You can distribute the computations across multiple proces
 The out of bag samples associated with each tree in a RandomForestClassifier  will be different from one tree to another. Each of the OOB sample rows is passed through every Decision Trees that did not contain the OOB sample row in its bootstrap training data and a majority prediction is noted for each row.
 
 For more: [https://towardsdatascience.com/what-is-out-of-bag-oob-score-in-random-forest-a7fa23d710](https://towardsdatascience.com/what-is-out-of-bag-oob-score-in-random-forest-a7fa23d710){:target="_blank"}
-
-
 
 {% highlight python %}
 import numpy as np
@@ -398,7 +401,84 @@ print('Accuracy of Random Forest algorithm: {}'.format(accuracy_score(y_test, y_
 
 print('OOB score is {}'.format(rnd_clf.oob_score_))
 #OOB score is 0.8893333333333333
+
+
+#The command below gives all the trees built in the forest
+rnd_clf.estimators_
+# [DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=1608637542, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=1273642419, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=1935803228, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=787846414, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=996406378, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=1201263687, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=423734972, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=415968276, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=670094950, splitter='best'),
+#  DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
+#              max_features='auto', max_leaf_nodes=None,
+#              min_impurity_decrease=0.0, min_impurity_split=None,
+#              min_samples_leaf=1, min_samples_split=2,
+#              min_weight_fraction_leaf=0.0, presort=False,
+#              random_state=1914837113, splitter='best')]
+
+# Extract the fifth tree
+fifth_small = rnd_clf.estimators_[5]
+
+from sklearn.tree import export_graphviz
+import pydot
+
+# Save the tree as a png image
+export_graphviz(fifth_small, out_file = 'fifth_tree.dot', feature_names = ['Feature 1', 'Feature 2'], class_names=['0','1'], rounded = True, precision = 1)
+(graph, ) = pydot.graph_from_dot_file('fifth_tree.dot')
+graph.write_png('fifth_tree.png');
 {% endhighlight %}
+
+The tree we will have from the command above will be enourmous since we have not defined `max_depth` in `RandomForestClassifier`. It is None. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
 
 # Feature Importance
 Yet another great quality of Random Forests is that they make it easy to measure the relative importance of each feature. Scikit-Learn computes this score automatically for each feature after training. You can access the result using the `feature_importances_` variable.
@@ -455,7 +535,7 @@ plt.show()
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/feature_importances_irisdata.png?raw=true)
 
 # BOOSTING
-Originally caled _hypothesis boosting_, boosting refers to any Ensemble method that can combine several weak learners with low variance but high bias (The weak learners in AdaBoost are decision trees with a single split, called decision stumps) into a strong learner with a lower bias than its components. The general idea of most boosting methods is that new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made (each trying to correct its predecessor). 
+Originally caled _hypothesis boosting_, boosting refers to any Ensemble method that can combine several weak learners with low variance but high bias (The weak learners in AdaBoost are decision trees with a single split, called decision stumps(1-level decision trees)) into a strong learner with a lower bias than its components. The general idea of most boosting methods is that new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made (each trying to correct its predecessor). 
 
 Boosting can be used primarily for reducing bias and also variance. However, Boosting algorithms can still overfit; therefore, the iteration process should be stopped to avoid it. To combat overfitting is usually as simple as using cross validation to determine how many boosting steps to take.
 
@@ -471,6 +551,8 @@ One way for a new predictor to correct its predecessor is to pay a bit more atte
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stochastic_adaboost.png?raw=true)
 
 Scikit-Learn actually uses a multiclass version of AdaBoost called `SAMME` (which stands for _Stagewise Additive Modeling using a Multiclass Exponential loss function_). When there are just two classes, `SAMME` is equivalent to AdaBoost. Moreover, if the predictors can estimate class probabilities (i.e., if they have a `predict_proba()` method), Scikit-Learn can use a variant of `SAMME` called `SAMME.R` (the R stands for “Real”), which relies on class probabilities rather than predictions and generally performs better.
+
+The number of iterations needed for AdaBoost depends on the problem. [Mease and Wyner (2008)](http://jmlr.org/papers/volume9/mease08a/mease08a_with_discussion.pdf) argue that AdaBoost should be run for a long time, until it converges, and that 1,000 iterations should be enough. T
 
 **NOTE**: If your AdaBoost ensemble is overfitting the training set, you can try reducing the number of estimators or more strongly regularizing the base estimator. If it underfits the training data, you can try increasing the number of base estimators or reducing the regularization hyperparameters of the base estimator. You may also try slightly increasing the learning rate. Learning rate is the opposite of penalty term in loss regularization. If you increase this penalty term, the amount of regularization will increase therefore, overfitting model might underfit. 
 
