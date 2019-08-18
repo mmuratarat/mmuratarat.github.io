@@ -104,7 +104,7 @@ $$
 Let's find the class of this test record:
 
 $$
-X=(Refund = No, Married, Income = 120K
+X=(Refund = No, Married, Income = 120K)
 $$
 
 * For income variable when Evade = No:
