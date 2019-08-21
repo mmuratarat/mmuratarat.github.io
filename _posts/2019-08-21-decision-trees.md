@@ -563,7 +563,7 @@ Random Forest is a collection of Decision Trees. Decision Tree makes its final d
 
 4. Random Forest reduces variance instead of bias: Random forest reduces variance part of the error rather than bias part, so on a given training dataset, Decision Tree may be more accurate than a Random Forest. But on an unexpected validation dataset, Random Forest always wins in terms of accuracy.
 
-5. Performance: The downside of Random Forest is that it can be slow if you have a single process but it can be parallelized.
+5. The downside of Random Forest is that it can be slow if you have a single process but it can be parallelized.
 
 6. Decision Tree is easier to understand and interpret: Decision Tree is simple and easy to interpret. You know what variable and what value of that variable is used to split the data and predict the outcome. On the other hand, Random Forest is like a Black Box. You can specify the number of trees you want in your forest (`n_estimators`) and also you can specify maximum number of features to be used in each tree. But you cannot control the randomness, you cannot control which feature is part of which tree in the forest, you cannot control which data point is part of which tree. 
 
