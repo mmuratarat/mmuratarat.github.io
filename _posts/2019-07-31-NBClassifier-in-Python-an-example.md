@@ -7,7 +7,7 @@ comments: true
 
 # Naive Bayes Classifier
 
-A Naive Bayes classifier is a generative (not discriminative) probabilistic machine learning model that’s used for classification task. The crux of the classifier is based on the Bayes theorem.
+A Naive Bayes classifier is a probabilistic non-linear machine learning model that’s used for classification task. The crux of the classifier is based on the Bayes theorem.
 
 $$
 P(A \mid B) = \frac{P(A, B)}{P(B)} = \frac{P(B\mid A) \times P (A)}{P(B)}
