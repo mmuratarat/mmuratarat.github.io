@@ -32,7 +32,7 @@ $$
 Here, the denominator is given by $P(X) = P(X \mid y = 0)P(y=0) + P(X \mid y = 1)P(y=1)$ (you should be able to verify that this is true from the standard properties of probabilities), and thus can also be expressed in terms of the quantities $P(X \mid y)$ and $P(y)$ that we’ve learned. Actually, if were calculating $P(y \mid X)$ in order to make a prediction, then we don’t actually need to calculate the denominator, since,
 
 $$
-\text{argmax}_{y} P(y \mid X) = \text{argmax}_{y} \frac{P(X \mid y) P(y)}{P(X)} = \text{argmax}_{y} P(X \mid y) P(y)
+\underset{\theta}{\operatorname{argmax}} P(y \mid X) = \underset{\theta}{\operatorname{argmax}} \frac{P(X \mid y) P(y)}{P(X)} = \underset{\theta}{\operatorname{argmax}} P(X \mid y) P(y)
 $$
 
 After we calculate the posterior probabilities, we pick the most likely label $y$ for this new test data.
