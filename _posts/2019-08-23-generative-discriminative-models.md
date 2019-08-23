@@ -5,9 +5,9 @@ author: "MMA"
 comments: true
 ---
 
-In this article we discuss basic differences between Generative and Discriminative models. Actually, so far, we have already seen couple of those models, which Logistic Regression is one of the well-known discriminative classifiers whereas Naive Bayes algorithm is one for generative one. Here's the most important part from the [lecture notes of CS299 (by Andrew Ng)](http://cs229.stanford.edu/notes/cs229-notes2.pdf){:target="_blank"} related to the topic, which really helps to understand the difference between discriminative and generative learning algorithms.
+In this article we discuss basic differences between Generative and Discriminative models. Actually, so far, we have already seen couple of those models, which Logistic Regression is one of the well-known discriminative classifiers whereas Naive Bayes algorithm is one for generative ones. Here's the most important part from the [lecture notes of CS299 (by Andrew Ng)](http://cs229.stanford.edu/notes/cs229-notes2.pdf){:target="_blank"} related to the topic, which really helps to understand the difference between discriminative and generative learning algorithms.
 
-It is important to understand the difference between Generative and Discriminative models because with growing number of classifiers in the literature, it is becoming impossible to rely on trial-error method where we try to find the most optimal algorithm for a particular dataset. Thus, based on what one wishes to achieve from the analysis, classifiers are broadly divided into these two groups: (1) Discriminative models, and (2) Generative models. The fundamental difference between these models is: (1) Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner), (2) Generative models model the distribution of individual classes, therefore, providing a model of how the data is actually generated (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points).
+It is important to understand the difference between Generative and Discriminative models because with growing number of classifiers in the literature, it is becoming impossible to rely on trial-error method where we try to find the most optimal algorithm for a particular dataset. Thus, based on what one wishes to achieve from the analysis, classifiers are broadly divided into these two groups: (1) Discriminative models, and (2) Generative models. The fundamental difference between these models is: (1) Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner), (2) Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points).
  
 Think of an analogy. The task is to determine the language that someone is speaking. Generative approach is used to learn each language and determine as to which language the speech belongs to. Discriminative approach is used to determine the linguistic differences without learning any language, which is a much easier task!
 
@@ -25,15 +25,15 @@ Assume that $y$ indicates whether an example is a dog (0) or an elephant (1), th
 
 After computing $P(y)$ and $P(X \mid y)$, a generative algorithm can then use Bayes' rule to derive the posterior distribution on $y$ given $X$:
 
-\begin{equation}
+$$
 P(y \mid X) = \frac{P(X, y)}{P(X)} = \frac{P(X \mid y) P(y)}{P(X)}
-\end{equation}
+$$
 
 Here, the denominator is given by $P(X) = P(X \mid y = 0)P(y=0) + P(X \mid y = 1)P(y=1)$ (you should be able to verify that this is true from the standard properties of probabilities), and thus can also be expressed in terms of the quantities $P(X \mid y)$ and $P(y)$ that we’ve learned. Actually, if were calculating $P(y \mid X)$ in order to make a prediction, then we don’t actually need to calculate the denominator, since,
 
-\begin{equation}
+$$
 \text{argmax}_{y} P(y \mid X) = \text{argmax}_{y} \frac{P(X \mid y) P(y)}{P(X)} = \text{argmax}_{y} P(X \mid y) P(y)
-\end{equation}
+$$
 
 After we calculate the posterior probabilities, we pick the most likely label $y$ for this new test data.
 
