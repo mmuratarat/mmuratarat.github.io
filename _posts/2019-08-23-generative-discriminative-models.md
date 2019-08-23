@@ -37,13 +37,13 @@ $$
 
 After we calculate the posterior probabilities, we pick the most likely label $y$ for this new test data.
 
-**Generative classifiers}**
+**Generative classifiers**
 1. Naïve Bayes
 2. Bayesian networks
 3. Markov random fields
 4. Hidden Markov Models (HMM)
 
-**Discriminative Classifiers**
+**Discriminative classifiers**
 1. Logistic regression
 2. Support Vector Machine
 4. Traditional neural networks
