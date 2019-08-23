@@ -53,7 +53,11 @@ As one can see easily that a discriminative classifier tries to model by just de
 
 Intuitively, we can say generative algorithms is typically overfitting less because it allows the user to put in more side information in the form of class conditionals.
 
-There are several other compelling reasons for using discriminative rather than generative classifiers, one of which, succinctly articulated by Vapnik, is that "one should solve the classification problem directly, and never solve a more general problem as an intermediate step (such as modelling $P(y \mid X)$)". Indeed, leaving aside computational issues and matters such as handling missing data, the prevailing consensus seems to be that the discriminative classifiers are almost always preferred to generative ones.
+The discriminative model is more sensitive to outliers as we model the boundaries. Each outlier will shift the class boundaries.
+
+Additionally, when training data is biased over one class, in generative learning algorithms, wrong model assumption will be made since generative algorithms make some structural assumptions on the model. The joint probability will be biased as class probabilities will be biased. Thus, the conditional probability will be biased, too. Similarly, in discriminative models, we will receive biased conditional probability.
+
+There are several compelling reasons for using discriminative rather than generative classifiers, one of which, succinctly articulated by Vapnik, is that "one should solve the classification problem directly, and never solve a more general problem as an intermediate step (such as modelling $P(y \mid X)$)". Indeed, leaving aside computational issues and matters such as handling missing data, the prevailing consensus seems to be that the discriminative classifiers are almost always preferred to generative ones.
 
 Note that generative algorithms may have discriminative properties, since you can get $P(y \mid X)$ once you have $P(X \mid y)$ and $P(y)$ (by Bayes’ Theorem), though discriminative algorithms do not really have generative properties.
 
