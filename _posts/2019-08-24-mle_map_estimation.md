@@ -17,12 +17,12 @@ L(\theta) = \prod_{i} P(x_{i} \mid \theta)
 
 If we take the logarithm of it and find the maximum likelihood estimator of $\theta$:
 
-\begin{equation}
+$$
 \begin{split}
 LL(\theta) = \log L(\theta) &= \log \left(\prod_{i} P(x_{i} \mid \theta) \right)\\
 &= \sum_{i=1} log\left(P(x_{i} \mid \theta) \right)
 \end{split}
-\end{equation}
+$$
 
 \begin{equation}
 \theta_{MLE} = \underset{\theta}{\operatorname{argmax}} LL(\theta) = \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log\left(P(x_{i} \mid \theta) \right)
@@ -56,12 +56,12 @@ Then, similarly, MAP estimator of $\theta$  is,
 
 Since $x_{1}, x_{2},...,x_{n}$ is i.i.d. random variables,
 
-\begin{equation}
+$$
 \begin{split}
 \theta_{MAP} &= \underset{\theta}{\operatorname{argmax}}\frac{P(x_{1} \mid \theta)P(x_{2} \mid \theta)...P(x_{n} \mid \theta)P(\theta)}{P(x_{1})P(x_{2})...P(x_{n})}\\
 &=\underset{\theta}{\operatorname{argmax}} \frac{\prod_{i=1} P(x_{i} \mid \theta)P(\theta)}{\prod_{i=1}P(x_{i})}
 \end{split}
-\end{equation}
+$$
 
 where $P(\theta)$ is the prior distribution of $\theta$, We can ignore the denominator.
 
@@ -110,10 +110,12 @@ P(\theta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} \theta^{
 
 where $\alpha$ and $\beta$ are called hyperparameters where cannot be computed from data. Rather we set them subjectively to express our prior knowledge.
 
+$$
 \begin{split}
 \theta_{MAP} &= \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)\\
 &=\sum_{i=1} \left[log {n \choose x_{i}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right] + (\alpha -1) log (\theta) + (\beta -1) log (1-\theta)
 \end{split}
+$$
 
 As same as MLE, we can get $\theta$ maximizing this equation by having the derivative of this function with respect to $\theta$ and setting it 0:
 
@@ -129,14 +131,14 @@ Comparing MLE and MAP equations, the only thing that differs is the inclusion of
 
 Let's be more concrete and let's say we could assign six possible vales into $\theta$. Now our prior $P(\theta)$ is $\frac{1}{6}$ everywhere in the distribution, and consequently, we could ignore the constant in our MAP estimation.
 
-\begin{equation}
+$$
 \begin{split}
 \theta_{MAP} &= \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)\\
 &=\underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + \text{constant}\\
 &=\underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) \\
 &=\theta_{MLE}
 \end{split}
-\end{equation}
+$$
 
 We are back at MLE equation again.
 
