@@ -9,7 +9,7 @@ comments: true
 
 K-means algorithm is is one of the simplest and popular unsupervised machine learning algorithms, that solve the well-known clustering problem, with no pre-determined labels defined, meaning that we don’t have any target variable as in the case of supervised learning. 
 
-K-means simply partitions the given dataset into various clusters (groups) with different features.
+K-means simply partitions the given dataset into various clusters (groups).
 
 K refers to the total number of clusters to be defined in the entire dataset.There is a centroid chosen for a given cluster type which is used to calculate the distance of a given data point. The distance essentially represents the similarity of features of a data point to a cluster type.
 
@@ -69,7 +69,7 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 **NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome): this depends on the centroid initialization. 
 
-**NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances n, the number of clusters K and the number of dimensions n. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
+**NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances, the number of clusters and the number of dimensions. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
 
 # Choosing the Value of K
 We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K, but an accurate estimate can be obtained using the Elbow Method. We run the algorithm for different values of K (say K = 10 to 1) and plot the K values against SSE (Sum of Squared Errors). And select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
