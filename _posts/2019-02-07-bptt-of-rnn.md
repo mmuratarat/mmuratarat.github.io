@@ -124,7 +124,7 @@ $$
 
 Let's continue...
 
-Aggregate the gradients with respect to $W_{hh}$ over the whote time-sequence with backpropagation, we can finally yield the following gradient with respect to $W_{hh}$:
+Aggregate the gradients with respect to $W_{hh}$ over the whole time-steps with backpropagation, we can finally yield the following gradient with respect to $W_{hh}$:
 
 $$
 \frac{\partial L}{\partial W_{hh}} = \sum_{t}^{T} \sum_{k=1}^{t+1} \frac{\partial L_{t+1}}{\partial \hat{y}_{t+1}} \frac{\partial \hat{y}_{t+1}}{\partial h_{t+1}} \frac{\partial h_{t+1}}{\partial h_{k}}\frac{\partial h_{k}}{\partial W_{hh}}
