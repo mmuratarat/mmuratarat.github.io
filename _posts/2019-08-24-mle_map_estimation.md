@@ -85,12 +85,12 @@ P(X \mid \theta) = {n\choose X} \theta^{X} (1-\theta)^{n-X},\,\,\,\, X=0,1,2,...
 Let's write down the likelihood function,
 
 \begin{equation}
-P(\theta \mid X) = L(\theta) = \prod_{i=1} P(x_{i} \mid \theta) = \prod_{i=1} {{n}\choose{x_{i}}} \theta^{x_{i}} (1-\theta)^{n-x_{i}}
+P(\theta \mid X) = L(\theta) = \prod_{i=1} P(x_{i} \mid \theta) = \prod_{i=1} {n \choose x_{i}} \theta^{x_{i}} (1-\theta)^{n-x_{i}}
 \end{equation}
 
 Taking the natural logarithm on both sides gives:
 \begin{equation}
-log L(\theta) =  \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) = \sum_{i=1} \left[log {{n}\choose{x_{i}}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right]
+log L(\theta) =  \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) = \sum_{i=1} \left[log {n \choose x_{i}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right]
 \end{equation}
 
 Since $log L(\theta)$ is a continuous function of $\theta$, it has a maximum value. This value can be found by
@@ -113,7 +113,7 @@ where $\alpha$ and $\beta$ are called hyperparameters where cannot be computed f
 \begin{equation}
 \begin{split}
 \theta_{MAP} &= \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)\\
-&=\sum_{i=1} \left[log {{n}\choose{x_{i}}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right] + (\alpha -1) log (\theta) + (\beta -1) log (1-\theta)
+&=\sum_{i=1} \left[log {n \choose x_{i}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right] + (\alpha -1) log (\theta) + (\beta -1) log (1-\theta)
 \end{split}
 \end{equation}
 
