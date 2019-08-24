@@ -110,12 +110,10 @@ P(\theta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} \theta^{
 
 where $\alpha$ and $\beta$ are called hyperparameters where cannot be computed from data. Rather we set them subjectively to express our prior knowledge.
 
-\begin{equation}
 \begin{split}
 \theta_{MAP} &= \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)\\
 &=\sum_{i=1} \left[log {n \choose x_{i}} + x_{i} log (\theta) + (n-x_{i}) log(1-\theta)\right] + (\alpha -1) log (\theta) + (\beta -1) log (1-\theta)
 \end{split}
-\end{equation}
 
 As same as MLE, we can get $\theta$ maximizing this equation by having the derivative of this function with respect to $\theta$ and setting it 0:
 
