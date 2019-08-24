@@ -40,7 +40,7 @@ P(\theta \mid X) = \frac{P(X \mid \theta) \dot P(\theta)}{P(X)}
 
 where $P(X \mid \theta)$ is the probability distribution of of the data given the parameter $\theta$ (sometimes called the likelihood) and $P(X)$ is the prior distribution which represents our beliefs about the uncertain parameter $\theta$ before seeing any data. It is the distribution over the parameter $\theta$. $P(\theta \mid X)$ is the posterior distribution which is the belief about the model after seeing the data. After $X$ is observed, we have the posterior distribution over the parameters $\theta$ conditional on data. We use this distribution to predict the new data. Here $P(X)$ is the normalizing constant, does not depend on $\theta$, which forces $P(\theta \mid X)$ to integrate to 1, so we can safely ignore it. 
 
-# Maximum A Posteriori (MAP) Estimator
+# Maximum A Posteriori (MAP) Estimation
 
 Recall that maximum likelihod estimate of $\theta$ is given by:
 
