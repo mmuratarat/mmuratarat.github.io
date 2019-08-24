@@ -79,7 +79,7 @@ For computational simplicity, specific probability distributions are used corres
 Let's say that a random variable $X$ follows binomial distribution with parameter $\theta$. Let $x_{1}, x_{2},...,x_{n}$ be the independent random samples of $X$. Recall that the probability density function for the Binomial distribution with parameter $\theta$
 
 \begin{equation}
-P(X \mid \theta) = {{n}\choose{X}} \theta^{X} (1-\theta)^{n-X},\,\,\,\, X=0,1,2,...n
+P(X \mid \theta) = {n\choose X} \theta^{X} (1-\theta)^{n-X},\,\,\,\, X=0,1,2,...n
 \end{equation}
 
 Let's write down the likelihood function,
