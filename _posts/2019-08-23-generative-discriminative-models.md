@@ -75,3 +75,4 @@ The most commonly used generative algorithm is the naive Bayes classifier. Besid
 8. [http://yaroslavvb.blogspot.com/2006/04/naive-bayes-vs-logistic-regression.html](http://yaroslavvb.blogspot.com/2006/04/naive-bayes-vs-logistic-regression.html){:target="_blank"}
 9. [https://www.quora.com/What-are-some-benefits-and-drawbacks-of-discriminative-and-generative-models](https://www.quora.com/What-are-some-benefits-and-drawbacks-of-discriminative-and-generative-models){:target="_blank"}
 10. [http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf){:target="_blank"}
+12. [https://medium.com/swlh/machine-learning-generative-vs-discriminative-models-9d0fdd156296](https://medium.com/swlh/machine-learning-generative-vs-discriminative-models-9d0fdd156296){:target="_blank"}
