@@ -37,19 +37,9 @@ $$
 
 After we calculate the posterior probabilities, we pick the most likely label $y$ for this new test data.
 
-**Generative classifiers**
-1. Naïve Bayes
-2. Bayesian networks
-3. Markov random fields
-4. Hidden Markov Models (HMM)
+# Differences
 
-**Discriminative classifiers**
-1. Logistic regression
-2. Support Vector Machine
-4. Traditional neural networks
-4. Nearest neighbour
-
-As one can see easily that a discriminative classifier tries to model by just depending on the observed data. It makes fewer assumptions on the distributions but depends heavily on the quality of the data (Is it representative? Are there a lot of data?). Generative algorithms make some structural assumptions on the model. For example, Naive Bayes assumes conditional independence of the features. Generative models can actually learn the underlying structure of the data if you specify your model correctly and the model actually holds, but discriminative models can outperform in case your generative assumptions are rarely satisfied (since discriminative algorithms are less tied to a particular structure, and the real world is messy and assumptions are rarely perfectly satisfied anyways). 
+As one can see easily that a discriminative classifier tries to model by just depending on the observed data. It makes fewer assumptions on the distributions but depends heavily on the quality of the data (Is it representative? Are there a lot of data?). Generative algorithms make some structural assumptions on the model. For example, Naive Bayes classifier assumes conditional independence of the features. Generative models can actually learn the underlying structure of the data if you specify your model correctly and the model actually holds, but discriminative models can outperform in case your generative assumptions are rarely satisfied (since discriminative algorithms are less tied to a particular structure, and the real world is messy and assumptions are rarely perfectly satisfied anyways). 
 
 Intuitively, we can say generative algorithms is typically overfitting less because it allows the user to put in more side information in the form of class conditionals.
 
@@ -57,15 +47,22 @@ The discriminative model is more sensitive to outliers as we model the boundarie
 
 By estimating $P(y, X)$ and being able to sample $X$, $y$ pairs - a generative model can be used to impute missing data, compress your dataset or generate unseen data.
 
-
-
 Additionally, when training data is biased over one class, in generative learning algorithms, wrong model assumption will be made since generative algorithms make some structural assumptions on the model. The joint probability will be biased as class probabilities will be biased. Thus, the conditional probability will be biased, too. Similarly, in discriminative models, we will receive biased conditional probability.
 
 There are several compelling reasons for using discriminative rather than generative classifiers, one of which, succinctly articulated by Vapnik, is that "one should solve the classification problem directly, and never solve a more general problem as an intermediate step (such as modelling $P(y \mid X)$)", meaning that discriminative methods attack the problem directly. Indeed, leaving aside computational issues and matters such as handling missing data, the prevailing consensus seems to be that the discriminative classifiers are almost always preferred to generative ones. However, you gain little understanding about the data from discriminative models. 
 
 Note that generative algorithms may have discriminative properties, since you can get $P(y \mid X)$ once you have $P(X \mid y)$ and $P(y)$ (by Bayes’ Theorem), though discriminative algorithms do not really have generative properties.
 
+Since generative models model each class separately they can be trained on a per-class basis. This can be a huge benefit in some case, especially when there is a thousands of categories. The model for each category can be trained independently, you don’t even need to define all the categories in advance— just train on whatever you have. As new categories and their training sets get added, train additional models — specific to the new ones. Discriminative learning does not work so well in this setting. Since its trying to learn what distinguishes all the classes, it needs to be trained on a single training set with observations of all of them.
+
 Although, discriminative methods give good predictive performance and have been widely used in many applications (e.g., discriminative models usually tend to do better when labelled training data is plentiful; generative models may be better if you have some extra unlabeled data, because, although collection of data is often easy, the process of labelling it can be expensive. Consequently there is increasing interest in generative methods since these can exploit unlabelled data in addition to labelled data), there also exists hybird models too that try to bring in the best of both worlds.
+
+
+# Specific Algorithms Of Each Type
+
+Commonly used discriminative learning algorithms include Support-vector machines, logistic regression, and decision trees; ensemble methods, i.e., random forest and gradient boosting; multi-layer perceptrons and, the top-most layers of deep neural networks. Interestingly, lower layers of deep learning algorithms are often generative; upper layers often discriminative.
+
+The most commonly used generative algorithm is the naive Bayes classifier. Besides, Bayesian networks, Markov random fields and Hidden Markov Models (HMM) are examples of this type.
 
 # REFERENCES
 1. [https://stackoverflow.com/questions/879432/what-is-the-difference-between-a-generative-and-a-discriminative-algorithm](https://stackoverflow.com/questions/879432/what-is-the-difference-between-a-generative-and-a-discriminative-algorithm){:target="_blank"}
