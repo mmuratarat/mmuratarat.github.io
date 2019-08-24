@@ -12,7 +12,7 @@ Consider $n$ i.i.d. random variables $x_{1}, x_{2}, ..., x_{n}$.
 $x_{i}$ is a sample from density estimation $P(x_{i} \mid \theta)$. Then, we can write the likelihood function as follows:
 
 \begin{equation}
-L(\theta) = \prod_{i} $P(x_{i} \mid \theta)
+L(\theta) = \prod_{i} P(x_{i} \mid \theta)
 \end{equation}
 
 If we take the logarithm of it and find the maximum likelihood estimator of $\theta$:
