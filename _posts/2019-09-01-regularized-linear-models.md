@@ -4,9 +4,6 @@ title: "Regularized Linear Models"
 author: "MMA"
 comments: true
 ---
-
-# Regularized Linear Models
-
 Ridge regression and the Lasso are two forms of regularized regression (i.e., to constraint the model) which are typically achieved by constraining the weights of the model. These methods are seeking to alleviate the consequences of multicollinearity and overfitting the training set.
 
 When two (or multiple) features are fully linearly dependent, we have singular $\mathbf{X}^{T} \cdot \mathbf{X}$ since $\mathbf{X}$ is not full rank. 
