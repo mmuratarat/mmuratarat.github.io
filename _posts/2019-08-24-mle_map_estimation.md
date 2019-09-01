@@ -65,7 +65,7 @@ $$
 
 where $P(\theta)$ is the prior distribution of $\theta$. We can also safely ignore the denominator.
 
-As before, can often be more convenient to use logarithm,
+As before, it can be more convenient to use logarithm,
 
 \begin{equation}
 \theta_{MAP} = \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)
