@@ -156,7 +156,7 @@ $$
 \hat{\theta}_{ridge} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y
 $$
 
-where $I$ is the $n \times n$ identity matrix except with a 0 in the top-left cell, corresponding to the bias term. We can easily see that ridge estimator is also a linear estimator.
+where $I$ is the $n \times n$ identity matrix. We can easily see that ridge estimator is also a linear estimator.
 
 Since we are adding a positive constant to the diagonal of $\mathbf{X}^{T} \cdot \mathbf{X}$ (this is the "ridge" that gives ridge regression its name), we are, in general, producing an invertible matrix, $\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I$, even if $\mathbf{X}^{T} \cdot \mathbf{X}$ is singular. Thus, there is always a unique solution $\hat{\theta}_{ridge}$.
 
