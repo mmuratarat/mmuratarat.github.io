@@ -176,7 +176,7 @@ $$
 
 where $d_{j}$ are the eigenvalues of $\mathbf{X}^{T} \cdot \mathbf{X}$. Degrees of freedom is a monotone decreasing function of $\lambda$ with $\text{df}_{ridge} = n$ at $\lambda = 0$ and $\text{df}_{ridge} = 0$ at $\lambda = \infty$. Of course there is always an additional one degree of freedom for the intercept, which was removed apriori.
 
-Furthermore, The ridge regression estimator $\hat{\theta}_{ridge}$ is related to the classical OLS estimator, $\hat{\theta}_{OLS}$:
+Furthermore, the ridge regression estimator is related to the classical OLS estimator:
 
 $$
 \begin{split}
@@ -190,6 +190,7 @@ Additionally, when $X$ is composed of orthonormal variables, such that $\mathbf{
 $$
 \hat{\theta}_{ridge} = (I + \lambda I)^{-1}\cdot \mathbf{X}^{T} y = ((1+\lambda)I)^{-1}\cdot \mathbf{X}^{T} y = \frac{1}{1+\lambda}\hat{\theta}_{OLS}
 $$
+
 This is instructive, as it shows that, in this simple case, the ridge estimator is simply a scaled version of the OLS estimator.
 
 **NOTE**: It is important to scale the data before performing Ridge Regression, as it is sensitive to the scale of the input features. In practice we center and scale the covariates. This holds true for the most regularized models. 
@@ -277,12 +278,12 @@ Elastic Net is a middle ground between Ridge Regression and Lasso Regression. Th
 
 Elastic Net aims at minimizing the following loss function:
 
-\begin{equation}
+$$
 \begin{split}
 MSE (\mathbf{X}, \theta)_{\text{Elastic Net}} &= \sum_{i=1}^{m} \left(y^{(i)}  - \theta^{T} \mathbf{x}^{(i)}\right)^{2} + \lambda \left( r \sum_{j=1}^{n} |\theta_{j}| + (1-r) \sum_{j=1}^{n} \theta_{j}^{2} \right)\\
 & = \left(y - \mathbf{X} \theta\right)^{T} \left( y - \mathbf{X} \theta\right) + \lambda \left( r \lVert \theta \rVert_{1} + (1-r) \lVert \theta \rVert_{2}^{2}\right)
 \end{split}
-\end{equation}
+$$
 
 ## Elastic Net in Scikit-Learn
 
