@@ -130,8 +130,7 @@ Ridge Regression (also known as _Tikhonov Regularization_) is a regularized vers
 
 Note that regularization parameter needs to be added to the cost function during training. Once the model is trained, you want to evaluate the model's performance using the unregularized performance measure. 
 
-
-The criterion to be minimized can be reformulated using matrix algebra in order to obtain a closed-form solution. The cost function for ridge regression is expressed as
+The cost function for ridge regression is expressed as
 
 $$
 \begin{split}
@@ -141,7 +140,7 @@ MSE (\mathbf{X}, \theta)_{L_{2}} &= \sum_{i=1}^{m} \left(y^{(i)} -  \theta^{T} \
 \end{split}
 $$
 
-Hyperparameter $\lambda > 0$ (the shrinkage parameter) is a complexity parameter that controls the how much you want to regularize the model: : the larger the value of $\lambda$, the greater the amount of shrinkage. The coefficients are shrunk toward zero (and each other). If $\lambda = 0$ then Ridge Regression is just Linear Regression. If $\lambda$ is very large, then all the weights end up very close to zero and the results is flat line going through the data's mean. The idea of penalizing by the sum-of-squares of the parameters is also used in neural networks, where it is known as _weight decay_.
+Hyperparameter $\lambda > 0$ (the shrinkage parameter) is a complexity parameter that controls the how much you want to regularize the model: the larger the value of $\lambda$, the greater the amount of shrinkage. The coefficients are shrunk toward zero (and each other). If $\lambda = 0$ then Ridge Regression is just Linear Regression. If $\lambda$ is very large, then all the weights end up very close to zero and the results is flat line going through the data's mean. The idea of penalizing by the sum-of-squares of the parameters is also used in neural networks, where it is known as _weight decay_.
 
 The ridge solutions are not equivariant under scaling of the inputs, and so one normally standardizes the inputs before solving the equation above. In addition, do not forget that the intercept $\theta_{0}$ should be left out of the penalty term. We estimate $\theta_{0}$ by $\hat{y} = \frac{1}{m} \sum_{i=1}^{m} y_{i}$. The remaining coefficients get estimated by a ridge regression without intercept, using the centered $x_{j}^{(i)}, \,\,\, i=1,2,...,n\,\, \text{and}\,\, j=1,2,...,m$. Henceforth we assume that this centering has been done, so that the input matrix $\mathbf{X}$ has $n$ (rather than $n + 1$) columns.
 
