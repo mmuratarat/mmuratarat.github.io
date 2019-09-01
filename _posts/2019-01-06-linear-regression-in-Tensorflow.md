@@ -16,7 +16,7 @@ $$\hat{y} = h_{\theta} ( \mathbf{x} ) =  \theta^{T} \mathbf{x}$$
 
 where $\theta$ is the model's parameter vector, containing the bias term $\theta_{0}$ and the feature weights, i.e., $\theta_{1}$ to $\theta_{n}$. $\theta^{T}$ is the transpose of $\theta$ (a row vector instead of a column vector). $\mathbf{x}$ is the instance's feature vector, containing $x_{0}$ to $x_{n}$ with $x_{0}$ always equal to $1$. $\left(\theta^{T} \cdot  \mathbf{x} \right)$ is the dot product of $\theta^{T}$ and $\mathbf{x}$. $h_{\theta} (\cdot)$ is the hypothesis function, using the model parameters $\theta$.
 
-We need to train this model in order to find the best parameters. Training a model means setting its paramters so that the model best fits the training set. For this purpose, we first need a measure of how well (or poorly) the model fits the training data. The most common performance measure of a regression model is the Mean Square Error (MSE) which is given below:
+We need to train this model in order to find the best parameters. Training a model means setting its parameters so that the model best fits the training set. For this purpose, we first need a measure of how well (or poorly) the model fits the training data. The most common performance measure of a regression model is the Mean Square Error (MSE) which is given below:
 
 $$MSE (\mathbf{X}, \theta) = \frac{1}{m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right)^{2}$$
 
@@ -28,7 +28,7 @@ Therefore, to train a LR model, you need to find the value of $\theta$ that mini
 
 In order to find the value of $\theta$ that minimized the cost function, there is a closed-form solution - in other words, a mathematical equation that gives the results directly. This is called the *Normal Equations*:
 
-$$\hat{\theta} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X} \cdot \mathbf{y} $$
+$$\hat{\theta} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T} \cdot \mathbf{y} $$
 
 where $\hat{\theta}$ is the estimation of $\theta$ that minimizes the cost function and $\mathbf{y}$ is the vector of target values containing $y^{(1)}$ to $y^{(m)}$.
 
