@@ -63,7 +63,7 @@ $$
 \end{split}
 $$
 
-where $P(\theta)$ is the prior distribution of $\theta$, We can ignore the denominator.
+where $P(\theta)$ is the prior distribution of $\theta$. We can also safely ignore the denominator.
 
 As before, can often be more convenient to use logarithm,
 
