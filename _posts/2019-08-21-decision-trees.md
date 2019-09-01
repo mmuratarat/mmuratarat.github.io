@@ -465,9 +465,9 @@ MSE_{node} = \sum_{i \in node} \left(\hat{y}_{node} - y^{(i)}\right)^{2}
 
 and 
 
-\begin{equation}
+$$
 \hat{y}_{node} = \frac{1}{n_{node}} \sum_{i \in node} y^{(i)}
-\end{equation}
+$$
 
 Just like for classification tasks, Decision Trees are prone to overfitting when dealing with regression tasks.
 
