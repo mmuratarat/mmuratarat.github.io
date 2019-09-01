@@ -170,7 +170,7 @@ As with Linear Regression, we can perform Ridge Regression either by computing a
 Note that the number of degrees of freedom in ridge regression is different than in the regular OLS, since $Tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right)$ is no longer equal to $n$. Usually in a linear-regression fit with $n$ variables, the degrees-of-freedom of the fit is $n$, the number of free parameters. Continuing the analogy of Linear Regression, the degrees of freedom of ridge regression is given by the trace of $\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}$ matrix:
 
 $$
-\text{df}_{ridge} = tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right) =\sum_{j=1} ^{n} \frac{d_{j}^{2}}{d_{j}^{2} + \lambda} 
+\text{df}_{ridge} = Tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right) =\sum_{j=1} ^{n} \frac{d_{j}^{2}}{d_{j}^{2} + \lambda} 
 $$
 
 where $d_{j}$ are the eigenvalues of $\mathbf{X}^{T} \cdot \mathbf{X}$. Degrees of freedom is a monotone decreasing function of $\lambda$ with $df_{ridge} = n$ at $\lambda = 0$ and $df_{ridge} = 0$ at $\lambda = \infty$. Of course there is always an additional one degree of freedom for the intercept, which was removed apriori.
