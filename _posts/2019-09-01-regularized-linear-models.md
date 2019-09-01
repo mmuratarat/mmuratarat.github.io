@@ -168,7 +168,7 @@ Historically, this particular aspect of ridge regression was the main motivation
 
 As with Linear Regression, we can perform Ridge Regression either by computing a closed form equation or by performing Gradient Descent. 
 
-Note that the number of degrees of freedom in ridge regression is different than in the regular OLS, since $tr \left(X \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right)$ is no longer equal to $n$. Usually in a linear-regression fit with $n$ variables, the degrees-of-freedom of the fit is $n$, the number of free parameters. Continuing the analogy of Linear Regression, the degrees of freedom of ridge regression is given by the trace of $X \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}$ matrix:
+Note that the number of degrees of freedom in ridge regression is different than in the regular OLS, since $Tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right)$ is no longer equal to $n$. Usually in a linear-regression fit with $n$ variables, the degrees-of-freedom of the fit is $n$, the number of free parameters. Continuing the analogy of Linear Regression, the degrees of freedom of ridge regression is given by the trace of $\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}$ matrix:
 
 $$
 \text{df}_{ridge} = tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right) =\sum_{j=1} ^{n} \frac{d_{j}^{2}}{d_{j}^{2} + \lambda} 
