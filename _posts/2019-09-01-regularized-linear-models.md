@@ -25,7 +25,7 @@ $$
 A^{-1} = \sum_{i=1}^{p} u_{i}^{-1}v_{i}v_{i}^{T}
 $$
 
-Then, if one of the eigenvalues is zero, $A^{-1}$ will be singular (noninvertible) since $\frac{1}{0}$ is undefined.
+Then, if one of the eigenvalues is zero, i.e., $u_{i} = 0$ for any $i$, $A^{-1}$ will be singular (noninvertible) since $\frac{1}{0}$ is undefined.
 
 This comes from the fact that a matrix $A$ has an eigenvalue $u$ if and only if $A^{-1}$ has eigenvalue $u^{-1}$. To see this, note that $Av = u v \implies A^{-1}Av = u A^{-1}v\implies A^{-1}v = \frac{1}{u}v$ (When $A$ is multiplied by $A^{-1}$ the result is the identity matrix $I$).
 
