@@ -174,7 +174,7 @@ $$
 \text{df}_{ridge} = tr \left(\mathbf{X} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \right) =\sum_{j=1} ^{n} \frac{d_{j}^{2}}{d_{j}^{2} + \lambda} 
 $$
 
-where $d_{j}$ are the eigenvalues of $\mathbf{X}^{T} \cdot \mathbf{X}$. Degrees of freedom is a monotone decreasing function of $\lambda$ with $\text{df}_{ridge} = n$ at $\lambda = 0$ and $\text{df}_{ridge} = 0$ at $\lambda = \infty$. Of course there is always an additional one degree of freedom for the intercept, which was removed apriori.
+where $d_{j}$ are the eigenvalues of $\mathbf{X}^{T} \cdot \mathbf{X}$. Degrees of freedom is a monotone decreasing function of $\lambda$ with $df_{ridge} = n$ at $\lambda = 0$ and $df_{ridge} = 0$ at $\lambda = \infty$. Of course there is always an additional one degree of freedom for the intercept, which was removed apriori.
 
 Furthermore, the ridge regression estimator is related to the classical OLS estimator:
 
