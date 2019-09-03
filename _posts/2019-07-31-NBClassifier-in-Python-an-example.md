@@ -114,7 +114,7 @@ $$
    * Sample mean: 90
    * Sample Variance = 25
    
-Therefore, likelihoods are:
+Therefore, we can compute the likelihoods of a continuous feature vector:
 
 $$
 P(Income = 120 \mid Evade = No) =  \frac{1}{\sqrt{2 \times \pi \times 2975}} \exp \left(- \frac{\left(120 - 110\right)^{2}}{2 \times 2975} \right) = 0.007192295359419549
@@ -124,7 +124,7 @@ $$
 P(Income = 120 \mid Evade = Yes) =  \frac{1}{\sqrt{2 \times \pi \times 25}} \exp \left(- \frac{\left(120 - 90\right)^{2}}{2 \times 25} \right) = 1.2151765699646572e^{-9}
 $$
 
-Let's compute the posterior probabilities.
+In order to compute the class-conditional probability (posterior probability) of a sample, we can simply form the product of the likelihoods from the different feature subsets:
 
 $$
 \begin{split}
