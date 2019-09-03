@@ -339,15 +339,14 @@ Each individual tree is grown on a bootstrap sample using Binary Recursive Parti
 Each tree is grown as follows:
 
 1. If the number of cases in the training set is N, sample N cases at random - but with replacement, from the original data. This sample will be the training set for growing the tree (Bootstrap samples should have the same size of training dataset but can be reduced to increase performance and decrease correlation of trees in some cases).
-2. If there are M input variables, a number m<<M is specified such that at each node, m variables are selected at random out of the M and the best split on these m is used to split the node. The value of m is held constant during the forest growing (a subset of all the features are considered for splitting each node in each decision tree).
+2. If there are $M$ input variables, a number $m < M$ is specified such that at each node, $m$ variables are selected at random out of the $M$ and the best split on these $m$ is used to split the node. The value of $m$ is held constant during the forest growing (a subset of all the features are considered for splitting each node in each decision tree).
 3. Each tree is grown to the largest extent possible. There is no pruning.
 
-So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name ‘random forest.’ 
+So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name 'random forest'.  Random forests have two tuning parameters: the number of predictors considered at each split and the number of trees (number of bootstrapped samples). $m = \sqrt{M}$ is a popular choice. Cross-validation can also be used across a grid of values of these two hyperparameters to find the choice that gives the lowest CV estimate of test error. 
 
 ## Predictions in Random Forest
 
 When it comes time to make a prediction, the random forest takes an average of all the individual decision tree estimates in the case for a regression task. For classification, the random forest will take a majority vote for the predicted class.
-
 
 ## Advantages and Disadvantages of Random Forest
 
@@ -753,10 +752,8 @@ y = 3*X[:, 0]**2 + 0.05 * np.random.randn(100)
 gbrt = GradientBoostingRegressor(max_depth=2, n_estimators=3, learning_rate=1.0, random_state=42)
 gbrt.fit(X, y)
 
-
 gbrt_slow = GradientBoostingRegressor(max_depth=2, n_estimators=200, learning_rate=0.1, random_state=42)
 gbrt_slow.fit(X, y)
-
 
 plt.figure(figsize=(11,4))
 
