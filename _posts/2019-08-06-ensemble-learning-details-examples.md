@@ -1099,3 +1099,4 @@ print(accuracy_score(y_test, y_pred))
 7. [https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf){:target="_blank"}
 8. Aurélien Géron, _Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow_, 2nd Edition, O'Reilly Media, Inc., [https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/){:target="_blank"}
 9. Michel Ballings' _BZAN 554: Customer Analytics_ course notes at University of Tennessee, Knoxville, [http://ballings.co/](http://ballings.co/){:target="_blank"}
+10. [https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm#ooberr](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm#ooberr){:target="_blank"}
