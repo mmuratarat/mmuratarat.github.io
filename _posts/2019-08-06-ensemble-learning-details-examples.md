@@ -1004,7 +1004,7 @@ Another Ensemble method being used in the literature is called stacking (short f
 
 To train the blender, a common approach is to use a hold-out set. Let’s see how it works. First, the training set is split in two subsets. The first subset is used to train the predictors in the first layer.
 
-Next, the first layer predictors are used to make predictions on the second (hold-out) set. This ensures that the predictions are "clean", since the predictors never saw these instances during training. Now for each instance in the hold-out set. there are three predicted values. We can create a new training set using these predic‐ ted values as input features (which makes this new training set three-dimensional), and keeping the target values. The blender is trained on this new training set, so it learns to predict the target value given the first layer’s predictions.
+Next, the first layer predictors are used to make predictions on the second (hold-out) set. This ensures that the predictions are "clean", since the predictors never saw these instances during training. Now for each instance in the hold-out set. there are three predicted values. We can create a new training set using these predicted values as input features (which makes this new training set three-dimensional), and keeping the target values. The blender is trained on this new training set, so it learns to predict the target value given the first layer’s predictions.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stacking_ensemble1.png?raw=true)
 
