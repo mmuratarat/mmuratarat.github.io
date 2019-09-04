@@ -125,7 +125,7 @@ For instance, if a data set has only one class, its gini index is $1 − 1^{2} =
 
 **NOTE** You might often come across the term ‘Gini Impurity’ which is determined by subtracting the gini value from 1. So mathematically we can say, Gini Impurity = 1-Gini
 
-**NOTE**: Scikit-Learn uses the CART algorithm, which produces only binary trees and makes use of Gini impurity as metric to measure uncertainty: nonleaf nodes always have two children (i.e., questions only have yes/no answers). However, other algorithms such as  Iterative Dichotomiser 3 (ID3) which uses entropy and information gain as metric to measure uncertainty, can produce Decision Trees with nodes that have more than two children.
+**NOTE**: Scikit-Learn uses the CART algorithm, which produces only binary trees and makes use of Gini impurity as metric to measure uncertainty: nonleaf nodes always have two children (i.e., questions only have yes/no answers). However, other algorithms such as  Iterative Dichotomiser 3 (ID3) which uses entropy as metric to measure uncertainty, can produce Decision Trees with nodes that have more than two children.
 
 # Estimating Class Probabilities
 
