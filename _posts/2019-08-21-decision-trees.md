@@ -519,7 +519,7 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 7. Generally, it gives low prediction accuracy for a dataset as compared to other machine learning algorithms
 
-8. Information gain in a decision tree with categorical variables gives a biased response for attributes with greater no. of categories.
+8. Information gain in a decision tree with categorical variables gives a biased response for attributes with greater number of categories.
 
 # Types of Decision Tree
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/types_of_DT.png?raw=true)
