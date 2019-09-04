@@ -7,9 +7,14 @@ comments: true
 
 # Decision Trees
 
-Decision tree is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. 
+Decision tree is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. A decision tree always considers all features and values for every feature. This means we could call it a greedy algorithm. The way a decision tree decides on which question, i.e. which feature, to ask, is by which question will have the highest information gain. In other words, it chooses the local optimal next feature. This process can be explained with three bullet points:
 
-Common terms used with decision trees are :
+* Calculate impurity at root node
+* Calculate information gain for each feature and value
+* Choose the feature and values which grants the biggest information gain
+
+Decision trees has three types of nodes. There is the root node, internal nodes and leaf nodes. However, you might also hear about other common terms, which are described below:
+
 1. **Root Node**: It represents entire population or sample and this further gets divided into two or more homogeneous sets.  the only node without parents.
 2. **Splitting**: It is a process of dividing a node into two or more sub-nodes.
 3. **Decision Node**: When a sub-node splits into further sub-nodes, then it is called decision node.
@@ -146,7 +151,7 @@ where $G_{left/right}$ measures the impurity of the left/right subset and $n_{le
 
 Once it has succesfully split the training set in two, it splits the subsets using the same logic, then the sub-subsets and so on, recursively. This process is continued until a suitable stopping criterion is reached (e.g., a maximum depth is reached or the tree becomes “too complex”). There are some other stopping conditions that we described below.
 
-As one can see easily, the CART algorithm is a greedy algorithm. It greedily searches for an optimum split at the top level, then repeats the process at each level. It does not check whether or not the split will lead to the lowest possible impurirty several levels down. A greedy algorithm often produces a resonably good solution, but it is not guaranteed to be the optimal solution.
+As one can see easily, the CART algorithm is a greedy algorithm. It greedily searches for an optimum split at the top level, then repeats the process at each level. It does not check whether or not the split will lead to the lowest possible impurity several levels down. A greedy algorithm often produces a resonably good solution, but it is not guaranteed to be the optimal solution.
 
 It’s important to note that a single feature can be used multiple times in a tree. However, even when many features are available, a single feature may still dominate if it continues to provide the best split after each successive partition.
 
