@@ -75,7 +75,7 @@ import numpy as np
 import statsmodels.formula.api as smf
 {% endhighlight %}
 
-Data used in this example is the data set that is used in UCLA’s Logistic Regression for Stata example. The question being asked is, how does GRE score, GPA, and prestige of the undergraduate institution effect admission into graduate school. The response (target/dependent) variable is admission status (binary), and the independent variables (predictors/features/attributes) are: GRE score, GPA, and undergraduate prestige.
+Data used in this example is the data set that is used in [UCLA’s Logistic Regression for Stata example](https://raw.githubusercontent.com/Opensourcefordatascience/Data-sets/master/admission.csv){:target="_blank"}. The question being asked is, how does GRE score, GPA, and prestige of the undergraduate institution effect admission into graduate school. The response (target/dependent) variable is admission status (binary), and the independent variables (predictors/features/attributes) are: GRE score, GPA, and undergraduate prestige.
 
 {% highlight python %}
 data = pd.read_csv('odds_logistic_regression.csv')
