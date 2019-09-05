@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Regularized Linear Models"
+title: "Logistic Regression / Odds / Odds Ratio / Risk"
 author: "MMA"
 comments: true
 ---
