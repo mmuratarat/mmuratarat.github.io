@@ -23,10 +23,10 @@ $$
 The interpretation of the weights in logistic regression differs from the interpretation of the weights in linear regression, since the outcome in logistic regression is a probability between 0 and 1. The weights do not influence the probability linearly any longer. The weighted sum is transformed by the logistic function to a probability. Therefore we need to reformulate the equation for the interpretation so that only the linear term is on the right side of the formula.
 
 $$
-logit(P(y=1)) = log\left(\frac{P(y=1)}{1-P(y=1)}\right)=log\left(\frac{P(y=1)}{P(y=0)}\right)=\theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
+\text{logit}(P(y=1)) = log\left(\frac{P(y=1)}{1-P(y=1)}\right)=log\left(\frac{P(y=1)}{P(y=0)}\right)=\theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
 $$
 
-We call the term in the log() function “odds” (probability of event divided by probability of no event) and wrapped in the logarithm it is called log odds. This formula shows that the logistic regression model is a linear model for the log odds. In other words, logistic regression models the logit transformed probability as a linear relationship with the predictor variables.
+We call the term in the $\log()$ function "odds" (probability of event divided by probability of no event) and wrapped in the logarithm it is called log odds. This formula shows that the logistic regression model is a linear model for the log odds. In other words, logistic regression models the logit transformed probability as a linear relationship with the predictor variables.
 
 Then we compare what happens when we increase one of the feature values by 1. But instead of looking at the difference, we look at the ratio of the two predictions:
 
@@ -54,7 +54,7 @@ Note that probability ranges from $0$ to $1$. Odds range from $0$ to $\infty$. L
 
 ## From probability to odds/odds ratio
 
-[https://thestatsgeek.com/2015/01/03/interpreting-odds-and-odds-ratios/](Source){:target="_blank"}
+[Source](https://thestatsgeek.com/2015/01/03/interpreting-odds-and-odds-ratios/){:target="_blank"}
 
 Our starting point is that of using probability to express the chance that an event of interest occurs. So a probability of $0.1$, or $10\%$ risk, means that there is a $1$ in $10$ chance of the event occurring. The usual way of thinking about probability is that if we could repeat the experiment or process under consideration a large number of times, the fraction of experiments where the event occurs should be close to the probability (e.g. $0.1$). The odds of an event of interest occurring is defined by $odds = \dfrac{p}{(1-p)}$ where $p$ is the probability of the event occurring. So if $p=0.1$, the odds are equal to $0.1/0.9=0.111$ (recurring). 
 
