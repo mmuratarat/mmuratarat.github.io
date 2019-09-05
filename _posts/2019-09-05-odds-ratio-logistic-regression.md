@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-An important distinction between linear and logistic regression is that the regression coefficients in logistic regression are not directly meaningful. In linear regression, a coefficient $\theta_{j} = 1$ means that if you change $x_{j}$ by 1, the expected value of y will go up by 1 (very interpretable). In logistic regression, a coefficient $\theta_{j} = 1$ means that if you change $x_{j}$ by 1, the log of the odds that y occus will go up 1 (much less interpretable).
+An important distinction between linear and logistic regression is that the regression coefficients in logistic regression are not directly meaningful. In linear regression, a coefficient $\theta_{j} = 1$ means that if you change $x_{j}$ by 1, the expected value of y will go up by 1 (very interpretable). In logistic regression, a coefficient $\theta_{j} = 1$ means that if you change $x_{j}$ by 1, the log of the odds that $y$ occus will go up 1 (much less interpretable).
 
 # Overview of Logistic Regression
  In the linear regression model, we have modelled the relationship between outcome and features with a linear equation:
