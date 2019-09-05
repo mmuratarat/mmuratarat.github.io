@@ -18,7 +18,7 @@ $$
 For classification, we prefer probabilities between 0 and 1, so we wrap the right side of the equation into the logistic function. This forces the output to assume only values between 0 and 1.
 
 $$
-P(y^{(i)}=1 \mid x^{(i)}, \theta)=\frac{1}{1+exp(-(\theta_{0}+\theta_{1}x^{(i)}_{1}+\ldots+\theta_{p}x^{(i)}_{p}))}
+P\left(y^{(i)}=1 \mid x^{(i)}, \theta \right)=\frac{1}{1+exp(-(\theta_{0}+\theta_{1}x^{(i)}_{1}+\ldots+\theta_{p}x^{(i)}_{p}))}
 $$
 
 The interpretation of the weights in logistic regression differs from the interpretation of the weights in linear regression, since the outcome in logistic regression is a probability between 0 and 1. The weights do not influence the probability linearly any longer. The weighted sum is transformed by the logistic function to a probability. Therefore we need to reformulate the equation for the interpretation so that only the linear term is on the right side of the formula.
