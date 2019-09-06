@@ -71,7 +71,7 @@ But first, let's fresh our memories by shortly talking about Linear Regression a
 Given a training data with $m$ observations and $n$ predictors (features/attributes/covariates), we try to fit each training example using the linear model
 
 $$
-\hat{y}^{(i)} = h_{\theta}(x^{(i)}) = \theta^{T}x^{(i)} = \begin{bmatrix}\theta_{0} & \theta_{1} & \cdots & \theta_{n} \end{bmatrix} \begin{bmatrix} 1 \\ x_{1}^{(i)} \\ \cdots \\ x_{n}^{(i)} \end{bmatrix} =  \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n}x_{n}^{(i)} 
+\hat{y}^{(i)} = h_{\theta}(\mathbf{x}^{(i)}) = \theta^{T}x^{(i)} = \begin{bmatrix}\theta_{0} & \theta_{1} & \cdots & \theta_{n} \end{bmatrix} \begin{bmatrix} 1 \\ x_{1}^{(i)} \\ \cdots \\ x_{n}^{(i)} \end{bmatrix} =  \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n}x_{n}^{(i)} 
 $$
 
 where $\theta$ contains the regression model's parameters and $\theta_{0}$ is the bias term.
