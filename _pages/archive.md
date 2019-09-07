@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Archieve"
-author: "MMA"
+author: false
 social: true
 comments: false
 permalink: /archive/
