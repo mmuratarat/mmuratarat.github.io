@@ -75,7 +75,7 @@ In probability, the average value of some random variable X is called the expect
 Suppose $X$ is a discrete random variable that takes values $x_{1}, x_{2}, . . . , x_{n}$ with probabilities $p(x_{1}), p(x_{2}), . . . , p(x_{n})$. The expected value of $X$ is defined by:
 
 $$
-E(X) = \sum_{j=1}^{n} p(x_{j}) x_{j} = p(x_{1})x_{1} + p(x_{2})x_{2}  + . . . + p(x_{n})x_{n}.
+E(X) = \sum_{j=1}^{n}  x_{j}p(x_{j}) = x_{1}p(x_{1}) + x_{2}p(x_{2})  + . . . + x_{n}p(x_{n}).
 $$
 
 Let $X$ be a continuous random variable with range $[a, b]$ and probability density function $f(x)$. The expected value of $X$ is defined by
