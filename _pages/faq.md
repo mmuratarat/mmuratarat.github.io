@@ -69,5 +69,51 @@ A discrete random variable is one which may take on only a countable number of d
 
 A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
+#### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
+Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
+
+$X$ has Bernoulli distribution with parameter $p$, the shorthand $X \sim Bernoulli(p), 0 \leq p \leq 1$, its probability mass function is given by:
+
+$$
+P_{X}(x) = \left\{ \begin{array}{ll}
+         p & \mbox{if $x = 1 $};\\
+        1-p & \mbox{if $x  = 0 $}.\end{array} \right.
+$$
+
+This can also be expressed as:
+
+$$
+P_{X}(x) = p^{x} (1-p)^{1-x},\,\,\, x \in \{0, 1 \}\,\,\,for\,\,\, 0 \leq p \leq 1
+$$
+
+Bernoulli distribution is a special case of Binomial distribution. If $X_{1},\dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum is distributed according to a binomial distribution with parameters $n$ and $p$:
+
+$$
+\sum _{k=1}^{n}X_{k}\sim Binomial(n,p)
+$$
+
+The Bernoulli distribution is simply $B(1,p)$, also written as $Bernoulli(p)$.
+
+Its expected value is:
+
+$$
+E(X) = \sum x p(x) = 1 \times p + 0 \times (1-p) = p
+$$
+
+Its variance is:
+
+$$
+Var(X) = E(X^{2}) - \left(E(X) \right)^{2} = \sum x^{2} p(x) - p^{2} = 1^{2} \times p + 0^{2} (1-p) - p^{2} = p - p^{2} = p (1-p)
+$$
+
+Distribution function of a Bernoulli random variable is:
+
+$$
+F_{X}(x) = P(X \leq x) = \left\{ \begin{array}{ll}
+         0 & \mbox{if $x < 0 $};\\
+        1-p & \mbox{if $0 \leq x < 1 $}
+        1 & \mbox{if $0 \geq 1 $}.\end{array} \right.
+$$
+
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
