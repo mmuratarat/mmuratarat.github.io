@@ -94,7 +94,7 @@ Var(X) &= E\left[\left(X - E[X]\right)^{2}\right] \\
 \end{split}
 $$
 
-In probability, **covariance** is the measure of the joint probability for two random variables. It describes how the two variables change together. It is denoted as the function $cov(X, Y)$, where $X$ and $Y$ are the two random variables being considered.
+In probability, **covariance** is the measure of the joint probability for two random variables. It describes how the two variables change (vary) together. It’s similar to variance, but where variance tells you how a single variable varies, covariance tells you how two variables vary together. It is denoted as the function $cov(X, Y)$, where $X$ and $Y$ are the two random variables being considered.
 
 $$
 cov(X, Y) = E\left[\left(X - E[X]\right) \left(Y - E[Y]\right)\right] =  E(XY)- E(X)E(Y)
