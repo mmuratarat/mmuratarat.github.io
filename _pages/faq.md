@@ -9,9 +9,9 @@ permalink: /faq/
 
 # F.A.Q.s - Frequently Asked Questions (and Answers)
 
-[Linear Algebra?](#linear-algebra)
-[Numerical Optimization](#numerical--optimization) 
-[Probability](#probability) 
+[Linear Algebra?](#linear-algebra) • 
+[Numerical Optimization](#numerical--optimization)  • 
+[Probability](#probability)  • 
 1. What is a random variable?
 
 ## Linear Algebra
