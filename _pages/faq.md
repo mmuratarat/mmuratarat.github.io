@@ -98,8 +98,10 @@ $$
 In probability, **covariance** is the measure of the joint probability for two random variables. It describes how the two variables change together. It is denoted as the function $cov(X, Y)$, where $X$ and $Y$ are the two random variables being considered.
 
 $$
-cov(X, Y) = E\left[(X - E[X]) (Y - E[Y])\right]
+cov(X, Y) = E\left[\left(X - E[X]\right) \left(Y - E[Y]\right)\right] =  E(XY)- E(X)E(Y)
 $$
+
+Note that Var(X) = cov(X, X) = E\left[(X - E[X])^{2}\right]$. 
 
 The sign of the covariance can be interpreted as whether the two variables increase together (positive) or decrease together (negative). The magnitude of the covariance is not easily interpreted. A covariance value of zero indicates that both variables are completely independent.
 
