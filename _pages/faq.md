@@ -24,7 +24,7 @@ permalink: /faq/
 10. What is conditional probability? Given the joint probability function, how will you calculate it?
 11. State the Chain rule of conditional probabilities.
 12. What are the conditions for independence and conditional independence of two random variables?
-13. What are expectation, variance and covariance?
+13. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 14. Compare covariance and independence.
 15. What is the covariance for a vector of random variables?
 16. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
