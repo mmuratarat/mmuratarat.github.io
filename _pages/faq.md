@@ -27,7 +27,7 @@ permalink: /faq/
 13. What are expectation, variance and covariance?
 14. Compare covariance and independence.
 15. What is the covariance for a vector of random variables?
-16. What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
+16. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 17. What is a multinoulli distribution?
 18. What is a normal distribution?
 19. Why is the normal distribution a default choice for a prior over a set of real numbers?
