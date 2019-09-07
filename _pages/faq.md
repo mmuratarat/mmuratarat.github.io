@@ -106,7 +106,7 @@ The sign of the covariance can be interpreted as whether the two variables incre
 The covariance can be normalized to a score between $-1$ and $1$ to make the magnitude interpretable by dividing it by the standard deviation of X and Y. The result is called the correlation of the variables, also called the _Pearson correlation coefficient_, named for the developer of the method, Karl Pearson.
 
 $$
-corr(X, Y) = \ro_{X, Y}= \frac{cov(X,Y)}{\sigma_{X}\sigma_{y}}
+corr(X, Y) = \rho_{X, Y}= \frac{cov(X,Y)}{\sigma_{X}\sigma_{y}}
 $$
 
 The covariance is especially useful when looking at the variance of the sum of two random variates, since
