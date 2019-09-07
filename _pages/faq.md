@@ -12,7 +12,7 @@ permalink: /faq/
 [Numerical Optimization](#numerical-optimization)
 
 [Probability](#probability)
-1. What is a random variable?
+1. [What is a random variable?](#what-is-a-random-variable)
 2. Compare “Frequentist probability” vs. “Bayesian probability”?
 3. What is a probability distribution?
 4. What is a probability mass function?
@@ -44,7 +44,7 @@ permalink: /faq/
 30. Define self-information. What are its units?
 31. What are Shannon entropy and differential entropy?
 32. What is Kullback-Leibler (KL) divergence?
-33. Can KL divergence be used as a distance measure?
+33. [Can KL divergence be used as a distance measure?](#can-kl-divergence-be-used-as-a-distance-measure)
 34. Define cross-entropy.
 35. What are structured probabilistic models or graphical models?
 36. In the context of structured probabilistic models, what are directed and undirected models? How are they represented? What are cliques in undirected structured probabilistic models?
