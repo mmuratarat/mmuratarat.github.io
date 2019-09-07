@@ -69,6 +69,28 @@ A discrete random variable is one which may take on only a countable number of d
 
 A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
+#### What are expectation, variance and covariance?
+In probability, the average value of some random variable X is called the expected value or the expectation, denoted by $E(x)$.
+
+Suppose $X$ is a discrete random variable that takes values $x_{1}, x_{2}, . . . , x_{n}$ with probabilities $p(x_{1}), p(x_{2}), . . . , p(x_{n})$. The expected value of $X$ is defined by:
+
+$$
+E(X) = \sum_{j=1}^{n} p(x_{j}) x_{j} = p(x_{1})x_{1} + p(x_{2})x_{2}  + . . . + p(x_{n})x_{n}.
+$$
+
+Let $X$ be a continuous random variable with range $[a, b]$ and probability density function $f(x)$. The expected value of $X$ is defined by
+
+$$
+E(X) = \int_{a}^{b} xf(x) dx.
+$$
+
+In probability, the variance of some random variable $X$, denoted by $Var(X)$ is a measure of how much values in the distribution vary on average with respect to the mean. Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
+
+$$
+Var(X) = E[(X - E[X])^{2}] = E[X^{2}-2XE(X) +(E(X))^{2}] = E(X^{2}) - 2E(X)E(X) + (E(X))^{2} = E(X^{2}) - (E(X))^{2}
+$$
+
+
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
 
