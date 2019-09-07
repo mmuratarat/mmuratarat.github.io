@@ -1,13 +1,11 @@
 ---
 layout: post
-title: "Frequently Asked Questions"
+title: "Frequently Asked Questions (and Answers)"
 author: MMA
 social: true
 comments: false
 permalink: /faq/
 ---
-
-# F.A.Q.s - Frequently Asked Questions (and Answers)
 
 [Linear Algebra?](#linear-algebra) • 
 [Numerical Optimization](#numerical--optimization)  • 
