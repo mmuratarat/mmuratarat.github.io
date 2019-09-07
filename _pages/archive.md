@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Archieve"
+title: "Archive"
 author: MMA
 social: true
 comments: false
