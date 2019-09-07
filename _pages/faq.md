@@ -9,7 +9,7 @@ permalink: /faq/
 
 [Linear Algebra?](#linear-algebra)
 
-[Numerical Optimization](#numerical--optimization)
+[Numerical Optimization](#numerical-optimization)
 
 [Probability](#probability)
 1. What is a random variable?
