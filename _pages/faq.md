@@ -70,7 +70,7 @@ A discrete random variable is one which may take on only a countable number of d
 A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
 #### What are expectation, variance and covariance?
-In probability, the average value of some random variable X is called the expected value or the expectation, denoted by $E(x)$.
+In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
 
 Suppose $X$ is a discrete random variable that takes values $x_{1}, x_{2}, . . . , x_{n}$ with probabilities $p(x_{1}), p(x_{2}), . . . , p(x_{n})$. The expected value of $X$ is defined by:
 
@@ -84,12 +84,42 @@ $$
 E(X) = \int_{a}^{b} xf(x) dx.
 $$
 
-In probability, the variance of some random variable $X$, denoted by $Var(X)$ is a measure of how much values in the distribution vary on average with respect to the mean. Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
+In probability, the **variance** of some random variable $X$, denoted by $Var(X)$ is a measure of how much values in the distribution vary on average with respect to the mean. Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
 
 $$
-Var(X) = E[(X - E[X])^{2}] = E[X^{2}-2XE(X) +(E(X))^{2}] = E(X^{2}) - 2E(X)E(X) + (E(X))^{2} = E(X^{2}) - (E(X))^{2}
+\begin{split}
+Var(X) &= E\left[\left(X - E[X]\right)^{2}\right] \\
+&= E\left[X^{2}-2XE(X) + \left(E(X) \right)^{2}\right] \\
+&= E(X^{2}) - 2E(X)E(X) + \left(E(X) \right)^{2}\\
+&= E(X^{2}) - \left(E(X) \right)^{2}
+\end{split}
 $$
 
+In probability, **covariance** is the measure of the joint probability for two random variables. It describes how the two variables change together. It is denoted as the function $cov(X, Y)$, where $X$ and $Y$ are the two random variables being considered.
+
+$$
+cov(X, Y) = E\left[(X - E[X]) (Y - E[Y])\right]
+$$
+
+The sign of the covariance can be interpreted as whether the two variables increase together (positive) or decrease together (negative). The magnitude of the covariance is not easily interpreted. A covariance value of zero indicates that both variables are completely independent.
+
+The covariance can be normalized to a score between $-1$ and $1$ to make the magnitude interpretable by dividing it by the standard deviation of X and Y. The result is called the correlation of the variables, also called the _Pearson correlation coefficient_, named for the developer of the method, Karl Pearson.
+
+$$
+corr(X, Y) = \ro_{X, Y}= \frac{cov(X,Y)}{\sigma_{X}\sigma_{y}}
+$$
+
+The covariance is especially useful when looking at the variance of the sum of two random variates, since
+
+$$
+Var(X+Y) = Var(X)+ Var(Y) + 2cov(X,Y)
+$$
+
+The covariance is symmetric by definition since
+
+$$
+cov(X,Y)=cov(Y,X). 
+$$
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
