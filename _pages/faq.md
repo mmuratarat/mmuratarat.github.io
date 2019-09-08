@@ -12,6 +12,7 @@ permalink: /faq/
 [Numerical Optimization](#numerical-optimization)
 
 [Set Theory](#set-theory)
+
 1. [What is a random experiment?](#what-is-a-random-experiment)
 2. [What is a sample space?](#what-is-a-sample-space)
 3. [What is an empty set?](#what-is-an-empty-set)
@@ -24,6 +25,7 @@ permalink: /faq/
 
 
 [Probability](#probability)
+
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
