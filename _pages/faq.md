@@ -24,7 +24,7 @@ permalink: /faq/
 14. Discuss span and linear dependence.
 15. What is Ax = b? When does Ax =b has a unique solution?}
 16. In Ax = b, what happens when A is fat or tall?
-17. What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?
+17. [What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?](#what-is-a-norm-what-is-l_1-l_2-and-l_infty-norm-what-are-the-conditions-a-norm-has-to-satisfy)
 
 
 
@@ -508,7 +508,7 @@ The higher the norm index, the more it focuses on large values and neglects smal
 Norms, including the $L^{p}$ norm, are functions mapping vectors to non-negative values. On an intuitive level, the norm of a vector $x$ measures the distance from the origin to the point $x$. More rigorously, a norm is any function $f$ that satisﬁes the following properties
 
 * $f(x) = 0 \Rightarrow x = 0$ (Definiteness)
-* $f(x) > geq 0$ (non-negativity)
+* $f(x) \geq 0$ (non-negativity)
 * $f(x + y) \leq f (x) + f(y)$ (the triangle inequality)
 * $\forall \alpha \in \mathbb{R}, f( \alpha x) = \lvert \alpha \rvert f(x)$ (homogenity)
 
