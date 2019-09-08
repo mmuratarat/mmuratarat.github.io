@@ -101,15 +101,15 @@ Its components are now identified by two indices $i$ and $j$. $i$ represents the
 
 The full $m \times n$ matrix can be written as:
 
-\begin{equation}
+$$
 \boldsymbol{A}=\begin{bmatrix}
-  \kern4pt a_{11} & a_{12} & a_{13} & \ldots & a_{1n} \kern4pt \\
-  \kern4pt a_{21} & a_{22} & a_{23} & \ldots & a_{2n} \kern4pt \\
-  \kern4pt a_{31} & a_{32} & a_{33} & \ldots & a_{3n} \kern4pt \\
-  \kern4pt \vdots & \vdots & \vdots & \ddots & \vdots \kern4pt \\
-  \kern4pt a_{m1} & a_{m2} & a_{m3} & \ldots & a_{mn} \kern4pt \\
+   a_{11} & a_{12} & a_{13} & \ldots & a_{1n} \\
+   a_{21} & a_{22} & a_{23} & \ldots & a_{2n} \\
+   a_{31} & a_{32} & a_{33} & \ldots & a_{3n} \\
+   \vdots & \vdots & \vdots & \ddots & \vdots \\
+   a_{m1} & a_{m2} & a_{m3} & \ldots & a_{mn} \\
 \end{bmatrix}
-\end{equation}
+$$
 
 It is often useful to abbreviate the full matrix component display into the following expression:
 
