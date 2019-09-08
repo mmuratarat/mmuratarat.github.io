@@ -601,19 +601,19 @@ It is anti-symmmetric if $A = -A^{T}$
 The trace operator gives the sum of all the diagonal entries of a matrix:
 
 $$
-tr(A) = \sum_{i} A_{i,i}
+Tr(A) = \sum_{i} A_{i,i}
 $$
 
 It is easy to show that the trace is a linear map, so that
 
 $$
-tr(\lambda A) = \lambda tr(A) = \lambda \sum_{i} A_{i,i}
+Tr(\lambda A) = \lambda Tr(A) = \lambda \sum_{i} A_{i,i}
 $$
 
 and 
 
 $$
-tr(A + B) = tr(A) + tr(B)
+Tr(A + B) = Tr(A) + Tr(B)
 $$
 
 The trace operator is invariant to the transpose operator: $Tr(A) = Tr(A^{T})$. 
