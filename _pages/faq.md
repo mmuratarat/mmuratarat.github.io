@@ -259,7 +259,7 @@ $$
 \sum _{k=1}^{n}X_{k}\sim Binomial(n,p)
 $$
 
-The Bernoulli distribution is simply $B(1,p)$, also written as $Bernoulli(p)$.
+The Bernoulli distribution is simply $Binomial(1,p)$, also written as $Bernoulli(p)$.
 
 Its expected value is:
 
