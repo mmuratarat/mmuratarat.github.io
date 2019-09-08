@@ -8,6 +8,7 @@ permalink: /faq/
 ---
 
 [Linear Algebra](#linear-algebra)
+1. What are scalars, vectors, matrices, and tensors?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -72,6 +73,55 @@ permalink: /faq/
 52. [What is a p-value?](#what-is-a-p-value)
 
 ## Linear Algebra
+#### What are scalars, vectors, matrices, and tensors?
+Scalars are single numbers and are an example of a 0th-order tensor. The notation $x \in \mathbb{R}$ states that the scalar value $x$ is an element of (or member of) the set of real-valued numbers, $\mathbb{R}$.
+
+There are various sets of numbers of interest within machine learning. $\matbb{N}$ represents the set of positive integers $(1,2,3, ...)$. $\matbb{Z}$ represents the integers, which include positive, negative and zero values. $\mathbb{Q}$ represents the set of rational numbers that may be expressed as a fraction of two integers.
+
+Vectors are ordered arrays of single numbers and are an example of 1st-order tensor.  An $n$-dimensional vector itself can be explicitly written using the following notation:
+
+\begin{equation}
+\boldsymbol{x}=\begin{bmatrix}
+  \kern4pt x_1 \kern4pt \\
+  \kern4pt x_2 \kern4pt \\
+  \kern4pt \vdots \kern4pt \\
+  \kern4pt x_n \kern4pt
+\end{bmatrix}
+\end{equation}
+
+We can think of vectors as identifying points in space, with each element giving the coordinate along a different axis
+
+One of the primary use cases for vectors is to represent physical quantities that have both a magnitude and a direction. Scalars are only capable of representing magnitudes.
+
+Matrices are rectangular arrays consisting of numbers and are an example of 2nd-order tensors. If $m$ and $n$ are positive integers, that is $m, n \in \mathbb{N}$ then the $m \times n$ matrix contains $mn$ numbers, with $m$ rows and $n$ columns.
+
+If all of the scalars in a matrix are real-valued then a matrix is denoted with uppercase boldface letters, such as $A \in \mathbb{R}^{m \times n}$. That is the matrix lives in a $m \times n$-dimensional real-valued vector space. 
+
+Its components are now identified by two indices $i$ and $j$. $i$ represents the index to the matrix row, while $j$ represents the index to the matrix column. Each component of $A$ is identified by $a_{ij}$.
+
+The full $m \times n$ matrix can be written as:
+
+\begin{equation}
+\boldsymbol{A}=\begin{bmatrix}
+  \kern4pt a_{11} & a_{12} & a_{13} & \ldots & a_{1n} \kern4pt \\
+  \kern4pt a_{21} & a_{22} & a_{23} & \ldots & a_{2n} \kern4pt \\
+  \kern4pt a_{31} & a_{32} & a_{33} & \ldots & a_{3n} \kern4pt \\
+  \kern4pt \vdots & \vdots & \vdots & \ddots & \vdots \kern4pt \\
+  \kern4pt a_{m1} & a_{m2} & a_{m3} & \ldots & a_{mn} \kern4pt \\
+\end{bmatrix}
+\end{equation}
+
+It is often useful to abbreviate the full matrix component display into the following expression:
+
+\begin{equation}
+\boldsymbol{A} = [a_{ij}]_{m \times n}
+\end{equation}
+
+Where $a_{ij}$ is referred to as the $(i,j)$-element of the matrix $A$. The subscript of $m \times n$ can be dropped if the dimension of the matrix is clear from the context.
+
+Note that a column vector is a size $m \times 1$ matrix, since it has $m$ rows and $1$ column. Unless otherwise specified all vectors will be considered to be column vectors.
+
+Tensor is n-dimensional array. It encapsulates the scalar, vector and the matrix. For a 3rd-order tensor elements are given by $a_{ijk}$, whereas for a 4th-order tensor elements are given by $a_{ijkl}$.
 
 ## Numerical Optimization
 
