@@ -8,7 +8,7 @@ permalink: /faq/
 ---
 
 [Linear Algebra](#linear-algebra)
-1. What are scalars, vectors, matrices, and tensors?
+1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
 
 [Numerical Optimization](#numerical-optimization)
 
