@@ -21,52 +21,53 @@ permalink: /faq/
 7. [What is a non-disjoint event?](#what-is-a-non-disjoint-event)
 7. [What is exhaustive events?](#what-is-exhaustive-events)
 8. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
-9. [What is a probability?](#what-is-a-probability)
-10. [What are the probability axioms?](#what-are-the-probability-axioms)
+
 
 [Probability](#probability)
-1. [What is a random variable?](#what-is-a-random-variable)
-2. Compare “Frequentist probability” vs. “Bayesian probability”?
-3. What is a probability distribution?
-4. What is a probability mass function?
-5. What is a probability density function?
-6. What is a joint probability distribution?
-7. What are the conditions for a function to be a probability mass function?
-8. What are the conditions for a function to be a probability density function?
-9. What is a marginal probability? Given the joint probability function, how will you calculate it?
-10. What is conditional probability? Given the joint probability function, how will you calculate it?
-11. State the Chain rule of conditional probabilities.
-12. What are the conditions for independence and conditional independence of two random variables?
-13. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
-15. What is the covariance for a vector of random variables?
-16. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
-17. What is a multinoulli distribution?
-18. What is a normal distribution?
-19. Why is the normal distribution a default choice for a prior over a set of real numbers?
-20. What is the central limit theorem?
-21. What are exponential and Laplace distribution?
-22. What are Dirac distribution and Empirical distribution?
-23. What is mixture of distributions?
-24. Name two common examples of mixture of distributions? (Empirical and Gaussian Mixture)
-25. Is Gaussian mixture model a universal approximator of densities?
-26. Write the formulae for logistic and softplus function.
-27. Write the formulae for Bayes rule.
-28. What do you mean by measure zero and almost everywhere?
-29. If two random variables are related in a deterministic way, how are the PDFs related?
-30. Define self-information. What are its units?
-31. What are Shannon entropy and differential entropy?
-32. What is Kullback-Leibler (KL) divergence?
-33. [Can KL divergence be used as a distance measure?](#can-kl-divergence-be-used-as-a-distance-measure)
-34. Define cross-entropy.
-35. What are structured probabilistic models or graphical models?
-36. In the context of structured probabilistic models, what are directed and undirected models? How are they represented? What are cliques in undirected structured probabilistic models?
-37. What is population mean and sample mean?
-38. What is population standard deviation and sample standard deviation?
-39. Why population s.d. has N degrees of freedom while sample s.d. has N-1 degrees of freedom? In other words, why 1/N inside root for pop. s.d. and 1/(N-1) inside root for sample s.d.?
-40. What is the formula for calculating the s.d. of the sample mean?
-41. What is confidence interval?
-42. What is standard error?
-43. [What is a p-value?](#what-is-a-p-value)
+9. [What is a probability?](#what-is-a-probability)
+10. [What are the probability axioms?](#what-are-the-probability-axioms)
+11. [What is a random variable?](#what-is-a-random-variable)
+12. Compare “Frequentist probability” vs. “Bayesian probability”?
+13. What is a probability distribution?
+14. What is a probability mass function?
+15. What is a probability density function?
+16. What is a joint probability distribution?
+17. What are the conditions for a function to be a probability mass function?
+18. What are the conditions for a function to be a probability density function?
+19. What is a marginal probability? Given the joint probability function, how will you calculate it?
+20. What is conditional probability? Given the joint probability function, how will you calculate it?
+21. State the Chain rule of conditional probabilities.
+22. What are the conditions for independence and conditional independence of two random variables?
+23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
+24. What is the covariance for a vector of random variables?
+25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
+26. What is a multinoulli distribution?
+27. What is a normal distribution?
+28. Why is the normal distribution a default choice for a prior over a set of real numbers?
+29. What is the central limit theorem?
+30. What are exponential and Laplace distribution?
+31. What are Dirac distribution and Empirical distribution?
+32. What is mixture of distributions?
+33. Name two common examples of mixture of distributions? (Empirical and Gaussian Mixture)
+34. Is Gaussian mixture model a universal approximator of densities?
+35. Write the formulae for logistic and softplus function.
+36. Write the formulae for Bayes rule.
+37. What do you mean by measure zero and almost everywhere?
+38. If two random variables are related in a deterministic way, how are the PDFs related?
+39. Define self-information. What are its units?
+40. What are Shannon entropy and differential entropy?
+41. What is Kullback-Leibler (KL) divergence?
+42. [Can KL divergence be used as a distance measure?](#can-kl-divergence-be-used-as-a-distance-measure)
+43. Define cross-entropy.
+44. What are structured probabilistic models or graphical models?
+45. In the context of structured probabilistic models, what are directed and undirected models? How are they represented? What are cliques in undirected structured probabilistic models?
+46. What is population mean and sample mean?
+47. What is population standard deviation and sample standard deviation?
+48. Why population s.d. has N degrees of freedom while sample s.d. has N-1 degrees of freedom? In other words, why 1/N inside root for pop. s.d. and 1/(N-1) inside root for sample s.d.?
+49. What is the formula for calculating the s.d. of the sample mean?
+50. What is confidence interval?
+51. What is standard error?
+52. [What is a p-value?](#what-is-a-p-value)
 
 ## Linear Algebra
 
@@ -163,7 +164,7 @@ P\left(\cup_{i=1}^{n} A_{i}\right) =\sum_{i=1}^{n} P(A_{i}) &- \sum_{1 \leq i \l
 & + \left(-1\right)^{n-1} P\left(\cap_{i=1}^{n} A_{i}\right)
 \end{split}
 $$
- 
+
 ## Probability 
 
 #### What is a probability?
