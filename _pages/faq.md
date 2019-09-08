@@ -16,6 +16,7 @@ permalink: /faq/
 6. What is a Jacobian matrix?
 7. What is a Hessian matrix?
 8. What is an identity matrix?
+9. What is the transpose of a matrix?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -245,9 +246,14 @@ $$
 
 Generally the dimensions of $I$ are inferred from context so as to make matrix multiplication possible. 
 
+#### What is the transpose of a matrix?
 
+The transpose of a matrix results from "flipping" the rows and columns. Given a matrix $A \in \mathbb{R}^{m \times n}$, its transpose, written as $A^{T} \in \mathbb{R}^{n \times m}$, is the matrix whose entries are given by $\left(A^{T}\right)_{ij} = A_{ji}$.
 
-
+The following properties of transposes are easily verified:
+1. $\left(A^{T}\right)^{T} =A$
+2. $\left(AB\right)^{T} = B^{T}A^{T}$
+3. $\left(A + B\right)^{T} = A^{T} + B^{T}$
 
 
 
