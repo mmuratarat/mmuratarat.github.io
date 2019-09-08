@@ -11,17 +11,19 @@ permalink: /faq/
 
 [Numerical Optimization](#numerical-optimization)
 
-[Probability](#probability)
+[Set Theory](#set-theory)
 1. [What is a random experiment?](#what-is-a-random-experiment)
 2. [What is a sample space?](#what-is-a-sample-space)
 3. [What is an empty set?](#what-is-an-empty-set)
 4. [What is an event?](#what-is-an-event)
 5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
-6. What is mutually exclusive (disjoint) events?
-7. What is exhaustive events?
-6. [What is a probability?](#what-is-a-probability)
-7. [What are the probability axioms?](#what-are-the-probability-axioms)
+6. [What is mutually exclusive (disjoint) events?](#what-is-mutually-exclusive-disjoint-events)
+7. [What is exhaustive events?](#what-is-exhaustive-events)
+8. What is Inclusion-Exlusive Principle?
+9. [What is a probability?](#what-is-a-probability)
+10. [What are the probability axioms?](#what-are-the-probability-axioms)
 
+[Probability](#probability)
 1. [What is a random variable?](#what-is-a-random-variable)
 2. Compare “Frequentist probability” vs. “Bayesian probability”?
 3. What is a probability distribution?
@@ -69,7 +71,8 @@ permalink: /faq/
 
 ## Numerical Optimization
 
-## Probability
+## Set Theory
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/set_theory.gif?raw=true)
 
 #### What is a random experiment?
 A random experiment is an experiment or a process for which the outcome cannot be predicted with certainty.
@@ -120,6 +123,35 @@ $$
 
 #### What is exhaustive events?
 When two or more events form the sample space ($S$) collectively than it is known as collectively exhaustive events. The $n$ events $A_{1}, A_{2}, A_{3}, \ldots, A_{n}$ are said to be exhaustive if $A_{1} \cup A_{2} \cup A_{3} \cup \ldots \cup A_{n} = S$. 
+
+#### What is Inclusion-Exlusive Principle?
+* For $n=2$ events:
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+Let's prove this principle:
+
+$$
+\begin{split}
+P(A \cup B) &= P(A \cup (B\A))\\
+&= P(A) + P(B\A)\\
+&= P(A) + P(B) - P(A \cap B)
+\end{split}
+$$
+
+* For events $A_{1}, A_{2}, A_{3}, \ldots, A_{n}$ in a probability space:
+
+$$
+\begin{split}
+P\left(\cup_{i=1}^{n} A_{i}\right) &=\sum_{i=1}^{n} P(A_{i}) - \sum_{1 \leq i \leq j \leq n} P(A_{i} \cap A_{j})\\
+&+ \sum_{1 \leq i \leq j \leq k \leq n} P(A_{i} \cap A_{j} \cap A_{k}) - \ldots \\
++ \left(-1\right)^{n-1} P\left(\cap_{i=1}^{n} A_{i}\right)
+\end{split}
+$$
+ 
+## Probability 
 
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
