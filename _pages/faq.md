@@ -25,8 +25,37 @@ permalink: /faq/
 15. What is Ax = b? When does Ax =b has a unique solution?}
 16. In Ax = b, what happens when A is fat or tall?
 17. [What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?](#what-is-a-norm-what-is-l_1-l_2-and-l_infty-norm-what-are-the-conditions-a-norm-has-to-satisfy)
-
-
+18. Why is squared of L2 norm preferred in ML than just L2 norm?
+19. When L1 norm is preferred over L2 norm?
+20. Can the number of nonzero elements in a vector be defined as $L^{0}$ norm? If no, why?
+21. What is Frobenius norm?
+22. What is a diagonal matrix?
+23. Why is multiplication by diagonal matrix computationally cheap? How is the multiplication different for square vs. non-square diagonal matrix?
+24. At what conditions does the inverse of a diagonal matrix exist?
+25. What is a symmetric matrix?
+26. What is a unit vector?
+27. When are two vectors x and y orthogonal?
+28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
+29. When are two vectors x and y orthonormal?
+30. What is an orthogonal matrix? Why is computationally preferred?
+31. What is eigendecomposition, eigenvectors and eigenvalues?
+32. How to find eigenvalues of a matrix?
+33. Write the eigendecomposition formula for a matrix. If the matrix is real symmetric, how will this change?
+34. Is the Eigendecomposition guaranteed to be unique? If not, then how do we represent it?
+35. What are positive definite, negative definite, positive semi definite and negative semi definite matrices?
+36. What is Singular Value Decomposition? Why do we use it? Why not just use ED?
+37. Given a matrix A, how will you calculate its Singular Value Decomposition?
+38. What are singular values, left singulars and right singulars?
+39. What is the connection of Singular Value Decomposition of A with functions of A?
+40. Why are singular values always non-negative?
+41. What is the Moore Penrose pseudo inverse and how to calculate it?
+42. If we do Moore Penrose pseudo inverse on Ax = b, what solution is provided is A is fat? Moreover, what solution is provided if A is tall?
+43. Which matrices can be decomposed by ED?
+44. Which matrices can be decomposed by SVD?
+45. What is the trace of a matrix?
+46. How to write Frobenius norm of a matrix A in terms of trace?
+47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
+48. What is the trace of a scalar?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -511,6 +540,95 @@ Norms, including the $L^{p}$ norm, are functions mapping vectors to non-negative
 * $f(x) \geq 0$ (non-negativity)
 * $f(x + y) \leq f (x) + f(y)$ (the triangle inequality)
 * $\forall \alpha \in \mathbb{R}, f( \alpha x) = \lvert \alpha \rvert f(x)$ (homogenity)
+
+#### What is Frobenius norm?
+
+Sometimes we may also wish to measure the size of a matrix. In the context of deep learning, the most common way to do this is with the otherwise obscure Frobenius norm.
+
+The Frobenius norm, sometimes also called the Euclidean norm (a term unfortunately also used for the vector $L^{2}$-norm), is matrix norm of an $m \times n$ matrix $A$ defined as the square root of the sum of the squares of its elements:
+
+$$
+\lvert A \rvert_{F} = \sqrt{\sum_{i=1}^{m}\sum_{j=1}^{n} a_{ij}^{2}}
+$$
+
+which is analogous to the $L^{2}$-norm of a vector
+
+#### What is a diagonal matrix?
+
+Diagonal matrices consist mostly of zeros and have nonzero entries only along the main diagonal. Formally, a matrix $D$ is diagonal if and only if $D_{i,j}= 0$ for all $i \neq j$.
+
+$$
+    D_{ij} = \left\{ \begin{array}{ll}
+         d_{i} & \mbox{if $i=j$};\\
+        0 & \mbox{if $i \neq j$}.\end{array} \right.
+$$
+
+Identity matrix, where all the diagonal entries are 1 is an example of a diagonal matrix.  Clearly, $I = \text{diag}(1,1,1,...,1)$.
+
+Not all diagonal matrices need be square. It is possible to construct a rectangular diagonal matrix.
+
+$$
+\begin{bmatrix} 
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix} \begin{bmatrix} 
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{bmatrix} \begin{bmatrix} 
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+Entries in $i=j$ can technically be called the "main diagonal" of the rectangular matrix, though the diagonal of such a matrix is not necessarily as "useful" as it is in a square matrix. 
+
+#### What is a symmetric matrix?
+
+A symmetric matrix is any matrix that is equal to its own transpose:
+
+$$
+A = A^{T}
+$$
+
+It is anti-symmmetric if $A = -A^{T}$
+
+#### What is the trace of a matrix?
+
+The trace operator gives the sum of all the diagonal entries of a matrix:
+
+$$
+tr(A) = \sum_{i} A_{i,i}
+$$
+
+It is easy to show that the trace is a linear map, so that
+
+$$
+tr(\lambda A) = \lambda tr(A) = \lambda \sum_{i} A_{i,i}
+$$
+
+and 
+
+$$
+tr(A + B) = tr(A) + tr(B)
+$$
+
+The trace operator is invariant to the transpose operator: $Tr(A) = Tr(A^{T})$. 
+
+#### How to write Frobenius norm of a matrix A in terms of trace?
+
+The trace operator provides an alternative way of writing the Frobenius norm of a matrix:
+
+$$
+\lvert A \rvert_{F} = \sqrt{tr(A A^{T})} = \sqrt{tr(A^{T} A)}
+$$
+
+#### What is the trace of a scalar?
+
+A scalar is its own trace $a=Tr(a)$
 
 
 ## Numerical Optimization
