@@ -24,7 +24,7 @@ permalink: /faq/
 14. Discuss span and linear dependence.
 15. What is Ax = b? When does Ax =b has a unique solution?}
 16. In Ax = b, what happens when A is fat or tall?
-17. What is a norm? What is $L_{1}$, $L_{2}$ and $L_{\infty}$ norm? What are the conditions a norm has to satisfy?
+17. What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?
 
 
 
@@ -489,12 +489,12 @@ det(A) = |A| &=
 \end{split}
 $$
 
-#### What is a norm? What is $L_{1}$, $L_{2}$ and $L_{\infty}$ norm? What are the conditions a norm has to satisfy?
+#### What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?
 
 Sometimes, we need to measure the size of a vector (length of the vector). In machine learning, we usually measure the size of vectors using a function called a norm. Formally, assuming $x$ is a vector and $x_{i}$ is its $i$th-element, the $L^{p}$ norm is given by
 
 $$
-    \norm{x}_{p} = \left(\sum_{i=1}\lvert x_{i} \rvert^{p}  \right)^{1/p}
+    \lvert x \rvert_{p} = \left(\sum_{i=1}\lvert x_{i} \rvert^{p}  \right)^{1/p}
 $$
 
 for $p \in \mathbb{R}$, and $p \geq 1$.
