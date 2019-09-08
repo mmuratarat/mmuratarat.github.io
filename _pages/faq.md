@@ -13,6 +13,9 @@ permalink: /faq/
 3. What is a scalar valued function?
 4. What is a vector valued function?
 5. What is the gradient?
+6. What is a Jacobian matrix?
+7. What is a Hessian matrix?
+8. What is an identity matrix?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -185,6 +188,69 @@ The most important thing to remember about the gradient is that the gradient of 
 Note that the symbol $\nabla$ is referred to either as nabla or del. 
 
 Note that the gradient of a vector-valued function is the same as obtaining the Jacobian of this function.
+
+#### What is a Jacobian matrix?
+
+Jacobian matrix is a matrix of all first-order partial derivatives of a vector-valued function. Suppose $f:\mathbb{R}^{n} \to \mathbb{R}^{m}$ is a function which takes as input the vector $x \in \mathbb{R}^{n}$ and produces as output the vector $f(x) \in \mathbb{R}^{m}$. Then, the Jacobian matrix J of $f$ is a $m \times n$ matrix:
+
+$$
+J = \begin{bmatrix}
+\dfrac{\partial f}{\partial x_{1}} & \cdots &\dfrac{\partial f}{\partial x_{n}}
+\end{bmatrix} =
+\begin{bmatrix}
+\dfrac{\partial f_{1}}{\partial x_{1}} &\cdots &\dfrac{\partial f_{1}}{\partial x_{n}} \\[6pt]
+& \cdots & \\[6pt]
+\dfrac{\partial f_{m}}{\partial x_{1}} &\cdots &\dfrac{\partial f_{m}}{\partial x_{n}} \\[6pt]
+\end{bmatrix}
+$$
+
+Note that when $m=1$, the Jacobian is the same as gradient because it is a generalization of the gradient.
+
+#### What is a Hessian matrix?
+
+The hessian matrix is a square matrix of the second-order partial derivatives of a scalar-values (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
+
+If we have a scalar-valued multi-variable function $f(x_{1}, x_{2}, x_{3}, ...)$, its Hessian with respect to x, is the $n \times n$ matrix of partial derivatives:
+
+$$
+H_{f} \in \mathbb{R}^{n\times n}= \begin{bmatrix}
+\dfrac{\partial^{2}f(x)}{\partial x_{1}^{2}} & \dfrac{\partial^{2}f(x)}{\partial x_{1} \partial x_{2}} & \cdots & \dfrac{\partial^{2}f(x)}{\partial x_{1} \partial x_{n}}\\[7pt]
+\dfrac{\partial^{2}f(x)}{\partial x_{2} \partial x_{1}} & \dfrac{\partial^{2}f(x)}{\partial x_{2}^{2}} & \cdots & \dfrac{\partial^{2}f(x)}{\partial x_{2} \partial x_{n}} \\[7pt]
+\vdots & \vdots & \cdots & \vdots \\[7pt]
+\dfrac{\partial^{2}f(x)}{\partial x_{n} \partial x_{1}} & \dfrac{\partial^{2}f(x)}{\partial x_{n} x_{2}} & \cdots & \dfrac{\partial^{2}f(x)}{\partial x_{n}^{2}}
+\end{bmatrix}
+$$
+
+Similar to the gradient, the Hessian is defined only when $f(x)$ is real-valued.
+
+Hessian is NOT the gradient of the gradient!
+
+Note that Hessian of a function $f:\mathbb{R}^{n}\to \mathbb{R}$ is the Jacobian of its gradient, i.e., $H(f(x)) = J(\nabla f(x))^{T}$.
+
+#### What is an identity matrix?
+
+identity matrix, $I \in \mathbb{R}^{n \times n}$, is a square matrix with ones on the diagonal and zeros everywhere else.
+
+$$
+    I_{ij} = \left\{ \begin{array}{ll}
+         1 & \mbox{if $i=j$};\\
+        0 & \mbox{if $i \neq j$}.\end{array} \right.
+$$
+
+It has the property that for all $A \in \mathbb{R}^{m \times n}$
+
+$$
+    AI = IA = A
+$$
+
+Generally the dimensions of $I$ are inferred from context so as to make matrix multiplication possible. 
+
+
+
+
+
+
+
 
 ## Numerical Optimization
 
