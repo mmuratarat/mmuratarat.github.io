@@ -9,6 +9,10 @@ permalink: /faq/
 
 [Linear Algebra](#linear-algebra)
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
+2. What is Hadamard product of two matrices?
+3. What is a scalar valued function?
+4. What is a vector valued function?
+5. What is the gradient?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -73,7 +77,9 @@ permalink: /faq/
 52. [What is a p-value?](#what-is-a-p-value)
 
 ## Linear Algebra
+
 #### What are scalars, vectors, matrices, and tensors?
+
 Scalars are single numbers and are an example of a 0th-order tensor. The notation $x \in \mathbb{R}$ states that the scalar value $x$ is an element of (or member of) the set of real-valued numbers, $\mathbb{R}$.
 
 There are various sets of numbers of interest within machine learning. $\matbb{N}$ represents the set of positive integers $(1,2,3, ...)$. $\matbb{Z}$ represents the integers, which include positive, negative and zero values. $\mathbb{Q}$ represents the set of rational numbers that may be expressed as a fraction of two integers.
@@ -122,6 +128,63 @@ Where $a_{ij}$ is referred to as the $(i,j)$-element of the matrix $A$. The subs
 Note that a column vector is a size $m \times 1$ matrix, since it has $m$ rows and $1$ column. Unless otherwise specified all vectors will be considered to be column vectors.
 
 Tensor is n-dimensional array. It encapsulates the scalar, vector and the matrix. For a 3rd-order tensor elements are given by $a_{ijk}$, whereas for a 4th-order tensor elements are given by $a_{ijkl}$.
+
+#### What is Hadamard product of two matrices?
+Hadamard product is also known as Element-wise Multiplication. It is named after French Mathematician, Jacques Hadamard. Elements corresponding to same row and columns of given vectors/matrices are multiplied together to form a new vector/matrix.
+
+$$
+    \begin{bmatrix} 
+3 & 5 & 7 \\
+4 & 9 & 8 
+\end{bmatrix} \times \begin{bmatrix} 
+1 & 6 & 3 \\
+0 & 2 & 9 
+\end{bmatrix} = \begin{bmatrix} 
+3 \times 1 & 5 \times 6 & 7 \times 3 \\
+4 \times 0 & 9 \times 2 & 8 \times 9 
+\end{bmatrix} = \begin{bmatrix} 
+3 & 30 & 21 \\
+0 & 18 & 72 
+\end{bmatrix}
+$$
+
+#### What is a scalar valued function?
+
+A scalar valued function is a function that take one or more values but returns a single value. For example:
+
+$$
+f(x, y, z) = x^{2} + 2y z^{5}
+$$
+
+A $n$-variable scalar valued function acts as a map from the space $\mathbb{R}^{n}$ to the real number line $\mathbb{R}$. That is: $f:\mathbb{R}^{n} \to \mathbb{R}$
+
+#### What is a vector valued function?
+
+A vector valued function (also known as vector function) is a function where the domain is a subset of real numbers and the range is a vector. For example:
+
+$$
+r(t) = <2x+1, x^{2}+3>
+$$
+
+presents a function whose input is a scalar $t$ and whose output is a vector in $\mathbb{R}^{2}$
+
+#### What is the gradient?
+
+The gradient of a function $f$, denoted as $\nabla f$ is the collection of all its first-order partial derivatives into a vector. Here, $f$ is a scalar-valued (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
+
+\begin{equation}
+    \nabla f(x_{1}, x_{2}, x_{3}, ...) = \begin{bmatrix} \dfrac{\partial f}{\partial x_{1}} \\[6pt] \dfrac{\partial f}{\partial x_{2}}\\[6pt] \dfrac{\partial f}{\partial x_{3}}\\[6pt] .\\.\\. \end{bmatrix}
+\end{equation}
+
+In particular, $\nabla f(x_{1}, x_{2}, x_{3}, ...)$ is a vector-valued function, which means it is a vector and we cannot take the gradient of a vector. 
+
+It is very important to remember that the gradient of a function is only defined if the function is real-valued, that is, if it returns a scalar value. 
+
+The most important thing to remember about the gradient is that the gradient of $f$, if evaluated at an input $(x_{0},y_{0})$, points in the direction of the steepest ascent. So, if you walk in that direction of the gradient, you will be going straight up the hill. Similarly, the magnitude of the vector $\nabla f(x_{0},y_{0})$ tells you what the slope of the hill is in that direction, meaning that if you walk in that direction, you will increase the value of $f$ at most rapidly.  
+
+Note that the symbol $\nabla$ is referred to either as nabla or del. 
+
+Note that the gradient of a vector-valued function is the same as obtaining the Jacobian of this function.
 
 ## Numerical Optimization
 
