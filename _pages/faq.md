@@ -28,11 +28,11 @@ permalink: /faq/
 18. Why is squared of L2 norm preferred in ML than just L2 norm?
 19. When L1 norm is preferred over L2 norm?
 20. Can the number of nonzero elements in a vector be defined as $L^{0}$ norm? If no, why?
-21. What is Frobenius norm?
-22. What is a diagonal matrix?
+21. [What is Frobenius norm?](#what-is-frobenius-norm)
+22. [What is a diagonal matrix?](#what-is-a-diagonal-matrix)
 23. Why is multiplication by diagonal matrix computationally cheap? How is the multiplication different for square vs. non-square diagonal matrix?
 24. At what conditions does the inverse of a diagonal matrix exist?
-25. What is a symmetric matrix?
+25. [What is a symmetric matrix?](#what-is-a-symmetric-matrix)
 26. What is a unit vector?
 27. When are two vectors x and y orthogonal?
 28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
@@ -53,9 +53,9 @@ permalink: /faq/
 43. Which matrices can be decomposed by ED?
 44. Which matrices can be decomposed by SVD?
 45. What is the trace of a matrix?
-46. How to write Frobenius norm of a matrix A in terms of trace?
+46. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
-48. What is the trace of a scalar?
+48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 
 [Numerical Optimization](#numerical-optimization)
 
