@@ -18,6 +18,7 @@ permalink: /faq/
 4. [What is an event?](#what-is-an-event)
 5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
 6. [What is mutually exclusive (disjoint) events?](#what-is-mutually-exclusive-disjoint-events)
+7. What is a non-disjoint event?
 7. [What is exhaustive events?](#what-is-exhaustive-events)
 8. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 9. [What is a probability?](#what-is-a-probability)
@@ -117,8 +118,20 @@ In other words, the events are said to be mutually exclusive if they do not have
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/mutually_exclusive.png?raw=true)
 
 For example, if events $A$ and $B$ are mutually exclusive:
+
 $$
 P(A \cup B) = P(A) + P(B)
+$$
+
+#### What is a non-disjoint event?
+Disjoint Events, by definition, can not happen at the same time. A synonym for this term is mutually exclusive. Non-disjoint events, on the other hand, can happen at the same time. For example, a student can get grade A in Statistics course and A in History course at the same time.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/non_disjoint_events.png?raw=true)
+
+For example, if events $A$ and $B$ are non-disjoint events, the probability of A or B happening (union of these events) is given by:
+
+$$
+P(A or B) = P(A) + P(B) - P(A and B)
 $$
 
 #### What is exhaustive events?
