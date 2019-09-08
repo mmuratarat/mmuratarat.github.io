@@ -52,7 +52,7 @@ permalink: /faq/
 42. If we do Moore Penrose pseudo inverse on Ax = b, what solution is provided is A is fat? Moreover, what solution is provided if A is tall?
 43. Which matrices can be decomposed by ED?
 44. Which matrices can be decomposed by SVD?
-45. What is the trace of a matrix?
+45. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
 46. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
