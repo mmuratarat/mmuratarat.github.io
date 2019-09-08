@@ -6,8 +6,8 @@ social: true
 comments: false
 permalink: /faq/
 ---
-
 [Linear Algebra](#linear-algebra)
+
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
 2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
 3. [What is a scalar valued function?](#what-is-a-scalar-valued-function)
@@ -57,7 +57,20 @@ permalink: /faq/
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 
+
 [Numerical Optimization](#numerical-optimization)
+
+1. What is underflow and overflow?
+2. How to tackle the problem of underflow or overflow for softmax function or log softmax function?
+3. What is poor conditioning?
+4. What is the condition number?
+5. What are grad, div and curl?
+6. What are critical or stationary points in multi-dimensions?
+7. Why should you do gradient descent when you want to minimize a function?
+8. What is line search?
+9. What is hill climbing?
+10. What is curvature?
+
 
 [Set Theory](#set-theory)
 
