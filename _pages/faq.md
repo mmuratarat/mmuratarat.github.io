@@ -7,7 +7,7 @@ comments: false
 permalink: /faq/
 ---
 
-[Linear Algebra?](#linear-algebra)
+[Linear Algebra](#linear-algebra)
 
 [Numerical Optimization](#numerical-optimization)
 
