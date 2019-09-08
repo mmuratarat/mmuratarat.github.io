@@ -82,7 +82,7 @@ In mathematics, the empty set, mostly denoted by $\emptyset$, is a set with no e
 Let $A$ be a set. 
 * The intersection of any set with the empty set is the empty set, i.e., $A \cap \emptyset = \emptyset$.
 * The union of any set with the empty set is the set we started with, i.e., $A \cup \emptyset = A$.
-* The complement of the empty set is the universal set for the setting that we are working in.
+* The complement of the empty set is the universal set (U) for the setting that we are working in, i.e., $\emptyset^C = U - \emptyset = U$. Also, the complement of $U$ is the empty set: $U^{c} =  U - U = \emptyset$.
 * The empty set is a subset of any set.
 
 #### What is an event?
@@ -93,7 +93,15 @@ An event (mostly denoted by $E$) is a subset of the sample space. We say that $E
 * Random experiment: roll a dice, sample sample $S = \{1,2,3,4,5,6\}$
 
 #### What are the operations on a set?
+When working with events, __intersection__ means "and", and __union__ means "or".
 
+$$
+P(A \cap B) = P(\text{A and B}) = P(A, B)
+$$
+
+$$
+P(A \cup B) = P(\text{A or B})
+$$
 
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
