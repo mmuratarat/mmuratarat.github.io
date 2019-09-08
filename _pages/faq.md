@@ -9,18 +9,24 @@ permalink: /faq/
 
 [Linear Algebra](#linear-algebra)
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
-2. What is Hadamard product of two matrices?
-3. What is a scalar valued function?
-4. What is a vector valued function?
-5. What is the gradient?
-6. What is a Jacobian matrix?
-7. What is a Hessian matrix?
-8. What is an identity matrix?
-9. What is the transpose of a matrix?
-10. What is an inverse matrix?
-11. When does inverse of a matrix exist?
-12. If inverse of a matrix exists, how to calculate it?
-13. What is the determinant of a square matrix? How is it calculated? What is the connection of determinant to eigenvalues?
+2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
+3. [What is a scalar valued function?](#what-is-a-scalar-valued-function)
+4. [What is a vector valued function?](#what-is-a-vector-valued-function)
+5. [What is the gradient?](#what-is-the-gradient)
+6. [What is a Jacobian matrix?](#what-is-a-jacobian-matrix)
+7. [What is a Hessian matrix?](#what-is-a-hessian-matrix)
+8. [What is an identity matrix?](#what-is-an-identity-matrix)
+9. [What is the transpose of a matrix?](#what-is-the-transpose-of-a-matrix)
+10. [What is an inverse matrix?](#what-is-an-inverse-matrix)
+11. [When does inverse of a matrix exist?](#when-does-inverse-of-a-matrix-exist)
+12. [If inverse of a matrix exists, how to calculate it?](#if-inverse-of-a-matrix-exists-how-to-calculate-it)
+13. [What is the determinant of a square matrix? How is it calculated? What is the connection of determinant to eigenvalues?](#what-is-the-determinant-of-a-square-matrix-how-is-it-calculated-what-is-the-connection-of-determinant-to-eigenvalues)
+14. Discuss span and linear dependence.
+15. What is Ax = b? When does Ax =b has a unique solution?}
+16. In Ax = b, what happens when A is fat or tall?
+17. What is a norm? What is L1, L2 and L infinity norm? What are the conditions a norm has to satisfy?
+
+
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -482,6 +488,30 @@ det(A) = |A| &=
 &=30
 \end{split}
 $$
+
+#### What is a norm? What is L1, L2 and L infinity norm? What are the conditions a norm has to satisfy?
+
+Sometimes, we need to measure the size of a vector (length of the vector). In machine learning, we usually measure the size of vectors using a function called a norm. Formally, assuming $x$ is a vector and $x_{i}$ is its $i$th-element, the $L^{p}$ norm is given by
+
+$$
+    \norm{x}_{p} = \left(\sum_{i=1}\lvert x_{i} \rvert^{p}  \right)^{1/p}
+$$
+
+for $p \in \mathbb{R}$, and $p \geq 1$.
+
+* $L^{1}$ is known as Manhattan Distance (norm).
+* $L^{2}$ is known as Euclidean Distance (norm) which gives the magnitude of a vector. However, confusion is that the Frobenius norm (a matrix norm) is also sometimes called the Euclidean norm.
+* $L^{\infty} = \underset{i}{\max} \lvert x_{i} \rvert$ also known as the max norm (sup norm). This norm simpliﬁes to the absolute value of the element with the largest magnitude in the vector.
+
+The higher the norm index, the more it focuses on large values and neglects small ones. This is why the Root Mean Squared Error (RMSE, which corresponds to Euclidean norm) is more sensitive to outliers than Mean Absolute Error (MAE which corresponds to Manhattan norm). But when outliers are exponentially rare (like in a bell-shaped curve), the RMSE performs very well and is generally preferred.
+
+Norms, including the $L^{p}$ norm, are functions mapping vectors to non-negative values. On an intuitive level, the norm of a vector $x$ measures the distance from the origin to the point $x$. More rigorously, a norm is any function $f$ that satisﬁes the following properties
+
+* $f(x) = 0 \Rightarrow x = 0$ (Definiteness)
+* $f(x) > geq 0$ (non-negativity)
+* $f(x + y) \leq f (x) + f(y)$ (the triangle inequality)
+* $\forall \alpha \in \mathbb{R}, f( \alpha x) = \lvert \alpha \rvert f(x)$ (homogenity)
+
 
 ## Numerical Optimization
 
