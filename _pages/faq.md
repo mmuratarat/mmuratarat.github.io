@@ -17,6 +17,9 @@ permalink: /faq/
 7. What is a Hessian matrix?
 8. What is an identity matrix?
 9. What is the transpose of a matrix?
+10. What is an inverse matrix?
+11. When does inverse of a matrix exist?
+12. If inverse of a matrix exists, how to calculate it?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -255,6 +258,124 @@ The following properties of transposes are easily verified:
 2. $\left(AB\right)^{T} = B^{T}A^{T}$
 3. $\left(A + B\right)^{T} = A^{T} + B^{T}$
 
+#### What is an inverse matrix?
+
+The inverse of a square matrix $A$, sometimes called a reciprocal matrix, is a matrix $A^{-1}$ such that
+
+$$
+AA^{-1} = I = A^{-1}A
+$$
+
+where $I$ is the identity matrix. 
+Note that for square matrices, the left inverse and right inverse are equal.
+
+Non-square matrices do not have inverses by definition. Note that not all square matrices have inverses. A square matrix which has an inverse is called invertible or non-singular, and a square matrix without an inverse is called non-invertible or singular.
+
+#### When does inverse of a matrix exist?
+
+
+\textbf{Determine its rank}. In order for a square matrix $A$ to have an inverse $A^{-1}$, then $A$ must be full rank. The rank of a matrix is a unique number associated with a square matrix. If the rank of an $n \times n$ matrix is less than $n$, the matrix does not have an inverse. 
+
+\textbf{Compute its determinant}. The determinant is another unique number associated with a square matrix. When the determinant for a square matrix is equal to zero, the inverse for that matrix does not exist.
+
+$A, B \in \mathbb{R}^{n\times n}$ are non-singular. 
+1. $(A^{-1})^{-1} = A$
+2. $(AB)^{-1} = B^{-1}A^{-1}$
+3. $(A^{-1})^{T} = (A^{T})^{-1}$
+
+#### If inverse of a matrix exists, how to calculate it?
+
+$$
+\begin{split}
+ Ax &= b\\
+A^{-1}Ax &= A^{-1}b\\
+I_{n}x &= A^{-1}b\\
+x &= A^{-1}b  
+\end{split}
+$$
+
+where $I_{n} \in \mathbb{R}^{n\times n}$
+
+For example, for $2 \times 2$ matrix, the inverse is:
+
+$$
+    \begin{bmatrix}
+    a & b \\
+    c & d
+    \end{bmatrix}^{-1} = \dfrac{1}{ad - bc}  \begin{bmatrix}
+    d & -b \\
+    -c & a
+    \end{bmatrix}
+$$
+
+where $ad-bc$ is the determinant of this matrix. In other words, swap the positions of $a$ and $d$, put the negatives in front of $b$ and $c$ and divide everything by determinant. $AA^{-1} = I = A^{-1}A$ should be satisfied.
+
+Now let's find the inverse of a bigger matrix, which is $3 \times 3$:
+
+$$
+    \begin{bmatrix}
+    1 & 3 & 3 \\
+    1 & 4 & 3 \\
+    1 & 3 & 4
+    \end{bmatrix}
+$$
+
+First, we write down the entries the matrix, but we write them in a double-wide matrix:
+
+$$
+    \begin{bmatrix}
+    1 & 3 & 3 & | &  &  &  \\
+    1 & 4 & 3 & | &  &  & \\
+    1 & 3 & 4 & | &  &  & 
+    \end{bmatrix}
+$$
+
+In the other half of the double-wide, we write the identity matrix:
+
+$$
+    \begin{bmatrix}
+    1 & 3 & 3 & | & 1 & 0 & 0 \\
+    1 & 4 & 3 & | & 0 & 1 & 0\\
+    1 & 3 & 4   | & 0 & 0 & 1
+    \end{bmatrix}
+$$
+
+Now we'll do matrix row operations to convert the left-hand side of the double-wide into the identity. (As always with row operations, there is no one "right" way to do this. What follows are just one way. Your calculations could easily look quite different.)
+
+$$
+\begin{split}
+    \begin{bmatrix}
+    1 & 3 & 3 & | & 1 & 0 & 0 \\
+    1 & 4 & 3 & | & 0 & 1 & 0\\
+    1 & 3 & 4 & | & 0 & 0 & 1
+    \end{bmatrix}&\underset{\overset{-r_{1}+r_{2}}{\longrightarrow}}{\overset{-r_{1}+r_{3}}{\longrightarrow}}
+    \begin{bmatrix}
+    1 & 3 & 3 & | & 1 & 0 & 0 \\
+    0 & 1 & 0 & | & -1 & 1 & 0\\
+    0 & 0 & 1 & | & -1 & 0 & 1
+    \end{bmatrix}\\ &\overset{-3r_{2}+r_{1}}{\longrightarrow}
+    \begin{bmatrix}
+    1 & 0 & 3 & | & 4 & -3 & 0 \\
+    0 & 1 & 0 & | & -1 & 1 & 0\\
+    0 & 0 & 1 & | & -1 & 0 & 1
+    \end{bmatrix}\\ &\overset{-3r_{3}+r_{1}}{\longrightarrow}
+    \begin{bmatrix}
+    1 & 0 & 0 & | & 7 & -3 & -3 \\
+    0 & 1 & 0 & | & -1 & 1 & 0\\
+    0 & 0 & 1 & | & -1 & 0 & 1
+    \end{bmatrix}
+    \end{split}
+$$
+
+Now that the left-hand side of the double-wide contains the identity, the right-hand side contains the inverse. That is, the inverse matrix is the following:
+
+$$
+\begin{bmatrix}
+    7 & -3 & -3 \\
+    -1 & 1 & 0\\
+    -1 & 0 & 1
+    \end{bmatrix}
+$$
 
 
 
