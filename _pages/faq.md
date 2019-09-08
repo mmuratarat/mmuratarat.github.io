@@ -19,7 +19,7 @@ permalink: /faq/
 5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
 6. [What is mutually exclusive (disjoint) events?](#what-is-mutually-exclusive-disjoint-events)
 7. [What is exhaustive events?](#what-is-exhaustive-events)
-8. What is Inclusion-Exlusive Principle?
+8. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 
@@ -135,8 +135,8 @@ Let's prove this principle:
 
 $$
 \begin{split}
-P(A \cup B) &= P(A \cup (B\A))\\
-&= P(A) + P(B\A)\\
+P(A \cup B) &= P(A \cup (B-A))\\
+&= P(A) + P(B-A)\\
 &= P(A) + P(B) - P(A \cap B)
 \end{split}
 $$
@@ -145,9 +145,9 @@ $$
 
 $$
 \begin{split}
-P\left(\cup_{i=1}^{n} A_{i}\right) &=\sum_{i=1}^{n} P(A_{i}) - \sum_{1 \leq i \leq j \leq n} P(A_{i} \cap A_{j})\\
+P\left(\cup_{i=1}^{n} A_{i}\right) =\sum_{i=1}^{n} P(A_{i}) &- \sum_{1 \leq i \leq j \leq n} P(A_{i} \cap A_{j})\\
 &+ \sum_{1 \leq i \leq j \leq k \leq n} P(A_{i} \cap A_{j} \cap A_{k}) - \ldots \\
-+ \left(-1\right)^{n-1} P\left(\cap_{i=1}^{n} A_{i}\right)
+& + \left(-1\right)^{n-1} P\left(\cap_{i=1}^{n} A_{i}\right)
 \end{split}
 $$
  
