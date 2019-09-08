@@ -134,7 +134,7 @@ Disjoint Events, by definition, can not happen at the same time. A synonym for t
 For example, if events $A$ and $B$ are non-disjoint events, the probability of A or B happening (union of these events) is given by:
 
 $$
-P(A or B) = P(A) + P(B) - P(A and B)
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
 $$
 
 #### What is exhaustive events?
