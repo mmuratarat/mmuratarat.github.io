@@ -12,12 +12,15 @@ permalink: /faq/
 [Numerical Optimization](#numerical-optimization)
 
 [Probability](#probability)
-1. What is a random experiment?
-2. What is a sample space?
-3. What is an empty set?
-4. What is an event?
-5. What are the operations on a set?
-6. What is a probability?
+1. [What is a random experiment?](#what-is-a-random-experiment)
+2. [What is a sample space?](#what-is-a-sample-space)
+3. [What is an empty set?](#what-is-an-empty-set)
+4. [What is an event?](#what-is-an-event)
+5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
+6. What is mutually exclusive (disjoint) events?
+7. What is exhaustive events?
+6. [What is a probability?](#what-is-a-probability)
+7. [What are the probability axioms?](#what-are-the-probability-axioms)
 
 1. [What is a random variable?](#what-is-a-random-variable)
 2. Compare “Frequentist probability” vs. “Bayesian probability”?
@@ -103,16 +106,29 @@ $$
 P(A \cup B) = P(\text{A or B})
 $$
 
+#### What is mutually exclusive (disjoint) events?
+The events in the sequence $A_{1}, A_{2}, A_{3}, \ldots$ are said to be mutually exclusive events if $E_{i} \cap E_{j} = \emptyset\text{ for all }i \neq j$ where $\emptyset$ represents the empty set. 
+
+In other words, the events are said to be mutually exclusive if they do not have any outcomes (elements) in common, i.e., they are pairwise disjoint. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/mutually_exclusive.png?raw=true)
+
+For example, if events $A$ and $B$ are mutually exclusive:
+$$
+P(A \cup B) = P(A) + P(B)
+$$
+
+#### What is exhaustive events?
+When two or more events form the sample space ($S$) collectively than it is known as collectively exhaustive events. The $n$ events $A_{1}, A_{2}, A_{3}, \ldots, A_{n}$ are said to be exhaustive if $A_{1} \cup A_{2} \cup A_{3} \cup \ldots \cup A_{n} = S$. 
+
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
 
 #### What are the probability axioms?
 
-\begin{itemize}
-\item **Axiom 1** For any event $A$, $P(A) \geq 0$
-\item **Axiom 2** Probability of the sample space is $P(S)=1$ 
-\item **Axiom 3** If $A_{1}, A_{2}, A_{3}, \ldots$ are disjoint (mutually exclusive) (even countably infinite) events, meaning that they have an empty intersection, the probability of the union of the events is the same as the sum of the probabilities: $P(A_{1} \cup A_{2} \cup A_{3} \cup \ldots) = P(A_{1}) + P(A_{2}) + P(A_{3}) + \dots$.
-\end{itemize}
+* **Axiom 1** For any event $A$, $P(A) \geq 0$
+* **Axiom 2** Probability of the sample space is $P(S)=1$ 
+* **Axiom 3** If $A_{1}, A_{2}, A_{3}, \ldots$ are disjoint (mutually exclusive) (even countably infinite) events, meaning that they have an empty intersection, the probability of the union of the events is the same as the sum of the probabilities: $P(A_{1} \cup A_{2} \cup A_{3} \cup \ldots) = P(A_{1}) + P(A_{2}) + P(A_{3}) + \dots$.
 
 #### What is a random variable?
 A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. There are two types of random variables, discrete and continuous. 
