@@ -20,6 +20,7 @@ permalink: /faq/
 10. What is an inverse matrix?
 11. When does inverse of a matrix exist?
 12. If inverse of a matrix exists, how to calculate it?
+13. What is the determinant of a square matrix? How is it calculated? What is the connection of determinant to eigenvalues?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -376,7 +377,111 @@ $$
     \end{bmatrix}
 $$
 
+#### What is the determinant of a square matrix? How is it calculated? What is the connection of determinant to eigenvalues?
 
+The determinant of a square matrix, denoted $det(A)$, is a function that maps matrices to real scalars, i.e., $det: \mathbb{R}^{n \times n} \to \mathbb{R}$. The determinant is equal to the product of all the eigenvalues of the matrix. The absolute value of the determinant can be thought of as a measure of how much multiplication by the matrix expands or contracts space. If the determinant is 0, then space is contracted completely along at least one dimension, causing it to lose all its volume. If the determinant is 1, then the transformation preserves volume.
+
+The determinant is a real number, it is not a matrix. The determinant can be a negative number. The determinant only exists for square matrices. The determinant of a $1 \times 1$ matrix is that single value in the determinant. The inverse of a matrix will exist only if the determinant is not zero.
+
+For example let's find a determinant of a $3 \times 3$ matrix:
+
+$$
+A = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} 
+\end{bmatrix}
+$$
+
+$$
+\begin{split}
+det(A) = |A| &=
+a_{11} \begin{bmatrix}
+a_{22} & a_{23} \\
+a_{32} & a_{33}
+\end{bmatrix}
+- a_{12}\begin{bmatrix}
+a_{21} &  a_{23} \\
+a_{31} & a_{33} 
+\end{bmatrix}
++ a_{13}\begin{bmatrix}
+a_{21} & a_{22} \\
+a_{31} & a_{32}
+\end{bmatrix}\\
+&= a_{11}\times \left(a_{22}a_{33}-a_{23}a_{32} \right)
+-a_{12}\left(a_{21}a_{33} -a_{23}a_{31}  \right)
++a_{13} \left(a_{21}a_{32} - a_{22}a_{31}\right)
+\end{split}
+$$
+
+It is the similar idea for $4\times 4$ and higher matrices.
+
+You do not have to use the first row to compute the determinant. You can use any row or any column, as long as you know where to put the plus and minus signs.
+
+$$
+A = \begin{bmatrix}
++ & - & + & \cdots \\
+- & + & - & \cdots \\
++ & - & + & \cdots \\
+\vdots & \vdots & \vdots &  \cdots
+\end{bmatrix}
+$$
+
+For example, 
+
+$$
+A = \begin{bmatrix}
+1 & 0 & 2 & -1 \\
+3 & 0 & 0 & 5 \\
+2 & 1 & 4 & -3 \\
+1 & 0  & 5 & 0
+\end{bmatrix}
+$$
+
+The second column of this matrix has a lot of zeros.
+
+$$
+\begin{split}
+det(A) = |A| &=
+-0 \begin{bmatrix}
+3  & 0 & 5 \\
+2  & 4 & -3 \\
+1  & 5 & 0
+\end{bmatrix}
++0\begin{bmatrix}
+1  & 2 & -1 \\
+2  & 4 & -3 \\
+1  & 5 & 0
+\end{bmatrix}
+-1\begin{bmatrix}
+1 & 2 & -1 \\
+3 & 0 & 5 \\
+1 & 5 & 0
+\end{bmatrix}
++0 \begin{bmatrix}
+1 & 2 & -1 \\
+3 & 0 & 5 \\
+2 & 4 & -3 \\
+\end{bmatrix}\\
+&= -1\begin{bmatrix}
+1 & 2 & -1 \\
+3 & 0 & 5 \\
+1 & 5 & 0
+\end{bmatrix}\\
+&=-1\left( 1\begin{bmatrix}
+0 & 5 \\
+5 & 0
+\end{bmatrix}-2\begin{bmatrix}
+3  & 5 \\
+1  & 0
+\end{bmatrix}+(-1)\begin{bmatrix}
+3 & 0 \\
+1 & 5 
+\end{bmatrix} \right)\\
+&=-1(-25+10-15)\\
+&=30
+\end{split}
+$$
 
 ## Numerical Optimization
 
