@@ -128,7 +128,7 @@ permalink: /faq/
 47. What is population standard deviation and sample standard deviation?
 48. Why population s.d. has N degrees of freedom while sample s.d. has N-1 degrees of freedom? In other words, why 1/N inside root for pop. s.d. and 1/(N-1) inside root for sample s.d.?
 49. What is the formula for calculating the s.d. of the sample mean?
-50. What is confidence interval?
+50. [What is confidence interval?](#what-is-confidence-interval)
 51. What is standard error?
 52. [What is a p-value?](#what-is-a-p-value)
 
@@ -866,7 +866,7 @@ It may be tempting to think of KL Divergence as a distance metric, however we ca
 
 The purpose of taking a random sample from a lot or population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
 
-Confidence intervals are constructed at a confidence level, such as 95\%, selected by the user. What does this mean? It means that if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately 95\% of the cases. 
+Confidence intervals are constructed at a confidence level, such as $95\%$, selected by the user. What does this mean? It means that if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately $95\%$ of the cases. 
 
 In the same way that statistical tests can be one or two-sided, confidence intervals can be one or two-sided. A two-sided confidence interval brackets the population parameter from above and below. A one-sided confidence interval brackets the population parameter either from above or below and furnishes an upper or lower bound to its magnitude.
 Confidence intervals only assess sampling error in relation to the parameter of interest. (Sampling error is simply the error inherent when trying to estimate the characteristic of an entire population from a sample.) Consequently, you should be aware of these important considerations:
@@ -888,6 +888,8 @@ p-value is a measure of the strength of the evidence provided by our sample agai
 If we are given a significance level, i.e., alpha, then we reject null hypothesis if p-value is less than equal the chosen significance level, i.e., accept that your sample gives reasonable evidence to support the alternative hypothesis. The term significance level (alpha) is used to refer to a pre-chosen probability and the term "p-value" is used to indicate a probability that you calculate after a given study. The choice of significance level at which you reject null hypothesis is arbitrary. Conventionally the $5\%$ (less than $1$ in $20$ chance of being wrong), $1\%$ and $0.1\%$ ($p < 0.05, 0.01\text{ and }0.001$) levels have been used. Most authors refer to statistically significant as $p < 0.05$ and statistically highly significant as $p < 0.001$ (less than one in a thousand chance of being wrong).
 
 A fixed level alpha test can be calculated without first calculating a p-value. This is done by comparing the test statistic with a critical value of the null distribution corresponding to the level alpha. This is usually the easiest approach when doing hand calculations and using statistical tables, which provide percentiles for a relatively small set of probabilities. Most statistical software produces p-values which can be compared directly with alpha. There is no need to repeat the calculation by hand.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Statistics%20-Type%20I-%20and%20-II-Errors-table-1.jpg?raw=true)
 
 __Type I error__ is the false rejection of the null hypothesis and __type II error__ is the false acceptance of the null hypothesis. The significance level (alpha) is the probability of type I error. The power of a test is one minus the probability of type II error (beta). Power should be maximized when selecting statistical methods. 
 
