@@ -891,7 +891,7 @@ If we are given a significance level, i.e., alpha, then we reject null hypothesi
 
 A fixed level alpha test can be calculated without first calculating a p-value. This is done by comparing the test statistic with a critical value of the null distribution corresponding to the level alpha. This is usually the easiest approach when doing hand calculations and using statistical tables, which provide percentiles for a relatively small set of probabilities. Most statistical software produces p-values which can be compared directly with alpha. There is no need to repeat the calculation by hand.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Statistics%20-Type%20I-%20and%20-II-Errors-table-1.jpg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/type_I_type_II_errors.png?raw=true)
 
 __Type I error__ is the rejection of a true null hypothesis (also known as a "false positive" finding or conclusion), while a __type II error__ is the non-rejection of a false null hypothesis (also known as a "false negative" finding or conclusion). The significance level (alpha) is the probability of type I error. The power of a test is one minus the probability of type II error (beta), which is the probability of rejecting false null hypothesis. The power of a test tells us how likely we are to find a significant difference given that the alternative hypothesis is true (the true mean is different from the mean under the null hypothesis). Therefore, power should be maximized when selecting statistical methods. 
 
