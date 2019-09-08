@@ -12,6 +12,13 @@ permalink: /faq/
 [Numerical Optimization](#numerical-optimization)
 
 [Probability](#probability)
+1. What is a random experiment?
+2. What is a sample space?
+3. What is an empty set?
+4. What is an event?
+5. What are the operations on a set?
+6. What is a probability?
+
 1. [What is a random variable?](#what-is-a-random-variable)
 2. Compare “Frequentist probability” vs. “Bayesian probability”?
 3. What is a probability distribution?
@@ -60,6 +67,44 @@ permalink: /faq/
 ## Numerical Optimization
 
 ## Probability
+
+#### What is a random experiment?
+A random experiment is an experiment or a process for which the outcome cannot be predicted with certainty.
+
+#### What is a sample space?
+The sample space (mostly denoted by $S$) of a random experiment is the set of all possible outcomes. $S$ is called the certain event.
+
+Let $A$ be a set. The notation $x \in A$ means that $x$ belongs to $A$. 
+
+#### What is an empty set?
+In mathematics, the empty set, mostly denoted by $\emptyset$, is a set with no elements; its size or cardinality (count of elements in a set) is zero. Empty set is called the impossible event. 
+
+Let $A$ be a set. 
+* The intersection of any set with the empty set is the empty set, i.e., $A \cap \emptyset = \emptyset$.
+* The union of any set with the empty set is the set we started with, i.e., $A \cup \emptyset = A$.
+* The complement of the empty set is the universal set for the setting that we are working in.
+* The empty set is a subset of any set.
+
+#### What is an event?
+An event (mostly denoted by $E$) is a subset of the sample space. We say that $E$ has occured if the observed outcome $x$ is an element of $E$, that is $x \in E$
+
+**Examples**:
+* Random experiment: toss a coin, sample sample $S = \{ \text{heads}, \text{tails}\}$
+* Random experiment: roll a dice, sample sample $S = \{1,2,3,4,5,6\}$
+
+#### What are the operations on a set?
+
+
+#### What is a probability?
+We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
+
+#### What are the probability axioms?
+
+\begin{itemize}
+\item **Axiom 1** For any event $A$, $P(A) \geq 0$
+\item **Axiom 2** Probability of the sample space is $P(S)=1$ 
+\item **Axiom 3** If $A_{1}, A_{2}, A_{3}, \ldots$ are disjoint (mutually exclusive) (even countably infinite) events, meaning that they have an empty intersection, the probability of the union of the events is the same as the sum of the probabilities: $P(A_{1} \cup A_{2} \cup A_{3} \cup \ldots) = P(A_{1}) + P(A_{2}) + P(A_{3}) + \dots$.
+\end{itemize}
 
 #### What is a random variable?
 A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. There are two types of random variables, discrete and continuous. 
