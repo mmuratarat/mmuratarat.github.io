@@ -273,10 +273,9 @@ Non-square matrices do not have inverses by definition. Note that not all square
 
 #### When does inverse of a matrix exist?
 
+**Determine its rank**. In order for a square matrix $A$ to have an inverse $A^{-1}$, then $A$ must be full rank. The rank of a matrix is a unique number associated with a square matrix. If the rank of an $n \times n$ matrix is less than $n$, the matrix does not have an inverse. 
 
-\textbf{Determine its rank}. In order for a square matrix $A$ to have an inverse $A^{-1}$, then $A$ must be full rank. The rank of a matrix is a unique number associated with a square matrix. If the rank of an $n \times n$ matrix is less than $n$, the matrix does not have an inverse. 
-
-\textbf{Compute its determinant}. The determinant is another unique number associated with a square matrix. When the determinant for a square matrix is equal to zero, the inverse for that matrix does not exist.
+**Compute its determinant**. The determinant is another unique number associated with a square matrix. When the determinant for a square matrix is equal to zero, the inverse for that matrix does not exist.
 
 $A, B \in \mathbb{R}^{n\times n}$ are non-singular. 
 1. $(A^{-1})^{-1} = A$
@@ -336,7 +335,7 @@ $$
     \begin{bmatrix}
     1 & 3 & 3 & | & 1 & 0 & 0 \\
     1 & 4 & 3 & | & 0 & 1 & 0\\
-    1 & 3 & 4   | & 0 & 0 & 1
+    1 & 3 & 4 & | & 0 & 0 & 1
     \end{bmatrix}
 $$
 
