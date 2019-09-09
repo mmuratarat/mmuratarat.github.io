@@ -132,16 +132,14 @@ permalink: /faq/
 51. What is standard error?
 52. [What is a p-value?](#what-is-a-p-value)
 
-
-
 [General Machine Learning](#general-machine-learning)
 
-1. What is an epoch, a batch and an iteration?
-2. What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
-3. What are the assumptions required for linear regression?
-4. What are the assumptions required for logistic regression?
-5. What is collinearity and what to do with it? How to remove multicollinearity?
-6. What is R squared?
+1. [What is an epoch, a batch and an iteration?](#what-is-an-epoch-a-batch-and-an-iteration)
+2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
+3. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
+4. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
+5. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
+6. [What is R squared?](#what-is-r-squared)
 
 
 ## Linear Algebra
