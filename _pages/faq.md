@@ -1006,16 +1006,20 @@ However, some other assumptions still apply.
 
 #### What is R squared?
 
-R-squared (R2) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. Whereas correlation explains the strength of the relationship between an independent and dependent variable, R-squared explains to what extent the variance of one variable explains the variance of the second variable. So, if the R2 of a model is 0.50, then approximately half of the observed variation can be explained by the model's inputs. It may also be known as the coefficient of determination.
+R-squared ($R^{2}$) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. Whereas correlation explains the strength of the relationship between an independent and dependent variable, R-squared explains to what extent the variance of one variable explains the variance of the second variable. So, if the $R^{2}$ of a model is $0.50$, then approximately half of the observed variation can be explained by the model's inputs. It may also be known as the coefficient of determination.
 
 $$
-{R^2}\left( {{y _{true}},{y _{pred}}} \right) =  1- \frac{\text{Sum of Squared}_{residuals}}{\text{Sum of Squared}_{total}} =1 - \frac{{{{\sum {\left( {{y _{true}} - {y _{pred}}} \right)} }^2}}}{{{{\sum {\left( {{y _{true}} - \bar y} \right)} }^2}}}$$
+\begin{split}
+R^{2} \left(y_{true}, y_{pred} \right) =&  1- \frac{\text{Sum of Squared}_{residuals}}{\text{Sum of Squared}_{total}} 
+&= 1 - \frac{\sum \left(y_{true} - y_{pred}\right)^{2}}{\sum \left(y_{true} - \hat{y} \right)^{2}}
+\end{split}
+$$
 
 where 
 $$
 \bar{y} = \frac{1}{n _{samples}}\sum {y _{true}}$$
 
-R-squared values range from 0 to 1 and are commonly stated as percentages from 0\% to 100\%. 
+R-squared values range from 0 to 1 and are commonly stated as percentages from $0\%$ to $100\%$. 
 
 R squared alone cannot be used as a meaningful comparison of models with very different numbers of independent variables. It only works as intended in a simple linear regression model with one explanatory variable. R-squared is monotone increasing with the number of variables included—i.e., it will never decrease because when we add a new variable, regression model will try to minimize $\text{Sum of Squared}_{residuals}$ but $\text{Sum of Squared}_{total}$ will be the same. Thus, a model with more terms may seem to have a better fit just for the fact that it has more terms. This leads to the alternative approach of looking at the adjusted R squared. The adjusted R-squared compares the descriptive power of regression models that include diverse numbers of predictors. The adjusted R-squared compensates for the addition of variables and only increases if the new term enhances the model above what would be obtained by probability and decreases when a predictor enhances the model less than what is predicted by chance. In an overfitting condition, an incorrectly high value of R-squared, which leads to a decreased ability to predict, is obtained. This is not the case with the adjusted R-squared.
 
