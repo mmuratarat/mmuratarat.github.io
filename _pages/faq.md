@@ -70,6 +70,7 @@ permalink: /faq/
 8. What is line search?
 9. What is hill climbing?
 10. What is curvature?
+11. Describe convex function.
 
 
 [Set Theory](#set-theory)
