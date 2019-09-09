@@ -1011,7 +1011,7 @@ R-squared ($R^{2}$) is a statistical measure that represents the proportion of t
 $$
 \begin{split}
 R^{2} \left(y_{true}, y_{pred} \right) =&  1- \frac{\text{Sum of Squared}_{residuals}}{\text{Sum of Squared}_{total}} 
-&= 1 - \frac{\sum \left(y_{true} - y_{pred}\right)^{2}}{\sum \left(y_{true} - \hat{y} \right)^{2}}
+&= 1 - \frac{\sum \left(y_{true} - y_{pred}\right)^{2}}{\sum \left(y_{true} - \bar{y} \right)^{2}}
 \end{split}
 $$
 
@@ -1026,7 +1026,7 @@ R squared alone cannot be used as a meaningful comparison of models with very di
 While standard R-squared can be used to compare the goodness of two or model different models, adjusted R-squared is not a good metric for comparing nonlinear models or multiple linear regressions.
 
 $$
-    {\bar{R}^2} = 1- (1- {R^2})\frac{n-1}{n-p-1}
+\bar{R}^2 = 1- (1- {R^2})\frac{n-1}{n-p-1}
 $$
 
 where $p$ is the total number of explanatory variables in the model (not including the constant term), and n is the sample size.
