@@ -995,7 +995,7 @@ However, some other assumptions still apply.
     * 1 = not correlated.
     * Between 1 and 5 = moderately correlated.
     * Greater than 5 = highly correlated.
-
+    
      The rule of thumb cut-off value for VIF is 10. Solving backwards, this translates into an R-squared value of 0.90. Hence, whenever the R-squared value between one independent variable and the rest is greater than or equal to 0.90, you will have to face multicollinearity.
 
 * Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
