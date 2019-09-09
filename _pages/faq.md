@@ -1013,7 +1013,7 @@ $$
 
 where 
 $$
-\bar y = \frac{1}{{{n _{samples}}}}\sum {{y _{true}}}$$
+\bar{y} = \frac{1}{n _{samples}}\sum {y _{true}}$$
 
 R-squared values range from 0 to 1 and are commonly stated as percentages from 0\% to 100\%. 
 
