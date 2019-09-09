@@ -132,6 +132,15 @@ permalink: /faq/
 51. What is standard error?
 52. [What is a p-value?](#what-is-a-p-value)
 
+
+
+[General Machine Learning](#general-machine-learning)
+
+1. What is an epoch, a batch and an iteration?
+2. What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
+3. What are the assumptions required for linear regression?
+
+
 ## Linear Algebra
 
 #### What are scalars, vectors, matrices, and tensors?
@@ -900,3 +909,35 @@ When the null hypothesis is true and you reject it, you make a type I error. The
 The power of a test is one minus the probability of type II error (beta), which is the probability of rejecting of rejecting the null hypothesis when it is false. The power of a test tells us how likely we are to find a significant difference given that the alternative hypothesis is true (the true mean is different from the mean under the null hypothesis). Therefore, power should be maximized when selecting statistical methods. 
 
 The chances of committing these two types of errors are inversely proportional—that is, decreasing Type I error rate increases Type II error rate, and vice versa. To decrease your chance of committing a Type I error, simply make your alpha value more stringent. To reduce your chance of committing a Type II error, increase your analyses’ power by either increasing your sample size or relaxing your alpha level!
+
+## General Machine Learning
+
+#### What is an epoch, a batch and an iteration?
+
+A batch is the complete dataset. Its size is the total number of training examples in the available dataset.
+
+Mini-batch size is the number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
+
+A Mini-batch is a small part of the dataset of given mini-batch size.
+One epoch = one forward pass and one backward pass of all the training examples
+
+Number of iterations = An iteration describes the number of times a batch of data passed through the algorithm, number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes).
+
+_Example_: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
+
+#### What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
+
+Confusion Matrix, also known as an error matrix, describes the complete performance of the model. Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class (or vice versa). The name stems from the fact that it makes it easy to see if the system is confusing two classes (i.e. commonly mislabeling one as another). It is a special kind of contingency table, with two dimensions ("actual" and "predicted"), and identical sets of "classes" in both dimensions (each combination of dimension and class is a variable in the contingency table).
+
+* **Regression problems**: Mean Absolute Error, Mean Squared Error, Root Mean Squared Error, R-squared
+* **Classification problems**: Accuracy, Precision, Recall, Sensitivity, Specificity, False Positive Rate, F1 Score, AUC, Lift and gain charts
+
+* Linear Relationship between the features and target
+* The number of observations must be greater than number of features
+* No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables.It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features.
+* Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdot X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. 
+     More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. 
+* Normal distribution of error terms $\varepsilon \sim N(0, \sigma^{2})$: The fourth assumption is that the error(residuals) follow a normal distribution.However, a less widely known fact is that, as sample sizes increase, the normality assumption for the residuals is not needed. More precisely, if we consider repeated sampling from our population, for large sample sizes, the distribution (across repeated samples) of the ordinary least squares estimates of the regression coefficients follow a normal distribution. As a consequence, for moderate to large sample sizes, non-normality of residuals should not adversely affect the usual inferential procedures. This result is a consequence of an extremely important result in statistics, known as the central limit theorem.
+     Normal distribution of the residuals can be validated by plotting a q-q plot.
+* No autocorrelation of residuals (Independence of errors $E(\varepsilon_{i} \varepsilon_{j}] = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy. This usually occurs in time series models where the next instant is dependent on previous instant.
+    Autocorrelation can be tested with the help of Durbin-Watson test. The null hypothesis of the test is that there is no serial correlation. 
