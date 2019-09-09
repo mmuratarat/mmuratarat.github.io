@@ -139,6 +139,9 @@ permalink: /faq/
 1. What is an epoch, a batch and an iteration?
 2. What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
 3. What are the assumptions required for linear regression?
+4. What are the assumptions required for logistic regression?
+5. What is collinearity and what to do with it? How to remove multicollinearity?
+6. What is R squared?
 
 
 ## Linear Algebra
@@ -932,6 +935,8 @@ Confusion Matrix, also known as an error matrix, describes the complete performa
 * **Regression problems**: Mean Absolute Error, Mean Squared Error, Root Mean Squared Error, R-squared
 * **Classification problems**: Accuracy, Precision, Recall, Sensitivity, Specificity, False Positive Rate, F1 Score, AUC, Lift and gain charts
 
+#### What are the assumptions required for linear regression?
+
 * Linear Relationship between the features and target
 * The number of observations must be greater than number of features
 * No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables.It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features.
@@ -941,3 +946,83 @@ Confusion Matrix, also known as an error matrix, describes the complete performa
      Normal distribution of the residuals can be validated by plotting a q-q plot.
 * No autocorrelation of residuals (Independence of errors $E(\varepsilon_{i} \varepsilon_{j}] = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy. This usually occurs in time series models where the next instant is dependent on previous instant.
     Autocorrelation can be tested with the help of Durbin-Watson test. The null hypothesis of the test is that there is no serial correlation. 
+    
+#### What are the assumptions required for logistic regression?
+
+First, logistic regression does not require a linear relationship between the dependent and independent variables.  Second, the error terms (residuals) do not need to be normally distributed.  Third, homoscedasticity is not required.  Finally, the dependent variable in logistic regression is not measured on an interval or ratio scale.
+ 
+However, some other assumptions still apply.
+
+* __ASSUMPTION OF APPROPRIATE OUTCOME STRUCTURE:__ Binary logistic regression requires the dependent variable to be binary and ordinal logistic regression requires the dependent variable to be ordinal.
+
+* __ASSUMPTION OF OBSERVATION INDEPENDENCE:__ Logistic regression requires the observations to be independent of each other.  In other words, the observations should not come from repeated measurements or matched data.
+
+* __ASSUMPTION OF THE ABSENCE OF MULTICOLLINEARITY:__ Logistic regression requires there to be little or no multicollinearity among the independent variables.  This means that the independent variables should not be too highly correlated with each other.
+
+* __ASSUMPTION OF LINEARITY OF INDEPENDENT VARIABLES AND LOG ODDS:__ Logistic regression assumes linearity of independent variables and log odds.  although this analysis does not require the dependent and independent variables to be related linearly, it requires that the independent variables are linearly related to the log odds.
+
+* __ASSUMPTION OF A LARGE SAMPLE SIZE:__ Logistic regression typically requires a large sample size.
+
+#### What is collinearity and what to do with it? How to remove multicollinearity?
+
+**Collinearity/Multicollinearity:**
+* In multiple regression: when two or more variables are highly correlated
+* They provide redundant information
+* In case of perfect multicollinearity: $\beta = (X^{T}X)^{-1}X^{T}y $ does not exist, the design matrix is not invertible
+* It doesn't affect the model as a whole, doesn't bias results
+* The standard errors of the regression coefficients of the affected variables tend to be large
+* The test of hypothesis that the coefficient is equal to zero may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
+* Leads to overfitting
+
+**Remove multicollinearity:**
+* Drop some of affected variables
+* Combine the affected variables
+* Removing correlated variables might lead to loss of information. In order to retain those variables, we can use penalized regression models like ridge or lasso regression. 
+* Partial least square regression
+* Principal component regression: gives uncorrelated predictors
+
+**Detection of multicollinearity:**
+
+* Large changes in the individual coefficients when a predictor variable is added or deleted
+* Insignificant regression coefficients for the affected predictors but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
+* The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation for variable $i$ is then computed as:
+    
+    \begin{equation}
+        VIF = \frac{1}{1-R_{i}^{2}}
+    \end{equation}
+    
+    A rule of thumb for interpreting the variance inflation factor: 
+    * 1 = not correlated.
+    * Between 1 and 5 = moderately correlated.
+    * Greater than 5 = highly correlated.
+
+     The rule of thumb cut-off value for VIF is 10. Solving backwards, this translates into an R-squared value of 0.90. Hence, whenever the R-squared value between one independent variable and the rest is greater than or equal to 0.90, you will have to face multicollinearity.
+
+* Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
+    
+* Eigenvalues of the correlation matrix of the independent variables near zero indicate multicollinearity. Instead of looking at the numerical size of the eigenvalue, use the condition number. Large condition numbers indicate multicollinearity.
+    
+* Investigate the signs of the regression coefficients. Variables whose regression coefficients are opposite in sign from what you would expect may indicate multicollinearity
+
+#### What is R squared?
+
+R-squared (R2) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. Whereas correlation explains the strength of the relationship between an independent and dependent variable, R-squared explains to what extent the variance of one variable explains the variance of the second variable. So, if the R2 of a model is 0.50, then approximately half of the observed variation can be explained by the model's inputs. It may also be known as the coefficient of determination.
+
+$$
+{R^2}\left( {{y _{true}},{y _{pred}}} \right) =  1- \frac{\text{Sum of Squared}_{residuals}}{\text{Sum of Squared}_{total}} =1 - \frac{{{{\sum {\left( {{y _{true}} - {y _{pred}}} \right)} }^2}}}{{{{\sum {\left( {{y _{true}} - \bar y} \right)} }^2}}}$$
+
+where 
+$$
+\bar y = \frac{1}{{{n _{samples}}}}\sum {{y _{true}}}$$
+
+R-squared values range from 0 to 1 and are commonly stated as percentages from 0\% to 100\%. 
+
+R squared alone cannot be used as a meaningful comparison of models with very different numbers of independent variables. It only works as intended in a simple linear regression model with one explanatory variable. R-squared is monotone increasing with the number of variables included—i.e., it will never decrease because when we add a new variable, regression model will try to minimize $\text{Sum of Squared}_{residuals}$ but $\text{Sum of Squared}_{total}$ will be the same. Thus, a model with more terms may seem to have a better fit just for the fact that it has more terms. This leads to the alternative approach of looking at the adjusted R squared. The adjusted R-squared compares the descriptive power of regression models that include diverse numbers of predictors. The adjusted R-squared compensates for the addition of variables and only increases if the new term enhances the model above what would be obtained by probability and decreases when a predictor enhances the model less than what is predicted by chance. In an overfitting condition, an incorrectly high value of R-squared, which leads to a decreased ability to predict, is obtained. This is not the case with the adjusted R-squared.
+
+While standard R-squared can be used to compare the goodness of two or model different models, adjusted R-squared is not a good metric for comparing nonlinear models or multiple linear regressions.
+
+$$
+    {\bar{R}^2} = 1- (1- {R^2})\frac{n-1}{n-p-1}
+$$
+
+where $p$ is the total number of explanatory variables in the model (not including the constant term), and n is the sample size.
