@@ -145,14 +145,14 @@ permalink: /faq/
 8. [How do you validate a machine learning model?](#how-do-you-validate-a-machine-learning-model)
 9. [What is the Bias-variance trade-off for Leave-one-out and k-fold cross validation?](#what-is-the-bias-variance-trade-off-for-leave-one-out-and-k-fold-cross-validation)
 10. [Describe Machine Learning, Deep Learning, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Reinforcement Learning with examples](#describe-machine-learning-deep-learning-supervised-learning-unsupervised-learning-semi-supervised-learning-reinforcement-learning-with-examples)
-11. What is batch learning and online learning?
-12. What is instance-based and model-based learning?
-13. What are the main challenges of machine learning algorithms?
-14. What are the most important unsupervised learning algorithms?
-15. What is Tensorflow?
-16. Why Deep Learning is important?
-17. What are the three respects of an learning algorithm to be efficient?
-18. What are the differences between a parameter and a hyperparameter?
+11. [What is batch learning and online learning?](#what-is-batch-learning-and-online-learning)
+12. [What is instance-based and model-based learning?](#what-is-instance-based-and-model-based-learning)
+13. [What are the main challenges of machine learning algorithms?](#what-are-the-main-challenges-of-machine-learning-algorithms)
+14. [What are the most important unsupervised learning algorithms?](#what-are-the-most-important-unsupervised-learning-algorithms)
+15. [What is Tensorflow?](#what-is-tensorflow)
+16. [Why Deep Learning is important?](#why-deep-learning-is-important)
+17. [What are the three respects of an learning algorithm to be efficient?](#what-are-the-three-respects-of-an-learning-algorithm-to-be-efficient)
+18. [What are the differences between a parameter and a hyperparameter?](#what-are-the-differences-between-a-parameter-and-a-hyperparameter)
 
 
 ## Linear Algebra
@@ -1147,7 +1147,7 @@ A big challenge with online learning if that if bad data is fed to the system, t
 
 Another way to categorize Machine Learning systems is by how they generalize.  Most Machine Learning tasks are about making predictions. This means that given a number of training examples, the system needs to be able to generalize to examples it has never seen before. Having a good performance measure on the training data is good but insufficient. True goal here is to perform well on new instances. There are two main approaches to generalization: instance-based learning and model-based learning.
 
-Instance-based learning simply compares new data points to known data points. It is possible the most trivial form of learning, it is simply to learn by heart, then generalizes to new cases using a similarity measure. K-nearest neighbor algorithm is a well known instance-based learning algorithm. 
+Instance-based learning simply compares new data points to known data points. It is possibly the most trivial form of learning, it is simply to learn by heart, then generalizes to new cases using a similarity measure. K-nearest neighbor algorithm is a well known instance-based learning algorithm. 
 
 Model-based learning detects patterns in the training data and build a predictive model, much like scientists do. Then we use that model to make predictions on unseen data.
 
@@ -1166,17 +1166,17 @@ Model-based learning detects patterns in the training data and build a predictiv
 In supervised learning, the training data is unlabeled. The system tries to learn without a teacher. Here are some of the most important unsupervised learning algorithms:
 
 * Clustering
-- k-means
-- Hierarchial Cluster Analysis
-- Expectation-Maximization
+    - k-means
+    - Hierarchial Cluster Analysis
+    - Expectation-Maximization
 * Visualization and dimensionality reduction
-- Principal Component Analysis
-- Kernel PCA
-- Locally Linear Embedding
-- t-distributed Stochastic Neighbor Embedding (t-SNE)
+    - Principal Component Analysis
+    - Kernel PCA
+    - Locally Linear Embedding
+    - t-distributed Stochastic Neighbor Embedding (t-SNE)
 * Association rule learning
-- Apriori
-- Eclat
+    - Apriori
+    - Eclat
 
 #### What is Tensorflow?
 
