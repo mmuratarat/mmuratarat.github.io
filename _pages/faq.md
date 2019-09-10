@@ -153,12 +153,12 @@ permalink: /faq/
 16. [Why Deep Learning is important?](#why-deep-learning-is-important)
 17. [What are the three respects of an learning algorithm to be efficient?](#what-are-the-three-respects-of-an-learning-algorithm-to-be-efficient)
 18. [What are the differences between a parameter and a hyperparameter?](#what-are-the-differences-between-a-parameter-and-a-hyperparameter)
-19. Why do we have three sets: training, validation and test?
-20. What are the goals to build a learning machine?
-21. What are the solutions of overfitting?
-22. Is it better to design robust or accurate algorithms?
-23. What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?
-24. What are the types of feature selection methods?
+19. [Why do we have three sets: training, validation and test?](#why-do-we-have-three-sets-training-validation-and-test)
+20. [What are the goals to build a learning machine?](#what-are-the-goals-to-build-a-learning-machine)
+21. [What are the solutions of overfitting?](#what-are-the-solutions-of-overfitting)
+22. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
+23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
+24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. How do you deal with missing value in a data set?
 26. How do you deal with imbalanced data?
 27. How do you deal with high cardinality?
