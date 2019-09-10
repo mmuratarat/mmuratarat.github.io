@@ -1192,7 +1192,7 @@ We want learning algorithm to be efficient in three main dimensions:
 
 * __computational__: the amount of computing resources required to reach a given level of performance.
 * __statistical__: the amount of training data required (especially labeled data) for good generalizations.
-* __human involvement_: the amount of human effort (labor) required to tailor the algorithm to a task, i.e., specify the prior knowledge built into the model before training (explicitly or implicitly through engineering designs with a human-in-the-loop). 
+* __human involvement__: the amount of human effort (labor) required to tailor the algorithm to a task, i.e., specify the prior knowledge built into the model before training (explicitly or implicitly through engineering designs with a human-in-the-loop). 
 
 #### What are the differences between a parameter and a hyperparameter?
 
