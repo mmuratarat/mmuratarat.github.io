@@ -172,7 +172,7 @@ permalink: /faq/
 
 Scalars are single numbers and are an example of a 0th-order tensor. The notation $x \in \mathbb{R}$ states that the scalar value $x$ is an element of (or member of) the set of real-valued numbers, $\mathbb{R}$.
 
-There are various sets of numbers of interest within machine learning. $\matbb{N}$ represents the set of positive integers $(1,2,3, ...)$. $\matbb{Z}$ represents the integers, which include positive, negative and zero values. $\mathbb{Q}$ represents the set of rational numbers that may be expressed as a fraction of two integers.
+There are various sets of numbers of interest within machine learning. $\mathbb{N}$ represents the set of positive integers $(1,2,3, ...)$. $\mathbb{Z}$ represents the integers, which include positive, negative and zero values. $\mathbb{Q}$ represents the set of rational numbers that may be expressed as a fraction of two integers.
 
 Vectors are ordered arrays of single numbers and are an example of 1st-order tensor.  An $n$-dimensional vector itself can be explicitly written using the following notation:
 
@@ -681,21 +681,21 @@ A scalar is its own trace $a=Tr(a)$
 
 A matrix $A$ is positive semidefinite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
 
-A square symmetric matrix $A \in  \matbb{R}^{n \times n}$ is positive semi-definite if 
+A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is positive semi-definite if 
 
 $$
-v^{T} A V \geq 0,\,\,\, \forall v in \matbb{R}^{n \times 1}
+v^{T} A V \geq 0,\,\,\, \forall v in \mathbb{R}^{n \times 1}
 $$ 
 
 and positive definite if the inequality holds with equality only for vectors $v=0$.
 
-A square symmetric matrix $A \in  \matbb{R}^{n \times n}$ is negative semi-definite if
+A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is negative semi-definite if
 
 $$
-v^{T} A V \leq 0,\,\,\, \forall v in \matbb{R}^{n \times 1}
+v^{T} A V \leq 0,\,\,\, \forall v in \mathbb{R}^{n \times 1}
 $$ 
 
-and negative definite (nd) if the inequality holds with equality only for vectors v=0.
+and negative definite if the inequality holds with equality only for vectors $v=0$.
 
 A symmetric matrix is positive semi-definite if and only if all eigenvalues are non-negative. It is negative semi-definite if and only if all eigenvalues are non-positive. It is positive definite if and only if all eigenvalues are positive. It is negative definite if and only if all eigenvalues are negative.
 
