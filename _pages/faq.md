@@ -916,7 +916,7 @@ If $X$ is a random vector, the covariance matrix of $X$, denoted by $\Sigma$, is
 
 $$
 \begin{split}
-cov(\mathbf{X}) &= E\left[ \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} \right]\\
+$\Sigma$ = cov(\mathbf{X}) &= E\left[ \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} \right]\\
 &= E\left[\mathbf{X}\mathbf{X}^{T} \right] - E[\mathbf{X}]\left(E[\mathbf{X}]\right)^{T}
 \end{split}
 $$
