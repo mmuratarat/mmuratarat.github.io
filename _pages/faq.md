@@ -684,18 +684,18 @@ A matrix $A$ is positive semi-definite if it is symmetric and all its eigenvalue
 A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is positive semi-definite if 
 
 $$
-v^{T} A V \geq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
+v^{T} A v \geq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
 $$ 
 
-and positive definite if the inequality holds with equality only for vectors $v=0$.
+and positive definite if the inequality holds with equality only for vectors $v=0$, i.e., $v^{T} A v > 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}$.
 
 A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is negative semi-definite if
 
 $$
-v^{T} A V \leq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
+v^{T} A v \leq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
 $$ 
 
-and negative definite if the inequality holds with equality only for vectors $v=0$.
+and negative definite if the inequality holds with equality only for vectors $v=0$, i.e., $v^{T} A v < 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}$
 
 Positive (semi)definite and negativ (semi)definite matrices together are called definite matrices. A symmetric matrix that is not definite is said to be indefinite. 
 
