@@ -106,6 +106,7 @@ permalink: /faq/
 22. What are the conditions for independence and conditional independence of two random variables?
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
+25. What is the correlation for a vector of random variables? How is it related to covariance matrix?
 25. What is moment generating function? What is characteristic function? How to compute them?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. What is a multinoulli distribution?
@@ -939,8 +940,17 @@ $$
 
 Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag \left(\sigma_{1}^{2}, \sigma_{2}^{2}, \ldots , \sigma_{n}^{2}\right)$ if the $X_{i}$ have common variance $\sigma^{2}.
 
-Also note that covariance matrix is a positive semi-definite matrix. 
+__Properties:__
 
+* **Addition to the constant vectors**: Let a be a constant $n \times 1$ vector and let $X$ be a $n \times 1$ random vector. Then, $cov(a + \mathbf{X}) = cov(\mathbf{X})$.
+* **Multiplication by constant matrices**: Let $b$ be a constant $m \times n$ matrix and let $X$ be a $n \times 1$ random vector. Then, $cov(b \mathbf{X}) = b cov(\mathbf{X}) b^{T}$.
+* **Linear transformations** Let a be a constant $n \times 1$ vector, and $b$ be a constant $m \times n$ matrix and X$ be a $n \times 1$ random vector. Then, combining the two properties above, one obtains $cov(a + b \mathbf{X})= b cov(\mathbf{X}) b^{T}$
+* **Symmetry**: The covariance matrix $cov(\mathbf{X})$ is a symmetric matrix, that is, it is equal to its transpose: $cov(\mathbf{X}) = cov(\mathbf{X})^{T}$.
+* **Semi-positive definiteness**:
+
+
+
+#### What is the correlation for a vector of random variables? How is it related to covariance matrix?
 
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
