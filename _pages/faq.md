@@ -56,6 +56,7 @@ permalink: /faq/
 46. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
+49. What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
 
 
 [Numerical Optimization](#numerical-optimization)
@@ -676,6 +677,29 @@ $$
 
 A scalar is its own trace $a=Tr(a)$
 
+#### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
+
+A matrix $A$ is positive semidefinite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
+
+A square symmetric matrix $A \in  \matbb{R}^{n \times n}$ is positive semi-definite if 
+
+$$
+v^{T} A V \geq 0,\,\,\, \forall v in \matbb{R}^{n \times 1}
+$$ 
+
+and positive definite if the inequality holds with equality only for vectors $v=0$.
+
+A square symmetric matrix $A \in  \matbb{R}^{n \times n}$ is negative semi-definite if
+
+$$
+v^{T} A V \leq 0,\,\,\, \forall v in \matbb{R}^{n \times 1}
+$$ 
+
+and negative definite (nd) if the inequality holds with equality only for vectors v=0.
+
+A symmetric matrix is positive semi-definite if and only if all eigenvalues are non-negative. It is negative semi-definite if and only if all eigenvalues are non-positive. It is positive definite if and only if all eigenvalues are positive. It is negative definite if and only if all eigenvalues are negative.
+
+
 
 ## Numerical Optimization
 
@@ -898,6 +922,8 @@ $$
 $$
 
 Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag \left(\sigma_{1}^{2}, \sigma_{2}^{2}, \ldots , \sigma_{n}^{2}\right)$ if the $X_{i}$ have common variance $\sigma^{2}.
+
+Also note that covariance matrix is a positive semi-definite matrix. 
 
 
 
