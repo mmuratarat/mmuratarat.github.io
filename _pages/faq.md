@@ -1085,10 +1085,6 @@ The most important thing you can do to properly evaluate your model is to not tr
 
 When we perform Leave-One-Out Cross Validation (LOOCV), we are in effect averaging the outputs of $n$ fitted models (assuming we have $n$ observations), each of which is trained on an almost identical set of observations; therefore, these outputs are highly (positively) correlated with each other. In contrast, when we perform $k$-fold CV with $k < n$ are averaging the outputs of $k$ fitted models that are somewhat less correlated with each other, since the overlap between the training sets in each model is smaller. Since the mean of many highly correlated quantities has higher variance than does the mean of many quantities that are not as highly correlated, the test error estimate resulting from LOOCV tends to have higher variance than does the test error estimate resulting from $k$-fold CV (the variance of the sum of correlated variables increases with the amount of covariance). However, LOOCV estimator is approximately unbiased for the true (expected) prediction error
 
-$$
-\operatorname{Var}\left(\sum_{i=1}^NX_i\right)=\sum_{i=1}^N \sum_{j=1}^N \operatorname{Cov}\left(X_i,X_j\right)
-$$
-
 To summarize, there is a bias-variance trade-off associated with the choice of $k$ in $k$-fold cross-validation.
 
 Note that while two-fold cross validation doesn't have the problem of overlapping training sets, it often also has large variance because the training sets are only half the size of the original sample. A good compromise is ten-fold cross-validation.
