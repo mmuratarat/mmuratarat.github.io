@@ -56,8 +56,7 @@ permalink: /faq/
 46. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
-49. What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
-
+49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
 
 [Numerical Optimization](#numerical-optimization)
 
