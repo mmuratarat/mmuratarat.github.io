@@ -105,6 +105,8 @@ permalink: /faq/
 22. What are the conditions for independence and conditional independence of two random variables?
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
+25. What is moment generating function? How to compute it?
+26  What is characteristic function? How to compute it?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. What is a multinoulli distribution?
 27. What is a normal distribution?
