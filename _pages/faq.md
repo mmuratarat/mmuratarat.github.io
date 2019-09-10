@@ -1303,6 +1303,6 @@ Feature scaling is the method used to standardize the range of features of data.
 
  There are three types of feature selection methods
  
-* **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done.One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
+* **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done. One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
 * **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
 * **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., L1-Regularization.
