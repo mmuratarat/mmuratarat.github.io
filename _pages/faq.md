@@ -1106,3 +1106,105 @@ Typically, given these considerations, one performs $k$-fold cross-validation wi
 * **Semi-supervised Learning**: In this type of learning, the dataset contains both labeled and unlabeled examples. Usually, the quantity of unlabeled examples is much higher than the number of labeled examples. Many real world machine learning problems fall into this area. This is because it can be expensive or time-consuming to label data as it may require access to domain experts. Whereas unlabeled data is cheap and easy to collect and store. It could look counter-intuitive that learning could benefit from adding more unlabeled examples. It seems like we add more uncertainty to the problem. However, when you add cheap and abundant unlabeled examples, you add more information about the problem. A larger sample reflects better the probability distribution of the data we labeled came from. Most semi-supervised learning algorithms are combinations of unsupervised and supervised algorithms. For example, deep belief networks are based on unsupervised components called restricted Boltzmann machines (RBMs), stacked on the top of another. RBMs are trained sequentially in an unsupervised manner, and then the whole system is fine-tuned using supervised learning techniques, 
 
 * **Reinforcement Learning**: It is a sub-field of machine learning where the machine "lives" in an environment and is capable of perceiving the state of that environment as a vector of features. The machine can also execute actions in every state. Different actions bring different rewards and could also move the machine to another state of the environment. The goal of a reinforcement learning algorithm is to learn a policy (which is the best strategy). In Reinforcement Learning, we want to develop a learning system (called an \textit{agent}) that can learn how to take actions in the real world. The most common approach is to learn those actions by trying to maximize some kind of reward (or minimize penalties in the form of negative rewards) encouraging the desired state of the environment. For example, many robots implement Reinforcement Learning algorithms to learn how to walk. DeepMind's AlphaGo program is also a good example of Reinforcement Learning.
+
+#### What is batch learning and online learning?
+
+Another criterion used to classify Machine Learning systems is whether or not system can learn incrementally from a stream of incoming data. 
+
+In __Batch Learning__, the system is incapable of learning incrementally, it must be trained using all the available data. This will generally take a lot of time and computing resources, so it is typically done offline. First the system is trained, and then it is launched into production and runs without learning anymore; it just applied what it has learned. This is called \textit{offline learning}.
+
+If you want a batch learning system to know about the new data, you need to train a new version of the system from scratch on the full dataset (not just the new data but also the old data), then stop the old system and replace it with the new one. 
+
+Fortunately, the whole process of training, evaluating and launching a Machine Learning system can be automated fairly easily, so even, a batch learning system can adapt to change. Simply, update the data and train a new version of the system from scratch as often as needed. 
+
+This solution is simple and often works fine but training the full set of data can take many hours so you would typically train a new system only ever 24 hours or even just weekly. If your system needs to adapt to rapidly changing data, then you need a more reactive solution. 
+
+Also training on the full set of data required a lot of computing resources (CPU, memory space, disk space, disk I/0, network I/O etc.). If you have a lot of data and you automate your system to train from scratch every day, it will end up costing you a lot of money. If the amount of data is huge, it may even be impossible to use a batch learning algorithm. 
+
+Finally, if your system needs to be able to learn autonomously, and it has limited resources, then carrying around large amounts of training data and taking up a lot of resources to train for hours everyday is a show-stopped.
+
+Fortunately, a better option in all these cases is to use algorithms that are capable of learning incrementally.
+
+In __online learning__, you train the system incrementally by feeding it data instances sequentially, either individually or by small groups called _mini-batches_. Each learning step is fast and cheap, so the system can learn about new data on the fly, as it arrived. 
+
+Online learning is great for systems that receive the data as continuous flow and need to adapt to change rapidly or autonomously. It is also a good option if you have limited computing resources: once an online learning system has learned about new data instances, it does not need them anymore so you can discard them (unless you want to be able to roll back to a previous state and 'replay' the data). This can save a huge amount of space.
+
+Online learning algorithms can also be used to train systems on huge datasets that cannot fit in one machine's main memory (this is called \textit{out-of-core} learning). An out-of-core learning algorithm chops the data into mini-batches, runs a training step on that data, then repeats the process until it has run on all of the data.
+
+One important parameter of online learning systems is how fast they should adapt to changing data: this is called _learning rate_. If you set a high learning rate, then your system will rapidly adapt to new data but it will also tend to quickly forget the old data. Conversely, if you set a low learning rate, the system will have more inertia; that is, it will learn more slowly, but it will also be less sensitive to noise in the new data or to to sequences of non-representative data points.
+
+A big challenge with online learning if that if bad data is fed to the system, the system's performance will gradually decline. In order to reduce the risk, you need to monitor the system closely and promptly switch the learning off (and possibly revert to a previously working state) if you detect a drop in performance. You may also want to monitor the input data and react to abnormal data (e.g., using an anomaly detection algorithm).
+
+#### What is instance-based and model-based learning?
+
+Another way to categorize Machine Learning systems is by how they generalize.  Most Machine Learning tasks are about making predictions. This means that given a number of training examples, the system needs to be able to generalize to examples it has never seen before. Having a good performance measure on the training data is good but insufficient. True goal here is to perform well on new instances. There are two main approaches to generalization: instance-based learning and model-based learning.
+
+Instance-based learning simply compares new data points to known data points. It is possible the most trivial form of learning, it is simply to learn by heart, then generalizes to new cases using a similarity measure. K-nearest neighbor algorithm is a well known instance-based learning algorithm. 
+
+Model-based learning detects patterns in the training data and build a predictive model, much like scientists do. Then we use that model to make predictions on unseen data.
+
+#### What are the main challenges of machine learning algorithms?
+
+* Insufficient quantity of data
+* Non-representative training data
+* Poor quality data (polluted data full of errors, outliers and noise)
+* Irrelevant features (feature engineering, feature selection, feature extraction)
+* Overfitting the training data
+* Underfitting the training data
+
+#### What are the most important unsupervised learning algorithms?
+
+
+In supervised learning, the training data is unlabeled. The system tries to learn without a teacher. Here are some of the most important unsupervised learning algorithms:
+
+* Clustering
+- k-means
+- Hierarchial Cluster Analysis
+- Expectation-Maximization
+* Visualization and dimensionality reduction
+- Principal Component Analysis
+- Kernel PCA
+- Locally Linear Embedding
+- t-distributed Stochastic Neighbor Embedding (t-SNE)
+* Association rule learning
+- Apriori
+- Eclat
+
+#### What is Tensorflow?
+
+Created by the Google Brain team, TensorFlow is  a Python-friendly open source library for numerical computation and large-scale machine learning. TensorFlow bundles together a slew of machine learning and deep learning models and algorithms. It uses Python to provide a convenient front-end API for building applications within the framework, while executing those applications in high-performance C++.
+
+#### Why Deep Learning is important?
+
+In deep learning we want to find a mapping function from inputs to outputs. The function to be learned should be expressible as multiple levels of composition of simpler functions where different levels of functions can be viewed as different levels of abstraction. Functions at lower levels of abstraction should be found useful for capturing some simpler aspects of data distribution, so that it is possible to first learn the simpler functions and then compose them to learn more abstract concepts. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts. 
+
+#### What are the three respects of an learning algorithm to be efficient?
+
+We want learning algorithm to be efficient in three main dimensions:
+
+* __computational__: the amount of computing resources required to reach a given level of performance.
+* __statistical__: the amount of training data required (especially labeled data) for good generalizations.
+* __human involvement_: the amount of human effort (labor) required to tailor the algorithm to a task, i.e., specify the prior knowledge built into the model before training (explicitly or implicitly through engineering designs with a human-in-the-loop). 
+
+#### What are the differences between a parameter and a hyperparameter?
+
+A hyperparameter, also called a tuning parameter,
+* is external to the model.
+* cannot be estimated from data.
+* is often specified by the researcher.
+* is often set using heuristics.
+* is often tuned for a given predictive modeling problem.
+* is often used in a process to help estimate the model parameters.
+
+An example of an hyper parameter is the learning rate for training a neural network.
+
+A parameter 
+
+* is a configuration variable that is internal to the model and whose value is estimated directly from data.
+* is often not set manually by the researcher.
+* is often saved as a part of the learned model.
+
+An example of a parameter is the weights in a neural network.
+
+Note that if you have to specify a model parameter manually, then it is probably a model parameter. 
+
