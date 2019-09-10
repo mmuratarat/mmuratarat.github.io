@@ -57,6 +57,7 @@ permalink: /faq/
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
+50. How to make a positive definite matrix with a matrix that’s not symmetric?
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -696,7 +697,20 @@ $$
 
 and negative definite if the inequality holds with equality only for vectors $v=0$.
 
+Positive (semi)definite and negativ (semi)definite matrices together are called definite matrices. A symmetric matrix that is not definite is said to be indefinite. 
+
 A symmetric matrix is positive semi-definite if and only if all eigenvalues are non-negative. It is negative semi-definite if and only if all eigenvalues are non-positive. It is positive definite if and only if all eigenvalues are positive. It is negative definite if and only if all eigenvalues are negative.
+
+The matrix $A$ is positive sem-definite if any only if $−A$ is negative semi-definite, and similarly a matrix $A$ is positive definite if and only if $−A$ is negative definite.
+
+Now, let's see how we can use the quadratic form to check the positive definiteness:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/pd_nd_psd_nsd.png?raw=true)
+
+To check if the matrix is positive definite/positive semi-definite/negative definite/negative semi-definite or not, you just have to compute the above quadratic form and check if the value is strictly positive/positive/strictly negative or negative.
+
+### How to make a positive definite matrix with a matrix that’s not symmetric?
+
 
 
 
