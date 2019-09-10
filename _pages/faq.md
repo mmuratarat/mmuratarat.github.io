@@ -57,7 +57,7 @@ permalink: /faq/
 47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
 48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
-50. How to make a positive definite matrix with a matrix that’s not symmetric?
+50. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
 
 [Numerical Optimization](#numerical-optimization)
 
@@ -679,7 +679,7 @@ A scalar is its own trace $a=Tr(a)$
 
 #### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
 
-A matrix $A$ is positive semidefinite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
+A matrix $A$ is positive semi-definite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
 
 A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is positive semi-definite if 
 
@@ -711,8 +711,9 @@ To check if the matrix is positive definite/positive semi-definite/negative defi
 
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
+The problem with definite matrices is that they are not always symmetric. however, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
 
-
+Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert^2 > 0$, then $B^{T}B$ is positive definite matrix.
 
 ## Numerical Optimization
 
