@@ -871,7 +871,7 @@ $$
 \mathbf{X} = \begin{bmatrix} X_{1} \\ X_{2}\\ \vdots \\ X_{n} \end{bmatrix}
 $$
 
-If $X$ is a random vector, the covariance matrix of $X$ is then given by:
+If $X$ is a random vector, the covariance matrix of $X$, denoted by $\Sigma$, is then given by:
 
 $$
 \begin{split}
@@ -883,7 +883,7 @@ $$
 and defined as
 
 $$
-cov(\mathbf{X}) = cov(X_{i}, X_{j}) = 
+\Sigma = cov(\mathbf{X}) = 
 \begin{bmatrix} Var(X_{1}) & cov(X_{1},X_{2}) & \ldots & cov(X_{1},X_{n}) \\
 cov(X_{2}, X_{1}) & Var(X_{2}) & \ldots & cov(X_{2},X_{n}) \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
@@ -891,7 +891,15 @@ cov(X_{n}, X_{1}) & cov(X_{n}, X_{2}) & \ldots & Var(X_{n}) \\
 \end{bmatrix}
 $$
 
+As we previously mentioned, covariance matrix is symmetric, meaning that $\Sigma_{i,j} = \Sigma_{j,i}$.
+
+$$
+\Sigma_{i,j} = cov(X_{i}, X_{j}) = E\left[\left(X_{i} - E(X_{i}) \right)\left(X_{j} - E(X_{j}) \right)\right] = E\left[\left(X_{i} - \mu_{i} \right)\left(X_{j} - \mu_{j} \right)\right]
+$$
+
 Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag \left(\sigma_{1}^{2}, \sigma_{2}^{2}, \ldots , \sigma_{n}^{2}\right)$ if the $X_{i}$ have common variance $\sigma^{2}.
+
+
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
