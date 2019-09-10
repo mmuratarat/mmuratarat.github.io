@@ -145,6 +145,14 @@ permalink: /faq/
 8. [How do you validate a machine learning model?](#how-do-you-validate-a-machine-learning-model)
 9. [What is the Bias-variance trade-off for Leave-one-out and k-fold cross validation?](#what-is-the-bias-variance-trade-off-for-leave-one-out-and-k-fold-cross-validation)
 10. [Describe Machine Learning, Deep Learning, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Reinforcement Learning with examples](#describe-machine-learning-deep-learning-supervised-learning-unsupervised-learning-semi-supervised-learning-reinforcement-learning-with-examples)
+11. What is batch learning and online learning?
+12. What is instance-based and model-based learning?
+13. What are the main challenges of machine learning algorithms?
+14. What are the most important unsupervised learning algorithms?
+15. What is Tensorflow?
+16. Why Deep Learning is important?
+17. What are the three respects of an learning algorithm to be efficient?
+18. What are the differences between a parameter and a hyperparameter?
 
 
 ## Linear Algebra
