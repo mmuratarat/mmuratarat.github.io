@@ -22,7 +22,7 @@ permalink: /faq/
 12. [If inverse of a matrix exists, how to calculate it?](#if-inverse-of-a-matrix-exists-how-to-calculate-it)
 13. [What is the determinant of a square matrix? How is it calculated? What is the connection of determinant to eigenvalues?](#what-is-the-determinant-of-a-square-matrix-how-is-it-calculated-what-is-the-connection-of-determinant-to-eigenvalues)
 14. Discuss span and linear dependence.
-15. What is Ax = b? When does Ax =b has a unique solution?}
+15. What is Ax = b? When does Ax =b has a unique solution?
 16. In Ax = b, what happens when A is fat or tall?
 17. [What is a norm? What is $L^{1}$, $L^{2}$ and $L^{\infty}$ norm? What are the conditions a norm has to satisfy?](#what-is-a-norm-what-is-l_1-l_2-and-l_infty-norm-what-are-the-conditions-a-norm-has-to-satisfy)
 18. Why is squared of L2 norm preferred in ML than just L2 norm?
