@@ -813,6 +813,8 @@ $$
 corr(X, Y) = \rho_{X, Y}= \frac{cov(X,Y)}{\sigma_{X}\sigma_{y}}
 $$
 
+As one can tell easily that correlation is just the covariance normalized.
+ 
 The covariance is especially useful when looking at the variance of the sum of two random 'correlated' variates, since
 
 $$
