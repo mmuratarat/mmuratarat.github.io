@@ -711,9 +711,9 @@ To check if the matrix is positive definite/positive semi-definite/negative defi
 
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
-The problem with definite matrices is that they are not always symmetric. however, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
+The problem with definite matrices is that they are not always symmetric. However, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
 
-Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert^2 > 0$, then $B^{T}B$ is positive definite matrix.
+Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$ which is a square matrix in real space. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert^2 > 0$, then $B^{T}B$ is positive definite matrix.
 
 ## Numerical Optimization
 
