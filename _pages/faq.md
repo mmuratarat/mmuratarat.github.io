@@ -59,6 +59,7 @@ permalink: /faq/
 49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
 50. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
 
+
 [Numerical Optimization](#numerical-optimization)
 
 1. What is underflow and overflow?
@@ -105,8 +106,7 @@ permalink: /faq/
 22. What are the conditions for independence and conditional independence of two random variables?
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
-25. What is moment generating function? How to compute it?
-26  What is characteristic function? How to compute it?
+25. What is moment generating function? What is characteristic function? How to compute them?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. What is a multinoulli distribution?
 27. What is a normal distribution?
