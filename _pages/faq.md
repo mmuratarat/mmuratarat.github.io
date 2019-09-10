@@ -863,6 +863,36 @@ $$
 cov(X,Y)=cov(Y,X). 
 $$
 
+#### What is the covariance for a vector of random variables?
+
+A random vector is a vector of random variables:
+
+$$
+\mathbf{X} = \begin{bmatrix} X_{1} \\ X_{2}\\ \vdots \\ X_{n} \end{bmatrix}
+$$
+
+If $X$ is a random vector, the covariance matrix of $X$ is then given by:
+
+$$
+\begin{split}
+cov(\mathbf{X}) &= E\left[ \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} \right]\\
+&= E\left[\mathbf{X}\mathbf{X}^{2} \right] - E[\mathbf{X}]\left(E[\mathbf{X}]\right)^{T}
+\end{split}
+$$
+
+and defined as
+
+$$
+cov(\mathbf{X}) = cov(X_{i}, X_{j} = 
+\begin{bmatrix} Var(X_{1}) & cov(X_{1},X_{2}) & \ldots & cov(X_{1},X_{n}) \\
+cov(X_{2}, X_{1}) & Var(X_{2}) & \ldots & cov(X_{2},X_{n}) \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+cov(X_{n}, X_{1}) & cov(X_{n}, X_{2}) & \ldots & Var(X_{n}) \\
+\end{bmatrix}
+$$
+
+Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag (\sigma_{1}^{2}, \sigma_{2}^{2}, \ldots , \sigma_{n}^{2}$ if the $X_{i}$ have common variance $sigma^{2}.
+
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
 
