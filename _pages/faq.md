@@ -683,7 +683,7 @@ A matrix $A$ is positive semidefinite if it is symmetric and all its eigenvalues
 A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is positive semi-definite if 
 
 $$
-v^{T} A V \geq 0,\,\,\, \forall v in \mathbb{R}^{n \times 1}
+v^{T} A V \geq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
 $$ 
 
 and positive definite if the inequality holds with equality only for vectors $v=0$.
@@ -691,7 +691,7 @@ and positive definite if the inequality holds with equality only for vectors $v=
 A square symmetric matrix $A \in  \mathbb{R}^{n \times n}$ is negative semi-definite if
 
 $$
-v^{T} A V \leq 0,\,\,\, \forall v in \mathbb{R}^{n \times 1}
+v^{T} A V \leq 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}
 $$ 
 
 and negative definite if the inequality holds with equality only for vectors $v=0$.
