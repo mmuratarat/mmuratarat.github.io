@@ -949,7 +949,7 @@ __Properties:__
 * **Linear transformations** Let a be a constant $n \times 1$ vector, and $b$ be a constant $m \times n$ matrix and $X$ be a $n \times 1$ random vector. Then, combining the two properties above, one obtains $cov(a + b \mathbf{X})= b cov(\mathbf{X}) b^{T}$.
 
 * **Symmetry**: The covariance matrix $cov(\mathbf{X})$ is a symmetric matrix, that is, it is equal to its transpose: $cov(\mathbf{X}) = cov(\mathbf{X})^{T}$.
-* **Semi-positive definiteness**:
+* **Positive semi-definiteness**:
 
 
 
