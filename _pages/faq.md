@@ -813,10 +813,28 @@ $$
 corr(X, Y) = \rho_{X, Y}= \frac{cov(X,Y)}{\sigma_{X}\sigma_{y}}
 $$
 
-The covariance is especially useful when looking at the variance of the sum of two random variates, since
+The covariance is especially useful when looking at the variance of the sum of two random 'correlated' variates, since
 
 $$
 Var(X+Y) = Var(X)+ Var(Y) + 2cov(X,Y)
+$$
+
+If the variables are uncorrelated (that is, $cov(X, Y)=0$), then
+
+$$
+Var(X+Y) = Var(X) + Var(Y).
+$$
+
+In general,
+
+$$
+Var\left( \sum_{i=1}^{n} X_i \right)=  \sum_{i=1}^{n} Var( X_i) + 2\sum_{i< j} cov(X_i,X_j).
+$$
+
+If for each $i \neq j$, $X_i$ and $X_j$ are uncorrelated, in particular if the $X_i$ are pairwise independent (that is, $X_i$ and $X_j$ are independent whenever $i \neq j$), then,
+
+$$
+Var\left( \sum_{i=1}^{n} X_i \right)=  \sum_{i=1}^{n} Var( X_i) .
 $$
 
 The covariance is symmetric by definition since
