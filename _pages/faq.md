@@ -153,7 +153,17 @@ permalink: /faq/
 16. [Why Deep Learning is important?](#why-deep-learning-is-important)
 17. [What are the three respects of an learning algorithm to be efficient?](#what-are-the-three-respects-of-an-learning-algorithm-to-be-efficient)
 18. [What are the differences between a parameter and a hyperparameter?](#what-are-the-differences-between-a-parameter-and-a-hyperparameter)
-
+19. Why do we have three sets: training, validation and test?
+20. What are the goals to build a learning machine?
+21. What are the solutions of overfitting?
+22. Is it better to design robust or accurate algorithms?
+23. What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?
+24. What are the types of feature selection methods?
+25. How do you deal with missing value in a data set?
+26. How do you deal with imbalanced data?
+27. How do you deal with high cardinality?
+28. What are the hyperparameter tuning methods?
+29. What cross-validation technique would you use on a time series dataset?
 
 ## Linear Algebra
 
@@ -721,7 +731,7 @@ P(A \cup B) = P(A) + P(B)
 $$
 
 #### What is a non-disjoint event?
-Disjoint Events, by definition, can not happen at the same time. A synonym for this term is mutually exclusive. Non-disjoint events, on the other hand, can happen at the same time. For example, a student can get grade A in Statistics course and A in History course at the same time.
+Disjoint events, by definition, can not happen at the same time. A synonym for this term is mutually exclusive. Non-disjoint events, on the other hand, can happen at the same time. For example, a student can get grade A in Statistics course and A in History course at the same time.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nondisjoint_events.png?raw=true)
 
@@ -732,7 +742,7 @@ P(A \cup B) = P(A) + P(B) - P(A \cap B)
 $$
 
 #### What is exhaustive events?
-When two or more events form the sample space ($S$) collectively than it is known as collectively exhaustive events. The $n$ events $A_{1}, A_{2}, A_{3}, \ldots, A_{n}$ are said to be exhaustive if $A_{1} \cup A_{2} \cup A_{3} \cup \ldots \cup A_{n} = S$. 
+When two or more events form the sample space ($S$) collectively, then it is known as collectively-exhaustive events. The $n$ events $A_{1}, A_{2}, A_{3}, \ldots, A_{n}$ are said to be exhaustive if $A_{1} \cup A_{2} \cup A_{3} \cup \ldots \cup A_{n} = S$. 
 
 #### What is Inclusion-Exlusive Principle?
 * For $n=2$ events:
@@ -873,7 +883,7 @@ $$
 Bernoulli distribution is a special case of Binomial distribution. If $X_{1},\dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum is distributed according to a binomial distribution with parameters $n$ and $p$:
 
 $$
-\sum _{k=1}^{n}X_{k}\sim Binomial(n,p)
+\sum_{k=1}^{n} X_{k} \sim Binomial(n,p)
 $$
 
 The Bernoulli distribution is simply $Binomial(1,p)$, also written as $Bernoulli(p)$.
@@ -1216,3 +1226,83 @@ An example of a parameter is the weights in a neural network.
 
 Note that if you have to specify a model parameter manually, then it is probably a model parameter. 
 
+#### Why do we have three sets: training, validation and test?
+
+In practice, we have three distinct sets of labeled examples:
+
+* training set
+* validation set, and
+* test set
+
+Once you have your annotated dataset, the first thing you do is to shuffle the examples and split the data set into three subsets. Training set is usually the biggest one, you use it to build model. Validation and test sets are roughly the same sizes, much smaller than the size of the training set. The learning algorithm cannot use these examples from these two subsets to build the model. That is why those two subsets are often called \textbf{holdout sets}. 
+
+There is no optimal proportion to split the dataset into three subsets. The reason why we have three sets and not one is because we do not want the model to do well at predicting labels of examples the learning algorithm has already seen. A trivial algorithm that simply memorizes all the training examples and then uses the memory to "predict" their labels will make no mistakes when asked to predict the labels if the training examples but such an algorithm would be useless in practice. What we really want is a model that is good at predicting examples that the learning algorithm did not see: we want good performance on a holdout set.
+
+Why do we need two holdout sets and not one? We use the validation set to (1) to choose the learning algorithm and (2) find the best values of hyperparameters. We use then the test set to assess the model before delivering it to the client or putting it in production. 
+
+#### What are the goals to build a learning machine?
+
+If our goal is to build a learning machine, our research should concentrate on devising learning models with following features:
+
+* A highly flexible way to specify prior knowledge, hence a learning algorithm that can function with a large repertoire of architectures.
+* A learning algorithm that can deal with deep architectures, in which a decision involves the manipulation of many intermediate concepts, and multiple levels of non-linear steps.
+* A learning algorithm that can handle large families of functions, parameterized with million of individual parameters.
+* A learning algorithm that can be trained efficiently even, when the number of training examples becomes very large. This excludes learning algorithms requiring to store and iterate multiple times over the whole training set, or for which the amount of computations per example increases as more examples are seen. This strongly suggest the use of on-line learning.
+* A learning algorithm that can discover concepts that can be shared easily among multiple tasks and multiple modalities (multi-task learning), and that can take advantage of large amounts of unlabeled data (semi-supervised learning).
+
+#### What are the solutions of overfitting?
+
+There are several solutions to the problem of overfitting:
+
+* We can try a simpler model because in the case of overfitting, the model might be complex for the dataset, e.g., linear instead of polynomial regression, or SVM with a linear kernel instead of radial basis function, a neural network with fever layers/units.
+* We can reduce the dimensionality of the dataset (removing some  irrelevant features, or using one of the dimensionality reduction techniques. Even some algorithms have built-in feature selection.)
+* We can add more training data.
+* We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases.
+* We can use regularization methods. For example, you could prune a decision tree, use dropout on a neural network, or add a penalty parameter (L1/L2 Regularization) to the cost function in regression.
+* We can use Ensembling methods (Bagging and Boosting). Ensembles are machine learning methods for combining predictions from multiple separate models. Bagging uses complex base models and tries to "smooth out" their predictions, while boosting uses simple base models and tries to "boost" their aggregate complexity.
+* Cross-validation is a powerful preventative measure against overfitting.
+
+#### Is it better to design robust or accurate algorithms?
+
+* The ultimate goal is to design systems with good generalization capacity, that is, systems that correctly identify patterns in data instances not seen before
+* The generalization performance of a learning system strongly depends on the complexity of the model assumed
+* If the model is too simple, the system can only capture the actual data regularities in a rough manner. In this case, the system has poor generalization properties and is said to suffer from underfitting
+* By contrast, when the model is too complex, the system can identify accidental patterns in the training data that need not be present in the test set. These spurious patterns can be the result of random fluctuations or of measurement errors during the data collection process. In this case, the generalization capacity of the learning system is also poor. The learning system is said to be affected by overfitting
+* Spurious patterns, which are only present by accident in the data, tend to have complex forms. This is the idea behind the principle of Occam’s razor for avoiding overfitting: simpler models are preferred if more complex models do not significantly improve the quality of the description for the observations
+* Quick response: Occam’s Razor. It depends on the learning task. Choose the right balance
+* Ensemble learning can help balancing bias/variance (several weak learners together = strong learner)
+
+#### What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?
+
+Feature scaling is the method used to standardize the range of features of data. Since the range of values of data may vary widely, it becomes a necessary step in data processing while using ML algorithms. 
+
+* **Min-Max Scaling**: You transform the data such that the features are within a specific range, e.g. [0,1]
+     \begin{equation}
+         X^{'} = \frac{X- X_{min}}{X_{max} - X_{min}}
+     \end{equation}
+     where $X^{'}$ is the normalized value.
+* **Normalization**: The point of normalization is to change your observations so they can be described as a normal distribution.
+     \begin{equation}
+         X^{'} = \frac{X- X_{mean}}{X_{max} - X_{min}}
+     \end{equation}
+     All the values will be between 0 and 1. 
+* **Standardization**:Standardization (also called z-score normalization) transforms your data such that the resulting distribution has a mean 0 and a standard deviation 1. 
+     \begin{equation}
+         X^{'} = \frac{X- X_{mean}}{\sigma}
+     \end{equation}
+     where $X$ is the original feature vector, $X_{mean}$ is the mean of the feature vector, and $\sigma$ is its standard deviation. 
+     
+ You should scale your data,
+ 
+* when your algorithm will weight each input, e.g. gradient descent used by many neural networks, or use distance metrics, e.g., kNN, model performance can often be improved by normalizing, standardizing, otherwise scaling your data so that each feature is given relatively equal weight.
+* It is also important when features are measured in different units, e.g. feature A is measured in inches, feature B is measured in feet, and feature C is measured in dollars, that they are scaled in a way that they are weighted and/or represented equally.
+     In some cases, efficacy will not change but perceived feature importance might change, e.g., coefficients in a linear regression.
+* Scaling your data typically does not change the performance or feature importance for tree-based models which are not distance based models, since the split points will simply shift to compensate for the scaled data. 
+
+#### What are the types of feature selection methods?
+
+ There are three types of feature selection methods
+ 
+* **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done.One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
+* **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
+* **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., L1-Regularization.
