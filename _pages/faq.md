@@ -834,6 +834,36 @@ A discrete random variable is one which may take on only a countable number of d
 
 A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
+#### What is conditional probability? Given the joint probability function, how will you calculate it?
+
+Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \middle A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
+
+However, If events $A$ and $B$ are not independent, then the probability of the intersection of $A$ and $B$ (the probability that both events occur) is defined by $P(A\text{ and }B) = P(A \cap B) = P(A)P(B \middle A)$, which $P(A\text{ and }B)$ is the joint probability. Intuitively it states that the probability of observing events $A$ and $B$ is the probability of observing $A$, multiplied by the probability of observing $B$, given that you have observed $A$.
+
+From this definition, the conditional probability $P(B \middle A)$ is easily obtained by dividing by $P(A)$:
+
+$$
+P(B \middle A) = \dfrac{P(A \cap B)}{P(A)} 
+$$
+
+Note that this expression is only valid when $P(A)$ is greater than 0.
+
+Technically speaking, when you condition on an event happening, you are entering the universe where that event has taken place. Mathematically, if you condition on $A$, then $A$ becomes your new sample space. In the universe where $A$ has taken place, all axioms of probability still hold! In particular,
+
+* __Axiom 1:__ For any event $B$, P(B \middle A) \geq 0$.
+* __Axiom 2:__ Conditional probability of $A$ given $A$ is 1, i.e., $P(A \middle A)=1$.
+* __Axiom 3:__ If $B_{1}, B_{2}, B_{3}, \ldots $ are disjoint events, then $P(B_{1} \cup B_{2} \cup B_{3} \cup \ldots \middle A) = P(B_{1} \middle A) + P(B_{2} \middle A) + P(B_{3} \middle A) + \dots $
+
+
+#### State the Chain rule of conditional probabilities.
+
+To calculate the probability of the intersection of more than two events, the conditional probabilities of all of the preceding events must be considered. In the case of three events, $A$, $B$, and $C$, the probability of the intersection $P(A\text{ and }B\text{ and }C) = P(A)P(B|A)P(C|A\text{ and }B)$. which we call the Chain Rule. Here is the general form of the Chain Rule when $n$ events are given:
+
+$$
+P(A_1 \cap A_2 \cap \cdots \cap A_n)=P(A_1)P(A_2|A_1)P(A_3|A_2,A_1) \cdots P(A_n|A_{n-1}A_{n-2} \cdots A_1)
+$$
+
+
 #### What are expectation, variance and covariance?
 In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
 
