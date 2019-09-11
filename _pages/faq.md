@@ -167,11 +167,11 @@ permalink: /faq/
 23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
-25. How do you deal with missing value in a data set?
-26. How do you deal with imbalanced data?
-27. How do you deal with high cardinality?
-28. What are the hyperparameter tuning methods?
-29. What cross-validation technique would you use on a time series dataset?
+26. What are the hyperparameter tuning methods?
+27. How do you deal with missing value in a data set?
+28. How do you deal with imbalanced data?
+29. How do you deal with high cardinality? 
+30. What cross-validation technique would you use on a time series dataset?
 
 ## Linear Algebra
 
@@ -1460,3 +1460,18 @@ Feature scaling is the method used to standardize the range of features of data.
 #### How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
 
 You can always check the model performance after adding or removing a features, if the performance of model is dropping or improving you can see if the inclusion of that variable makes sense or not. Apart from that, you tweak different inbuilt model parameters like you increase number of trees to grow or number of iterations to do in random forest, you add a regularisation term in linear regression, you change threshold parameters in logistic regression, you assign weights to several algorithms, if you compare the accuracies and other statistics before and after making such change to model, you can understand if these result into any improvement or not.
+
+#### What are the hyperparameter tuning methods?
+Hyperparameters are not optimized by the learning algorithm itself. The researcher has to tune the hyperparameters by experimentally finding the best combination o fvalues, one per hyper parameter.
+
+One typical way to do that, when you have enough data to have a decent validation set and the number of hyperparameters and their range is not too large is to use __grid search__.
+
+Grid search is the most simple hyperparameter tuning technique. It builds a model for every combination of hyperparameters specified and evaluates each model. Finally, you keep the model that performs the best according to the metric. Once the best pair of hyperparameters ois found, you can try to explore the values close to the best ones in some region around them. Sometimes, this can result in an even better model. Finally you assess the selected model using the test set.
+
+However, trying all combinations of hyperparameters, especially if there are more than a couple of them, could be time-consuming, especially for large datasets. There are more efficient techniques seuch as __random search__ and __Bayesian hyperparameter optimization__. 
+
+Random search differs from grid search in that you no longer provide a discrete set of values to explore for each hyperparameter. Instead, you provide a statistical distribution for each hyperparameter from which values are randomly sampled and set the total number of combinations (number of iterations) you want to try.
+
+Bayesian techniques differ from random or grid search in that they use past evaluation results to choose the next values to evaluate. The idea is to limit the number of expensive optimizations of the objective function by choosing the next hyperparameter values based on those that have done well in the past. 
+
+There are also __gradient-based techniques__, __evolutionary optimization techniques__, and other algorithmic hyperparameter tuning techniques. 
