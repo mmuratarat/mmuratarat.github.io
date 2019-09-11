@@ -110,7 +110,7 @@ permalink: /faq/
 26. What is Cross-covariance?
 25. What is moment generating function? What is characteristic function? How to compute them?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
-26. What is binomial distribution?
+26. [What is binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
