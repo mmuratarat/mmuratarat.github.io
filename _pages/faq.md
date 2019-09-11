@@ -1099,7 +1099,7 @@ __Type I error__ is the rejection of a true null hypothesis (also known as a "fa
 
 When the null hypothesis is true and you reject it, you make a type I error. The probability of making a type I error is alpha, which is the level of significance you set for your hypothesis test.
 
-The power of a test is one minus the probability of type II error (beta), which is the probability of rejecting the null hypothesis when it is false. The power of a test tells us how likely we are to find a significant difference given that the alternative hypothesis is true (the true mean is different from the mean under the null hypothesis). Therefore, power should be maximized when selecting statistical methods. 
+The power of a test is one minus the probability of type II error (beta), which is the probability of rejecting the null hypothesis when it is false. In other words, it is the ability to detect a fault when there is actually a fault to be detected. Therefore, power should be maximized when selecting statistical methods. 
 
 The chances of committing these two types of errors are inversely proportional—that is, decreasing Type I error rate increases Type II error rate, and vice versa. To decrease your chance of committing a Type I error, simply make your alpha value more stringent. To reduce your chance of committing a Type II error, increase your analyses’ power by either increasing your sample size or relaxing your alpha level!
 
