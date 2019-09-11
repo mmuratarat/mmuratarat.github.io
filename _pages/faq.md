@@ -956,6 +956,16 @@ __Properties:__
 
 #### What is the correlation for a vector of random variables? How is it related to covariance matrix?
 
+The correlation matrix of $\mathbf{X}$ is defined as
+
+$$
+corr(\mathbf{X}) = corr (X_{i}, X_{j}) = \begin{bmatrix} 1 & cor(X_{1},X_{2}) & \ldots & cor(X_{1},X_{n}) \\
+cor(X_{2}, X_{1}) & 1 & \ldots & cor(X_{2},X_{n}) \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+cor(X_{n}, X_{1}) & cor(X_{n}, X_{2}) & \ldots & 1 \\
+\end{bmatrix}
+$$
+
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
