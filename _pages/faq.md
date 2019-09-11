@@ -1037,7 +1037,7 @@ Note that, each trial is independent. In other words, none of the trials (experi
 Binomial distribution is probably the most commonly used discrete distribution which its probabilit mass function is given by:
 
 $$
-Binomial(x; n,p) = ^nC_{x} p^{x} (1-p)^{n-1} =  {n \choose x} p^{x} (1-p)^{n-1} = \frac{n!}{x!(n-x)!} p^{x} (1-p)^{n-1}
+Binomial(x; n,p) = ^nC_{x} p^{x} (1-p)^{n-x} =  {n \choose x} p^{x} (1-p)^{n-x} = \frac{n!}{x!(n-x)!} p^{x} (1-p)^{n-x}
 $$
 
 __Binomial coefficient__, $^nC_{x}$, stated as "n choose k", is akso known as "the number of possible ways to choose $k$ successes from $n$ observations.
