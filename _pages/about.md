@@ -19,7 +19,7 @@ You can find my one-page resume and full CV below:
 
 [Resumé](https://github.com/mmuratarat/MMA-CV/blob/master/Arat_s_One_page_CV.pdf){:target="_blank"} (1 Page)
 
-[Full](https://github.com/mmuratarat/MMA-CV/blob/master/resume.pdf){:target="_blank"} (5 Pages)
+[Full](https://github.com/mmuratarat/MMA-CV/blob/master/MMA_Full_CV.pdf){:target="_blank"} (5 Pages)
 
 <br>
 **Mustafa Murat ARAT** (M.Sc.)<br>
@@ -29,7 +29,7 @@ University of Tennessee<br>
 916 Volunteer Blvd, 252A Stokely Management Center<br>
 Knoxville, TN 37996<br>
 
-If you are interested in collaborating and doing some great work please reach out to me via:
+If you are interested in collaborating and doing some great work, please reach out to me via:
 
 <div class="contact-buttons" style="line-height:160%;margin-left:30px;margin-top:10px">
 <p>
