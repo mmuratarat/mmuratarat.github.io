@@ -166,6 +166,7 @@ permalink: /faq/
 22. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
 23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
+25. How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
 25. How do you deal with missing value in a data set?
 26. How do you deal with imbalanced data?
 27. How do you deal with high cardinality?
@@ -1455,3 +1456,7 @@ Feature scaling is the method used to standardize the range of features of data.
 * **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done. One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
 * **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
 * **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., L1-Regularization.
+
+#### How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
+
+You can always check the model performance after adding or removing a features, if the performance of model is dropping or improving you can see if the inclusion of that variable makes sense or not. Apart from that, you tweak different inbuilt model parameters like you increase number of trees to grow or number of iterations to do in random forest, you add a regularisation term in linear regression, you change threshold parameters in logistic regression, you assign weights to several algorithms, if you compare the accuracies and other statistics before and after making such change to model, you can understand if these result into any improvement or not.
