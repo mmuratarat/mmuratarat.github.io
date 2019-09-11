@@ -938,7 +938,7 @@ $$
 \Sigma_{i,j} = cov(X_{i}, X_{j}) = E\left[\left(X_{i} - E(X_{i}) \right)\left(X_{j} - E(X_{j}) \right)\right] = E\left[\left(X_{i} - \mu_{i} \right)\left(X_{j} - \mu_{j} \right)\right]
 $$
 
-Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag \left(\sigma_{1}^{2}, \sigma_{2}^{2}, \ldots , \sigma_{n}^{2}\right)$ if the $X_{i}$ have common variance $\sigma^{2}.
+Note that If $X_{1}, X_{2}, \ldots , X_{n}$ are independent, then the covariances are $0$ and the covariance matrix is equal to $diag \left(Var(X_{1}), Var(X_{2}), \ldots , Var(X_{n})\right)$ if the $X_{i}$ have common variance $\sigma^{2}$.
 
 __Properties:__
 
@@ -959,13 +959,20 @@ __Properties:__
 The correlation matrix of $\mathbf{X}$ is defined as
 
 $$
-corr(\mathbf{X}) = corr (X_{i}, X_{j}) = \begin{bmatrix} 1 & cor(X_{1},X_{2}) & \ldots & cor(X_{1},X_{n}) \\
-cor(X_{2}, X_{1}) & 1 & \ldots & cor(X_{2},X_{n}) \\
+corr(\mathbf{X}) = corr(X_{i}, X_{j}) = \begin{bmatrix} 1 & corr(X_{1},X_{2}) & \ldots & corr(X_{1},X_{n}) \\
+corr(X_{2}, X_{1}) & 1 & \ldots & corr(X_{2},X_{n}) \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-cor(X_{n}, X_{1}) & cor(X_{n}, X_{2}) & \ldots & 1 \\
+corr(X_{n}, X_{1}) & corr(X_{n}, X_{2}) & \ldots & 1 \\
 \end{bmatrix}
 $$
 
+Denote $cov(\mathbf{X})$ by $\Sigma = (\sigma_{ij})$. Then the correlation matrix and covariance matrix are related by
+
+$$
+cov(\mathbf{X}) = diag\left(\sqrt{\sigma_{11}},\sqrt{\sigma_{22}}, \ldots,\sqrt{\sigma_{nn}}\right) \times corr(\mathbf{X}) \times diag\left(\sqrt{\sigma_{11}},\sqrt{\sigma_{22}}, \ldots,\sqrt{\sigma_{nn}}\right)
+$$
+
+This is easily seen using $corr(X_{i}, X_{j}) = cov(X_{i}, X_{j})/ \sqrt{\sigma_{ii}\sigma_{jj}}$
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
