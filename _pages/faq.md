@@ -166,7 +166,7 @@ permalink: /faq/
 22. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
 23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
-25. How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
+25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 25. How do you deal with missing value in a data set?
 26. How do you deal with imbalanced data?
 27. How do you deal with high cardinality?
