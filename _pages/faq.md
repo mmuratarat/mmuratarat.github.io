@@ -101,8 +101,8 @@ permalink: /faq/
 17. What are the conditions for a function to be a probability mass function?
 18. What are the conditions for a function to be a probability density function?
 19. What is a marginal probability? Given the joint probability function, how will you calculate it?
-20. What is conditional probability? Given the joint probability function, how will you calculate it?
-21. State the Chain rule of conditional probabilities.
+20. [What is conditional probability? Given the joint probability function, how will you calculate it?](#what-is-conditional-probability-given-the-joint-probability-function-how-will-you-calculate-it)
+21. [State the Chain rule of conditional probabilities.](#state-the-chain-rule-of-conditional-probabilities)
 22. What are the conditions for independence and conditional independence of two random variables?
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
@@ -836,23 +836,23 @@ A continuous random variable is one which takes an infinite number of possible v
 
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
-Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \middle A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
+Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \mid A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
 
-However, If events $A$ and $B$ are not independent, then the probability of the intersection of $A$ and $B$ (the probability that both events occur) is defined by $P(A\text{ and }B) = P(A \cap B) = P(A)P(B \middle A)$, which $P(A\text{ and }B)$ is the joint probability. Intuitively it states that the probability of observing events $A$ and $B$ is the probability of observing $A$, multiplied by the probability of observing $B$, given that you have observed $A$.
+However, If events $A$ and $B$ are not independent, then the probability of the intersection of $A$ and $B$ (the probability that both events occur) is defined by $P(A\text{ and }B) = P(A \cap B) = P(A)P(B \mid A)$, which $P(A\text{ and }B)$ is the joint probability. Intuitively it states that the probability of observing events $A$ and $B$ is the probability of observing $A$, multiplied by the probability of observing $B$, given that you have observed $A$.
 
-From this definition, the conditional probability $P(B \middle A)$ is easily obtained by dividing by $P(A)$:
+From this definition, the conditional probability $P(B \mid A)$ is easily obtained by dividing by $P(A)$:
 
 $$
-P(B \middle A) = \dfrac{P(A \cap B)}{P(A)} 
+P(B \mid A) = \dfrac{P(A \cap B)}{P(A)} 
 $$
 
 Note that this expression is only valid when $P(A)$ is greater than 0.
 
 Technically speaking, when you condition on an event happening, you are entering the universe where that event has taken place. Mathematically, if you condition on $A$, then $A$ becomes your new sample space. In the universe where $A$ has taken place, all axioms of probability still hold! In particular,
 
-* __Axiom 1:__ For any event $B$, P(B \middle A) \geq 0$.
-* __Axiom 2:__ Conditional probability of $A$ given $A$ is 1, i.e., $P(A \middle A)=1$.
-* __Axiom 3:__ If $B_{1}, B_{2}, B_{3}, \ldots $ are disjoint events, then $P(B_{1} \cup B_{2} \cup B_{3} \cup \ldots \middle A) = P(B_{1} \middle A) + P(B_{2} \middle A) + P(B_{3} \middle A) + \dots $
+* __Axiom 1:__ For any event $B$, P(B \mid A) \geq 0$.
+* __Axiom 2:__ Conditional probability of $A$ given $A$ is 1, i.e., $P(A \mid A)=1$.
+* __Axiom 3:__ If $B_{1}, B_{2}, B_{3}, \ldots $ are disjoint events, then $P(B_{1} \cup B_{2} \cup B_{3} \cup \ldots \mid A) = P(B_{1} \mid A) + P(B_{2} \mid A) + P(B_{3} \mid A) + \dots $
 
 
 #### State the Chain rule of conditional probabilities.
