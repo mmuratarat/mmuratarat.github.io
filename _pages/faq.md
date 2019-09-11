@@ -927,7 +927,7 @@ $$
 \Sigma = cov(\mathbf{X}) = 
 \begin{bmatrix} Var(X_{1}) & cov(X_{1},X_{2}) & \ldots & cov(X_{1},X_{n}) \\
 cov(X_{2}, X_{1}) & Var(X_{2}) & \ldots & cov(X_{2},X_{n}) \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
+\vdots & \vdots & \ddots & \vdots \\
 cov(X_{n}, X_{1}) & cov(X_{n}, X_{2}) & \ldots & Var(X_{n}) \\
 \end{bmatrix}
 $$
@@ -959,9 +959,10 @@ __Properties:__
 The correlation matrix of $\mathbf{X}$ is defined as
 
 $$
-corr(\mathbf{X}) = corr(X_{i}, X_{j}) = \begin{bmatrix} 1 & corr(X_{1},X_{2}) & \ldots & corr(X_{1},X_{n}) \\
+corr(\mathbf{X}) = corr(X_{i}, X_{j}) = 
+\begin{bmatrix} 1 & corr(X_{1},X_{2}) & \ldots & corr(X_{1},X_{n}) \\
 corr(X_{2}, X_{1}) & 1 & \ldots & corr(X_{2},X_{n}) \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
+\vdots & \vdots & \ddots & \vdots \\
 corr(X_{n}, X_{1}) & corr(X_{n}, X_{2}) & \ldots & 1 \\
 \end{bmatrix}
 $$
