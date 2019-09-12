@@ -945,7 +945,7 @@ Note that this expression is only valid when $P(A)$ is greater than 0.
 
 Technically speaking, when you condition on an event happening, you are entering the universe where that event has taken place. Mathematically, if you condition on $A$, then $A$ becomes your new sample space. In the universe where $A$ has taken place, all axioms of probability still hold! In particular,
 
-* __Axiom 1:__ For any event $B$, P(B \mid A) \geq 0$.
+* __Axiom 1:__ For any event $B$, $P(B \mid A) \geq 0$.
 * __Axiom 2:__ Conditional probability of $A$ given $A$ is 1, i.e., $P(A \mid A)=1$.
 * __Axiom 3:__ If $B_{1}, B_{2}, B_{3}, \ldots $ are disjoint events, then $P(B_{1} \cup B_{2} \cup B_{3} \cup \ldots \mid A) = P(B_{1} \mid A) + P(B_{2} \mid A) + P(B_{3} \mid A) + \dots $
 
