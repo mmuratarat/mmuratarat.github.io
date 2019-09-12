@@ -100,7 +100,7 @@ permalink: /faq/
 16. [What is a joint probability distribution? What is a marginal probability? Given the joint probability function, how will you calculate it?](#what-is-a-joint-probability-distribution-what-is-a-marginal-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 20. [What is conditional probability? Given the joint probability function, how will you calculate it?](#what-is-conditional-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 21. [State the Chain rule of conditional probabilities.](#state-the-chain-rule-of-conditional-probabilities)
-22. [What are the conditions for independence and conditional independence of two random variables?](#what-is-a-probability-mass-function-what-are-the-conditions-for-a-function-to-be-a-probability-mass-function)
+22. What are the conditions for independence and conditional independence of two random variables?
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
