@@ -852,11 +852,10 @@ $$
 
 $$
 \sum_{j}p_{j} = 1
-$$
+$$ 
+    where $j$ represents all possible values that $x$ can have and $p_{j}$ is the probability at $x_j$.
 
-where $j$ represents all possible values that $x$ can have and $p_{j}$ is the probability at $x_j$.
-
-One consequence of properties 2 and 3 is that $0 \leq p(x) \leq 1$.
+    One consequence of properties 2 and 3 is that $0 \leq p(x) \leq 1$.
 
 A discrete probability function is a function that can take a discrete number of values (not necessarily finite). This is most often the non-negative integers or some subset of the non-negative integers. There is no mathematical restriction that discrete probability functions only be defined at integers, but in practice this is usually what makes sense. For example, if you toss a coin 6 times, you can get 2 heads or 3 heads but not 2 1/2 heads. Each of the discrete values has a certain probability of occurrence that is between zero and one. That is, a discrete function that allows negative values or values greater than one is not a probability function. The condition that the probabilities sum to one means that at least one of the values has to occur.
 
@@ -872,7 +871,7 @@ $$
 
 * It is non-negative for all real $x$.
 
-* he integral of the probability function is one, that is
+* The integral of the probability function is one, that is
 
 $$
 \int_{\infty}^{\infty} f(x)dx = 1
@@ -881,7 +880,6 @@ $$
 #### What is a joint probability distribution?
 
 #### What is a marginal probability? Given the joint probability function, how will you calculate it?
-
 
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
