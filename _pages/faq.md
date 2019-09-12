@@ -856,12 +856,11 @@ Technically speaking, when you condition on an event happening, you are entering
 
 #### State the Chain rule of conditional probabilities.
 
-To calculate the probability of the intersection of more than two events, the conditional probabilities of all of the preceding events must be considered. In the case of three events, $A$, $B$, and $C$, the probability of the intersection $P(A\text{ and }B\text{ and }C) = P(A)P(B \mid A)P(C \mid A\text{ and }B)$. which we call the Chain Rule. Here is the general form of the Chain Rule when $n$ events are given:
+To calculate the probability of the intersection of more than two events, the conditional probabilities of all of the preceding events must be considered. In the case of three events, $A$, $B$, and $C$, the probability of the intersection $P(A\text{ and }B\text{ and }C) = P(A)P(B \mid A)P(C \mid A\text{ and }B)$, which we call the _Chain Rule_. Here is the general form of the Chain Rule when $n$ events are given:
 
 $$
 P(A_{1} \cap A_{2} \cap \ldots \cap A_{n}) = P(A_{1})P(A_{2} \mid A_{1})P(A_{3} \mid A_{2}, A_{1}) \ldots P(A_{n} \mid A_{n-1} A_{n-2} \cdots A_{1})
 $$
-
 
 #### What are expectation, variance and covariance?
 In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
