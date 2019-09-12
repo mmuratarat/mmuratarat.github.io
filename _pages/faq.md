@@ -854,6 +854,7 @@ $$
   $$
   \sum_{j}p_{j} = 1
   $$ 
+  
   where $j$ represents all possible values that $x$ can have and $p_{j}$ is the probability at $x_j$.
 
   One consequence of properties 2 and 3 is that $0 \leq p(x) \leq 1$.
