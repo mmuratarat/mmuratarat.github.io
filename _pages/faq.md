@@ -93,12 +93,12 @@ permalink: /faq/
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
-12. Compare “Frequentist probability” vs. “Bayesian probability”?
-13. What is a probability distribution?
+12. Compare "Frequentist probability" vs. "Bayesian probability"?
+13. [What is a probability distribution?](#what-is-a-probability-distribution)
 17. [What is a probability mass function? What are the conditions for a function to be a probability mass function?](#what-is-a-probability-mass-function-what-are-the-conditions-for-a-function-to-be-a-probability-mass-function)
 18. [What is a probability density function? What are the conditions for a function to be a probability density function?](#what-is-a-probability-density-function-what-are-the-conditions-for-a-function-to-be-a-probability-density-function)
-16. What is a joint probability distribution?
-19. What is a marginal probability? Given the joint probability function, how will you calculate it?
+16. [What is a joint probability distribution?](#what-is-a-joint-probability-distribution)
+19. [What is a marginal probability? Given the joint probability function, how will you calculate it?](#what-is-a-marginal-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 20. [What is conditional probability? Given the joint probability function, how will you calculate it?](#what-is-conditional-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 21. [State the Chain rule of conditional probabilities.](#state-the-chain-rule-of-conditional-probabilities)
 22. [What are the conditions for independence and conditional independence of two random variables?](#what-is-a-probability-mass-function-what-are-the-conditions-for-a-function-to-be-a-probability-mass-function)
@@ -828,17 +828,19 @@ We assign a probability measure $P(A)$ to an event $A$. This is a value between 
 #### What is a random variable?
 A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. There are two types of random variables, discrete and continuous. 
 
-A discrete random variable is one which may take on only a countable number of distinct values such as 0,1,2,3,4,... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
+A discrete random variable is one which may take on a finite or countably infinite number of possible values such as 0,1,2,3,4,... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
 
-A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
+A continuous random variable is one which takes on an uncountably infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
 #### What is a probability distribution?
+
+In probability theory and statistics, a probability distribution is a mathematical function that provides the probabilities of occurrence of different possible outcomes in an experiment. In more technical terms, the probability distribution is a description of a random phenomenon in terms of the probabilities of events. For instance, if the random variable $X$ is used to denote the outcome of a coin toss ("the experiment"), then the probability distribution of $X$ would take the value $0.5$ for $X = \text{heads}$, and $0.5$ for $X = \text{tails}$ (assuming the coin is fair). Examples of random phenomena can include the results of an experiment or survey.
 
 Discrete probability functions are referred to as probability mass functions and continuous probability functions are referred to as probability density functions. 
 
 #### What is a probability mass function? What are the conditions for a function to be a probability mass function?
 
-Discrete probability functions are referred to as probability mass functions. The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
+Discrete probability function is referred to as probability mass function (pms). It is a function that gives the probability that a discrete random variable is exactly equal to some value. The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
 
 * The probability that $x$ can take a specific value is $p(x)$. That is
 
@@ -849,6 +851,7 @@ $$
 * $p(x)$ is non-negative for all real $x$.
 
 * The sum of $p(x)$ over all possible values of $x$ is $1$, that is
+
   $$
   \sum_{j}p_{j} = 1
   $$ 
@@ -860,7 +863,7 @@ A discrete probability function is a function that can take a discrete number of
 
 #### What is a probability density function? What are the conditions for a function to be a probability density function?
 
-Continuous probability functions are referred to as probability density functions. The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
+Continuous probability function is referred to as probability density function (pdf). It is a function of a continuous random variable, whose integral across an interval gives the probability that the value of the variable lies within the same interval. The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
 
 * The probability that x is between two points a and b is
 
@@ -877,6 +880,8 @@ $$
 $$
 
 #### What is a joint probability distribution?
+
+
 
 #### What is a marginal probability? Given the joint probability function, how will you calculate it?
 
