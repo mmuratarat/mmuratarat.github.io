@@ -930,6 +930,22 @@ $$
 
 where the first integral is over all points in the range of $(X, Y)$ for which $X = x$, and the second integral is over all points in the range of $(X, Y)$ for which $Y = y$.
 
+
+The joint cumulative distribution function (CDF) of two random variables $X$ and $Y$ is defined as:
+
+$$
+F_{XY}(x,y)=P(X \leq x,Y \leq y)
+$$
+
+The joint CDF satisfies the following properties:
+
+* $F_X(x)=F_{XY}(x, \infty)$, for any $x$ (marginal CDF of $X$)
+* $F_Y(y)=F_{XY}(\infty,y)$, for any $y$ (marginal CDF of $Y$)
+* $F_{XY}(\infty, \infty)=1$
+* $F_{XY}(-\infty, y)=F_{XY}(x,-\infty)=0$
+* $P(x_1<X \leq x_2, \hspace{5pt} y_1<Y \leq y_2)= F_{XY}(x_2,y_2)-F_{XY}(x_1,y_2)-F_{XY}(x_2,y_1)+F_{XY}(x_1,y_1)$
+* If X and Y are independent, then $F_{XY}(x,y)=F_X(x)F_Y(y)$. 
+
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
 Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \mid A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
