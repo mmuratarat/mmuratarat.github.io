@@ -95,11 +95,9 @@ permalink: /faq/
 11. [What is a random variable?](#what-is-a-random-variable)
 12. Compare “Frequentist probability” vs. “Bayesian probability”?
 13. What is a probability distribution?
-14. What is a probability mass function?
-15. What is a probability density function?
+17. What is a probability mass function? What are the conditions for a function to be a probability mass function?
+18. What is a probability density function? What are the conditions for a function to be a probability density function?
 16. What is a joint probability distribution?
-17. What are the conditions for a function to be a probability mass function?
-18. What are the conditions for a function to be a probability density function?
 19. What is a marginal probability? Given the joint probability function, how will you calculate it?
 20. [What is conditional probability? Given the joint probability function, how will you calculate it?](#what-is-conditional-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 21. [State the Chain rule of conditional probabilities.](#state-the-chain-rule-of-conditional-probabilities)
@@ -838,15 +836,9 @@ A continuous random variable is one which takes an infinite number of possible v
 
 Discrete probability functions are referred to as probability mass functions and continuous probability functions are referred to as probability density functions. 
 
-#### What is a probability mass function?
+#### What is a probability mass function? What are the conditions for a function to be a probability mass function?
 
-#### What is a probability density function?
-
-#### What is a joint probability distribution?
-
-#### What are the conditions for a function to be a probability mass function?
-
-The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
+Discrete probability functions are referred to as probability mass functions. The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
 
 * The probability that $x$ can take a specific value is $p(x)$. That is
 
@@ -868,9 +860,9 @@ One consequence of properties 2 and 3 is that $0 \leq p(x) \leq 1$.
 
 A discrete probability function is a function that can take a discrete number of values (not necessarily finite). This is most often the non-negative integers or some subset of the non-negative integers. There is no mathematical restriction that discrete probability functions only be defined at integers, but in practice this is usually what makes sense. For example, if you toss a coin 6 times, you can get 2 heads or 3 heads but not 2 1/2 heads. Each of the discrete values has a certain probability of occurrence that is between zero and one. That is, a discrete function that allows negative values or values greater than one is not a probability function. The condition that the probabilities sum to one means that at least one of the values has to occur.
 
-#### What are the conditions for a function to be a probability density function?
+#### What is a probability density function? What are the conditions for a function to be a probability density function?
 
-The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
+Continuous probability functions are referred to as probability density functions. The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
 
 * The probability that x is between two points a and b is
 
@@ -885,6 +877,8 @@ $$
 $$
 \int_{\infty}^{\infty} f(x)dx = 1
 $$
+
+#### What is a joint probability distribution?
 
 #### What is a marginal probability? Given the joint probability function, how will you calculate it?
 
