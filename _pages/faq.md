@@ -834,6 +834,61 @@ A discrete random variable is one which may take on only a countable number of d
 
 A continuous random variable is one which takes an infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
+#### What is a probability distribution?
+
+Discrete probability functions are referred to as probability mass functions and continuous probability functions are referred to as probability density functions. 
+
+#### What is a probability mass function?
+
+#### What is a probability density function?
+
+#### What is a joint probability distribution?
+
+#### What are the conditions for a function to be a probability mass function?
+
+The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
+
+* The probability that $x$ can take a specific value is $p(x)$. That is
+
+$$
+P[X=x]=p(x)=p_{x}
+$$
+
+* $p(x)$ is non-negative for all real $x$.
+
+* The sum of $p(x)$ over all possible values of $x$ is $1$, that is
+
+$$
+\sum_{j}p_{j} = 1
+$$
+
+where $j$ represents all possible values that $x$ can have and $p_{j}$ is the probability at $x_j$.
+
+One consequence of properties 2 and 3 is that $0 \leq p(x) \leq 1$.
+
+A discrete probability function is a function that can take a discrete number of values (not necessarily finite). This is most often the non-negative integers or some subset of the non-negative integers. There is no mathematical restriction that discrete probability functions only be defined at integers, but in practice this is usually what makes sense. For example, if you toss a coin 6 times, you can get 2 heads or 3 heads but not 2 1/2 heads. Each of the discrete values has a certain probability of occurrence that is between zero and one. That is, a discrete function that allows negative values or values greater than one is not a probability function. The condition that the probabilities sum to one means that at least one of the values has to occur.
+
+#### What are the conditions for a function to be a probability density function?
+
+The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
+
+* The probability that x is between two points a and b is
+
+$$
+p[a \leq x \leq b]=\int_{a}^{b} f(x)dx
+$$
+
+* It is non-negative for all real $x$.
+
+* he integral of the probability function is one, that is
+
+$$
+\int_{\infty}^{\infty} f(x)dx = 1
+$$
+
+#### What is a marginal probability? Given the joint probability function, how will you calculate it?
+
+
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
 Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \mid A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
