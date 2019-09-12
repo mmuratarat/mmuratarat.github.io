@@ -892,7 +892,7 @@ The joint probability mass Punction of the discrete random variables $X$ and $Y$
 * $\sum_{x} \sum_{y} P_{XY} (x, y) = 1$
 * $P_{XY} (x, y) = P(X = x, Y = y)$
 
-IP $X$ and $Y$ are discrete random variables with joint probability mass function $P_{XY} (x, y)$, then the marginal probability mass functions oP $X$ and $Y$ are,
+If $X$ and $Y$ are discrete random variables with joint probability mass function $P_{XY} (x, y)$, then the marginal probability mass functions oP $X$ and $Y$ are,
 
 $$
 P_{X} (x) = P(X=x) = \sum_{y_{j} \in \mathbb{R}_{y}} P_{XY}(X=x,Y=y_{j}) = \sum_{y} P_{XY} (x, y)
