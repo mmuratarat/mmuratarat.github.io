@@ -912,7 +912,7 @@ A joint probability density function for the continuous random variable $X$ and 
 * For any region \$\mathbb{R}$ of 2-D space:
 
 $$
-P((X, Y) \in \mathbb{R}) = \int \in_{\mathbb{R}} f_{XY} (x, y) dx dy
+P((X, Y) \in \mathbb{R}) = \int_{\mathbb{R}} f_{XY} (x, y) dx dy
 $$
 
 If $X$ and $Y$ are continuous random variables with joint probability density function $f_{XY} (x, y)$, then the marginal density functions for $X$ and $Y$ are:
