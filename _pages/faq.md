@@ -927,7 +927,7 @@ $$
 f_{Y} (y) = \int_{x} f_{XY} (x, y) dx
 $$
 
-where the first integral is over all points in the range of $(X, Y)$ for which $X = x$, and the second integral is over all points in the range of $(X, Y) for which $Y = y$.
+where the first integral is over all points in the range of $(X, Y)$ for which $X = x$, and the second integral is over all points in the range of $(X, Y)$ for which $Y = y$.
 
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
