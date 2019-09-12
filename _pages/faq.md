@@ -933,7 +933,10 @@ where the first integral is over all points in the range of $(X, Y)$ for which $
 The joint cumulative distribution function (CDF) of two random variables $X$ and $Y$ is defined as:
 
 $$
-F_{XY}(x,y)=P(X \leq x,Y \leq y)
+\begin{split}
+F_{XY}(x,y)&=P(X \leq x, Y \leq y) \\
+&= P\big((X \leq x)\text{ and }(Y\leq y)\big)=P\big((X \leq x)\cap(Y\leq y)\big).
+\end{split}
 $$
 
 The joint CDF satisfies the following properties:
