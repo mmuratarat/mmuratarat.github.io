@@ -854,13 +854,12 @@ Technically speaking, when you condition on an event happening, you are entering
 * __Axiom 2:__ Conditional probability of $A$ given $A$ is 1, i.e., $P(A \mid A)=1$.
 * __Axiom 3:__ If $B_{1}, B_{2}, B_{3}, \ldots $ are disjoint events, then $P(B_{1} \cup B_{2} \cup B_{3} \cup \ldots \mid A) = P(B_{1} \mid A) + P(B_{2} \mid A) + P(B_{3} \mid A) + \dots $
 
-
 #### State the Chain rule of conditional probabilities.
 
-To calculate the probability of the intersection of more than two events, the conditional probabilities of all of the preceding events must be considered. In the case of three events, $A$, $B$, and $C$, the probability of the intersection $P(A\text{ and }B\text{ and }C) = P(A)P(B|A)P(C|A\text{ and }B)$. which we call the Chain Rule. Here is the general form of the Chain Rule when $n$ events are given:
+To calculate the probability of the intersection of more than two events, the conditional probabilities of all of the preceding events must be considered. In the case of three events, $A$, $B$, and $C$, the probability of the intersection $P(A\text{ and }B\text{ and }C) = P(A)P(B \mid A)P(C \mid A\text{ and }B)$. which we call the Chain Rule. Here is the general form of the Chain Rule when $n$ events are given:
 
 $$
-P(A_1 \cap A_2 \cap \cdots \cap A_n)=P(A_1)P(A_2|A_1)P(A_3|A_2,A_1) \cdots P(A_n|A_{n-1}A_{n-2} \cdots A_1)
+P(A_{1} \cap A_{2} \cap \ldots \cap A_{n}) = P(A_{1})P(A_{2} \mid A_{1})P(A_{3} \mid A_{2}, A_{1}) \ldots P(A_{n} \mid A_{n-1} A_{n-2} \cdots A_{1})
 $$
 
 
