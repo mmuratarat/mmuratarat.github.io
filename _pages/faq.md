@@ -879,11 +879,56 @@ $$
 \int_{\infty}^{\infty} f(x)dx = 1
 $$
 
-#### What is a joint probability distribution?
+#### What is a joint probability distribution? What is a marginal probability? Given the joint probability function, how will you calculate it?
 
+In general, if $X$ and $Y$ are two random variables, the probability distribution that defines their simultaneous behavior is called a joint probability distribution, shown as $P(X =x, Y = y)$. If $X$ and $Y$ are discrete, this distribution can be
+described with a _joint probability mass function_. If $X$ and $Y$ are continuous, this distribution can be described with a _joint probability density function_. If we are given a joint probability distribution for $X$ and $Y$ , we can obtain the individual probability distribution for $X$ or for $Y$ (and these are called the _Marginal Probability Distributions_).
 
+Note that when there are two random variables of interest, we also use the term _bivariate probability distribution_ or _bivariate distribution_ to refer to the joint distribution.
 
-#### What is a marginal probability? Given the joint probability function, how will you calculate it?
+The joint probability mass function of the discrete random variables $X$ and $Y$, denoted as $f_{XY} (x, y)$, satisfies:
+
+* $f_{XY} (x, y) \geq 0$ for all x, y
+* $\sum_{x} \sum_{y} f_{XY} (x, y) = 1$
+* $f_{XY} (x, y) = P(X = x, Y = y)$
+
+If $X$ and $Y$ are discrete random variables with joint probability mass function $f_{XY} (x, y)$, then the marginal probability mass functions of $X$ and $Y$ are,
+
+$$
+f_{X} (x) = \sum_{y} f_{XY} (x, y)
+$$
+
+and
+
+$$
+f_{Y} (y) = \sum_{x} f_{XY} (x, y)
+$$
+
+where the sum for $f_{X} (x)$ is over all points in the range of $(X, Y)$ for which $X = x$ and the sum for $f_{Y} (y)$ is over all points in the range of $(X, Y)$ for which $Y = y$.
+
+A joint probability density function for the continuous random variable $X$ and $Y$ , denoted as $f_{XY} (x, y)$, satisfies the following properties:
+
+* $f_{XY} (x, y) \geq 0$ for all x, y
+* $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY} (x, y) dx dy = 1$
+* For any region \$\mathbb{R}$ of 2-D space:
+
+$$
+P((X, Y) \in \mathbb{R}) = \int \in_{\mathbb{R}} f_{XY} (x, y) dx dy
+$$
+
+If $X$ and $Y$ are continuous random variables with joint probability density function $f_{XY} (x, y)$, then the marginal density functions for $X$ and $Y$ are:
+
+$$
+f_{X} (x) = \int_{y} f_{XY} (x, y) dy
+$$
+
+and
+
+$$
+f_{Y} (y) = \int_{x} f_{XY} (x, y) dx
+$$
+
+where the first integral is over all points in the range of $(X, Y)$ for which $X = x$, and the second integral is over all points in the range of $(X, Y) for which $Y = y$.
 
 #### What is conditional probability? Given the joint probability function, how will you calculate it?
 
