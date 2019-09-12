@@ -107,7 +107,7 @@ permalink: /faq/
 26. What is Cross-covariance?
 25. What is moment generating function? What is characteristic function? How to compute them?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
-26. [What is binomial distribution?](#what-is-binomial-distribution)
+26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
@@ -1082,7 +1082,6 @@ __Properties:__
 * **Positive semi-definiteness**:
 
 
-
 #### What is the correlation for a vector of random variables? How is it related to covariance matrix?
 
 The correlation matrix of $\mathbf{X}$ is defined as
@@ -1121,7 +1120,7 @@ $$
 P_{X}(x) = p^{x} (1-p)^{1-x},\,\,\, x \in \{0, 1 \}\,\,\,\text{for}\,\,\, 0 \leq p \leq 1
 $$
 
-Bernoulli distribution is a special case of Binomial distribution. If $X_{1},\dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum is distributed according to a binomial distribution with parameters $n$ and $p$:
+Bernoulli distribution is a special case of Binomial distribution. If $X_{1},\dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum is distributed according to a Binomial distribution with parameters $n$ and $p$:
 
 $$
 \sum_{k=1}^{n} X_{k} \sim Binomial(n,p)
@@ -1152,9 +1151,9 @@ $$
 
 and the fact that $X$ can take either value $0$ or value $1$. If $x<0$, then $P(X \leq x) = 0$ because $X$ can not take values strictly smaller than $0$. If $0 \leq x < 1$, then $P(X \leq x) = 1-p$ because $0$ is the only value strictly smaller than 1 that $X$ can take. Finally, if $x \geq 1$, then $P(X \leq x) = 1$ because all values $X$ can take are smaller than or equal to $1$.
 
-#### What is binomial distribution?
+#### What is Binomial distribution?
 
-A binomial distribution can be thought of as simply the probability of success or failure outcome in an experiment or a survery that is repeated multiple times. The binomial is a type of distribution that has two possible outcomes (the prefix 'bi' means two or twice). For example, a coin toss has only two possible outcomes: heads or tails.
+A Binomial distribution can be thought of as simply the probability of success or failure outcome in an experiment or a survery that is repeated multiple times. The Binomial distribution is a type of distribution that has two possible outcomes (the prefix 'bi' means two or twice). For example, a coin toss has only two possible outcomes: heads or tails.
 
 Note that, each trial is independent. In other words, none of the trials (experiments) have an effect on the probability of the next trials.
 
@@ -1166,7 +1165,7 @@ $$
 
 __Binomial coefficient__, $^nC_{x}$, stated as "n choose k", is akso known as "the number of possible ways to choose $k$ successes from $n$ observations.
 
-The formula for the binomial cumulative probability function is:
+The formula for the Binomial cumulative probability function is:
 
 $$
 F(x; n, p) = P(X \leq x) = \sum_{i=1}^{x} p^{i} (1-p)^{n-i}
@@ -1176,7 +1175,6 @@ Its mean is $E(x) = np$ and its variance is $Var(x) = np(1-p)$.
 
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
-
 
 #### What is confidence interval?
 
@@ -1226,6 +1224,7 @@ When the null hypothesis is true and you reject it, you make a type I error. The
 The power of a test is one minus the probability of type II error (beta), which is the probability of rejecting the null hypothesis when it is false. In other words, it is the ability to detect a fault when there is actually a fault to be detected. Therefore, power should be maximized when selecting statistical methods. 
 
 The chances of committing these two types of errors are inversely proportional—that is, decreasing Type I error rate increases Type II error rate, and vice versa. To decrease your chance of committing a Type I error, simply make your alpha value more stringent. To reduce your chance of committing a Type II error, increase your analyses’ power by either increasing your sample size or relaxing your alpha level!
+
 
 ## General Machine Learning
 
