@@ -1674,3 +1674,40 @@ There are also __gradient-based techniques__, __evolutionary optimization techni
 4. **Models Are Trained Using a Probabilistic Framework**: Many machine learning models are trained using an iterative algorithm designed under a probabilistic framework. Perhaps the most common is the framework of maximum likelihood estimation. This is the framework that underlies the ordinary least squares estimate of a linear regression model. For models that predict class membership, maximum likelihood estimation provides the framework for minimizing the difference or divergence between an observed and predicted probability distribution. This is used in classification algorithms like logistic regression as well as deep learning neural networks. t is common to measure this difference in probability distribution during training using entropy, e.g. via cross-entropy. Entropy, and differences between distributions measured via KL divergence, and cross-entropy are from the field of information theory that directly build upon probability theory. For example, entropy is calculated directly as the negative log of the probability.
 
 5. **Probabilistic Measures Are Used to Evaluate Model Skill**: For those algorithms where a prediction of probabilities is made, evaluation measures are required to summarize the performance of the model, such as AUC-ROC curve along with confusion matrix. Choice and interpretation of these scoring methods require a foundational understanding of probability theory.
+
+#### 
+
+Ordinary Least Squares (OLS) tries to answer the question "What estimates minimize the squared error of the predicted values from observed?", whereas Maximum Likelihood answers the question "What estimates maximize the likelihood function?". 
+
+The ordinary least squares, or OLS, can also be called the linear least squares. This is a method for approximately determining the unknown parameters located in a linear regression model.
+
+Maximum likelihood estimation, or MLE, is a method used in estimating the parameters, that are most likely to produce observed data, of a statistical model and for fitting a statistical model to data.
+
+From Wikipedia, OLS chooses the parameters of a linear function of a set of explanatory variables by the principle of least squares: minimizing the sum of the squares of the differences between the observed dependent variable (values of the variable being predicted) in the given dataset and those predicted by the linear function. Maximum Likelihood Estimation (MLE) is a method of estimating the parameters of a distribution by maximizing a likelihood function, so that under the assumed statistical model the observed data is most probable. 
+
+The OLS estimator is identical to the maximum likelihood estimator (MLE) under the normality assumption for the error terms
+
+Let’s recall the simple linear regression model: $y_{i} = \alpha + \beta x_{i} + \varepsilon_{i}$ where the noise variables $\varpsilon_{i}$ all have the same expectation (0) and the same variance ($\sigma^{2}$), and Cov [\varepsilon_{i}, \varepsilon_{j}] = 0$ (unless $i = j$, of course). This is a statistical model with two variables $X$ and $Y$, where we try to predict $Y$ from $X$. We also assume that errors follow normal distribution:
+
+$$
+f(x; \mu, \sigma^{2}) = \dfrac{1}{\sqrt{2\pi \sigma^{2}}} exp\left\{-\dfrac{(x-mu)^{2}}{2 \sigma^{2}}  \right\}
+$$
+
+We know that $E(y_{i} \mid x_{i}) = \mu_{y_{i}} = \alpha +\beta x_{i}$. The mean of the conditional distribution of $Y$ depends on the value of $X$. Indeed, that's kind of the point of a regression model. We also know that $Var(y_{i} \mid x_{i}) = \sigma_{y_{i}}^{2} = \sigma^{2}$, since $x_{i}$ is a single fixed value.
+
+Let's write the likelihood function for this linear model:
+
+$$
+\begin{split}
+L(\alpha, \beta) &= \prod_{i=1}^{n} p(y_{i} \mid x_{i};\alpha, \beta) \\
+&= \prod_{i=1}^{n}  \dfrac{1}{\sqrt{2\pi \sigma_{y_{i}}^{2}}} exp\left\{-\dfrac{(y_{i}-mu_{y_{i}})^{2}}{2 \sigma_{y_{i}}^{2}}  \right\}\\
+&= \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} \prod_{i=1}^{n} exp\left\{-\dfrac{(y_{i}-alpha +\beta x_{i})^{2}}{2 \sigma^{2}}  \right\}\\
+& = \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} exp\left\{- \dfrac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i})^{2}\right)\right\}\\
+\end{split}
+$$
+
+
+
+
+Yi − α − βXi is residuals.
+
