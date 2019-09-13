@@ -1294,6 +1294,12 @@ The power of a test is one minus the probability of type II error (beta), which 
 
 The chances of committing these two types of errors are inversely proportional—that is, decreasing Type I error rate increases Type II error rate, and vice versa. To decrease your chance of committing a Type I error, simply make your alpha value more stringent. To reduce your chance of committing a Type II error, increase your analyses’ power by either increasing your sample size or relaxing your alpha level!
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/confusion_matrix.png?raw=true)
+
+In the context of confusion matrix, we can say Type I error occurs when we classify a value as positive (1) when it is actually negative (0). For example, false-positive test result indicates that a person has a specific disease or condition when the person actually does not have it. 
+
+Type II error occurs when we classify a value as negative (0) when it is actually positive (1). Similarly, as an example, a false negative is a test result that indicates a person does not have a disease or condition when the person actually does have it
+
 
 ## General Machine Learning
 
