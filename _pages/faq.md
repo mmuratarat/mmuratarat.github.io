@@ -1691,7 +1691,7 @@ The OLS estimator is identical to the maximum likelihood estimator (MLE) under t
 Let’s recall the simple linear regression model: $y_{i} = \alpha + \beta x_{i} + \varepsilon_{i}$ where the noise variables $\varepsilon_{i}$ all have the same expectation (0) and the same variance ($\sigma^{2}$), and $Cov[\varepsilon_{i}, \varepsilon_{j}] = 0$ (unless $i = j$, of course). This is a statistical model with two variables $X$ and $Y$, where we try to predict $Y$ from $X$. We also assume that errors follow normal distribution:
 
 $$
-f(x; \mu, \sigma^{2}) = \dfrac{1}{\sqrt{2\pi \sigma^{2}}} exp\left\{-\dfrac{(x-mu)^{2}}{2 \sigma^{2}}  \right\}
+f(x; \mu, \sigma^{2}) = \dfrac{1}{\sqrt{2\pi \sigma^{2}}} exp\left\{-\dfrac{(x-\mu)^{2}}{2 \sigma^{2}}  \right\}
 $$
 
 We know that $E(y_{i} \mid x_{i}) = \mu_{y_{i}} = \alpha +\beta x_{i}$. The mean of the conditional distribution of $Y$ depends on the value of $X$. Indeed, that's kind of the point of a regression model. We also know that $Var(y_{i} \mid x_{i}) = \sigma_{y_{i}}^{2} = \sigma^{2}$, since $x_{i}$ is a single fixed value.
