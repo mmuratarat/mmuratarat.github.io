@@ -165,7 +165,7 @@ permalink: /faq/
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 26. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
-27. How do we use probability in Machine Learning/Deep Learning framework?
+27. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
 27. How do you deal with missing value in a data set?
 28. How do you deal with imbalanced data?
 29. How do you deal with high cardinality? 
