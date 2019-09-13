@@ -1728,3 +1728,20 @@ which is nothing but the sum of squares of differences between observed and pred
 For better predictions, categorical variable can be considered as a continuous variable only when the variable is ordinal in nature.
 
 #### Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
+
+Choosing a machine learning algorithm can be a difficult task. If you have much time, you can try all of them. However, usually the time you have to solve a problem is limited. You can ask yourself several questions before starting to work on the problem. Depending on your answers, you can shortlist some algorithms and try them on your data.
+
+1. **Explainability**: Most very accurate learning algorithms are so-called "black boxes." They learn models that make very few errors, but why a model made a specific prediction could be very hard to understand and even harder to explain. Examples of such models are neural networks or ensemble models. On the other hand, kNN, linear regression, or decision tree learning algorithms produce models that are not always the most accurate, however, the way they make their prediction is very straightforward.
+
+2. **In-memory vs. out-of-memory**: Can your dataset be fully loaded into the RAM of your server or personal computer? If
+yes, then you can choose from a wide variety of algorithms. Otherwise, you would prefer incremental learning algorithms that can improve the model by adding more data gradually.
+
+3. **Number of features and examples**: Number of training examples in the dataset and number of features to be handled by the algorithm can be troublesome for some. Some algorithms, including neural networks and gradient boosting, can handle a huge number of examples and millions of features. Others, like SVM, can be very modest in their capacity.
+
+4. **Categorical vs. numerical features**: Depending on the data composed of categorical only, or numerical only features, or a mix of both, some algorithms cannot handle your dataset directly, and you would need to convert your categorical features into numerical ones.
+
+5. **Nonlinearity of the data**: If the data is linearly separable or if it can be be modeled using a linear model, SVM with the linear kernel, logistic or linear regression can be good choices. Otherwise, deep neural networks or ensemble algorithms, might work better. Additionally, if you given to work on unstructured data such as images, audios, videos, then neural network would help you to build a robust model.
+
+6. **Training speed**: Neural networks are known to be slow to train, even with GPU. Simple algorithms like logistic and linear regression or decision trees are much faster. Specialized libraries contain very efficient implementations of some algorithms; you may prefer to do research online to find such libraries. Some algorithms, such as random forests, benefit from the availability of multiple CPU cores, so their model building time can be significantly reduced on a machine with dozens of cores.
+
+7. **Prediction speed**: The time spent for generating predictions is also considerably important for choosing the algorithm. Algorithms like SVMs, linear and logistic regression, and (some types of) neural networks, are extremely fast at the prediction time. Others, like kNN, ensemble algorithms, and very deep or recurrent neural networks, are slower. 
