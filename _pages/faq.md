@@ -137,6 +137,7 @@ permalink: /faq/
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
+
 [General Machine Learning](#general-machine-learning)
 
 1. [What is an epoch, a batch and an iteration?](#what-is-an-epoch-a-batch-and-an-iteration)
@@ -167,8 +168,8 @@ permalink: /faq/
 26. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
 27. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
 28. [What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?](#what-are-the-differences-and-similarities-between-ordinary-least-squares-estimation-and-maximum-likelihood-estimation-methods)
-29. Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?
-30. Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
+29. [Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?](#do-you-suggest-that-treating-a-categorical-variable-as-continuous-variable-would-result-in-a-better-predictive-model)
+30. [Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?](#considering-the-long-list-of-machine-learning-algorithm-given-a-data-set-how-do-you-decide-which-one-to-use)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
