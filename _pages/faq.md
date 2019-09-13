@@ -104,7 +104,7 @@ permalink: /faq/
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
-26. What is Cross-covariance?
+26. [What is Cross-covariance?](#what-is-cross-covariance)
 25. What is moment generating function? What is characteristic function? How to compute them?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
@@ -1103,7 +1103,6 @@ __Properties:__
 
 #### What is Cross-covariance?
 
-
 Let $\mathbf{X}$ be a $K \times 1$ random vector and $\mathbf{Y}$ be a $L	\times 1$ random vector. The covariance matrix between $\mathbf{X}$ and $ \mathbf{Y}$, or cross-covariance between $\mathbf{X}$ and $\mathbf{Y}$ is denoted by $cov(\mathbf{X}, \mathbf{Y})$. It is defined as follows:
 
 $$
@@ -1117,25 +1116,33 @@ It is a multivariate generalization of the definition of covariance between two 
 Let $X_{1}, \ldots, X_{K}$ denote the $K$ components of the vector $\mathbf{X}$ and $Y_{1}, \ldots, Y_{L}$ denote the $L$ components of the vector $\mathbf{Y}$ .
 
 $$
-cov(\mathbf{X}, \mathbf{Y}) = 
+\begin{split}
+cov(\mathbf{X}, \mathbf{Y}) &= 
 \begin{bmatrix} E \left[\left(X_{1}-E[X_{1}]\right)\left(Y_{1}-E[Y_{1}]\right)\right] & \ldots & E \left[\left(X_{1}-E[X_{1}]\right)\left(Y_{L}-E[Y_{L}]\right)\right] \\
 E \left[\left(X_{2}-E[X_{2}]\right)\left(Y_{1}-E[Y_{1}]\right)\right] & \ldots & E \left[\left(X_{2}-E[X_{2}]\right)\left(Y_{L}-E[Y_{L}]\right)\right] \\
 \vdots & \ddots & \vdots \\
 E \left[\left(X_{K}-E[X_{K}]\right)\left(Y_{1}-E[Y_{1}]\right)\right] & \ldots & E \left[\left(X_{K}-E[X_{K}]\right)\left(Y_{L}-E[Y_{L}]\right)\right] \\
-\end{bmatrix} =
+\end{bmatrix} \\
+&=
 \begin{bmatrix} cov (X_{1}, Y_{1}) & \cdots & cov (X_{1}, Y_{L})\\
 cov (X_{2}, Y_{1}) & \cdots & cov (X_{2}, Y_{L})\\
 \vdots & \ddots & \vdots \\
 cov (X_{K}, Y_{1}) & \cdots & cov (X_{K}, Y_{L})\\
 \end{bmatrix} 
+\end{split}
 $$
 
+Note that $cov(\mathbf{X}, \mathbf{Y})$ is not the same as $cov(\mathbf{Y}, \mathbf{X})$. In fact, $cov(\mathbf{Y}, \mathbf{X})$ is a $L \times K$ matrix equal to the transpose of $cov(\mathbf{X}, \mathbf{Y})$:
 
+$$
+\begin{split}
+cov(\mathbf{Y}, \mathbf{X}) &= E \left[\left(\mathbf{Y}-E[\mathbf{Y}]\right)\left(\mathbf{X}-E[\mathbf{X}]\right)^{T}\right]\\
+& = E \left[\left(\mathbf{Y}-E[\mathbf{Y}]\right)\left(\mathbf{X}-E[\mathbf{X}]\right)^{T}\right]^{T}\\
+&= cov(\mathbf{X}, \mathbf{Y})
+\end{split}
+$$
 
-
-
-
-
+by using the fact that $\left(A B \right)^{T} = B^{T} A^{T}$.
 
 #### What is the correlation for a vector of random variables? How is it related to covariance matrix?
 
