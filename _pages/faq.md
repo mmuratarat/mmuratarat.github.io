@@ -165,6 +165,7 @@ permalink: /faq/
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 26. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
+27. How do we use probability in Machine Learning/Deep Learning framework?
 27. How do you deal with missing value in a data set?
 28. How do you deal with imbalanced data?
 29. How do you deal with high cardinality? 
@@ -1616,3 +1617,15 @@ Random search differs from grid search in that you no longer provide a discrete 
 Bayesian techniques differ from random or grid search in that they use past evaluation results to choose the next values to evaluate. The idea is to limit the number of expensive optimizations of the objective function by choosing the next hyperparameter values based on those that have done well in the past. 
 
 There are also __gradient-based techniques__, __evolutionary optimization techniques__, and other algorithmic hyperparameter tuning techniques. 
+
+#### How do we use probability in Machine Learning/Deep Learning framework?
+
+1. **Class Membership Requires Predicting a Probability**: Classification predictive modeling problems are those where an example is assigned a given label. Therefore, we model the problem as directly assigning a class label to each observation (hard class classification). A more common approach is to frame the problem as a probabilistic class membership, where the probability of an observation belonging to each known class is predicted (soft class classification. Therefore,  this probability is more explicit for the network. Framing the problem as a prediction of class membership simplifies the modeling problem and makes it easier for a model to learn. It allows the model to capture ambiguity in the data, which allows a process downstream, such as the user to interpret the probabilities in the context of the domain. The probabilities can be transformed into a hard class label by choosing the class with the largest probability. The probabilities can also be scaled or transformed using a probability calibration process.
+
+2. **Some Algorithms Are Designed Using Probability**: There are algorithms that are specifically designed to harness the tools and methods from probability. Naive Bayes, Probabilistic Graphical Models, Bayesian Belief Networks are three of those algorithms. 
+
+3. **Models Can Be Tuned With a Probabilistic Framework**: It is common to tune the hyperparameters of a machine learning model, such as k for kNN or the learning rate in a neural network. Typical approaches include grid searching ranges of hyperparameters or randomly sampling hyperparameter combinations. Bayesian optimization is a more efficient to hyperparameter optimization that involves a directed search of the space of possible configurations based on those configurations that are most likely to result in better performance. As its name suggests, the approach was devised from and harnesses Bayes Theorem when sampling the space of possible configurations.
+
+4. **Models Are Trained Using a Probabilistic Framework**: Many machine learning models are trained using an iterative algorithm designed under a probabilistic framework. Perhaps the most common is the framework of maximum likelihood estimation. This is the framework that underlies the ordinary least squares estimate of a linear regression model. For models that predict class membership, maximum likelihood estimation provides the framework for minimizing the difference or divergence between an observed and predicted probability distribution. This is used in classification algorithms like logistic regression as well as deep learning neural networks. t is common to measure this difference in probability distribution during training using entropy, e.g. via cross-entropy. Entropy, and differences between distributions measured via KL divergence, and cross-entropy are from the field of information theory that directly build upon probability theory. For example, entropy is calculated directly as the negative log of the probability.
+
+5. **Probabilistic Measures Are Used to Evaluate Model Skill**: For those algorithms where a prediction of probabilities is made, evaluation measures are required to summarize the performance of the model, such as ROC curve, log-loss. Choice and interpretation of these scoring methods require a foundational understanding of probability theory.
