@@ -166,10 +166,11 @@ permalink: /faq/
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 26. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
 27. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
-27. How do you deal with missing value in a data set?
-28. How do you deal with imbalanced data?
-29. How do you deal with high cardinality? 
-30. What cross-validation technique would you use on a time series dataset?
+28. What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?
+29. How do you deal with missing value in a data set?
+30. How do you deal with imbalanced data?
+31. How do you deal with high cardinality? 
+32. What cross-validation technique would you use on a time series dataset?
 
 ## Linear Algebra
 
@@ -1675,7 +1676,7 @@ There are also __gradient-based techniques__, __evolutionary optimization techni
 
 5. **Probabilistic Measures Are Used to Evaluate Model Skill**: For those algorithms where a prediction of probabilities is made, evaluation measures are required to summarize the performance of the model, such as AUC-ROC curve along with confusion matrix. Choice and interpretation of these scoring methods require a foundational understanding of probability theory.
 
-#### 
+#### What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?
 
 Ordinary Least Squares (OLS) tries to answer the question "What estimates minimize the squared error of the predicted values from observed?", whereas Maximum Likelihood answers the question "What estimates maximize the likelihood function?". 
 
