@@ -52,6 +52,9 @@ Finally, our input x gets assigned to the class with the largest probability.
 ## How do you decide the number of neighbors in K-NN?
 The number of neighbors (K) in K-NN is a hyperparameter that you need choose at the time of model building. You can think of K as a controlling variable for the prediction model. Choosing the optimal value for K is best done by first inspecting the data. Research has shown that no optimal number of neighbors suits all kind of data sets. In general, a large K value is more precise as it reduces the overall noise, is more resilient to outliers. Larger values of K will have smoother decision boundaries which means lower variance but increased bias, unlike a small value for K provides the most flexible fit, which will have low bias but high variance, but there is no guarantee. 
 
+* large K = simple model = underfit = low variance & high bias
+* small K = complex model = overfit = high variance & low bias
+
 Cross-validation is another way to retrospectively determine a good K value by using an independent dataset to validate the K value. Historically, the optimal K for most datasets has been between 3-10. That produces much better results than 1NN.
 
 ## Pros and Cons of this algorithm
