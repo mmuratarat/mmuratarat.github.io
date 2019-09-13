@@ -1138,6 +1138,7 @@ $$
 \begin{split}
 cov(\mathbf{Y}, \mathbf{X}) &= E \left[\left(\mathbf{Y}-E[\mathbf{Y}]\right)\left(\mathbf{X}-E[\mathbf{X}]\right)^{T}\right]\\
 & = E \left[\left(\mathbf{Y}-E[\mathbf{Y}]\right)\left(\mathbf{X}-E[\mathbf{X}]\right)^{T}\right]^{T}\\
+&= E \left[\left(\mathbf{X}-E[\mathbf{X}]\right)\left(\mathbf{Y}-E[\mathbf{Y}]\right)^{T}\right] \\
 &= cov(\mathbf{X}, \mathbf{Y})
 \end{split}
 $$
