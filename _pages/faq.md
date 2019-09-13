@@ -1687,7 +1687,7 @@ From Wikipedia, OLS chooses the parameters of a linear function of a set of expl
 
 The OLS estimator is identical to the maximum likelihood estimator (MLE) under the normality assumption for the error terms
 
-Let’s recall the simple linear regression model: $y_{i} = \alpha + \beta x_{i} + \varepsilon_{i}$ where the noise variables $\varpsilon_{i}$ all have the same expectation (0) and the same variance ($\sigma^{2}$), and Cov [\varepsilon_{i}, \varepsilon_{j}] = 0$ (unless $i = j$, of course). This is a statistical model with two variables $X$ and $Y$, where we try to predict $Y$ from $X$. We also assume that errors follow normal distribution:
+Let’s recall the simple linear regression model: $y_{i} = \alpha + \beta x_{i} + \varepsilon_{i}$ where the noise variables $\varepsilon_{i}$ all have the same expectation (0) and the same variance ($\sigma^{2}$), and $Cov[\varepsilon_{i}, \varepsilon_{j}] = 0$ (unless $i = j$, of course). This is a statistical model with two variables $X$ and $Y$, where we try to predict $Y$ from $X$. We also assume that errors follow normal distribution:
 
 $$
 f(x; \mu, \sigma^{2}) = \dfrac{1}{\sqrt{2\pi \sigma^{2}}} exp\left\{-\dfrac{(x-mu)^{2}}{2 \sigma^{2}}  \right\}
@@ -1702,12 +1702,15 @@ $$
 L(\alpha, \beta) &= \prod_{i=1}^{n} p(y_{i} \mid x_{i};\alpha, \beta) \\
 &= \prod_{i=1}^{n}  \dfrac{1}{\sqrt{2\pi \sigma_{y_{i}}^{2}}} exp\left\{-\dfrac{(y_{i}-mu_{y_{i}})^{2}}{2 \sigma_{y_{i}}^{2}}  \right\}\\
 &= \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} \prod_{i=1}^{n} exp\left\{-\dfrac{(y_{i}-alpha +\beta x_{i})^{2}}{2 \sigma^{2}}  \right\}\\
-& = \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} exp\left\{- \dfrac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i})^{2}\right)\right\}\\
+& = \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} exp\left\{- \dfrac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i}\right)^{2}\right\}\\
 \end{split}
 $$
 
+Obviously, maximizing this likelihood is equivalently minimizing,
 
+$$
+ \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i}\right)^{2}
+$$
 
-
-Yi − α − βXi is residuals.
+which is nothing but the sum of squares of differences between observed and predicted values. 
 
