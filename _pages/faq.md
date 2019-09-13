@@ -1701,16 +1701,16 @@ Let's write the likelihood function for this linear model:
 $$
 \begin{split}
 L(\alpha, \beta) &= \prod_{i=1}^{n} p(y_{i} \mid x_{i};\alpha, \beta) \\
-&= \prod_{i=1}^{n}  \dfrac{1}{\sqrt{2\pi \sigma_{y_{i}}^{2}}} exp\left\{-\dfrac{(y_{i}-mu_{y_{i}})^{2}}{2 \sigma_{y_{i}}^{2}}  \right\}\\
-&= \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} \prod_{i=1}^{n} exp\left\{-\dfrac{(y_{i}-alpha +\beta x_{i})^{2}}{2 \sigma^{2}}  \right\}\\
-& = \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} exp\left\{- \dfrac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i}\right)^{2}\right\}\\
+&= \prod_{i=1}^{n}  \dfrac{1}{\sqrt{2\pi \sigma_{y_{i}}^{2}}} exp\left\{-\dfrac{(y_{i}-\mu_{y_{i}})^{2}}{2 \sigma_{y_{i}}^{2}}  \right\}\\
+&= \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} \prod_{i=1}^{n} exp\left\{-\dfrac{(y_{i}-\alpha +\beta x_{i})^{2}}{2 \sigma^{2}}  \right\}\\
+& = \dfrac{1}{\left(2\pi \sigma^{2} \right)^{n/2}} exp\left\{- \dfrac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(y_{i} - \alpha +\beta x_{i}\right)^{2}\right\}\\
 \end{split}
 $$
 
 Obviously, maximizing this likelihood is equivalently minimizing,
 
 $$
- \sum_{i=1}^{n} \left(y_{i} - alpha +\beta x_{i}\right)^{2}
+ \sum_{i=1}^{n} \left(y_{i} - \alpha +\beta x_{i}\right)^{2}
 $$
 
 which is nothing but the sum of squares of differences between observed and predicted values. 
