@@ -167,6 +167,8 @@ permalink: /faq/
 26. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
 27. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
 28. [What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?](#what-are-the-differences-and-similarities-between-ordinary-least-squares-estimation-and-maximum-likelihood-estimation-methods)
+29. Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?
+30. Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -1319,7 +1321,7 @@ Confusion Matrix, also known as an error matrix, is a specific table layout that
 * Linear Relationship between the features and target
 * The number of observations must be greater than number of features
 * No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables.It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features.
-* Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdot X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. 
+* Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. 
      More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. 
 * Normal distribution of error terms $\varepsilon \sim N(0, \sigma^{2})$: The fourth assumption is that the error(residuals) follow a normal distribution.However, a less widely known fact is that, as sample sizes increase, the normality assumption for the residuals is not needed. More precisely, if we consider repeated sampling from our population, for large sample sizes, the distribution (across repeated samples) of the ordinary least squares estimates of the regression coefficients follow a normal distribution. As a consequence, for moderate to large sample sizes, non-normality of residuals should not adversely affect the usual inferential procedures. This result is a consequence of an extremely important result in statistics, known as the central limit theorem.
      Normal distribution of the residuals can be validated by plotting a q-q plot.
@@ -1345,7 +1347,7 @@ However, some other assumptions still apply.
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
 **Collinearity/Multicollinearity:**
-* In multiple regression: when two or more variables are highly correlated
+* In multiple regression: when two or more variables are highly correlated or improper use of dummy variables (e.g. failure to exclude one category).
 * They provide redundant information
 * In case of perfect multicollinearity: $\beta = (X^{T}X)^{-1}X^{T}y $ does not exist, the design matrix is not invertible
 * It doesn't affect the model as a whole, doesn't bias results
@@ -1361,10 +1363,9 @@ However, some other assumptions still apply.
 * Principal component regression: gives uncorrelated predictors
 
 **Detection of multicollinearity:**
-
 * Large changes in the individual coefficients when a predictor variable is added or deleted
 * Insignificant regression coefficients for the affected predictors but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
-* The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation for variable $i$ is then computed as:
+* The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation factor (VIF) for variable $i$ is then computed as:
     
     \begin{equation}
         VIF = \frac{1}{1-R_{i}^{2}}
@@ -1372,10 +1373,12 @@ However, some other assumptions still apply.
     
     A rule of thumb for interpreting the variance inflation factor: 
     * 1 = not correlated.
-    * Between 1 and 5 = moderately correlated.
-    * Greater than 5 = highly correlated.
+    * Between 1 and 10 = moderately correlated.
+    * Greater than 10 = highly correlated.
     
      The rule of thumb cut-off value for VIF is 10. Solving backwards, this translates into an R-squared value of 0.90. Hence, whenever the R-squared value between one independent variable and the rest is greater than or equal to 0.90, you will have to face multicollinearity.
+     
+     Tolerance (1/VIF) is another measure to detect multicollinearity.  A tolerance close to 1 means there is little multicollinearity, whereas a value close to 0 suggests that multicollinearity may be a threat. 
 
 * Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
     
@@ -1437,7 +1440,6 @@ The most important thing you can do to properly evaluate your model is to not tr
 * **Stratified Cross Validation**:  When we split our data into folds, we want to make sure that each fold is a good representative of the whole data. The most basic example is that we want the same proportion of different classes in each fold. Most of the times it happens by just doing it randomly, but sometimes, in complex datasets, we have to enforce a correct distribution for each fold.
 
 * **Bootstrapping Method**: Under this technique training dataset is randomly selected with replacement and the remaining data sets that were not selected for training are used for testing. The error rate of the model is average of the error rate of each iteration  as estimation of our model performance, the value is likely to change from fold-to-fold during the validation process.
-
 
 #### What is the Bias-variance trade-off for Leave-one-out and k-fold cross validation?
 
@@ -1509,7 +1511,6 @@ Model-based learning detects patterns in the training data and build a predictiv
 * Underfitting the training data
 
 #### What are the most important unsupervised learning algorithms?
-
 
 In supervised learning, the training data is unlabeled. The system tries to learn without a teacher. Here are some of the most important unsupervised learning algorithms:
 
@@ -1715,3 +1716,8 @@ $$
 
 which is nothing but the sum of squares of differences between observed and predicted values. 
 
+#### Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?
+
+For better predictions, categorical variable can be considered as a continuous variable only when the variable is ordinal in nature.
+
+#### Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
