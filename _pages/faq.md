@@ -1179,7 +1179,6 @@ $$
   \begin{split}
   a^{T} cov(\mathbf{X}) a &= a^{T} E\left[ \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} \right] a \\
   &=E\left[a^{T} \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} a\right]\\
-  &=E\left[a^{T} \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} a\right]\\
   &=E\left[\left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)^{T} \left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)\right]\\
   &= E\left[\left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)^{2}\right] \geq 0
   \end{split}
