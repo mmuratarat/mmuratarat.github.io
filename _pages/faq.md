@@ -1166,7 +1166,24 @@ __Properties:__
 
 * **Symmetry**: The covariance matrix $cov(\mathbf{X})$ is a symmetric matrix, that is, it is equal to its transpose: $cov(\mathbf{X}) = cov(\mathbf{X})^{T}$.
 
-* **Positive semi-definiteness**:
+* **Positive semi-definiteness**: The covariance matrix $cov(\mathbf{X})$ is positive semi-definite, that is, for a constant $n \times 1$ vector, 
+  
+  
+  $$
+a^{T} cov(\mathbf{X}) a \geq 0
+$$
+  
+  This is easily proved,
+  
+  $$
+  \begin{split}
+  a^{T} cov(\mathbf{X}) a &= a^{T} E\left[ \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} \right] a \\
+  &=E\left[a^{T} \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} a\right]\\
+  &=E\left[a^{T} \left( \mathbf{X} - E(\mathbf{X}) \right) \left( \mathbf{X} - E(\mathbf{X}) \right)^{T} a\right]\\
+  &=E\left[\left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)^{T} \left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)\right]\\
+  &= E\left[\left(\left( \mathbf{X} - E(\mathbf{X}) \right)^{T}a\right)^{2}\right] \geq 0
+  \end{split}
+  $$
 
 #### What is Cross-covariance?
 
