@@ -686,6 +686,19 @@ $$
 
 A scalar is its own trace $a=Tr(a)$
 
+#### What is Spectral Decomposition?
+
+Spectral decomposition recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $\mathbf{v}_{1}, \mathbf{v}_{2}, \ldots, \mathbf{v}_{p}$, then, 
+
+$$
+A = \begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
+\mid & \mid & \ldots & \mid \\
+\mathbf{v}_{1} & \mathbf{v}_{2} & \ldots &  \mathbf{v}_{p} \\
+\mid & \mid & \ldots & \mid \\
+\downarrow & \downarrow & \ldots & \downarrow
+\end{bmatrix}
+$$
+
 #### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
 
 A matrix $A$ is positive semi-definite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
@@ -723,6 +736,7 @@ To check if the matrix is positive definite/positive semi-definite/negative defi
 The problem with definite matrices is that they are not always symmetric. However, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
 
 Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$ which is a square matrix in real space. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert_{2}^{2} > 0$, then $B^{T}B$ is positive definite matrix.
+
 
 ## Numerical Optimization
 
