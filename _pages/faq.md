@@ -691,11 +691,21 @@ A scalar is its own trace $a=Tr(a)$
 Spectral decomposition recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $\mathbf{v}_{1}, \mathbf{v}_{2}, \ldots, \mathbf{v}_{p}$, then, 
 
 $$
-A = \begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
-\mid & \mid & \ldots & \mid \\
+A = \begin{bmatrix} \big \uparrow & \big \uparrow & \ldots & \big \uparrow \\
 \mathbf{v}_{1} & \mathbf{v}_{2} & \ldots &  \mathbf{v}_{p} \\
-\mid & \mid & \ldots & \mid \\
-\downarrow & \downarrow & \ldots & \downarrow
+\big \downarrow & \big \downarrow & \ldots & \big \downarrow
+\end{bmatrix}
+\begin{bmatrix}
+u_{1} & 0 & \ldots & 0 \\
+0 & u_{2} & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \ldots & u_{p}
+\end{bmatrix} 
+\begin{bmatrix}
+\big \leftarrow & \mathbf{v}_{1} & \big \rightarrow \\
+\big \leftarrow & \mathbf{v}_{2} & \big \rightarrow \\
+& \ldots & \\
+\big \leftarrow & \mathbf{v}_{p} & \big \rightarrow \\
 \end{bmatrix}
 $$
 
