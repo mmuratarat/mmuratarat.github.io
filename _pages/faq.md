@@ -692,7 +692,8 @@ A scalar is its own trace $a=Tr(a)$
 Spectral decomposition recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $v_{1}, v_{2}, \ldots, v_{p}$, then, 
 
 $$
-A = \underbrace{\begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
+\begin{split}
+A &= \underbrace{\begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
 v_{1} & v_{2} & \ldots &  v_{p} \\
 \downarrow & \downarrow & \ldots & \downarrow \\
 \end{bmatrix}}_{\text{Call this Q}}\underbrace{\begin{bmatrix}
@@ -705,12 +706,11 @@ u_{1} & 0 & \ldots & 0 \\
 \leftarrow & v_{2} & \rightarrow \\
 \ldots & \ldots & \ldots \\
 \leftarrow & v_{p} & \rightarrow \\
-\end{bmatrix}}_{Q^{T}}
+\end{bmatrix}}_{Q^{T}} \\
+&= Q \Lambda Q^{T}
+\end{split}
 $$
 
-$$
-\mathop{\underset{\mmlToken{mo}{⎵}}{78\,255\,300,00}}\limits_{10\text{ zählende Ziffern}}
-$$
 
 or
 
