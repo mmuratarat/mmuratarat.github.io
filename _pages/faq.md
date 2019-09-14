@@ -737,7 +737,7 @@ $$
 
 and negative definite if the inequality holds with equality only for vectors $v=0$, i.e., $v^{T} A v < 0,\,\,\, \forall v \in \mathbb{R}^{n \times 1}$
 
-Positive (semi)definite and negativ (semi)definite matrices together are called definite matrices. A symmetric matrix that is not definite is said to be indefinite. 
+Positive (semi)definite and negative (semi)definite matrices together are called definite matrices. A symmetric matrix that is not definite is said to be indefinite. 
 
 A symmetric matrix is positive semi-definite if and only if all eigenvalues are non-negative. It is negative semi-definite if and only if all eigenvalues are non-positive. It is positive definite if and only if all eigenvalues are positive. It is negative definite if and only if all eigenvalues are negative.
 
@@ -748,6 +748,22 @@ Now, let's see how we can use the quadratic form to check the positive definiten
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/pd_nd_psd_nsd.png?raw=true)
 
 To check if the matrix is positive definite/positive semi-definite/negative definite/negative semi-definite or not, you just have to compute the above quadratic form and check if the value is strictly positive/positive/strictly negative or negative.
+
+
+Let's prove some of the statements above for positive definite matrix. 
+
+* If a real symmetric matrix is positive definite, then every eigenvalue of the matrix is positive.
+
+Let's say here $v$ is the eigenvector.
+
+$$
+\begin{split}
+A v = u v &\Rightarrow v^{T} A v = u \left(v^{T} v \right)\\
+&\Rightarrow u = \dfrac{v^{T} A v}{v^{T} v} = \dfrac{v^{T} A v}{\left\Vert v \right\Vert_{2}^{2}}
+\end{split}
+$$
+
+Since $A$ is positive definite, $v^{T} A v > 0$, $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
 
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
