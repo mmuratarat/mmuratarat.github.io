@@ -695,17 +695,17 @@ $$
 A = \underbrace{\begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
 v_{1} & v_{2} & \ldots &  v_{p} \\
 \downarrow & \downarrow & \ldots & \downarrow \\
-\end{bmatrix}}_{\text{Call this Q}}\begin{bmatrix}
+\end{bmatrix}}_{\text{Call this Q}}\underbrace{\begin{bmatrix}
 u_{1} & 0 & \ldots & 0 \\
 0 & u_{2} & \ldots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \ldots & u_{p}\\
-\end{bmatrix} \begin{bmatrix}
+\end{bmatrix}}}_{\Lambda}\underbrace{\begin{bmatrix}
 \leftarrow & v_{1} & \rightarrow \\
 \leftarrow & v_{2} & \rightarrow \\
 \ldots & \ldots & \ldots \\
 \leftarrow & v_{p} & \rightarrow \\
-\end{bmatrix}
+\end{bmatrix}}_{Q^{T}}
 $$
 
 $$
