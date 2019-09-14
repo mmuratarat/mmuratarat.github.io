@@ -694,19 +694,23 @@ $$
 A = \begin{bmatrix} \big \uparrow & \big \uparrow & \ldots & \big \uparrow \\
 \mathbf{v}_{1} & \mathbf{v}_{2} & \ldots &  \mathbf{v}_{p} \\
 \big \downarrow & \big \downarrow & \ldots & \big \downarrow
-\end{bmatrix}
-\begin{bmatrix}
+\end{bmatrix}\begin{bmatrix}
 u_{1} & 0 & \ldots & 0 \\
 0 & u_{2} & \ldots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \ldots & u_{p}
-\end{bmatrix} 
-\begin{bmatrix}
+\end{bmatrix} \begin{bmatrix}
 \big \leftarrow & \mathbf{v}_{1} & \big \rightarrow \\
 \big \leftarrow & \mathbf{v}_{2} & \big \rightarrow \\
-& \ldots & \\
+\ldots & \ldots & \ldots \\
 \big \leftarrow & \mathbf{v}_{p} & \big \rightarrow \\
 \end{bmatrix}
+$$
+
+or
+
+$$
+A = \sum_{i=1}^{p} u_{i} \mathbf{v}_{i} \mathbf{v}_{i}^{T}
 $$
 
 #### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
