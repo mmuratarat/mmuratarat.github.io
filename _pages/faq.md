@@ -764,6 +764,22 @@ $$
   
   Since $A$ is positive definite, its quadratic form is positive, i.e., $v^{T} A v > 0$. $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
 
+* If every eigenvalue of a real symmetric matrix is positive, then the matrix is positive definite.
+
+  By the spectral theorem, a real symmetric matrix has an eigenvalue decomposiiton, so,
+  
+  $$
+  A = Q \Lambda Q^{T}
+  $$
+  
+  For the quadratic function defined by $A$:
+  
+  $$
+  v^{T} A v = \underbrace{v^{T} Q}_{y^{T}} \Lambda \underbrace{Q^{T} v}_{y} = \sum_{i=1}^{n} u_{i}y_{i}^{2}
+  $$
+  
+  Since eigenvalues $u_{i}$'s are positive and $y_{i}^{2} > 0$, this summation is always positive, therefore, $v^{T} A v > 0$.
+
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
 The problem with definite matrices is that they are not always symmetric. However, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
