@@ -762,7 +762,7 @@ A v = u v &\Rightarrow v^{T} A v = u \left(v^{T} v \right)\\
 \end{split}
 $$
   
-  Since $A$ is positive definite, $v^{T} A v > 0$, $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
+  Since $A$ is positive definite, its quadratic form is positive, i.e., $v^{T} A v > 0$. $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
 
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
