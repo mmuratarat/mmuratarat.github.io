@@ -753,17 +753,16 @@ To check if the matrix is positive definite/positive semi-definite/negative defi
 Let's prove some of the statements above for positive definite matrix. 
 
 * If a real symmetric matrix is positive definite, then every eigenvalue of the matrix is positive.
-
-Let's say here $v$ is the eigenvector.
-
-$$
+  Let's say here $v \in \mathbb{R}^{n}$ is the eigenvector and $u \in \mathbb{R}$ is eigenvalue. Using eigenvalue equation,
+  
+  $$
 \begin{split}
 A v = u v &\Rightarrow v^{T} A v = u \left(v^{T} v \right)\\
 &\Rightarrow u = \dfrac{v^{T} A v}{v^{T} v} = \dfrac{v^{T} A v}{\left\Vert v \right\Vert_{2}^{2}}
 \end{split}
 $$
-
-Since $A$ is positive definite, $v^{T} A v > 0$, $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
+  
+  Since $A$ is positive definite, $v^{T} A v > 0$, $v$ is a nonzero vector as it is an eigenvector. Since $\left\Vert v \right\Vert_{2}^{2}$ is positive, we must have $u$ is positive, which is $u > 0$.
 
 ### How to make a positive definite matrix with a matrix that’s not symmetric?
 
