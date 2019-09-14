@@ -701,7 +701,7 @@ u_{1} & 0 & \ldots & 0 \\
 0 & u_{2} & \ldots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \ldots & u_{p}\\
-\end{bmatrix}}}_{\Lambda}\underbrace{\begin{bmatrix}
+\end{bmatrix}}_{\Lambda}\underbrace{\begin{bmatrix}
 \leftarrow & v_{1} & \rightarrow \\
 \leftarrow & v_{2} & \rightarrow \\
 \ldots & \ldots & \ldots \\
@@ -710,7 +710,6 @@ u_{1} & 0 & \ldots & 0 \\
 &= Q \Lambda Q^{T}
 \end{split}
 $$
-
 
 or
 
