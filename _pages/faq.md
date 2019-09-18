@@ -1681,7 +1681,7 @@ There are several solutions to the problem of overfitting:
 
 * We can try a simpler model because in the case of overfitting, the model might be complex for the dataset, e.g., linear instead of polynomial regression, or SVM with a linear kernel instead of radial basis function, a neural network with fever layers/units.
 * We can reduce the dimensionality of the dataset (removing some  irrelevant features, or using one of the dimensionality reduction techniques. Even some algorithms have built-in feature selection.)
-* We can add more training data.
+* We can add more training data. This should reduce variance, but will have no effect on bias. More data can even make bias worse - it gives your model the chance to give highly precise, wrong answers
 * We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases.
 * We can use regularization methods. For example, you could prune a decision tree, use dropout on a neural network, or add a penalty parameter (L1/L2 Regularization) to the cost function in regression.
 * We can use Ensembling methods (Bagging and Boosting). Ensembles are machine learning methods for combining predictions from multiple separate models. Bagging uses complex base models and tries to "smooth out" their predictions, while boosting uses simple base models and tries to "boost" their aggregate complexity.
