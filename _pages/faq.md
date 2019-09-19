@@ -172,10 +172,12 @@ permalink: /faq/
 29. [Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?](#do-you-suggest-that-treating-a-categorical-variable-as-continuous-variable-would-result-in-a-better-predictive-model)
 30. [Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?](#considering-the-long-list-of-machine-learning-algorithm-given-a-data-set-how-do-you-decide-which-one-to-use)
 31. What is selection bias?
+32. What’s the difference between a generative and discriminative model?
+33. What cross-validation technique would you use on a time series dataset?
+
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
-32. What cross-validation technique would you use on a time series dataset?
 
 ## Linear Algebra
 
@@ -1830,8 +1832,21 @@ yes, then you can choose from a wide variety of algorithms. Otherwise, you would
 
 Selection bias is the bias introduced by the selection of individuals, groups or data for analysis in such a way that proper randomization is not achieved, thereby ensuring that the sample obtained is not representative of the population intended to be analyzed. It is sometimes referred to as the selection effect. The phrase "selection bias" most often refers to the distortion of a statistical analysis, resulting from the method of collecting samples. If the selection bias is not taken into account, then some conclusions of the study may be false.
 
-#### What’s the difference between a generative and dis- criminative model?
+#### What’s the difference between a generative and discriminative model?
 
 Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner). Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated, in terms of a probabilistic model. (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points). For more details, you can read [this blog spot](https://mmuratarat.github.io/2019-08-23/generative-discriminative-models){:target="_blank"}.
 
+#### What cross-validation technique would you use on a time series dataset?
 
+Instead of using standard k-folds cross-validation, you have to pay attention to the fact that a time series is not randomly distributed data — it is inherently ordered by chronological order. When the data are not independent, cross-validation becomes more difficult as leaving out an observation does not remove all the associated information due to the correlations with other observations.
+
+The "canonical" way to do time-series cross-validation is cross-validation on a rolling basis, i.e., "roll" through the dataset. Start with a small subset of data for training purpose, forecast for the later data points and then check the accuracy for the forecasted data points. The same forecasted data points are then included as part of the next training dataset and subsequent data points are forecasted.
+
+To make things intuitive, here is an image for 5-fold CV:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cv_for_time_series.png?raw=true)
+
+The forecast accuracy is computed by averaging over the test sets. This procedure is sometimes known as "evaluation on a rolling forecasting origin" because the "origin" at which the forecast is based rolls forward in time. For more details:
+
+1. [https://robjhyndman.com/hyndsight/tscv/](https://robjhyndman.com/hyndsight/tscv/){:target="_blank"}
+2. [https://robjhyndman.com/hyndsight/crossvalidation/](https://robjhyndman.com/hyndsight/crossvalidation/){:target="_blank"}
