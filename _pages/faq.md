@@ -1688,7 +1688,7 @@ There are several solutions to the problem of overfitting:
 * We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases. Early stopping may underfit by stopping too early.
 * We can use regularization methods. For example, you could prune a decision tree, use dropout on a neural network, or add a penalty parameter (L1/L2 Regularization) to the cost function in regression.
 * We can use Ensembling methods (Bagging and Boosting). Ensembles are machine learning methods for combining predictions from multiple separate models. Bagging uses complex base models and tries to "smooth out" their predictions, while boosting uses simple base models and tries to "boost" their aggregate complexity.
-* Cross-validation is a powerful preventative measure against overfitting.
+* Cross-validation is a powerful preventative measure against overfitting. Cross-validation simply repeats the experiment multiple times, using all the different parts of the training set as unseen data which we use to validate the model. This gives a more accurate indication of how well the model generalizes to unseen data.  Cross-validation does not prevent overfitting in itself, but it may help in identifying a case of overfitting.
 
 #### Is it better to design robust or accurate algorithms?
 
