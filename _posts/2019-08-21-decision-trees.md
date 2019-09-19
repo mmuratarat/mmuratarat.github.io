@@ -216,6 +216,9 @@ Similar to entropy, the Gini index is maximal if the classes are perfectly mixed
 Gini = 1 - (p_1^2 + p_2^2) = 1-(0.5^2+0.5^2) = 0.5
 \end{equation}
 
+**NOTE**: Whether using gini or entropy, the resulting trees are typically very similar in practice. Maybe an advantage of Gini would be that you don’t need to compute the log, which can make it a bit faster in your implementation.
+ 
+ 
 {% highlight python %}
 import matplotlib.pyplot as plt
 %matplotlib inline
