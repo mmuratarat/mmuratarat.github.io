@@ -171,9 +171,9 @@ permalink: /faq/
 28. [What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?](#what-are-the-differences-and-similarities-between-ordinary-least-squares-estimation-and-maximum-likelihood-estimation-methods)
 29. [Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?](#do-you-suggest-that-treating-a-categorical-variable-as-continuous-variable-would-result-in-a-better-predictive-model)
 30. [Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?](#considering-the-long-list-of-machine-learning-algorithm-given-a-data-set-how-do-you-decide-which-one-to-use)
-31. What is selection bias?
-32. What’s the difference between a generative and discriminative model?
-33. What cross-validation technique would you use on a time series dataset?
+31. [What is selection bias?](#what-is-selection-bias)
+32. [What’s the difference between a generative and discriminative model?](#whats-the-difference-between-a-generative-and-discriminative-model)
+33. [What cross-validation technique would you use on a time series dataset?](#what-cross-validation-technique-would-you-use-on-a-time-series-dataset)
 
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
@@ -1685,7 +1685,7 @@ There are several solutions to the problem of overfitting:
 * We can try a simpler model because in the case of overfitting, the model might be complex for the dataset, e.g., linear instead of polynomial regression, or SVM with a linear kernel instead of radial basis function, a neural network with fever layers/units.
 * We can reduce the dimensionality of the dataset (removing some  irrelevant features, or using one of the dimensionality reduction techniques. Even some algorithms have built-in feature selection.)
 * We can add more training data. This should reduce variance, but will have no effect on bias. More data can even make bias worse - it gives your model the chance to give highly precise, wrong answers
-* We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases.
+* We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases. Early stopping may underfit by stopping too early.
 * We can use regularization methods. For example, you could prune a decision tree, use dropout on a neural network, or add a penalty parameter (L1/L2 Regularization) to the cost function in regression.
 * We can use Ensembling methods (Bagging and Boosting). Ensembles are machine learning methods for combining predictions from multiple separate models. Bagging uses complex base models and tries to "smooth out" their predictions, while boosting uses simple base models and tries to "boost" their aggregate complexity.
 * Cross-validation is a powerful preventative measure against overfitting.
@@ -1834,7 +1834,7 @@ Selection bias is the bias introduced by the selection of individuals, groups or
 
 #### What’s the difference between a generative and discriminative model?
 
-Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner). Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated, in terms of a probabilistic model. (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points). For more details, you can read [this blog spot](https://mmuratarat.github.io/2019-08-23/generative-discriminative-models){:target="_blank"}.
+Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner). Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated, in terms of a probabilistic model. (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points). For more details, you can read [this blog post](https://mmuratarat.github.io/2019-08-23/generative-discriminative-models){:target="_blank"}.
 
 #### What cross-validation technique would you use on a time series dataset?
 
