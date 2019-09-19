@@ -85,8 +85,9 @@ permalink: /faq/
 5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
 6. [What is mutually exclusive (disjoint) events?](#what-is-mutually-exclusive-disjoint-events)
 7. [What is a non-disjoint event?](#what-is-a-non-disjoint-event)
-7. [What is exhaustive events?](#what-is-exhaustive-events)
-8. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
+8. What is an independent event?
+9. [What is exhaustive events?](#what-is-exhaustive-events)
+10. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 
 
 [Probability](#probability)
@@ -107,7 +108,7 @@ permalink: /faq/
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [What is Cross-covariance?](#what-is-cross-covariance)
 25. What is moment generating function? What is characteristic function? How to compute them?
-26. What are the properties of Distributions?
+26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
@@ -853,6 +854,22 @@ For example, if events $A$ and $B$ are non-disjoint events, the probability of A
 
 $$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+#### What is an independent event?
+
+An independent event is an event that has no connection to another event's chances of happening (or not happening). In other words, the event has no effect on the probability of another event occurring.
+
+Let's say that we have two events, $A$ and $B$ and they are independent. Intersection of these two events has:
+
+$$
+P(A\cap B) = P(A)P(B)
+$$
+
+Therefore, their union is:
+
+$$
+P(A\cup B) = P(A) + P(B) - P(A\cap B) =  P(A) + P(B) - P(A)P(B)
 $$
 
 #### What is exhaustive events?
