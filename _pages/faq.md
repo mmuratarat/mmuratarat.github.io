@@ -107,6 +107,7 @@ permalink: /faq/
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [What is Cross-covariance?](#what-is-cross-covariance)
 25. What is moment generating function? What is characteristic function? How to compute them?
+26. What are the properties of Distributions?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
@@ -1253,6 +1254,26 @@ $$
 This is easily seen using $corr(X_{i}, X_{j}) = \dfrac{cov(X_{i}, X_{j})}{\sqrt{\sigma_{ii}\sigma_{jj}}}$
 
 Do not forget that covariance indicates the direction of the linear relationship between variables. Correlation on the other hand measures both the strength and direction of the linear relationship between two variables. Correlation is a function of the covariance.
+
+#### What are the properties of Distributions?
+
+* **Measures of Central Tendancy**
+
+  - The mean is measured by taking the sum divided by the number of observations.
+  - The median is the middle observation in a series of numbers. If the number of observations are even, then the two middle observations would be divided by two.
+  - The mode refers to the most frequent observation.
+  - The main question of interest is whether the sample mean, median, or mode provides the most accurate estimate of central tendancy within the population.
+
+* **Measures of Dispersion**
+
+  - The standard deviation of a set of observations is the square root of the average of the squared deviations from the mean. The squared deviations from the mean is called the variance.
+
+* **The Shape of Distributions**
+
+  - Unimodal distributions have only one peak while multimodal distributions have several peaks.
+  - An observation that is skewed to the right contains a few large values which results in a long tail towards the right hand side of the chart.
+  - An observation that is skewed to the left contains a few small values which results in a long tail towards the left hand side of the chart.
+  - The kurtosis of a distribution refers to the degree of peakedness of a distribution.
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
