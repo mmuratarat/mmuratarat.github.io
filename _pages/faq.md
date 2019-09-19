@@ -1769,7 +1769,7 @@ Feature scaling is the method used to standardize the range of features of data.
          X^{'} = \frac{X- X_{mean}}{X_{max} - X_{min}}
      \end{equation}
      All the values will be between 0 and 1. 
-* **Standardization**:Standardization (also called z-score normalization) transforms your data such that the resulting distribution has a mean 0 and a standard deviation 1. 
+* **Standardization**: Standardization (also called z-score normalization) transforms your data such that the resulting distribution has a mean 0 and a standard deviation 1. 
      \begin{equation}
          X^{'} = \frac{X- X_{mean}}{\sigma}
      \end{equation}
