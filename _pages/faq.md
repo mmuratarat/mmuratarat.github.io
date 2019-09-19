@@ -1274,7 +1274,9 @@ $$
 
 This is easily seen using $corr(X_{i}, X_{j}) = \dfrac{cov(X_{i}, X_{j})}{\sqrt{\sigma_{ii}\sigma_{jj}}}$
 
-Do not forget that covariance indicates the direction of the linear relationship between variables. Correlation on the other hand measures both the strength and direction of the linear relationship between two variables. Correlation is a function of the covariance.
+Do not forget that covariance indicates the direction of the linear relationship between variables. Correlation on the other hand measures both the strength and direction of the linear relationship between two variables. Correlation is a function of the covariance. 
+
+Note that covariance and correlation are the same if the features are standardized, i.e., they have mean 0 and variance 1.
 
 #### What are the properties of Distributions?
 
