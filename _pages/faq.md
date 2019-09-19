@@ -85,7 +85,7 @@ permalink: /faq/
 5. [What are the operations on a set?](#what-are-the-operations-on-a-set)
 6. [What is mutually exclusive (disjoint) events?](#what-is-mutually-exclusive-disjoint-events)
 7. [What is a non-disjoint event?](#what-is-a-non-disjoint-event)
-8. What is an independent event?
+8. [What is an independent event?](#what-is-an-independent-event)
 9. [What is exhaustive events?](#what-is-exhaustive-events)
 10. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 
@@ -856,6 +856,8 @@ $$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
 $$
 
+This rule is also called Addition rule.
+
 #### What is an independent event?
 
 An independent event is an event that has no connection to another event's chances of happening (or not happening). In other words, the event has no effect on the probability of another event occurring.
@@ -865,6 +867,8 @@ Let's say that we have two events, $A$ and $B$ and they are independent. Interse
 $$
 P(A\cap B) = P(A)P(B)
 $$
+
+This rule is also called multiplication rule.
 
 Therefore, their union is:
 
