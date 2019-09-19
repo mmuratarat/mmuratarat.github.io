@@ -171,6 +171,7 @@ permalink: /faq/
 28. [What are the differences and similarities between Ordinary Least Squares Estimation and Maximum Likelihood Estimation methods?](#what-are-the-differences-and-similarities-between-ordinary-least-squares-estimation-and-maximum-likelihood-estimation-methods)
 29. [Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?](#do-you-suggest-that-treating-a-categorical-variable-as-continuous-variable-would-result-in-a-better-predictive-model)
 30. [Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?](#considering-the-long-list-of-machine-learning-algorithm-given-a-data-set-how-do-you-decide-which-one-to-use)
+31. What is selection bias?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -1824,3 +1825,13 @@ yes, then you can choose from a wide variety of algorithms. Otherwise, you would
 6. **Training speed**: Neural networks are known to be slow to train, even with GPU. Simple algorithms like logistic and linear regression or decision trees are much faster. Specialized libraries contain very efficient implementations of some algorithms; you may prefer to do research online to find such libraries. Some algorithms, such as random forests, benefit from the availability of multiple CPU cores, so their model building time can be significantly reduced on a machine with dozens of cores.
 
 7. **Prediction speed**: The time spent for generating predictions is also considerably important for choosing the algorithm. Algorithms like SVMs, linear and logistic regression, and (some types of) neural networks, are extremely fast at the prediction time. Others, like kNN, ensemble algorithms, and very deep or recurrent neural networks, are slower. 
+
+#### What is selection bias?
+
+Selection bias is the bias introduced by the selection of individuals, groups or data for analysis in such a way that proper randomization is not achieved, thereby ensuring that the sample obtained is not representative of the population intended to be analyzed. It is sometimes referred to as the selection effect. The phrase "selection bias" most often refers to the distortion of a statistical analysis, resulting from the method of collecting samples. If the selection bias is not taken into account, then some conclusions of the study may be false.
+
+#### What’s the difference between a generative and dis- criminative model?
+
+Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner). Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated, in terms of a probabilistic model. (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points). For more details, you can read [this blog spot](https://mmuratarat.github.io/2019-08-23/generative-discriminative-models){:target="_blank"}.
+
+
