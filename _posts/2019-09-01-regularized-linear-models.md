@@ -266,6 +266,8 @@ lasso_reg.predict([[1.5]])
 
 Note that you could also use an `SGDRegressor(penalty="l1")`
 
+**NOTE**: L1 corresponds to setting a Laplacean prior on the terms, while L2 corresponds to a Gaussian prior.
+
 # Elastic Net
 
 Use of Lasso penalty function has several limitations. For example, in the "large number of predictors $p$, small number of observation $n$" case (high-dimensional data with few examples), the LASSO selects at most $n$ variables before it saturates. Also if there is a group of highly correlated variables, then the LASSO tends to select one variable from a group and ignore the others. To overcome these limitations, the elastic net adds a quadratic part to the penalty, which when used alone is ridge regression (known also as Tikhonov regularization).
