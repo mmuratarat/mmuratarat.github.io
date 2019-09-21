@@ -109,6 +109,7 @@ permalink: /faq/
 26. [What is Cross-covariance?](#what-is-cross-covariance)
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
+27. What are the measures of Central Tendency: Mean, Median, and Mode?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
@@ -1298,6 +1299,44 @@ Note that covariance and correlation are the same if the features are standardiz
   - An observation that is skewed to the right contains a few large values which results in a long tail towards the right hand side of the chart.
   - An observation that is skewed to the left contains a few small values which results in a long tail towards the left hand side of the chart.
   - The kurtosis of a distribution refers to the degree of peakedness of a distribution.
+
+
+#### What are the measures of Central Tendency: Mean, Median, and Mode?
+
+The central tendency of a distribution represents one characteristic of a distribution. In statistics, the three most common measures of central tendency are the mean, median, and mode. Each of these measures calculates the location of the central point using a different method. The median and mean can only have one value for a given data set. The mode can have more than one value.
+
+Choosing the best measure of central tendency depends on the type of data you have.
+
+* **Mean**: The mean is the arithmetic average. Calculating the mean is very simple. You just add up all of the values and divide by the number of observations in your dataset.
+
+$$
+\bar{x} = \frac{x_{1}+x_{2}+\cdots +x_{n}}{n}
+$$
+
+The calculation of the mean incorporates all values in the data. If you change any value, the mean changes. However, the mean doesn't always locate the center of the data accurately. In a symmetric distribution, the mean locates the center accurately. However, in a skewed distribution, the mean can miss the mark. Outliers have a substantial impact on the mean. Extreme values in an extended tail pull the mean away from the center. As the distribution becomes more skewed, the mean is drawn further away from the center. Consequently, it’s best to use the mean as a measure of the central tendency when you have a symmetric distribution.
+
+* **Median**: The median is the middle value. It is the value that splits the dataset in half. To find the median, order your data from smallest to largest, and then find the data point that has an equal amount of values above it and below it. The method for locating the median varies slightly depending on whether your dataset has an even or odd number of values.
+
+If the number of observations is odd, the number in the middle of the list is the median. This can be found by taking the value of the $(n+1)/2$-th term, where n is the number of observations. Else, if the number of observations is even, then the median is the simple average of the middle two numbers. 
+
+In a symmetric distribution, the mean and median both find the center accurately. They are approximately equal.
+
+Outliers and skewed data have a smaller effect on the median. Unlike the mean, the median value doesn’t depend on all the values in the dataset. When you have a skewed distribution, the median is a better measure of central tendency than the mean.
+
+You can also use median when you have ordinal data.
+
+When to use the median: Skewed distribution, Continuous data, Ordinal data
+
+* **Mode**: The mode is the value that occurs the most frequently in your data set. Typically, you use the mode with nominal (categorical), ordinal, and discrete (count) data. In fact, the mode is the only measure of central tendency that you can use with norminal (categorical) data. However, with nominal (categorical) data, there is not a central value because you can not order the groups. With ordinal and discrete (count) data, the mode can be a value that is not in the center. Again, the mode represents the most common value.
+
+In the continuous data, no values repeat, which means there is no mode. With continuous data, it is unlikely that two or more values will be exactly equal because there are an infinite number of values between any two values. When you are working with the raw continuous data, don’t be surprised if there is no mode. However, you can find the mode for continuous data by locating the maximum value on a probability distribution plot. If you can identify a probability distribution that fits your data, find the peak value and use it as the mode.
+
+When you have a symmetrical distribution for continuous data, the mean, median, and mode are equal.
+
+When to use the mean: Symmetric distribution, Continuous data
+When to use the median: Skewed distribution, Continuous data, Ordinal data
+When to use the mode: Categorical data, Ordinal data, Count data, Probability Distributions
+
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
