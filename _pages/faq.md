@@ -177,7 +177,7 @@ permalink: /faq/
 31. [What is selection bias?](#what-is-selection-bias)
 32. [What’s the difference between a generative and discriminative model?](#whats-the-difference-between-a-generative-and-discriminative-model)
 33. [What cross-validation technique would you use on a time series dataset?](#what-cross-validation-technique-would-you-use-on-a-time-series-dataset)
-
+34. What is the difference between "long" and "wide" format data?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -1887,6 +1887,16 @@ yes, then you can choose from a wide variety of algorithms. Otherwise, you would
 
 Selection bias is the bias introduced by the selection of individuals, groups or data for analysis in such a way that proper randomization is not achieved, thereby ensuring that the sample obtained is not representative of the population intended to be analyzed. It is sometimes referred to as the selection effect. The phrase "selection bias" most often refers to the distortion of a statistical analysis, resulting from the method of collecting samples. If the selection bias is not taken into account, then some conclusions of the study may be false.
 
+The types of selection bias include:
+
+1. **Sampling bias**: It is a systematic error due to a non-random sample of a population causing some members of the population to be less likely to be included than others resulting in a biased sample.
+
+2. **Time interval**: A trial may be terminated early at an extreme value (often for ethical reasons), but the extreme value is likely to be reached by the variable with the largest variance, even if all variables have a similar mean.
+
+3. **Data**: When specific subsets of data are chosen to support a conclusion or rejection of bad data on arbitrary grounds, instead of according to previously stated or generally agreed criteria.
+
+4. **Attrition**: Attrition bias is a kind of selection bias caused by attrition (loss of participants) discounting trial subjects/tests that did not run to completion.
+
 #### What’s the difference between a generative and discriminative model?
 
 Disriminative models learn the explicit (hard or soft) boundaries between classes (and not necessarily in a probabilistic manner). Generative models learn the distribution of individual classes, therefore, providing a model of how the data is actually generated, in terms of a probabilistic model. (e.g., logistic regression, support vector machines or the perceptron algorithm simply give you a separating decision boundary, but no model of generating synthetic data points). For more details, you can read [this blog post](https://mmuratarat.github.io/2019-08-23/generative-discriminative-models){:target="_blank"}.
@@ -1905,3 +1915,10 @@ The forecast accuracy is computed by averaging over the test sets. This procedur
 
 1. [https://robjhyndman.com/hyndsight/tscv/](https://robjhyndman.com/hyndsight/tscv/){:target="_blank"}
 2. [https://robjhyndman.com/hyndsight/crossvalidation/](https://robjhyndman.com/hyndsight/crossvalidation/){:target="_blank"}
+
+#### What is the difference between "long" and "wide" format data?
+
+In the wide format, a subject’s repeated responses will be in a single row, and each response is in a separate column. In the long format, each row is a one-time point per subject. You can recognize data in wide format by the fact that columns generally represent groups.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/wide_long_format_data.png?raw=true)
+
