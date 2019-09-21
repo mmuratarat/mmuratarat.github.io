@@ -1299,6 +1299,8 @@ Note that covariance and correlation are the same if the features are standardiz
   - An observation that is skewed to the right contains a few large values which results in a long tail towards the right hand side of the chart.
   - An observation that is skewed to the left contains a few small values which results in a long tail towards the left hand side of the chart.
   - The kurtosis of a distribution refers to the degree of peakedness of a distribution.
+  
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/pearson-mode-skewness.jpg?raw=true)
 
 #### What are the measures of Central Tendency: Mean, Median, and Mode?
 
