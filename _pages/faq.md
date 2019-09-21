@@ -1300,7 +1300,6 @@ Note that covariance and correlation are the same if the features are standardiz
   - An observation that is skewed to the left contains a few small values which results in a long tail towards the left hand side of the chart.
   - The kurtosis of a distribution refers to the degree of peakedness of a distribution.
 
-
 #### What are the measures of Central Tendency: Mean, Median, and Mode?
 
 The central tendency of a distribution represents one characteristic of a distribution. In statistics, the three most common measures of central tendency are the mean, median, and mode. Each of these measures calculates the location of the central point using a different method. The median and mean can only have one value for a given data set. The mode can have more than one value.
@@ -1308,6 +1307,7 @@ The central tendency of a distribution represents one characteristic of a distri
 Choosing the best measure of central tendency depends on the type of data you have.
 
 * **Mean**: The mean is the arithmetic average. Calculating the mean is very simple. You just add up all of the values and divide by the number of observations in your dataset.
+
   $$
 \bar{x} = \frac{x_{1}+x_{2}+\cdots +x_{n}}{n}
 $$
