@@ -920,7 +920,7 @@ We assign a probability measure $P(A)$ to an event $A$. This is a value between 
 * **Axiom 3** If $A_{1}, A_{2}, A_{3}, \ldots$ are disjoint (mutually exclusive) (even countably infinite) events, meaning that they have an empty intersection, the probability of the union of the events is the same as the sum of the probabilities: $P(A_{1} \cup A_{2} \cup A_{3} \cup \ldots) = P(A_{1}) + P(A_{2}) + P(A_{3}) + \dots$.
 
 #### What is a random variable?
-A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. There are two types of random variables, discrete and continuous. 
+A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. In short, a random variable is a quantity produced by a random process. Each numerical outcome of a random variable can be assigned a probability. There are two types of random variables, discrete and continuous. 
 
 A discrete random variable is one which may take on a finite or countably infinite number of possible values such as 0,1,2,3,4,... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
 
@@ -958,7 +958,9 @@ A discrete probability function is a function that can take a discrete number of
 
 #### What is a probability density function? What are the conditions for a function to be a probability density function?
 
-Continuous probability function is referred to as probability density function (pdf). It is a function of a continuous random variable, whose integral across an interval gives the probability that the value of the variable lies within the same interval. The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
+Continuous probability function is referred to as probability density function (pdf). It is a function of a continuous random variable, whose integral across an interval gives the probability that the value of the variable lies within the same interval. Unlike discrete random variable, the probability for a given continuous variable can not be specified directly; instead, it is calculated as an integral (area under curve) for a tiny interval around the specific outcome.
+
+The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
 
 * The probability that x is between two points a and b is
 
