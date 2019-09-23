@@ -796,6 +796,45 @@ Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{
 
 ## Numerical Optimization
 
+#### Describe convex function
+
+A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any lambda where $0< \lambda < 1$,
+
+* the domain M of the function is convex;
+
+and 
+
+* $$
+f[\lambda x_{1} + (1 - \lambda) x_{2}] \leq \lambda f(x_{1}) + (1 - \lambda) f(x_{2}) 
+$$
+
+If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true.
+
+The prototypical convex function is shaped something like the letter \mathbf{U}$.
+
+If the inequality above is strict for all $x_{1}$ and $x_{2}$, then $f(x)$ is called strictly convex.
+
+An inequality is strict if replacing any "less than" and "greater than" signs with equal signs never gives a true expression. For example, $a \leq b$ is not strict, whereas $a < b$ is.
+
+Some convex function examples are shown below:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/convex_func_examples.png?raw=true)
+
+By contrast, the following function is not convex. Notice how the region above the graph is not a convex set:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nonconvex_func_example.png?raw=true)
+
+A strictly convex function has exactly one local minimum point, which is also the global minimum point. The classic U-shaped functions are strictly convex functions. However, some convex functions (for example, straight lines) are not U-shaped.
+
+If the functions $f$ and $g$ are convex, then any linear combination $a f + b g$ where $a$, $b$ are positive real numbers is also convex.
+
+The introduced concept of convexity has a simple geometric interpretation.
+
+If a function is convex downward, the midpoint $B$ of each chord $A_{1}A_{2}$ lies above the corresponding point $A_{0}$ of the graph of the function or coincides with this point.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.png?raw=true)
+
+
 ## Set Theory
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/set_theory.gif?raw=true)
 
