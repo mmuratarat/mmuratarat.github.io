@@ -73,7 +73,7 @@ permalink: /faq/
 8. What is line search?
 9. What is hill climbing?
 10. What is curvature?
-11. Describe convex function.
+11. [Describe convex function.](#describe-convex-function)
 
 
 [Set Theory](#set-theory)
@@ -810,7 +810,7 @@ $$
 
 If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true.
 
-The prototypical convex function is shaped something like the letter \mathbf{U}$.
+The prototypical convex function is shaped something like the letter U.
 
 If the inequality above is strict for all $x_{1}$ and $x_{2}$, then $f(x)$ is called strictly convex.
 
