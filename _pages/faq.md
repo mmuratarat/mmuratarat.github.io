@@ -1500,6 +1500,12 @@ The power of a test is one minus the probability of type II error (beta), which 
 
 The chances of committing these two types of errors are inversely proportional—that is, decreasing Type I error rate increases Type II error rate, and vice versa. To decrease your chance of committing a Type I error, simply make your alpha value more stringent. To reduce your chance of committing a Type II error, increase your analyses’ power by either increasing your sample size or relaxing your alpha level!
 
+In a drug effectiveness study, a false positive could cause the patient to use an ineffective drug. Conversely, a false negative could mean not using a drug that is effective at curing the disease. Both cases could have a very high cost to the patient’s health.
+
+In a machine learning A/B test, a false positive might mean switching to a model that should increase revenue when it doesn’t. A false negative means missing out on a more beneficial model and losing out on potential revenue increase.
+
+A statistical hypothesis test allows you to control the probability of false positives by setting the significance level, and false negatives via the power of the test. If you pick a false positive rate of 0.05, then out of every 20 new models that don’t improve the baseline, on average 1 of them will be falsely identified by the test as an improvement.
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/confusion_matrix.png?raw=true)
 
 In the context of confusion matrix, we can say Type I error occurs when we classify a value as positive (1) when it is actually negative (0). For example, false-positive test result indicates that a person has a specific disease or condition when the person actually does not have it. 
