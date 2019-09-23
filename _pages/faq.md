@@ -800,7 +800,7 @@ Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{
 
 A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any lambda where $0< \lambda < 1$,
 
-* the domain M of the function is convex;
+* the domain M of the function is convex, meaning it is a convex set if it contains all convex combinations of any two points within it.
 
 and 
 
@@ -828,9 +828,11 @@ A strictly convex function has exactly one local minimum point, which is also th
 
 If the functions $f$ and $g$ are convex, then any linear combination $a f + b g$ where $a$, $b$ are positive real numbers is also convex.
 
-The introduced concept of convexity has a simple geometric interpretation.
+$f$ is convex if $−f$ is concave.
 
-If a function is convex downward, the midpoint $B$ of each chord $A_{1}A_{2}$ lies above the corresponding point $A_{0}$ of the graph of the function or coincides with this point.
+The introduced concept of convexity has a simple geometric interpretation. Geometrically, the line segment connecting $(x_{1}, f(x_{1}))$ to $(x_{2}, f(x_{2}))$ must sit above the graph of $f$ and never cross the graph itself.
+
+If a function is convex, the midpoint $B$ of each chord $A_{1}A_{2}$ lies above the corresponding point $A_{0}$ of the graph of the function or coincides with this point.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.png?raw=true)
 
