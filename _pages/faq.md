@@ -1507,7 +1507,7 @@ The fact that the MLE based on n independent Bernoulli random variables and the 
 
 #### What is the central limit theorem?
 
-The gist of Central Limit Theorem is that the sample mean will be approximately normally distrubted for large sample sizes., regardless of the distribution from which we are sampling. 
+The gist of Central Limit Theorem is that the sample mean will be approximately normally distributed for large sample sizes, regardless of the distribution from which we are sampling. 
 
 Suppose we are sampling from a population with mean $\mu$ and standard deviation $\sigma$. Let $\bar{X}$ be a random variable representing the sample mean of $n$ independently drawn observations.
 
