@@ -110,6 +110,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
+28. What are the properties of an estimator?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
@@ -1377,6 +1378,18 @@ $$
 * When to use the mean: Symmetric distribution, Continuous data
 * When to use the median: Skewed distribution, Continuous data, Ordinal data
 * When to use the mode: Categorical data, Ordinal data, Count data, Probability Distributions
+
+#### What are the properties of an estimator?
+
+Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of that parameter. Desirable properties of $\hat{\theta}$ are: 
+
+* **Unbiased**: A statistic (estimator) is said to be an unbiased estimate of a given parameter when the mean of the sampling distribution of that statistic can be shown to be equal to the parameter being estimated, that is, $E(\hat{\theta}) = \theta$. For example, $E(\bar{X}) = \mu$ and $E(s^{2}) = \sigma^{2}$.
+
+* **Efficiency**: The most efficient estimator among a group of unbiased estimators is the one with the smallest variance. For example, both the sample mean and the sample median are unbiased estimators of the mean of a normally distributed variable. However, $\bar{X}$ has the smallest variance.
+
+* **Sufficiency**: An estimator is said to be sufficient if it uses all the information about the population parameter that the sample can provide. The sample median is not sufficient, because it only uses information about the ranking of observations. The sample mean is sufficient. 
+
+* **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$.  For example, as $N$ goess to infinity, $V(\var{X}) = \sigma^{2}/N = 0$. 
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
