@@ -1511,7 +1511,7 @@ The gist of Central Limit Theorem is that the sample mean will be approximately 
 
 Suppose we are sampling from a population with mean $\mu$ and standard deviation $\sigma$. Let $\bar{X}$ be a random variable representing the sample mean of $n$ independently drawn observations.
 
-We know that:
+Assuming that $X_{i}$'s are independent and identically distributed, we know that:
 
 * The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
 
@@ -1525,7 +1525,7 @@ We know that:
   Var(\bar{X}) = Var \left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
   $$
   
-Assuming that $X_{i}$'s are independent and identically distributed.
+  which is called the “standard error of the mean,”
 
 Given any random variable $X$, discrete or continuous, with finite mean $\mu$ and finite $\sigma^{2}$. Then, regardless of the shape of the population distribution of $X$, as the sample size $n$ gets larger ($n \geq 30$), the sampling distribution of $\bar{X}$ becomes increasingly closer to normal with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$, that is $\bar{X} \sim N\left(\mu ,  \frac{\sigma^{2}}{n}\right)$ approximately. 
 
