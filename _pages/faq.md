@@ -1526,8 +1526,15 @@ We know that:
   
 Assuming that $X_{i}$'s are independent and identically distributed.
 
+Given any random variable $X$, discrete or continuous, with finite mean $\mu$ and finite $\sigma^{2}$. Then, regardless of the shape of the population distribution of $X$, as the sample size $n$ gets larger ($n \geq 30$), the sampling distribution of $\bar{X}$ becomes increasingly closer to normal with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$, that is $\bar{X} \sim N\left(\mu ,  \frac{\sigma^{2}}{n}\right)$ approximately. 
+
+More formally,
+
+$$
+Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1) \text{ as } n \to \infty
+$$
   
-  
+What is the population standard deviation $\sigma$ is unknown? Then, it can be replaced by the sample standard deviation $s$, provided $n$ is large that is $\bar{X} \sim N\left(\mu ,  \frac{s^{2}}{n}\right)$. Since the value $s/\sqrt{n}$ is a sample-based estimate of the true standard error s.e., it is commonly denoted as $\hat{s.e.}$. 
   
 
 #### Can KL divergence be used as a distance measure?
