@@ -116,7 +116,7 @@ permalink: /faq/
 26. What is a multinoulli distribution?
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
-29. What is the central limit theorem?
+29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 30. What are exponential and Laplace distribution?
 31. What are Dirac distribution and Empirical distribution?
 32. What is mixture of distributions?
@@ -1514,8 +1514,9 @@ Suppose we are sampling from a population with mean $\mu$ and standard deviation
 We know that:
 
 * The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
+
   $$
-  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{\mu + \mu + ldots + \mu}{n} = \frac{n\mu}{n} = \mu
+  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{\mu + \mu + \ldots + \mu}{n} = \frac{n\mu}{n} = \mu
   $$
 
 * Standard deviation of the sampling distribution of the sample mean $\bar{X}$ is equal to $\frac{\sigma}{\sqrt{n}}$.
