@@ -110,7 +110,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
-28. What are the properties of an estimator?
+28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
@@ -1389,7 +1389,7 @@ Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of 
 
 * **Sufficiency**: An estimator is said to be sufficient if it uses all the information about the population parameter that the sample can provide. The sample median is not sufficient, because it only uses information about the ranking of observations. The sample mean is sufficient. 
 
-* **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$.  For example, as $N$ goess to infinity, $V(\var{X}) = \sigma^{2}/N = 0$. 
+* **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$. For example, as $N$ goess to infinity, $V(\bar{X}) = \frac{\sigma^{2}}{N} = 0$. 
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
