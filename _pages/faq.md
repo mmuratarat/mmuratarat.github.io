@@ -1478,7 +1478,7 @@ $$
 \hat{p} = \frac{\sum_{i=1}^{n} x_{i}}{n}
 $$
 
-The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed in $n$ independent trials.
+The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed in $n$ independent trials. $\hat{p}$ is the observed proportion of successes in the $n$ trials. We often call $\hat{p}$ the sample proportion to distinguish it from $p$, the "true" or "population" proportion.
 
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
