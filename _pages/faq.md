@@ -1448,6 +1448,38 @@ $$
 
 Its mean is $E(x) = np$ and its variance is $Var(x) = np(1-p)$. 
 
+Finding maximum likelihood estimation of the parameter $p$ of Binomial distribution is easily. Since we know the probability mass function of Binomial distribution, we can write its likelihood function:
+
+$$
+\begin{split}
+L(p) &= \prod_{i=1}^{n} p(x_{i}; n, p)\\
+&=\prod_{i=1}^{n} \frac{n!}{x_{i}!(n-x_{i})!} p^{x_{i}} (1-p)^{n-x_{i}}\\
+&=p^{\sum_{i=1}^{n} x_{i}} (1-p)^{\left(n-\sum_{i=1}^{n} x_{i}\right)} \left(\prod_{i=1}^{n} \frac{n!}{x_{i}!(n-x_{i})!}  \right)
+\end{split}
+$$
+
+Since the last term does not depend on the parameter $p$, we can get rid of it.
+
+In practice, it is more convenient to maximize the log of the likelihood function. Because the logarithm is monotonically increasing function of its argument, maximization of the log of a function is equivalent to maximization of the function itself. Taking the log not only simplifies the subsequent mathematical analysis, but it also helps numerically because the product of a large number of small probabilities can easily underflow the numerical precision of the computer, and this is resolved by computing instead the sum of the log probabilities. Therefore, let's take the log of this likelihood function:
+
+$$
+ln L(p) = ln(p)\sum_{i=1}^{n} x_{i} + ln(1-p) \left(n - \sum_{i=1}^{n} x_{i} \right)
+$$
+
+In order to find maximum likelihood estimator, we need to take first-order derivative of this function with respect to $p$ and set it to zero:
+
+$$
+\frac{\partial}{\partial p} ln L(p) = \frac{1}{p}\sum_{i=1}^{n} x_{i} + \frac{1}{1-p} \left(n - \sum_{i=1}^{n} x_{i} \right) = 0
+$$
+
+Solving this equation will yield:
+
+$$
+\hat{p} = \frac{\sum_{i=1}^{n} x_{i}}{n}
+$$
+
+The numerator can be thought of number of successes in $n$ independent trials.
+
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
 
