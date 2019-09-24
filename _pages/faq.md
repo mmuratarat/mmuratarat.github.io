@@ -1426,6 +1426,14 @@ $$
 
 and the fact that $X$ can take either value $0$ or value $1$. If $x<0$, then $P(X \leq x) = 0$ because $X$ can not take values strictly smaller than $0$. If $0 \leq x < 1$, then $P(X \leq x) = 1-p$ because $0$ is the only value strictly smaller than 1 that $X$ can take. Finally, if $x \geq 1$, then $P(X \leq x) = 1$ because all values $X$ can take are smaller than or equal to $1$.
 
+Finding maximum likelihood estimation of the parameter $p$ of Bernoulli distribution is trivial. 
+
+$$
+L(p;x) = \prod\limits_{i=1}^n p(x_i;p) = \prod\limits_{i=1}^n p^x(1-p)^{1-x}
+$$
+
+Differentiating the log of $L(p;x)$ with respect to $p$ and setting the derivative to zero shows that this function achieves a maximum at $\hat{p} = \frac{\sum_{i=1}^{n} x_{i}}{n}$.
+
 #### What is Binomial distribution?
 
 A Binomial distribution can be thought of as simply the probability of success or failure outcome in an experiment or a survery that is repeated multiple times. The Binomial distribution is a type of distribution that has two possible outcomes (the prefix 'bi' means two or twice). For example, a coin toss has only two possible outcomes: heads or tails.
@@ -1460,7 +1468,7 @@ L(p) &= \prod_{i=1}^{n} p(x_{i}; n, p)\\
 \end{split}
 $$
 
-Since the last term does not depend on the parameter $p$, we can get rid of it.
+Since the last term does not depend on the parameter $p$, we consider it as a constant. We can omit the constant, because it is statistically irrelevant.
 
 In practice, it is more convenient to maximize the log of the likelihood function. Because the logarithm is monotonically increasing function of its argument, maximization of the log of a function is equivalent to maximization of the function itself. Taking the log not only simplifies the subsequent mathematical analysis, but it also helps numerically because the product of a large number of small probabilities can easily underflow the numerical precision of the computer, and this is resolved by computing instead the sum of the log probabilities. Therefore, let's take the log of this likelihood function:
 
@@ -1481,6 +1489,8 @@ $$
 $$
 
 The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed in $n$ independent trials. $\hat{p}$ is the observed proportion of successes in the $n$ trials. We often call $\hat{p}$ the sample proportion to distinguish it from $p$, the "true" or "population" proportion.
+
+The fact that the MLE based on n independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
 
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
