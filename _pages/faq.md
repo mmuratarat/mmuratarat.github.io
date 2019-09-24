@@ -1516,13 +1516,13 @@ We know that:
 * The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
 
   $$
-  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{\mu + \mu + \ldots + \mu}{n} = \frac{n\mu}{n} = \mu
+  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{\mu + \mu + \ldots + \mu}{n} = \frac{n\mu}{n} = \mu
   $$
 
 * Standard deviation of the sampling distribution of the sample mean $\bar{X}$ is equal to $\frac{\sigma}{\sqrt{n}}$.
 
   $$
-  Var(\bar{X}) = Var \left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
+  Var(\bar{X}) = Var \left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
   $$
   
 Assuming that $X_{i}$'s are independent and identically distributed.
@@ -1537,6 +1537,13 @@ $$
   
 What is the population standard deviation $\sigma$ is unknown? Then, it can be replaced by the sample standard deviation $s$, provided $n$ is large that is $\bar{X} \sim N\left(\mu ,  \frac{s^{2}}{n}\right)$. Since the value $s/\sqrt{n}$ is a sample-based estimate of the true standard error s.e., it is commonly denoted as $\hat{s.e.}$. 
   
+Sample variance $s^{2}$ is an unbiased estimator of the population variance $\sigma^{2}$ that is $E(s^{2})=\sigma^{2}$.
+
+$$
+s^{2} = \frac{1}{n-1} \sum_{i=1}^{n} \left(X_{i} - \bar{X} \right)^{2}
+$$
+
+The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness if the variance estimator.
 
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
