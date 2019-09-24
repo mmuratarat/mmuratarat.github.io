@@ -1505,6 +1505,31 @@ The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed i
 
 The fact that the MLE based on n independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
 
+#### What is the central limit theorem?
+
+The gist of Central Limit Theorem is that the sample mean will be approximately normally distrubted for large sample sizes., regardless of the distribution from which we are sampling. 
+
+Suppose we are sampling from a population with mean $\mu$ and standard deviation $\sigma$. Let $\bar{X}$ be a random variable representing the sample mean of $n$ independently drawn observations.
+
+We know that:
+
+* The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
+  $$
+  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{\mu + \mu + ldots + \mu}{n} = \frac{n\mu}{n} = \mu
+  $$
+
+* Standard deviation of the sampling distribution of the sample mean $\bar{X}$ is equal to $\frac{\sigma}{\sqrt{n}}$.
+
+  $$
+  Var(\bar{X}) = Var \left(\frac{x_{1} + x_{2} + \ldots + x_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
+  $$
+  
+Assuming that $X_{i}$'s are independent and identically distributed.
+
+  
+  
+  
+
 #### Can KL divergence be used as a distance measure?
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
 
