@@ -1432,7 +1432,9 @@ A Binomial distribution can be thought of as simply the probability of success o
 
 Note that, each trial is independent. In other words, none of the trials (experiments) have an effect on the probability of the next trials.
 
-Binomial distribution is probably the most commonly used discrete distribution which its probabilit mass function is given by:
+Binomial distribution is probably the most commonly used discrete distribution. 
+
+Suppose that $x = (x_{1}, x_{2}, \ldots, x_{n})$ represents the outcomes of $n$ independent Bernoulli trials, each with success probability $p$, then, its probabiliy mass function is given by:
 
 $$
 Binomial(x; n,p) = ^nC_{x} p^{x} (1-p)^{n-x} =  {n \choose x} p^{x} (1-p)^{n-x} = \frac{n!}{x!(n-x)!} p^{x} (1-p)^{n-x}
@@ -1448,7 +1450,7 @@ $$
 
 Its mean is $E(x) = np$ and its variance is $Var(x) = np(1-p)$. 
 
-Finding maximum likelihood estimation of the parameter $p$ of Binomial distribution is straightforward. Since we know the probability mass function of Binomial distribution, we can write its likelihood function:
+Finding maximum likelihood estimation of the parameter $p$ of Binomial distribution is straightforward. Since we know the probability mass function of Binomial distribution, we can write its likelihood function (joint distribution, since Since $x_{1}, x_{2}, \ldots, x_{n}$ are iid random variables):
 
 $$
 \begin{split}
