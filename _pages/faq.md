@@ -1535,7 +1535,7 @@ $$
 Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1) \text{ as } n \to \infty
 $$
   
-What is the population standard deviation $\sigma$ is unknown? Then, it can be replaced by the sample standard deviation $s$, provided $n$ is large that is $\bar{X} \sim N\left(\mu ,  \frac{s^{2}}{n}\right)$. Since the value $s/\sqrt{n}$ is a sample-based estimate of the true standard error s.e., it is commonly denoted as $\hat{s.e.}$. 
+What is the population standard deviation $\sigma$ is unknown? Then, it can be replaced by the sample standard deviation $s$, provided $n$ is large that is $\bar{X} \sim N\left(\mu ,  \frac{s^{2}}{n}\right)$. The standard deviation of $\bar{X}$ is referred to as the true standard error of the mean. Since the value $s/\sqrt{n}$ is a sample-based estimate of the true standard error (s.e.), it is commonly denoted as $\hat{s.e.}$. 
   
 Sample variance $s^{2}$ is an unbiased estimator of the population variance $\sigma^{2}$ that is $E(s^{2})=\sigma^{2}$.
 
