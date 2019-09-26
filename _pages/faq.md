@@ -2283,3 +2283,7 @@ Everything in a tensorflow is based on creating a computational graph. It has a 
 #### What is an autoencoder?
 
 #### What are some limitations of deep learning?
+
+#### What is transfer learning ?
+
+A deep learning model trained on a specific task (a pre-trained model) can be reused for different problem in the same domain even if the amount of data is not that huge.
