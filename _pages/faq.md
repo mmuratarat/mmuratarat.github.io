@@ -127,16 +127,12 @@ permalink: /faq/
 37. What do you mean by measure zero and almost everywhere?
 38. If two random variables are related in a deterministic way, how are the PDFs related?
 39. Define self-information. What are its units?
-40. What are Shannon entropy and differential entropy?
-41. What is Kullback-Leibler (KL) divergence?
-42. [Can KL divergence be used as a distance measure?](#can-kl-divergence-be-used-as-a-distance-measure)
-43. Define cross-entropy.
 44. What are structured probabilistic models or graphical models?
 45. In the context of structured probabilistic models, what are directed and undirected models? How are they represented? What are cliques in undirected structured probabilistic models?
 46. What is population mean and sample mean?
 47. What is population standard deviation and sample standard deviation?
-48. Why population s.d. has N degrees of freedom while sample s.d. has N-1 degrees of freedom? In other words, why 1/N inside root for pop. s.d. and 1/(N-1) inside root for sample s.d.?
-49. What is the formula for calculating the s.d. of the sample mean?
+48. Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?
+49.  What is the formula for calculating the standard deviation of the sample mean?
 50. [What is confidence interval?](#what-is-confidence-interval)
 51. What is standard error?
 52. [What is a p-value?](#what-is-a-p-value)
@@ -1545,9 +1541,63 @@ $$
 
 The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness if the variance estimator.
 
-#### Can KL divergence be used as a distance measure?
-It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
+#### What is population mean and sample mean?
 
+A population is a collection of persons, objects or items of interest. Population mean is the average of the all the elements in the population. Suppose that whole population consists of $N$ observations:
+
+$$
+\mu = \frac{1}{N} \sum_{i=1}^{N} X_{i}
+$$
+
+A sample is a portion of the whole and, if properly taken, is representative of the population. Sample mean is the arithmetic mean of random sample values drawn from the population. Let's assume that we take $n$ samples from this population:
+
+$$
+\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_{i}
+$$
+
+#### What is population standard deviation and sample standard deviation?
+
+Standard deviation measures the spread of a data distribution around the mean of this distribution. It measures the typical distance between each data point and the mean. Standard deviation is the square root of the variance. 
+
+Population standard deviation ($\sigma$):
+
+$$
+\sigma^{2} = \frac{\sum_{i=1}^{N} X_{i} - \mu}{N}
+$$
+
+Sample standard deviation ($s$):
+
+$$
+s^{2} = \frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}
+$$
+
+
+#### Why population standard deviation has N degrees of freedom while sample standard deviation has n-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(n-1) inside root for sample standard deviation?
+
+When we calculate the sample standard deviation from a sample of n values, we are using the sample mean already calculated from that same sample of n values.  The calculated sample mean has already "used up" one of the "degrees of freedom of variability" that is available in the sample.  Only $n-1$ degrees of freedom of variability are left for the calculation of the sample standard deviation.
+
+Here's another way to look at it:  Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what 9 of the 10 sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary.  Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
+
+Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred.
+
+#### What is the formula for calculating mean and the standard deviation of the sample mean?
+
+Assuming that $X_{i}$'s are independent and identically distributed, we know that:
+
+* The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
+
+  $$
+  \mu_{\bar{X}} = E(\bar{X}) = E\left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{\mu + \mu + \ldots + \mu}{n} = \frac{n\mu}{n} = \mu
+  $$
+
+* Standard deviation of the sampling distribution of the sample mean $\bar{X}$ is equal to $\frac{\sigma}{\sqrt{n}}$.
+
+  $$
+  Var(\bar{X}) = Var \left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
+  $$
+  
+  which is called the "standard error of the mean".
+  
 #### What is confidence interval?
 
 The purpose of taking a random sample from a population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
@@ -2126,6 +2176,19 @@ There are two major problems:
 
 #### What is a Multi-Layer-Perceptron
 
+#### What does a neuron compute?
+An artificial neuron calculates a "weighted sum" of its input, adds a bias ($z = Wx+b$), followed by an activation function.
+
+#### What is the role of activation functions in a Neural Network?
+
+The goal of an activation function is to introduce nonlinearity into the neural network so that it can learn more complex function i.e. converts the processed input into an output called the activation value. Without it, the neural network would be only able to learn function which is a linear combination of its input data.
+
+If we do not apply an activation function then the output signal would simply be a simple linear function. A linear function is just a polynomial of one degree. Now, a linear equation is easy to solve but they are limited in their complexity and have less power to learn complex functional mappings from data. A neural network without activation function would simply be a linear regression model, which has limited power and does not performs good most of the times. 
+
+Another important feature of an activation function is also that it should be differentiable. We need it to be this way so as to perform backpropogation optimization strategy while propogating backwards in the network to compute gradients of error (loss) with respect to parameters (weights/biases) and then accordingly optimize weights using Gradient Descent algorithm or any other optimization technique to reduce error.
+
+####  How many types of activation functions are there ?
+
 ####  What is the cost function? 
 
 In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against "ground truth", i.e., the known values of $y$.
@@ -2200,6 +2263,15 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 
 When $K=2$, one will get binary cross entropy formula.
 
+#### Why don’t we use KL-Divergence in machine learning models instead of the cross entropy?
+
+The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that’s why we build a predictive model using a Machine Learning algorithm.
+
+#### Can KL divergence be used as a distance measure?
+
+It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
+
+
 #### What is gradient descent?
 
 Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
@@ -2213,6 +2285,9 @@ Gradient descent is an optimization algorithm used to minimize some function by 
 The size of these steps is called the learning rate. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom.
 
 #### What is backpropagation?
+
+### What is Early Stopping?
+It is a regularization technique that stops the training process as soon as the validation loss reaches a plateau or starts to increase.
 
 #### Why is Weight Initialization important in Neural Networks?
 
@@ -2233,6 +2308,10 @@ Hyperparameters are the variables which determine the network structure, e.g., n
 * Number of Epochs
 * Batch Size
 
+#### What is model capacity?
+
+It is the ability to approximate any given function. The higher model capacity is the larger amount of information that can be stored in the network.
+
 ### What is softmax function? What is the difference between softmax function and sigmoid function? In which layer softmax action function will be used ?
 
 #### What’s the difference between a feed-forward and a backpropagation neural network?
@@ -2246,9 +2325,13 @@ Backpropagation is a training algorithm consisting of 2 steps:
 
 So to be precise, forward-propagation is part of the backpropagation algorithm but comes before backpropagating.
 
-#### What is the role of activation functions in a Neural Network? How many types of activation functions are there ?
-
 #### What is Dropout and Batch Normalization?
+
+#### What is the relationship between the dropout rate and regularization?
+
+Higher dropout rate says that more neurons are active. So there would be less regularization.
+
+#### What is Variational dropout?
 
 #### Name a few deep learning frameworks
 
@@ -2278,7 +2361,7 @@ Everything in a tensorflow is based on creating a computational graph. It has a 
 
 #### What is Exploding Gradient Problem?
 
-#### What is an LSTM cell? How does an LSTM network work?
+#### What is an LSTM cell? How does an LSTM network work? Explain the gates.
 
 #### What is an autoencoder?
 
