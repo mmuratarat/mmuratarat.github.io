@@ -2126,13 +2126,91 @@ There are two major problems:
 
 #### What is a Multi-Layer-Perceptron
 
-####  What is the cost function? How we define the cross-entropy cost function?
+####  What is the cost function? 
+
+In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against “ground truth”, i.e., the known values of y.
+
+The objective here, therefore, is to find parameters, weights/biases or a structure that minimizes the cost function.
+
+The terms cost function and loss function are synonymous, some people also call it error function.
+
+However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function will be average over all data points.
+
+#### What is cross-entropy? How we define the cross-entropy cost function?
+
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$. When we have $K$ classes, we compute the entropy of a distribution, using the formula below
+
+$$
+H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})
+$$
+
+(This can also be thought as in the following. There are K distinct events. Each event $K$ has probability $p(y_{k})$)
+
+If we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
+
+If we compute entropy (uncertainty) between these two (discrete) distributions, we are actually computing the cross-entropy between them:
+
+$$
+H(p, q) = -\sum_{k=1}^{K} p(y_{k}) \log q(y_{k})
+$$
+
+If we can find a distribution $q(y)$ as close as possible to $p(y)$, values for both cross-entropy and entropy will match as well. However, this is not the always case. Therefore, cross-entropy will be greater than the entropy computed on the true distribution.
+
+$$
+H(p,q)−H(p) > 0
+$$
+
+This difference between cross-entropy and entropy is called _Kullback-Leibler Divergence_.
+
+The Kullback-Leibler Divergence,or KL Divergence for short, is a measure of dissimilarity between two distributions.
+
+$$
+\begin{split}
+D_{KL} (p || q) = H(p, q) - H(p) &= \mathbb{E}_{p(y_{k})} \left [ \log \left ( \frac{p(y_{k})}{q(y_{k})} \right ) \right ] \\
+&= \sum_{k=1}^{K} p(y_{k}) \log\left[\frac{p(y_{k})}{q(y_{k})}\right] \\
+&=\sum_{k=1}^{K} p(y_{k}) \left[\log p(y_{k}) - \log q(y_{k})\right]
+\end{split}
+$$
+
+This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. In other words, KL divergence gives us "distance" between 2 distributions, and that minimizing it is equivalent to minimizing cross-entropy. Minimizing cross-entropy will make $q(y)$ converge to $p(y)$, and $H(p,q)$ itself will converge to $H(p)$. Therefore, we need to approximate to a good distribution by using the classifier.
+
+Now, for one particular data point, if $p \in \{y, 1−y\}$ and $q \in \{\hat{y} ,1−\hat{y}\}$, we can re-write cross-entropy as:
+
+$$
+H(p, q) = -\sum_{k=1}^{K=2} p(y_{k}) \log q(y_{k}) =-y\log \hat{y}-(1-y)\log (1-\hat{y})
+$$
+
+which is nothing but logistic loss.
+
+The final step is to compute the average of all points in both classes, positive and negative, will give binary cross-entropy formula.
+
+$$
+L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \left[y_{i} \log (p_i) + (1-y_{i}) \log (1- p_{i}) \right]
+$$
+
+where $i$ indexes samples/observations, n is the number of observations, where $y$ is the label ($1$ for positive class and $0$ for negative class) and $p(y)$ is the predicted probability of the point being positive for all $n$ points. In the simplest case, each $y$ and $p$ is a number, corresponding to a probability of one class.
+
+Multi-class cross entropy formula is as follows:
+
+$$
+L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]
+$$
+
+where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ and $p_{ij}$ are expected to be probability distributions over $K$ classes. In a neural network, $y_{ij}$ is one-hot encoded labels and $p_{ij}$ is scaled (softmax) logits.
+
+When $K=2$, one will get binary cross entropy formula.
 
 #### What is gradient descent?
+
+Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
+
+
 
 #### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
 
 #### What will happen if the learning rate is set too low or too high?
+
+The size of these steps is called the learning rate. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom.
 
 #### What is backpropagation?
 
