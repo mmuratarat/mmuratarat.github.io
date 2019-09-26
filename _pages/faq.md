@@ -1612,19 +1612,6 @@ Type II error occurs when we classify a value as negative (0) when it is actuall
 
 ## General Machine Learning
 
-#### What is an epoch, a batch and an iteration?
-
-A batch is the complete dataset. Its size is the total number of training examples in the available dataset.
-
-Mini-batch size is the number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
-
-A Mini-batch is a small part of the dataset of given mini-batch size.
-One epoch = one forward pass and one backward pass of all the training examples
-
-Number of iterations = An iteration describes the number of times a batch of data passed through the algorithm, number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes).
-
-_Example_: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
-
 #### What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
 
 Confusion Matrix, also known as an error matrix, is a specific table layout that allows visualization of the complete performance of an algorithm. Each row of the matrix represents the instances in a predicted class while each column represents the instances in an actual class (or vice versa). The name stems from the fact that it makes it easy to see if the system (algorithm) is confusing two classes (i.e. commonly mislabeling one as another). It is a special kind of contingency table, with two dimensions ("actual" and "predicted"), and identical sets of "classes" in both dimensions (each combination of dimension and class is a variable in the contingency table).
@@ -2104,3 +2091,117 @@ In the wide format, a subject’s repeated responses will be in a single row, an
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/wide_long_format_data.png?raw=true)
 
+
+## Deep Learning
+
+#### What is an epoch, a batch and an iteration?
+
+A batch is the complete dataset. Its size is the total number of training examples in the available dataset.
+
+Mini-batch size is the number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
+
+A Mini-batch is a small part of the dataset of given mini-batch size.
+One epoch = one forward pass and one backward pass of all the training examples
+
+Number of iterations = An iteration describes the number of times a batch of data passed through the algorithm, number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes).
+
+_Example_: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
+
+#### What is deep learning?
+
+Deep Learning is an area of Machine Learning that attempts to mimic the activity in the layers of neurons in the brain to learn how to recognize the complex patterns in the data. The "deep" in deep learning refers to the large number of layers of neurons in contemporary ML models that help to learn rich representations of data to achieve better performance gains.
+
+#### Why are deep networks better than shallow ones?
+
+Both the Networks, be it shallow or Deep are capable of approximating any function. However, a shallow network works with only a few features, as it can’t extract more. Deep networks have several hidden layers often of different types so they are able to build or create or extract better features more and more abstract features/concepts than shallow models with fewer parameters. It makes your network more eager to recognize certain aspects of input data. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts.
+
+#### What is a perceptron?
+
+#### What are the shortcomings of a single layer perceptron?
+
+There are two major problems:
+
+* Single-layer Perceptrons cannot classify non-linearly separable data points.
+* Complex problems, that involve a lot of parameters cannot be solved by Single-Layer Perceptrons
+
+#### What is a Multi-Layer-Perceptron
+
+####  What is the cost function? How we define the cross-entropy cost function?
+
+#### What is gradient descent?
+
+#### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
+
+#### What will happen if the learning rate is set too low or too high?
+
+#### What is backpropagation?
+
+#### Why is Weight Initialization important in Neural Networks?
+
+#### What are the Hyperparameteres? Name a few used in any Neural Network.
+
+Hyperparameters are the variables which determine the network structure, e.g., number of hidden units and the variables which determine how the network is trained, e.g., learning rate. Hyperparameters are set before training.
+
+**Network Hyperparameters**:
+
+* Number of Hidden Layers
+* Network Weight Initialization
+* Activation Function
+
+**Training Hyperparameters**:
+
+* Learning Rate
+* Momentum
+* Number of Epochs
+* Batch Size
+
+### What is softmax function? What is the difference between softmax function and sigmoid function? In which layer softmax action function will be used ?
+
+#### What’s the difference between a feed-forward and a backpropagation neural network?
+
+A Feed-Forward Neural Network is a type of Neural Network architecture where the connections are "fed forward", i.e. do not form cycles (there is no  feedback connections like Recurrent Neural Network).  The term "Feed-Forward" is also used when information ﬂows through from input layer to output layer. It travels from input to hidden layer and from hidden layer to the output layer.
+
+Backpropagation is a training algorithm consisting of 2 steps:
+
+* Feed-Forward the values.
+* Calculate the error and propagate it back to the earlier layers.
+
+So to be precise, forward-propagation is part of the backpropagation algorithm but comes before backpropagating.
+
+#### What is the role of activation functions in a Neural Network? How many types of activation functions are there ?
+
+#### What is Dropout and Batch Normalization?
+
+#### Name a few deep learning frameworks
+
+* TensorFlow
+* Caffe
+* The Microsoft Cognitive Toolkit/CNTK
+* Torch/PyTorch
+* MXNet
+* Chainer
+* Keras
+
+#### Explain a Computational Graph.
+
+Everything in a tensorflow is based on creating a computational graph. It has a network of nodes where each node performs an operation, Nodes represent mathematical operations and edges represent tensors. Since data flows in the form of a graph, it is also called a “DataFlow Graph.”
+
+#### What is a CNN?
+
+#### What is Pooling in CNN and how does it work?
+
+#### Explain the different Layers of CNN.
+
+#### What is an RNN?
+
+#### What are some issues faced while training an RNN?
+
+#### What is Vanishing Gradient Problem?
+
+#### What is Exploding Gradient Problem?
+
+#### What is an LSTM cell? How does an LSTM network work?
+
+#### What is an autoencoder?
+
+#### What are some limitations of deep learning?
