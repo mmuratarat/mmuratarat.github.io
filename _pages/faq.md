@@ -2174,7 +2174,7 @@ $$
 
 This means that, the closer $q(y)$ gets to $p(y)$, the lower the divergence and consequently, the cross-entropy will be. In other words, KL divergence gives us "distance" between 2 distributions, and that minimizing it is equivalent to minimizing cross-entropy. Minimizing cross-entropy will make $q(y)$ converge to $p(y)$, and $H(p,q)$ itself will converge to $H(p)$. Therefore, we need to approximate to a good distribution by using the classifier.
 
-Now, for one particular data point, if $p \in \{y, 1−y\}$ and $q \in \{\hat{y} ,1−\hat{y}\}$, we can re-write cross-entropy as:
+Now, for one particular data point, if $p \in \\{y, 1−y\\}$ and $q \in \\{\hat{y} ,1−\hat{y}\\}$, we can re-write cross-entropy as:
 
 $$
 H(p, q) = -\sum_{k=1}^{K=2} p(y_{k}) \log q(y_{k}) =-y\log \hat{y}-(1-y)\log (1-\hat{y})
