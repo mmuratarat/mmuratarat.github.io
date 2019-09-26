@@ -2128,9 +2128,11 @@ There are two major problems:
 
 ####  What is the cost function? 
 
-In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against “ground truth”, i.e., the known values of y.
+In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against "ground truth", i.e., the known values of $y$.
 
 The objective here, therefore, is to find parameters, weights/biases or a structure that minimizes the cost function.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gradient_cost.gif?raw=true)
 
 The terms cost function and loss function are synonymous, some people also call it error function.
 
