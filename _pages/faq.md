@@ -2132,8 +2132,6 @@ In predictive modeling, cost functions are used to estimate how badly models are
 
 The objective here, therefore, is to find parameters, weights/biases or a structure that minimizes the cost function.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gradient_cost.gif?raw=true)
-
 The terms cost function and loss function are synonymous, some people also call it error function.
 
 However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function will be average over all data points.
@@ -2205,6 +2203,8 @@ When $K=2$, one will get binary cross entropy formula.
 #### What is gradient descent?
 
 Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gradient_cost.gif?raw=true)
 
 #### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
 
