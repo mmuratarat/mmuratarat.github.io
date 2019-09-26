@@ -2204,9 +2204,7 @@ When $K=2$, one will get binary cross entropy formula.
 
 #### What is gradient descent?
 
-Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
-
-
+Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
 
 #### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
 
