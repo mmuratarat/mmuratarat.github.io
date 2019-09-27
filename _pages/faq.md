@@ -2185,8 +2185,6 @@ There are two major problems:
 * Single-layer Perceptrons cannot classify non-linearly separable data points.
 * Complex problems, that involve a lot of parameters cannot be solved by Single-Layer Perceptrons
 
-#### What is a Multi-Layer-Perceptron
-
 #### What does a neuron compute?
 An artificial neuron calculates a "weighted sum" of its input, adds a bias ($z = Wx+b$), followed by an activation function.
 
@@ -2194,11 +2192,36 @@ An artificial neuron calculates a "weighted sum" of its input, adds a bias ($z =
 
 The goal of an activation function is to introduce nonlinearity into the neural network so that it can learn more complex function i.e. converts the processed input into an output called the activation value. Without it, the neural network would be only able to learn function which is a linear combination of its input data.
 
-If we do not apply an activation function then the output signal would simply be a simple linear function. A linear function is just a polynomial of one degree. Now, a linear equation is easy to solve but they are limited in their complexity and have less power to learn complex functional mappings from data. A neural network without activation function would simply be a linear regression model, which has limited power and does not performs good most of the times. 
+If we do not apply an activation function then the output signal would simply be a simple linear function. A linear function is just a polynomial of one degree. 
+
+$
+z=\beta_{0}1 + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots +\beta_{p}x_{p}\,\,\,\,\, \mathbf{(a)}
+$
+
+Each input variable $x_{j}$ is represented with a node and each parameter $\beta_{j}$ with a link. Furthermore, the output $z$ is described as the sum of all terms $\beta_{j}x_{j}$. Note that we use 1 as the input variable corresponding to the bias term (a.k.a. offset term) $\beta_{0}$. 
+
+To describe _nonlinear_ relationship between $x = \left[1\,\,x_{1}\,\,x_{2}\,\, \ldots \,\,x_{p}\right]^{T}$ and $z$, we introduce a nonlinear scalar-valued function called _activation function_ $\sigma: \mathbb{R} \to \mathbb{R}$. The linear regression model is now modified into a _generalized_ linear regression model where the linear combination of the inputs is squashed through the (scalar) activation function. 
+
+$
+z = \sigma \left( \beta_{0}1 + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots +\beta_{p}x_{p} \right)\,\,\,\,\, \mathbf{(b)}
+$
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/glm_activation.png?raw=true)
+
+Now, a linear equation is easy to solve but they are limited in their complexity and have less power to learn complex functional mappings from data. A neural network without activation function would simply be a linear regression model, which has limited power and does not performs good most of the times. Therefore, we make further extensions to increase the generality of the model by sequentially stacking these layers. 
 
 Another important feature of an activation function is also that it should be differentiable. We need it to be this way so as to perform backpropogation optimization strategy while propogating backwards in the network to compute gradients of error (loss) with respect to parameters (weights/biases) and then accordingly optimize weights using Gradient Descent algorithm or any other optimization technique to reduce error.
 
 ####  How many types of activation functions are there ?
+
+
+#### What is a Multi-Layer-Perceptron
+
+#### What is Deep Neural Network?
+
+Deep neural networks can model complicated relationships and is one of the state of art methods in machine learning as of today.
+
+We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\ 
 
 ####  What is the cost function? 
 
