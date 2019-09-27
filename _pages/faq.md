@@ -805,7 +805,7 @@ and
 f[\lambda x_{1} + (1 - \lambda) x_{2}] \leq \lambda f(x_{1}) + (1 - \lambda) f(x_{2}) 
 $$
 
-If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f''(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true.
+If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true.
 
 The prototypical convex function is shaped something like the letter U.
 
@@ -2246,6 +2246,23 @@ The weight matrix $\mathbf{W}^{(1)}$ for the first layer $l = 1$ has the dimensi
 The number of inputs $p$ and the number of outputs $K$ (number of classes) are given by the problem, but the number of layers
 $L$ and the dimensions $M_{1}, M_{2},\ldots$ are user design choices that will determine the flexibility of the model.
 
+
+#### 
+
+The softmax function is used in various multiclass classification methods. It takes an un-normalized vector, and normalizes it into a probability distribution. It is often used in neural networks, to map the non-normalized output to a probability distribution over predicted output classes. It is a function which gets applied to a vector in $x \in R^{K}$ and returns a vector in $[0,1] ^{K}$ with the property that the sum of all elements is 1, in other words, the softmax function is useful for converting an arbitrary vector of real numbers into a discrete probability distribution:
+
+$$
+S(x)_j = \frac{e^{z_{j}}}{\sum_{j=1}^K e^{z_{j}}} \;\;\;\text{ for } j=1, \dots, K
+$$
+
+where $\mathbf{z} = \left[z_{1}, \ldots, z_{K}\right]^{T}$. The inputs to the softmax function, i.e., the variables $z_{1}, z_{2}, \ldots, z_{K}$ are referred to as _logits_.
+
+Intiutively, the softmax function is a "soft" version of the maximum function. A "hardmax" function (i.e. argmax) is not differentiable. The softmax gives at least a minimal amount of probability to all elements in the output vector, and so is nicely differentiable. Instead of selecting one maximal element in the vector, the softmax function breaks the vector up into parts of a whole (1.0) with the maximal input element getting a proportionally larger chunk, but the other elements get some of it as well. Another nice property of it, the output of the softmax function can be interpreted as a probability distribution, which is very useful in Machine Learning because all the output values are in the range of (0,1) and sum up to $1.0$. This is especially useful in multi-class classification because we often want to assign probabilities that our instance belong to one of a set of output classes.
+
+For example, let's consider we have 4 classes, i.e. $K=4$, and unscaled scores (logits) are given by $[2,4,2,1]$. The simple argmax function outputs $[0,1,0,0]$. The argmax is the goal, but it's not differentiable and we can't train our model with it. A simple normalization, which is differentiable, outputs the following probabilities $[0.2222,0.4444,0.2222,0.1111]$. That's really far from the argmax! Whereas the softmax outputs $[0.1025,0.7573,0.1025,0.0377]$. That's much closer to the argmax! Because we use the natural exponential, we hugely increase the probability of the biggest score and decrease the probability of the lower scores when compared with standard normalization. Hence the "max" in softmax.
+
+Softmax is fundamentally a vector function. It takes a vector as input and produces a vector as output. In other words, it has multiple inputs and outputs.
+
 ####  What is the cost function? 
 
 In predictive modeling, cost functions are used to estimate how badly models are performing. Put it simply, a cost function is a measure of how wrong the model is in terms of its ability to estimate the relationship between X and y. This is typically expressed as a difference or distance between the predicted value and the actual value. The cost function (you may also see this referred to as loss or error) can be estimated by iteratively running the model to compare estimated predictions against "ground truth", i.e., the known values of $y$.
@@ -2328,7 +2345,6 @@ The KL-Divergence between distributions requires us to know both the true distri
 
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
 
-
 #### What is gradient descent?
 
 Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
@@ -2343,7 +2359,7 @@ The size of these steps is called the learning rate. With a high learning rate w
 
 #### What is backpropagation?
 
-### What is Early Stopping?
+#### What is Early Stopping?
 It is a regularization technique that stops the training process as soon as the validation loss reaches a plateau or starts to increase.
 
 #### Why is Weight Initialization important in Neural Networks?
@@ -2369,7 +2385,7 @@ Hyperparameters are the variables which determine the network structure, e.g., n
 
 It is the ability to approximate any given function. The higher model capacity is the larger amount of information that can be stored in the network.
 
-### What is softmax function? What is the difference between softmax function and sigmoid function? In which layer softmax action function will be used ?
+#### What is softmax function? What is the difference between softmax function and sigmoid function? In which layer softmax action function will be used ?
 
 #### What’s the difference between a feed-forward and a backpropagation neural network?
 
