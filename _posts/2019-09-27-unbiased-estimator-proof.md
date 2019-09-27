@@ -67,7 +67,7 @@ $$
 Thus, sample variance $s^{2}$ is a biased estimate of $\sigma^{2}$. Therefore, if we multiple both sides of the equation with $\frac{n}{n-1}$ will do the job.
 
 $$
-\frac{n}{n-1} E(s^{2}) = E(\frac{n}{n-1} s^{2}) = E(\frac{n}{n-1} \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}) = E(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}) = \sigma^{2}
+\frac{n}{n-1} E\left(s^{2}\right) = E\left(\frac{n}{n-1} s^{2}\right) = E\left(\frac{n}{n-1} \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}\right) = E\left(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}\right) = \sigma^{2}
 $$
 
 $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that is always an unbiased estimator of the desired population parameter $\sigma^{2}$. However note that $s$ is not an unbiased estimator of $\sigma$.
