@@ -2221,7 +2221,7 @@ Another important feature of an activation function is also that it should be di
 
 Deep neural networks can model complicated relationships and is one of the state of art methods in machine learning as of today.
 
-We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\ 
+We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\mathbf{b}^{(l)}$. For example, $\mathbf{W}^{(1)}$ and $\mathbf{b}^{(1)}$ belong to layer $l=1$; $\mathbf{W}^{(2)}$ and $\mathbf{b}^{(2)}$ belong to layer $l=2$ and so forth. We also have multiple layers of hidden units denoted by $\mathbb{h}^{(l-1)}$. Each such layer consists of $M_{l}$ hidden units, $\mathbb{h}^{(l-1)} = \left[\mathbb{h}_{1}^{(l)}, \ldots, \mathbb{h}_{M_{l}}^{(l)} \right]^{T}$, where the dimensions $M_{1}, M_{2}, \ldots$ can be different for different layers.
 
 ####  What is the cost function? 
 
