@@ -2194,17 +2194,17 @@ The goal of an activation function is to introduce nonlinearity into the neural 
 
 If we do not apply an activation function then the output signal would simply be a simple linear function. A linear function is just a polynomial of one degree. 
 
-$
+$$
 z=\beta_{0}1 + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots +\beta_{p}x_{p}\,\,\,\,\, \mathbf{(a)}
-$
+$$
 
 Each input variable $x_{j}$ is represented with a node and each parameter $\beta_{j}$ with a link. Furthermore, the output $z$ is described as the sum of all terms $\beta_{j}x_{j}$. Note that we use 1 as the input variable corresponding to the bias term (a.k.a. offset term) $\beta_{0}$. 
 
 To describe _nonlinear_ relationship between $x = \left[1\,\,x_{1}\,\,x_{2}\,\, \ldots \,\,x_{p}\right]^{T}$ and $z$, we introduce a nonlinear scalar-valued function called _activation function_ $\sigma: \mathbb{R} \to \mathbb{R}$. The linear regression model is now modified into a _generalized_ linear regression model where the linear combination of the inputs is squashed through the (scalar) activation function. 
 
-$
+$$
 z = \sigma \left( \beta_{0}1 + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots +\beta_{p}x_{p} \right)\,\,\,\,\, \mathbf{(b)}
-$
+$$
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/glm_activation.png?raw=true)
 
@@ -2222,6 +2222,16 @@ Another important feature of an activation function is also that it should be di
 Deep neural networks can model complicated relationships and is one of the state of art methods in machine learning as of today.
 
 We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\mathbf{b}^{(l)}$. For example, $\mathbf{W}^{(1)}$ and $\mathbf{b}^{(1)}$ belong to layer $l=1$; $\mathbf{W}^{(2)}$ and $\mathbf{b}^{(2)}$ belong to layer $l=2$ and so forth. We also have multiple layers of hidden units denoted by $\mathbf{h}^{(l-1)}$. Each such layer consists of $M_{l}$ hidden units, $\mathbf{h}^{(l)} = \left[\mathbf{h}_{1}^{(l)}, \ldots, \mathbf{h}_{M_{l}}^{(l)} \right]^{T}$, where the dimensions $M_{1}, M_{2}, \ldots$ can be different for different layers.
+
+Each layer maps a hiddent layer $\mathbf{h}^{(l-1)}$ to the next hidden layer $\mathbf{h}^{(l)}$ as:
+
+$$
+\mathbf{h}^{(l)} = \sigma \left(\mathbf{W}^{(l)T}\mathbf{h}^{(l-1)} + \mathbf{b}^{(l)T} \right)
+$$
+
+This means that the layers are stacked such that the output of the first layer $\mathbf{h}^{(1)}$ (the first layer of hidden units) is the input to the second layer, the output of the second layer $\mathbf{h}^{(2)}$ (the second layer of hidden units) is the input to the third layer, etc. By stacking multiple layers we have constructed a deep neural network. A deep neural network of $L$ layers can mathematically be described as:
+
+
 
 ####  What is the cost function? 
 
