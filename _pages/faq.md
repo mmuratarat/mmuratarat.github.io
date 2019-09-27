@@ -1602,7 +1602,9 @@ Assuming that $X_{i}$'s are independent and identically distributed, we know tha
 The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
 
 standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}}$
+
 Variance = $s^{2}$
+
 standard error: $s_{\bar{X}} = \sqrt{\frac{\sigma^{2}}{n}}$
 
 where $n$ is the size of the sample and $\bar{X}$ is the sample mean.
