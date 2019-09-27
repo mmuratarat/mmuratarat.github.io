@@ -41,20 +41,20 @@ In the estimating population variance from a sample where population mean is unk
 
 Multiplying the uncorrected sample variance by the factor $\frac{n}{n-1}$ gives the unbiased estimator of the population variance. In some literature, the above factor is called Bessel's correction.
 
-Let $X_{1}, X_{2}, \ldots, X_{n}$ be an i.i.d. random variables, each with the expected value $\mu$ and variance $\sigma^{2}$. For the entire population, $\sigma^{2} = E\left((X_{i} -\mu)^{2} \right)$.
+Let $X_{1}, X_{2}, \ldots, X_{n}$ be an i.i.d. random variables, each with the expected value $\mu$ and variance $\sigma^{2}$. For the entire population, $\sigma^{2} = E\left[\left(X_{i} -\mu \right)^{2}\right]$.
 
 When we sample from this population, we want a statistic such that $E(s^{2}) = \sigma^{2}$. Intuitively, we would guess $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}$ where $\bar{X}$ is the mean of the sample, $\bar{X} = \frac{\sum_{i=1}^{n} X_{i}}{n}$.
 
 $$
 \begin{split}
 E(s^{2}) = E\left(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n} \right) &= \frac{1}{n}  E\left(\sum_{i=1}^{n} (X_{i} - \bar{X})^{2} \right)\\
-&= \frac{1}{n}  E\left[ \sum_{i=1}^{n} \left((X_{i} - \mu) - (\bar{X} - \mu) \right)^{2} \right]\\
+&= \frac{1}{n}  E\left[ \sum_{i=1}^{n} \left((X_{i} - \mu)^{2} - (\bar{X} - \mu) \right)^{2} \right]\\
 &=\frac{1}{n}  E\left[ \sum_{i=1}^{n} (X_{i} - \mu)^{2} - 2 \sum_{i=1}^{n} (X_{i} - \mu)(\bar{X} - \mu) + \sum_{i=1}^{n}(\bar{X} - \mu)^{2}  \right]\\
 &= \frac{1}{n} \left[ \sum_{i=1}^{n} E (X_{i} - \mu)^{2} - n E (\bar{X} - \mu)^{2}  \right]\\
 \end{split}
 $$
 
-Substituting $\sigma^{2} = E(X_{i} - \mu)^{2}$ and $E (\bar{X} - \mu)^{2} = \frac{\sigma^{2}}{n}$ (from central limit theorem) results in the following:
+Substituting $\sigma^{2} = E(X_{i} - \mu)^{2}$ and $Var(\bar{X}) = E (\bar{X} - \mu)^{2} = \frac{\sigma^{2}}{n}$ (from central limit theorem) results in the following:
 
 $$
 \begin{split}
@@ -64,7 +64,7 @@ E(s^{2}) &= \frac{1}{n} \left(\sum_{i=1}^{n} \sigma^{2} - n \frac{\sigma^{2}}{n}
 \end{split}
 $$
 
-Thus, sample variance $s^{2}$ is a biased estimate of $\sigma^{2}$. Therefore, if we multiple both sides of the equation with $\frac{n}{n-1}$ will do the job.
+Thus, sample variance $s^{2}$ is a biased estimate of $\sigma^{2}$ because $E(\hat{\theta}) \neq \theta$. Therefore, if we multiple both sides of the equation with $\frac{n}{n-1}$ will do the job.
 
 $$
 \frac{n}{n-1} E\left(s^{2}\right) = E\left(\frac{n}{n-1} s^{2}\right) = E\left(\frac{n}{n-1} \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}\right) = E\left(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}\right) = \sigma^{2}
