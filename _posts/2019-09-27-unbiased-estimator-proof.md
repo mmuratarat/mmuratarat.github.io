@@ -71,3 +71,8 @@ $$
 $$
 
 $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that is always an unbiased estimator of the desired population parameter $\sigma^{2}$. However note that $s$ is not an unbiased estimator of $\sigma$.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator4.png?raw=true)
