@@ -1438,7 +1438,7 @@ and the fact that $X$ can take either value $0$ or value $1$. If $x<0$, then $P(
 Finding maximum likelihood estimation of the parameter $p$ of Bernoulli distribution is trivial. 
 
 $$
-L(p;x) = \prod\limits_{i=1}^n p(x_i;p) = \prod\limits_{i=1}^n p^x(1-p)^{1-x}
+L(p;x) = \prod\limits_{i=1}^n p(x_i;p) = \prod\limits_{i=1}^n p^{x_{i}}(1-p)^{1-x_{i}}
 $$
 
 Differentiating the log of $L(p;x)$ with respect to $p$ and setting the derivative to zero shows that this function achieves a maximum at $\hat{p} = \frac{\sum_{i=1}^{n} x_{i}}{n}$.
@@ -1570,7 +1570,6 @@ Sample standard deviation ($s$):
 $$
 s^{2} = \frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}
 $$
-
 
 #### Why population standard deviation has N degrees of freedom while sample standard deviation has n-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(n-1) inside root for sample standard deviation?
 
