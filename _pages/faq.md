@@ -1539,7 +1539,7 @@ $$
 s^{2} = \frac{1}{n-1} \sum_{i=1}^{n} \left(X_{i} - \bar{X} \right)^{2}
 $$
 
-The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness if the variance estimator.
+The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness of the population variance.
 
 #### What is population mean and sample mean?
 
