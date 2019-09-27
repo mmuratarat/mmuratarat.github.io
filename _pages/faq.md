@@ -2231,7 +2231,20 @@ $$
 
 This means that the layers are stacked such that the output of the first layer $\mathbf{h}^{(1)}$ (the first layer of hidden units) is the input to the second layer, the output of the second layer $\mathbf{h}^{(2)}$ (the second layer of hidden units) is the input to the third layer, etc. By stacking multiple layers we have constructed a deep neural network. A deep neural network of $L$ layers can mathematically be described as:
 
+$$
+\begin{split}
+\mathbf{h}^{(1)} &= \sigma \left(\mathbf{W}^{(1)T}x + \mathbf{b}^{(1)T} \right)\\
+\mathbf{h}^{(2)} &= \sigma \left(\mathbf{W}^{(2)T}\mathbf{h}^{(1)} + \mathbf{b}^{(2)T} \right)\\
+&\cdots \\
+\mathbf{h}^{(L-1)} &= \sigma \left(\mathbf{W}^{(L-1)T}\mathbf{h}^{(L-2)} + \mathbf{b}^{(L-1)T} \right)\\
+z &= \sigma \left(\mathbf{W}^{(L)T}\mathbf{h}^{(L-1)} + \mathbf{b}^{(L)T} \right)\\
+\end{split}
+$$
 
+The weight matrix $\mathbf{W}^{(1)}$ for the first layer $l = 1$ has the dimension $p \times M_{1}$ and the corresponding bias vector $\mathbf{b}^{(1)}$ the dimension $1 \times M_{1}$. In deep learning it is common to consider applications where also the output is multi-dimensional $\mathbf{z} = \left[z_{1}, \ldots, z_{K}\right]^{T}$. This means that for the last layer the weight matrix $\mathbf{W}^{(L)}$ has the dimension $M_{L−1} \times K$ and the bias vector $\mathbf{b}^{(L)}$ the dimension $1 \times K$. For all intermediate layers $l = 2, \ldots, L − 1$, $\mathbf{W}^{(l)}$ has the dimension $M_{l−1} \times M_{l}$ and the corresponding bias vector $1 \times M_{l}$.
+
+The number of inputs $p$ and the number of outputs $K$ (number of classes) are given by the problem, but the number of layers
+$L$ and the dimensions $M_{1}, M_{2},\ldots$ are user design choices that will determine the flexibility of the model.
 
 ####  What is the cost function? 
 
