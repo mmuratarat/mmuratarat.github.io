@@ -133,8 +133,8 @@ permalink: /faq/
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
 49.  [What is the formula for calculating the standard deviation of the sample mean?](#what-is-the-formula-for-calculating-mean-and-the-standard-deviation-of-the-sample-mean)
-50. [What is confidence interval?](#what-is-confidence-interval)
-51. What is standard error?
+50. What is standard error of the estimate?
+51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
@@ -1577,7 +1577,7 @@ When we calculate the sample standard deviation from a sample of n values, we ar
 
 Here's another way to look at it:  Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what 9 of the 10 sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary.  Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
-Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred.
+Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, loog at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof).
 
 #### What is the formula for calculating mean and the standard deviation of the sample mean?
 
@@ -1596,7 +1596,17 @@ Assuming that $X_{i}$'s are independent and identically distributed, we know tha
   $$
   
   which is called the "standard error of the mean".
-  
+
+#### What is the standard error of the estimate? 
+
+The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
+
+standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}}$
+Variance = $s^{2}$
+standard error: $s_{\bar{X}} = \sqrt{\frac{\sigma^{2}}{n}}$
+
+where $n$ is the size of the sample and $\bar{X}$ is the sample mean.
+
 #### What is confidence interval?
 
 The purpose of taking a random sample from a population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
