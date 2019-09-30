@@ -38,9 +38,7 @@ permalink: /faq/
 28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
 29. When are two vectors x and y orthonormal?
 30. What is an orthogonal matrix? Why is computationally preferred?
-31. [What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?](#what-is-eigendecomposition-eigenvectors-and-eigenvalues)
-33. Write the eigendecomposition formula for a matrix. If the matrix is real symmetric, how will this change?
-34. Is the Eigendecomposition guaranteed to be unique? If not, then how do we represent it?
+31. [What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?](#what-is-eigendecomposition-eigenvectors-and-eigenvalues-how-to-find-eigenvalues-of-a-matrix)
 36. What is Singular Value Decomposition? Why do we use it? Why not just use ED?
 37. Given a matrix A, how will you calculate its Singular Value Decomposition?
 38. What are singular values, left singulars and right singulars?
