@@ -2502,14 +2502,16 @@ Everything in a tensorflow is based on creating a computational graph. It has a 
 
 #### What is a CNN?
 
-#### What is Pooling in CNN and how does it work?
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/putting_all_together.png?raw=true)
+
+#### What is Pooling in CNN and how does it work? Why does  it work?
 
 #### Explain the different Layers of CNN.
 
 There are 4 different layers in a convolutional neural network:
 1. **Convolution Layer**: The Conv layer is the core building block of a Convolutional Network that does most of the computational heavy lifting. It is the first layer to extract features from an input image.
 2. **Activation Layer**: After each convolutional layer, it is convention to apply a nonlinearlayer (or activation layer) immediately afterward. The purpose of this layer is to introduce nonlinearity, withoutaffecting the receptive fields of the conv layer, to a system that basically has just been computing linear operations during the convolutional layers (just element-wise multiplications andsummations). This stage is also called detector stage.
-3. **Pooling Layer**: Spatial Pooling (also called subsampling or downsampling, shrink)reduces the dimensionality of each feature map but retains the mostimportant information.  Spatial Pooling can be of different types:Max, Average, Sum etc. It is common to periodically insert a Pooling layer in-betweensuccessive layers in a architecture. Pooling is applied separately on each feature maps. Pooling neuron has no weights. All it does is to aggregate inputs using an aggregation fixed function, such as the max and mean.
+3. **Pooling Layer**: Spatial Pooling (also called subsampling or downsampling, shrink)reduces the dimensionality of each feature map but retains the most important information.  Spatial Pooling can be of different types: Max, Average, Sum etc. It is common to periodically insert a Pooling layer in-betweensuccessive layers in a architecture. Pooling is applied separately on each feature maps. Pooling neuron has no weights. All it does is to aggregate inputs using an aggregation fixed function, such as the max and mean.
 4. **Fully-connected Layer (Dense Layer)**: The CNN process begins with convolution and pooling, breaking down the image into features, and analyzing them independently. The result of this process feeds into a fully connected neural network structure that drives the final classification decision. This layer is mostly used with sigmoid of softmax activation functions in order to provide the final probabilities for each label.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/components_CNN.png?raw=true)
