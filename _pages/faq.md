@@ -9,7 +9,7 @@ permalink: /faq/
 [Linear Algebra](#linear-algebra)
 
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
-2. How do you normalize a vector?
+2. [How do you normalize a vector?](#how-do-you-normalize-a-vector)
 2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
 3. [What is a scalar valued function?](#what-is-a-scalar-valued-function)
 4. [What is a vector valued function?](#what-is-a-vector-valued-function)
@@ -714,7 +714,7 @@ $$
 
 #### What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?
 
-In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. For details look [here](#what-is-spectral-decomposition).
+In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition).
 
 Given a $p \times p$ matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
 
