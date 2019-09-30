@@ -2548,6 +2548,8 @@ With parameter sharing, which means no matter the size of your input image, the 
 
 #### What is an RNN?
 
+#### What is the number of parameters in an RNN?
+
 #### What are some issues faced while training an RNN?
 
 #### What is Vanishing Gradient Problem?
@@ -2555,6 +2557,8 @@ With parameter sharing, which means no matter the size of your input image, the 
 #### What is Exploding Gradient Problem?
 
 #### What is an LSTM cell? How does an LSTM network work? Explain the gates.
+
+#### What is the number of parameters in an LSTM cell?
 
 #### What is an autoencoder?
 
