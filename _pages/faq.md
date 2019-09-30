@@ -38,11 +38,9 @@ permalink: /faq/
 28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
 29. When are two vectors x and y orthonormal?
 30. What is an orthogonal matrix? Why is computationally preferred?
-31. What is eigendecomposition, eigenvectors and eigenvalues?
-32. How to find eigenvalues of a matrix?
+31. [What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?](#what-is-eigendecomposition-eigenvectors-and-eigenvalues)
 33. Write the eigendecomposition formula for a matrix. If the matrix is real symmetric, how will this change?
 34. Is the Eigendecomposition guaranteed to be unique? If not, then how do we represent it?
-35. What are positive definite, negative definite, positive semi definite and negative semi definite matrices?
 36. What is Singular Value Decomposition? Why do we use it? Why not just use ED?
 37. Given a matrix A, how will you calculate its Singular Value Decomposition?
 38. What are singular values, left singulars and right singulars?
@@ -687,7 +685,7 @@ $$
 \lvert A \rvert_{F} = \sqrt{tr(A A^{T})} = \sqrt{tr(A^{T} A)}
 $$
 
-#### What is eigendecomposition, eigenvectors and eigenvalues?
+#### What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?
 
 In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. For details look [here](#what-is-spectral-decomposition).
 
