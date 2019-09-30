@@ -691,12 +691,31 @@ $$
 
 In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. For details look [here](#what-is-spectral-decomposition).
 
-Given a matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
+Given a $p \times p$ matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
 
 $$
 Av = uv
 $$
 
+Here, $u$ is a scalar (which may be either real or complex).  Any value of $u$ for which this equation has a solution is known as an eigenvalue of the matrix $A$. It is sometimes also called the characteristic value.  The vector, v, which corresponds to this value is called an eigenvector.  The eigenvalue problem can be rewritten as 
+
+The eigenvalue problem can be rewritten as:
+
+$$
+\begin{split}
+Av &= uv \\
+Av - uIv &= 0 \\
+(A-uI)v &= 0 \\
+\end{split}
+$$
+
+where $I$ is the $p \times p$ identity matrix. Now, in order for a non-zero vector $v$ to satisfy this equation, $A − uI$ must not be invertible, i.e.,
+
+$
+\text{det} (A - uI) = 0
+$
+
+This equation is known as the characteristic equation of A, and the left-hand side is known as the characteristic polynomial, and is an $p$-th order polynomial in $u$ with $p$ roots. These roots are called the eigenvalues of $A$.  We will only deal with the case of $p$ distinct roots, though they may be repeated.  For each eigenvalue there will be an eigenvector for which the eigenvalue equation is true.  
 
 #### What is the trace of a scalar?
 
