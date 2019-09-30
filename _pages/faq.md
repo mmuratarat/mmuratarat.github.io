@@ -9,6 +9,7 @@ permalink: /faq/
 [Linear Algebra](#linear-algebra)
 
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
+2. How do you normalize a vector?
 2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
 3. [What is a scalar valued function?](#what-is-a-scalar-valued-function)
 4. [What is a vector valued function?](#what-is-a-vector-valued-function)
@@ -228,6 +229,34 @@ Where $a_{ij}$ is referred to as the $(i,j)$-element of the matrix $A$. The subs
 Note that a column vector is a size $m \times 1$ matrix, since it has $m$ rows and $1$ column. Unless otherwise specified all vectors will be considered to be column vectors.
 
 Tensor is n-dimensional array. It encapsulates the scalar, vector and the matrix. For a 3rd-order tensor elements are given by $a_{ijk}$, whereas for a 4th-order tensor elements are given by $a_{ijkl}$.
+
+#### How do you normalize a vector?
+
+A vector is normalized when its norm is equal to one. To normalize a vector, we divide each of its elements by its norm or length (also known as magnitude). The norm of a vector is the square root of the sum of squares of the elements.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/norm_a_Vector.png?raw=true)
+
+$$
+\bar{x} = \frac{x}{\lVert x \rVert}
+$$
+
+For example,
+
+$$
+x = \begin{bmatrix} 2 \\ 1\\ 2\end{bmatrix}
+$$
+
+For example, the length (norm) of this vector is:
+
+$$
+\lVert x \rVert =\sqrt{2^{2} + 1^{2} + 2^{2}} = 3
+$$
+
+Therefore, if we normalize the vector $x$, we will get:
+
+$$
+\bar{x} = \begin{bmatrix} 2/3 \\ 1/3 \\ 2/3\end{bmatrix}
+$$
 
 #### What is Hadamard product of two matrices?
 Hadamard product is also known as Element-wise Multiplication. It is named after French Mathematician, Jacques Hadamard. Elements corresponding to same row and columns of given vectors/matrices are multiplied together to form a new vector/matrix.
