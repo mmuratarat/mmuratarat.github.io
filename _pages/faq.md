@@ -711,9 +711,9 @@ $$
 
 where $I$ is the $p \times p$ identity matrix. Now, in order for a non-zero vector $v$ to satisfy this equation, $A − uI$ must not be invertible, i.e.,
 
-$
+$$
 \text{det} (A - uI) = 0
-$
+$$
 
 This equation is known as the characteristic equation of A, and the left-hand side is known as the characteristic polynomial, and is an $p$-th order polynomial in $u$ with $p$ roots. These roots are called the eigenvalues of $A$.  We will only deal with the case of $p$ distinct roots, though they may be repeated.  For each eigenvalue there will be an eigenvector for which the eigenvalue equation is true.  
 
