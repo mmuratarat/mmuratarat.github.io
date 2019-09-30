@@ -2506,6 +2506,23 @@ Everything in a tensorflow is based on creating a computational graph. It has a 
 
 #### Explain the different Layers of CNN.
 
+There are 4 different layers in a convolutional neural network:
+1. Convolution Layer
+2. **Activation Layer**: After each convolutional layer, it is convention to apply a nonlinearlayer (or activation layer) immediately afterward. The purpose of this layer is to introduce nonlinearity, withoutaffecting the receptive fields of the conv layer, to a system that basically has just been computing linear operations during the convolutional layers (just element-wise multiplications andsummations). This stage is also called detector stage.
+3. **Pooling Layer**: Spatial Pooling (also called subsampling or downsampling, shrink)reduces the dimensionality of each feature map but retains the mostimportant information.  Spatial Pooling can be of different types:Max, Average, Sum etc. It is common to periodically insert a Pooling layer in-betweensuccessive layers in a architecture. Pooling is applied separately on each feature maps. Pooling neuron has no weights. All it does is to aggregate inputs using an aggregation fixed function, such as the max and mean.
+4. Fully-connected Layer (Dense Layer)
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/components_CNN.png?raw=true)
+
+
+#### What is the number of parameters in one CNN layer?
+
+$F$ is the receptive field size of filter (kernel) and $K$ is the number of filters. $D_{1}$ is the depth (the number of channels) of the image.
+
+In a Conv Layer, the depth of every kernel (filter) is always equal to the number of channels in the input image. So every kernel has $F^{2} \times D_{1}$ parameters, and there are $K$ such kernels.
+
+With parameter sharing, which means no matter the size of your input image, the number of parameters will remain fixed. $F \cdot F \cdot D_{1}$ weights per feature map are introduced and for a total of $(F \cdot F \cdot D_{1}) \cdot K$ weights and $K$ biases. Number of parameters of the Conv Layer is $(F \cdot F \cdot D_{1}) \cdot K + K$
+
 #### What is an RNN?
 
 #### What are some issues faced while training an RNN?
