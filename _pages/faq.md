@@ -2507,19 +2507,40 @@ Everything in a tensorflow is based on creating a computational graph. It has a 
 #### Explain the different Layers of CNN.
 
 There are 4 different layers in a convolutional neural network:
-1. Convolution Layer
+1. **Convolution Layer**: The Conv layer is the core building block of a Convolutional Network that does most of the computational heavy lifting.
 2. **Activation Layer**: After each convolutional layer, it is convention to apply a nonlinearlayer (or activation layer) immediately afterward. The purpose of this layer is to introduce nonlinearity, withoutaffecting the receptive fields of the conv layer, to a system that basically has just been computing linear operations during the convolutional layers (just element-wise multiplications andsummations). This stage is also called detector stage.
 3. **Pooling Layer**: Spatial Pooling (also called subsampling or downsampling, shrink)reduces the dimensionality of each feature map but retains the mostimportant information.  Spatial Pooling can be of different types:Max, Average, Sum etc. It is common to periodically insert a Pooling layer in-betweensuccessive layers in a architecture. Pooling is applied separately on each feature maps. Pooling neuron has no weights. All it does is to aggregate inputs using an aggregation fixed function, such as the max and mean.
 4. Fully-connected Layer (Dense Layer)
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/components_CNN.png?raw=true)
 
+#### How to compute the spatial size of output image after a Convolutional layer?
+
+We don’t have to manually calculate the dimension (the spatial size) of the output, but it’s a good idea to do so to keep a mental account of how our inputs are being transformed at each step. We can compute the spatial size on each dimension (width/height/depth).
+
+* The input volume size ($W_{1}$ and $H_{1}$, generally they are equal and $D_{1}$)
+* Number of filters ($K)$
+* the receptive field size of filter ($F$)
+* the stride with which they are applied ($S$)
+* the amount of zero padding used ($P$) on the border. 
+
+produces a volume of size $W_{2} \times H_{2} \times D_{2}$ where:
+
+$W_{2} = \dfrac{W_{1} - F + 2P}{S} + 1$
+
+$H_{2} = \dfrac{H_{1} - F + 2P}{S} + 1$ (i.e., width and height are computed equally by symmetry)
+
+$D_{2}= K$ 
+
+* 2P comes from the fact that there should be a padding on each side.
 
 #### What is the number of parameters in one CNN layer?
 
 $F$ is the receptive field size of filter (kernel) and $K$ is the number of filters. $D_{1}$ is the depth (the number of channels) of the image.
 
 In a Conv Layer, the depth of every kernel (filter) is always equal to the number of channels in the input image. So every kernel has $F^{2} \times D_{1}$ parameters, and there are $K$ such kernels.
+
+Parameter sharing scheme is used in Convolutional Layers to control the number of parameters.
 
 With parameter sharing, which means no matter the size of your input image, the number of parameters will remain fixed. $F \cdot F \cdot D_{1}$ weights per feature map are introduced and for a total of $(F \cdot F \cdot D_{1}) \cdot K$ weights and $K$ biases. Number of parameters of the Conv Layer is $(F \cdot F \cdot D_{1}) \cdot K + K$
 
