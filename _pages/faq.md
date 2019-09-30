@@ -348,7 +348,7 @@ Generally the dimensions of $I$ are inferred from context so as to make matrix m
 
 #### What is the transpose of a matrix?
 
-The transpose of a matrix results from "flipping" the rows and columns. Given a matrix $A \in \mathbb{R}^{m \times n}$, its transpose, written as $A^{T} \in \mathbb{R}^{n \times m}$, is the matrix whose entries are given by $\left(A^{T}\right)_{ij} = A_{ji}$.
+The transpose of a matrix results from "flipping" the rows and columns. Given a matrix $A \in \mathbb{R}^{m \times n}$, its transpose, written as $A^{T} \in \mathbb{R}^{n \times m}$, is the matrix whose entries are given by $\left( A_{ij}^{T} \right) = A_{ji}$.
 
 The following properties of transposes are easily verified:
 1. $\left(A^{T}\right)^{T} =A$
@@ -687,13 +687,24 @@ $$
 \lvert A \rvert_{F} = \sqrt{tr(A A^{T})} = \sqrt{tr(A^{T} A)}
 $$
 
+#### What is eigendecomposition, eigenvectors and eigenvalues?
+
+In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. For details look [here](#what-is-spectral-decomposition).
+
+Given a matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
+
+$$
+Av = uv
+$$
+
+
 #### What is the trace of a scalar?
 
 A scalar is its own trace $a=Tr(a)$
 
 #### What is Spectral Decomposition?
 
-Spectral decomposition recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $v_{1}, v_{2}, \ldots, v_{p}$, then, 
+Spectral decomposition, sometimes called _eigendecomposition_, recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $v_{1}, v_{2}, \ldots, v_{p}$, then, 
 
 $$
 \begin{split}
