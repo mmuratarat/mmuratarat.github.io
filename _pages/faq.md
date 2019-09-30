@@ -395,7 +395,8 @@ Non-square matrices do not have inverses by definition. Note that not all square
 
 #### When does inverse of a matrix exist?
 
-**Determine its rank**. In order for a square matrix $A$ to have an inverse $A^{-1}$, then $A$ must be full rank. The rank of a matrix is a unique number associated with a square matrix. If the rank of an $n \times n$ matrix is less than $n$, the matrix does not have an inverse. 
+**Determine its rank**. In order for a square matrix $A$ to have an inverse $A^{-1}$, then $A$ must be full rank. The rank of a matrix is a unique number associated with a square matrix. The rank of a matrix is the number of non-zero eigenvalues
+of the matrix. The rank of a matrix gives the dimensionality of the Euclidean space which can be used to represent this matrix. Matrices whose rank is equal to their dimensions are full rank and they are invertible. When the rank of a matrix is smaller than its dimensions, the matrix is not invertible and is called rank-deficient, singular, or multicolinear. For example, if the rank of an $n \times n$ matrix is less than $n$, the matrix does not have an inverse. 
 
 **Compute its determinant**. The determinant is another unique number associated with a square matrix. The determinant det(A) of a square matrix A is the product of its eigenvalues. When the determinant for a square matrix is equal to zero, the inverse for that matrix does not exist.
 
