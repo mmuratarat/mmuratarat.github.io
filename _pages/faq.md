@@ -136,6 +136,7 @@ permalink: /faq/
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
 
+
 [General Machine Learning](#general-machine-learning)
 
 1. [What is an epoch, a batch and an iteration?](#what-is-an-epoch-a-batch-and-an-iteration)
@@ -173,6 +174,7 @@ permalink: /faq/
 32. [What’s the difference between a generative and discriminative model?](#whats-the-difference-between-a-generative-and-discriminative-model)
 33. [What cross-validation technique would you use on a time series dataset?](#what-cross-validation-technique-would-you-use-on-a-time-series-dataset)
 34. [What is the difference between "long" and "wide" format data?](#what-is-the-difference-between-long-and-wide-format-data)
+35. Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2208,6 +2210,15 @@ In the wide format, a subject’s repeated responses will be in a single row, an
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/wide_long_format_data.png?raw=true)
 
+#### Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?
+
+False Positives are the cases where you wrongly classified a non-event as an event (a.k.a Type I error). False Negatives are the cases where you wrongly classify events as non-events (a.k.a Type II error).
+
+An example of where a false positive is important than a false negative is that in the medical field, assume you have to give chemotherapy to patients. Assume a patient comes to that hospital and he is tested positive for cancer, based on the lab prediction but he actually doesn’t have cancer. This is a case of false positive. Here it is of utmost danger to start chemotherapy on this patient when he actually does not have cancer. In the absence of cancerous cell, chemotherapy will do certain damage to his normal healthy cells and might lead to severe diseases, even cancer
+
+An example of where a false negative important than a false positive is that what if Jury or judge decides to make a criminal go free?
+
+An example of where both false positive and false negatives are equally important is that, in the Banking industry giving loans is the primary source of making money but at the same time if your repayment rate is not good you will not make any profit, rather you will risk huge losses. Banks don't want to lose good customers and at the same point in time, they don’t want to acquire bad customers. In this scenario, both the false positives and false negatives become very important to measure
 
 ## Deep Learning
 
