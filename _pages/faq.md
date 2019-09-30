@@ -175,7 +175,7 @@ permalink: /faq/
 33. [What cross-validation technique would you use on a time series dataset?](#what-cross-validation-technique-would-you-use-on-a-time-series-dataset)
 34. [What is the difference between "long" and "wide" format data?](#what-is-the-difference-between-long-and-wide-format-data)
 35. [Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?](#can-you-cite-some-examples-where-a-false-positive-is-important-than-a-false-negative-and-where-a-false-negative-important-than-a-false-positive-and-where-both-false-positive-and-false-negatives-are-equally-important)
-36. Describe the difference between univariate, bivariate and multivariate analysis?
+36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
