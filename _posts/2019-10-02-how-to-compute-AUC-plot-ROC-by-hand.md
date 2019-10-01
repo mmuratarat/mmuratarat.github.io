@@ -131,7 +131,7 @@ $$
 
 This sum is called a Riemann sum.
 
-It can be defined in several different ways via left-endpoints, right-endpoints, or midpoints. Here we see the explicit connection between a Riemann sum defined by left-endpoints and the area between a curve and the x-axis on the interval. If we used the value of $f$ at the right endpoint rather than the left endpoint, the result is the right Riemann sum.
+It can be defined in several different ways via left-endpoints, right-endpoints, or midpoints. Here we see the explicit connection between a Riemann sum defined by left-endpoints and the area between a curve and the x-axis on the interval $[a, b]$. If we used the value of $f$ at the right endpoint rather than the left endpoint, the result is the right Riemann sum.
 
 The Riemann sum is only an approximation to the actual area underneath the graph of $f$. To make the approximation better, we can increase the number of subintervals $n$.
 
