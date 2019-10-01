@@ -2581,6 +2581,8 @@ Recurrent Neural Networks suffer from short-term memory. If a sequence is long e
 
 Then later, LSTM (long short term memory) was invented as the solution to short-term memory. In order to solve this issue, a memory unit, called the cell has been explicitly introduced into the network. They have internal mechanisms called gates that can regulate the flow of information.
 
+Note that LSTM does not always protect you from exploding gradients! Therefore, successful LSTM applications typically use gradient clipping.
+
 LSTMs are recurrent network where you replace each neuron by a memory unit. This unit contains an actual neuron with a recurrent self-connection. The activations of those neurons within memory units are the state of the LSTM network. This is the diagram of a LSTM building block
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
