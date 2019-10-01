@@ -2301,7 +2301,7 @@ Another important feature of an activation function is also that it should be di
 
 Deep neural networks can model complicated relationships and is one of the state of art methods in machine learning as of today.
 
-We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\mathbf{b}^{(l)}$. For example, $\mathbf{W}^{(1)}$ and $\mathbf{b}^{(1)}$ belong to layer $l=1$; $\mathbf{W}^{(2)}$ and $\mathbf{b}^{(2)}$ belong to layer $l=2$ and so forth. We also have multiple layers of hidden units denoted by $\mathbf{h}^{(l-1)}$. Each such layer consists of $M_{l}$ hidden units, $\mathbf{h}^{(l)} = \left[ \mathbf{h}_{1}^{(l)}, \ldots, \mathbf{h}_{M_{l}}^{(l)} \right]^{T}$, where the dimensions $M_{1}, M_{2}, \ldots$ can be different for different layers.
+We enumerate layers with index $l$. Each _layer_ is parameterized with a weight matrix $\mathbf{W}^{(l)}$ and a bias vector $\mathbf{b}^{(l)}$. For example, $\mathbf{W}^{(1)}$ and $\mathbf{b}^{(1)}$ belong to layer $l=1$; $\mathbf{W}^{(2)}$ and $\mathbf{b}^{(2)}$ belong to layer $l=2$ and so forth. We also have multiple layers of hidden units denoted by $\mathbf{h}^{(l-1)}$. Each such layer consists of $M_{l}$ hidden units, $\mathbf{h}^{(l)} = \left[\mathbf{h}^{(l)}_{1}, \ldots, \mathbf{h}^{(l)}_{M_{l}} \right]^{T}$, where the dimensions $M_{1}, M_{2}, \ldots$ can be different for different layers.
 
 Each layer maps a hiddent layer $\mathbf{h}^{(l-1)}$ to the next hidden layer $\mathbf{h}^{(l)}$ as:
 
