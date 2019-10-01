@@ -162,6 +162,7 @@ permalink: /faq/
 20. [What are the goals to build a learning machine?](#what-are-the-goals-to-build-a-learning-machine)
 21. [What are the solutions of overfitting?](#what-are-the-solutions-of-overfitting)
 22. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
+23. What is feature engineering?
 23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
@@ -2050,6 +2051,12 @@ There are several solutions to the problem of overfitting:
 * Quick response: Occam’s Razor. It depends on the learning task. Choose the right balance
 * Ensemble learning can help balancing bias/variance (several weak learners together = strong learner)
 
+#### What is feature engineering?
+
+Feature engineering is the process of taking a dataset and constructing explanatory variables (features) that can be used to train a machine learning model for a prediction problem. Often, data is spread across multiple tables and must be gathered into a single table with rows containing the observations and features in the columns.
+
+Traditional approach to feature engineering is to build features one at a time using domain knowledge, a tedious, time-consuming and error-prone process known as manual engineering. The code for manual feature engineering is a problem-dependent and must be written for each new dataset.
+
 #### What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?
 
 Feature scaling is the method used to standardize the range of features of data. Since the range of values of data may vary widely, it becomes a necessary step in data processing while using ML algorithms. 
@@ -2058,7 +2065,7 @@ Feature scaling is the method used to standardize the range of features of data.
      \begin{equation}
          X^{'} = \frac{X- X_{min}}{X_{max} - X_{min}}
      \end{equation}
-     where $X^{'}$ is the normalized value.
+     where $X^{'}$ is the normalized value. Min-max normalization has one fairly significant downside: it does not handle outliers very well. For example, if you have 99 values between 0 and 40, and one value is 100, then the 99 values will all be transformed to a value between 0 and 0.4. But 100 will be squished into 1, meaning that that data is just as squished as before, still an outlier!
 * **Normalization**: The point of normalization is to change your observations so they can be described as a normal distribution.
      \begin{equation}
          X^{'} = \frac{X- X_{mean}}{X_{max} - X_{min}}
@@ -2068,7 +2075,7 @@ Feature scaling is the method used to standardize the range of features of data.
      \begin{equation}
          X^{'} = \frac{X- X_{mean}}{\sigma}
      \end{equation}
-     where $X$ is the original feature vector, $X_{mean}$ is the mean of the feature vector, and $\sigma$ is its standard deviation. 
+     where $X$ is the original feature vector, $X_{mean}$ is the mean of the feature vector, and $\sigma$ is its standard deviation. Z-score normalization is a strategy of normalizing data that avoids the outlier issue of Min-Max Scaling. The only potential downside is that the features aren’t on the exact same scale.
      
  You should scale your data,
  
@@ -2260,7 +2267,11 @@ Deep Learning is an area of Machine Learning that attempts to mimic the activity
 
 #### Why are deep networks better than shallow ones?
 
-Both the Networks, be it shallow or Deep are capable of approximating any function. However, a shallow network works with only a few features, as it can’t extract more. Deep networks have several hidden layers often of different types so they are able to build or create or extract better features more and more abstract features/concepts than shallow models with fewer parameters. It makes your network more eager to recognize certain aspects of input data. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts.
+Both the Networks, be it shallow or deep are capable of approximating any function. However, a shallow network works with only a few features, as it can’t extract more. 
+
+Deep learning's main distinguishing feature from "Shallow Learning" is that deep learning methods derive their own features directly from data (feature engineering), while shallow learning relied on the handcrafted features based upon heuristics of the target problem. 
+
+Deep networks have several hidden layers often of different types so they are able to build or create or extract better features/concepts than shallow models with fewer parameters. It makes your network more eager to recognize certain aspects of input data. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts.
 
 #### What is a perceptron?
 
