@@ -2562,6 +2562,17 @@ With parameter sharing, which means no matter the size of your input image, the 
 
 #### What is Exploding Gradient Problem?
 
+
+ReLU in conjunction with batch normalization (or ELU or SELU) has effectively obviated both vanishing/ exploding gradients and the internal covariate shift problem.
+
+The problem still remains for recurrent nets though (to some extent at least).
+
+#### What are the different types of RNN?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/0_1PKOwfxLIg_64TAO.jpeg?raw=true)
+
+Each rectangle is a vector and arrows represent functions (e.g. matrix multiply). Input vectors are in red, output vectors are in blue and green vectors hold the RNN's state (more on this soon). From left to right: (1) Vanilla mode of processing without RNN, from fixed-sized input to fixed-sized output (e.g. image classification). (2) Sequence output (e.g. image captioning takes an image and outputs a sentence of words). (3) Sequence input (e.g. sentiment analysis where a given sentence is classified as expressing positive or negative sentiment). (4) Sequence input and sequence output (e.g. Machine Translation: an RNN reads a sentence in English and then outputs a sentence in French). (5) Synced sequence input and output (e.g. video classification where we wish to label each frame of the video). Notice that in every case are no pre-specified constraints on the lengths sequences because the recurrent transformation (green) is fixed and can be applied as many times as we like.
+
 #### What is an LSTM cell? How does an LSTM network work? Explain the gates.
 
 Theoretically recurrent neural network can work. But in practice, it suffers from two problems: vanishing gradient and exploding gradient, which make it unusable. 
@@ -2716,7 +2727,7 @@ The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates 
 
 #### Why stacking LSTM layers?
 
-The main reason for stacking LSTM cells is to allow for greater model complexity. In case of a simple feed forward network, we stack layers to create a hierarchial feature representation of the input data to then use for some machine learning task. The same applies for stacked LSTMs. 
+The main reason for stacking LSTM cells is to allow for greater model complexity. The addition of more layers increases the capacity of the network, making it capable of learning a large training dataset and efficiently representing more complex mapping functions from inputs to outputs. In case of a simple feed forward network, we stack layers to create a hierarchial feature representation of the input data to then use for some machine learning task. The same applies for stacked LSTMs. 
 
 #### What is an autoencoder?
 
