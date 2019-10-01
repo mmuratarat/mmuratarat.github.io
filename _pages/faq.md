@@ -1146,6 +1146,12 @@ The joint CDF satisfies the following properties:
 
 Let's say we have two events, $A$ and $B$. The conditional probability of an event $B$ is the probability that the event will occur given the knowledge that an event $A$ has already occurred. This probability is written $P(B \mid A)$, notation for the probability of $B$ given $A$.  In the case where events $A$ and $B$ are independent (where event $A$ has no effect on the probability of event $B$), the conditional probability of event $B$ given event $A$ is simply the probability of event $B$, that is $P(B)$.
 
+$$
+P(B \mid A) = P(B)
+$$
+
+Because $\frac{P(A \cap B) = P(A) \times P(B)$ when $A$ and $B$ are independent events.
+
 However, If events $A$ and $B$ are not independent, then the probability of the intersection of $A$ and $B$ (the probability that both events occur) is defined by $P(A\text{ and }B) = P(A \cap B) = P(A)P(B \mid A)$, which $P(A\text{ and }B)$ is the joint probability. Intuitively it states that the probability of observing events $A$ and $B$ is the probability of observing $A$, multiplied by the probability of observing $B$, given that you have observed $A$.
 
 From this definition, the conditional probability $P(B \mid A)$ is easily obtained by dividing by $P(A)$:
