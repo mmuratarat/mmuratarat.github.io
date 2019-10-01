@@ -6,14 +6,14 @@ comments: true
 ---
 Ridge regression and the Lasso are two forms of regularized regression (i.e., to constraint the model) which are typically achieved by constraining the weights of the model. These methods are seeking to alleviate the consequences of multicollinearity and overfitting the training set.
 
-When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since $\mathbf{X}$ is not full rank. This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. Actually we can however, estimates of coefficients will be unrealistically large. Similarly, the variance of the estimates,
+When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since $\mathbf{X}$ is not full rank. This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. Actually we can, however, estimates of coefficients will be unrealistically large, untrustable. Similarly, the variance of the estimates,
 
 $$
 Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}
 $$
 
 will also blow up when $\mathbf{X}^{T} \cdot \mathbf{X}$ is singular. If that matrix isn’t exactly singular, but is
-close to being non-invertible, the variances will become huge.
+close to being non-invertible, the variances will become huge. Consequently, corresponding t-statistics are typically low.
 
 A square matrix with no inverse is called singular (noninvertible). A matrix $A$ is singular if and only if $det(A) = 0$, which its determinant equals the product of the eigenvalues of $A$. In case of singularity, one of the eigenvalues is zero. In order to see this, you can consider the spectral decomposition of $A$. The spectral decomposition recasts a matrix in terms of its eigenvalues and eigenvectors. This representation turns out to be enormously useful:
 
