@@ -2684,7 +2684,7 @@ $o_{t} \in \mathbb{R}^{B \times U}$
 
 #### What is the number of parameters in an LSTM cell?
 
-The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates (forget gate/input gate/output gate). Each $W_{h}$ has $U \times U$ elements and each $W_{x}$ has $F \times U$ elements. There is another set of these matrices for updating the cell state $\widetilde{C}_{t}$. Similarly, $W_{xc}$ has $F \times U$ and $W_{hc}$ has $U \times U$ elements. On top of the mentioned matrices, you need to count the biases. Each bias for 3 gates and new candidate has $U$ elements. Hence total number parameters is $4(UF +  U^{2} + U)$.
+The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates (forget gate/input gate/output gate). Each $W_{h}$ has $U \times U$ elements and each $W_{x}$ has $F \times U$ elements. There is another set of these matrices for updating the cell state $\widetilde{C_{t}}$. Similarly, $W_{xc}$ has $F \times U$ and $W_{hc}$ has $U \times U$ elements. On top of the mentioned matrices, you need to count the biases. Each bias for 3 gates and new candidate has $U$ elements. Hence total number parameters is $4(UF +  U^{2} + U)$.
 
 #### What is an autoencoder?
 
