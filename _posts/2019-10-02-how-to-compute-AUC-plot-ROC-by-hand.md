@@ -22,7 +22,7 @@ Since to compare two different models it is often more convenient to have a sing
 
 * **True positive rate (TPR)**, a.k.a. _sensitivity_, _hit rate_, and _recall_, which is defined as $\frac{TP}{TP+FN}$. This metric corresponds to the proportion of positive data points that are correctly considered as positive, with respect to all positive data points. In other words, the higher TPR, the fewer positive data points we will miss.
 
-* **False positive rate (FPR)**, a.k.a. _fall-out_ or _1 - specificity_, which is defined as $\frac{FP}{FP+TN}$. Intuitively this metric corresponds to the proportion of negative data points that are mistakenly considered as positive, with respect to all negative data points. In other words, the higher FPR, the more negative data points will be missclassified.
+* **False positive rate (FPR)**, a.k.a. _false alarm rate_, _fall-out_ or _1 - specificity_, which is defined as $\frac{FP}{FP+TN}$. Intuitively this metric corresponds to the proportion of negative data points that are mistakenly considered as positive, with respect to all negative data points. In other words, the higher FPR, the more negative data points will be missclassified.
 
 To combine the FPR and the TPR into one single metric, we first compute the two former metrics with many different threshold (for example 0.00;0.01,0.02,…,1.00) for the logistic regression, then plot them on a single graph, with the FPR values on the abscissa and the TPR values on the ordinate. The resulting curve is called ROC curve, and the metric we consider is the AUC of this curve, which we call AUROC. Threshold values from 0 to 1 are decided based on the number of samples in the dataset. 
 
@@ -30,9 +30,15 @@ The following figure shows the AUROC graphically:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/9NpXJ.png?raw=true)
 
-AUC-ROC curve is basically the plot of sensitivity and 1 - specificity. It shows the tradeoff between sensitivity and specificity (any increase in sensitivity will be accompanied by a decrease in specificity). It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings. ROC is a probability curve and AUC represents the degree or measure of separability. The ROC curve is the probability that a classifier will be more confident that a randomly chosen positive example is actually positive than a randomly chosen negative example is positive.
+AUC-ROC curve is basically the plot of sensitivity and 1 - specificity. 
 
-In this figure, the blue area corresponds to the Area Under the curve of the Receiver Operating Characteristic (AUROC). The higher the area under the ROC curve, the better the classifier. The dashed line in the diagonal we present the ROC curve of a random predictor. It has an AUROC of 0.5. The random predictor is commonly used as a baseline to see whether the model is useful. A classifier with an AUC higher than 0.5 is better than a random classifier. If AUC is lower than 0.5, then something is wrong with your model. A perfect classifier would have an AUC of 1. Usually, if your model behaves well, you obtain a good classifier by selecting the value of threshold that gives TPR close to 1 while keeping FPR near 0. 
+ROC curves are two-dimensional graphs in which true positive rate is plotted on the Y axis and false positive rate is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings.
+
+In this figure, the blue area corresponds to the Area Under the curve of the Receiver Operating Characteristic (AUROC). The higher the area under the ROC curve, the better the classifier. The AUC has an important statistical property: the AUC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
+
+The diagonal line $y = x$ (dashed line) represents the strategy of randomly guessing a class. For example, if a classifier randomly guesses the positive class half the time, it can be expected to get half the positives and half the negatives correct; this yields the point (0.5, 0.5) in ROC space. It has an AUROC of 0.5. The random predictor is commonly used as a baseline to see whether the model is useful. 
+
+A classifier with an AUC higher than 0.5 is better than a random classifier. If AUC is lower than 0.5, then something is wrong with your model. A perfect classifier would have an AUC of 1. Usually, if your model behaves well, you obtain a good classifier by selecting the value of threshold that gives TPR close to 1 while keeping FPR near 0. 
 
 It is easy to see that if the threshold is zero, all our prediction will be positive, so both TPR and FPR will be 1. On the other hand, if the threshold is 1, then no positive prediction will be made, both TPR and FPR will be 0. 
 
