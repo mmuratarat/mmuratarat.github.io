@@ -7,7 +7,7 @@ comments: true
 
 Assume we have a probabilistic, binary classifier such as logistic regression.
 
-Before presenting the ROC curve (= Receiver Operating Characteristic curve), the concept of confusion matrix must be understood. When we make a binary prediction, there can be 4 types of outcomes:
+Before presenting the ROC curve (_Receiver Operating Characteristic curve_), the concept of confusion matrix must be understood. When we make a binary prediction, there can be 4 types of outcomes:
 
 * We predict 0 while the true class is actually 0: this is called a **True Negative**, i.e. we correctly predict that the class is negative (0). For example, an antivirus did not detect a harmless file as a virus .
 * We predict 0 while the true class is actually 1: this is called a **False Negative**, i.e. we incorrectly predict that the class is negative (0). For example, an antivirus failed to detect a virus.
