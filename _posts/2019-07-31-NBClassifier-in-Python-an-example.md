@@ -182,3 +182,4 @@ print('\nThe accuracy of Gaussian Naive Bayes Classifier is {}%'.format(accuracy
 1. [https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0](https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0){:target="_blank"}
 2. [http://www.inf.u-szeged.hu/~ormandi/ai2/06-naiveBayes-example.pdf](http://www.inf.u-szeged.hu/~ormandi/ai2/06-naiveBayes-example.pdf){:target="_blank"}
 3. [https://towardsdatascience.com/the-naive-bayes-classifier-e92ea9f47523](https://towardsdatascience.com/the-naive-bayes-classifier-e92ea9f47523){:target="_blank"}
+4. [https://stats.stackexchange.com/a/21849/16534](https://stats.stackexchange.com/a/21849/16534){:target="_blank"}
