@@ -9,10 +9,10 @@ Assume we have a probabilistic, binary classifier such as logistic regression.
 
 Before presenting the ROC curve (= Receiver Operating Characteristic curve), the concept of confusion matrix must be understood. When we make a binary prediction, there can be 4 types of outcomes:
 
-* We predict 0 while the true class is actually 0: this is called a True Negative, i.e. we correctly predict that the class is negative (0). For example, an antivirus did not detect a harmless file as a virus .
-* We predict 0 while the true class is actually 1: this is called a False Negative, i.e. we incorrectly predict that the class is negative (0). For example, an antivirus failed to detect a virus.
-* We predict 1 while the true class is actually 0: this is called a False Positive, i.e. we incorrectly predict that the class is positive (1). For example, an antivirus considered a harmless file to be a virus.
-* We predict 1 while the true class is actually 1: this is called a True Positive, i.e. we correctly predict that the class is positive (1). For example, an antivirus rightfully detected a virus.
+* We predict 0 while the true class is actually 0: this is called a **True Negative**, i.e. we correctly predict that the class is negative (0). For example, an antivirus did not detect a harmless file as a virus .
+* We predict 0 while the true class is actually 1: this is called a **False Negative**, i.e. we incorrectly predict that the class is negative (0). For example, an antivirus failed to detect a virus.
+* We predict 1 while the true class is actually 0: this is called a **False Positive**, i.e. we incorrectly predict that the class is positive (1). For example, an antivirus considered a harmless file to be a virus.
+* We predict 1 while the true class is actually 1: this is called a **True Positive**, i.e. we correctly predict that the class is positive (1). For example, an antivirus rightfully detected a virus.
 
 To get the confusion matrix, we go over all the predictions made by the model, and count how many times each of those 4 types of outcomes occur:
 
@@ -20,9 +20,9 @@ To get the confusion matrix, we go over all the predictions made by the model, a
 
 Since to compare two different models it is often more convenient to have a single metric rather than several ones, we compute two metrics from the confusion matrix, which we will later combine into one:
 
-* True positive rate (TPR), aka. sensitivity, hit rate, and recall, which is defined as $\frac{TP}{TP+FN}$. This metric corresponds to the proportion of positive data points that are correctly considered as positive, with respect to all positive data points. In other words, the higher TPR, the fewer positive data points we will miss.
+* **True positive rate (TPR)**, a.k.a. _sensitivity_, _hit rate_, and _recall_, which is defined as $\frac{TP}{TP+FN}$. This metric corresponds to the proportion of positive data points that are correctly considered as positive, with respect to all positive data points. In other words, the higher TPR, the fewer positive data points we will miss.
 
-* False positive rate (FPR), aka. fall-out, which is defined as $\frac{FP}{FP+TN} = 1 - \text{specificity}$. Intuitively this metric corresponds to the proportion of negative data points that are mistakenly considered as positive, with respect to all negative data points. In other words, the higher FPR, the more negative data points will be missclassified.
+* **False positive rate (FPR)**, a.k.a. _fall-out_ or _1 - specificity_, which is defined as $\frac{FP}{FP+TN}$. Intuitively this metric corresponds to the proportion of negative data points that are mistakenly considered as positive, with respect to all negative data points. In other words, the higher FPR, the more negative data points will be missclassified.
 
 To combine the FPR and the TPR into one single metric, we first compute the two former metrics with many different threshold (for example 0.00;0.01,0.02,…,1.00) for the logistic regression, then plot them on a single graph, with the FPR values on the abscissa and the TPR values on the ordinate. The resulting curve is called ROC curve, and the metric we consider is the AUC of this curve, which we call AUROC. Threshold values from 0 to 1 are decided based on the number of samples in the dataset. 
 
@@ -77,6 +77,10 @@ for thresh in thresholds:
                 FP = FP + 1
     FPR.append(FP/N)
     TPR.append(TP/P)
+    
+# FPR [1.0, 1.0, 0.5, 0.5, 0.0, 0.0]
+# TPR [1.0, 1.0, 1.0, 0.5, 0.5, 0.0]
+
 {% endhighlight %}
 
 When you obtain True Positive Rate and False Positive Rate for each of thresholds, all you need to is plot them!
