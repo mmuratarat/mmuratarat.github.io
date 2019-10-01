@@ -2563,6 +2563,8 @@ With parameter sharing, which means no matter the size of your input image, the 
 #### What is Exploding Gradient Problem?
 
 
+Exploding gradients can be dealt with by gradient clipping (truncating the gradient if it exceeds some magnitude)
+
 ReLU in conjunction with batch normalization (or ELU or SELU) has effectively obviated both vanishing/ exploding gradients and the internal covariate shift problem.
 
 The problem still remains for recurrent nets though (to some extent at least).
