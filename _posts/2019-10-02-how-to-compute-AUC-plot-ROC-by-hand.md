@@ -136,5 +136,14 @@ The Riemann sum is only an approximation to the actual area underneath the graph
 As we let $n$ get larger and larger (and $\Delta x$ smaller and smaller), the value of the Riemann sum (1) should approach a single number. This single number is called the definite integral of $f$ from $a$ to $b$. We write the definite integral as
 
 $$
-\int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
+\int_{a}^{b} f(x)dx = \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x
 $$
+
+you now know that we can use Riemann sums to approximate the area under a function. Riemann sums use rectangles, which make for some pretty sloppy approximations. But what if we used trapezoids to approximate the area under a function instead?
+
+By using trapezoids (aka the "trapezoid rule") we can get more accurate approximations than by using rectangles (aka "Riemann sums").
+
+## REFERENCES
+
+1. [https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles](https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles)
+2. [https://mathinsight.org/calculating_area_under_curve_riemann_sums](https://mathinsight.org/calculating_area_under_curve_riemann_sums)
