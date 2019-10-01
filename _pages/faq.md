@@ -2269,9 +2269,11 @@ Deep Learning is an area of Machine Learning that attempts to mimic the activity
 
 Both the Networks, be it shallow or deep are capable of approximating any function. However, a shallow network works with only a few features, as it can’t extract more. 
 
-Deep learning's main distinguishing feature from "Shallow Learning" is that deep learning methods derive their own features directly from data (feature engineering), while shallow learning relied on the handcrafted features based upon heuristics of the target problem. 
+Deep learning's main distinguishing feature from "Shallow Learning" is that deep learning methods derive their own features directly from data (feature engineering), while shallow learning relies on the handcrafted features based upon heuristics of the target problem. Deep learning architecture can learn representations and features directly from the input with little to no prior knowledge. 
 
-Deep networks have several hidden layers often of different types so they are able to build or create or extract better features/concepts than shallow models with fewer parameters. It makes your network more eager to recognize certain aspects of input data. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts.
+Deep networks have several hidden layers often of different types so they are able to build or create or extract better features/concepts than shallow models with fewer parameters. It makes your network more eager to recognize certain aspects of input data. 
+
+Deep learning can learn multiple levels of representations that correspond to different levels of abstraction; the levels form  a hierarchy of concepts. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Higher level concepts are derived from lower level features. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts.
 
 #### What is a perceptron?
 
