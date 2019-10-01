@@ -142,7 +142,8 @@ $$
 $$
 
 ### Trapezoidal Rule
-you now know that we can use Riemann sums to approximate the area under a function. Riemann sums use rectangles, which make for some pretty sloppy approximations. But what if we used trapezoids to approximate the area under a function instead?
+
+You now know that we can use Riemann sums to approximate the area under a function. Riemann sums use rectangles, which make for some pretty sloppy approximations. But what if we used trapezoids to approximate the area under a function instead?
 
 By using trapezoids (aka the "trapezoid rule") we can get more accurate approximations than by using rectangles (aka "Riemann sums").
 
