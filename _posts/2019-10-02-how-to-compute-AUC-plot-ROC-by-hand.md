@@ -136,9 +136,5 @@ The Riemann sum is only an approximation to the actual area underneath the graph
 As we let $n$ get larger and larger (and $\Delta x$ smaller and smaller), the value of the Riemann sum (1) should approach a single number. This single number is called the definite integral of $f$ from $a$ to $b$. We write the definite integral as
 
 $$
- \int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
+\int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
 $$
-
-\begin{align*}
-  \int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
-\end{align*}
