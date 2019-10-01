@@ -119,6 +119,24 @@ $$
 
 which will give the AUC value.
 
+### Sci-kit Learn Approach
+
+{% highlight python %}
+import numpy as np
+from sklearn import metrics
+scores = np.array([0.8, 0.6, 0.4, 0.2])
+y = np.array([1,0,1,0])
+
+#thresholds : array, shape = [n_thresholds] Decreasing thresholds on the decision function used to compute fpr and tpr. 
+#thresholds[0] represents no instances being predicted and is arbitrarily set to max(y_score) + 1
+fpr, tpr, thresholds = metrics.roc_curve(y, scores, pos_label=1)
+#thresholds: array([1.8, 0.8, 0.6, 0.4, 0.2])
+#tpr: array([0. , 0.5, 0.5, 1. , 1. ])
+#fpr: array([0. , 0. , 0.5, 0.5, 1. ])
+metrics.auc(fpr, tpr)
+#0.75
+{% endhighlight %}
+
 ### RIEMANN SUM
 
 However, this is not always that easy. In order to compute area under curve, there are many approaches. We can approximate the area under curve by summing the areas of lots of rectangles. It is clear that with hundreds and thousands of rectangles, the sum of the area of each rectangle is very nearly the area under curve. Our approximation gets better if we use more rectangles. These sorts of approximations are called Riemann sums, and they're a foundational tool for integral calculus. 
@@ -154,6 +172,7 @@ You now know that we can use Riemann sums to approximate the area under a functi
 By using trapezoids (aka the "trapezoid rule") we can get more accurate approximations than by using rectangles (aka "Riemann sums").
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/image002.png?raw=true)
+
 
 ## REFERENCES
 
