@@ -2558,7 +2558,133 @@ With parameter sharing, which means no matter the size of your input image, the 
 
 #### What is an LSTM cell? How does an LSTM network work? Explain the gates.
 
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
+
+Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for a single instance (the equations for a whole mini-batch are very similar).
+
+1. Input gate:
+$$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$$
+
+2. Forget gate:
+$$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \cdot h_{t-1} + b_{f})$$
+
+3. New Candidate:
+$$ \widetilde{C}_{t} = tanh (W_{xc} \cdot X_{t} + W_{hc} \cdot h_{t-1} + b_{c})$$
+
+4. Cell State:
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+
+5. Output gate:
+$$ o_{t} = \sigma (W_{xo} \cdot X_{t} + W_{ho} \cdot h_{t-1} + b_{o})$$
+
+6. Hidden State:
+$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+
+*  $W_{xi}$, $W_{xf}$, $W_{xc}$, $W_{xo}$ are the weight matrices of each of the three gates and block input for their connection to the input vector $X_{t}$.
+*  $W_{hi}$, $W_{hf}$, $W_{hc}$, $W_{ho}$ are the weight matrices of each of the three gates and block input  for their connection to the previous short-term state $h_{t-1}$.
+*  $b_{i}$, $b_{f}$, $b_{c}$ and $b_{o}$ are the bias terms for each of the three gates and block input . 
+*  $\sigma$ is an element-wise sigmoid activation function of the neurons, and $tanh$ is an element-wise hyperbolic tangent activation function of the neurons
+*  $\circ$ represents the Hadamard product (elementwise product).
+
+**NOTE**: Sometimes, $h_t$ is called as the outgoing state and $c_t$ is called as the internal cell state.
+
+Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
+
+1. Input gate:
+$$ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$$
+
+2. Forget gate:
+$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + b_{f})$$
+
+3. New Candidate:
+$$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$$
+
+4. Cell State:
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+
+5. Output gate:
+$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + b_{o})$$
+
+6. Hidden State:
+$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+
+We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ horizontally, we can rewrite the equations above as the following:
+
+1. Input gate:
+$$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cdot W_{i}  + b_{i})$$
+
+2. Forget gate:
+$$ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$$
+
+3. New Candidate:
+$$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$$
+
+4. Cell State:
+$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+
+5. Output gate:
+$$ o_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{o}+ b_{o})$$
+
+6. Hidden State:
+$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+
+Let's denote $B$ as batch size, $F$ as number of features and $U$ as number of units in an LSTM cell, therefore, the dimensions will be computed as follows:
+
+$X_{t} \in \mathbb{R}^{B \times F}$
+
+$h_{t-1} \in \mathbb{R}^{B \times U}$
+
+$h_{t} \in \mathbb{R}^{B \times U}$
+
+$C_{t-1} \in \mathbb{R}^{B \times U}$
+
+$W_{xi} \in \mathbb{R}^{F \times U}$
+
+$W_{xf} \in \mathbb{R}^{F \times U}$
+
+$W_{xc} \in \mathbb{R}^{F \times U}$
+
+$W_{xo} \in \mathbb{R}^{F \times U}$
+
+$W_{hi} \in \mathbb{R}^{U \times U}$
+
+$W_{hf} \in \mathbb{R}^{U \times U}$
+
+$W_{hc} \in \mathbb{R}^{U \times U}$
+
+$W_{ho} \in \mathbb{R}^{U \times U}$
+
+$W_{i} \in \mathbb{R}^{F+U \times U}$
+
+$W_{c} \in \mathbb{R}^{F+U \times U}$
+
+$W_{f} \in \mathbb{R}^{F+U \times U}$ 
+
+$W_{o} \in \mathbb{R}^{F+U \times U}$ 
+
+$b_{i} \in \mathbb{R}^{U}$
+
+$b_{c} \in \mathbb{R}^{U}$
+
+$b_{f} \in \mathbb{R}^{U}$
+
+$b_{o} \in \mathbb{R}^{U}$
+
+$i_{t} \in \mathbb{R}^{B \times U}$
+
+$f_{t} \in \mathbb{R}^{B \times U}$
+
+$C_{t} \in \mathbb{R}^{B \times U}$
+
+$h_{t} \in \mathbb{R}^{B \times U}$
+
+$o_{t} \in \mathbb{R}^{B \times U}$
+
+**NOTE**: Batch size can be $1$. In that case, $B=1$.
+
 #### What is the number of parameters in an LSTM cell?
+
+The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates (forget gate/input gate/output gate). Each $W_{h}$ has $U \times U$ elements and each $W_{x}$ has $F \times U$ elements. There is another set of these matrices for updating the cell state $\widetilde{C}_{t}$. Similarly, $W_{xc}$ has $F \times U$ and $W_{hc}$ has $U \times U$ elements. On top of the mentioned matrices, you need to count the biases. Each bias for 3 gates and new candidate has $U$ elements. Hence total number parameters is $4(UF +  U^{2} + U)$.
 
 #### What is an autoencoder?
 
