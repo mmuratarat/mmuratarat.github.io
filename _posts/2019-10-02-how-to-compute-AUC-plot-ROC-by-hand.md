@@ -104,3 +104,41 @@ plt.show()
 {% endhighlight %}
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/AUC_example.png?raw=true)
+
+To compute the area under curve for this example is very simple. We have two  rectangles. All we need to do is to sum the areas of those  rectangles:
+
+$$
+0.5 \times 0.5 + 0.5 * 1 = 0.75
+$$
+
+which will give the AUC value.
+
+However, this is not always that easy. In order to compute area under curve, there are many approaches. We can approximate the area under curve by summing the areas of lots of rectangles. It is clear that with hundreds and thousands of rectangles, the sum of the area of each rectangle is very nearly the area under curve. Our approximation gets better if we use more rectangles. These sorts of approximations are called Riemann sums, and they're a foundational tool for integral calculus. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/digInApproximatingAreaWithRectangles-figure5.png?raw=true)
+
+Let's number the $n$ subintervals by $i=0,1,2, \ldots ,n−1$. Then, the left endpoint of subinterval number $i$ is $x_{i}$ and its right endpoint is $x_{i+1}$. We are imagining that the height of $f$ over the entire subinterval is $f(x_{i})$, the value of $f$ at the left endpoint. Since the width of the rectangle is $\Delta x$, its area is $f(x_{i})\Delta x$.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/digInApproximatingAreaWithRectangles-figure11.png?raw=true)
+
+To estimate the area under the graph of $f$ with this approximation, we just need to add up the areas of all the rectangles. Using summation notation, the sum of the areas of all $n$ rectangles for $i = 0, 1, \ldots ,n−1$ is:
+
+$$
+\text{Area of rectangles} = \sum_{i=0}^{n-1} f(x_{i}) \Delta x
+$$
+
+This sum is called a Riemann sum.
+
+It can be defined in several different ways via left-endpoints, right-endpoints, or midpoints. Here we see the explicit connection between a Riemann sum defined by left-endpoints and the area between a curve and the x-axis on the interval.
+
+The Riemann sum is only an approximation to the actual area underneath the graph of $f$. To make the approximation better, we can increase the number of subintervals $n$.
+
+As we let $n$ get larger and larger (and $\Delta x$ smaller and smaller), the value of the Riemann sum (1) should approach a single number. This single number is called the definite integral of $f$ from $a$ to $b$. We write the definite integral as
+
+$$
+ \int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
+$$
+
+\begin{align*}
+  \int_a^b f(x)dx &= \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x.
+\end{align*}
