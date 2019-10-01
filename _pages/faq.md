@@ -2564,8 +2564,20 @@ With parameter sharing, which means no matter the size of your input image, the 
 
 #### What is an LSTM cell? How does an LSTM network work? Explain the gates.
 
+Theoretically recurrent neural network can work. But in practice, it suffers from two problems: vanishing gradient and exploding gradient, which make it unusable. 
+
+Recurrent Neural Networks suffer from short-term memory. If a sequence is long enough, they will have a hard time carrying information from earlier time steps to later ones due to the vanishing gradient. So in recurrent neural networks, layers that get a small gradient update stops learning. Those are usually the earlier layers. Think about a recurrent neural network unrolled through time. So because these layers do not learn, RNNs can forget what it seen in longer sequences, thus having a short-term memory.
+
+Then later, LSTM (long short term memory) was invented as the solution to short-term memory. In order to solve this issue, a memory unit, called the cell has been explicitly introduced into the network. They have internal mechanisms called gates that can regulate the flow of information.
+
+LSTMs are recurrent network where you replace each neuron by a memory unit. This unit contains an actual neuron with a recurrent self-connection. The activations of those neurons within memory units are the state of the LSTM network. This is the diagram of a LSTM building block
+
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
+The network takes three inputs. $X_t$ is the input of the current time step. $h_{t-1}$ is the output from the previous LSTM unit and $C_{t-1}$ is the "memory" of the previous unit. As for outputs, $h_{t}$ is the output of the current network. $C_{t}$ is the memory of the current unit.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_S0Y1A3KXYO7_eSug_KsK-Q.png?raw=true)
+ 
 Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for a single instance (the equations for a whole mini-batch are very similar).
 
 1. Input gate:
@@ -2688,9 +2700,23 @@ $o_{t} \in \mathbb{R}^{B \times U}$
 
 **NOTE**: Batch size can be $1$. In that case, $B=1$.
 
+1. **New temporary memory**: Use $X_{t}$ and $h_{t-1}$ to generate new memory that includes aspects of $X_{t}$.
+2. **Input gate**: Use $X_{t}$ and $h_{t-1}$ to determine whether the temporary memory $\widetilde{C_{t}}$ is worth preserving.
+3. **Forget gate**: Assess whether the past memory cell $C_{t-1}$ should be included in $C_{t}$.
+4. **Update memory state**: Use forget and input gates to combine new temporary memory and the current memory cell state to get $C_{t}$.
+5. **Output gate**: Decides which part of $C_{t}$ should be exposed to $h_{t}$. 
+
+#### Why sigmoid function in activations of the 3 gates?
+
+Gates contains sigmoid activations. A sigmoid activation is similar to the tanh activation. Instead of squishing values between $-1$ and $1$, it squishes values between $0$ and $1$. That is helpful to update or forget data because any number getting multiplied by $0$ is $0$, causing values to disappears or be "forgotten". Any number multiplied by $1$ is the same value therefore that value stay’s the same or is "kept". The network can learn which data is not important therefore can be forgotten or which data is important to keep.
+
 #### What is the number of parameters in an LSTM cell?
 
 The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates (forget gate/input gate/output gate). Each $W_{h}$ has $U \times U$ elements and each $W_{x}$ has $F \times U$ elements. There is another set of these matrices for updating the cell state (new candidate). Similarly, $W_{xc}$ has $F \times U$ and $W_{hc}$ has $U \times U$ elements. On top of the mentioned matrices, you need to count the biases. Each bias for 3 gates and new candidate has $U$ elements. Hence total number parameters is $4(UF +  U^{2} + U)$.
+
+#### Why stacking LSTM layers?
+
+The main reason for stacking LSTM cells is to allow for greater model complexity. In case of a simple feed forward network, we stack layers to create a hierarchial feature representation of the input data to then use for some machine learning task. The same applies for stacked LSTMs. 
 
 #### What is an autoencoder?
 
