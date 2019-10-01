@@ -113,6 +113,8 @@ $$
 
 which will give the AUC value.
 
+### RIEMANN SUM
+
 However, this is not always that easy. In order to compute area under curve, there are many approaches. We can approximate the area under curve by summing the areas of lots of rectangles. It is clear that with hundreds and thousands of rectangles, the sum of the area of each rectangle is very nearly the area under curve. Our approximation gets better if we use more rectangles. These sorts of approximations are called Riemann sums, and they're a foundational tool for integral calculus. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/digInApproximatingAreaWithRectangles-figure5.png?raw=true)
@@ -139,11 +141,15 @@ $$
 \int_{a}^{b} f(x)dx = \lim_{n \to \infty} \sum_{i=0}^{n-1} f(x_{i}) \Delta x
 $$
 
+### Trapezoidal Rule
 you now know that we can use Riemann sums to approximate the area under a function. Riemann sums use rectangles, which make for some pretty sloppy approximations. But what if we used trapezoids to approximate the area under a function instead?
 
 By using trapezoids (aka the "trapezoid rule") we can get more accurate approximations than by using rectangles (aka "Riemann sums").
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/image002.png?raw=true)
+
 ## REFERENCES
 
-1. [https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles](https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles)
-2. [https://mathinsight.org/calculating_area_under_curve_riemann_sums](https://mathinsight.org/calculating_area_under_curve_riemann_sums)
+1. [https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles](https://ximera.osu.edu/mooculus/calculus1/approximatingTheAreaUnderACurve/digInApproximatingAreaWithRectangles){:target="_blank"}
+2. [https://mathinsight.org/calculating_area_under_curve_riemann_sums](https://mathinsight.org/calculating_area_under_curve_riemann_sums){:target="_blank"}
+3. [http://tutorial.math.lamar.edu/Classes/CalcII/ApproximatingDefIntegrals.aspx](http://tutorial.math.lamar.edu/Classes/CalcII/ApproximatingDefIntegrals.aspx){:target="_blank"}
