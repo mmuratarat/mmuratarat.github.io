@@ -56,8 +56,9 @@ y = np.array([1,0,1,0])
 FPR = []
 # true positive rate
 TPR = []
-# Iterate thresholds from 0.0, 0.01, ... 1.0
+# Iterate thresholds from 0.0 to 1.0
 thresholds = np.arange(0.0, 1.01, 0.2)
+# array([0. , 0.2, 0.4, 0.6, 0.8, 1. ])
 
 # get number of positive and negative examples in the dataset
 P = sum(y)
