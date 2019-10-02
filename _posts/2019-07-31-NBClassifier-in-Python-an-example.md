@@ -237,7 +237,7 @@ Under the very assumption of using NB, these variables are independent. Conseque
 
 By the definition of independence, the probability for an instance, is the product of the probabilities of instances by these classifiers.
 
-For aditional details, look [here](https://stackoverflow.com/a/33478984/1757224){:target="_blank"} and [here](https://stackoverflow.com/questions/38621053/how-can-i-use-sklearn-naive-bayes-with-multiple-categorical-features){:target="_blank"} and [here](https://sebastianraschka.com/faq/docs/naive-bayes-vartypes.html){:target="_blank"}
+For aditional details, look [here](https://stackoverflow.com/a/33478984/1757224){:target="_blank"} or [here](https://stackoverflow.com/questions/38621053/how-can-i-use-sklearn-naive-bayes-with-multiple-categorical-features){:target="_blank"} or [here](https://sebastianraschka.com/faq/docs/naive-bayes-vartypes.html){:target="_blank"} or [here](https://stackoverflow.com/a/14255284/1757224){:target="_blank"}.
 
 # REFERENCES
 1. [https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0](https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0){:target="_blank"}
