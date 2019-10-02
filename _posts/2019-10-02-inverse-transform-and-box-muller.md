@@ -131,11 +131,11 @@ problem with the inverse transform method. There are various ways to express the
 
 The standard normal distribution. Unfortunately, the inverse c.d.f. $\Phi^{-1}(\cdot)$ does not have an analytical form. This is often a problem with the inverse transform method.
 
-We can do a table lookup. E.g., If $U = 0.975$, then $Z = \Phi^{-1}(U) = 1.96$ because z-table gives $\Phi(z)$.
+We can do a table lookup. E.g., If $U = 0.975$, then $Z = \Phi^{-1}(U) = 1.96$ because z-table gives $\Phi(Z)$.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z_table.png?raw=true)
 
-If we are willing to accept numeric solution, inverse functions can be found. One of the inverse cdf of the standard normal distribution was proposed by Schmeiser:
+If we are willing to accept numeric solution, inverse functions can be found. One of the inverse c.d.f. of the standard normal distribution was proposed by Schmeiser:
 
 $$
 Z = \Phi^{-1}(U) \approx \frac{U^{0.135} - (1 - U)^{0.135}} {0.1975}
