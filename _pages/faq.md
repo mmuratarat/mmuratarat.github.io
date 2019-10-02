@@ -129,7 +129,7 @@ permalink: /faq/
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
-49.  [What is the formula for calculating the standard deviation of the sample mean?](#what-is-the-formula-for-calculating-mean-and-the-standard-deviation-of-the-sample-mean)
+49.  [What is the distribution of the sample mean?](#what-is-the-formula-for-calculating-mean-and-the-standard-deviation-of-the-sample-mean)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is a p-value?](#what-is-a-p-value)
@@ -1645,7 +1645,7 @@ Here's another way to look at it: Suppose someone else draws a random sample of,
 
 Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, look at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof).
 
-#### What is the formula for calculating mean and the standard deviation of the sample mean?
+#### What is the distribution of the sample mean?
 
 The sample mean follows distribution with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$. This comes from the fact that sum of independent normal random variables. For details, look [here](https://newonlinecourses.science.psu.edu/stat414/node/172/) and [here](https://newonlinecourses.science.psu.edu/stat414/node/173/).
 
