@@ -136,13 +136,13 @@ permalink: /faq/
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
 
-
 [General Machine Learning](#general-machine-learning)
 
 1. [What is an epoch, a batch and an iteration?](#what-is-an-epoch-a-batch-and-an-iteration)
 2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
 3. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 4. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
+5. Why is logistic regression considered to be linear model?
 5. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
 5. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 6. [What is R squared?](#what-is-r-squared)
@@ -162,7 +162,7 @@ permalink: /faq/
 20. [What are the goals to build a learning machine?](#what-are-the-goals-to-build-a-learning-machine)
 21. [What are the solutions of overfitting?](#what-are-the-solutions-of-overfitting)
 22. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
-23. What is feature engineering?
+23. [What is feature engineering?](#what-is-feature-engineering)
 23. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 24. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 25. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
@@ -1773,6 +1773,42 @@ However, some other assumptions still apply.
 * __ASSUMPTION OF LINEARITY OF INDEPENDENT VARIABLES AND LOG ODDS:__ Logistic regression assumes linearity of independent variables and log odds.  although this analysis does not require the dependent and independent variables to be related linearly, it requires that the independent variables are linearly related to the log odds.
 
 * __ASSUMPTION OF A LARGE SAMPLE SIZE:__ Logistic regression typically requires a large sample size.
+
+#### Why is logistic regression considered to be linear model?
+
+Because the decision boundary for a logistic classifier is linear. Logistic regression is a generalized linear model, is of the form:
+
+$$
+\text{logit}(P(y=1)) = log\left(\frac{P(y=1)}{1-P(y=1)}\right)=log\left(\frac{P(y=1)}{P(y=0)}\right)=\theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
+$$
+
+More generally, in a Generalized Linear Model, the mean, $\mu$, of the distribution depends on the independent variables, $x$, through:
+
+$$
+E(y) = g(\mu) = \theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
+$$
+
+where $\mu$ is the expected value of the response given the covariates.
+
+Consequently, its decision boundary is linear. The decision boundary is the set of $x$ such that
+
+$$
+\frac{1}{1 + e^{-{X \cdot \theta}}} = 0.5
+$$
+
+This is equivalent to
+
+$$
+1 = e^{-{X \cdot \theta}}
+$$
+
+and, taking the natural log of both sides,
+
+$$
+0 = -X \cdot \theta = -\sum\limits_{i=0}^{p} \theta_i x_i
+$$
+
+so the decision boundary is linear.
 
 #### Why sigmoid function in Logistic Regression?
 
