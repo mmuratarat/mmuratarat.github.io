@@ -7,7 +7,7 @@ comments: true
 
 Although many classification problems can be defined using two classes (they are inherently multi-class classifiers), some are defined with more than two classes which requires adaptations of machine learning algorithm.
 
-Logistic Regression can be naturally extended to multi-class learning problems by replacing the sigmoid function with the softmax function. The KNN algorithm is also straightforward to extend to multiclass case. When we find $k$ closest examples using a distance metric such as Euclidean Distance, for the input $x$ and examine them, we return the class that we saw the most among the $k$ examples. Multi-class labeling is also trivial with Naive Bayes classifier. For each test example $i$, and each class $c$, you want to find $\arg \max_{c} P(\text{class}_{c} \mid \text{data}_{i})$.
+Logistic Regression can be naturally extended to multi-class learning problems by replacing the sigmoid function with the softmax function. The KNN algorithm is also straightforward to extend to multiclass case. When we find $k$ closest examples using a distance metric such as Euclidean Distance, for the input $x$ and examine them, we return the class that we saw the most among the $k$ examples. Multi-class labeling is also trivial with Naive Bayes classifier.
 
 SVM cannot be naturally extended to multi-class problems. Other algorithms can be implemented more efficiently in the binary case. What should you do if you have a multi-class problem but a binary classification learning algorithm?
 
