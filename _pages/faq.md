@@ -142,7 +142,7 @@ permalink: /faq/
 2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
 3. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 4. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
-5. Why is logistic regression considered to be linear model?
+5. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 5. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
 5. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 6. [What is R squared?](#what-is-r-squared)
@@ -1776,7 +1776,7 @@ However, some other assumptions still apply.
 
 #### Why is logistic regression considered to be linear model?
 
-Because the decision boundary for a logistic classifier is linear. Logistic regression is a generalized linear model, is of the form:
+Logistic regression is a generalized linear model, is of the form:
 
 $$
 \text{logit}(P(y=1)) = log\left(\frac{P(y=1)}{1-P(y=1)}\right)=log\left(\frac{P(y=1)}{P(y=0)}\right)=\theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
