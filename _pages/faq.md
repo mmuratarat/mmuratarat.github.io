@@ -1647,6 +1647,8 @@ Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimato
 
 #### What is the formula for calculating mean and the standard deviation of the sample mean?
 
+The sample mean follows distribution with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$. This comes from the fact that sum of independent normal random variables. For details, look [here](https://newonlinecourses.science.psu.edu/stat414/node/172/) and [here](https://newonlinecourses.science.psu.edu/stat414/node/173/).
+
 Assuming that $X_{i}$'s are independent and identically distributed, we know that:
 
 * The mean of sampling distribution of the sample mean $\bar{X}$ is equal to the population mean.
