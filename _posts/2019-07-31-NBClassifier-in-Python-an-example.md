@@ -178,6 +178,65 @@ print('\nThe accuracy of Gaussian Naive Bayes Classifier is {}%'.format(accuracy
 #The accuracy of Gaussian Naive Bayes Classifier is 96.0%
 {% endhighlight %}
 
+# Multinomial Naive Bayes Classifier in Sci-kit Learn
+
+Multinomial naive Bayes works similar to Gaussian naive Bayes, however the features are assumed to be multinomially distributed. In practice, this means that this classifier is commonly used when we have discrete data (e.g. movie ratings ranging 1 and 5).
+
+{% highlight python %}
+# Load libraries
+import numpy as np
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction.text import CountVectorizer
+
+# Create text
+text_data = np.array(['I love Brazil. Brazil!',
+                      'Brazil is best',
+                      'Germany beats both'])
+
+# Create bag of words
+count = CountVectorizer()
+bag_of_words = count.fit_transform(text_data)
+
+# Create feature matrix
+X = bag_of_words.toarray()
+# array([[0, 0, 0, 2, 0, 0, 1],
+#        [0, 1, 0, 1, 0, 1, 0],
+#        [1, 0, 1, 0, 1, 0, 0]])
+
+# Create target vector
+y = np.array([0,0,1])
+
+#Train Multinomial Naive Bayes Classifier
+# Create multinomial naive Bayes object with prior probabilities of each class
+clf = MultinomialNB(class_prior=[0.25, 0.5])
+
+# Train model
+model = clf.fit(X, y)
+
+# Create new observation
+new_observation = [[0, 0, 0, 1, 0, 1, 0]]
+
+# Predict new observation's class
+model.predict(new_observation)
+#array([0])
+{% endhighlight %}
+
+# Naive Bayes fo mixed dataset
+
+Since we have the conditional independence assumption in Naive Bayes, we see that mixing variables is not a problem. Now consider the case where you have a dataset consisting of several features:
+
+1. Categorical
+2. Bernoulli
+3. Normal
+
+Under the very assumption of using NB, these variables are independent. Consequently, you can do the following:
+
+1. Build a NB classifier for each of the categorical data separately, using your dummy variables and a multinomial NB.
+2. Build a NB classifier for all of the Bernoulli data at once - this is because sklearn's Bernoulli NB is simply a shortcut for several single-feature Bernoulli NBs.
+3. Same as 2 for all the normal features.
+
+By the definition of independence, the probability for an instance, is the product of the probabilities of instances by these classifiers.
+
 # REFERENCES
 1. [https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0](https://medium.com/@akshayc123/naive-bayes-classifier-nb-7429a1bdb2c0){:target="_blank"}
 2. [http://www.inf.u-szeged.hu/~ormandi/ai2/06-naiveBayes-example.pdf](http://www.inf.u-szeged.hu/~ormandi/ai2/06-naiveBayes-example.pdf){:target="_blank"}
