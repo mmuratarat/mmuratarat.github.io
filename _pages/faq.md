@@ -114,6 +114,7 @@ permalink: /faq/
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
+30. What is the sampling distribution of sample proportion, p-hat?
 30. What are exponential and Laplace distribution?
 31. What are Dirac distribution and Empirical distribution?
 32. What is mixture of distributions?
@@ -130,6 +131,7 @@ permalink: /faq/
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
 49.  [What is the distribution of the sample mean?](#what-is-the-distribution-of-the-sample-mean)
+50. What is the sampling distribution of the sample variance?
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is a p-value?](#what-is-a-p-value)
@@ -1607,6 +1609,12 @@ $$
 
 The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness of the population variance.
 
+#### What is the sampling distribution of sample proportion, p-hat?
+
+The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and variance $\sigma_{\hat{p}}^{2} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
+
+In actual practice $p$ is not known, hence neither is $\sigma_{\hat{p}}^{2}$. In that case in order to check that the sample is sufficiently large we substitute the known quantity $\hat{p}$ for $p$. 
+
 #### What is population mean and sample mean?
 
 A population is a collection of persons, objects or items of interest. Population mean is the average of the all the elements in the population. Suppose that whole population consists of $N$ observations:
@@ -1669,7 +1677,35 @@ Assuming that $X_{i}$'s are independent and identically distributed, we know tha
 
 #### What is the sampling distribution of the sample variance?
 
-If $X_{1}, X_{2}, \ldots , X_{n}$ are iid N(\mu, \sigma^{2})$
+If $X_{1}, X_{2}, \ldots , X_{n}$ are iid N(\mu, \sigma^{2})$ random variables, then,
+
+$$
+\frac{n-1}{\sigma^{2}}s^{2} \sim \chi_{n-1}^{2}
+$$
+
+For the chi-square distribution, mean and the variance are
+
+$$
+E(\chi_{\nu}^{2}) = \nu
+$$
+
+and 
+
+$$
+Var(\chi_{\nu}^{2}) = 2\nu
+$$
+
+we can use this to get the mean and variance of $s^{2}$.
+
+$$
+E(s^{2}) = E\left(\frac{\sigma^{2} \chi_{n-1}^{2}}{n-1} \right) = \frac{\sigma^{2}}{n-1}n-1 = \sigma^{2}
+$$
+
+and similarly,
+
+$$
+Var(s^{2}) = Var \left(\frac{\sigma^{2} \chi_{n-1}^{2}}{n-1} \right) =  \frac{\sigma^{4}}{(n-1)^{2}} 2(n-1) = \frac{2\sigma^{4}}{n-1}
+$$
 
 #### What is the standard error of the estimate? 
 
