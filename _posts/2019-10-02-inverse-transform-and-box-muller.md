@@ -126,10 +126,7 @@ In general, there are no inverses for functions that can return same value for d
 
 # Normal Distribution
 
-There's no closed form expression for the inverse cdf of a normal distribution (a.k.a. the quantile function of a normal distribution). This is often a
-problem with the inverse transform method. There are various ways to express the function and numerous approximations.
-
-The standard normal distribution. Unfortunately, the inverse c.d.f. $\Phi^{-1}(\cdot)$ does not have an analytical form. This is often a problem with the inverse transform method.
+There's no closed form expression for the inverse cdf of a normal distribution $\Phi^{-1}(\cdot)$ (a.k.a. the quantile function of a normal distribution). This is often a problem with the inverse transform method. There are various ways to express the function and numerous approximations.
 
 We can do a table lookup. E.g., If $U = 0.975$, then $Z = \Phi^{-1}(U) = 1.96$ because z-table gives $\Phi(Z)$.
 
