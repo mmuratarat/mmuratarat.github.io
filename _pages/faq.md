@@ -146,7 +146,7 @@ permalink: /faq/
 4. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 5. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 5. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
-5. What is Softmax regression and how is it related to Logistic regression?
+5. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
 5. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 6. [What is R squared?](#what-is-r-squared)
 7. [You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?](#you-have-built-a-multiple-regression-model-your-model-r2-isnt-as-good-as-you-wanted-for-improvement-your-remove-the-intercept-term-your-model-r2-becomes-08-from-03-is-it-possible-how)
