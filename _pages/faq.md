@@ -1873,22 +1873,6 @@ $$
 
 Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
 
-The idea is quite simple: when given an instance $\mathbf{x}$, the Softmax Regression model first computes a score $s_{k}(\mathbf{x})$ for each class k, then estimates the probability of each class by applying the softmax function (alsp called the normalized exponential) to the scores. 
-
-$$
-s_{k}(\mathbf{x}) = \theta_{(k)} ^{T} \cdot \mathbf{x}
-$$
-
-Note that each class has its own dedicated parameter vector $\theta^{(k)}$. All these vectors are typically stored as rows in a parameter matrix.
-
-Once you have computed the score of every class for instance $\mathbf{x}$, you can estimate the probability $\hat{p}_{k}$ that the instance belongs to class $k$ by running the scores through the softmax function: It computes the exponential of every score, then normalizes them (dividing by the sum of all exponentials).
-
-$$
-P(Y_{i}=k) = \dfrac{exp(s_{k}(\mathbf{x}))}{\sum_{0 \leq c \leq K} exp(s_{j}(\mathbf{x}))}
-$$
-
-The Softmax Regression classifier predicts only one class at a time (i.e., multiclass, not multioutput) so it should be used only with mutually exclusive classes such as different types of plants. You cannot use it to recognize multiple people in a photograph.
-
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
 **Collinearity/Multicollinearity:**
