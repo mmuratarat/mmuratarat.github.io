@@ -1876,14 +1876,16 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 The idea is quite simple: when given an instance $\mathbf{x}$, the Softmax Regression model first computes a score $s_{k}(\mathbf{x})$ for each class k, then estimates the probability of each class by applying the softmax function (alsp called the normalized exponential) to the scores. 
 
 $$
-s_{k}(\mathbf{x}) = \left(\theta^{(k)} \right)^{T} \cdot \mathbf{x}
+s_{k}(\mathbf{x}) = \left(\theta_{(k)} \right)^{T} \cdot \mathbf{x}
 $$
 
 Note that each class has its own dedicated parameter vector $\theta^{(k)}$. All these vectors are typically stored as rows in a parameter matrix.
 
 Once you have computed the score of every class for instance $\mathbf{x}$, you can estimate the probability $\hat{p}_{k}$ that the instance belongs to class $k$ by running the scores through the softmax function: It computes the exponential of every score, then normalizes them (dividing by the sum of all exponentials).
 
+$$
 P(Y_{i}=k) = \dfrac{exp(\theta_{k}^{T} \cdot \mathbf{x}^{(i)})}{\sum_{0 \leq c \leq K} exp(\theta_{c}^{T} \cdot \mathbf{x}^{(i)})}
+$$
 
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
