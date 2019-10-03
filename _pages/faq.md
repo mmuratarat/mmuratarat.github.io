@@ -1683,6 +1683,10 @@ $$
 \frac{n-1}{\sigma^{2}}s^{2} \sim \chi_{n-1}^{2}
 $$
 
+The proof is given below from this [Stackexchange.com link](https://math.stackexchange.com/a/47013/45210){:target="_blank"}.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/proof_sampling_dist_sample_variance.png?raw=true)
+
 For the chi-square distribution, mean and the variance are
 
 $$
