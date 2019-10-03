@@ -2586,7 +2586,7 @@ In the two-class logistic regression, the predicted probablies are as follows, u
 
 $$
 \begin{split}
-P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}
+P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}\\
 P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1 - P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = \dfrac{exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}
 \end{split}
 $$
