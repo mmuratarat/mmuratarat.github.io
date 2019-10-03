@@ -2575,6 +2575,27 @@ Hyperparameters are the variables which determine the network structure, e.g., n
 It is the ability to approximate any given function. The higher model capacity is the larger amount of information that can be stored in the network.
 
 #### What is softmax function? What is the difference between softmax function and sigmoid function? In which layer softmax action function will be used ?
+ 
+Softmax function and Sigmoid function can be used in the different layers of neural networks.
+
+The softmax function is simply a generalization of the logistic function (sigmoid function) that allows us to compute meaningful class-probabilities in multi-class settings (a.k.a. MaxEnt, multinomial logistic regression, softmax Regression, Maximum Entropy Classifier). Sigmoid function is used for binary classification.
+ 
+ In a neural network, it is mostly used in the output layer in order to have probabilistic output of the network. When performing classification you often want not only to predict the class label, but also obtain a probability of the respective label. This probability gives you some kind of confidence on the prediction. .
+
+In the two-class logistic regression, the predicted probablies are as follows, using the sigmoid function:
+
+$$
+\begin{split}
+P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) &= \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}
+P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1 - P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = \dfrac{exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})}
+\end{split}
+$$
+
+In the multiclass logistic regression, with $K$ classes, the predicted probabilities are as follows, using the softmax function:
+
+$$
+P(Y_{i}=k) = \dfrac{exp(-\theta_{k}^{T} \cdot \mathbf{x}^{(i)})}{\sum_{0 \leq c \leq K} exp(-\theta_{c}^{T} \cdot \mathbf{x}^{(i)})}
+$$
 
 #### What’s the difference between a feed-forward and a backpropagation neural network?
 
