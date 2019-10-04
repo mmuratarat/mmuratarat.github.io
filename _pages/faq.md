@@ -1854,10 +1854,10 @@ $$
 and, taking the natural log of both sides,
 
 $$
-0 = -X \cdot \theta = -\sum\limits_{i=0}^{p} \theta_i x_i
+0 = -X \cdot \theta = -\sum\limits_{i=0}^{p} \theta_i x_i = \theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
 $$
 
-so the decision boundary is linear.
+which defines a straight line. So the decision boundary is linear.
 
 #### Why sigmoid function in Logistic Regression?
 
