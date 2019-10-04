@@ -1649,7 +1649,25 @@ $$
 p_j \pm 1.96 \sqrt{\dfrac{p_j(1-p_j)}{n}}
 $$
 
-because $X_{j} \sim Bin(n, \pi_{j})$.
+because $X_{j} \sim Bin(n, \pi_{j})$. Therefore, the expected number of times the outcome $i$ was observed over $n$ trials is
+
+$$
+E(X_{i}) = n \pi_{i}
+$$
+
+The covariance matrix is as follows. Each diagonal entry is the variance of a binomially distributed random variable, and is therefore
+
+$$
+Var(X_{i})=n \pi_{i}(1-\pi_{i})
+$$
+
+The off-diagonal entries are the covariances:
+
+$$
+Cov(X_{i}, X_{j})= -n \pi_{i} \pi_{j}
+$$
+
+for $i, j$ distinct.
 
 #### What is the central limit theorem?
 
