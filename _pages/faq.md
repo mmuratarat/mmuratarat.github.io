@@ -111,6 +111,7 @@ permalink: /faq/
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
+26. What is a multinomial distribution?
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
@@ -1569,6 +1570,82 @@ $$
 The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed in $n$ independent trials. $\hat{p}$ is the observed proportion of successes in the $n$ trials. We often call $\hat{p}$ the sample proportion to distinguish it from $p$, the "true" or "population" proportion.
 
 The fact that the MLE based on n independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
+
+#### What is a multinomial distribution?
+
+Multinomial distribution is a generalization of Binomial distribution, where each trial has $k \geq 2$ possible outcomes.
+
+Suppose that we have an experiment with
+
+* $n$ independent trials, where
+* each trial produces exactly one of the events $E_{1}, E_{2}, \ldots, E_{k}$ (i.e. these events are mutually exclusive and collectively exhaustive), and
+* on each trial, $E_{j}$ occurs with probability $\pi_{j}$, $j = 1, 2, \ldots, k$.
+
+Notice that $\pi_{1} + \pi_{2} + \ldots + \pi_{k} = 1$. The probabilities, regardless of how many possible outcomes, will always sum to 1.
+
+Here, random variables are:
+
+$X_{1} = \text{ number of trials in which }E_{1}\text{ occurs}$,
+
+$X_{2} = \text{ number of trials in which }E_{2}\text{ occurs}$
+...
+$X_{k} = \text{ number of trials in which }E_{k}\text{ occurs}$.
+
+Then $X = (X_{1}, X_{2}, \ldots, X_{k})$ is said to have a multinomial distribution with index $n$ and parameter $\pi = (\pi_{1}, \pi_{2}, \ldots , \pi_{k})$. In most problems, $n$ is regarded as fixed and known.
+
+The individual components of a multinomial random vector are binomial and have a binomial distribution,
+
+$X_{1} \sim Bin(n, \pi_{1})$,
+
+$X_{2} \sim Bin(n, \pi_{2})$,
+...
+$X_{k} \sim Bin(n, \pi_{k})$.
+
+The trials or each person's responses are independent, however, the components or the groups of these responses are not independent from each other. The sample sizes are different now and known. The number of responses for one can be determined from the others. In other words, even though the individual $X_{j}$'s are random, their sum:
+
+$$
+X_{1} + X_{2} + \ldots + X_{k} = n
+$$
+
+is fixed. Therefore, the $X_{j}$'s are negatively correlated.
+
+If $X = (X_{1}, X_{2}, \ldots, X_{k})$ is multinomially distributed with index $n$ and parameter $\pi = (\pi_{1}, \pi_{2}, \ldots , \pi_{k})$, then we will write $X \sim Mult($n$, \pi)$.
+
+The probability that $X = (X_{1}, X_{2}, \ldots, X_{k})$ takes a particular value $x = (x_{1}, x_{2}, \ldots, x_{k})$ is
+
+$$
+f(x)=\dfrac{n!}{x_1!x_2!\cdots x_k!}\pi_1^{x_1} \pi_2^{x_2} \cdots \pi_k^{x_k}
+$$
+
+The possible values of $X$ are the set of $x$-vectors such that each $x_{j} \in \\{0, 1, \ldots , n\\}$ and $x_{1} + \ldots + x_{k} = n$.
+
+If $X \sim Mult(n, \pi)$ and we observe $X = x$, then the loglikelihood function for $\pi$ is:
+
+$$
+l(\pi;x)=x_1 \text{log}\pi_1+x_2 \text{log}\pi_2+\cdots+x_k \text{log}\pi_k
+$$
+
+Using multivariate calculus, it's easy to maximize this function subject to the constraint
+
+$$
+\pi_1+\pi_2+\ldots+\pi_k = 1
+$$
+
+the maximum is achieved at
+
+$$
+\begin{split}
+p &= n^{-1}x\\ &= (x_1/n,x_2/n,\ldots,x_k/n)
+\end{split}
+$$
+
+the vector of sample proportions. The ML estimate for any individual $\p_{j}$ is $p_{j} = \dfrac{x_{j}}{n}$, and an approximate $95\%$ confidence interval for $\pi_{j}$ is
+
+$$
+p_j \pm 1.96 \sqrt{\dfrac{p_j(1-p_j)}{n}}
+$$
+
+because $X_{j} \sim Bin(n, \pi_{j})$.
 
 #### What is the central limit theorem?
 
