@@ -1669,6 +1669,9 @@ $$
 
 for $i, j$ distinct.
 
+Note that when $k$ is 2 and $n$ is 1, the multinomial distribution is the _Bernoulli distribution_. When $k$ is 2 and $n$ is bigger than 1, it is the _binomial distribution_. When $k$ is bigger than 2 and $n$ is 1, it is the _categorical distribution (multinoulli distribution)_.
+
+
 #### What is the central limit theorem?
 
 The gist of Central Limit Theorem is that the sample mean will be approximately normally distributed for large sample sizes, regardless of the distribution from which we are sampling. 
