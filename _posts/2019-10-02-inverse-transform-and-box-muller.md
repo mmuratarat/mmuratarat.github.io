@@ -162,6 +162,29 @@ $$
 
 because $\Phi^{-1}(0.59) = Z \rightarrow \Phi(Z) = P(Z \leq Z) = 0.59$. What is this $Z$? Using a [online calculator](https://stattrek.com/online-calculator/normal.aspx){:target="_blank"}, it is $0.2275$.
 
+Let's see an example in Python. 
+
+{% highlight python %} 
+n = 10000  # Samples to draw
+mean = 3
+variance = 16
+Z = np.random.normal(loc=0, scale=1.0, size=(n,))
+X = mean + (np.sqrt(variance) * Z)
+
+print(np.mean(X))
+#3.0017206638273097
+
+print(np.std(X))
+#4.022342597707669
+
+count, bins, ignored = plt.hist(X, 30, normed=True)
+plt.plot(bins, univariate_normal(bins, mean, variance),linewidth=2, color='r')
+plt.savefig('generated_normal_dist.png')
+plt.show()
+{% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/generated_normal_dist.png?raw=true)
+
 ### The Box–Muller method 
 Now let's consider a more direct transormation. Let $Z_1, Z_2$ be two standard normal random variates. Plot the two as a point in the plane and represent them in a polar coordinate system as $Z_1 = B \cos \theta$ and $Z_2 = B \sin \theta$.
 
