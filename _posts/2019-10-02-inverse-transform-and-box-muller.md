@@ -126,9 +126,9 @@ In general, there are no inverses for functions that can return same value for d
 
 # Normal Distribution
 
-There's no closed form expression for the inverse cdf of a normal distribution $\Phi^{-1}(\cdot)$ (a.k.a. the quantile function of a normal distribution). This is often a problem with the inverse transform method. There are various ways to express the function and numerous approximations.
+There's no closed form expression for the inverse cdf of a normal distributio (a.k.a. the quantile function of a normal distribution). This is often a problem with the inverse transform method. There are various ways to express the function and numerous approximations.
 
-We can do a table lookup. E.g., If $U = 0.975$, then $Z = \Phi^{-1}(U) = 1.96$ because z-table gives $\Phi(Z)$.
+Let's think of a standard normal distribution. The drawback of using inverse CDF method is that it relies on calculation of the probit function $\Phi^{-1}$, which cannot be done analytically (Note that In probability theory and statistics, the probit function is the quantile function associated with the standard normal distribution, which is commonly denoted as N(0,1)). Some approximate methods are described in the literature. One of the easiest way is to do a table lookup. E.g., If $U = 0.975$, then $Z = \Phi^{-1}(U) = 1.96$ because z-table gives $\Phi(Z)$.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z_table.png?raw=true)
 
@@ -206,6 +206,8 @@ Z_2 = \sqrt{-2 \ln U_1} \sin (2\pi U_2)
 $$
 
 where $U_1$ and $U_2$ are uniformly distributed over $(0,1)$ and they will be independent. In order to obtain normal variates $X_i$ with mean $\mu$ and variance $\sigma^2$, transform $X_i = \mu + \sigma Z_i$.
+
+There is also The Marsaglia polar method which is a modification of the Box–Muller method which does not require computation of the sine and cosine functions
 
 However, in this computer age, most statistical software would provide you with quantile function for normal distribution already implemented. The inverse of the normal CDF is know and given by:
 
