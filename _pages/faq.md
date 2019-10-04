@@ -1643,7 +1643,7 @@ p &= n^{-1}x\\ &= (x_1/n,x_2/n,\ldots,x_k/n)
 \end{split}
 $$
 
-the vector of sample proportions. The ML estimate for any individual $\p_{j}$ is $p_{j} = \dfrac{x_{j}}{n}$, and an approximate $95\%$ confidence interval for $\pi_{j}$ is
+the vector of sample proportions. The ML estimate for any individual $\pi_{j}$ is $p_{j} = \dfrac{x_{j}}{n}$, and an approximate $95\%$ confidence interval for $\pi_{j}$ is
 
 $$
 p_j \pm 1.96 \sqrt{\dfrac{p_j(1-p_j)}{n}}
