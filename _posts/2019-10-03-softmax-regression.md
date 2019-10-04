@@ -4,6 +4,7 @@ title: "Softmax Regression"
 author: "MMA"
 comments: true
 ---
+
 Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
 
 The idea is quite simple: when given an instance $\mathbf{x}$, the Softmax Regression model first computes a score $s_{k}(\mathbf{x})$ for each class k, then estimates the probability of each class by applying the softmax function (also called the normalized exponential) to the scores. 
