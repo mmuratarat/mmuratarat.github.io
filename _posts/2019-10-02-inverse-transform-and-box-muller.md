@@ -186,7 +186,7 @@ plt.show()
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/generated_normal_dist.png?raw=true)
 
 ### The Box–Muller method 
-Now let's consider a more direct transormation. Let $Z_1, Z_2$ be two standard normal random variates. Plot the two as a point in the plane and represent them in a polar coordinate system as $Z_1 = B \cos \theta$ and $Z_2 = B \sin \theta$.
+Now let's consider a more direct transformation. Let $Z_1, Z_2$ be two standard normal random variates. Plot the two as a point in the plane and represent them in a polar coordinate system as $Z_1 = B \cos \theta$ and $Z_2 = B \sin \theta$.
 
 It is known that $B^2 = {Z_1}^2 + {Z_2}^2$ has the chi-square distribution with 2 degrees of freedom, which is equivalent to an exponential distribution with mean 2 (this comes from the fact that if one has $k$ i.i.d normal random variables where $X_i\sim N(0,\sigma^2)$, sum of squares of those random variables, $X_1^2+X_2^2+\dots+X_k^2\sim\sigma^2\chi^2_k$):
 
