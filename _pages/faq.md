@@ -111,7 +111,7 @@ permalink: /faq/
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. What is a multinoulli distribution?
-26. What is a multinomial distribution?
+26. [What is a multinomial distribution?](#what-is-a-multinomial-distribution)
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
@@ -1588,7 +1588,9 @@ Here, random variables are:
 $X_{1} = \text{ number of trials in which }E_{1}\text{ occurs}$,
 
 $X_{2} = \text{ number of trials in which }E_{2}\text{ occurs}$
+
 ...
+
 $X_{k} = \text{ number of trials in which }E_{k}\text{ occurs}$.
 
 Then $X = (X_{1}, X_{2}, \ldots, X_{k})$ is said to have a multinomial distribution with index $n$ and parameter $\pi = (\pi_{1}, \pi_{2}, \ldots , \pi_{k})$. In most problems, $n$ is regarded as fixed and known.
@@ -1598,7 +1600,9 @@ The individual components of a multinomial random vector are binomial and have a
 $X_{1} \sim Bin(n, \pi_{1})$,
 
 $X_{2} \sim Bin(n, \pi_{2})$,
+
 ...
+
 $X_{k} \sim Bin(n, \pi_{k})$.
 
 The trials or each person's responses are independent, however, the components or the groups of these responses are not independent from each other. The sample sizes are different now and known. The number of responses for one can be determined from the others. In other words, even though the individual $X_{j}$'s are random, their sum:
