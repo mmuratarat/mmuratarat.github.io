@@ -1577,7 +1577,7 @@ In probability theory and statistics, a categorical distribution (also called a 
 
 A common example of a Multinoulli distribution in machine learning might be a multi-class classification of a single example into one of $K$ classes, e.g. one of three different species of the iris flower.
 
-There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. 
+There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. If $X$ is a multinoulli random variables, it can take $x_{1}, x_{2}, \ldots , x_{k}$ different values/outcomes (In Bernoulli case, a random variables $X$ can only take two values: either success (1) or failure(0)).
 
 $$
 \pi_1+\pi_2+\ldots+\pi_k = 1,\,\,\,\,\, 0 \leq \pi_{j} \leq 1\text{ for } j=1,2, \ldots k
@@ -1586,10 +1586,10 @@ $$
 Therefore, probability mass function is given by:
 
 $$
-P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots , X_{k} = x_{k})  = \prod_{i=1}^{k} \pi_{i}^{x_{i}}
+P_{X} (x_{1}, x_{2}, \ldots , x_{k})  = \prod_{i=1}^{k} \pi_{i}^{x_{i}}
 $$
 
-where $\sum_{i=1}^{k} X_{i} = 1$. Here, each $X_{i}$ follows Bernoulli distribution with two possible outcomes: either success or failure.
+where $\sum_{i=1}^{k} x_{i} = 1$.
 
 If you are puzzled by the above definition of the joint pmf, note that when $x_{i}=1$ because the i-th outcome has been obtained, then all other entries are equal to 0 and
 
@@ -1601,10 +1601,9 @@ $$
 \end{split}
 $$
 
+When $\pi_{i} = \frac{1}{k}$ we get the uniform distribution, which is a special case.
 
-When $\pi_{i} = 1/k$ we get the uniform distribution, which is a special case.
-
-note that a sum of independent Multinoulli random variables is a multinomial random variable. 
+Note that a sum of independent Multinoulli random variables is a multinomial random variable. 
 
 #### What is a multinomial distribution?
 
