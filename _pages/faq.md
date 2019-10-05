@@ -1618,7 +1618,7 @@ If $X = (X_{1}, X_{2}, \ldots, X_{k})$ is multinomially distributed with index $
 The probability that $X = (X_{1}, X_{2}, \ldots, X_{k})$ takes a particular value $x = (x_{1}, x_{2}, \ldots, x_{k})$ is
 
 $$
-f(x)=\dfrac{n!}{x_1!x_2!\cdots x_k!}\pi_1^{x_1} \pi_2^{x_2} \cdots \pi_k^{x_k}
+P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots, X_{k} =x_{k}  \mid n, \pi_{1}, \pi_{2}, \ldots , \pi_{k}) =\dfrac{n!}{x_1!x_2!\cdots x_k!}\pi_1^{x_1} \pi_2^{x_2} \cdots \pi_k^{x_k}
 $$
 
 The possible values of $X$ are the set of $x$-vectors such that each $x_{j} \in \\{0, 1, \ldots , n\\}$ and $x_{1} + \ldots + x_{k} = n$.
@@ -1669,7 +1669,18 @@ $$
 
 for $i, j$ distinct.
 
-Note that when $k$ is 2 and $n$ is 1, the multinomial distribution is the _Bernoulli distribution_. When $k$ is 2 and $n$ is bigger than 1, it is the _binomial distribution_. When $k$ is bigger than 2 and $n$ is 1, it is the _categorical distribution (multinoulli distribution)_.
+Note that when $k$ is 2 and $n$ is 1, the multinomial distribution is the _Bernoulli distribution_. When $k$ is 2 and $n$ is bigger than 1, it is the _binomial distribution_. When $k$ is bigger than 2 and $n$ is 1, it is the _categorical distribution (multinoulli distribution)_. The Bernoulli distribution models the outcome of a single Bernoulli trial. In other words, it models whether flipping a (possibly biased) coin one time will result in either a success (obtaining a head) or failure (obtaining a tail). The binomial distribution generalizes this to the number of heads from performing n independent flips (Bernoulli trials) of the same coin. The multinomial distribution models the outcome of $n$ experiments, where the outcome of each trial has a categorical distribution, such as rolling a $k$-sided die $n$ times.
+
+**Example**: roll a fair die five times. Here $n = 5$, $k = 6$, and $\pi_{i} = \dfrac{1}{6}$. Our vector $x$ might look like
+this:
+
+$$
+\begin{bmatrix}
+1\\2\\0\\2\\0
+\end{bmatrix}
+$$
+
+Then $p = \dfrac{5!}{1!2!2!} \dfrac{1}{6}^{1} \dfrac{1}{6}^{2} \dfrac{1}{6}^{2}$.
 
 
 #### What is the central limit theorem?
