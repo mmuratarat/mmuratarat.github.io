@@ -12,7 +12,7 @@ The normal distribution, also known as Gaussian distribution, is defined by two 
 Given the mean  and variance, one can calculate probability distribution function of normal distribution with a normalised Gaussian function for a value $x$, the density is:
 
 $$
-P(x \mid \mu, \sigma^{2}) = \frac{1}{\sqrt{2\pi \sigma}} exp \left(- \frac{(x - \mu)^{2}}{2\sigma^{2}} \right)
+P(x \mid \mu, \sigma^{2}) = \frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{(x - \mu)^{2}}{2\sigma^{2}} \right)
 $$
 
 We call this distribution univariate because it consists of one random variable.
@@ -193,6 +193,37 @@ plt.show()
 {% endhighlight %}
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Bivariate_normal_distributon.png?raw=true)
+
+# Affine transformation of univariate normal distribution
+
+Suppose $X \sim N(\mu, \sigma^{2})$ and $a, b \in \mathbb{R}$ with $a \neq 0. If we define an affine transformation $Y = g(X) = aX+b$, then $Y \sim N(a\mu + b, a^{2}\sigma^{2})$,
+
+meaning that linear combination of independent random variables are normal.
+
+For example, if $X \sim N(1, 2)$,
+* $Y= X+ 3 \Rightarrow Y \sim N(4, 2)$
+* $Y= 2X+ 3 \Rightarrow Y \sim N(5, 8)$
+
+Let's try to prove this. Using the inverse transformation method,
+
+$$
+\begin{split}
+F_{Y}(y) = P(Y \leq y) &= P(aX+b \leq y)\\
+&= P(X \leq \frac{Y-b}{a})\\
+&= \int_{-\infty}^{\frac{y-b}{a}}\frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{(x - \mu)^{2}}{2\sigma^{2}} \right) dx
+\end{split}
+$$
+
+Therefore, if we take first-order derivative of this CDF, we will get probability density function of $Y$:
+
+$$
+\begin{split}
+f_{Y}(y) &= \frac{d}{dy} \int_{-\infty}^{\frac{y-b}{a}}\frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{(x - \mu)^{2}}{2\sigma^{2}} \right) dx\\
+&= \frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{\left(\left(\frac{y-b}{a} \right) - \mu\right)^{2}}{2\sigma^{2}} \right) \left(\frac{d}{dy}\frac{y-b}{a} \right)\\
+\end{split}
+$$
+
+and then simply so $YY \sim N(a\mu + b, a^{2}\sigma^{2})$.
 
 # Sampling from a multivarivate normal distribution
 
