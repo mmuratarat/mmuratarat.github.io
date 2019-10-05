@@ -540,10 +540,10 @@ $$
 The log-likelihood function is
 
 $$
-l(\mu, \sigma^{2}; x_{1}, x_{2}, \ldots , x_{n}) = \frac{-n}{2}ln(2\pi) -\frac{n}{2} ln(\sigma^{2})(-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}(x_{i} - \mu)^{2} 
+l(\mu, \sigma^{2}; x_{1}, x_{2}, \ldots , x_{n}) = \frac{-n}{2}ln(2\pi) -\frac{n}{2} ln(\sigma^{2})-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}(x_{i} - \mu)^{2} 
 $$
 
-If we take partial derivative of the log-likelihood with respect to the mean $\mu$ and variance $\sigma^{2}$ and set it zero and solve the equations, we will have the maximum likelihood estimators of the mean and the variance, which are:
+If we take first-order partial derivatives of the log-likelihood function with respect to the mean $\mu$ and variance $\sigma^{2}$ and set the equations zero and solve them, we will have the maximum likelihood estimators of the mean and the variance, which are:
 
 $$
 \mu_{MLE} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
