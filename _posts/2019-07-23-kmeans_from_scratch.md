@@ -78,7 +78,7 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Clustering_kmeans_c.png?raw=true)
 
-**NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome): this depends on the centroid initialization. 
+**NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome). This highly depends on the centroid initialization. As a result, the computation is often done several times, with different initializations of the centroids. One method to help address this issue is the K-means++ initialization scheme, which has been implemented in scikit-learn (use the `init='k-means++'` parameter). This initializes the centroids to be (generally) distant from each other, leading to provably better results than random initialization. 
 
 **NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances, the number of clusters and the number of dimensions. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
 
@@ -230,6 +230,15 @@ $$
 \text{Manhattan Distance} = \lvert 2-5 \rvert + \lvert 2 - -2 \rvert = 7
 $$
 
+## Mini Batch K-Means
+
+The Mini-batch K-Means is a variant of the K-Means algorithm which uses mini-batches to reduce the computation time, while still attempting to optimise the same objective function. Mini-batches are subsets of the input data, randomly sampled in each training iteration. These mini-batches drastically reduce the amount of computation required to converge to a local solution. In contrast to other algorithms that reduce the convergence time of K-means, mini-batch K-means produces results that are generally only slightly worse than the standard algorithm.
+
+The algorithm iterates between two major steps, similar to vanilla K-means. In the first step,  samples are drawn randomly from the dataset, to form a mini-batch. These are then assigned to the nearest centroid. In the second step, the centroids are updated. In contrast to k-means, this is done on a per-sample basis. For each sample in the mini-batch, the assigned centroid is updated by taking the streaming average of the sample and all previous samples assigned to that centroid. This has the effect of decreasing the rate of change for a centroid over time. These steps are performed until convergence or a predetermined number of iterations is reached.
+
+Mini-batch K-Means converges faster than K-Means, but the quality of the results is reduced. In practice this difference in quality can be quite small, as shown in the example and cited reference.
+
+For details, look [here](https://scikit-learn.org/stable/modules/clustering.html#mini-batch-k-means){:target="_blank"}
 
 # REFERENCES
 
