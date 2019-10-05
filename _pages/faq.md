@@ -1505,7 +1505,9 @@ $$
 
 and the fact that $X$ can take either value $0$ or value $1$. If $x<0$, then $P(X \leq x) = 0$ because $X$ can not take values strictly smaller than $0$. If $0 \leq x < 1$, then $P(X \leq x) = 1-p$ because $0$ is the only value strictly smaller than 1 that $X$ can take. Finally, if $x \geq 1$, then $P(X \leq x) = 1$ because all values $X$ can take are smaller than or equal to $1$.
 
-Finding maximum likelihood estimation of the parameter $p$ of Bernoulli distribution is trivial. If the experiment consists of $n$ Bernoulli trial with success probability $p$, then
+Finding maximum likelihood estimation of the parameter $p$ of Bernoulli distribution is trivial. However, if our experiment is a single Bernoulli trial and we observe $X = 1$ (success) then the likelihood function is $L(p; x) = p$. This function reaches its maximum at $\hat{p} = 1$. If we observe $X = 0$ (failure) then the likelihood is $L(p; x) = 1 − p$ , which reaches its maximum at $\hat{p} = 0$. Of course, it is somewhat silly for us to try to make formal inferences about an estimator on the basis of a single Bernoulli trial; usually multiple trials are available.
+
+If the experiment consists of $n$ Bernoulli trial with success probability $p$, then
 
 $$
 L(p;x) = \prod\limits_{i=1}^n p(x_i;p) = \prod\limits_{i=1}^n p^{x_{i}}(1-p)^{1-x_{i}}
