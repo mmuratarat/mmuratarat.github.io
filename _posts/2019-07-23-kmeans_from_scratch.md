@@ -19,7 +19,9 @@ In other words, the K-means algorithm identifies K number of centroids, and then
 
 Every data point is allocated to each of the clusters through reducing the in-cluster sum of squares. Once the algorithm has been run and the groups are defined, any new data can be easily assigned to the correct group.
 
-In K-means, each cluster is described by a single mean, or centroid, so as not to confuse this model with an actual probabilistic model. **There is no underlying probability model in K-means**. The goal is to group data into K clusters. K-means (and some other clustering methods) have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries, where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$.
+In K-means, each cluster is described by a single mean, or centroid (hard clustering), so as not to confuse this model with an actual probabilistic model. **There is no underlying probability model in K-means**. The goal is to group data into K clusters. K-means (and some other clustering methods) have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries (soft clustering), where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$. Additionally, in probabilistic clustering, clusters can overlap! (k-means doesn’t allow this)
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-05%20at%2016.22.34.png?raw=true)
 
 # When to use?
 This is a versatile algorithm that can be used for any type of grouping. Some examples of use cases are:
