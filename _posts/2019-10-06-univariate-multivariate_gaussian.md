@@ -87,9 +87,9 @@ $$
 
 has a normal distribution $N(\mu, \Sigma)$ where
 
-$$
-\mu = begin{bmatrix}\mu_{1}\\ \mu_{2}\end{bmatrix}
-$$
+\begin{equation}
+\mu = begin{bmatrix} \mu_{1} \\ \mu_{2} \end{bmatrix}
+\end{equation}
 
 and
 
@@ -99,15 +99,15 @@ $$
 
 * If $x_{1}$ and $x_{2}$ is independent, covariance between $x_{1}$ and $x_{1}$ is set to zero, for instance,
 
-  $$
+  \begin{equation}
 N\left( begin{bmatrix}0\\ 1\end{bmatrix}, \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix}\right)
-$$
+\end{equation}
 
 * If $x_{1}$ and $x_{2}$ is set to be different than 0, we can say that both variable are correlated, for instance,
 
-  $$
+  \begin{equation}
 N\left( begin{bmatrix}0\\ 1\end{bmatrix}, \begin{bmatrix}1 & 0.8 \\ 0.8 & 1 \end{bmatrix}\right)
-$$
+\end{equation}
 
   meaning that increasing $x_{1}$ will increase the probability that $x_{2}$ will also increase.
 
