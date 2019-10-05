@@ -78,7 +78,7 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Clustering_kmeans_c.png?raw=true)
 
-**NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome). This highly depends on the centroid initialization. As a result, the computation is often done several times, with different initializations of the centroids. One method to help address this issue is the K-means++ initialization scheme, which has been implemented in scikit-learn (use the `init='k-means++'` parameter). This initializes the centroids to be (generally) distant from each other, leading to provably better results than random initialization. 
+**NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome). This highly depends on the centroid initialization. As a result, the computation is often done several times, with different initializations of the centroids. One method to help address this issue is the K-means++ initialization scheme, which has been implemented in scikit-learn (use the `init='k-means++'` parameter). This initializes the centroids to be (generally) distant from each other, leading to provably better results than random initialization. One idea for initializing K-means is to use a farthest-first traversal on the data set, to pick K points that are far away from each other. However, this is too sensitive to outliers. But, K-means++ procedure picks the K centers one at a time, but instead of always choosing the point farthest from those picked so far, choose each point at random, with probability proportional to its squared distance from the centers chosen already. 
 
 **NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances, the number of clusters and the number of dimensions. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
 
@@ -215,6 +215,10 @@ A clustering algorithm closely related to k-means. The practical difference betw
 
 * In k-means, centroids are determined by minimizing the sum of the squares of the distance between a centroid candidate and each of its examples.
 * In k-median, centroids are determined by minimizing the sum of the distance between a centroid candidate and each of its examples.
+
+K-medians owes its use to robustness of the median as a statistic. The mean is a measurement that is highly vulnerable to outliers. Even just one drastic outlier can pull the value of the mean away from the majority of the data set, which can be a high concern when operating on very large data sets. The median, on the other hand, is a statistic incredibly resistant to outliers, for in order to deter the median away from the bulk of the information, it requires at least 50% of the data to be contaminated
+
+K-medians uses the median as the statistic to determine the center of each cluster. 
 
 Note that the definitions of distance are also different:
 
