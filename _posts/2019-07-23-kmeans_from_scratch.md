@@ -252,3 +252,4 @@ For details, look [here](https://scikit-learn.org/stable/modules/clustering.html
 1. [https://datascience.stackexchange.com/questions/22/k-means-clustering-for-mixed-numeric-and-categorical-data](https://datascience.stackexchange.com/questions/22/k-means-clustering-for-mixed-numeric-and-categorical-data){:target="_blank"} 
 2. [https://blog.bioturing.com/2018/10/17/k-means-clustering-algorithm-and-example/](https://blog.bioturing.com/2018/10/17/k-means-clustering-algorithm-and-example/){:target="_blank"} 
 3. [https://www.datascience.com/blog/k-means-clustering](https://www.datascience.com/blog/k-means-clustering){:target="_blank"}
+4. [http://worldcomp-proceedings.com/proc/p2015/CSC2663.pdf](http://worldcomp-proceedings.com/proc/p2015/CSC2663.pdf){:target="_blank"}
