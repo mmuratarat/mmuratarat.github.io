@@ -481,6 +481,92 @@ plt.show()
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/marginal_normal_distributions.png?raw=true)
 
+# What are the different types of covariance matrices?
+
+Let's look at a few examples of covariance structures that we could specify for multivariate Gaussian distribution:
+
+{% highlight python %} 
+#Load libraries
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from scipy.stats import multivariate_normal
+
+x, y = np.mgrid[-4:4:.01, -4:4:.01]
+position = np.empty(x.shape + (2,))
+position[:, :, 0] = x
+position[:, :, 1] = y
+
+# different values for the covariance matrix
+covariances = [ [[1, 0], [0, 1]], [[1, 0], [0, 3]], [[1, -1], [-1, 3]] ]
+titles = ['spherical', 'diag', 'full']
+
+plt.figure(figsize = (15, 6))
+for i in range(3):
+    plt.subplot(1, 3, i + 1)
+    z = multivariate_normal([0, 0], covariances[i]).pdf(position)
+    plt.contour(x, y, z)
+    plt.title('{}, {}'.format(titles[i], covariances[i]))
+    plt.xlim([-4, 4])
+    plt.ylim([-4, 4])
+
+plt.show()
+{% endhighlight %}
+
+One way to view a Gaussian distribution in two dimensions is what's called a contour plot. The coloring represents the region's intensity, or how high it was in probability. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/types_covariance_matrix.png?raw=true)
+
+In the plot above, the center area that has dark red color is the region of highest probability, while the blue area corresponds to a low probability.
+
+The first plot is refered to as a Spherical Gaussian, since the probability distribution has spherical (circular) symmetry. The covariance matrix is a diagonal covariance with equal elements along the diagonal. By specifying a diagonal covariance, what we're seeing is that there's no correlation between our two random variables, because the off-diagonal correlations takes the value of 0. You can simply interpret it as there is no linear relationship exists between variables. However, note that this does not necessarily mean that they are independent. Furthermore, by having equal values of the variances along the diagonal, we end up with a circular shape to the distribution because we are saying that the spread along each one of these two dimensions is exactly the same.
+
+In contrast, the middle plot's covariance matrix is also a diagonal one, but we can see that if we were to specify different variances along the diagonal, then the spread in each of these dimensions is different and so what we end up with are these axis-aligned ellipses. This is refered to as a Diagonal Gaussian.
+
+Finally, we have the Full Gaussian. A full covariance matrix allows for correlation between our two random variables (non zero off diagonal value) we can provide these non-axis aligned ellipses. So in this example that we're showing here, these two variables are negatively correlated, meaning if one variable is high, it's more likely that the other value is low.
+
 # Maximum Likelihood Estimation for Univariate Gaussian Distribution
 
+Given the assumption that the observations from the sample are i.i.d., the likelihood function can be written as:
+
+$$
+\begin{split}
+L(\mu, \sigma^{2}; x_{1}, x_{2}, \ldots , x_{n}) &= \prod_{i=1}^{n} f_{X}(x_{i} ; \mu , \sigma^{2})\\
+&= \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{(x_{i} - \mu)^{2}}{2\sigma^{2}} \right)\\
+&= \left(2\pi \sigma^{2} \right)^{-n/2} exp \left(-\frac{1}{2\sigma^{2}} \sum_{i=1}^{n}(x_{i} - \mu)^{2} \right)\\
+\end{split}
+$$
+
+The log-likelihood function is
+
+$$
+l(\mu, \sigma^{2}; x_{1}, x_{2}, \ldots , x_{n}) = \frac{-n}{2}ln(2\pi) -\frac{n}{2} ln(\sigma^{2})(-\frac{1}{2\sigma^{2}}\sum_{i=1}^{n}(x_{i} - \mu)^{2} 
+$$
+
+If we take partial derivative of the log-likelihood with respect to the mean $\mu$ and variance $\sigma^{2}$ and set it zero and solve the equations, we will have the maximum likelihood estimators of the mean and the variance, which are:
+
+$$
+\mu_{MLE} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
+$$
+
+and 
+
+$$
+\sigma_{MLE}^{2} = \frac{1}{n} \sum_{i=1}^{n} \left(x_{i} - \mu_{MLE}\right)^{2}
+$$
+
+respectively. Thus, the estimator $\mu_{MLE}$ is equal to the sample mean and the estimator $\sigma_{MLE}^{2}$ is equal to the unadjusted sample variance.
+
 # Maximum Likelihood Estimation for Multivariat Gaussian Distribution
+
+The maximum likelihood estimators of the mean $\mu$ and the variance $\Sigma$ for multivariate normal distribution are found similarly and are as follows:
+
+$$
+\mu_{MLE} = \frac{1}{n} \sum_{i=1}^{n} \mathbf{x}_{i}
+$$
+
+and 
+
+$$
+\Sigma_{MLE}^{2} = \frac{1}{n} \sum_{i=1}^{n} \left(\mathbf{x}_{i} - \mu_{MLE}\right) \left(\mathbf{x}_{i} - \mu_{MLE}\right)^{T}
+$$
