@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mixture Models"
+title: "Univariate/Multivariate Gaussian Distribution and their properties"
 author: "MMA"
 comments: true
 ---
@@ -33,13 +33,13 @@ x = np.linspace(-3, 5, num=150)
 fig = plt.figure(figsize=(5, 3))
 plt.plot(
     x, univariate_normal(x, mean=0, variance=1), 
-    label="$\mathcal{N}(0, 1)$")
+    label="$N(0, 1)$")
 plt.plot(
     x, univariate_normal(x, mean=2, variance=3), 
-    label="$\mathcal{N}(2, 3)$")
+    label="$n(2, 3)$")
 plt.plot(
     x, univariate_normal(x, mean=0, variance=0.2), 
-    label="$\mathcal{N}(0, 0.2)$")
+    label="$n(0, 0.2)$")
 plt.xlabel('$x$', fontsize=13)
 plt.ylabel('density: $p(x)$', fontsize=13)
 plt.title('Univariate normal distributions')
@@ -77,8 +77,41 @@ def multivariate_normal(x, d, mean, covariance):
             np.exp(-(np.linalg.solve(covariance, x_m).T.dot(x_m)) / 2))
 {% endhighlight %}
 
+Plotting a multivariate distribution of more than two variables might be hard. Therefore, let's give an example of bivariate normal distribution. 
 
+Assume a 2-dimensional random vector.
 
+$$
+\mathbf{x} = \begin{bmatrix}x_{1}\\ x_{2}\end{bmatrix}
+$$
+
+has a normal distribution $N(\mu, \Sigma)$ where
+
+$$
+\mu = begin{bmatrix}\mu_{1}\\ \mu_{2}\end{bmatrix}
+$$
+
+and
+
+$$
+\Sigma = \begin{bmatrix}\Sigma_{11} & \Sigma_{12} \\ \Sigma_{21} & \Sigma_{22}\end{bmatrix}
+$$
+
+* If $x_{1}$ and $x_{2}$ is independent, covariance between $x_{1}$ and $x_{1}$ is set to zero, for instance,
+
+  $$
+N\left( begin{bmatrix}0\\ 1\end{bmatrix}, \begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix}\right)
+$$
+
+* If $x_{1}$ and $x_{2}$ is set to be different than 0, we can say that both variable are correlated, for instance,
+
+  $$
+N\left( begin{bmatrix}0\\ 1\end{bmatrix}, \begin{bmatrix}1 & 0.8 \\ 0.8 & 1 \end{bmatrix}\right)
+$$
+
+  meaning that increasing $x_{1}$ will increase the probability that $x_{2}$ will also increase.
+
+Note that covariance matrix must be positive definite.
 
 {% highlight python %} 
 np.linalg.eigvals(bivariate_covariance)
@@ -86,7 +119,7 @@ np.linalg.eigvals(bivariate_covariance)
 #We see that this covariance matrix is indeed positive definite (see The Spectral Theorem for Matrices).
 {% endhighlight %}
 
-
+Let's plot multivariate normal distribution for both cases:
 
 {% highlight python %} 
 import numpy as np
