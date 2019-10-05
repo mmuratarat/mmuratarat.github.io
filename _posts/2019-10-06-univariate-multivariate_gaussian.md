@@ -196,7 +196,7 @@ plt.show()
 
 # Affine transformation of univariate normal distribution
 
-Suppose $X \sim N(\mu, \sigma^{2})$ and $a, b \in \mathbb{R}$ with $a \neq 0. If we define an affine transformation $Y = g(X) = aX+b$, then $Y \sim N(a\mu + b, a^{2}\sigma^{2})$,
+Suppose $X \sim N(\mu, \sigma^{2})$ and $a, b \in \mathbb{R}$ with $a \neq 0$. If we define an affine transformation $Y = g(X) = aX+b$, then $Y \sim N(a\mu + b, a^{2}\sigma^{2})$,
 
 meaning that linear combination of independent random variables are normal.
 
