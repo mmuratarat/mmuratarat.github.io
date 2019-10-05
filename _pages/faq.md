@@ -110,7 +110,7 @@ permalink: /faq/
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
-26. What is a multinoulli distribution?
+26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
 26. [What is a multinomial distribution?](#what-is-a-multinomial-distribution)
 27. What is a normal distribution?
 28. Why is the normal distribution a default choice for a prior over a set of real numbers?
@@ -1573,19 +1573,23 @@ The fact that the MLE based on n independent Bernoulli random variables and the 
 
 #### What is a multinoulli distribution?
 
-In probability theory and statistics, a categorical distribution (also called a generalized Bernoulli distribution, multinoulli distribution) is a discrete probability distribution that describes the possible results of a random variable that can take on one of K possible categories, with the probability of each category separately specified. The categorical distribution is the generalization of the Bernoulli distribution for a categorical random variable, i.e. for a discrete variable with more than two possible outcomes, such as the roll of a die. On the other hand, the categorical distribution is a special case of the multinomial distribution, in that it gives the probabilities of potential outcomes of a single drawing rather than multiple drawings, therefore, $n=1$.
+In probability theory and statistics, a categorical distribution (also called a generalized Bernoulli distribution, multinoulli distribution) is a discrete probability distribution that describes the possible results of a random variable that can take on one of $k$ possible categories, with the probability of each category separately specified. The categorical distribution is the generalization of the Bernoulli distribution for a categorical random variable, i.e. for a discrete variable with more than two possible outcomes, such as the roll of a die. A single roll of a die that will have an outcome in $\{1, 2, 3, 4, 5, 6\}$, e.g. $k=6$. In the case of a single roll of a die, the probabilities for each value would be $1/6$, or about $0.166$ or about $16.6\%$. On the other hand, the categorical distribution is a special case of the multinomial distribution, in that it gives the probabilities of potential outcomes of a single drawing rather than multiple drawings, therefore, $n=1$. 
+
+A common example of a Multinoulli distribution in machine learning might be a multi-class classification of a single example into one of $K$ classes, e.g. one of three different species of the iris flower.
 
 There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. 
 
 $$
-\pi_1+\pi_2+\ldots+\pi_k = 1,\,\,\,\,\, 0 \leq p_{j} \leq 1\text{ for } j=1,2, \ldots k
+\pi_1+\pi_2+\ldots+\pi_k = 1,\,\,\,\,\, 0 \leq \pi_{j} \leq 1\text{ for } j=1,2, \ldots k
 $$
 
 Therefore, probability mass function is given by:
 
 $$
-P_{X}(x) = \prod_{i=1}^{k} \pi_{i}^{x},\,\,\,\,\, x \in (0,1, \ldots , n)
+P{X_{1} = x_{1}, X_{2} = x_{2}, \ldots , X_{k} = x_{k}}  = \prod_{i=1}^{k} \pi_{i}^{x_{i}},\,\,\,\,\, x \in (0,1, \ldots , k)
 $$
+
+When $\pi_{i} = 1/k$ we get the uniform distribution, which is a special case.
 
 note that a sum of independent Multinoulli random variables is a multinomial random variable. 
 
