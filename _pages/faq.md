@@ -1577,7 +1577,7 @@ In probability theory and statistics, a categorical distribution (also called a 
 
 A common example of a Multinoulli distribution in machine learning might be a multi-class classification of a single example into one of $K$ classes, e.g. one of three different species of the iris flower.
 
-There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. If $X$ is a multinoulli random variables, it can take $x_{1}, x_{2}, \ldots , x_{k}$ different values/outcomes (In Bernoulli case, a random variables $X$ can only take two values: either success (1) or failure(0)).
+There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. If $X$ is a multinoulli random variables, it can take $x_{1}, x_{2}, \ldots , x_{k}$ different values/outcomes, each with different probabilities (In Bernoulli case, a random variables $X$ can only take two values: either success (1) with probability $p$ or failure(0) with probability $1-p$).
 
 $$
 \pi_1+\pi_2+\ldots+\pi_k = 1,\,\,\,\,\, 0 \leq \pi_{j} \leq 1\text{ for } j=1,2, \ldots k
