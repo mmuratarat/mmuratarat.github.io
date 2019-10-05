@@ -232,8 +232,8 @@ It is possible to transform a multivariate normal distribution into a new normal
 
 $$
 \begin{split}
-Y \sim \mathcal{N}(\mu_{Y}, \Sigma_{Y}) \quad\quad X \sim \mathcal{N}(\mu_{X}, \Sigma_{X}) \\
-\mathcal{N}(\mu_{Y}, \Sigma_{Y}) = \mathcal{N}(u + L\mu_{X}, L\Sigma_{X}L^T) = L\mathcal{N}(\mu_{X}, \Sigma_{X}) + u
+Y \sim N(\mu_{Y}, \Sigma_{Y}) \quad\quad X \sim N(\mu_{X}, \Sigma_{X}) \\
+N(\mu_{Y}, \Sigma_{Y}) = N(u + L\mu_{X}, L\Sigma_{X}L^T) = LN(\mu_{X}, \Sigma_{X}) + u
 \end{split}
 $$
 
@@ -255,6 +255,11 @@ $$
 $$
 
 # Sampling from a multivarivate normal distribution
+
+The previous formula helps us to sample from any multivariate Gaussian distribution.
+
+in order to do this, we can sample $X$ from $N(0, I_{d})$ where mean is the vector $\mu =0$ and variance-covariance matrix is the identity matrix $\sigma_{X} = I_{d}$ (standard multivariate normal distribution). Sampling from this distribution is easier because each variable in $X$ is independent from all other variables, we can just sample each variable seperately.
+
 
 {% highlight python %} 
 # Sample from:
