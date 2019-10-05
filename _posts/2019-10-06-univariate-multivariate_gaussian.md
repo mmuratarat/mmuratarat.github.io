@@ -220,11 +220,39 @@ $$
 \begin{split}
 f_{Y}(y) &= \frac{d}{dy} \int_{-\infty}^{\frac{y-b}{a}}\frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{(x - \mu)^{2}}{2\sigma^{2}} \right) dx\\
 &= \frac{1}{\sqrt{2\pi \sigma^{2}}} exp \left(- \frac{\left(\left(\frac{y-b}{a} \right) - \mu\right)^{2}}{2\sigma^{2}} \right) \left(\frac{d}{dy}\frac{y-b}{a} \right)\\
-&= \frac{1}{a\sigma \sqrt{2\pi}} exp \left(- \frac{\left(y-(a\mu +b)\right)^{2}}{2a^{2}\sigma^{2}} \right) \left(\frac{d}{dy}\frac{y-b}{a} \right)\\
+&= \frac{1}{a\sigma \sqrt{2\pi}} exp \left(- \frac{\left(y-(a\mu +b)\right)^{2}}{2a^{2}\sigma^{2}} \right)\\
 \end{split}
 $$
 
-and then simply so $YY \sim N(a\mu + b, a^{2}\sigma^{2})$.
+and then simply so $Y \sim N(a\mu + b, a^{2}\sigma^{2})$.
+
+# Affine transformation of univariate normal distribution
+
+It is possible to transform a multivariate normal distribution into a new normal distribution, using an affine transformation. More specifically, if $X$ is normally distributed and $Y= LX + u$ with $L$ is a linear transformation and $u$ is a vector. Then, $y$ is also norally distributed with mean $\mu_{Y} = u + L \mu_{X}$ and covariance matrix $\Sigma_{Y} = L \Sigma_{X} L^{T}$. 
+
+$$
+\begin{split}
+Y \sim \mathcal{N}(\mu_{Y}, \Sigma_{Y}) \quad\quad X \sim \mathcal{N}(\mu_{X}, \Sigma_{X}) \\
+\mathcal{N}(\mu_{Y}, \Sigma_{Y}) = \mathcal{N}(u + L\mu_{X}, L\Sigma_{X}L^T) = L\mathcal{N}(\mu_{X}, \Sigma_{X}) + u
+\end{split}
+$$
+
+This can be proven as follows:
+
+$$
+\mu_{Y} = \mathbb{E}[Y] = \mathbb{E}[LX + u] = \mathbb{E}[LX] + u = L\mu_{X} + u
+$$
+
+$$
+\begin{split}
+\Sigma_{Y} & = \mathbb{E}[(Y-\mu_{Y})(Y-\mu_{Y})^\top] \\
+           & = \mathbb{E}[(LX+u - L\mu_{X}-u)(LX+u - L\mu_{X}-u)^\top] \\
+           & = \mathbb{E}[(L(X-\mu_{X})) (L(X-\mu_{X}))^\top] \\
+           & = \mathbb{E}[L(X-\mu_{X}) (X-\mu_{X})^\top L^\top] \\
+           & = L\mathbb{E}[(X-\mu_{X})(X-\mu_{X})^\top]L^\top \\
+           & = L\Sigma_{X}L^\top
+\end{split}
+$$
 
 # Sampling from a multivarivate normal distribution
 
