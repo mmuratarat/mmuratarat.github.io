@@ -1586,10 +1586,21 @@ $$
 Therefore, probability mass function is given by:
 
 $$
-P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots , X_{k} = x_{k})  = \prod_{i=1}^{k} \pi_{i}^{x_{i}},\,\,\,\,\, x \in (0,1, \ldots , k)
+P(X_{1} = x_{1}, X_{2} = x_{2}, \ldots , X_{k} = x_{k})  = \prod_{i=1}^{k} \pi_{i}^{x_{i}}
 $$
 
-where $\sum_{i=1}^{k} X_{i} = 1$.
+where $\sum_{i=1}^{k} X_{i} = 1$. Here, each $X_{i}$ follows Bernoulli distribution with two possible outcomes: either success or failure.
+
+If you are puzzled by the above definition of the joint pmf, note that when $x_{i}=1$ because the i-th outcome has been obtained, then all other entries are equal to 0 and
+
+$$
+\begin{split}
+\prod_{i=1}^{k} \pi_{i}^{x_{i}} &= \pi_{1}^{x_{1}} \pi_{2}^{x_{2}} \ldots \pi_{i-1}^{x_{i-1}} \pi_{i}^{x_{i}} \pi_{i+1}^{x_{i+1}} \ldots \pi_{k}^{x_{k}}\\
+&=\pi_{1}^{0} \pi_{2}^{0} \ldots \pi_{i-1}^{0} \pi_{i}^{1} \pi_{i+1}^{0} \ldots \pi_{k}^{0}\\
+&= \pi_{i}
+\end{split}
+$$
+
 
 When $\pi_{i} = 1/k$ we get the uniform distribution, which is a special case.
 
