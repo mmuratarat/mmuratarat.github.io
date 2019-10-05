@@ -1589,6 +1589,8 @@ $$
 P{X_{1} = x_{1}, X_{2} = x_{2}, \ldots , X_{k} = x_{k}}  = \prod_{i=1}^{k} \pi_{i}^{x_{i}},\,\,\,\,\, x \in (0,1, \ldots , k)
 $$
 
+where $\sum_{i=1}^{k} X_{i} = 1$.
+
 When $\pi_{i} = 1/k$ we get the uniform distribution, which is a special case.
 
 note that a sum of independent Multinoulli random variables is a multinomial random variable. 
