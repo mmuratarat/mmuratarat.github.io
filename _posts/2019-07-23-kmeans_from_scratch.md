@@ -90,6 +90,7 @@ We often know the value of K. In that case we use the value of K. In general, th
 A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method, and the G-means algorithm. In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K. Some researchers also use Hierarchical clustering first to create dendrograms and identify the distinct groups from there.
 
 ## Constraints of the algorithm
+
 Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. 
 
 The standard K-means algorithm isn't directly applicable to categorical data, for various reasons. The sample space for categorical data is discrete, and doesn't have a natural origin. A Euclidean distance function on such a space isn't really meaningful. However, The clustering algorithm is free to choose any distance metric / similarity score. Euclidean is the most popular. But any other metric can be used that scales according to the data distribution in each dimension/attribute, for example the Mahalanobis metric.
@@ -233,6 +234,8 @@ $$
   $$
 \text{Manhattan Distance} = \lvert 2-5 \rvert + \lvert 2 - -2 \rvert = 7
 $$
+
+Note that k-medians is also very sensitive to the initialization points of its k centers, each center having the tendency to remain roughly in the same cluster in which it is first placed.
 
 ## Mini Batch K-Means
 
