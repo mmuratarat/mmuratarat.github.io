@@ -19,6 +19,8 @@ In other words, the K-means algorithm identifies K number of centroids, and then
 
 Every data point is allocated to each of the clusters through reducing the in-cluster sum of squares. Once the algorithm has been run and the groups are defined, any new data can be easily assigned to the correct group.
 
+In K-means, each cluster is described by a single mean, or centroid, so as not to confuse this model with an actual probabilistic model. **There is no underlying probability model in K-means**. The goal is to group data into K clusters. 
+
 # When to use?
 This is a versatile algorithm that can be used for any type of grouping. Some examples of use cases are:
 1. Image Segmentation
@@ -48,7 +50,8 @@ Each centroid defines one of the clusters. In this step, each data point is assi
 
 $$\underset{c_i \in C}{\arg\min} \; dist(c_i,x)^2$$
 
-where $dist( \cdot )$ is the standard (L2) Euclidean distance. Let the set of data point assignments for each ith cluster centroid be $S_{i}$.
+where $dist( \cdot )$ is the standard (L2) Euclidean distance. Let the set of data point assignments for each ith cluster centroid be $S_{i}$. Note that the distance function in the cluster assignment step can be chosen specifically for your
+problem, and is arbitrary.
 
 **Step 3**
 
