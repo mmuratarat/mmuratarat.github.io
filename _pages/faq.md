@@ -1571,6 +1571,24 @@ The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed i
 
 The fact that the MLE based on n independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
 
+#### What is a multinoulli distribution?
+
+In probability theory and statistics, a categorical distribution (also called a generalized Bernoulli distribution, multinoulli distribution) is a discrete probability distribution that describes the possible results of a random variable that can take on one of K possible categories, with the probability of each category separately specified. The categorical distribution is the generalization of the Bernoulli distribution for a categorical random variable, i.e. for a discrete variable with more than two possible outcomes, such as the roll of a die. On the other hand, the categorical distribution is a special case of the multinomial distribution, in that it gives the probabilities of potential outcomes of a single drawing rather than multiple drawings, therefore, $n=1$.
+
+There is only one trial which produces $k \geq 2$ possible outcomes, with the probabilities, $\pi_{1}, \pi_{2}, \ldots ,\pi_{k}$, respectively. 
+
+$$
+\pi_1+\pi_2+\ldots+\pi_k = 1,\,\,\,\,\, 0 \leq p_{j} \leq 1\text{ for } j=1,2, \ldots k
+$$
+
+Therefore, probability mass function is given by:
+
+$$
+P_{X}(x) = \prod_{i=1}^{k} \pi_{i}^{x},\,\,\,\,\, x \in (0,1, \ldots , n)
+$$
+
+note that a sum of independent Multinoulli random variables is a multinomial random variable. 
+
 #### What is a multinomial distribution?
 
 Multinomial distribution is a generalization of Binomial distribution, where each trial has $k \geq 2$ possible outcomes.
