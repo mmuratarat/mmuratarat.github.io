@@ -63,7 +63,7 @@ problem, and is arbitrary.
 
 **Step 3**
 
-In this step, the centroids are recomputed. This is done by taking the mean of all data points assigned to that centroid's 
+In this step, the centroids are recomputed. This is done by taking the mean of _all data points_ assigned to that centroid's 
 cluster.
 
 $$c_i=\frac{1}{\lvert S_i \rvert}\sum_{x_i \in S_i} x_i$$
