@@ -73,6 +73,8 @@ $$
     
     where where $p_{ki}$ is the probability of class k generating the term $x_{i}$. 
 
+Using one of the three common distributions is not mandatory; for example, if a real-valued variable is known to have a different specific distribution, such as exponential, then that specific distribution may be used instead. If a real-valued variable does not have a well-defined distribution, such as bimodal or multimodal, then a kernel density estimator can be used to estimate the probability distribution instead. 
+
 # Advantages
 
 * It is really easy to implement and often works well. Training is quick, and consists of computing the priors and the likelihoods. Prediction on a new data point is also quick. First calculate the posterior for each class. Then apply the MAP decision rule: the label is the class with the maximum posterior.
@@ -85,17 +87,27 @@ $$
 
 * Easily handles missing feature values — by re-training and predicting without that feature! (See [this quora answer](https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification/answer/Muhammad-Zaheer-6?ch=10&share=fbcb0773&srid=CM1bE){:target="_blank"})
 
+* As new data becomes available, it can be relatively straightforward to use this new data with the old data to update the estimates of the parameters for each variable’s probability distribution. This allows the model to easily make use of new data or the changing distributions of data over time.
+
 # Disadvantages
 
 * Ensembling, boosting, bagging will not work here since the purpose of these methods is to reduce variance. Naive Bayes has no variance to minimize.
 
 * It is important to note that categorical variables need to be factors with the same levels in both training and new data (testing dataset). This can be problematic in a predictive context if the new data obtained in the future does not contain all the levels, meaning it will be unable to make a prediction. This is often known as "Zero Frequency". To solve this, we can use a smoothing technique. One of the simplest smoothing techniques is called Laplace smoothing. 
 
-* Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent.
+* Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent. Additionally, the performance of the algorithm degrrades the more dependent the input variables happen to be. 
 
 * It cannot incorporate feature interactions.
 
 * Performance is sensitive to skewed data — that is, when the training data is not representative of the class distributions in the overall population. In this case, the prior estimates will be incorrect.
+
+* The calculation of the independent conditional probability for one example for one class label involves multiplying many probabilities together, one for the class and one for each input variable. As such, the multiplication of many small numbers together can become numerically unstable, especially as the number of input variables increases. To overcome this problem, it is common to change the calculation from the product of probabilities to the sum of log probabilities. For example:
+
+  $$
+P(y \mid x_{1}, x_{2},..., x_{p}) \propto log(P (y)) + \sum_{i=1}^{p} log(P(x_{i} \mid y))
+$$
+
+  Calculating the natural logarithm of probabilities has the effect of creating larger (negative) numbers and adding the numbers together will mean that larger probabilities will be closer to zero. The resulting values can still be compared and maximized to give the most likely class label. This is often called the log-trick when multiplying probabilities.
 
 # An Example by hand
 
