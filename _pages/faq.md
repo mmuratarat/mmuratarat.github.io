@@ -1890,7 +1890,9 @@ Confidence intervals only assess sampling error in relation to the parameter of 
 
 #### What is Normal approximation to the Binomial and Continuity Correction?
 
-If $X \sim B(n, p)$ and if $n$ is large and/or $p$ is close to $\frac{1}{2}$, then $X$ is approximately $N(np, np(1-p))$. The binomial distribution is for discrete random variables, whereas the normal distribution is continuous distribution.  The basic difference here is that with discrete values, we are talking about heights but no widths, and with the continuous distribution we are talking about both heights and widths. We need to take this into account when we are using the normal distribution to approximate a binomial using a continuity correction.  Once we've made the continuity correction, the calculation reduces to a normal probability calculation. 
+If $X \sim B(n, p)$ and if $n$ is large and/or $p$ is close to $\frac{1}{2}$, then $X$ is approximately $N(np, np(1-p))$. The binomial distribution is for discrete random variables, whereas the normal distribution is continuous distribution.  The basic difference here is that with discrete values, we are talking about heights but no widths, and with the continuous distribution we are talking about both heights and widths. We need to take this into account when we are using the normal distribution to approximate a binomial using a continuity correction. The correction is to either add or subtract 0.5 of a unit from each discrete x-value. This fills in the gaps to make it continuous.
+
+Once we've made the continuity correction, the calculation reduces to a normal probability calculation. 
 
 Examples:
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/continuity_correction.png?raw=true)
