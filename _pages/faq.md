@@ -135,6 +135,7 @@ permalink: /faq/
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
+52. What is Normal approximation to the Binomial and Continuity Correction?
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
@@ -1886,6 +1887,13 @@ Confidence intervals only assess sampling error in relation to the parameter of 
 
 * As you increase the sample size, the sampling error decreases and the intervals become narrower. If you could increase the sample size to equal the population, there would be no sampling error. In this case, the confidence interval would have a width of zero and be equal to the true population parameter.
 * Confidence intervals only tell you about the parameter of interest and nothing about the distribution of individual values.
+
+#### What is Normal approximation to the Binomial and Continuity Correction?
+
+If $X \sim B(n, p)$ and if $n$ is large and/or $p$ is close to $\frac{1}{2}$, then $X$ is approximately $N(np, np(1-p))$. The binomial distribution is for discrete random variables, whereas the normal distribution is continuous distribution.  The basic difference here is that with discrete values, we are talking about heights but no widths, and with the continuous distribution we are talking about both heights and widths. We need to take this into account when we are using the normal distribution to approximate a binomial using a continuity correction.  Once we've made the continuity correction, the calculation reduces to a normal probability calculation. 
+
+Examples:
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/continuity_correction.png?raw=true)
 
 #### What is a p-value?
 Before we talk about what p-value means, let’s begin by understanding hypothesis testing where p-value is used to determine the statistical significance of our results, which is our ultimate goal. 
