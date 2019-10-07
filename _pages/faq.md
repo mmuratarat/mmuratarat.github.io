@@ -2934,6 +2934,29 @@ If you are working with color images, then each filter would have three channels
 **Stride 2**
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Stride2.png?raw=true)
 
+#### What is Zero Padding?
+
+* Zero padding refers to padding the input volume with zeros around the border.
+* The zero padding also allows us to control the spatial size of the output volume
+* If we do not add any zero padding and we use a stride of 1, the spatial size of the output volume is reduced.
+* However, with the first few convolutional layers in the network we would want to preserve the spatial size and make sure that the input volume is equal to the output volume. 
+* This is where the zero padding is helpful. 
+* In the $7 \times 7$ input image example, if we use a stride of $1$ and a zero padding of $1$, then the output volume is also equal to $7 \times 7$.
+    
+For example, if we apply a $5 \times 5$ filter on a $28 \times 28$ image, the output will have $24\times 24$ image. The spatial dimension is decreasing but in initial layers we want to preserve as much data as we can, as it contains low level features. In order to ensure or maintain the same dimension we can add two rows and columns at respective edges as shown. Depending on the dimension of filter, the number of the rows or columns added may change.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/padding.png?raw=true)
+
+"VALID" only ever drops the right-most columns (or bottom-most rows).
+
+"SAME" tries to pad evenly left and right, but if the amount of columns to be added is odd, it will add the extra column to the right (the same logic applies vertically: there may be an extra row of zeros at the bottom).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/padding_style.png?raw=true)
+ 
+#### What are the weights in a CNN?
+
+The values stored in the filters are the weights that are learned by the neural network through training. Initially these are random but gradually, the filters adapt their weights to start picking out interesting features such as edges or particular color combinations.
+
 #### How to compute the spatial size of output image after a Convolutional layer?
 
 We don’t have to manually calculate the dimension (the spatial size) of the output, but it’s a good idea to do so to keep a mental account of how our inputs are being transformed at each step. We can compute the spatial size on each dimension (width/height/depth).
