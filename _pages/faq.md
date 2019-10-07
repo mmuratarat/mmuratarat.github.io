@@ -2911,7 +2911,9 @@ There are 4 different layers in a convolutional neural network:
 
 The convolution is performed by multiplying the filter (feature detectors) pixelwise with the portion of the image and summing the result. The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
 
-If we move the filter across the entire image, from left to right, from top to bottom, recording the convolutional output (called _feature_map_) as we go, we obtain a new array that picks out a particular feature of the input, depending on the values in the filter. 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2019-10-07%2019.01.14.jpg?raw=true)
+
+If we move the filter across the entire image, from left to right, from top to bottom, recording the convolutional output (called _feature map_) as we go, we obtain a new array that picks out a particular feature of the input, depending on the values in the filter. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2017.47.48.png?raw=true)
 
@@ -2923,7 +2925,11 @@ For example:
 
 6?  so 6 filters spit out 6 different feature maps. Feature maps allow you to learn the explanatory factors!
 
-Notw that the depth of the filters in a layer is always the same as the number of channels in the preceding layer.
+Note that the depth of the filters in a layer is always the same as the number of channels in the preceding layer.
+
+When the input has 3 channels, we will have 3 filters (one for each channel) instead of one channel. Then, we calculate the convolution of each filter with its corresponding input channel (First filter with first channel, second filter with second channel and so on). The stride of all channels are the same, so they output matrices with the same size. Now, we can sum up all matrices and output a single matrix which is the only channel at the output of the convolution layer.
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/rgb.gif)
 
 Within one feature map, we apply the same filter which means all neurons share the same parameters, which reduces the number of parameters to be learned dramatically. Different feature maps may have different parameters. Although it depends on the problem domain, the significance the number of feature detectors intuitively is the number of features (like edges, lines, object parts etc...) that the network can potentially learn.
 
