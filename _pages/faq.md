@@ -1742,7 +1742,7 @@ Assuming that $X_{i}$'s are independent and identically distributed, we know tha
   
   which is called the "standard error of the mean".
 
-Given any random variable $X$, discrete or continuous, with finite mean $\mu$ and finite $\sigma^{2}$. Then, regardless of the shape of the population distribution of $X$, as the sample size $n$ gets larger ($n \geq 30$), the sampling distribution of $\bar{X}$ becomes increasingly closer to normal with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$, that is $\bar{X} \sim N\left(\mu ,  \frac{\sigma^{2}}{n}\right)$ approximately. 
+Given any random variable $X$, discrete or continuous, with finite mean $\mu$ and finite $\sigma^{2}$. Then, regardless of the shape of the population distribution of $X$, as the sample size $n$ gets larger (The approximation given by the CLT is valid in general for sample sizes larger than $n=30$), the sampling distribution of $\bar{X}$ becomes increasingly closer to normal with mean $\mu$ and variance $\frac{\sigma^{2}}{n}$, that is $\bar{X} \sim N\left(\mu ,  \frac{\sigma^{2}}{n}\right)$ approximately. 
 
 More formally,
 
@@ -1897,6 +1897,57 @@ Once we've made the continuity correction, the calculation reduces to a normal p
 Examples:
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/continuity_correction.png?raw=true)
 
+**An example**:
+
+Let $Y\sim Binom(25,0.4)$. Using the normal distribution, compute the probability that $Y \leq 8$ and that $Y=8$. 
+
+$P(Y\leq 8)$ can be approximated as
+
+$$
+P(Y\leq 8)\cong P(Y \leq 8.5)= F(8.5)
+$$
+
+and its approximated value is
+
+{% highlight python %}
+from scipy.stats import norm
+import numpy as np
+norm.cdf(8.5, loc = 10, scale = np.sqrt(6))
+#0.2701456873037099
+{% endhighlight %}
+
+and its actual value is
+
+{% highlight python %}
+from scipy.stats import binom
+import numpy as np
+binom.cdf(k=8, n=25, p=0.4, loc=0)
+#0.2735314501445727
+{% endhighlight %}
+
+The probability of $Y=8$ is computed as
+
+$$
+P(Y=8) \cong p(7.5\leq \tilde{Y}\leq 8.5) = F(8.5) - F(7.5)
+$$
+
+and its approximated value is
+
+{% highlight python %}
+from scipy.stats import norm
+import numpy as np
+norm.cdf(8.5, loc = 10, scale = np.sqrt(6)) - norm.cdf(7.5, loc = 10, scale = np.sqrt(6))
+#0.11642860434001223
+{% endhighlight %}
+
+its actual value is
+
+{% highlight python %}
+from scipy.stats import binom
+import numpy as np
+binom.pmf(k=8, n=25, p=0.4, loc=0)
+#0.1199797153886391
+{% endhighlight %}
 #### What is a p-value?
 Before we talk about what p-value means, let’s begin by understanding hypothesis testing where p-value is used to determine the statistical significance of our results, which is our ultimate goal. 
 
