@@ -135,7 +135,7 @@ permalink: /faq/
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
-52. [What is Normal approximation to the Binomial and Continuity Correction?(#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
+52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
