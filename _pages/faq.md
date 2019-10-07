@@ -2903,7 +2903,9 @@ There are 4 different layers in a convolutional neural network:
 
 The convolution is performed by multiplying the filter (feature detectors) pixelwise with the portion of the image and summing the result. The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
 
-If we move the filter across the entire image, from left to right, from top to bottom, recording the convolutional output as we go, we obtain a new array that picks out a particular feature of the input, depending on the values in the filter. 
+If we move the filter across the entire image, from left to right, from top to bottom, recording the convolutional output (called _feature_map_) as we go, we obtain a new array that picks out a particular feature of the input, depending on the values in the filter. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2017.47.48.png?raw=true)
 
 That is exactly what a convolutional layer is designed to do, but with multiple filters rather than just one. A Convolutional layer simultaneously applies multiple filters to the input, making it capable of detecting multiple features anywhere in its inputs. 
 
