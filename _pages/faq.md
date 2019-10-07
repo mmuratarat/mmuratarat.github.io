@@ -2576,7 +2576,7 @@ Multivariate analysis is the analysis of three or more variables.  There are man
 
 Many types of machine learning algorithm require structured, tabular data as input, arranged into columns of features that describe each feature, For example, a person's age, income and number of website visits in the last month are all features that could help to predict if the person will subscribe to a particular online service in the coming month. We could use a structured table of these features to train a logistic regression, random forest or XGBoost model to predict the binary response variable - did the person subscribe (1) or not (0)?
 
-Unstructured data refers to any data that is not naturally arranged nto columns of features such as images, audio and text. There is of course spatial structure to an image, temporal structure to a recording, and bith spatial and temporal structure to video data, but since the data does not arrive in columns of features, it is considered unstructured. When out data is unstructured, individual pixels, frequencies, or characters are almost entirely uninformative. For example, knowing that pixel 234 of an image is a muddy shade of brown does not really help to identify if the image is of a house or a cat. A deep learning model can learn how to build high-level informative features by itself, directly from the unstructured data.
+Unstructured data refers to any data that is not naturally arranged into columns of features such as images, audio and text. There is of course spatial structure to an image, temporal structure to a recording, and bith spatial and temporal structure to video data, but since the data does not arrive in columns of features, it is considered unstructured. When our data is unstructured, individual pixels, frequencies, or characters are almost entirely uninformative. For example, knowing that pixel 234 of an image is a muddy shade of brown does not really help to identify if the image is of a house or a cat. A deep learning model can learn how to build high-level informative features by itself, directly from the unstructured data.
 
 #### What is an epoch, a batch and an iteration?
 
@@ -2793,6 +2793,10 @@ Gradient descent is an optimization algorithm used to minimize some function by 
 The size of these steps is called the learning rate. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom.
 
 #### What is backpropagation?
+
+The magic of deep neural networks lies in finding the set of weights for each layer that results in the most accurate predictions. The process of finding these weights is what we mean by _training_ the network.
+
+During the training process, batches of data are passed through the network and the output is compared to the ground truth. The error in the prediction is then propagated backward through the network, adjusting each set of weights a small amount in the direction that improves the prediction most significantly. This process is appropriately called backpropagation. Gradually each unit becomes skilled at identifying a particular feature that ultimately helpt the network to make better predictions.
 
 #### What is Early Stopping?
 It is a regularization technique that stops the training process as soon as the validation loss reaches a plateau or starts to increase.
