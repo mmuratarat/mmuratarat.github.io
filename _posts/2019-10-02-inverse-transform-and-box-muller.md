@@ -274,6 +274,34 @@ $$
 X = \sum_{i=1}^{n}  \frac{-1}{\lambda}ln(u_{i}) = \frac{-1}{\lambda} ln \left(\prod_{i=1}^{n} u_{i} \right)
 $$
 
+# Composition Method
+
+This method applies when the distribution function $F$ can be expressed as a mixture of other distribution functions $F_{1}, F_{2}, \ldots$:
+
+$$
+F(x) = \sum_{i=1}^{\infty} p_{i}F_{i}(x),
+$$
+
+where $p_{i} \geq 0$ and $\sum_{i=1}^{\infty} p_{i} =1$.
+
+Equivalently, we can decompose the density function $f(x)$ or mass function $p(x)$ into convex combination of other density or mass functions. This method is useful if it is easier to sample from $F_{i}$'s than from $F$.
+
+**Algorithm**:
+* Generate a discrete random variable $j$ such that $P(J = j) = p_{j}$.
+* Return $X$ with CDF F_{J}$ (given $J=j, $x$ is generated independent of $J$).
+
+For fixed $x$:
+$$
+\begin{split}
+P(\text{returned } X \leq x) &= \sum_{j} P(X \leq x \mid J = j)P(J = j) \text{ (condition on } J=j\text{)}\\
+&= \sum_{j} P(X \leq x \mid J = j)p_{j}\text{ (distribution of J)}\\
+&= \sum_{j} F_{j}(x)p_{j} \text{ (given } J = j, X \sim F_{j}\text{)}\\
+&=F_{X}(x) \text{ (decomposition of F)}
+\end{split}
+$$
+
+The trick is to find $F_{j}$’s from which generation is easy and fast.
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
@@ -286,3 +314,5 @@ $$
 8. [https://www2.isye.gatech.edu/~sman/courses/6644/Module07-RandomVariateGenerationSlides_171116.pdf](https://www2.isye.gatech.edu/~sman/courses/6644/Module07-RandomVariateGenerationSlides_171116.pdf){:target="_blank"}
 9. [http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/](http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/){:target="_blank"}
 10. [https://en.wikipedia.org/wiki/Normal_distribution#Generating_values_from_normal_distribution](https://en.wikipedia.org/wiki/Normal_distribution#Generating_values_from_normal_distribution){:target="_blank"}
+11. [https://web.ics.purdue.edu/~hwan/IE680/Lectures/Chap08Slides.pdf](https://web.ics.purdue.edu/~hwan/IE680/Lectures/Chap08Slides.pdf){:target="_blank"}
+12. [https://www.win.tue.nl/~marko/2WB05/lecture8.pdf](https://www.win.tue.nl/~marko/2WB05/lecture8.pdf){:target="_blank"}
