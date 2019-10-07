@@ -2880,6 +2880,9 @@ Higher dropout rate says that more neurons are active. So there would be less re
 
 Everything in a tensorflow is based on creating a computational graph. It has a network of nodes where each node performs an operation, Nodes represent mathematical operations and edges represent tensors. Since data flows in the form of a graph, it is also called a “DataFlow Graph.”
 
+#### What is an image data and why do we divide by 255?
+By default an image data consists of integers between 0 and 255 for each pixel channel. neural networks work best when each input is inside the range $-1$ to $1$, so we do divide by 255. When we thing of the shape of an image data $[x, y, z]$, x and y relate to the size of the image and the last dimension, z, references the channels of the image (i.e., red, green and blue when the image is RGB, meaning that it is colored). However, a grayscale image has 1 channel.
+
 #### What is a CNN?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/putting_all_together.png?raw=true)
