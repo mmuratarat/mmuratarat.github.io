@@ -2887,8 +2887,6 @@ By default an image data consists of integers between 0 and 255 for each pixel c
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/putting_all_together.png?raw=true)
 
-#### What is Pooling in CNN and how does it work? Why does  it work?
-
 #### Explain the different Layers of CNN.
 
 There are 4 different layers in a convolutional neural network:
@@ -2899,7 +2897,10 @@ There are 4 different layers in a convolutional neural network:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/components_CNN.png?raw=true)
 
+#### What is Pooling in CNN and how does it work? Why does  it work?
+
 #### What is stride?
+If we move the filter across the entire image, from left to right, from top to bottom, recording the convolutional output as we go, we obtain a new array that picks out a particular feature of the input, depending on the values in the filter. 
 
 * Stride means the step of the convolution operation; the number of steps that you move the filter over the input image.
 * When the stride is 1, we move the filter one pixel at a time. When we set the stride to 2 or 3 (uncommon), we move the filter 2 or 3 pixels at a time depending on the stride. 
