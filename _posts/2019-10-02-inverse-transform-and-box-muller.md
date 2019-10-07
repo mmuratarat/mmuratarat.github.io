@@ -61,6 +61,8 @@ For the normal distribution, the lack of an analytical expression for the corres
 
 (Note: technically this only works when the CDF has a closed form inverse function)
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-06%20at%2019.45.52.png?raw=true)
+
 # Continuous Example: Exponential Distribution
 
 The exponential distribution has CDF:
