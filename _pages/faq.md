@@ -1025,7 +1025,7 @@ We assign a probability measure $P(A)$ to an event $A$. This is a value between 
 #### What is a random variable?
 A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. In short, a random variable is a quantity produced by a random process. Each numerical outcome of a random variable can be assigned a probability. There are two types of random variables, discrete and continuous. 
 
-A discrete random variable is one which may take on a finite or countably infinite number of possible values such as 0,1,2,3,4,... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
+A discrete random variable is one which may take on either a finite number of values, or an infinite, but countable number of values, such as 0,1,2,3,4,.... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
 
 A continuous random variable is one which takes on an uncountably infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
@@ -1943,6 +1943,28 @@ A statistical hypothesis test allows you to control the probability of false pos
 In the context of confusion matrix, we can say Type I error occurs when we classify a value as positive (1) when it is actually negative (0). For example, false-positive test result indicates that a person has a specific disease or condition when the person actually does not have it. 
 
 Type II error occurs when we classify a value as negative (0) when it is actually positive (1). Similarly, as an example, a false negative is a test result that indicates a person does not have a disease or condition when the person actually does have it
+
+#### What is the difference between ordinal, interval and ratio variables?
+
+In the 1940s, Stanley Smith Stevens introduced four scales of measurement: nominal, ordinal, interval, and ratio. These are still widely used today as a way to describe the characteristics of a variable. Knowing the scale of measurement for a variable is an important aspect in choosing the right statistical analysis
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Ratio%20Interval%20Ordinal%20Nominal.png?raw=true)
+
+* **Nominal**: A nominal scale describes a variable with categories that do not have a natural order or ranking. You can code nominal variables with numbers if you want, but the order is arbitrary and any calculations, such as computing a mean, median, or standard deviation, would be meaningless. Examples of nominal variables include: genotype, blood type, zip code, gender, race, eye color, political party.
+* **Ordinal**: An ordinal scale is one where the order matters but not the difference between values. Examples of ordinal variables include: socio economic status (“low income”,”middle income”,”high income”), education level (“high school”,”BS”,”MS”,”PhD”), income level (“less than 50K”, “50K-100K”, “over 100K”), satisfaction rating (“extremely dislike”, “dislike”, “neutral”, “like”, “extremely like”). Note the differences between adjacent categories do not necessarily have the same meaning. For example, the difference between the two income levels “less than 50K” and “50K-100K” does not have the same meaning as the difference between the two income levels “50K-100K” and “over 100K”.
+
+* **Interval**: An interval scale is one where there is order and the difference between two values is meaningful. Examples of interval variables include: temperature (Farenheit), temperature (Celcius), pH, SAT score (200-800), credit score (300-850).
+
+* **Ratio**: A ratio variable, has all the properties of an interval variable, and also has a clear definition of 0.0. When the variable equals 0.0, there is none of that variable. Examples of ratio variables include: enzyme activity, dose amount, reaction rate, flow rate, concentration, pulse, weight, length, temperature in Kelvin (0.0 Kelvin really does mean “no heat”), survival time. When working with ratio variables, but not interval variables, the ratio of two measurements has a meaningful interpretation. For example, because weight is a ratio variable, a weight of 4 grams is twice as heavy as a weight of 2 grams. However, a temperature of 10 degrees C should not be considered twice as hot as 5 degrees C. If it were, a conflict would be created because 10 degrees C is 50 degrees F and 5 degrees C is 41 degrees F. Clearly, 50 degrees is not twice 41 degrees.  Another example, a pH of 3 is not twice as acidic as a pH of 6, because pH is not a ratio variable.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/types_of_measurements.png?raw=true)
+
+#### What is the general approach to hypothesis testing?
+
+The purpose of hypothesis testing is to determine which of the two hypotheses is correct.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/general_approach_to_hypothesis_testing.png?raw=true)
+
 
 
 ## General Machine Learning
