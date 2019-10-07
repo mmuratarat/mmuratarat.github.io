@@ -59,7 +59,7 @@ $$
 \begin{split}
 F_{X}(x) = P(X \leq x) &= P(F_{X}^{-1}(U)\leq x)\\
 &=P(U \leq F_{X}(x))\\
-&= F_{U}(F_{X}(x))
+&= F_{U}(F_{X}(x))\\
 &= F_{X}(x) 
 \end{split}
 $$
