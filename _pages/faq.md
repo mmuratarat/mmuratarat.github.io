@@ -1906,7 +1906,7 @@ In other words, we’ll make a claim (null hypothesis) and use a sample data to 
 
 To know if a claim is valid or not, we’ll use a p-value to weigh the strength of the evidence to see if it’s statistically significant. If the evidence supports the alternative hypothesis, then we’ll reject the null hypothesis and accept the alternative hypothesis. 
 
-p-value is a measure of the strength of the evidence provided by our sample against the null hypothesis. In other words, p-value is the probability of getting the observed value of the test statistics, or a value with even greater evidence against null hypothesis, if the null hypothesis is true. Smaller the p-value, the greater the evidence against the null hypothesis. 
+p-value is a measure of the strength of the evidence provided by our sample against the null hypothesis. In other words, p-value is the probability of getting the observed value of the test statistics, or a value with even greater evidence against null hypothesis, if the null hypothesis is true. Smaller the p-value, the greater the evidence against the null hypothesis. $0 \leq p \leq 1$. 
 
 If we are given a significance level, i.e., alpha, then we reject null hypothesis if p-value is less than equal the chosen significance level, i.e., accept that your sample gives reasonable evidence to support the alternative hypothesis. The term significance level (alpha) is used to refer to a pre-chosen probability and the term "p-value" is used to indicate a probability that you calculate after a given study. The choice of significance level at which you reject null hypothesis is arbitrary. Conventionally the $5\%$ (less than $1$ in $20$ chance of being wrong), $1\%$ and $0.1\%$ ($p < 0.05, 0.01\text{ and }0.001$) levels have been used. Most authors refer to statistically significant as $p < 0.05$ and statistically highly significant as $p < 0.001$ (less than one in a thousand chance of being wrong).
 
@@ -1927,7 +1927,7 @@ The confidence level is equivalent to 1 – the alpha level. So, if your signifi
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/type_I_type_II_errors.png?raw=true)
 
-__Type I error__ is the rejection of a true null hypothesis (also known as a "false positive" finding or conclusion), while a __type II error__ is the non-rejection of a false null hypothesis (also known as a "false negative" finding or conclusion). 
+__Type I error__ is the rejection of a true null hypothesis (also known as a "false positive" finding or conclusion - null hypothesis is true, but there is evidence against it), while a __type II error__ is the non-rejection of a false null hypothesis (also known as a "false negative" finding or conclusion - null hypothesis is not true, but no evidence against it in our sample).
 
 When the null hypothesis is true and you reject it, you make a type I error. The probability of making a type I error is alpha, which is the level of significance you set for your hypothesis test.
 
