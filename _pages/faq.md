@@ -2954,7 +2954,9 @@ For example, if we apply a $5 \times 5$ filter on a $28 \times 28$ image, the ou
 "SAME" tries to pad evenly left and right, but if the amount of columns to be added is odd, it will add the extra column to the right (the same logic applies vertically: there may be an extra row of zeros at the bottom).
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/padding_style.png?raw=true)
- 
+
+When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, the output dimension will be equal. If there is no zero-padding used, then the output volume will have spatial dimension of only 3, because that it is how many neurons would have “fit” across the original input. In general, setting zero padding to be $P=(F−1)/2$ when the stride is $S=1$ ensures that the input volume and output volume will have the same size spatially.
+
 #### What are the weights in a CNN?
 
 The values stored in the filters are the weights that are learned by the neural network through training. Initially these are random but gradually, the filters adapt their weights to start picking out interesting features such as edges or particular color combinations.
