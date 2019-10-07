@@ -2889,11 +2889,26 @@ You can remember the order using acronym BAD (Batch Normalization > Activation >
 Everything in a tensorflow is based on creating a computational graph. It has a network of nodes where each node performs an operation, Nodes represent mathematical operations and edges represent tensors. Since data flows in the form of a graph, it is also called a “DataFlow Graph.”
 
 #### What is an image data and why do we divide by 255?
-By default an image data consists of integers between 0 and 255 for each pixel channel. neural networks work best when each input is inside the range $-1$ to $1$, so we do divide by 255. When we thing of the shape of an image data $[x, y, z]$, x and y relate to the size of the image and the last dimension, z, references the channels of the image (i.e., red, green and blue when the image is RGB, meaning that it is colored). However, a grayscale image has 1 channel.
+
+Input images are also composed of multiple sublayers: one per color channel. They are typically three: red, green and blue (RGB). Grayscale images have just one channel but some images might have much more - for example, satellite images that capture extra light frequencies (such as infrared).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/color_channels.png?raw=true)
+
+By default an image data consists of integers between 0 and 255 for each pixel channel. neural networks work best when each input is inside the range $-1$ to $1$, so we do divide by 255.
 
 #### What is a CNN?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/putting_all_together.png?raw=true)
+
+#### Why CNN?
+
+Why not simply use a regular deep neural network with fully connected layers for image recognition tasks?
+
+This works for small images (e.g., MNIST data), it breaks down for larger images because of huge number of parameters it requires. 
+
+Imagine you have and image with size $1000 \times 1000 \times 3$. Input dimension is 3 million. If the first layer has just $1,000$ neurons, total of 3 billion connections and that's just the first layer!!!
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cnn_works.png?raw=true)
 
 #### Explain the different Layers of CNN.
 
