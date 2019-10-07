@@ -2866,6 +2866,14 @@ Higher dropout rate says that more neurons are active. So there would be less re
 
 #### What is Variational dropout?
 
+#### Where to Insert Batch Normalization and Dropout?
+
+Batch normalization may be used on the inputs to the layer before or after the activation function in the previous layer. It may be more appropriate after the activation function if for s-shaped functions like the hyperbolic tangent and logistic function. It may be appropriate before the activation function for activations that may result in non-Gaussian distributions like the rectified linear activation function, the modern default for most network types, as the authors of the original paper puts: "The goal of Batch Normalization is to achieve a stable distribution of activation values throughout training, and in our experiments we apply it before the nonlinearity since that is where matching the first and second moments is more likely to result in a stable distribution".
+
+Typically, dropout is placed on the fully connected layers, after the non-linear activation function, only because they are the one with the greater number of parameters and thus they're likely to excessively co-adapting themselves causing overfitting. However, since it's a stochastic regularization technique, you can really place it everywhere. Usually, it's placed on the layers with a great number of parameters.
+
+You can remember the order using acronym BAD (Batch Normalization > Activation > Dropout). However, Batch Normalization eliminates the need for Dropout in some cases because Batch Normalization provides similar regularization benefits as Dropout intuitively.
+
 #### Name a few deep learning frameworks
 
 * TensorFlow
