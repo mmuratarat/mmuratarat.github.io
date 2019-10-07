@@ -248,6 +248,32 @@ $$
 
 where erf is error function.
 
+# Composition Method
+
+This method is another approach to sample from a distribution. In some cases, $X$ can be expressed as a sum of independent random variables $Y_{1}, Y_{2}, \ldots , Y_{n}$ where $Y_{j}$'s are iid and n is fixed and finite:
+
+$$
+X = Y_{1} + Y_{2} + \ldots + Y_{n}
+$$
+
+called n-fold convolution of distribution $Y_{j}$. Here, $Y_{j}$'s are generated more easilt.
+
+**Algorithm**:
+* Generate independent $Y_{1}, Y_{2}, \ldots , Y_{n}$ each with distribution function $F_{Y}(y)$ using the inverse transform method.
+* Return $X = Y_{1} + Y_{2} + \ldots + Y_{n}$.
+
+For example, an Erland random variable $X$ with parameters $(n, \lambda)$ can be shown to be the sum of $n$ independent exponential random variables $Y_{i}, i=1,2, \ldots ,n$, each having a mean of $\frac{1}{\lambda}$.
+
+$$
+X = \sum_{i=1}^{n} Y_{i}
+$$
+
+Using convolution method that can generate an exponential variable, an Erlang variate can be generated:
+
+$$
+X = \sum_{i=1}^{n}  \frac{-1}{\lambda}ln(u_{i}) = \frac{-1}{\lambda} ln \left(\prod_{i=1}^{n} u_{i} \right)
+$$
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
