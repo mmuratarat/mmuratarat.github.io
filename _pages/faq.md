@@ -2915,6 +2915,8 @@ For example:
 
 6?  so 6 filters spit out 6 different feature maps. Feature maps allow you to learn the explanatory factors!
 
+Notw that the depth of the filters in a layer is always the same as the number of channels in the preceding layer.
+
 Within one feature map, we apply the same filter which means all neurons share the same parameters, which reduces the number of parameters to be learned dramatically. Different feature maps may have different parameters. Although it depends on the problem domain, the significance the number of feature detectors intuitively is the number of features (like edges, lines, object parts etc...) that the network can potentially learn.
 
 If you are working with color images, then each filter would have three channels rather than one (i.e. each having shape $3 \times 3 \times 3$) to match the three channels (red, green, blue) of the image.
