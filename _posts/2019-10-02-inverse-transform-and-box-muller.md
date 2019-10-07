@@ -260,7 +260,7 @@ $$
 
 where erf is error function.
 
-# Composition Method
+# haracterization method (Convolution Method)
 
 This method is another approach to sample from a distribution. In some cases, $X$ can be expressed as a sum of independent random variables $Y_{1}, Y_{2}, \ldots , Y_{n}$ where $Y_{j}$'s are iid and n is fixed and finite:
 
