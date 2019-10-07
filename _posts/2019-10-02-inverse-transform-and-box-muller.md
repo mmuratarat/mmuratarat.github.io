@@ -294,13 +294,13 @@ $$
 F(x) = \sum_{i=1}^{\infty} p_{i}F_{i}(x),
 $$
 
-where $p_{i} \geq 0$ and $\sum_{i=1}^{\infty} p_{i} =1$.
+where $p_{i} \geq 0$ and $\sum_{i=1}^{\infty} p_{i} =1$, meaning that the $p_{i}$ form a discrete probability distribution
 
 Equivalently, we can decompose the density function $f(x)$ or mass function $p(x)$ into convex combination of other density or mass functions. This method is useful if it is easier to sample from $F_{i}$'s than from $F$.
 
 **Algorithm**:
 * Generate a discrete random variable $j$ such that $P(J = j) = p_{j}$.
-* Return $X$ with CDF $F_{J}$ (given $J=j$, $x$ is generated independent of $J$).
+* Return $X$ with CDF $F_{J}(x)$ (given $J=j$, $x$ is generated independent of $J$).
 
 For fixed $x$:
 $$
