@@ -1787,13 +1787,13 @@ Standard deviation measures the spread of a data distribution around the mean of
 Population standard deviation ($\sigma$):
 
 $$
-\sigma^{2} = \frac{\sum_{i=1}^{N} X_{i} - \mu}{N}
+\sigma^{2} = \frac{\sum_{i=1}^{N} (X_{i} - \mu)^{2}}{N}
 $$
 
 Sample standard deviation ($s$):
 
 $$
-s^{2} = \frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}
+s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}
 $$
 
 #### Why population standard deviation has N degrees of freedom while sample standard deviation has n-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(n-1) inside root for sample standard deviation?
@@ -1866,7 +1866,7 @@ $$
 
 The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. For a given sample size, the standard error equals the standard deviation divided by the square root of the sample size. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
 
-standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} X_{i} - \bar{X}}{n-1}}$
+standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}}$
 
 Variance = $s^{2}$
 
