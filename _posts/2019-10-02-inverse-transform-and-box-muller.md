@@ -288,7 +288,7 @@ Equivalently, we can decompose the density function $f(x)$ or mass function $p(x
 
 **Algorithm**:
 * Generate a discrete random variable $j$ such that $P(J = j) = p_{j}$.
-* Return $X$ with CDF F_{J}$ (given $J=j, $x$ is generated independent of $J$).
+* Return $X$ with CDF $F_{J}$ (given $J=j, $x$ is generated independent of $J$).
 
 For fixed $x$:
 $$
