@@ -55,6 +55,18 @@ The inverse transform sampling method works as follows:
 
 Expressed differently, given a continuous uniform variable $U$ in $[0,1]$ and an invertible cumulative distribution function $F_{X}$, the random variable $X=F_{X}^{-1}(U)$ has distribution $F_{X}$ (or, $X$ is distributed $F_{X}$).
 
+$$
+\begin{split}
+F_{X}(x) = P(X \leq x) &= P(F_{X}^{-1}(U)\leq x)\\
+&=P(U \leq F_{X}(x))\\
+&= F_{U}(F_{X}(x))
+&= F_{X}(x) 
+\end{split}
+$$
+
+Remember that the cumulative distribution function of continuous uniform distribution on the interval $[0,1]$ is $F_{U}(u)=u
+$.
+
 Computationally, this method involves computing the quantile function of the distribution — in other words, computing the cumulative distribution function (CDF) of the distribution (which maps a number in the domain to a probability between 0 and 1) and then inverting that function many times. This is the source of the term "inverse" or "inversion" in most of the names for this method. Note that for a discrete distribution, computing the CDF is not in general too difficult: we simply add up the individual probabilities for the various points of the distribution. For a continuous distribution, however, we need to integrate the probability density function (PDF) of the distribution, which is impossible to do analytically for most distributions (including the normal distribution). As a result, this method may be computationally inefficient for many distributions and other methods are preferred; however, it is a useful method for building more generally applicable samplers such as those based on rejection sampling.
 
 For the normal distribution, the lack of an analytical expression for the corresponding quantile function means that other methods (e.g. the Box–Muller transform) may be preferred computationally. It is often the case that, even for simple distributions, the inverse transform sampling method can be improved on.
