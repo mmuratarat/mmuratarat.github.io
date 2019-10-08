@@ -136,6 +136,7 @@ permalink: /faq/
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
+52. What is Poisson approximation to Binomial distribution?
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 
@@ -2120,6 +2121,11 @@ import numpy as np
 binom.pmf(k=8, n=25, p=0.4, loc=0)
 #0.1199797153886391
 {% endhighlight %}
+
+#### What is Poisson approximation to Binomial distribution?
+
+The Poisson distribution can be viewed as the limit of binomial distribution. Suppose $X \sim Binomial(n,p)$ where $n$ is very large ($n \geq 20$) and $p$ is very small ($p \leq 0.05$). In particular, assume that $\lambda = np$ is a positive constant. We can say that the PMF of $X$ can be approximated by the PMF of a $Poisson(\lambda)$ random variable. The importance of this is that Poisson PMF is much easier to compute than the binomial. 
+
 #### What is a p-value?
 Before we talk about what p-value means, let’s begin by understanding hypothesis testing where p-value is used to determine the statistical significance of our results, which is our ultimate goal. 
 
