@@ -1709,7 +1709,7 @@ $$
 \end{split}
 $$
 
-When $\pi_{i} = \frac{1}{k}$ we get the uniform distribution, which is a special case.
+When $\pi_{i} = \frac{1}{k}$ we get discrete uniform distribution, which is a special case.
 
 Note that a sum of independent Multinoulli random variables is a multinomial random variable. 
 
@@ -1739,13 +1739,14 @@ Then $X = (X_{1}, X_{2}, \ldots, X_{k})$ is said to have a multinomial distribut
 
 The individual components of a multinomial random vector are binomial and have a binomial distribution,
 
-$X_{1} \sim Bin(n, \pi_{1})$,
-
-$X_{2} \sim Bin(n, \pi_{2})$,
-
-...
-
-$X_{k} \sim Bin(n, \pi_{k})$.
+$$
+\begin{split}
+X_{1} &\sim Bin(n, \pi_{1})\\
+X_{2} &\sim Bin(n, \pi_{2})\\
+&\ldots\\
+X_{k} &\sim Bin(n, \pi_{k})
+\end{split}
+$$
 
 The trials or each person's responses are independent, however, the components or the groups of these responses are not independent from each other. The sample sizes are different now and known. The number of responses for one can be determined from the others. In other words, even though the individual $X_{j}$'s are random, their sum:
 
