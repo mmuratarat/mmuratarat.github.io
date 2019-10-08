@@ -113,8 +113,7 @@ permalink: /faq/
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
 26. [What is a multinomial distribution?](#what-is-a-multinomial-distribution)
-27. What is a normal distribution?
-28. Why is the normal distribution a default choice for a prior over a set of real numbers?
+27. [What is a normal distribution?](#what-is-a-normal-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 30. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 30. What are exponential and Laplace distribution?
