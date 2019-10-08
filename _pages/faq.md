@@ -1446,7 +1446,7 @@ $$
 * When to use the median: Skewed distribution, Continuous data, Ordinal data
 * When to use the mode: Categorical data, Ordinal data, Count data, Probability Distributions
 
-#### How co find the distribution of Order Statistics?
+#### How to find the distribution of Order Statistics?
 
 Let $X_{1}, X_{2}, \ldots, X_{n}$ be a random sample of size $n$ for some distribution. We denote the order statistics by:
 
@@ -1493,6 +1493,23 @@ f_{X_{(1)}} (x) = n(1-x)^{n-1}I_{(0,1)}(x)
 $$
 
 This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X_{(1)} \sim Beta(1,n)$.
+
+* **Distribution of maximum
+
+Similarly,
+
+$$
+\begin{split}
+F_{X_{(n)}} (x) &= P(X_{(n)} \leq x) \\
+& = P(X_{1} \leq x, X_{2} \leq x, \ldots , X_{n} \leq x)\\
+&= P(X_{1} \leq x)P(X_{2} \leq x)\ldots P(X_{n} \leq x)\,\,\, \text{(By independence)}\\
+&= \prod_{i=1}^{n} P(X_{i} \leq x)\\
+&= \prod_{i=1}^{n} F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
+&= \left[F_{X_{i}}(x) \right]^{n}
+\end{split}
+$$
+
+
 
 #### What are the properties of an estimator?
 
