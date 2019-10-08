@@ -104,6 +104,7 @@ permalink: /faq/
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [What is Cross-covariance?](#what-is-cross-covariance)
+26. Explain some Discrete and Continuous Distributions.
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
@@ -1413,6 +1414,12 @@ This is easily seen using $corr(X_{i}, X_{j}) = \dfrac{cov(X_{i}, X_{j})}{\sqrt{
 Do not forget that covariance indicates the direction of the linear relationship between variables. Correlation on the other hand measures both the strength and direction of the linear relationship between two variables. Correlation is a function of the covariance. 
 
 Note that covariance and correlation are the same if the features are standardized, i.e., they have mean 0 and variance 1.
+
+#### Explain some Discrete and Continuous Distributions.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/discrete_distributions_table.png?raw=true)
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/continuous_distributions_table.png?raw=true)
 
 #### What are the properties of Distributions?
 
