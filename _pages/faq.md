@@ -1470,7 +1470,7 @@ F_{X_{(1)}} (x) &= P(X_{(1)} \leq x) \\
 &= 1- \prod_{i=1}^{n} P(X_{i} > x)\\
 &= 1- \prod_{i=1}^{n} 1 - P(X_{i} \leq x)\\
 &= 1 - \prod_{i=1}^{n} 1 - F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
-&= 1 - \left[1 - F_{X_{i}}(x) \right]^{n}
+&= 1 - \left[1 - F_{X}(x) \right]^{n}
 \end{split}
 $$
 
@@ -1500,9 +1500,54 @@ F_{X_{(n)}} (x) &= P(X_{(n)} \leq x) \\
 &= P(X_{1} \leq x)P(X_{2} \leq x)\ldots P(X_{n} \leq x)\,\,\, \text{(By independence)}\\
 &= \prod_{i=1}^{n} P(X_{i} \leq x)\\
 &= \prod_{i=1}^{n} F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
-&= \left[F_{X_{i}}(x) \right]^{n}
+&= \left[F_{X}(x) \right]^{n}
 \end{split}
 $$
+
+$$
+\begin{split}
+f_{X_{(n)}} (x)  = \frac{d}{dx} F_{X_{(n)}} (x) &=  \frac{d}{dx} \left\{\left[F_{X}(x) \right]^{n} \right\}\\
+&= n (F_{X}(x))^{n-1}f_{X}(x)
+\end{split}
+$$
+
+In case of a random sample of size $n$ from Uniform distribution on the interval $[0,1]$:
+
+$$
+f_{X_{(n)}} (x) = n(x)^{n-1}I_{(0,1)}(x)
+$$
+
+This is the pdf of $Beta(n,1)$ distribution.
+
+* **General Formula for Uniform Distribution**
+
+Let $X_{1}, X_{2}, \ldots, X_{n}$ be i.i.d. $U(0,1)$. So $f_{X}(x) =1$ and $F_{X}(x)$ for all $x \in [0,1]$. Therefore, the pdf of $j$-th order statistics is:
+
+
+$$
+f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!}x^{j-1}(1-x)^{n-j}, \,\,\, 0 < x_{j} < 1
+$$
+
+From this we can deduce
+
+$$
+E(X_{(j)}) = \frac{j}{n+1}
+$$
+
+and
+
+$$
+Var(X_{(j)}) = \frac{j(n-j+1)}{(n+1)^{2}(n+2)}
+$$.
+
+* **General Formula for Distribution of $j$-th Order Statistics**
+
+Let $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ denote the order statistics of a random sample $X_{1}, X_{2}, \ldots, X_{n}$ from a continuous population with pdf $f_{X}(x)$ and cdf $F_{X}(x)$. General formula for the pdf of $j$-th order statistics is given by
+
+$$
+f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!} f_{X}(x) [F_{X}(x)]^{j-1} [1-F_{X}(x)]^{n-j}
+$$
+
 
 
 
