@@ -139,7 +139,7 @@ permalink: /faq/
 52. [What is Poisson approximation to Binomial distribution?](#what-is-poisson-approximation-to-binomial-distribution)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
-
+54. What does statistical interaction mean?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -2198,6 +2198,11 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 #### What are the types of hypothesis tests?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2009.42.22.png?raw=true)
+
+#### What does statistical interaction mean?
+
+Statistical interaction means the effect of one independent variable(s) on the dependent variable depends on the value of another independent variable(s). Conversely, additivity (i.e., no interaction) means that the effect of one independent variable(s) on the dependent variable does NOT depend on the value of another independent variable(s).
+
 
 ## General Machine Learning
 
