@@ -107,7 +107,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
-27. How to find the distribution of Order Statistics?
+27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
@@ -1472,7 +1472,7 @@ F_{X_{(1)}} (x) &= P(X_{(1)} \leq x) \\
 &= 1- \left[P(X_{1} > x)P(X_{2} > x)\ldots P(X_{n} > x) \right]\,\,\, \text{(By independence)}\\
 &= 1- \prod_{i=1}^{n} P(X_{i} > x)\\
 &= 1- \prod_{i=1}^{n} 1 - P(X_{i} \leq x)\\
-&= 1 - \prod_{i=1}^{n} 1 - F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
+&= 1 - \prod_{i=1}^{n} 1 - F_{X}(x)\,\,\, \text{(because $X_{i}$'s are identically distributed)}\\
 &= 1 - \left[1 - F_{X}(x) \right]^{n}
 \end{split}
 $$
@@ -1502,7 +1502,7 @@ F_{X_{(n)}} (x) &= P(X_{(n)} \leq x) \\
 & = P(X_{1} \leq x, X_{2} \leq x, \ldots , X_{n} \leq x)\\
 &= P(X_{1} \leq x)P(X_{2} \leq x)\ldots P(X_{n} \leq x)\,\,\, \text{(By independence)}\\
 &= \prod_{i=1}^{n} P(X_{i} \leq x)\\
-&= \prod_{i=1}^{n} F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
+&= \prod_{i=1}^{n} F_{X}(x)\,\,\, \text{(because $X_{i}$'s are identically distributed)}\\
 &= \left[F_{X}(x) \right]^{n}
 \end{split}
 $$
