@@ -1513,13 +1513,13 @@ f_{X_{(1)}} (x)  = \frac{d}{dx} F_{X_{(1)}} (x) &=  \frac{d}{dx} \left\{1 - \lef
 \end{split}
 $$
 
-So, for example, if $X \sim U(0,1)$, $f(x) = I_{(0,1)}(x)$. The pdf of minimum in this case is:
+  So, for example, if $X \sim U(0,1)$, $f(x) = I_{(0,1)}(x)$. The pdf of minimum in this case is:
 
 $$
 f_{X_{(1)}} (x) = n(1-x)^{n-1}I_{(0,1)}(x)
 $$
 
-This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X_{(1)} \sim Beta(1,n)$.
+  This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X_{(1)} \sim Beta(1,n)$.
 
 * **Distribution of maximum**
 
@@ -1543,13 +1543,13 @@ f_{X_{(n)}} (x)  = \frac{d}{dx} F_{X_{(n)}} (x) &=  \frac{d}{dx} \left\{\left[F_
 \end{split}
 $$
 
-In case of a random sample of size $n$ from Uniform distribution on the interval $[0,1]$:
+  In case of a random sample of size $n$ from Uniform distribution on the interval $[0,1]$:
 
 $$
 f_{X_{(n)}} (x) = n(x)^{n-1}I_{(0,1)}(x)
 $$
 
-This is the pdf of $Beta(n,1)$ distribution.
+  This is the pdf of $Beta(n,1)$ distribution.
 
 * **General Formula for Uniform Distribution**
 
@@ -1560,13 +1560,13 @@ $$
 f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!}x^{j-1}(1-x)^{n-j}, \,\,\, 0 < x_{j} < 1
 $$
 
-Hence, $X_{(j)} \sim Beta(j, n − j + 1)$. From this we can deduce
+  Hence, $X_{(j)} \sim Beta(j, n − j + 1)$. From this we can deduce
 
 $$
 E(X_{(j)}) = \frac{j}{n+1}
 $$
 
-and
+  and
 
 $$
 Var(X_{(j)}) = \frac{j(n-j+1)}{(n+1)^{2}(n+2)}
