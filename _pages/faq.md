@@ -1446,6 +1446,54 @@ $$
 * When to use the median: Skewed distribution, Continuous data, Ordinal data
 * When to use the mode: Categorical data, Ordinal data, Count data, Probability Distributions
 
+#### How co find the distribution of Order Statistics?
+
+Let $X_{1}, X_{2}, \ldots, X_{n}$ be a random sample of size $n$ for some distribution. We denote the order statistics by:
+
+$$
+X_{(1)} \Rightarrow min(X_{1}, X_{2}, \ldots, X_{n})
+$$
+
+$$
+X_{(2)} \Rightarrow \text{ the 2nd smallest of } X_{1}, X_{2}, \ldots, X_{n}
+$$
+
+...
+
+$$
+X_{(n)} \Rightarrow max(X_{1}, X_{2}, \ldots, X_{n})
+$$
+
+* **Distribution of minimum
+
+$$
+\begin{split}
+F_{X_{(1)}} (x) = P(X_{(1)} \leq x) &= P(\text{at least one of } X_{1}, X_{2}, \ldots, X_{n} \text is } \leq x)\\
+&= 1 - P(X_{(1)} > x)\\
+& = 1 - P(X_{1} > x, X_{2} > x, \ldots , X_{n} > x)\\
+&= 1- \left[P(X_{1} > x)P(X_{2} > x)\ldots P(X_{n} > x) \right]\,\,\, \text{(By independence)}\\
+&= 1- \prod_{i=1}^{n} P(X_{i} > x)\\
+&= 1- \prod_{i=1}^{n} 1 - P(X_{i} \leq x)\\
+&= 1 - \prod_{i=1}^{n} 1 - F_{X}(x)\,\,\, \text{(because $x_{i}$'s are identically distributed)}\\
+&= 1 - \left[1 - F_{X_{i}}(x) \right]^{n}
+\end{split}
+$$
+
+$$
+\begin{split}
+f_{X_{(1)}} (x)  = \frac{d}{dx} F_{X_{(1)}} (x) &=  \frac{d}{dx} \left\{1 - \left[1 - F_{X}(x) \right]^{n} \right\}\\
+&= n (1-F_{X}(x))^{n-1}f_{X}(x)
+\end{split}
+$$
+
+So, for example, if $X \sim U(0,1)$, $f(x) = I_{(0,1)}(x)$. The odf of minimum in this case is:
+
+$$
+f_{X_{(1)}} (x) = n(1-x)^{n-1}I_{(0,1)}(x)
+$$
+
+This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X_{(1)} \sim Beta(1,n)$.
+
 #### What are the properties of an estimator?
 
 Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of that parameter. Desirable properties of $\hat{\theta}$ are: 
