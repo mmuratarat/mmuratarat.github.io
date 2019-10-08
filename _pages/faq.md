@@ -1451,24 +1451,19 @@ $$
 Let $X_{1}, X_{2}, \ldots, X_{n}$ be a random sample of size $n$ for some distribution. We denote the order statistics by:
 
 $$
-X_{(1)} \Rightarrow min(X_{1}, X_{2}, \ldots, X_{n})
-$$
-
-$$
-X_{(2)} \Rightarrow \text{ the 2nd smallest of } X_{1}, X_{2}, \ldots, X_{n}
-$$
-
-...
-
-$$
-X_{(n)} \Rightarrow max(X_{1}, X_{2}, \ldots, X_{n})
+\begin{split}
+X_{(1)} &\Rightarrow min(X_{1}, X_{2}, \ldots, X_{n})\\
+X_{(2)} &\Rightarrow \text{ the 2nd smallest of } X_{1}, X_{2}, \ldots, X_{n}\\
+& \ldots \\
+X_{(n)} &\Rightarrow max(X_{1}, X_{2}, \ldots, X_{n})
+\end{split}
 $$
 
 * **Distribution of minimum
 
 $$
 \begin{split}
-F_{X_{(1)}} (x) = P(X_{(1)} \leq x) &= P(\text{at least one of } X_{1}, X_{2}, \ldots, X_{n} \text is } \leq x)\\
+F_{X_{(1)}} (x) &= P(X_{(1)} \leq x) \\
 &= 1 - P(X_{(1)} > x)\\
 & = 1 - P(X_{1} > x, X_{2} > x, \ldots , X_{n} > x)\\
 &= 1- \left[P(X_{1} > x)P(X_{2} > x)\ldots P(X_{n} > x) \right]\,\,\, \text{(By independence)}\\
