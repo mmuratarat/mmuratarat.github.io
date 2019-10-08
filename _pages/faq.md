@@ -1493,7 +1493,7 @@ $$
 
 * **Distribution of minimum**
 
-$$
+  $$
 \begin{split}
 F_{X_{(1)}} (x) &= P(X_{(1)} \leq x) \\
 &= 1 - P(X_{(1)} > x)\\
@@ -1523,7 +1523,7 @@ This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X
 
 * **Distribution of maximum**
 
-Similarly,
+  Similarly,
 
 $$
 \begin{split}
@@ -1553,7 +1553,7 @@ This is the pdf of $Beta(n,1)$ distribution.
 
 * **General Formula for Uniform Distribution**
 
-Let $X_{1}, X_{2}, \ldots, X_{n}$ be i.i.d. $U(0,1)$. So $f_{X}(x) =1$ and $F_{X}(x)$ for all $x \in [0,1]$. Therefore, the pdf of $j$-th order statistics is:
+  Let $X_{1}, X_{2}, \ldots, X_{n}$ be i.i.d. $U(0,1)$. So $f_{X}(x) =1$ and $F_{X}(x)$ for all $x \in [0,1]$. Therefore, the pdf of $j$-th order statistics is:
 
 
 $$
@@ -1574,7 +1574,7 @@ $$
 
 * **General Formula for Distribution of $j$-th Order Statistics**
 
-Let $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ denote the order statistics of a random sample $X_{1}, X_{2}, \ldots, X_{n}$ from a continuous population with pdf $f_{X}(x)$ and cdf $F_{X}(x)$. General formula for the pdf of $j$-th order statistics is given by
+  Let $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ denote the order statistics of a random sample $X_{1}, X_{2}, \ldots, X_{n}$ from a continuous population with pdf $f_{X}(x)$ and cdf $F_{X}(x)$. General formula for the pdf of $j$-th order statistics is given by
 
 $$
 f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!} f_{X}(x) [F_{X}(x)]^{j-1} [1-F_{X}(x)]^{n-j}
