@@ -102,9 +102,9 @@ permalink: /faq/
 22. [What are the conditions for independence and conditional independence of two random variables?](#what-are-the-conditions-for-independence-and-conditional-independence-of-two-random-variables)
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
-25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
-26. [What is Cross-covariance?](#what-is-cross-covariance)
-26. Explain some Discrete and Continuous Distributions.
+25. [What is cross-covariance?](#what-is-cross-covariance)
+26. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
+26. [Explain some Discrete and Continuous Distributions.](#explain-some-discrete-and-continuous-distributions)
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
@@ -1346,7 +1346,7 @@ $$
   \end{split}
   $$
 
-#### What is Cross-covariance?
+#### What is cross-covariance?
 
 Let $\mathbf{X}$ be a $K \times 1$ random vector and $\mathbf{Y}$ be a $L	\times 1$ random vector. The covariance matrix between $\mathbf{X}$ and $ \mathbf{Y}$, or cross-covariance between $\mathbf{X}$ and $\mathbf{Y}$ is denoted by $cov(\mathbf{X}, \mathbf{Y})$. It is defined as follows:
 
