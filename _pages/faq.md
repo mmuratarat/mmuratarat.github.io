@@ -109,6 +109,7 @@ permalink: /faq/
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
+29. Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
@@ -116,6 +117,7 @@ permalink: /faq/
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 30. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
+31. What is continuous/discrete Uniform distribution?
 30. What are exponential and Laplace distribution?
 31. What are Dirac distribution and Empirical distribution?
 32. What is mixture of distributions?
@@ -123,11 +125,6 @@ permalink: /faq/
 34. Is Gaussian mixture model a universal approximator of densities?
 35. Write the formulae for logistic and softplus function.
 36. Write the formulae for Bayes rule.
-37. What do you mean by measure zero and almost everywhere?
-38. If two random variables are related in a deterministic way, how are the PDFs related?
-39. Define self-information. What are its units?
-44. What are structured probabilistic models or graphical models?
-45. In the context of structured probabilistic models, what are directed and undirected models? How are they represented? What are cliques in undirected structured probabilistic models?
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
@@ -139,7 +136,10 @@ permalink: /faq/
 52. [What is Poisson approximation to Binomial distribution?](#what-is-poisson-approximation-to-binomial-distribution)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
-54. What does statistical interaction mean?
+54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
+55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
+56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
+57. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 
 [General Machine Learning](#general-machine-learning)
 
