@@ -1182,6 +1182,28 @@ $$
 P(A_{1} \cap A_{2} \cap \ldots \cap A_{n}) = P(A_{1})P(A_{2} \mid A_{1})P(A_{3} \mid A_{2}, A_{1}) \ldots P(A_{n} \mid A_{n-1} A_{n-2} \cdots A_{1})
 $$
 
+#### What are the conditions for independence and conditional independence of two random variables?
+
+Two random variables X and Y are independent if they are not related to each other. 
+
+$$
+P(X=x,Y=y)=P(X=x) P(Y=y), \text{ for all } x,y.
+$$
+
+Intuitively, two random variables $X$ and $Y$ are independent if knowing the value of one of them does not change the probabilities for the other one. In other words, if $X$ and $Y$ are independent, we can write
+
+$$
+P(Y=y \mid X=x) = P(Y=y), \text{ for all } x, y.
+$$
+
+We can extend the definition of independence to $n$ random variables.
+
+They are conditionally independent if they are unrelated after taking account of a 3rd variable. 
+
+$$
+P(X \; Y | Z) = P(X | Z ) P(Y | Z)
+$$
+
 #### What are expectation, variance and covariance?
 In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
 
