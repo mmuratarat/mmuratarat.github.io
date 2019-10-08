@@ -99,7 +99,7 @@ permalink: /faq/
 16. [What is a joint probability distribution? What is a marginal probability? Given the joint probability function, how will you calculate it?](#what-is-a-joint-probability-distribution-what-is-a-marginal-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 20. [What is conditional probability? Given the joint probability function, how will you calculate it?](#what-is-conditional-probability-given-the-joint-probability-function-how-will-you-calculate-it)
 21. [State the Chain rule of conditional probabilities.](#state-the-chain-rule-of-conditional-probabilities)
-22. What are the conditions for independence and conditional independence of two random variables?
+22. [What are the conditions for independence and conditional independence of two random variables?](#what-are-the-conditions-for-independence-and-conditional-independence-of-two-random-variables)
 23. [What are expectation, variance and covariance?](#what-are-expectation-variance-and-covariance)
 24. [What is the covariance for a vector of random variables?](#what-is-the-covariance-for-a-vector-of-random-variables)
 25. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
@@ -1601,7 +1601,9 @@ $$
 P_{X}(x) = p^{x} (1-p)^{1-x},\,\,\, x \in \{0, 1 \}\,\,\,\text{for}\,\,\, 0 \leq p \leq 1
 $$
 
-Bernoulli distribution is a special case of Binomial distribution. If $X_{1},\dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum is distributed according to a Binomial distribution with parameters $n$ and $p$:
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bernoulli(p)%20color.png?raw=true)
+
+Bernoulli distribution is a special case of Binomial distribution. If $X_{1}, X_{2}, \dots ,X_{n}$ are independent, identically distributed (i.i.d.) random variables, all Bernoulli trials with success probability $p$, then their sum ($X=X_1+X_2+...+X_n$) is distributed according to a Binomial distribution with parameters $n$ and $p$:
 
 $$
 \sum_{k=1}^{n} X_{k} \sim Binomial(n,p)
@@ -1698,7 +1700,7 @@ $$
 
 The numerator $\sum_{i=1}^{n} x_{i}$ is the total number of successes observed in $n$ independent trials. $\hat{p}$ is the observed proportion of successes in the $n$ trials. We often call $\hat{p}$ the sample proportion to distinguish it from $p$, the "true" or "population" proportion.
 
-The fact that the MLE based on n independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
+The fact that the MLE based on $n$ independent Bernoulli random variables and the MLE based on a single binomial random variable are the same is not surprising, since the binomial is the result of $n$ independent Bernoulli trials anyway. In general, whenever we have repeated, independent Bernoulli trials with the same probability of success $p$ for each trial, the MLE will always be the sample proportion of successes. This is true regardless of whether we know the outcomes of the individual trials or just the total number of successes for all trials.
 
 #### What is a multinoulli distribution?
 
