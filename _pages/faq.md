@@ -2072,7 +2072,7 @@ Examples:
 
 **An example**:
 
-Let $Y\sim Binom(25,0.4)$. Using the normal distribution, compute the probability that $Y \leq 8$ and that $Y=8$. 
+Let $Y\sim Binom(25,0.4)$. Using the normal distribution, compute the probability that $Y \leq 8$ and that $Y=8$. Here, binomial distribution can be approximated by a Normal distribution with parameters $\mu = np = 25 \times 0.4 = 10$ and $\sigma^{2} = np(1-p) = 25 \times 0.4 \times 0.6 = 6@.
 
 $P(Y\leq 8)$ can be approximated as
 
