@@ -1560,7 +1560,7 @@ $$
 f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!}x^{j-1}(1-x)^{n-j}, \,\,\, 0 < x_{j} < 1
 $$
 
- Hence, $X_((j)) \sim Beta(j, n − j + 1)$. From this we can deduce
+Hence, $X_{(j)} \sim Beta(j, n − j + 1)$. From this we can deduce
 
 $$
 E(X_{(j)}) = \frac{j}{n+1}
