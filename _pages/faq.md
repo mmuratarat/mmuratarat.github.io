@@ -107,6 +107,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
+27. How to find the distribution of Order Statistics?
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
@@ -1459,7 +1460,9 @@ X_{(n)} &\Rightarrow max(X_{1}, X_{2}, \ldots, X_{n})
 \end{split}
 $$
 
-* **Distribution of minimum
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2021.25.52.png?raw=true)
+
+* **Distribution of minimum**
 
 $$
 \begin{split}
@@ -1489,7 +1492,7 @@ $$
 
 This is the pdf of Beta distribution with the parameters 1 and $n$ denoted by $X_{(1)} \sim Beta(1,n)$.
 
-* **Distribution of maximum
+* **Distribution of maximum**
 
 Similarly,
 
@@ -1528,7 +1531,7 @@ $$
 f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!}x^{j-1}(1-x)^{n-j}, \,\,\, 0 < x_{j} < 1
 $$
 
-From this we can deduce
+ Hence, $X_((j)) \sim Beta(j, n − j + 1)$. From this we can deduce
 
 $$
 E(X_{(j)}) = \frac{j}{n+1}
@@ -1538,7 +1541,7 @@ and
 
 $$
 Var(X_{(j)}) = \frac{j(n-j+1)}{(n+1)^{2}(n+2)}
-$$.
+$$
 
 * **General Formula for Distribution of $j$-th Order Statistics**
 
@@ -1547,9 +1550,6 @@ Let $X_{(1)}, X_{(2)}, \ldots, X_{(n)}$ denote the order statistics of a random 
 $$
 f_{X_{(j)}} (x) = \frac{n!}{(j-1)! (n-j)!} f_{X}(x) [F_{X}(x)]^{j-1} [1-F_{X}(x)]^{n-j}
 $$
-
-
-
 
 #### What are the properties of an estimator?
 
