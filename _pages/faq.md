@@ -1986,7 +1986,7 @@ $$
 f(x \mid \theta) = \frac{1}{\theta},\,\,\, 0 < x < \theta
 $$
 
-  Be careful, this time, we have strict inequality ($<$ instead of $\leq$). This equation could still be used as the pdf of the uniform distribution, then, an MLE of $\theta$ will be a value of $\theta$ for which $\theta > x_{i}$ for $i=1,2,\ldots ,n$ and which maximized $\frac{1}{\theta^{n}}$ among all such values. It should be noted that the possible values of $\theta$ no longer include the value $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n})$ since $\theta$ must be strictly greater than each observed value $x_{i}, i=1,2,\ldots , n$. Since $\theta$ can be chosen arbitrarily close to the value $max(x_{1}, x_{2}, \ldots , x_{n})$ but cannot be chosen equal to this value, it follows that the MLE of $\theta$ does not exist in this case.
+  Be careful, this time, we have strict inequality ($<$ instead of $\leq$). This equation could still be used as the pdf of the uniform distribution, then, an MLE of $\theta$ will be a value of $\theta$ for which $\theta > x_{i}$ for $i=1,2,\ldots ,n$ and which maximizes $\frac{1}{\theta^{n}}$ among all such values. It should be noted that the possible values of $\theta$ no longer include the value $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n})$ since $\theta$ must be strictly greater than each observed value $x_{i}, i=1,2,\ldots , n$. Since $\theta$ can be chosen arbitrarily close to the value $max(x_{1}, x_{2}, \ldots , x_{n})$ but cannot be chosen equal to this value, it follows that the MLE of $\theta$ does not exist in this case.
 
 * **Another Example**
 
@@ -2008,7 +2008,7 @@ F_{X_{max}} (x) &= P(X_{max} \leq x) \\
 \end{split} 
 $$
 
-  This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of X_{max}:
+  This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of $X_{max}$:
 
   $$
 f_{X_{max}} (x) = \frac{\partial}{\partial x) F_{X_{max}} (x) = \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1}, \,\,\, 0 \leq x \leq \theta 
