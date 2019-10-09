@@ -1943,7 +1943,7 @@ $$
 and
 
 $$
-Var(x) = \frac{(b-a)^{2}){12}
+Var(x) = \frac{(b-a)^{2}}{12}
 $$
 
 * How to find an estimator for $a$ and $b$?
@@ -1953,8 +1953,8 @@ $$
   $$
 \begin{split}
 L(a,b \mid x) &= \prod_{i=1}^{n} f(x_{i}; a,b)\\
-&= \frac{1}{(b-a)^{n}I_{x_{i} \in [a,b]} \\
-&=\frac{1}{(b-a)^{n}I_{a \leq x_{i} \leq b}
+&= \frac{1}{(b-a)^{n}} I_{x_{i} \in [a,b]} \\
+&=\frac{1}{(b-a)^{n}} I_{a \leq x_{i} \leq b}
 \end{split}
 $$
 
@@ -1991,6 +1991,9 @@ $$
 * **Another Example**
 
 For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}} for any sample. To maximize this, we need to minimize the value of$\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
+
+* **Unbiased Estimator**
+
 
 #### What is the central limit theorem?
 
