@@ -116,10 +116,10 @@ permalink: /faq/
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
 26. [What is a multinomial distribution?](#what-is-a-multinomial-distribution)
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
-28. What is a uniform distribution?
+28. [What is a continuous uniform distribution?](#what-is-a-uniform-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 30. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
-31. What is continuous/discrete Uniform distribution?
+31. What is discrete Uniform distribution?
 30. What are exponential and Laplace distribution?
 31. What are Dirac distribution and Empirical distribution?
 32. What is mixture of distributions?
@@ -1993,6 +1993,11 @@ $$
 For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}} for any sample. To maximize this, we need to minimize the value of$\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
 
 * **Unbiased Estimator**
+
+However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$.
+
+
+
 
 
 #### What is the central limit theorem?
