@@ -1068,7 +1068,7 @@ Continuous probability function is referred to as probability density function (
 
 The mathematical definition of a continuous probability function, $f(x)$, is a function that satisfies the following properties:
 
-* The probability that x is between two points a and b is
+* The probability that $x$ is between two points $a$ and $b$ is
 
 $$
 p[a \leq x \leq b]=\int_{a}^{b} f(x)dx
@@ -2011,11 +2011,10 @@ $$
   This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of $X_{max}$:
 
   $$
-f_{X_{max}} (x) = \frac{d}{d x) F_{X_{max}} (x) = \frac{n}{\theta} ( \frac{x}{\theta} )^{n-1}
+f_{X_{max}} (x) = \frac{d}{d x) F_{X_{max}} (x) 
 $$
 
-  for $0 \leq x \leq \theta$. If we find the mean (expected value) of this distribution,
-
+  for $0 \leq x \leq \theta$. If we find the mean (expected value) of this distribution, $= \frac{n}{\theta} ( \frac{x}{\theta} )^{n-1}$
   $$
 E(X_{max}) = \int_{0}^{\theta} x  \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1} dx = \frac{n}{n+1} \theta
 $$
