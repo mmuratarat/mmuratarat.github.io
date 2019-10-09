@@ -260,7 +260,7 @@ $$
 
 where erf is error function.
 
-# haracterization method (Convolution Method)
+# Characterization method (Convolution Method)
 
 This method is another approach to sample from a distribution. In some cases, $X$ can be expressed as a sum of independent random variables $Y_{1}, Y_{2}, \ldots , Y_{n}$ where $Y_{j}$'s are iid and n is fixed and finite:
 
@@ -291,12 +291,12 @@ $$
 This method applies when the distribution function $F$ can be expressed as a mixture of other distribution functions $F_{1}, F_{2}, \ldots$:
 
 $$
-F(x) = \sum_{i=1}^{\infty} p_{i}F_{i}(x),
+F(x) = \sum_{j=1}^{\infty} p_{j}F_{j}(x),
 $$
 
-where $p_{i} \geq 0$ and $\sum_{i=1}^{\infty} p_{i} =1$, meaning that the $p_{i}$ form a discrete probability distribution
+where $p_{j} \geq 0$ and $\sum_{j=1}^{\infty} p_{j} =1$, meaning that the $p_{j}$ form a discrete probability distribution
 
-Equivalently, we can decompose the density function $f(x)$ or mass function $p(x)$ into convex combination of other density or mass functions. This method is useful if it is easier to sample from $F_{i}$'s than from $F$.
+Equivalently, we can decompose the density function $f(x)$ or mass function $p(x)$ into convex combination of other density or mass functions. This method is useful if it is easier to sample from $F_{j}$'s than from $F$.
 
 **Algorithm**:
 * Generate a discrete random variable $j$ such that $P(J = j) = p_{j}$.
