@@ -1994,9 +1994,9 @@ For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\t
 
 * **Unbiased Estimator**
 
-However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$. Since $X_{max}$ is an order statistics, we can find its density function.
+  However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$. Since $X_{max}$ is an order statistics, we can find its density function.
 
-$$
+  $$
 \begin{split}
 F_{X_{max}} (x) &= P(X_{max} \leq x) \\
 & = P(X_{1} \leq x, X_{2} \leq x, \ldots , X_{n} \leq x)\\
@@ -2008,25 +2008,25 @@ F_{X_{max}} (x) &= P(X_{max} \leq x) \\
 \end{split} 
 $$
 
-This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of X_{max}:
+  This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of X_{max}:
 
-$$
-f_{X_{max}} (x) = \frac{\partial}{\partial y) F_{X_{max}} (x) = \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1}\,\,\, 0 \leq x \theta 
+  $$
+f_{X_{max}} (x) = \frac{\partial}{\partial x) F_{X_{max}} (x) = \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1}, \,\,\, 0 \leq x \leq \theta 
 $$
 
-If we find the mean of this distribution,
+  If we find the mean (expected value) of this distribution,
 
-$$
+  $$
 E(X_{max}) = \int_{0}^{\theta} x  \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1} dx = \frac{n}{n+1} \theta
 $$
 
-Therefore $X_{max}$ is biased because $E(\hat{\theta}) = E(X_{max}) \neq \theta$. However, it can be readily pached as
+  Therefore $X_{max}$ is biased because $E(\hat{\theta}) = E(X_{max}) \neq \theta$. However, it can be readily pached as
 
-$$
+  $$
 \hat{X_{max}} =\frac{n+1}{n} X_{max}
 $$
 
-which is the unbiased estimator of $\theta$.
+  which is the unbiased estimator of $\theta$.
 
 #### What is the central limit theorem?
 
