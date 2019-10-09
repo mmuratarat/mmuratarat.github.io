@@ -1554,7 +1554,7 @@ $$
 
 * **General Formula for Uniform Distribution**
 
-  Let $X_{1}, X_{2}, \ldots, X_{n}$ be i.i.d. $U(0,1)$. So $f_{X}(x) =1$ and $F_{X}(x)$ for all $x \in [0,1]$. Therefore, the pdf of $j$-th order statistics is:
+  Let $X_{1}, X_{2}, \ldots, X_{n}$ be i.i.d. $U(0,1)$. So $f_{X}(x) =1$ and $F_{X}(x) = x$ for all $x \in [0,1]$. Therefore, the pdf of $j$-th order statistics is:
 
 
 $$
@@ -1990,15 +1990,43 @@ $$
 
 * **Another Example**
 
-For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}} for any sample. To maximize this, we need to minimize the value of$\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
+For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}}$ for any sample. To maximize this, we need to minimize the value of$\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
 
 * **Unbiased Estimator**
 
-However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$.
+However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$. Since $X_{max}$ is an order statistics, we can find its density function.
 
+$$
+\begin{split}
+F_{X_{max}} (x) &= P(X_{max} \leq x) \\
+& = P(X_{1} \leq x, X_{2} \leq x, \ldots , X_{n} \leq x)\\
+&= P(X_{1} \leq x)P(X_{2} \leq x)\ldots P(X_{n} \leq x)\,\,\, \text{(By independence)}\\
+&= \prod_{i=1}^{n} P(X_{i} \leq x)\\
+&= \prod_{i=1}^{n} F_{X}(x)\,\,\, \text{(because $X_{i}$'s are identically distributed)}\\
+&= \left[F_{X}(x) \right]^{n}\\
+&= \left(\frac{x}{\theta} \right)^{n}
+\end{split} 
+$$
 
+This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of X_{max}:
 
+$$
+f_{X_{max}} (x) = \frac{\partial}{\partial y) F_{X_{max}} (x) = \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1}\,\,\, 0 \leq x \theta 
+$$
 
+If we find the mean of this distribution,
+
+$$
+E(X_{max}) = \int_{0}^{\theta} x  \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1} dx = \frac{n}{n+1} \theta
+$$
+
+Therefore $X_{max}$ is biased because $E(\hat{\theta}) = E(X_{max}) \neq \theta$. However, it can be readily pached as
+
+$$
+\hat{X_{max}} =\frac{n+1}{n} X_{max}
+$$
+
+which is the unbiased estimator of $\theta$.
 
 #### What is the central limit theorem?
 
