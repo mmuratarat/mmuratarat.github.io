@@ -2011,10 +2011,10 @@ $$
   This is the CDF of $X_{max}$. If we take first-order derivative of it with respect to $x$, we will have the density function of $X_{max}$:
 
   $$
-f_{X_{max}} (x) = \frac{d}{d x) F_{X_{max}} (x) = \frac{n}{\theta} \left( \frac{x}{\theta} \right)^{n-1}, \,\,\, 0 \leq x \leq \theta 
+f_{X_{max}} (x) = \frac{d}{d x) F_{X_{max}} (x) = \frac{n}{\theta} ( \frac{x}{\theta} )^{n-1}
 $$
 
-  If we find the mean (expected value) of this distribution,
+  for $0 \leq x \leq \theta$. If we find the mean (expected value) of this distribution,
 
   $$
 E(X_{max}) = \int_{0}^{\theta} x  \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1} dx = \frac{n}{n+1} \theta
