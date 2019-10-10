@@ -185,7 +185,7 @@ permalink: /faq/
 34. [What is the difference between "long" and "wide" format data?](#what-is-the-difference-between-long-and-wide-format-data)
 35. [Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?](#can-you-cite-some-examples-where-a-false-positive-is-important-than-a-false-negative-and-where-a-false-negative-important-than-a-false-positive-and-where-both-false-positive-and-false-negatives-are-equally-important)
 36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
-37. What is the difference between dummying and one-hot encoding?
+37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2900,13 +2900,13 @@ For unregularized generalized linear models it's usually not a good idea to one-
 
 The Dummy Variable trap is a scenario in which the independent variables are multicollinear - a scenario in which two or more variables are highly correlated; in simple terms one variable can be predicted from the others.
 
-In that case your one-hot encoded design matrix doesn't have full rank, and you cannot invert $\mathbf{X}^{T}\mathbf{X}$ (the Gramian matrix of the design matrix $\bathbf{X}$). This is obviously going to lead to problems because since $\mathbf{X}^{T}\mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. 
+In that case your one-hot encoded design matrix doesn't have full rank, and you cannot invert $\mathbf{X}^{T}\mathbf{X}$ (the Gramian matrix of the design matrix $\mathbf{X}$). This is obviously going to lead to problems because since $\mathbf{X}^{T}\mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. 
 
 The solution to the dummy variable trap is to drop one of the categorical variables or alternatively, drop the intercept constant, meaning that you have two options: (1) Using $k−1$ indicators plus an intercept term, (2) Using $k$ indicators and no intercept term.
 
 In most applications, and if you regularize your model, this is not an issue. 
 
-Algorithms that do not require an encoding are algorithms that can directly deal with joint discrete distributions such as Markov chain / Naive Bayes / Bayesian network, tree based methods, etc.
+Algorithms that do not require an encoding are algorithms that can directly deal with joint discrete distributions such as Markov chain / Naive Bayes / Bayesian network, Tree-based methods, etc.
 
 Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance or Levenshtein Distance.
 
