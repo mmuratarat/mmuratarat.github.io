@@ -3555,4 +3555,4 @@ A deep learning model trained on a specific task (a pre-trained model) can be re
 
 #### How to choose embedding size in an Embedding layer?
 
-The rule of thumb for determining the embedding size is the cardinality size divided by 2, but no bigger than 50. Let's say that you have one categorical variable with $k$ categories (levels). Then embedding size is decided based on ` min(50, (k+1)//2)`.
+The rule of thumb for determining the embedding size is the cardinality size divided by 2, but no bigger than 50. Let's say that you have one categorical variable with $k$ categories (levels). Then embedding size is decided based on `min(50, (k+1)//2)`.
