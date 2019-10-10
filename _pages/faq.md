@@ -186,6 +186,7 @@ permalink: /faq/
 35. [Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?](#can-you-cite-some-examples-where-a-false-positive-is-important-than-a-false-negative-and-where-a-false-negative-important-than-a-false-positive-and-where-both-false-positive-and-false-negatives-are-equally-important)
 36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
+38. What is out-of-core learning?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2909,6 +2910,10 @@ In most applications, and if you regularize your model, this is not an issue.
 Algorithms that do not require an encoding are algorithms that can directly deal with joint discrete distributions such as Markov chain / Naive Bayes / Bayesian network, Tree-based methods, etc.
 
 Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance or Levenshtein Distance.
+
+### What is out-of-core learning?
+
+Consider the problem of learning a linear model: an out-of-core algorithm learns the model without loading the whole data set in memory. It reads and processes the data row by row, updating feature coefficients on the fly. This makes the algorithm very scalable since its memory footprint is independent of the number of rows, which is a very attractive property when dealing with data sets that don't fit in memory.
 
 
 ## Deep Learning
