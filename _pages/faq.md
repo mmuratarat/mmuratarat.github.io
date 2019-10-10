@@ -3261,11 +3261,9 @@ There are 4 different layers in a convolutional neural network:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/components_CNN.png?raw=true)
 
-#### What is Pooling in CNN and how does it work? Why does  it work?
-
 #### What is convolution?
 
-The convolution is performed by multiplying the filter (feature detectors) pixelwise with the portion of the image and summing the result. The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
+The convolution is the sum of the element-wise multiplication, spanning over channels resulting in one number. It is performed by multiplying the filter or kernel (feature detectors - these terms are used interchangeably) pixelwise with the portion of the image (by sliding the filter over the input) and summing the result, to then produce a feature map. The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2019-10-07%2019.01.14.jpg?raw=true)
 
@@ -3326,6 +3324,11 @@ For example, if we apply a $5 \times 5$ filter on a $28 \times 28$ image, the ou
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/padding_style.png?raw=true)
 
 When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, the output dimension will be equal. If there is no zero-padding used, then the output volume will have spatial dimension of only 3, because that it is how many neurons would have “fit” across the original input. In general, setting zero padding to be $P=(F−1)/2$ when the stride is $S=1$ ensures that the input volume and output volume will have the same size spatially.
+
+#### Why Zero-Padding?
+
+#### What is Pooling in CNN and how does it work? Why does  it work?
+
 
 #### What are the weights in a CNN?
 
