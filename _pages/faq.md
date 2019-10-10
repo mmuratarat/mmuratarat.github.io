@@ -3552,3 +3552,7 @@ The main reason for stacking LSTM cells is to allow for greater model complexity
 #### What is transfer learning ?
 
 A deep learning model trained on a specific task (a pre-trained model) can be reused for different problem in the same domain even if the amount of data is not that huge.
+
+#### How to choose embedding size in an Embedding layer?
+
+The rule of thumb for determining the embedding size is the cardinality size divided by 2, but no bigger than 50. Let's say that you have one categorical variable with $k$ categories (levels). Then embedding size is decided based on ` min(50, (k+1)//2)`.
