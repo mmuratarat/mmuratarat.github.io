@@ -185,6 +185,7 @@ permalink: /faq/
 34. [What is the difference between "long" and "wide" format data?](#what-is-the-difference-between-long-and-wide-format-data)
 35. [Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?](#can-you-cite-some-examples-where-a-false-positive-is-important-than-a-false-negative-and-where-a-false-negative-important-than-a-false-positive-and-where-both-false-positive-and-false-negatives-are-equally-important)
 36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
+37. What is the difference between dummying and one-hot encoding?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2678,6 +2679,7 @@ There are several solutions to the problem of overfitting:
 * We can try a simpler model because in the case of overfitting, the model might be complex for the dataset, e.g., linear instead of polynomial regression, or SVM with a linear kernel instead of radial basis function, a neural network with fever layers/units.
 * We can reduce the dimensionality of the dataset (removing some  irrelevant features, or using one of the dimensionality reduction techniques. Even some algorithms have built-in feature selection.)
 * We can add more training data. This should reduce variance, but will have no effect on bias. More data can even make bias worse - it gives your model the chance to give highly precise, wrong answers
+* We can use data augmentation. Data augmentation is a strategy that enables practitioners to significantly increase the diversity of data available for training models, without actually collecting new data.
 * We can try to use early stopping in order to prevent over-training by monitoring model performance. It is probably the most commonly used form of regularization in deep learning. Its popularity is due both to its effectiveness and its simplicity. In the case of neural networks, while the network seems to get better and better, i.e., the error on the training set decreases, at some point during training it actually begins to get worse again, i.e., the error on unseen examples increases. Early stopping may underfit by stopping too early.
 * We can use regularization methods. For example, you could prune a decision tree, use dropout on a neural network, or add a penalty parameter (L1/L2 Regularization) to the cost function in regression.
 * We can use Ensembling methods (Bagging and Boosting). Ensembles are machine learning methods for combining predictions from multiple separate models. Bagging uses complex base models and tries to "smooth out" their predictions, while boosting uses simple base models and tries to "boost" their aggregate complexity.
@@ -2725,6 +2727,8 @@ Feature scaling is the method used to standardize the range of features of data.
 * It is also important when features are measured in different units, e.g. feature A is measured in inches, feature B is measured in feet, and feature C is measured in dollars, that they are scaled in a way that they are weighted and/or represented equally.
      In some cases, efficacy will not change but perceived feature importance might change, e.g., coefficients in a linear regression.
 * Scaling your data typically does not change the performance or feature importance for tree-based models which are not distance based models, since the split points will simply shift to compensate for the scaled data. 
+
+Note that when you standardize all your variables, the intercept will be zero.
 
 #### What are the types of feature selection methods?
 
@@ -2887,6 +2891,25 @@ Some ways you can describe patterns found in univariate data include looking at 
 Bivariate analysis is used to find out if there is a relationship between two different variables. Something as simple as creating a scatterplot by plotting one variable against another on a Cartesian plane (think X and Y axis) can sometimes give you a picture of what the data is trying to tell you. If the data seems to fit a line or curve then there is a relationship or correlation between the two variables.  For example, one might choose to plot caloric intake versus weight.
 
 Multivariate analysis is the analysis of three or more variables.  There are many ways to perform multivariate analysis depending on your goals.  Some of these methods include Additive Tree, Canonical Correlation Analysis, Cluster Analysis, Correspondence Analysis / Multiple Correspondence Analysis, Factor Analysis, Generalized Procrustean Analysis, MANOVA, Multidimensional Scaling, Multiple Regression Analysis, Partial Least Square Regression, Principal Component Analysis / Regression / PARAFAC,  and Redundancy Analysis.
+
+#### What is the difference between dummying and one-hot encoding?
+
+Most algorithms (linear regression, logistic regression, neural network, support vector machine, etc.) require some sort of the encoding on categorical variables. This is because most algorithms only take numerical values as inputs. There are two different ways to encoding categorical variables. Say, one categorical variable has $k$ levels (categories). One-hot encoding converts it into $k$ variables (columns), while dummy encoding converts it into $k-1$ variables (columns). 
+
+For unregularized generalized linear models it's usually not a good idea to one-hot encode and not remove one of the variables because of colinearity. By including dummy variable in a regression model however, one should be careful of the _Dummy Variable Trap_.
+
+The Dummy Variable trap is a scenario in which the independent variables are multicollinear - a scenario in which two or more variables are highly correlated; in simple terms one variable can be predicted from the others.
+
+In that case your one-hot encoded design matrix doesn't have full rank, and you cannot invert $\mathbf{X}^{T}\mathbf{X}$ (the Gramian matrix of the design matrix $\bathbf{X}$). This is obviously going to lead to problems because since $\mathbf{X}^{T}\mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. 
+
+The solution to the dummy variable trap is to drop one of the categorical variables or alternatively, drop the intercept constant, meaning that you have two options: (1) Using $k−1$ indicators plus an intercept term, (2) Using $k$ indicators and no intercept term.
+
+In most applications, and if you regularize your model, this is not an issue. 
+
+Algorithms that do not require an encoding are algorithms that can directly deal with joint discrete distributions such as Markov chain / Naive Bayes / Bayesian network, tree based methods, etc.
+
+Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance or Levenshtein Distance.
+
 
 ## Deep Learning
 
