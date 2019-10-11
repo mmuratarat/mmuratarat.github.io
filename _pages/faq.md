@@ -3561,3 +3561,7 @@ A deep learning model trained on a specific task (a pre-trained model) can be re
 #### How to choose embedding size in an Embedding layer?
 
 The rule of thumb for determining the embedding size is the cardinality size divided by 2, but no bigger than 50. Let's say that you have one categorical variable with $k$ categories (levels). Then embedding size is decided based on `min(50, (k+1)//2)`.
+
+#### What is the difference between the version of Keras that’s built-in to TensorFlow, and the version I can find at keras.io?
+
+Keras is an API standard for defining and training machine learning models. A reference implementation of Keras is maintained as an independent open source project, which you can find at www.keras.io. This project is independent of TensorFlow, and has an active community of contributors and users. TensorFlow includes a full implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. TensorFlow includes an implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. These include support for eager execution for intuitive debugging and fast iteration, support for the TensorFlow SavedModel model exchange format, and integrated support for distributed training, including training on TPUs. More can be found on [here](https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a){:target="_blank"}
