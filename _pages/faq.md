@@ -3178,7 +3178,7 @@ The softmax function is simply a generalization of the logistic function (sigmoi
  
  In a neural network, it is mostly used in the output layer in order to have probabilistic output of the network. When performing classification you often want not only to predict the class label, but also obtain a probability of the respective label. This probability gives you some kind of confidence on the prediction. .
 
-In the two-class logistic regression, the predicted probablies are as follows, using the sigmoid function:
+In binary logistic regression, the predicted probabilities are as follows, using the sigmoid function:
 
 $$
 \begin{split}
