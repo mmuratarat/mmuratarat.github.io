@@ -3118,6 +3118,32 @@ where $i$ indexes samples/observations and $j$ indexes classes. Here, $y_{ij}$ a
 
 When $K=2$, one will get binary cross entropy formula.
 
+We can also find this formulation easily.
+
+A common example of a Multinoulli distribution in machine learning might be a multi-class classification of a single example into one of $K$ classes.
+
+Namely, suppose you have a model which predicts $K$ classes $\\{1,2, \ldots , K \\}$ and their hypothetical occurance probabilities $p_{1}, p_{2}, \ldots , p_{K}$. Suppose that you have a data point (observation) $i$, and you observe (in reality) $n_{1}$ instances of class 1, $n_{2}$ instances of class 2,..., $n_{K}$ instances of class K. According to your model, the likelihood of this happening is:
+
+$$
+P(data \mid model) = p_{1}^{n_{1}} \times p_{2}^{n_{2}} \ldots p_{K}^{n_{K}}
+$$
+
+Negative log-likelihood is written as 
+
+$$
+- log P(data \mid model) = -n_{1} \log(p_{1}) -n_{2} \log(p_{2})- \ldots -n_{K} \log(p_{K}) = - \sum_{j=1}^{K} n_{j} \log(p_{j})
+$$
+
+One can easily see that $n_{1} + n_{2} + \ldots + n_{K} = n$ which is the number of observations in the dataset. Basically, now, you have a multinomial distribution with parameters $n$ (independent trials) and $p_{1}, p_{2}, \ldots , p_{K}$. Empirical probabilities are then computed as $y_{j} = \frac{n_{j}}{p_{j}}$. Therefore, loss for one observation is then computed as:
+
+$$
+L(\theta \mid x_{i}) = - \sum_{j=1}^{K} n_{j} \log(p_{j})
+$$
+
+If we compute the cross-entropy over $n$ observations, we will have:
+
+$$ L(\theta) = - \frac{1}{n} \sum_{i=1}^{n}  \sum_{j=1}^{K} \left[y_{ij} \log (p_{ij}) \right]$$
+
 #### Why don’t we use KL-Divergence in machine learning models instead of the cross entropy?
 
 The KL-Divergence between distributions requires us to know both the true distribution and distribution of our predictions thereof. Unfortunately, we never have the former: that’s why we build a predictive model using a Machine Learning algorithm.
