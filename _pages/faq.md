@@ -3268,7 +3268,9 @@ There are 4 different layers in a convolutional neural network:
 
 #### What is convolution?
 
-The convolution is the sum of the element-wise multiplication, spanning over channels resulting in one number. It is performed by multiplying the filter or kernel (feature detectors - these terms are used interchangeably) pixelwise with the portion of the image (by sliding the filter over the input) and summing the result, to then produce a feature map. The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
+The convolution is the sum of the element-wise multiplication, spanning over channels resulting in one number. It is performed by multiplying the filter or kernel (feature detectors - these terms are used interchangeably) pixelwise with the portion of the image (by sliding the filter over the input) and summing the result, to then produce a feature map. You can think of the feature detector as a window consisting of $F^{2}$ ($F \times F$) cells.
+
+The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2019-10-07%2019.01.14.jpg?raw=true)
 
