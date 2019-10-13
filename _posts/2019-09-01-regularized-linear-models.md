@@ -300,6 +300,8 @@ elastic_net.predict([[1.5]])
 #array([1.54333232])
 {% endhighlight %}
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sphx_glr_plot_sgd_penalties_001.png?raw=true)
+
 # Some Notes and Summary
 1. Complex models have less bias; simpler models have less variance. Regularization encourages simpler models.  In essence, $\lambda$ controls the model complexity. Generally speaking, the bias increases and the variance decreases as $\lambda$ (amount of shrinkage) increases, which will lead to underfitting due to the simple model we have and vice versa. Everything that reduces the dimensionality of a problem is biased. With less variables there are less degrees of freedom but also less "chances" to represent the dependent (response) variable. 
 
