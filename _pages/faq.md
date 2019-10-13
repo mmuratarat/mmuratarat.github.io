@@ -3206,11 +3206,10 @@ print("Minimum at", next_x)
   This is a type of gradient descent which processes all the training examples for each iteration of gradient descent. But if the number of training examples is large, then batch gradient descent is computationally very expensive. Hence if the number of training examples is large, then batch gradient descent is not preferred. Instead, we prefer to use stochastic gradient descent or mini-batch gradient descent.
   
   {% highlight python %}
-for i in range(num_epochs):
-    grad = compute_gradient(data, params)
-    params = params - learning_rate * grad
-{% endhighlight %}
-
+  for i in range(num_epochs):
+      grad = compute_gradient(data, params)
+      params = params - learning_rate * grad
+  {% endhighlight %}
 2. **Mini Batch gradient descent**:
   This is a type of gradient descent which works faster than both batch gradient descent and stochastic gradient descent. Instead of going over all examples, Mini-batch Gradient Descent sums up over lower number of examples based on the batch size. Let's say that here, batch size equals $b$, therefore, randomly selected $b < m$ data points are processed per iteration (if the training set size is not divisible by batch size, the remaining will be its own batch) where $m$ is the total number of observations. 
   
@@ -3219,17 +3218,16 @@ for i in range(num_epochs):
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_5mHkZw3FpuR2hBNFlRxZ-A.png?raw=true)
 
   {% highlight python %}
-for i in range(num_epochs):
-    np.random.shuffle(data)
-    for batch in random_minibatches(data, batch_size=32):
-        grad = compute_gradient(batch, params)
-        params = params - learning_rate * grad
-{% endhighlight %}
-
+  for i in range(num_epochs):
+      np.random.shuffle(data)
+      for batch in random_minibatches(data, batch_size=32):
+          grad = compute_gradient(batch, params)
+          params = params - learning_rate * grad
+  {% endhighlight %}
+  
   Note: with batch size $b = m$ (number of training examples), we get the Batch Gradient Descent.
-
+  
   The batch size is something we can tune. It is usually chosen as power of 2 such as 32, 64, 128, 256, 512, etc. The reason behind it is because some hardware such as GPUs achieve better run time with common batch sizes such as power of 2.
-
 3. **Stochastic Gradient Descent**: 
   This is a type of gradient descent which processes 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. It adds even more noise to the learning process than mini-batch that helps improving generalization error. However, this would increase the run time.
   
