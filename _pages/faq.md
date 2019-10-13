@@ -3208,7 +3208,7 @@ print("Minimum at", next_x)
   {% highlight python %}
 for i in range(num_epochs):
     grad = compute_gradient(data, params)
-    params = params — learning_rate * grad
+    params = params - learning_rate * grad
 {% endhighlight %}
 
 2. **Stochastic Gradient Descent**: 
@@ -3219,7 +3219,7 @@ for i in range(num_epochs):
     np.random.shuffle(data)
     for example in data:
         grad = compute_gradient(example, params)
-        params = params — learning_rate * grad
+        params = params - learning_rate * grad
 {% endhighlight %}
 
 3. **Mini Batch gradient descent**:
@@ -3232,10 +3232,11 @@ for i in range(num_epochs):
     np.random.shuffle(data)
     for batch in random_minibatches(data, batch_size=32):
         grad = compute_gradient(batch, params)
-        params = params — learning_rate * grad
+        params = params - learning_rate * grad
 {% endhighlight %}
 
   Note: with batch size $b = m$ (number of training examples), we get the Batch Gradient Descent.
+
   The batch size is something we can tune. It is usually chosen as power of 2 such as 32, 64, 128, 256, 512, etc. The reason behind it is because some hardware such as GPUs achieve better run time with common batch sizes such as power of 2.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_PV-fcUsNlD9EgTIc61h-Ig.png?raw=true)
