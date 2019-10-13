@@ -7,7 +7,7 @@ comments: true
 
 SVMs don't output probabilities natively, but probability calibration methods can be used to convert the output to class probabilities. Various methods exist, including Platt scaling (particularly suitable for SVMs) and isotonic regression.
 
-One standard way to obtain a "probability" out of a SVM is to use Platt scaling, which  is available in many decent SVM implementations. In the binary case, the probabilities are calibrated using Platt scaling: logistic regression on the SVM's scores, fit by an additional cross-validation on the training data. 
+One standard way to obtain a "probability" out of an SVM is to use **Platt scaling**, which is available in many decent SVM implementations. In the binary case, the probabilities are calibrated using Platt scaling: logistic regression on the SVM's scores, fit by an additional cross-validation on the training data. 
 
 Consider the problem of binary classification: for inputs $x$, we want to determine whether they belong to one of two classes, arbitrarily labeled $+1$ and $-1$. We assume that the classification problem will be solved by a real-valued function $f$, by predicting a class label $y = sign(f(x))$. For many problems, it is convenient to get a probability $P(y=1 \mid x)$, i.e. a classification that not only gives an answer, but also a degree of certainty about the answer. Some classification models do not provide such a probability, or give poor probability estimates.
 
