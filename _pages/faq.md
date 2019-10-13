@@ -186,7 +186,8 @@ permalink: /faq/
 35. [Can you cite some examples where a false positive is important than a false negative, and where a false negative important than a false positive, and where both false positive and false negatives are equally important?](#can-you-cite-some-examples-where-a-false-positive-is-important-than-a-false-negative-and-where-a-false-negative-important-than-a-false-positive-and-where-both-false-positive-and-false-negatives-are-equally-important)
 36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
-38. What is out-of-core learning?
+38. [What is out-of-core learning?](#what-is-out-of-core-learning)
+39. How do you detect outliers in a dataset?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2911,10 +2912,105 @@ Algorithms that do not require an encoding are algorithms that can directly deal
 
 Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance or Levenshtein Distance.
 
-### What is out-of-core learning?
+#### What is out-of-core learning?
 
 Consider the problem of learning a linear model: an out-of-core algorithm learns the model without loading the whole data set in memory. It reads and processes the data row by row, updating feature coefficients on the fly. This makes the algorithm very scalable since its memory footprint is independent of the number of rows, which is a very attractive property when dealing with data sets that don't fit in memory.
 
+#### How do you detect outliers in a dataset?
+
+**1** - **Interquartile Range Method**
+
+Not all data is normal or normal enough to treat it as being drawn from a Gaussian distribution.
+
+A good statistic for summarizing a non-Gaussian distribution sample of data is the Interquartile Range, or IQR for short. This is the simplest, nonparametric outlier detection method in a one dimensional feature space. Here outliers are calculated by means of the IQR (InterQuartile Range).
+
+The first and the third quartile (Q1, Q3) are calculated. The first quartile is the median of the data points to the left of the median. The third quartile is the median of the data points to the right of the median. Median is considered to be Q2/50th Percentile.
+
+For example, let's say we have series: 25, 28, 29, 29, 30, 34, 35, 35, 37, 38. Our data is already in order. The median is the average of 5th and 6th observations which is (30+34)/2 = 32. The first quantile is 29 and third quantile is 35
+
+An outlier is then a data point $x_{i}$ that lies outside the interquartile range.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_2c21SkzJMf3frPXPAR_gZA.png?raw=true)
+
+{% highlight python %}
+# generate gaussian data
+from numpy.random import seed
+from numpy.random import randn
+from numpy import mean
+from numpy import std
+from numpy import percentile
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(10000) + 50
+# summarize
+print('mean=%.3f stdv=%.3f' % (mean(data), std(data)))
+#mean=50.049 stdv=4.994
+{% endhighlight %}
+
+{% highlight python %}
+# calculate interquartile range
+q25, q75 = percentile(data, 25), percentile(data, 75)
+iqr = q75 - q25
+
+# calculate the outlier cutoff
+cut_off = iqr * 1.5
+lower, upper = q25 - cut_off, q75 + cut_off
+
+# identify outliers
+outliers = [x for x in data if x < lower or x > upper]
+{% endhighlight %}
+
+{% highlight python %}
+import matplotlib.pyplot as plt 
+plt.boxplot(data, vert=0)
+plt.savefig('Box_plot_data.png')
+{% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Box_plot_data.png?raw=true)
+
+###### Why 1.5?
+
+We certainly CAN use whatever outlier bound we wish to use, but we will have to justify it eventually.
+
+The image below is a comparison of a boxplot of a nearly normal distribution and the probability density function (pdf) for a normal distribution
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_NRlqiZGQdsIyAu0KzP7LaQ.png?raw=true)
+
+The 3rd quartile (Q3) is positioned at .675 SD (std deviation, sigma) for a normal distribution. The IQR (Q3 - Q1) represents 2 x 0.675 SD = 1.35 SD. The outlier fence is determined by adding Q3 to 1.5 x IQR, i.e., .675 SD + 1.5 x 1.35 SD = 2.7 SD. This level would declare 0.7\% of the measurements to be outliers.
+
+{% highlight python %}
+x = randn(10000)
+
+q25, q50, q75 = percentile(x, 25), percentile(x, 50), percentile(x, 75)
+
+IQR = q75 - q25
+
+w1 = q25 - 1.5* IQR
+w2 = q75 + 1.5* IQR
+
+from scipy.stats import norm
+p = norm.cdf(w2, loc=0, scale=1) - norm.cdf(w1, loc=0, scale=1)
+#0.9931445258100557
+{% endhighlight %}
+
+You will see that p is 0.993, so that 99.3\% of N(0,1) data are within the whiskers, 0.7\% of the measurements are out.
+
+**2** - Standard Deviation Method
+
+If we know that the distribution of values in the sample is Gaussian or Gaussian-like, we can use the standard deviation of the sample as a cut-off for identifying outliers. Using the same plot above, ghree standard deviations from the mean is a common cut-off in practice for identifying outliers in a Gaussian or Gaussian-like distribution. For smaller samples of data, perhaps a value of 2 standard deviations (95\%) can be used, and for larger samples, perhaps a value of 4 standard deviations (99.9\%) can be used. A value that falls outside of these ranges is part of the distribution, but it is an unlikely or rare event.
+
+{% highlight python %}
+data_mean, data_std = mean(data), std(data)
+# identify outliers
+cut_off = data_std * 3
+lower, upper = data_mean - cut_off, data_mean + cut_off
+
+# identify outliers
+outliers = [x for x in data if x < lower or x > upper]
+{% endhighlight %}
+
+Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
 
 ## Deep Learning
 
