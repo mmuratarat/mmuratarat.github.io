@@ -300,10 +300,32 @@ elastic_net.predict([[1.5]])
 #array([1.54333232])
 {% endhighlight %}
 
-# Some Notes
-1. Complex models have less bias; simpler models have less variance. Regularization encourages simpler models.  In essence, $\lambda$ controls the model complexity. Generally speaking, the bias increases and the variance decreases as $\lambda$ (amount of shrinkage) increases and vice versa. Everything that reduces the dimensionality of a problem is biased. With less variables there are less degrees of freedom but also less "chances" to represent the dependent (response) variable. 
+# Some Notes and Summary
+1. Complex models have less bias; simpler models have less variance. Regularization encourages simpler models.  In essence, $\lambda$ controls the model complexity. Generally speaking, the bias increases and the variance decreases as $\lambda$ (amount of shrinkage) increases, which will lead to underfitting due to the simple model we have and vice versa. Everything that reduces the dimensionality of a problem is biased. With less variables there are less degrees of freedom but also less "chances" to represent the dependent (response) variable. 
 
 2. The complexity parameter can be chosen with cross validation or using some model selection criterion such as AIC. 
+
+3. L1 penalizes sum of absolute value of weights. L1 has a sparse solution. L1 has multiple solutions. L1 has built in feature selection. L1 is robust to outliers. L1 generates model that are simple and interpretable but cannot learn complex patterns.
+
+4. L2 regularization penalizes sum of square weights. L2 has a non sparse solution. L2 has one solution. L2 has no feature selection. L2 is not robust to outliers. L2 gives better prediction when output variable is a function of all input features. L2 regularization is able to learn complex data patterns.
+
+# $L_{1}$ and $L_{2} as loss function
+
+$L_{1}$ Loss Function is used to minimize the error which is the sum of the all the absolute differences between the true value and the predicted value.
+
+$$
+\text{$L_{1}$ Loss} = \sum_{i=1}^{n} \abs{y_{true} - y_{predicted}}
+$$
+
+$L_{2}$ Loss Function is used to minimize the error which is the sum of the all the squared differences between the true value and the predicted value.
+
+$$
+\text{$L_{2}$ Loss} = \sum_{i=1}^{n} (y_{true} - y_{predicted})^{2}
+$$
+
+Generally, $L_{2}$ Loss Function is preferred in most of the cases. But when the outliers are present in the dataset, then the L2 Loss Function does not perform well. The reason behind this bad performance is that if the dataset is having outliers, then because of the consideration of the squared differences, it leads to the much larger error. Hence, $L_{2}$ Loss Function is not useful here. Prefer $L_{1}$ Loss Function as it is not affected by the outliers or remove the outliers and then use $L_{2}$ Loss Function.
+
+# Why does $L_{1}$ regularization cause parameter sparsity where $L_{2}$ regularization does not?
 
 # REFERENCES
 
