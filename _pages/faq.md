@@ -3154,9 +3154,51 @@ It may be tempting to think of KL Divergence as a distance metric, however we ca
 
 #### What is gradient descent?
 
-Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
+In order to find the minimum value for a function, essentially, there are two things that you should know to reach the minima, i.e. which way to go and how big a step to take.
+
+Gradient descent is a first-order iterative optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gradient_cost.gif?raw=true)
+
+{% highlight python %}
+while True:
+  weights_grad = evaluate_gradient(loss_fun, data, weights)
+  weights += - step_size * weights_grad # perform parameter update
+{% endhighlight %}
+
+This simple loop is at the core of all Neural Network libraries. There are other ways of performing the optimization (e.g. LBFGS), but Gradient Descent is currently by far the most common and established way of optimizing Neural Network loss functions.
+
+When we have a cost function $J(\theta)$ with parameters $\theta$, Gradient Descent will be implemented for each $\theta_{j}$ as follows:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/0_8yzvd7QZLn5T1XWg.jpg?raw=true)
+
+For example, the following code example applies the gradient descent algorithm to find the minimum of the function $f(x)=x^{4}-3x^{3}+2$ with derivative $f'(x)=4x^{3}-9x^{2}$.
+
+Solving for $4x^{3}-9x^{2}=0$ and evaluation of the second derivative at the solutions shows the function has a plateau point at 0 and a global minimum at $x={\tfrac {9}{4}}$.
+
+{% highlight python %}
+next_x = 6  # We start the search at x=6
+learning_rate = 0.01  # Step size multiplier
+precision = 0.00001  # Desired precision of result
+max_iters = 10000  # Maximum number of iterations
+
+# Derivative function
+def df(x):
+    return 4 * x**3 - 9 * x**2
+
+for _i in range(max_iters):
+    current_x = next_x
+    next_x = current_x - learning_rate * df(current_x)
+
+    step = next_x - current_x
+    if abs(step) <= precision:
+        break
+
+print("Minimum at", next_x)
+
+# The output for the above will be something like
+# "Minimum at 2.2499646074278457"
+{% endhighlight %}
 
 #### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
 
