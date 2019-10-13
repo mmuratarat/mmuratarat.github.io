@@ -187,7 +187,7 @@ permalink: /faq/
 36. [Describe the difference between univariate, bivariate and multivariate analysis?](#describe-the-difference-between-univariate-bivariate-and-multivariate-analysis)
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
 38. [What is out-of-core learning?](#what-is-out-of-core-learning)
-39. How do you detect outliers in a dataset?
+39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -2969,7 +2969,7 @@ plt.savefig('Box_plot_data.png')
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Box_plot_data.png?raw=true)
 
-###### Why 1.5?
+##### Why 1.5?
 
 We certainly CAN use whatever outlier bound we wish to use, but we will have to justify it eventually.
 
@@ -2977,7 +2977,7 @@ The image below is a comparison of a boxplot of a nearly normal distribution and
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_NRlqiZGQdsIyAu0KzP7LaQ.png?raw=true)
 
-The 3rd quartile (Q3) is positioned at .675 SD (std deviation, sigma) for a normal distribution. The IQR (Q3 - Q1) represents 2 x 0.675 SD = 1.35 SD. The outlier fence is determined by adding Q3 to 1.5 x IQR, i.e., .675 SD + 1.5 x 1.35 SD = 2.7 SD. This level would declare 0.7\% of the measurements to be outliers.
+The 3rd quartile (Q3) is positioned at 0.675 SD (standard deviation, sigma) for a normal distribution. The IQR (Q3 - Q1) represents 2 x 0.675 SD = 1.35 SD. The outlier fence is determined by adding Q3 to 1.5 x IQR, i.e., .675 SD + 1.5 x 1.35 SD = 2.7 SD. This level would declare 0.7% of the measurements to be outliers.
 
 {% highlight python %}
 x = randn(10000)
@@ -2994,11 +2994,11 @@ p = norm.cdf(w2, loc=0, scale=1) - norm.cdf(w1, loc=0, scale=1)
 #0.9931445258100557
 {% endhighlight %}
 
-You will see that p is 0.993, so that 99.3\% of N(0,1) data are within the whiskers, 0.7\% of the measurements are out.
+You will see that $p$ is 0.993, so that 99.3% of N(0,1) data are within the whiskers, 0.7% of the measurements are out.
 
-**2** - Standard Deviation Method
+**2** - **Standard Deviation Method**
 
-If we know that the distribution of values in the sample is Gaussian or Gaussian-like, we can use the standard deviation of the sample as a cut-off for identifying outliers. Using the same plot above, ghree standard deviations from the mean is a common cut-off in practice for identifying outliers in a Gaussian or Gaussian-like distribution. For smaller samples of data, perhaps a value of 2 standard deviations (95\%) can be used, and for larger samples, perhaps a value of 4 standard deviations (99.9\%) can be used. A value that falls outside of these ranges is part of the distribution, but it is an unlikely or rare event.
+If we know that the distribution of values in the sample is Gaussian or Gaussian-like, we can use the standard deviation of the sample as a cut-off for identifying outliers. Using the same plot above, ghree standard deviations from the mean is a common cut-off in practice for identifying outliers in a Gaussian or Gaussian-like distribution. For smaller samples of data, perhaps a value of 2 standard deviations (95%) can be used, and for larger samples, perhaps a value of 4 standard deviations (99.9%) can be used. A value that falls outside of these ranges is part of the distribution, but it is an unlikely or rare event.
 
 {% highlight python %}
 data_mean, data_std = mean(data), std(data)
