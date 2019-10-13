@@ -316,7 +316,7 @@ elastic_net.predict([[1.5]])
 $L_{1}$ Loss Function is used to minimize the error which is the sum of the all the absolute differences between the true value and the predicted value.
 
 $$
-\text{$L_{1}$ Loss} = \sum_{i=1}^{n} \abs{y_{true} - y_{predicted}}
+\text{$L_{1}$ Loss} = \sum_{i=1}^{n} \lvert y_{true} - y_{predicted} \rvert
 $$
 
 $L_{2}$ Loss Function is used to minimize the error which is the sum of the all the squared differences between the true value and the predicted value.
@@ -347,7 +347,7 @@ $$
 With $L_{1}$ regularization, the optimization problem becomes:
 
 $$
-\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[\lambda \left( \mid  \theta_{1} \mid + \mid  \theta_{2} \mid \right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
+\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[\lambda \left( \mid \theta_{1} \mid + \mid \theta_{2} \mid \right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
 $$
 
 With $L_{2}$ regularization
