@@ -21,8 +21,8 @@ i.e., a logistic transformation of the classifier scores $f(x)$, where $A$ and $
 
 The parameters $A$ and $B$ are estimated using a maximum likelihood method that optimizes on the same training set as that for the original classifier $f$. To avoid overfitting to this set, a held-out calibration set or cross-validation can be used, but Platt additionally suggests transforming the labels $y$ to target probabilities:
 
-* $t_{{+}}={\frac  {N_{{+}}+1}{N_{{+}}+2}}$ for positive samples ($y = 1$), and
-* $t_{{-}}={\frac  {1}{N_{{-}}+2}}$ for negative samples, $y = -1$.
+* $t_{+} = \frac{N_{+} + 1}{N_{+} + 2}$ for positive samples ($y = 1$), and
+* $t_{-} = \frac{1}{N_{-} + 2}$ for negative samples, $y = -1$.
 
 Here, $N_{+}$ and $N_{-}$ are the number of positive and negative samples, respectively. This transformation follows by applying Bayes' rule to a model of out-of-sample data that has a uniform prior over the labels. The constants $1$ and $2$, on the numerator and denominator respectively, are derived from the application of Laplace Smoothing.
 
