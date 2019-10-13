@@ -351,11 +351,20 @@ $$
 With $L_{2}$ regularization
 
 $$
-\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[\lambda \left((\theta_{1})^{2} + (\theta_{2})^{2} right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
+\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[ \lambda \left((\theta_{1})^{2} + (\theta_{2})^{2} \right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
 $$
 
+$\lambda$ plays the role of a trade-off between model complexity and underfitting. Once this optimal value for $\lambda$ is found by cross-validation or validation set, we can say that we have found a certain optimal value for regularization term.
 
-$\lambda$ plays the role of a trade-off between model complexity and underfitting.
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2014.36.11.png?raw=true)
+
+By looking at Figure, you can see why $L_{1}$ acts as a feature selector. The optimum of $L_{1}$-regularized cost is always found on one or more axes, which means that one or more $\theta_{j}$ in the solution is zero. So, the corresponding feature is excluded from the model.
+
+In the same Figure, the contours of the elipses correspond to sub-optimal solutions for unregularized cost function. All solutions on the contour of some ellipse have the same value. Smallar the elliple, the closer the solution of this optimization problem to the optimum.
+
+You can make sure that indeed the equation $\frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2} = r$ for some $r$ is an ellipse by creating two or more random training examples in the form $(\mathbf{x}, y)$, fixing $\theta_{0}$ and $r$ at some values. $\theta_{0}$ only affects the position of the ellipse not its form while $r$ affect the only its size. Once you fixed all values the only remaning variables are  $\theta_{1}$ and  $\theta_{2}$.
+
+Notice that you need at least two different training examples because with one example, you will obtain two parallel lines not ellipse.
 
 # REFERENCES
 
