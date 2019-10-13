@@ -3240,6 +3240,8 @@ for i in range(num_epochs):
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_PV-fcUsNlD9EgTIc61h-Ig.png?raw=true)
 
+As the figure above shows, SGD direction is very noisy compared to mini-batch.
+
 #### What will happen if the learning rate is set too low or too high?
 
 The size of these steps is called the learning rate which controls the rate at which we’re updating the weights of each parameter in the opposite direction of the gradient. The greater the learning rate, the larger the change in the weights at each training step. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point (minima of the loss function) and diverging since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom. This is a parameter you may want to tune or adjust during training.
