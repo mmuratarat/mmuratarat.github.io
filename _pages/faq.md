@@ -3202,6 +3202,13 @@ print("Minimum at", next_x)
 
 #### Explain the following three variants of gradient descent: batch, stochastic and mini-batch?
 
+1. **Batch Gradient Descent**: 
+  This is a type of gradient descent which processes all the training examples for each iteration of gradient descent. But if the number of training examples is large, then batch gradient descent is computationally very expensive. Hence if the number of training examples is large, then batch gradient descent is not preferred. Instead, we prefer to use stochastic gradient descent or mini-batch gradient descent.
+2. **Stochastic Gradient Descent**: 
+  This is a type of gradient descent which processes 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large.
+3. **Mini Batch gradient descent**:
+  This is a type of gradient descent which works faster than both batch gradient descent and stochastic gradient descent. Here b examples where b<m are processed per iteration. So even if the number of training examples is large, it is processed in batches of b training examples in one go. Thus, it works for larger training examples and that too with lesser number of iterations.
+
 #### What will happen if the learning rate is set too low or too high?
 
 The size of these steps is called the learning rate which controls the rate at which we’re updating the weights of each parameter in the opposite direction of the gradient. The greater the learning rate, the larger the change in the weights at each training step. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point (minima of the loss function) and diverging since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom. This is a parameter you may want to tune or adjust during training.
