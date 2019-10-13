@@ -36,7 +36,7 @@ Effectively, Platt scaling trains a probability model on top of the SVM's output
 
 Additionally, the probability estimates may be inconsistent with the scores, in the sense that the "argmax" of the scores may not be the argmax of the probabilities. (E.g., in binary classification, a sample may be labeled by `predict` as belonging to a class that has probability $< \frac{1}{2}$ according to `predict_proba`.) 
 
-For example, the B parameter ("intercept" or "bias") can cause predictions based on probability estimates from this model to be inconsistent with the ones you get from the SVM decision function $f$. Suppose that $f(X) = 10$, then the prediction for $X$ is positive (because it has a positive sign); but if $B = - 9.9$ and $A = 1$, then $P(y|X) = 0.475$. 
+For example, the $B$ parameter ("intercept" or "bias") can cause predictions based on probability estimates from this model to be inconsistent with the ones you get from the SVM decision function $f$. Suppose that $f(X) = 10$, then the prediction for $X$ is positive (because it has a positive sign); but if $B = - 9.9$ and $A = 1$, then $P(y \mid X) = 0.475$. 
 
 Platt's method is also known to have theoretical issues. If confidence scores are required, but these do not have to be probabilities, then it is advisable to set `probability=False` and use `decision_function` instead of `predict_proba`.
 
