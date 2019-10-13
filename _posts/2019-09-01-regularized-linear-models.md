@@ -305,11 +305,11 @@ elastic_net.predict([[1.5]])
 
 2. The complexity parameter can be chosen with cross validation or using some model selection criterion such as AIC. 
 
-3. L1 penalizes sum of absolute value of weights. L1 has a sparse solution. L1 has multiple solutions. L1 has built in feature selection. L1 is robust to outliers. L1 generates model that are simple and interpretable but cannot learn complex patterns.
+3. $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solution. $L_{1}$ has multiple solutions. $L_{1}$ has built in feature selection. $L_{1}$ is robust to outliers. $L_{1}$ generates model that are simple and interpretable but cannot learn complex patterns.
 
-4. L2 regularization penalizes sum of square weights. L2 has a non sparse solution. L2 has one solution. L2 has no feature selection. L2 is not robust to outliers. L2 gives better prediction when output variable is a function of all input features. L2 regularization is able to learn complex data patterns.
+4. $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
 
-# $L_{1}$ and $L_{2} as loss function
+# $L_{1}$ and $L_{2}$ as loss function
 
 $L_{1}$ Loss Function is used to minimize the error which is the sum of the all the absolute differences between the true value and the predicted value.
 
