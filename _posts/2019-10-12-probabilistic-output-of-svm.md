@@ -17,7 +17,11 @@ $$
 P(y=1 \mid x)=\frac{1}{1+\exp(Af(x)+B)}
 $$
 
-i.e., a logistic transformation of the classifier scores $f(x)$, where $A$ and $B$ are two scalar parameters that are learned by the algorithm. Note that predictions can now be made according to $y = 1$ iff $P(y=1 \mid x) > \frac{1}{2}$; if $B \neq 0$, the probability estimates contain a correction compared to the old decision function $y = sign(f(x))$. 
+i.e., a logistic transformation of the classifier scores $f(x)$, where $A$ and $B$ are two scalar parameters that are learned by the algorithm. 
+
+You essentially create a new data set that has the same labels, but with one dimension (the output of the SVM). You then train on this new data set, and feed the output of the SVM as the input to this calibration method, which returns a probability. In Platt’s case, we are essentially just performing logistic regression on the output of the SVM with respect to the true class labels.
+
+Note that predictions can now be made according to $y = 1$ iff $P(y=1 \mid x) > \frac{1}{2}$; if $B \neq 0$, the probability estimates contain a correction compared to the old decision function $y = sign(f(x))$. 
 
 The parameters $A$ and $B$ are estimated using a maximum likelihood method that optimizes on the same training set as that for the original classifier $f$. To avoid overfitting to this set, a held-out calibration set or cross-validation can be used, but Platt additionally suggests transforming the labels $y$ to target probabilities:
 
@@ -26,7 +30,7 @@ The parameters $A$ and $B$ are estimated using a maximum likelihood method that 
 
 Here, $N_{+}$ and $N_{-}$ are the number of positive and negative samples, respectively. This transformation follows by applying Bayes' rule to a model of out-of-sample data that has a uniform prior over the labels. The constants $1$ and $2$, on the numerator and denominator respectively, are derived from the application of Laplace Smoothing.
 
-An alternative approach to probability calibration is to fit an isotonic regression model to an ill-calibrated probability model. This has been shown to work better than Platt scaling, in particular when enough training data is available.
+An alternative approach to probability calibration is to fit an isotonic regression model to an ill-calibrated probability model. The idea is to fit a piecewise-constant non-decreasing function instead of logistic regression. Piecewise-constant non-decreasing means stair-step shaped. This has been shown to work better than Platt scaling, in particular when enough training data is available.
 
 a Relevance Vector Machine (RVM) can also be used instead of a plain SVM for probabilistic output. RVM is a machine learning technique that uses Bayesian inference to obtain parsimonious solutions for regression and probabilistic classification. The RVM has an identical functional form to the support vector machine, but provides probabilistic classification.
 
