@@ -327,6 +327,36 @@ Generally, $L_{2}$ Loss Function is preferred in most of the cases. But when the
 
 # Why does $L_{1}$ regularization cause parameter sparsity where $L_{2}$ regularization does not?
 
+For simplicity, let's consider two-dimensional feature vectors and mean squared error:
+
+$$
+h_{\theta_{0}, \theta_{1}, \theta_{2}}(\mathbf{x}^{(i)}) =  \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)}
+$$
+
+The optimization problem we have here is
+
+$$
+\begin{split}
+\min_{\theta_{0}, \theta_{1}, \theta_{2}}  MSE (\mathbf{X}, \theta_{0}, \theta_{1}, \theta_{2}) &= \frac{1}{m} \sum_{i=1}^{m} \left(h_{\theta}(\mathbf{x}^{(i)}) - y^{(i)}\right)^{2}\\
+&= \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\\
+\end{split}
+$$
+
+With $L_{1}$ regularization, the optimization problem becomes:
+
+$$
+\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[\lambda \left( \mid  \theta_{1} \mid + \mid  \theta_{2} \mid \right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
+$$
+
+With $L_{2}$ regularization
+
+$$
+\min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[\lambda \left((\theta_{1})^{2} + (\theta_{2})^{2} right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
+$$
+
+
+$\lambda$ plays the role of a trade-off between model complexity and underfitting.
+
 # REFERENCES
 
 1. [https://web.stanford.edu/~hastie/Papers/ESLII.pdf](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){:target="_blank"}
