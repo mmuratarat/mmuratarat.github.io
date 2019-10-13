@@ -2977,7 +2977,7 @@ The image below is a comparison of a boxplot of a nearly normal distribution and
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_NRlqiZGQdsIyAu0KzP7LaQ.png?raw=true)
 
-The 3rd quartile (Q3) is positioned at 0.675 SD (standard deviation, sigma) for a normal distribution. The IQR (Q3 - Q1) represents 2 x 0.675 SD = 1.35 SD. The outlier fence is determined by adding Q3 to 1.5 x IQR, i.e., .675 SD + 1.5 x 1.35 SD = 2.7 SD. This level would declare 0.7% of the measurements to be outliers.
+The 3rd quartile (Q3) is positioned at 0.675 SD (standard deviation, sigma) for a normal distribution. The IQR (Q3 - Q1) represents 2 x 0.675 SD = 1.35 SD. The outlier fence is determined by adding Q3 to 1.5 x IQR, i.e., 0.675 SD + 1.5 x 1.35 SD = 2.7 SD. This level would declare 0.7% of the measurements to be outliers.
 
 {% highlight python %}
 x = randn(10000)
