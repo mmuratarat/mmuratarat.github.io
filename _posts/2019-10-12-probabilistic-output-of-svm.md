@@ -50,10 +50,12 @@ Scikit-learn uses LibSVM internally, and this in turn uses Platt scaling, as det
 
 scikit-learn provides `CalibratedClassifierCV` which can be used to solve this problem: it allows to add probability output to LinearSVC or any other classifier which implements decision_function method:
 
-`svm = LinearSVC()
- clf = CalibratedClassifierCV(svm) 
- clf.fit(X_train, y_train)
- y_proba = clf.predict_proba(X_test)`
+{% highlight python %} 
+svm = LinearSVC()
+clf = CalibratedClassifierCV(svm) 
+clf.fit(X_train, y_train)
+y_proba = clf.predict_proba(X_test)
+{% endhighlight %}
  
 [User guide](https://scikit-learn.org/stable/modules/calibration.html){:target="_blank"} has a nice section on that. By default `CalibratedClassifierCV` + `LinearSVC` will get you Platt scaling, but it also provides other options (isotonic regression method), and it is not limited to SVM classifiers.
 
