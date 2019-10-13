@@ -9,22 +9,22 @@ SVMs don't output probabilities natively, but probability calibration methods ca
 
 One standard way to obtain a "probability" out of a SVM is to use Platt scaling, which  is available in many decent SVM implementations. In the binary case, the probabilities are calibrated using Platt scaling: logistic regression on the SVM's scores, fit by an additional cross-validation on the training data. 
 
-Consider the problem of binary classification: for inputs $x$, we want to determine whether they belong to one of two classes, arbitrarily labeled $+1$ and $-1$. We assume that the classification problem will be solved by a real-valued function $f$, by predicting a class label $y = sign(f(x))$. For many problems, it is convenient to get a probability $P(y=1|x)$, i.e. a classification that not only gives an answer, but also a degree of certainty about the answer. Some classification models do not provide such a probability, or give poor probability estimates.
+Consider the problem of binary classification: for inputs $x$, we want to determine whether they belong to one of two classes, arbitrarily labeled $+1$ and $-1$. We assume that the classification problem will be solved by a real-valued function $f$, by predicting a class label $y = sign(f(x))$. For many problems, it is convenient to get a probability $P(y=1 \mid x)$, i.e. a classification that not only gives an answer, but also a degree of certainty about the answer. Some classification models do not provide such a probability, or give poor probability estimates.
 
 Platt scaling is an algorithm to solve the aforementioned problem. It produces probability estimates
 
 $$
-P(y=1|x)=\frac{1}{1+\exp(Af(x)+B)}
+P(y=1 \mid x)=\frac{1}{1+\exp(Af(x)+B)}
 $$
 
-i.e., a logistic transformation of the classifier scores $f(x)$, where $A$ and $B$ are two scalar parameters that are learned by the algorithm. Note that predictions can now be made according to $y = 1$ iff $P(y=1|x) > \frac{1}{2}$; if $B \neq 0$, the probability estimates contain a correction compared to the old decision function $y = sign(f(x))$. 
+i.e., a logistic transformation of the classifier scores $f(x)$, where $A$ and $B$ are two scalar parameters that are learned by the algorithm. Note that predictions can now be made according to $y = 1$ iff $P(y=1 \mid x) > \frac{1}{2}$; if $B \neq 0$, the probability estimates contain a correction compared to the old decision function $y = sign(f(x))$. 
 
 The parameters $A$ and $B$ are estimated using a maximum likelihood method that optimizes on the same training set as that for the original classifier $f$. To avoid overfitting to this set, a held-out calibration set or cross-validation can be used, but Platt additionally suggests transforming the labels $y$ to target probabilities:
 
 * $t_{{+}}={\frac  {N_{{+}}+1}{N_{{+}}+2}}$ for positive samples ($y = 1$), and
 * $t_{{-}}={\frac  {1}{N_{{-}}+2}}$ for negative samples, $y = -1$.
 
-Here, $N_{{+}}$ and $N_{{-}}$ are the number of positive and negative samples, respectively. This transformation follows by applying Bayes' rule to a model of out-of-sample data that has a uniform prior over the labels. The constants $1$ and $2$, on the numerator and denominator respectively, are derived from the application of Laplace Smoothing.
+Here, $N_{+}$ and $N_{-}$ are the number of positive and negative samples, respectively. This transformation follows by applying Bayes' rule to a model of out-of-sample data that has a uniform prior over the labels. The constants $1$ and $2$, on the numerator and denominator respectively, are derived from the application of Laplace Smoothing.
 
 An alternative approach to probability calibration is to fit an isotonic regression model to an ill-calibrated probability model. This has been shown to work better than Platt scaling, in particular when enough training data is available.
 
@@ -36,7 +36,7 @@ Effectively, Platt scaling trains a probability model on top of the SVM's output
 
 Additionally, the probability estimates may be inconsistent with the scores, in the sense that the "argmax" of the scores may not be the argmax of the probabilities. (E.g., in binary classification, a sample may be labeled by `predict` as belonging to a class that has probability $< \frac{1}{2}$ according to `predict_proba`.) 
 
-For example, the B parameter ("intercept" or "bias") can cause predictions based on probability estimates from this model to be inconsistent with the ones you get from the SVM decision function $f$. Suppose that $f(X) = 10$, then the prediction for $X$ is positive (because it has a positive sign); but if $B = -9.9$ and $A = 1$, then $P(y|X) = 0.475$. 
+For example, the B parameter ("intercept" or "bias") can cause predictions based on probability estimates from this model to be inconsistent with the ones you get from the SVM decision function $f$. Suppose that $f(X) = 10$, then the prediction for $X$ is positive (because it has a positive sign); but if $B = - 9.9$ and $A = 1$, then $P(y|X) = 0.475$. 
 
 Platt's method is also known to have theoretical issues. If confidence scores are required, but these do not have to be probabilities, then it is advisable to set `probability=False` and use `decision_function` instead of `predict_proba`.
 
