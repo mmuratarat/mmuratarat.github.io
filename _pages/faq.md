@@ -3237,6 +3237,8 @@ Mini-batch requires the configuration of an additional "mini-batch size" hyperpa
 **3**- **Stochastic Gradient Descent**: 
 This is a type of gradient descent which processes 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. It adds even more noise to the learning process than mini-batch that helps improving generalization error. However, this would increase the run time.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_tUqDJ5IYOhegTourdKqL0w.png?raw=true)
+
 {% highlight python %}
 for i in range(num_epochs):
   np.random.shuffle(data)
