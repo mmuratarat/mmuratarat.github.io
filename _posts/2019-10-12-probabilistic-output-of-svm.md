@@ -59,5 +59,10 @@ y_proba = clf.predict_proba(X_test)
  
 [User guide](https://scikit-learn.org/stable/modules/calibration.html){:target="_blank"} has a nice section on that. By default `CalibratedClassifierCV` + `LinearSVC` will get you Platt scaling, but it also provides other options (isotonic regression method), and it is not limited to SVM classifiers.
 
+# REFERENCES
 
+1. [http://jsatml.blogspot.com/2013/06/probability-calibration.html](http://jsatml.blogspot.com/2013/06/probability-calibration.html){:target="_blank"}
+2. [http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/){:target="_blank"}
+3. [https://jmetzen.github.io/2015-04-14/calibration.html](https://jmetzen.github.io/2015-04-14/calibration.html){:target="_blank"}
+4. [https://machinelearningmastery.com/calibrated-classification-model-in-scikit-learn/](https://machinelearningmastery.com/calibrated-classification-model-in-scikit-learn/){:target="_blank"}
 
