@@ -142,6 +142,7 @@ permalink: /faq/
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
 57. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
+58. Explain generalized linear model.
 
 [General Machine Learning](#general-machine-learning)
 
@@ -2340,6 +2341,41 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 #### What does statistical interaction mean?
 
 Statistical interaction means the effect of one independent variable(s) on the dependent variable depends on the value of another independent variable(s). Conversely, additivity (i.e., no interaction) means that the effect of one independent variable(s) on the dependent variable does NOT depend on the value of another independent variable(s).
+
+#### Explain generalized linear model.
+The generalized linear model (GLM) is a flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution. The GLM generalizes linear regression by allowing the linear model to be related to the response variable via a link function and by allowing the magnitude of the variance of each measurement to be a function of its predicted value.
+
+Ordinary linear regression predicts the expected value of a given unknown quantity (the response variable, a random variable) as a linear combination of a set of observed values (predictors).
+
+In a generalized linear model (GLM), each outcome Y of the dependent variables is assumed to be generated from a particular distribution in an exponential family, a large class of probability distributions that includes the normal, binomial, Poisson and gamma distributions.
+
+The GLM consists of three elements:
+
+1. An exponential family of probability distributions.
+2. A linear predictor $\nu = \mathbf{X}\beta$. 
+3. A link function $g$ such that $E(Y \mid X) = \mu = g^{-1}(\nu)$, i.e., $g(\mu) = \nu = \mathbf{X}\beta$. The link function provides the relationship between the linear predictor and the mean of the distribution function. For the most common distributions, the mean $\mu$  is one of the parameters in the standard form of the distribution's density function.
+
+The unknown parameters, $\beta$, are typically estimated with maximum likelihood, maximum quasi-likelihood, or Bayesian techniques.
+
+Example:
+
+1. Normal distribution, we have identity, link function:
+
+  $$
+g(\mu) = \mu = \mathbf{X}\beta
+$$
+
+2. Poisson distribution, we have log link function:
+
+  $$
+ln(\mu) = \mathbf{X}\beta \Rightarrow \mu = exp\left(\mathbf{X}\beta \right)
+$$
+
+3. For Bernoulli, Binomial, Nultinoulli (categorical) and Multinominal distributions, we have logit link function:
+
+  $$
+logit(\mu) = ln(\frac{\mu}{1-\mu}) = \mathbf{X}\beta \Rightarrow \mu = \frac{1}{1+exp(-\mathbf{X}\beta)}
+$$
 
 
 ## General Machine Learning
