@@ -3789,6 +3789,19 @@ Keras is an API standard for defining and training machine learning models. A re
 
 #### In which order do SQL queries happen?
 
+Consider the SQL SELECT statement syntax:
+
+{% highlight sql %}
+SELECT DISTINCT <TOP_specification> <select_list>
+FROM <left_table>
+<join_type> JOIN <right_table>
+ON <join_condition>
+WHERE <where_condition>
+GROUP BY <group_by_list>
+HAVING <having_condition>
+ORDER BY <order_by_list>
+{% endhighlight %}
+
 ![](https://jvns.ca/images/sql-queries.jpeg)
 Source: [https://jvns.ca/blog/2019/10/03/sql-queries-don-t-start-with-select/](https://jvns.ca/blog/2019/10/03/sql-queries-don-t-start-with-select/){:target="_blank"}
 
@@ -3799,8 +3812,11 @@ the order is:
 3. `GROUP BY`
 4. `HAVING`
 5. `SELECT` (including window functions)
+6. `DISTINCT`
 6. `ORDER BY`
 7. `LIMIT`
+
+In practice this order of execution is most likely unchanged from above. With this information, we can fine-tune our queries for speed and performance.
 
 #### What is the difference between UNION and UNION ALL?
 
