@@ -57,7 +57,18 @@ $$
 \end{bmatrix}
 $$
 
-which has eigenvalues equal to 10, 6 and 0.
+which has eigenvalues equal to 10, 6 and 0.It's rank is 2 which is not full rank (4) and its determinant is zero (determinant is the product of eigenvalues). Then, this matrix is singula (non-invertible).
+
+{% highlight python %}
+import numpy as np
+
+a = np.array([[4, 2, 2], [2, 6 , -4], [2, -4, 6]])
+np.linalg.det(a)
+#0.0
+
+np.linalg.matrix_rank(a)
+#2
+{% endhighlight %}
 
 With the "ridge-fix", we get e.g.:
 
