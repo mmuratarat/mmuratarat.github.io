@@ -2368,13 +2368,13 @@ $$
 2. Poisson distribution, we have log link function:
 
   $$
-ln(\mu) = \mathbf{X}\beta \Rightarrow \mu = exp\left(\mathbf{X}\beta \right)
+g(\mu) = ln(\mu) = \mathbf{X}\beta \Rightarrow \mu = exp\left(\mathbf{X}\beta \right)
 $$
 
 3. For Bernoulli, Binomial, Nultinoulli (categorical) and Multinominal distributions, we have logit link function:
 
   $$
-logit(\mu) = ln(\frac{\mu}{1-\mu}) = \mathbf{X}\beta \Rightarrow \mu = \frac{1}{1+exp(-\mathbf{X}\beta)}
+g(\mu) = logit(\mu) = ln(\frac{\mu}{1-\mu}) = \mathbf{X}\beta \Rightarrow \mu = \frac{1}{1+exp(-\mathbf{X}\beta)}
 $$
 
 
@@ -2426,10 +2426,10 @@ $$
 More generally, in a Generalized Linear Model, the mean, $\mu$, of the distribution depends on the independent variables, $x$, through:
 
 $$
-E(y) = g(\mu) = \theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
+g(\mu) = g(E(y_{i} \mid x_{i}))= \theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
 $$
 
-where $\mu$ is the expected value of the response given the covariates.
+where $\mu$ is the expected value of the response given the covariates and $g$ is the link function.
 
 Consequently, its decision boundary is linear. The decision boundary is the set of $x$ such that
 
