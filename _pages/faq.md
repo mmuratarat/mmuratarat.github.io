@@ -2870,6 +2870,8 @@ yes, then you can choose from a wide variety of algorithms. Otherwise, you would
 
 7. **Prediction speed**: The time spent for generating predictions is also considerably important for choosing the algorithm. Algorithms like SVMs, linear and logistic regression, and (some types of) neural networks, are extremely fast at the prediction time. Others, like kNN, ensemble algorithms, and very deep or recurrent neural networks, are slower. 
 
+![](https://scikit-learn.org/stable/_static/ml_map.png)
+
 #### What is selection bias?
 
 Selection bias is the bias introduced by the selection of individuals, groups or data for analysis in such a way that proper randomization is not achieved, thereby ensuring that the sample obtained is not representative of the population intended to be analyzed. It is sometimes referred to as the selection effect. The phrase "selection bias" most often refers to the distortion of a statistical analysis, resulting from the method of collecting samples. If the selection bias is not taken into account, then some conclusions of the study may be false.
@@ -3048,6 +3050,7 @@ outliers = [x for x in data if x < lower or x > upper]
 {% endhighlight %}
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
+
 
 ## Deep Learning
 
