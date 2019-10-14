@@ -3799,7 +3799,69 @@ A data structure is a specialized format for organizing, processing, retrieving 
 
 #### What are the data structures in Python?
 
-There are quite a few data structures available. The builtins data structures are: lists, tuples, dictionaries, strings, sets and frozensets.
+There are quite a few data structures available. The built-in data structures are: lists, tuples, dictionaries, strings, sets and frozensets.
+
+#### What is `*args` and `**kwargs` in Python?
+
+it is not necessary to write *args or `**kwargs`. Only the `*` (asterisk) is necessary. You could have also written `*var` and `**vars`. Writing *args and `**kwargs` is just a convention. `*args` and `**kwargs` are mostly used in function definitions. `*args` and `**kwargs` allow you to pass a variable number of arguments to a function. What variable means here is that you do not know beforehand how many arguments can be passed to your function by the user so in this case you use these two keywords. `*args` is used to send a non-keyworded variable length argument list to the function. `**kwargs` allows you to pass keyworded variable length of arguments to a function. You should use `**kwargs` if you want to handle named arguments in a function. 
+
+{% highlight python %}
+def multiply(x, y):
+    print (x * y)
+    
+multiply(5, 4)
+# 20
+
+multiply(5, 4, 3)
+# TypeError: multiply() takes 2 positional arguments but 3 were given
+
+def multiply(*args):
+    z = 1
+    for num in args:
+        z *= num
+    print(z)
+
+multiply(4, 5)
+multiply(10, 9)
+multiply(2, 3, 4)
+multiply(3, 5, 10, 6)
+
+# 20
+# 90
+# 24
+# 900
+
+def print_values(**kwargs):
+    for key, value in kwargs.items():
+        print("The value of {} is {}".format(key, value))
+
+print_values(
+            name_1="Alex",
+            name_2="Gray",
+            name_3="Harper",
+            name_4="Phoenix",
+            name_5="Remy",
+            name_6="Val"
+        )
+# The value of name_1 is Alex
+# The value of name_2 is Gray
+# The value of name_3 is Harper
+# The value of name_4 is Phoenix
+# The value of name_5 is Remy
+# The value of name_6 is Val
+{% endhighlight %}
+
+When ordering arguments within a function or function call, arguments need to occur in a particular order:
+
+1. Formal positional arguments
+2. `*args`
+3. Keyword arguments
+4. `**kwargs`
+
+{% highlight python %}
+def example2(arg_1, arg_2, *args, kw_1="shark", kw_2="blobfish", **kwargs):
+...
+{% endhighlight %}
 
 #### What are the commonly used Data Structures?
 
