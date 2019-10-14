@@ -4,6 +4,7 @@ title: "Cross Entropy for Tensorflow"
 author: "MMA"
 comments: true
 ---
+
 Cross entropy can be used to define a loss function (cost function) in machine learning and optimization. It is defined on probability distributions, not single values. It works for classification because classifier output is (often) a probability distribution over class labels. 
 
 For discrete distributions $p$ and $q$, it's given as follows:
@@ -33,13 +34,17 @@ On the other hand, what if we knew exactly half of the points were positive and 
 
 $$ H(p) = -log(2)$$
 
-For every other case in between, we can compute the entropy of a distribution, using the formula below, where K is the number of classes:
+Where $log()$ is the base-2 logarithm and p(x) is the probability of the event x. The choice of the base-2 logarithm means that the units of the information measure is in bits (binary digits).
+
+For every other case in between, we can compute the entropy of a distribution, using the formula below, where $K$ is the number of classes ($K$ discrete states):
 
 $$H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})$$
 
-(This can also be thought as in the following. There are $K$ distinct events. Each event k has probability $p(y_{k})$)
+(This can also be thought as in the following. There are $K$ distinct events. Each event $k$ has probability $p(y_{k})$)
 
-if we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
+Note that the $log()$ function uses base-2 and the units are bits. A natural logarithm can be used instead.
+
+If we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
 
 Let’s assume data points follow this other distribution $q(y)$. But we know they are actually coming from the true (unknown) distribution $p(y)$.
 
