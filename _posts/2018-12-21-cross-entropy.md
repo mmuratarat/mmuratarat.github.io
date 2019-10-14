@@ -28,12 +28,23 @@ $$H(p, q) = -\int_{Y} p(y) \log q(y) dy$$
 Just considering a single observed input/output pair $(x, y)$, $p$ would be the empirical conditional distribution (a delta function over the observed output value), and $q$ would be the modeled conditional distribution (probability of output given input). In this case, the cross entropy reduces to $-\log q(y \mid x)$. Summing over data points, this is just the negative log likelihood!
 
 # ENTROPY
-Entropy is a measure of the uncertainty associated with a given distribution $p(y)$. In a scenario of binary classification, we will have two classes: positive class and negative class. If all the points are positive, the uncertainty of that distribution will be zero. After all, there would be no doubt about the class of a data point: it is always positive! So, entropy is zero!
+
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $k$ distinct state. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy".
+
+$$
+H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})
+$$
+
+In a scenario of binary classification, we will have two classes: positive class and negative class. If all the points are positive, the uncertainty of that distribution will be zero. After all, there would be no doubt about the class of a data point: it is always positive! So, entropy is zero!
+
+\begin{equation}
+entropy = - 1 \log_2 (1) = 0
+\end{equation}
 
 On the other hand, what if we knew exactly half of the points were positive and the other half, negative? That’s the worst case scenario. It is totally random! For that case, entropy is given by (we have two classes with probability 0.5 for each, half/half, $p=q$):
 
 $$
-H(p) = - \log_{2}(p) = - \log_{2}(0.5) = 1
+H(p) = - 0.5 \log_{2}(0.5) - 0.5 \log_{2}(0.5) = 1
 $$
 
 Where $log()$ is the base-2 logarithm and p(x) is the probability of the event x. The choice of the base-2 logarithm means that the units of the information measure is in bits (binary digits).
