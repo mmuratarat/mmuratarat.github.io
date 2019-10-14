@@ -3787,6 +3787,21 @@ Keras is an API standard for defining and training machine learning models. A re
 
 ## SQL
 
+#### In which order do SQL queries happen?
+
+![](https://jvns.ca/images/sql-queries.jpeg)
+Source: [https://jvns.ca/blog/2019/10/03/sql-queries-don-t-start-with-select/](https://jvns.ca/blog/2019/10/03/sql-queries-don-t-start-with-select/){:target="_blank"}
+
+the order is:
+
+1. `FROM/JOIN` and all the `ON` conditions
+2. `WHERE`
+3. `GROUP BY`
+4. `HAVING`
+5. `SELECT` (including window functions)
+6. `ORDER BY`
+7. `LIMIT`
+
 #### What is the difference between UNION and UNION ALL?
 
 UNION removes duplicate records (where all columns in the results are the same), UNION ALL does not.
