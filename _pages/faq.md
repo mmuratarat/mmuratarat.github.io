@@ -2742,9 +2742,10 @@ Note that when you standardize all your variables, the intercept will be zero.
 
 #### How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
 
-You can always check the model performance after adding or removing a features, if the performance of model is dropping or improving you can see if the inclusion of that variable makes sense or not. Apart from that, you tweak different inbuilt model parameters like you increase number of trees to grow or number of iterations to do in random forest, you add a regularisation term in linear regression, you change threshold parameters in logistic regression, you assign weights to several algorithms, if you compare the accuracies and other statistics before and after making such change to model, you can understand if these result into any improvement or not.
+You can always check the model performance after adding or removing a features, if the performance of model is dropping or improving you can see if the inclusion of that variable makes sense or not. Apart from that, you tweak different built-in model parameters (hyperparameters) like you increase number of trees to grow or number of iterations to do in random forest, you add a regularisation term in linear regression, you change threshold parameters in logistic regression, you assign weights to several algorithms, if you compare the accuracies and other statistics before and after making such change to model, you can understand if these result into any improvement or not.
 
 #### What are the hyperparameter tuning methods?
+
 Hyperparameters are not optimized by the learning algorithm itself. The researcher has to tune the hyperparameters by experimentally finding the best combination o fvalues, one per hyper parameter.
 
 One typical way to do that, when you have enough data to have a decent validation set and the number of hyperparameters and their range is not too large is to use __grid search__.
@@ -3152,7 +3153,7 @@ However, there are also some different definitions out there. The loss function 
 
 #### What is cross-entropy? How we define the cross-entropy cost function?
 
-Entropy is a measure of the uncertainty associated with a given distribution $p(y)$. When we have $K$ classes, we compute the entropy of a distribution, using the formula below
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $K$ distinct states. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy". When we have $K$ classes, we compute the entropy of a distribution, using the formula below
 
 $$
 H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})
