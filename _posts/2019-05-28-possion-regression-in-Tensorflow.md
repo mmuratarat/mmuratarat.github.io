@@ -59,10 +59,12 @@ Setting this equation equal to zero does not admit a closed form solution for $\
 
 # Poisson Regression in Tensorflow
 
-{% highlight python %}import tensorflow as tf
+{% highlight python %}
+#Load the libraries
+import tensorflow as tf
+import tensorflow as tf
 import numpy as np
 import pandas as pd
-
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
@@ -75,10 +77,15 @@ def gen_data(N = 10000):
     data['lam'] = lam
     data['response'] = resp
     return data
+
 dtrain = gen_data()
 dtrain.drop('lam', axis=1)
+
 X = tf.constant(dtrain[['intercept', 'Var1', 'Var2', 'Var3']].values, name = 'X', dtype=tf.float32)
+#<tf.Tensor 'X:0' shape=(10000, 4) dtype=float32>
+
 y = tf.constant(value = list(dtrain['response']), dtype = tf.float32, name='y', shape=(dtrain.shape[0], 1))
+#<tf.Tensor 'y:0' shape=(10000, 1) dtype=float32>
 
 parameters = tf.Variable(tf.zeros([4, 1])) #Initial Values
 logits = tf.matmul(X, parameters, name="logits")
