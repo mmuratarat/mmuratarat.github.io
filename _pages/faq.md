@@ -142,7 +142,7 @@ permalink: /faq/
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
 57. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
-58. Explain generalized linear model.
+58. [Explain generalized linear model](#explain-generalized-linear-model).
 
 [General Machine Learning](#general-machine-learning)
 
