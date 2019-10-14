@@ -3122,6 +3122,19 @@ Another important feature of an activation function is also that it should be di
 
 ####  How many types of activation functions are there ?
 
+#### What does the term saturating nonlinearities mean?
+
+A saturating activation function squeezes the input. The Rectified Linear Unit (ReLU) activation function, which is defined as $f(x)=max(0,x)$ is non-saturating because $\lim_{z\to+\infty} f(z) = +\infty$
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/relu.png)
+
+The sigmoid activation function, which is defined as $f(x) = \frac{1}{1+e^{-x}$ is saturating, because it squashes real numbers to range between $[0,1]$:
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/sigmoid.png)
+
+The tanh (hyperbolic tangent) activation function is saturating, because it squashes real numbers to range between $[-1,1]$:
+
+![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/tanh.png)
 
 #### What is a Multi-Layer-Perceptron
 
