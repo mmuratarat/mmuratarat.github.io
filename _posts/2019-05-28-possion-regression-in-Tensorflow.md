@@ -25,16 +25,16 @@ E(y) = Var(y) = \lambda
 $$
 
 # Poisson Regression Model
-In Poisson regression, we suppose that the Poisson incidence rate $\lambda$ is determined by a set of m variables $X$. The expression relating these quantities is 
+In Poisson regression, we suppose that the Poisson incidence rate $\lambda$ is determined by a set of $m$ variables. The expression relating these quantities is given by:
 
 $$
-\log (\lambda_{i}) = X_{i}^{T} \beta
+\log (\lambda_{i}) = \beta^{T} \cdot \mathbf{x}^{(i)}
 $$
 
 In addition to distribution assumption and independence between observations, we will now assume that:
 
 $$
-E[y_{i} \mid x_{i}] = \lambda_{i} = exp(X_{i}^{T} \beta)
+E[y_{i} \mid \mathbf{x}^{(i)}] = \lambda_{i} = exp(\beta^{T} \cdot \mathbf{x}^{(i)})
 $$
 
 that is the mean of $y$ is conditional on X and can vary by individual or observation. Specific form of the link function is somewhat arbitrary but ensures that $\lambda_{i} > 0$. Here, $X_{i}$ is a n-dimensional predictor matrix and $\beta$ is a m-dimensional unknown coefficients. The exponential function (which corresponds to the log link function) is the classical one used in Poisson Regression, which makes sense since it brings the range from $(-\infty, \infty)$ to $(0,\infty)$ comparing it with sigmoid activation function in Bernoulli case.
@@ -45,14 +45,14 @@ $$
 \begin{split}
 \mathcal{L} &= -log \left[\prod_{i=1}^{n}\frac{e^{-\lambda_{i}}\lambda_{i} ^{y_{i}}}{y_{i}!} \right]\\
 &= -\sum_{i=1}^{n} y_{i} \log (\lambda_{i}) + \sum_{i=1}^{n} \lambda_{i} + \sum_{i=1}^{n} \log (y_{i}!)\\
-&= - \sum_{i=1}^{n}y_{i}X_{i}^{T} \beta + \sum_{i=1}^{n} exp(X_{i}^{T} \beta) + \sum_{i=1}^{n} \log (y_{i}!)
+&= - \sum_{i=1}^{n}y_{i} \beta^{T} \cdot \mathbf{x}^{(i)} + \sum_{i=1}^{n} exp(\beta^{T} \cdot \mathbf{x}^{(i)}) + \sum_{i=1}^{n} \log (y_{i}!)
 \end{split}
 $$
 
 Then, maximum likelihood estimator for $\beta$ is:
 
 $$
-\hat{\beta} = \frac{\partial \mathcal{L}}{\partial \beta} = \sum_{i=1}^{n} (y_{i} - exp(X_{i}^{T} \beta)) X_{i}
+\hat{\beta} = \frac{\partial \mathcal{L}}{\partial \beta} = \sum_{i=1}^{n} (y_{i} - exp(\beta^{T} \cdot \mathbf{x}^{(i)})) \mathbf{x}_{i}
 $$
 
 Setting this equation equal to zero does not admit a closed form solution for $\beta$. Hence, a numerical method must be used in order to obtain the estimate.
