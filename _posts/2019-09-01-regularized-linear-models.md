@@ -63,9 +63,12 @@ which has eigenvalues equal to 10, 6 and 0. It's rank is 2 which is not full ran
 import numpy as np
 
 a = np.array([[4, 2, 2], [2, 6 , -4], [2, -4, 6]])
+
+#Determinant
 np.linalg.det(a)
 #0.0
 
+#Rank
 np.linalg.matrix_rank(a)
 #2
 {% endhighlight %}
