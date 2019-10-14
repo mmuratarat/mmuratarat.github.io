@@ -38,7 +38,7 @@ $$
 In a scenario of binary classification, we will have two classes: positive class and negative class. If all the points are positive, the uncertainty of that distribution will be zero. After all, there would be no doubt about the class of a data point: it is always positive! So, entropy is zero!
 
 \begin{equation}
-entropy = - 1 \log_2 (1) = 0
+H(p) = - 1 \log_2 (1) = 0
 \end{equation}
 
 On the other hand, what if we knew exactly half of the points were positive and the other half, negative? That’s the worst case scenario. It is totally random! For that case, entropy is given by (we have two classes with probability 0.5 for each, half/half, $p=q$):
