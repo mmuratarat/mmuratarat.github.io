@@ -82,20 +82,24 @@ dtrain = gen_data()
 dtrain.drop('lam', axis=1)
 
 X = tf.constant(dtrain[['intercept', 'Var1', 'Var2', 'Var3']].values, name = 'X', dtype=tf.float32)
-#<tf.Tensor 'X:0' shape=(10000, 4) dtype=float32>
+# <tf.Tensor 'X:0' shape=(10000, 4) dtype=float32>
 
 y = tf.constant(value = list(dtrain['response']), dtype = tf.float32, name='y', shape=(dtrain.shape[0], 1))
-#<tf.Tensor 'y:0' shape=(10000, 1) dtype=float32>
+# <tf.Tensor 'y:0' shape=(10000, 1) dtype=float32>
 
 parameters = tf.Variable(tf.zeros([4, 1])) #Initial Values
+# <tf.Variable 'Variable:0' shape=(4, 1) dtype=float32_ref>
+
 logits = tf.matmul(X, parameters, name="logits")
+# <tf.Tensor 'logits:0' shape=(10000, 1) dtype=float32> 
+
 y_hat = tf.exp(logits)
 
 # create the loss
 loss = tf.reduce_mean(-y*tf.log(y_hat)+y_hat)
 # last term can be avoided since it doesn't depend on y_pred
 # however keeping it gives a nice lower bound to zero
-#tf.lgamma computes the log of the absolute value of Gamma(x) element-wise
+# tf.lgamma computes the log of the absolute value of Gamma(x) element-wise
 
 learning_rate = 0.001
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
