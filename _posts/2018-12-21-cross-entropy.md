@@ -29,7 +29,7 @@ Just considering a single observed input/output pair $(x, y)$, $p$ would be the 
 
 # ENTROPY
 
-Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $K$ distinct state. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy".
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $K$ distinct states. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy".
 
 $$
 H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})
