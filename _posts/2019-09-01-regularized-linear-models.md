@@ -57,7 +57,7 @@ $$
 \end{bmatrix}
 $$
 
-which has eigenvalues equal to 10, 6 and 0.It's rank is 2 which is not full rank (4) and its determinant is zero (determinant is the product of eigenvalues). Then, this matrix is singula (non-invertible).
+which has eigenvalues equal to 10, 6 and 0. It's rank is 2 which is not full rank (3 - For a square matrix, the matrix is full rank if all rows and columns are linearly independent) and its determinant is zero (determinant is the product of eigenvalues). Then, this matrix is singular (non-invertible).
 
 {% highlight python %}
 import numpy as np
