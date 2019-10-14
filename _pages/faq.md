@@ -3784,3 +3784,41 @@ The rule of thumb for determining the embedding size is the cardinality size div
 #### What is the difference between the version of Keras that’s built-in to TensorFlow, and the version I can find at keras.io?
 
 Keras is an API standard for defining and training machine learning models. A reference implementation of Keras is maintained as an independent open source project, which you can find at www.keras.io. This project is independent of TensorFlow, and has an active community of contributors and users. TensorFlow includes a full implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. TensorFlow includes an implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. These include support for eager execution for intuitive debugging and fast iteration, support for the TensorFlow SavedModel model exchange format, and integrated support for distributed training, including training on TPUs. More can be found on [here](https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a){:target="_blank"}
+
+## SQL
+
+#### What is the difference between UNION and UNION ALL?
+
+UNION removes duplicate records (where all columns in the results are the same), UNION ALL does not.
+
+## Miscellaneous
+
+#### What is a data structure?
+
+A data structure is a specialized format for organizing, processing, retrieving and storing data.  This "format" allows a data structure to be efficient in some operations and inefficient in others. Your goal is to understand data structures so that you can pick the data structure that’s most optimal for the problem at hand.
+
+#### What are the data structures in Python?
+
+There are quite a few data structures available. The builtins data structures are: lists, tuples, dictionaries, strings, sets and frozensets.
+
+#### What are the commonly used Data Structures?
+
+The most commonly used data structures are
+
+1. Arrays
+2. Stacks
+3. Queues
+4. Linked Lists
+5. Trees (and varianst: Binary Tree, Binary Search Tree, Heap)
+6. Graphs
+7. Tries (they are effectively trees, but it’s still good to call them out separately).
+8. Hash Tables
+9. Skip Lists
+
+### What is space complexity and time complexity?
+
+Sometimes, there are more than one way to solve a problem. We need to learn how to compare the performance different algorithms and choose the best one to solve a particular problem. While analyzing an algorithm, we mostly consider **time complexity** and **space complexity**. **Time complexity** of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Similarly, **Space complexity** of an algorithm quantifies the amount of space or memory taken by an algorithm to run as a function of the length of the input.
+
+Time and space complexity depends on lots of things like hardware, operating system, processors, etc. However, we don't consider any of these factors while analyzing the algorithm. We will only consider the execution time of an algorithm.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2021.25.05.png?raw=true)
