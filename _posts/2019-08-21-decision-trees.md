@@ -5,8 +5,6 @@ author: "MMA"
 comments: true
 ---
 
-# Decision Trees
-
 Decision tree is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. A decision tree always considers all features and values for every feature. This means we could call it a greedy algorithm. The way a decision tree decides on which question, i.e. which feature, to ask, is by which question will have the highest information gain. In other words, it chooses the local optimal next feature. This process can be explained with three bullet points:
 
 * Calculate impurity at root node
@@ -177,19 +175,27 @@ Decision tree algorithms use information gain to split a node. There are three c
 **Entropy** (a way to measure impurity):
 
 \begin{equation}
-Entropy = -\sum_jp_j\log_2p_j
+Entropy = - \sum_{j} p_{j} \log_{2} p_{j}
 \end{equation}
+
+For two classes, the equation above is simplified into:
+
+$$
+Entropy = - p \log_{2} (p) - q \log_{2} (q) 
+$$
+
+where $p + q = 1$.
 
 **Gini index** (a criterion to minimize the probability of misclassification):
 
 \begin{equation}
-Gini = 1-\sum_jp_j^2
+Gini = 1-\sum_{j} p_{j}^{2}
 \end{equation}
 
 **Classification Error**:
 
 \begin{equation}
-\text{Classification Error} = 1-\max p_j
+\text{Classification Error} = 1- \max p_{j}
 \end{equation}
 
 where $p_{j}$ is the probability of class $j$.
