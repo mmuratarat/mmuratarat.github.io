@@ -3051,7 +3051,6 @@ outliers = [x for x in data if x < lower or x > upper]
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
 
-
 ## Deep Learning
 
 #### What is structured and unstructured data?
@@ -3837,6 +3836,19 @@ The rule of thumb for determining the embedding size is the cardinality size div
 #### What is the difference between the version of Keras that’s built-in to TensorFlow, and the version I can find at keras.io?
 
 Keras is an API standard for defining and training machine learning models. A reference implementation of Keras is maintained as an independent open source project, which you can find at www.keras.io. This project is independent of TensorFlow, and has an active community of contributors and users. TensorFlow includes a full implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. TensorFlow includes an implementation of the Keras API (in the tf.keras module) with TensorFlow-specific enhancements. These include support for eager execution for intuitive debugging and fast iteration, support for the TensorFlow SavedModel model exchange format, and integrated support for distributed training, including training on TPUs. More can be found on [here](https://medium.com/tensorflow/standardizing-on-keras-guidance-on-high-level-apis-in-tensorflow-2-0-bad2b04c819a){:target="_blank"}
+
+#### Why is the validation loss lower than the training loss?
+
+At the most basic level, a loss function quantifies how “good” or “bad” a given predictor is at classifying the input data points in a dataset. We, therefore, seek to drive our loss down therefore improving the model accuracy. We want to do so as fast as possible and with as little hyperparameter updates/experiments and all without overfitting our network and modeling the training data too closely. We have 4 different cases while training a model: (1) Underfitting - Validation and training error high, (2) Overfitting - Validation error is high, training error low, (3) Good fit - Validation error low, slightly higher than the training error and (4) Unknown fit - Validation error low, training error 'high'. 
+
+**Reason 1**: Regularization mechanisms, such as Dropout and $L_{1}$/$L_{2}$ weight regularization, are turned off at validation/testing time. When training a deep neural network we often apply regularization to help our model in order to obtain higher validation/testing accuracy and ideally, to generalize better to the data outside the validation and testing sets. Regularization methods often sacrifice training accuracy to improve validation/testing accuracy. 
+
+**Reason 2**: The training loss is the average of the losses over each batch of training data. Because your model is changing over time, the loss over the first batches of an epoch is generally higher than over the last batches.
+ 
+**Reason 3**: Training loss is measured during each epoch while validation loss is measured after each epoch. The training loss is continually reported over the course of an entire epoch; however, validation metrics are computed over the validation set only once the current training epoch is completed. This implies, that on average, training losses are measured half an epoch earlier. If you shift the training losses half an epoch to the left you’ll see that the gaps between the training and losses values are much smaller.
+ 
+**Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
+
 
 ## SQL
 
