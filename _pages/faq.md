@@ -3051,6 +3051,7 @@ outliers = [x for x in data if x < lower or x > upper]
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
 
+
 ## Deep Learning
 
 #### What is structured and unstructured data?
@@ -3843,7 +3844,13 @@ Keras is an API standard for defining and training machine learning models. A re
 
 #### Why is the validation loss lower than the training loss?
 
-At the most basic level, a loss function quantifies how “good” or “bad” a given predictor is at classifying the input data points in a dataset. We, therefore, seek to drive our loss down therefore improving the model accuracy. We want to do so as fast as possible and with as little hyperparameter updates/experiments and all without overfitting our network and modeling the training data too closely.  However, choosing the values for the parameters that minimize the loss function on the training data is not necessarily the best policy. We want the learning machine to model true regularities in the data and ignore the noise in the data and to do well on test data that is not known during the learning. 
+At the most basic level, a loss function quantifies how “good” or “bad” a given predictor is at classifying the input data points in a dataset. 
+
+$$
+Loss = \frac{1}{n}\sum_{i=1}^{n} \left[y_{i} \neq f(x_{i}) \right]
+$$
+
+We, therefore, seek to drive our loss down therefore improving the model accuracy. We want to do so as fast as possible and with as little hyperparameter updates/experiments and all without overfitting our network and modeling the training data too closely.  However, choosing the values for the parameters that minimize the loss function on the training data is not necessarily the best policy. We want the learning machine to model true regularities in the data and ignore the noise in the data and to do well on test data that is not known during the learning. 
 
 We have 4 different cases while training a model: (1) _Underfitting_ - Validation and training error high, (2) _Overfitting_ - Validation error is high, training error low, (3) _Good fit_ - Validation error low, slightly higher than the training error and (4) _Unknown fit_ - Validation error low, training error 'high'. 
 
@@ -3854,6 +3861,7 @@ We have 4 different cases while training a model: (1) _Underfitting_ - Validatio
 **Reason 3**: Training loss is measured during each epoch while validation loss is measured after each epoch. The training loss is continually reported over the course of an entire epoch; however, validation metrics are computed over the validation set only once the current training epoch is completed. This implies, that on average, training losses are measured half an epoch earlier. If you shift the training losses half an epoch to the left you’ll see that the gaps between the training and losses values are much smaller.
  
 **Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
+
 
 ## SQL
 
