@@ -148,6 +148,52 @@ print('\nThe accuracy of the classifier is {}%'.format(accuracy_score(y_test, pr
 {% endhighlight %}
 
 
+
+# k-fold Cross Validation for a fixed K
+
+{% highlight python %}
+from sklearn.model_selection import cross_val_score
+import numpy as np
+
+#create a new KNN model
+knn_cv = KNeighborsClassifier(n_neighbors=3)
+#train model with cv of 5 
+cv_scores = cross_val_score(knn_cv, X, y, cv=10)
+#print each cv score (accuracy) and average them
+print(cv_scores)
+# [1.         0.93333333 1.         0.93333333 0.86666667 1.
+#  0.93333333 1.         1.         1.        ]
+print('cv_scores mean:{}'.format(np.mean(cv_scores)))
+# cv_scores mean:0.9666666666666666
+{% endhighlight %}
+
+
+# k-fold Cross Validation and Grid Search
+
+When building an initial K-NN model, we set the parameter `n_neighbors` to any number as a starting point with no real logic behind that choice. In order to find optimal nearest neighbors, we will specify a range of values for `n_neighbors` in order to see which value works best for our model. 
+
+{% highlight python %}
+from sklearn.model_selection import GridSearchCV
+#create new a knn model
+knn2 = KNeighborsClassifier()
+#create a dictionary of all values we want to test for n_neighbors
+param_grid = {'n_neighbors': np.arange(1, 25)}
+#use gridsearch to test all values for n_neighbors
+knn_gscv = GridSearchCV(knn2, param_grid, cv=5)
+#fit model to data
+knn_gscv.fit(X, y)
+
+#check top performing n_neighbors value
+print(knn_gscv.best_params_)
+# {'n_neighbors': 6}
+print(knn_gscv.best_score_)
+# 0.98
+
+plt.plot(knn_gscv.cv_results_['param_n_neighbors'].data, knn_gscv.cv_results_['mean_test_score'])
+{% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/KNN_GSCV.png?raw=true)
+
 # K-NN from Scratch
 {% highlight python %}
 from collections import Counter
