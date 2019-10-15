@@ -67,7 +67,7 @@ Cross-validation is another way to retrospectively determine a good K value by u
 
 3. K-NN can be useful in case of nonlinear data.
 
-4. It can be used with the regression problem. Output value for the object is computed by the average of k closest neighbors value.
+4. It can be used with the regression problem. Output value for the object is computed by the average of K closest neighbors value, $f(x) = \frac{1}{K} \sum_{i=1}^{K} y_{i}$.
 
 5. Since the KNN algorithm requires no training before making predictions, new data can be added seamlessly which will not impact the accuracy of the algorithm.
 
