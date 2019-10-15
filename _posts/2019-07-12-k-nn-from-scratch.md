@@ -194,6 +194,26 @@ plt.plot(knn_gscv.cv_results_['param_n_neighbors'].data, knn_gscv.cv_results_['m
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/KNN_GSCV.png?raw=true)
 
+You do not need to use `GridSearchCV` package. It is easy to implement:
+
+{% highlight python %}
+# search for an optimal value of K for KNN
+# range of k we want to try
+k_range = range(1, 31)
+# empty list to store scores
+k_scores = []
+
+# 1. we will loop through reasonable values of k
+for k in k_range:
+    # 2. run KNeighborsClassifier with k neighbours
+    knn = KNeighborsClassifier(n_neighbors=k)
+    # 3. obtain cross_val_score for KNeighborsClassifier with k neighbours
+    scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+    # 4. append mean of scores for k neighbors to k_scores list
+    k_scores.append(scores.mean())
+print(k_scores)
+{% endhighlight %}
+
 # K-NN from Scratch
 {% highlight python %}
 from collections import Counter
