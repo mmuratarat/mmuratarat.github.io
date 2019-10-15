@@ -3821,6 +3821,10 @@ The LSTM has a set of 2 matrices: $W_{h}$ and $W_{x}$ for each of the (3) gates 
 
 The main reason for stacking LSTM cells is to allow for greater model complexity. The addition of more layers increases the capacity of the network, making it capable of learning a large training dataset and efficiently representing more complex mapping functions from inputs to outputs. In case of a simple feed forward network, we stack layers to create a hierarchial feature representation of the input data to then use for some machine learning task. The same applies for stacked LSTMs. 
 
+#### Why do we stack a dense layer after an LSTM?
+
+The output of a LSTM is not a softmax. Many frameworks just give you the internal state $h$ as output, so the dimensionality of this output is equals to the number of unit, which is propably not the dimensionality of your desired target. Output dimension of a dense layer would be the number of labels you want result.
+
 #### What is an autoencoder?
 
 #### What are some limitations of deep learning?
@@ -3848,7 +3852,6 @@ At the most basic level, a loss function quantifies how “good” or “bad” 
 **Reason 3**: Training loss is measured during each epoch while validation loss is measured after each epoch. The training loss is continually reported over the course of an entire epoch; however, validation metrics are computed over the validation set only once the current training epoch is completed. This implies, that on average, training losses are measured half an epoch earlier. If you shift the training losses half an epoch to the left you’ll see that the gaps between the training and losses values are much smaller.
  
 **Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
-
 
 ## SQL
 
