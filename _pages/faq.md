@@ -3089,6 +3089,10 @@ Deep learning can learn multiple levels of representations that correspond to di
 
 #### What is a perceptron?
 
+#### How to solve OR problem with perceptron?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Image.jpeg?raw=true)
+
 #### What are the shortcomings of a single layer perceptron?
 
 There are two major problems:
