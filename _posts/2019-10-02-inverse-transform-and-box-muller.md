@@ -6,7 +6,7 @@ comments: true
 ---
 # Transformation of Random Variables
 
-Let's consider how to take the transformation of a random variable $X$ with cumulative distribution function $F_{X}(x)$. Let $Y=t(X)$, that is, $Y$ is the transformation of $X$ via function $t(X)$.
+Let's consider how to take the transformation of a random variable $X$ with cumulative distribution function $F_{X}(x)$. Let $Y=t(X)$, that is, $Y$ is the transformation of $X$ via function $t(\cdot)$.
 
 In order to get the CDF of $Y$ we use the definition of CDFs:
 
