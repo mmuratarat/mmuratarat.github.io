@@ -15,7 +15,17 @@ A Logistic Regression model computes a weighted sum of input features (plus a bi
 
 So we have a dataset $\mathbf{X}$ consisting of $m$ datapoints and $n$ features. And there is a class variable $y$ a vector of length $m$ which can have two values $1$ for positive class or $0$ for negative class. Actually $y^{(i)}$ follows a Bernoulli distribution for binary classification. Now logistic regression says that the probability that class variable value $y^{(i)}=1, i=1, 2, \cdots, m$ can be modelled as follows:
 
-$$\hat{p}^{(i)}  = P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)$$
+$$
+h_{\theta} ( \mathbf{x}^{(i)} ) = E \left[y^{(i)} \mid \mathbf{x}^{(i)}\right] =  P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = 0 \times P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) + 1 \times P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = \sigma \left( \theta^{T} \cdot \mathbf{x}^{(i)} \right)
+$$
+
+where $\sigma$ represents sigmoid (logistic) function. But why?
+
+Given that $y$ is binary-valued, it therefore seems natural to choose Bernoulli family of distributions to model the conditional distribution of $y$ given $x$. In the formulation of Bernoulli distribution as an exponential family distribution, we have $p  = \frac{1}{(1+ e^{-\eta}}$. Furthermore, note that if $y \mid x; \theta \sim Bernoulli(p)$, then $E \left[y \mid x\right] = p$.
+
+$$
+h_{\theta} ( \mathbf{x}^{(i)} )  = E \left[y^{(i)} \mid \mathbf{x}^{(i)}\right]  =  P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = \frac{1}{(1+ e^{-\eta}} = \frac{1}{(1+ e^{-\theta^{T} \cdot \mathbf{x}^{(i)}}}
+$$
 
 where $\theta^{T} \cdot \mathbf{x}^{(i)}$ can be written as $\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)}$.
 
