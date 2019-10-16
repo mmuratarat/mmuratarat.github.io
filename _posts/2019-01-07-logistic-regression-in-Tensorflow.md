@@ -21,7 +21,7 @@ $$
 
 where $\sigma$ represents sigmoid (logistic) function. But why?
 
-Given that $y$ is binary-valued, it therefore seems natural to choose Bernoulli family of distributions to model the conditional distribution of $y$ given $x$. In the formulation of Bernoulli distribution as an exponential family distribution, we have $p  = \frac{1}{1+ e^{-\eta}}$. Furthermore, note that if $y \mid x; \theta \sim Bernoulli(p)$, then $E \left[y \mid x\right] = p$.
+The reason comes from generalized linear models. Given that $y$ is binary-valued, it therefore seems natural to choose Bernoulli family of distributions to model the conditional distribution of $y$ given $x$. In the formulation of Bernoulli distribution as an exponential family distribution, we have $p  = \frac{1}{1+ e^{-\eta}}$. Furthermore, note that if $y \mid x; \theta \sim Bernoulli(p)$, then $E \left[y \mid x\right] = p$.
 
 $$
 h_{\theta} ( \mathbf{x}^{(i)} )  = E \left[y^{(i)} \mid \mathbf{x}^{(i)}\right]  =  P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = \frac{1}{1+ e^{-\eta}} = \frac{1}{1+ e^{-\theta^{T} \cdot \mathbf{x}^{(i)}}}
