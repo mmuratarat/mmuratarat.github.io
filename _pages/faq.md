@@ -3135,7 +3135,7 @@ A saturating activation function squeezes the input. The Rectified Linear Unit (
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/relu.png)
 
-The sigmoid activation function, which is defined as $f(x) = \frac{1}{1+e^{-x}$ is saturating, because it squashes real numbers to range between $[0,1]$:
+The sigmoid activation function, which is defined as $f(x) = \frac{1}{1+e^{-x}}$ is saturating, because it squashes real numbers to range between $[0,1]$:
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/sigmoid.png)
 
