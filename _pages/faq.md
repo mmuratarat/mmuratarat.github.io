@@ -3089,9 +3089,9 @@ Deep learning can learn multiple levels of representations that correspond to di
 
 #### What is a perceptron?
 
-Given a training data $(x_{i}, y_{i}, i=1,2, \ldots , n$ and $x_{i} \in \mathbb{R}^{m}$ and the target variable $y_{i} \in \{-1, 1\}$, we try to lean a perceptron classifier.
+Given a training data $(x_{i}, y_{i}), i=1,2, \ldots , n$ and $x_{i} \in \mathbb{R}^{m}$ and the target variable $y_{i} \in \\{-1, 1\\}$, we try to lean a perceptron classifier.
 
-Next we define an activation function $g(z)$ which takes the input values $\mathbf{x}$ and weights $\mathbf{w}$ as input ($\mathbf{z} = w_1x_{1} + \dots + w_mx_{m}$) and if $g(\mathbf{z})$ is greater than a defined threshold $\theta$ we predict $1$ and $-1$ otherwise; in this case, this activation function g is an alternative form of a simple “unit step function,” which is sometimes also called "Heaviside step function". 
+Next we define an activation function $g(z)$ which takes the input values $\mathbf{x}$ and weights $\mathbf{w}$ as input ($\mathbf{z} = w_1x_{1} + \dots + w_mx_{m}$) and if $g(\mathbf{z})$ is greater than a defined threshold $\theta$ we predict $+1$ and $-1$ otherwise; in this case, this activation function $g$ is an alternative form of a simple "unit step function", which is sometimes also called "Heaviside step function". 
 
 $$
 g(\mathbf{z}) =\begin{cases}
