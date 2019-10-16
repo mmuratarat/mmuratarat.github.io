@@ -3089,6 +3089,89 @@ Deep learning can learn multiple levels of representations that correspond to di
 
 #### What is a perceptron?
 
+Given a training data $(x_{i}, y_{i}, i=1,2, \ldots , n$ and $x_{i} \in \mathbb{R}^{m}$ and the target variable $y_{i} \in \{-1, 1\}$, we try to lean a perceptron classifier.
+
+Next we define an activation function $g(z)$ which takes the input values $\mathbf{x}$ and weights $\mathbf{w}$ as input ($\mathbf{z} = w_1x_{1} + \dots + w_mx_{m}$) and if $g(\mathbf{z})$ is greater than a defined threshold $\theta$ we predict $1$ and $-1$ otherwise; in this case, this activation function g is an alternative form of a simple “unit step function,” which is sometimes also called "Heaviside step function". 
+
+$$
+g(\mathbf{z}) =\begin{cases}
+    1 & \text{if }\mathbf{z} \ge \theta\\
+    -1 & \text{otherwise}.
+  \end{cases}
+$$
+
+where
+
+$$\mathbf{z} =  w_1x_{1} + \dots + w_mx_{m} = \sum_{j=1}^{m} w_{j}x_{j} \\ = \mathbf{w}^T\mathbf{x}$$
+
+$\mathbf{w}$ is the weight vector, and $\mathbf{x}$ is an $m$-dimensional sample from the training dataset:
+
+$$
+\mathbf{w} = \begin{bmatrix}
+    w_{1}  \\
+    \vdots \\
+    w_{m}
+\end{bmatrix}
+\quad  \mathbf{x} = \begin{bmatrix}
+    x_{1}  \\
+    \vdots \\
+    x_{m}
+\end{bmatrix}
+$$
+
+![](https://sebastianraschka.com/images/blog/2015/singlelayer_neural_networks_files/perceptron_unit_step.png)
+
+In order to simplify the notation, we bring $\theta$ to the left side of the equation and define $w_{0} = - \theta$ and $x_{0} = 1$.
+
+$$
+\begin{equation}
+ g({\mathbf{z}}) =\begin{cases}
+    1 & \text{if } \mathbf{z} \ge 0\\
+    -1 & \text{otherwise}.
+  \end{cases}
+\end{equation} 
+$$
+
+where
+
+$$\mathbf{z} = w_0x_{0} + w_1x_{1} + \dots + w_mx_{m} = \sum_{j=0}^{m} w_{j}x_{j} \\ = \mathbf{w}^T\mathbf{x}$$
+
+and 
+
+$$
+\mathbf{w} = \begin{bmatrix}
+    w_{0} \\
+    w_{1}  \\
+    \vdots \\
+    w_{m}
+\end{bmatrix}
+\quad  \mathbf{x} = \begin{bmatrix}
+    1 \\
+    x_{1}  \\
+    \vdots \\
+    x_{m}
+\end{bmatrix}
+$$
+
+Perceptron rule is fairly simple and can be summarized by the following steps:
+
+1. Initialize the weights to 0 or small random numbers.
+2. For each training sample $\mathbf{x^{(i)}}$:
+  1. Calculate the output value.
+  2. Update the weights.
+  
+The output value is the class label predicted by the unit step function that we defined earlier ($output = g(z)$) and the weight update is as $w_{j} := w_{j} + \Delta w_{j}$.
+
+The value for updating the weights at each increment is calculated by the learning rule
+
+$$
+\Delta w_j = \alpha \; (\text{target}^{(i)} - \text{output}^{(i)})\;x_{j}^{(i)}
+$$
+
+where $\alpha$ is the learning rate , "target" is the true class label (either $-1$ or $+1$), and the "output" is the predicted class label.
+
+It is important to note that the convergence of the perceptron is only guaranteed if the two classes are linearly separable.
+
 #### How to solve OR problem with perceptron?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Image.jpeg?raw=true)
