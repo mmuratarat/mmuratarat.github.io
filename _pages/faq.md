@@ -2371,7 +2371,7 @@ $$
 g(\mu) = ln(\mu) = \mathbf{X}\beta \Rightarrow \mu = exp\left(\mathbf{X}\beta \right)
 $$
 
-3. For Bernoulli, Binomial, Nultinoulli (categorical) and Multinominal distributions, we have logit link function:
+3. For Bernoulli, Binomial, Multinoulli (categorical) and Multinominal distributions, we have logit link function:
 
   $$
 g(\mu) = logit(\mu) = ln(\frac{\mu}{1-\mu}) = \mathbf{X}\beta \Rightarrow \mu =  \frac{exp(\mathbf{X}\beta)}{1+exp(\mathbf{X}\beta)} = \frac{1}{1+exp(-\mathbf{X}\beta)}
