@@ -2352,8 +2352,8 @@ In a generalized linear model (GLM), each outcome Y of the dependent variables i
 The GLM consists of three elements:
 
 1. An exponential family of probability distributions.
-2. A linear predictor $\nu = \mathbf{X}\beta$. 
-3. A link function $g$ such that $E(Y \mid X) = \mu = g^{-1}(\nu)$, i.e., $g(\mu) = \nu = \mathbf{X}\beta$. The link function provides the relationship between the linear predictor and the mean of the distribution function. For the most common distributions, the mean $\mu$  is one of the parameters in the standard form of the distribution's density function.
+2. A linear predictor $\eta = \mathbf{X}\beta$. 
+3. A link function $g$ such that $E(Y \mid X) = \mu = g^{-1}(\eta)$, i.e., $g(\mu) = \eta = \mathbf{X}\beta$. The link function provides the relationship between the linear predictor and the mean of the distribution function. For the most common distributions, the mean $\mu$  is one of the parameters in the standard form of the distribution's density function.
 
 The unknown parameters, $\beta$, are typically estimated with maximum likelihood, maximum quasi-likelihood, or Bayesian techniques.
 
