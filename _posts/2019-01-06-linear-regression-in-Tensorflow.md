@@ -12,7 +12,7 @@ where $\hat{y}$ is the predicted values, $n$ is the number of features in the da
 
 This equation above can be written much more concisely using a vectorized form (here, it is [dot product](http://wiki.fast.ai/index.php/Linear_Algebra_for_Deep_Learning)):
 
-$$\hat{y} = h_{\theta} ( \mathbf{x} ) =  \theta^{T} \mathbf{x}$$
+$$\hat{y} = h_{\theta} ( \mathbf{x} ) = E(y \mid x) =  \theta^{T} \mathbf{x}$$
 
 where $\theta$ is the model's parameter vector, containing the bias term $\theta_{0}$ and the feature weights, i.e., $\theta_{1}$ to $\theta_{n}$. $\theta^{T}$ is the transpose of $\theta$ (a row vector instead of a column vector). $\mathbf{x}$ is the instance's feature vector, containing $x_{0}$ to $x_{n}$ with $x_{0}$ always equal to $1$. $\left(\theta^{T} \cdot  \mathbf{x} \right)$ is the dot product of $\theta^{T}$ and $\mathbf{x}$. $h_{\theta} (\cdot)$ is the hypothesis function, using the model parameters $\theta$.
 
