@@ -23,7 +23,7 @@ $$
 This is the CDF of $X$:
 
 $$
-P(X \leq r^{-1}(y)) = F_{X}(t^{-1}(y))
+P(X \leq t^{-1}(y)) = F_{X}(t^{-1}(y))
 $$
 
 and that's how we get $F_{Y}(y)$ in terms of $F_{X}(x)$. We can compute the density function $f_{Y}(y)$ by differentiating $F_{Y}(y)$, applying the chain rule:
