@@ -29,6 +29,8 @@ $$
 
 where $\eta = \theta^{T} \cdot \mathbf{x}^{(i)}$ can be written as $\theta_{0} + \theta_{1} x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} + \cdots + \theta_{n} x_{n}^{(i)}$.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Image2_glm_bernoulli.jpeg?raw=true)
+
 Here, fitting the model $\theta^{T} \cdot \mathbf{x}^{(i)}$ does not ensure that the probability $p$ will end up in 0 and 1, as a probability must. Because it is unbounded. The linear combination goes from negative infinity to positive infinity. Therefore, we model $p$ by applying a logistic response or inverse logistic function ($\sigma$) to the predictors. This transform ensures that probability lies between 0 and 1. 
 
 # Sigmoid Function
