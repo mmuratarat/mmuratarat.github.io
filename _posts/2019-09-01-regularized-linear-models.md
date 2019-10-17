@@ -13,7 +13,7 @@ Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \righ
 $$
 
 will also blow up when $\mathbf{X}^{T} \cdot \mathbf{X}$ is singular. If that matrix isn’t exactly singular, but is
-close to being non-invertible, the variances will become huge. Consequently, corresponding t-statistics are typically low.
+close to being non-invertible, the variances will become huge. Consequently, corresponding t-statistics are typically lower, which could lead to the false rejection of a significant predictor.
 
 A square matrix with no inverse is called singular (noninvertible). A matrix $A$ is singular if and only if $det(A) = 0$, which its determinant equals the product of the eigenvalues of $A$. In case of singularity, one of the eigenvalues is zero. In order to see this, you can consider the spectral decomposition of $A$. The spectral decomposition recasts a matrix in terms of its eigenvalues and eigenvectors. This representation turns out to be enormously useful:
 
