@@ -188,8 +188,8 @@ permalink: /faq/
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
 38. [What is out-of-core learning?](#what-is-out-of-core-learning)
 39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
-40. What is Hamming Distance?
-41. What is the difference between Mahalanobis distance and Euclidean distance?
+40. [What is Hamming Distance?](#what-is-hamming-distance)
+41. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -3197,7 +3197,6 @@ Several methods are used to identify outliers in multivariate datasets. Two of t
 
 It is a distance measure and is used for categorical variables. If the value (x) and the value (y) are the samne, the distance will be equal to 0, otherwise it is 1.
 
-{% highlight python %}
 $$
 D_{H} = \sum_{i=1}^{n} \lvert x_{i} - y_{i} \rvert
 $$
@@ -3208,6 +3207,7 @@ x = y  &\Rightarrow D = 0\\
 x \neq y  &\Rightarrow D \neq 0
 $$
 
+{% highlight python %}
 import numpy as np
 s1 = np.random.randint(0,4,20)
 # array([1, 2, 3, 3, 1, 1, 0, 0, 2, 1, 1, 2, 0, 1, 3, 3, 2, 0, 0, 2])
@@ -3244,7 +3244,7 @@ where $\vec{x},\vec{y}$ are vectors, representing the features in the data.
 In general, for an $n$-dimensional space, the distance is
 
 $$
-d(\mathbf {p} ,\mathbf {q} ) = \sqrt {(p_{1}-q_{1})^{2}+(p_{2}-q_{2})^{2}+\cdots +(p_{i}-q_{i})^{2}+\cdots +(p_{n}-q_{n})^{2} = \sqrt {\sum _{i=1}^{n} (p_{i}-q_{i})^{2}}
+d(\mathbf{p} ,\mathbf{q}) = \sqrt { (p_{1}-q_{1})^{2} + (p_{2} - q_{2})^{2} + \cdots + (p_{i} - q_{i})^{2} + \cdots +(p_{n}-q_{n})^{2} = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^{2}}}
 $$
 
 When using Euclidean distance to compare multiple variables, we need to standardize the data which eliminates units and weights, both measures equally. To do so, we can calculate the z-score for each observation:
@@ -3261,11 +3261,13 @@ Euclidean distance treats each variable as equally important in calculating. An 
 
 The Mahalanobis distance of an observation $\vec {x} = (x_{1}, x_{2}, x_{3}, \dots , x_{n})^{T}$ from a set of observations with mean $\vec {\mu } = (\mu_{1}, \mu_{2}, \mu_{3}, \dots ,\mu_{N})^{T}$ and covariance matrix $S$ is defined as:
 
-$D_{M}(\vec {x}) = \sqrt {(\vec {x} - \vec {\mu})^{T} S^{-1}(\vec {x}- \vec {\mu})}
+$$
+D_{M}(\vec{x}) = \sqrt {(\vec {x} - \vec {\mu})^{T} S^{-1}(\vec {x}- \vec {\mu})}
+$$
 
 Mahalanobis distance can also be defined as a dissimilarity measure between two random vectors $\vec {x}$ and $\vec {y}$ of the same distribution with the covariance matrix $S$:
 
-$d(\vec{x},\vec{y}) = \sqrt{(\vec{x}-\vec{y})^T S^{-1} (\vec{x} - \vec{y})}$
+$d(\vec{x}, \vec{y}) = \sqrt{(\vec{x} - \vec{y})^T S^{-1} (\vec{x} - \vec{y})}$
 
 If the covariance matrix is the identity matrix, the Mahalanobis distance reduces to the Euclidean distance. If the covariance matrix is diagonal, then the resulting distance measure is called a standardized Euclidean distance:
 
@@ -3274,6 +3276,28 @@ Unlike the Euclidean Distance though, the Mahalanobis distance accounts for how 
 The question is which one to use and when. When in doubt, use Mahalanobis distance, because we do not have to standardize the data like we do for Euclidean distance. The covariance matrix calculation takes care of this. Also, it removed the redundant information from correlated variables. Even if your variables are not very correlated, it cannot hurt to use Mahalanobis distance, it will be just quite similar to the results you will get from Euclidean. 
 
 One issue with Mahalanobis distance is that it depends on taking the inverse of the covariance matrix. If this matrix is not invertible, you can calculate Moore-Penrose pseudo inverse to calculate Mahalanobis distance.
+
+{% highlight python %}
+import numpy as np
+from scipy.spatial import distance
+
+x1 = np.array([2, 0, 0])
+#(3,)
+
+x2 = np.array([0, 1, 0])
+#(3,)
+
+iv = np.array([[1, 0.5, 0.5], 
+      [0.5, 1, 0.5], 
+      [0.5, 0.5, 1]])
+#(3, 3)
+
+distance.mahalanobis(x1, x2, iv)
+# 1.7320508075688772
+
+distance.euclidean(x1, x2)
+#2.23606797749979
+{% endhighlight %}
 
 
 ## Deep Learning
