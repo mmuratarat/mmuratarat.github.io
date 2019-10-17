@@ -45,8 +45,7 @@ permalink: /faq/
 38. What are singular values, left singulars and right singulars?
 39. What is the connection of Singular Value Decomposition of A with functions of A?
 40. Why are singular values always non-negative?
-41. What is the Moore Penrose pseudo inverse and how to calculate it?
-42. If we do Moore Penrose pseudo inverse on Ax = b, what solution is provided is A is fat? Moreover, what solution is provided if A is tall?
+41. [What is the Moore Penrose pseudo inverse and how to calculate it?](#What is the Moore Penrose pseudo inverse and how to calculate it?)
 43. Which matrices can be decomposed by ED?
 44. Which matrices can be decomposed by SVD?
 45. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
@@ -707,9 +706,9 @@ The inverse of a matrix $A$ can be used to solve the equation $Ax = b$:
 
 $$
 \begin{split}
-A^{-1} Ax = A^{-1}b
-I_n x = A^{-1}b
-x = A^{-1}b
+A^{-1} Ax &= A^{-1}b\\
+I_n x &= A^{-1}b\\
+x &= A^{-1}b
 \end{split}
 $$
 
@@ -722,7 +721,7 @@ $$
 minimizing
 
 $$
-\Lvert A A^{+} - I_n \Rvert_{2}
+\lVert A A^{+} - I_n \rVert_{2}
 $$
 
 The following formula can be used to find the pseudoinverse:
@@ -733,7 +732,7 @@ $$
 
 with $U$, $D$ and $V$ respectively the left singular vectors, the singular values and the right singular vectors of $A$.
 
-$A^{+}$ is the pseudoinverse of $A$ and $D^{+}$ the pseudoinverse of $D$. We saw that $D$ is a diagonal matrix and thus $D^{+}$ can be calculated by taking the reciprocal of the non zero values of $D$.
+$A^{+}$ is the pseudoinverse of $A$ and $D^{+}$ the pseudoinverse of $D$. We saw that $D$ is a diagonal matrix (Remember that $D$ are the singular values that need to be put into a diagonal matrix) and thus $D^{+}$ can be calculated by taking the reciprocal of the non zero values of $D$.
 
 For example, let's find a non square matrix A, calculate its singular value decomposition and its pseudoinverse.
 
@@ -777,8 +776,6 @@ np.linalg.pinv(A)
 It looks good! We can now check that it is really the near inverse of A. Since we know that
 
 $$A^{-1} A = I_{n}$$
-
-\bs{A}^{-1}\bs{A}=\bs{I_n}
 
 $$I_{2}=\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \end{bmatrix}$$
 
