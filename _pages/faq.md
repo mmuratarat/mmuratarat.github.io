@@ -1163,7 +1163,7 @@ $$
 P(B \mid A) = P(B)
 $$
 
-Because $\frac{P(A \cap B) = P(A) \times P(B)$ when $A$ and $B$ are independent events.
+Because $P(A \cap B) = P(A) \times P(B)$ when $A$ and $B$ are independent events.
 
 However, If events $A$ and $B$ are not independent, then the probability of the intersection of $A$ and $B$ (the probability that both events occur) is defined by $P(A\text{ and }B) = P(A \cap B) = P(A)P(B \mid A)$, which $P(A\text{ and }B)$ is the joint probability. Intuitively it states that the probability of observing events $A$ and $B$ is the probability of observing $A$, multiplied by the probability of observing $B$, given that you have observed $A$.
 
