@@ -838,6 +838,29 @@ $$
 \lvert A \rvert_{F} = \sqrt{tr(A A^{T})} = \sqrt{tr(A^{T} A)}
 $$
 
+{% highlight python %}
+import numpy as np
+
+A = np.array([[2, 9, 8], [4, 7, 1], [8, 2, 5]])
+
+A_tr = np.trace(A)
+A_tr
+# 14
+
+np.linalg.norm(A)
+#The Frobenius norm of A is 17.549928774784245.
+
+# With the trace the result is identical:
+np.sqrt(np.trace(A.dot(A.T)))
+# 17.549928774784245
+{% endhighlight %}
+
+Since the transposition of a matrix doesn’t change the diagonal, the trace of the matrix is equal to the trace of its transpose:
+
+$$
+Tr(A) = Tr( A^T)
+$$
+
 #### What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?
 
 In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition).
