@@ -2503,8 +2503,14 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 
 * Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
     
-* Eigenvalues of the correlation matrix of the independent variables near zero indicate multicollinearity. Instead of looking at the numerical size of the eigenvalue, use the condition number. Large condition numbers indicate multicollinearity.
-    
+* Eigenvalues of the correlation matrix of the independent variables near zero indicate multicollinearity. Instead of looking at the numerical size of the eigenvalue, we can use the condition number defined as the square root of the ratio of the largest and smallest eigenvalues in the predictor matrix. Large condition numbers indicate multicollinearity.
+
+  $$
+  CN = \sqrt{\frac{\lambda_{max}}{\lambda_{min}}}
+  $$
+  
+  $CN > 15$ indicates the possible presence of multicollinearity, while a $CN > 30$ indicates serious multicollinearity problems.
+  
 * Investigate the signs of the regression coefficients. Variables whose regression coefficients are opposite in sign from what you would expect may indicate multicollinearity
 
 #### What is R squared?
