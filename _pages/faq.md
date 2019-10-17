@@ -3191,6 +3191,37 @@ outliers = [x for x in data if x < lower or x > upper]
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
 
+#### What is Hamming Distance?
+
+It is a distance measure and is used for categorical variables. If the value (x) and the value (y) are the samne, the distance will be equal to 0, otherwise it is 1.
+
+{% highlight python %}
+$$
+D_{H} = \sum_{i=1}^{n} \lvert x_{i} - y_{i} \rvert
+$$
+
+$$
+\begin{split}
+x = y  &\Rightarrow D = 0\\
+x \neq y  &\Rightarrow D \neq 0
+$$
+
+import numpy as np
+s1 = np.random.randint(0,4,20)
+# array([1, 2, 3, 3, 1, 1, 0, 0, 2, 1, 1, 2, 0, 1, 3, 3, 2, 0, 0, 2])
+
+s2 = np.random.randint(0,4,20)
+# array([1, 3, 1, 0, 3, 3, 3, 3, 2, 1, 2, 3, 3, 0, 2, 0, 1, 1, 2, 3])
+
+def hamming_distance(s1, s2):
+    """Return the Hamming distance between equal-length variables"""
+    if len(s1) != len(s2):
+        raise ValueError("Undefined for variables of unequal length")
+    return sum(el1 != el2 for el1, el2 in zip(s1, s2))
+
+hamming_distance(s1, s2)
+#17
+{% endhighlight %}
 
 ## Deep Learning
 
