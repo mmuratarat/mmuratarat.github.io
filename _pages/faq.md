@@ -699,6 +699,114 @@ $$
 
 It is anti-symmmetric if $A = -A^{T}$
 
+#### What is the Moore Penrose pseudo inverse and how to calculate it?
+
+Not all matrices have an inverse. It is unfortunate because the inverse is used to solve system of equations. In some cases, a system of equation has no solution, and thus the inverse doesn’t exist. However it can be useful to find a value that is almost a solution (in term of minimizing the error). The Moore-Penrose pseudoinverse is a direct application of the SVD.
+
+The inverse of a matrix $A$ can be used to solve the equation $Ax = b$:
+
+$$
+\begin{split}
+A^{-1} Ax = A^{-1}b
+I_n x = A^{-1}b
+x = A^{-1}b
+\end{split}
+$$
+
+But in the case where the set of equations have 0 or many solutions the inverse cannot be found and the equation cannot be solved. The pseudoinverse is $A^{+}$ such as:
+
+$$
+A A^{+} \approx I_n
+$$
+
+minimizing
+
+$$
+\Lvert A A^{+} - I_n \Rvert_{2}
+$$
+
+The following formula can be used to find the pseudoinverse:
+
+$$
+A^+= V D^{+} U^{T}
+$$
+
+with $U$, $D$ and $V$ respectively the left singular vectors, the singular values and the right singular vectors of $A$.
+
+$A^{+}$ is the pseudoinverse of $A$ and $D^{+}$ the pseudoinverse of $D$. We saw that $D$ is a diagonal matrix and thus $D^{+}$ can be calculated by taking the reciprocal of the non zero values of $D$.
+
+For example, let's find a non square matrix A, calculate its singular value decomposition and its pseudoinverse.
+
+$$A = \begin{bmatrix} 7 & 2\\\\ 3 & 4\\\\ 5 & 3 \end{bmatrix}$$
+
+{% highlight python %}
+import numpy as np
+
+A = np.array([[7, 2], [3, 4], [5, 3]])
+U, D, V = np.linalg.svd(A)
+
+# U 
+# array([[-0.69366543,  0.59343205, -0.40824829],
+#        [-0.4427092 , -0.79833696, -0.40824829],
+#        [-0.56818732, -0.10245245,  0.81649658]])
+
+# D
+# array([10.25142677,  2.62835484])
+
+# V
+# array([[-0.88033817, -0.47434662],
+#        [ 0.47434662, -0.88033817]])
+
+D_plus = np.zeros((A.shape[0], A.shape[1])).T
+D_plus[:D.shape[0], :D.shape[0]] = np.linalg.inv(np.diag(D))
+
+A_plus = V.T.dot(D_plus).dot(U.T)
+A_plus
+# array([[ 0.16666667, -0.10606061,  0.03030303],
+#        [-0.16666667,  0.28787879,  0.06060606]])
+{% endhighlight %}
+
+We can now check with the `pinv()` function from Numpy that the pseudoinverse is correct:
+
+{% highlight python %}
+np.linalg.pinv(A)
+# array([[ 0.16666667, -0.10606061,  0.03030303],
+#        [-0.16666667,  0.28787879,  0.06060606]])
+{% endhighlight %}
+
+It looks good! We can now check that it is really the near inverse of A. Since we know that
+
+$$A^{-1} A = I_{n}$$
+
+\bs{A}^{-1}\bs{A}=\bs{I_n}
+
+$$I_{2}=\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \end{bmatrix}$$
+
+{% highlight python %}
+A_plus.dot(A)
+# array([[1.00000000e+00, 2.63677968e-16],
+#        [5.55111512e-17, 1.00000000e+00]])
+{% endhighlight %}
+
+This is not bad! This is almost the identity matrix!
+
+A difference with the real inverse is that $A^{+} A \approx I$ but $A A^{+} \neq I$. 
+
+Another way of computing the pseudoinverse is to use this formula:
+
+$$(A^{T} A)^{−1}A^{T}$$
+
+The result is less acurate than the SVD method and Numpy `pinv()` uses the SVD. Here is an example from the same matrix $A$:
+
+{% highlight python %}
+A_plus_1 = np.linalg.inv(A.T.dot(A)).dot(A.T)
+A_plus_1
+# array([[ 0.16666667, -0.10606061,  0.03030303],
+#        [-0.16666667,  0.28787879,  0.06060606]])
+{% endhighlight %}
+
+In this case the result is the same as with the SVD way.
+
 #### What is the trace of a matrix?
 
 The trace operator gives the sum of all the diagonal entries of a matrix:
