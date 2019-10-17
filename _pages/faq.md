@@ -188,8 +188,9 @@ permalink: /faq/
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
 38. [What is out-of-core learning?](#what-is-out-of-core-learning)
 39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
-40. [What is Hamming Distance?](#what-is-hamming-distance)
-41. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
+40. What is the difference between norm and distance?
+41. [What is Hamming Distance?](#what-is-hamming-distance)
+42. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -3192,6 +3193,53 @@ outliers = [x for x in data if x < lower or x > upper]
 {% endhighlight %}
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
+
+#### What is the difference between norm and distance?
+
+A norm is a distance from origin. A metric is a distance between two points. 
+
+The distance is a two vectors function $d(x,y)$ ($d: X \times X \longrightarrow \mathbb{R}_+$) while the norm is a one vector function $\lVert x \rVert$ ($\lVert \cdot \rVert : X \longrightarrow \mathbb{R}_+$), meaning that you can take the norm of _one element_. However, frequently one can use the norm to calculate the distance by means of the difference of two vectors $\lVert x - y \rVert$. So a norm always induces a distance by:
+
+$$
+d(x,y) = \lVert x - y \rVert
+$$
+
+meaning that all norms can be used to create a distance. 
+
+However, the other way around is not always true, i.e., not all distance functions have a corresponding norm. For a distance to come from a norm, it needs to verify:
+
+$$
+d(x,y)=d(x+a, y+a)\quad (translation invariance)
+$$
+
+and 
+
+$$
+d(\alpha x, \alpha y) = \lvert \alpha \rvert d(x,y)\quad (homogenity)
+$$
+
+For example the Euclidean distance is defined to be:
+
+$$
+dist(x,y)=\bigg(\sum_{i=1}^{n}{(x_{i}-y_{i})^2}\bigg)^{\frac{1}{2}}
+$$
+
+and the Euclidean Norm is defined to be
+
+$$
+\lVert x \rVert = \bigg(\sum_{i=1}^{n}{x_{i}^2}\bigg)^{\frac{1}{2}}
+$$
+
+If we take the discrete distance on any space:
+
+$$
+d(x,y) = \begin{cases}
+1, \text{ if x \neq y}\\
+0, \text{ if x $=$ y}
+\end{cases}
+$$
+
+which can be shown that is translation invariant but not homogenous, e.g. for $\alpha =2$.
 
 #### What is Hamming Distance?
 
