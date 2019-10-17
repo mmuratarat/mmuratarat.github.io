@@ -3703,9 +3703,14 @@ def kl_divergence(p, q):
 # calculate (P || Q)
 kl_pq = kl_divergence(p, q)
 print('KL(P || Q): %.3f bits' % kl_pq)
+# KL(P || Q): 1.927 bits
+
 # calculate (Q || P)
 kl_qp = kl_divergence(q, p)
 print('KL(Q || P): %.3f bits' % kl_qp)
+# KL(Q || P): 2.022 bits
+
+# They are not equal!
 {% endhighlight %}
 
 #### What is gradient descent?
