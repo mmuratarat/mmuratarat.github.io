@@ -45,7 +45,7 @@ permalink: /faq/
 38. What are singular values, left singulars and right singulars?
 39. What is the connection of Singular Value Decomposition of A with functions of A?
 40. Why are singular values always non-negative?
-41. [What is the Moore Penrose pseudo inverse and how to calculate it?](#What is the Moore Penrose pseudo inverse and how to calculate it?)
+41. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-the-moore-penrose-pseudo-inverse-and-how-to-calculate-it)
 43. Which matrices can be decomposed by ED?
 44. Which matrices can be decomposed by SVD?
 45. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
@@ -793,6 +793,8 @@ Another way of computing the pseudoinverse is to use this formula:
 
 $$(A^{T} A)^{−1}A^{T}$$
 
+This formula comes from the fact that $A$ is a tall matrix.
+
 The result is less acurate than the SVD method and Numpy `pinv()` uses the SVD. Here is an example from the same matrix $A$:
 
 {% highlight python %}
@@ -803,6 +805,8 @@ A_plus_1
 {% endhighlight %}
 
 In this case the result is the same as with the SVD way.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tall_fat_inverse.png?raw=true)
 
 #### What is the trace of a matrix?
 
