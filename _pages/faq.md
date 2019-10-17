@@ -3686,6 +3686,26 @@ The KL-Divergence between distributions requires us to know both the true distri
 
 It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL}(p\mid \mid q)$ may not be equal to $D_{KL}(q\mid \mid p)$.
 
+{% highlight python %}
+# example of calculating the kl divergence between two mass functions
+from math import log2
+# define distributions
+events = ['red', 'green', 'blue']
+p = [0.10, 0.40, 0.50]
+q = [0.80, 0.15, 0.05]
+
+# calculate the kl divergence
+def kl_divergence(p, q):
+    return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+
+# calculate (P || Q)
+kl_pq = kl_divergence(p, q)
+print('KL(P || Q): %.3f bits' % kl_pq)
+# calculate (Q || P)
+kl_qp = kl_divergence(q, p)
+print('KL(Q || P): %.3f bits' % kl_qp)
+{% endhighlight %}
+
 #### What is gradient descent?
 
 In order to find the minimum value for a function, essentially, there are two things that you should know to reach the minima, i.e. which way to go and how big a step to take.
