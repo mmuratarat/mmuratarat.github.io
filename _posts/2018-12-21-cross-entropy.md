@@ -100,6 +100,26 @@ The final step is to compute the average of all points in both classes, positive
 
 **NOTE**: It may be tempting to think of KL Divergence as a distance metric, however we cannot use KL Divergence to measure the distance between two distributions. The reason for this is that KL Divergence is not symmetric, meaning that $D_{KL} (p 	\|\| q)$ may not be equal to $D_{KL} (q 	\|\| p)$.
 
+{% highlight python %}
+# example of calculating the kl divergence between two mass functions
+from math import log2
+# define distributions
+events = ['red', 'green', 'blue']
+p = [0.10, 0.40, 0.50]
+q = [0.80, 0.15, 0.05]
+
+# calculate the kl divergence
+def kl_divergence(p, q):
+    return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+
+# calculate (P || Q)
+kl_pq = kl_divergence(p, q)
+print('KL(P || Q): %.3f bits' % kl_pq)
+# calculate (Q || P)
+kl_qp = kl_divergence(q, p)
+print('KL(Q || P): %.3f bits' % kl_qp)
+{% endhighlight %}
+
 **NOTE**: KL divergence is always a non-negative value that indicates how close two probability distributions are. Proofs can be found in [here](https://stats.stackexchange.com/a/335201/16534){:target="_blank"}
 
 # WHAT IS A COST (LOSS) FUNCTION?
