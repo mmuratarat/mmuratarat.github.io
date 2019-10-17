@@ -1147,6 +1147,8 @@ A continuous random variable is one which takes on an uncountably infinite numbe
 
 #### What is a probability distribution?
 
+A random variable can take multiple values. One very important thing is to know if some values will be more often encountered than others. The description of the probability of each possible value that a random variable can take is called its probability distribution.
+
 In probability theory and statistics, a probability distribution is a mathematical function that provides the probabilities of occurrence of different possible outcomes in an experiment. In more technical terms, the probability distribution is a description of a random phenomenon in terms of the probabilities of events. For instance, if the random variable $X$ is used to denote the outcome of a coin toss ("the experiment"), then the probability distribution of $X$ would take the value $0.5$ for $X = \text{heads}$, and $0.5$ for $X = \text{tails}$ (assuming the coin is fair). Examples of random phenomena can include the results of an experiment or survey.
 
 Discrete probability functions are referred to as probability mass functions and continuous probability functions are referred to as probability density functions. 
