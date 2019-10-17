@@ -3244,7 +3244,7 @@ where $\vec{x},\vec{y}$ are vectors, representing the features in the data.
 In general, for an $n$-dimensional space, the distance is
 
 $$
-d(\mathbf{p} ,\mathbf{q}) = \sqrt { (p_{1}-q_{1})^{2} + (p_{2} - q_{2})^{2} + \cdots + (p_{i} - q_{i})^{2} + \cdots +(p_{n}-q_{n})^{2} = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^{2}}}
+d(\mathbf{p} ,\mathbf{q}) = \sqrt { (p_{1}-q_{1})^{2} + (p_{2} - q_{2})^{2} + \cdots + (p_{i} - q_{i})^{2} + \cdots +(p_{n}-q_{n})^{2}} = \sqrt{\sum_{i=1}^{n} (p_{i}-q_{i})^{2}}
 $$
 
 When using Euclidean distance to compare multiple variables, we need to standardize the data which eliminates units and weights, both measures equally. To do so, we can calculate the z-score for each observation:
