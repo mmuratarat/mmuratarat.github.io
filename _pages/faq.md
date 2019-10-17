@@ -188,6 +188,8 @@ permalink: /faq/
 37. [What is the difference between dummying and one-hot encoding?](#what-is-the-difference-between-dummying-and-one-hot-encoding)
 38. [What is out-of-core learning?](#what-is-out-of-core-learning)
 39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
+40. What is Hamming Distance?
+41. What is the difference between Mahalanobis distance and Euclidean distance?
 29. How do you deal with missing value in a data set?
 30. How do you deal with imbalanced data?
 31. How do you deal with high cardinality? 
@@ -3222,6 +3224,57 @@ def hamming_distance(s1, s2):
 hamming_distance(s1, s2)
 #17
 {% endhighlight %}
+
+Hamming distance can be seen as Manhattan distance between categorical variables.
+
+#### What is the difference between Mahalanobis distance and Euclidean distance?
+
+Some supervised and unsupervised algorithms, such as k-nearest neighbors and k-means clustering, depend on distance calculations.
+
+**Euclidean distance**
+
+The Euclidean distance is the "ordinary" straight-line distance between two points in Euclidean space. With this distance, Euclidean space becomes a metric space. The associated norm is called the Euclidean norm. Older literature refers to the metric as the Pythagorean metric. A generalized term for the Euclidean norm is the $L_{2}$ norm or $L_{2}$ distance.
+
+$$
+d(\vec{x},\vec{y}) = \sqrt{(\vec{x}-\vec{y})^T (\vec{x} - \vec{y})}
+$$
+
+where $\vec{x},\vec{y}$ are vectors, representing the features in the data.
+
+In general, for an $n$-dimensional space, the distance is
+
+$$
+d(\mathbf {p} ,\mathbf {q} ) = \sqrt {(p_{1}-q_{1})^{2}+(p_{2}-q_{2})^{2}+\cdots +(p_{i}-q_{i})^{2}+\cdots +(p_{n}-q_{n})^{2} = \sqrt {\sum _{i=1}^{n} (p_{i}-q_{i})^{2}}
+$$
+
+When using Euclidean distance to compare multiple variables, we need to standardize the data which eliminates units and weights, both measures equally. To do so, we can calculate the z-score for each observation:
+
+$$
+z_{i} = \frac{x_{i} - \mu}{\sigma}
+$$
+
+where $x_{i}$ is an observation, $\mu$ and $\sigma$ are the mean and standard deviation of the variable, respectively.
+
+**Mahalanobis distance**
+
+Euclidean distance treats each variable as equally important in calculating. An alternative approach is to scale the contribution of the individual variables to the distance value according to the variability of each variable.
+
+The Mahalanobis distance of an observation $\vec {x} = (x_{1}, x_{2}, x_{3}, \dots , x_{n})^{T}$ from a set of observations with mean $\vec {\mu } = (\mu_{1}, \mu_{2}, \mu_{3}, \dots ,\mu_{N})^{T}$ and covariance matrix $S$ is defined as:
+
+$D_{M}(\vec {x}) = \sqrt {(\vec {x} - \vec {\mu})^{T} S^{-1}(\vec {x}- \vec {\mu})}
+
+Mahalanobis distance can also be defined as a dissimilarity measure between two random vectors $\vec {x}$ and $\vec {y}$ of the same distribution with the covariance matrix $S$:
+
+$d(\vec{x},\vec{y}) = \sqrt{(\vec{x}-\vec{y})^T S^{-1} (\vec{x} - \vec{y})}$
+
+If the covariance matrix is the identity matrix, the Mahalanobis distance reduces to the Euclidean distance. If the covariance matrix is diagonal, then the resulting distance measure is called a standardized Euclidean distance:
+
+Unlike the Euclidean Distance though, the Mahalanobis distance accounts for how correlated the variables are to one another. When two variables are correlated, there is a lot of redundant information in Euclidean distance calculation. By considering the covariance between points in the distance calculation, we remove the redundancy.
+
+The question is which one to use and when. When in doubt, use Mahalanobis distance, because we do not have to standardize the data like we do for Euclidean distance. The covariance matrix calculation takes care of this. Also, it removed the redundant information from correlated variables. Even if your variables are not very correlated, it cannot hurt to use Mahalanobis distance, it will be just quite similar to the results you will get from Euclidean. 
+
+One issue with Mahalanobis distance is that it depends on taking the inverse of the covariance matrix. If this matrix is not invertible, you can calculate Moore-Penrose pseudo inverse to calculate Mahalanobis distance.
+
 
 ## Deep Learning
 
