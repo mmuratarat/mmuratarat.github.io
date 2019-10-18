@@ -38,3 +38,4 @@ NOTE: This blog post consists of images. It might take a while to load in your b
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-27.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-28.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-29.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/linear_rbf.png?raw=true)
