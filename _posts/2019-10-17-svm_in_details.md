@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Support Vector Machine in theoretical details"
+title: "Support Vector Machines in theoretical details"
 author: "MMA"
 comments: true
 ---
