@@ -17,6 +17,7 @@ NOTE: This blog post consists of images. It might take a while to load in your b
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-08.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-09.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-10.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/duality_gap.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-11.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-12.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-13.png?raw=true)
