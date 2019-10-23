@@ -226,7 +226,7 @@ $$
 
 and then simply so $Y \sim N(a\mu + b, a^{2}\sigma^{2})$.
 
-# Affine transformation of univariate normal distribution
+# Affine transformation of multivariate normal distribution
 
 It is possible to transform a multivariate normal distribution into a new normal distribution, using an affine transformation. More specifically, if $X$ is normally distributed and $Y= LX + u$ with $L$ is a linear transformation and $u$ is a vector. Then, $y$ is also norally distributed with mean $\mu_{Y} = u + L \mu_{X}$ and covariance matrix $\Sigma_{Y} = L \Sigma_{X} L^{T}$. 
 
@@ -557,7 +557,7 @@ $$
 
 respectively. Thus, the estimator $\mu_{MLE}$ is equal to the sample mean and the estimator $\sigma_{MLE}^{2}$ is equal to the unadjusted sample variance.
 
-# Maximum Likelihood Estimation for Multivariat Gaussian Distribution
+# Maximum Likelihood Estimation for Multivariate Gaussian Distribution
 
 The maximum likelihood estimators of the mean $\mu$ and the variance $\Sigma$ for multivariate normal distribution are found similarly and are as follows:
 
