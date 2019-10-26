@@ -133,6 +133,8 @@ gives that $\theta_{MAP} =\frac{\sum_{i=1}x_{i} + \alpha -1}{n+\alpha + \beta -2
 
 # Differences
 
+MLE and MAP inference are methods to deduce properties of a probability distribution behind observed data. That being said, there’s a big difference between MLE and MAP. As both methods give you a single fixed value, they’re considered as point estimators.
+
 Comparing MLE and MAP equations, the only thing that differs is the inclusion of the prior distribution of $\theta$, $P(\theta)$ in MAP, otherwise they are identical. What it means that the likelihood is now weighted with some weight coming from the prior. Let's consider that we use the simplest prior in out MAP estmation, i.e., prior uniform. This means that we assign equal weights on all possible values of $\theta$. The implication is that the likelihood equivalently weighted by some constants. Being constant, we could simply ignore it from our MAP equation, as it will not contribute to the maximization.
 
 Let's be more concrete and let's say we could assign six possible vales into $\theta$. Now our prior $P(\theta)$ is $\frac{1}{6}$ everywhere in the distribution, and consequently, we could ignore the constant in our MAP estimation.
@@ -151,3 +153,4 @@ We are back at MLE equation again.
 If we use a different prior, say a Gaussian, then our prior is not constant anymore, as depending on the region of the distribution, the probability is high or low, never always be the same.
 
 Placing a nonuniform prior can be thought of as regularizing the estimation, penalizing values away from maximizing the likelihood, which can lead to overfitting. 
+
