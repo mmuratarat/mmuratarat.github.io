@@ -3816,6 +3816,22 @@ For example:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sgd_example_lr.png?raw=true)
 
+#### What is the relationship between training loss and validation loss in terms of overfitting/underfitting?
+
+Generally speaking though, training error will almost always underestimate your validation error. However it is possible for the validation error to be less than the training. You can think of it two ways:
+
+1. Your training set had many 'hard' cases to learn
+2. Your validation set had mostly 'easy' cases to predict
+
+That is why it is important that you really evaluate your model training methodology. If you don't split your data for training properly your results will lead to confusing, if not simply incorrect, conclusions. One can think of model evaluation in four different categories:
+
+1. **Underfitting** – Validation and training error high
+2. **Overfitting** – Validation error is high, training error low
+3. **Good fit** – Validation error low, slightly higher than the training error
+4. **Unknown fit** - Validation error low, training error 'high'
+
+It is said 'unknown' fit because the result is counter intuitive to how machine learning works. The essence of ML is to predict the unknown. If you are better at predicting the unknown than what you have 'learned', the data between training and validation must be different in some way. This could mean you either need to re-evaluate your data splitting method, adding more data, or possibly changing your performance metric (i.e., are you actually measuring the performance you want?).
+
 #### What will happen if the learning rate is set too low or too high?
 
 The size of these steps is called the learning rate which controls the rate at which we’re updating the weights of each parameter in the opposite direction of the gradient. The greater the learning rate, the larger the change in the weights at each training step. With a high learning rate we can cover more ground each step, but we risk overshooting the lowest point (minima of the loss function) and diverging since the slope of the hill is constantly changing. With a very low learning rate, we can confidently move in the direction of the negative gradient since we are recalculating it so frequently. A low learning rate is more precise, but calculating the gradient is time-consuming, so it will take us a very long time to get to the bottom. This is a parameter you may want to tune or adjust during training.
