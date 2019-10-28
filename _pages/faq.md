@@ -3719,7 +3719,18 @@ print('KL(Q || P): %.3f bits' % kl_qp)
 
 #### What is gradient descent?
 
-In order to find the minimum value for a function, essentially, there are two things that you should know to reach the minima, i.e. which way to go and how big a step to take.
+Gradient is a derivative of a function at a certain point. Basically, gives the slope of the line at that point. In order to find a gradient geometrically (just consider a 2 D graph and any continuous function), we draw a tangent at that point crossing x-axis and a perpendicular to the x-axis from that point. It will form a triangle and now calculating slope is easy. Also if this tangent is parallel to x-axis the gradient is 0 and if it is parallel to y-axis the gradient is infinity. If we have a function which is convex then at the bottom the gradient or derivative is 0. Similarly, if we have a concave function at the top gradient or derivative is 0. Why are we interested in 0? This is because it helps us find either the lowest(convex) or highest(concave) value of the function. Now our machine learning has a cost function and they can either be concave or convex. If it is convex, we look for minimum point, therefore, we use Gradient Descent and if it is concave, we look for maximum point and we use Gradient Ascent.
+
+To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point.
+
+If instead one takes steps proportional to the positive of the gradient, one approaches a local maximum of that function; the procedure is then known as gradient ascent.
+
+In other words:
+
+* gradient descent aims at minimizing some objective function: $\theta_j \leftarrow \theta_j-\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)$
+* gradient ascent aims at maximizing some objective function: $\theta_j \leftarrow \theta_j+\alpha \frac{\partial}{\partial \theta_{j}} J(\theta)$.
+
+Most of the Machine Learning algorithms use convex cost (loss) function. We want to minimize the loss. Hence we use Gradient Descent algorithm. In order to find the minimum value for a function, essentially, there are two things that you should know to reach the minima, i.e. which way to go and how big a step to take.
 
 Gradient descent is a first-order iterative optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient because the gradient points in the direction of the greatest increase of the function, that is, the direction of steepest ascent. In machine learning, we use gradient descent to update the parameters of our model. Parameters refer to coefficients in Linear Regression and weights in neural networks.
 
