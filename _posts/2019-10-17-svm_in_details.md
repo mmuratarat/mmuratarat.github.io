@@ -30,6 +30,7 @@ NOTE: This blog post consists of images. It might take a while to load in your b
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-19.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-20.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-21.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/svm_soft_margin_geometric.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-22.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-23.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC101719-10172019084921-24.png?raw=true)
