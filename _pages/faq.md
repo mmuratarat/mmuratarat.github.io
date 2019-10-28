@@ -1012,7 +1012,7 @@ and
 f[\lambda x_{1} + (1 - \lambda) x_{2}] \leq \lambda f(x_{1}) + (1 - \lambda) f(x_{2}) 
 $$
 
-If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true.
+If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true. (i.e., take the first derivative of the function and set it to zero. You will obtain the critical value. It could be either a minimum or a maximum point. Or a point where the derivative changes the sign. So to know whether the point is min or max we will have to take the second derivative in order to be 100% sure. When the second derivative is positive we have a local minimum point. When the second derivative is negative we have a local maximum point).
 
 The prototypical convex function is shaped something like the letter U.
 
@@ -1024,15 +1024,19 @@ Some convex function examples are shown below:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/convex_func_examples.png?raw=true)
 
-By contrast, the following function is not convex. Notice how the region above the graph is not a convex set:
+By contrast, the following function is not convex. A non-convex function is wavy - has some 'valleys' (local minima) that aren't as deep as the overall deepest 'valley' (global minimum). Optimization algorithms can get stuck in the local minimum, and it can be hard to tell when this happens.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nonconvex_func_example.png?raw=true)
+
+Notice how the region above the graph is not a convex set. A set is convex if, given any two points in the set, the line segment connecting them lies entirely inside the set.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2-Figure1-1.png?raw=true)
 
 A strictly convex function has exactly one local minimum point, which is also the global minimum point. The classic U-shaped functions are strictly convex functions. However, some convex functions (for example, straight lines) are not U-shaped.
 
 If the functions $f$ and $g$ are convex, then any linear combination $a f + b g$ where $a$, $b$ are positive real numbers is also convex.
 
-$f$ is convex if $−f$ is concave.
+A concave function is the negative of a convex function. $−f$ is concave if $f$ is convex.
 
 The introduced concept of convexity has a simple geometric interpretation. Geometrically, the line segment connecting $(x_{1}, f(x_{1}))$ to $(x_{2}, f(x_{2}))$ must sit above the graph of $f$ and never cross the graph itself.
 
