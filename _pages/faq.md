@@ -2807,6 +2807,10 @@ Deep Learning requires high-end machines contrary to traditional Machine Learnin
 
 In traditional Machine learning techniques, most of the applied features need to be identified by an domain expert in order to reduce the complexity of the data and make patterns more visible to learning algorithms to work. The biggest advantage Deep Learning algorithms are that they try to learn high-level features from data in an incremental manner. This eliminates the need of domain expertise and hard core feature extraction, therefore, less human effort. Most of the Machine Learning algorithms require structured data which are typically organized in a tabular format. However, you can work on unstructured data such as images, audios, videos using Deep Learning algorithms.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/difference_ML_and_DL.png?raw=true)
+
+Another major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
+
 Usually, a Deep Learning algorithm takes a long time to train due to large number of parameters. 
 
 Interpretability is the main issue why many sectors are still using other Machine Learning techniques over Deep Learning. 
