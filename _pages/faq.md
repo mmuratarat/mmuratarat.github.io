@@ -2803,6 +2803,14 @@ Created by the Google Brain team, TensorFlow is  a Python-friendly open source l
 
 In deep learning we want to find a mapping function from inputs to outputs. The function to be learned should be expressible as multiple levels of composition of simpler functions where different levels of functions can be viewed as different levels of abstraction. Functions at lower levels of abstraction should be found useful for capturing some simpler aspects of data distribution, so that it is possible to first learn the simpler functions and then compose them to learn more abstract concepts. It is all about learning hierarchical representations: low-level features, mid-level representations, high level concepts. Animals and humans do learn this way with simpler concepts earlier in life, and higher-level abstractions later, expressed in terms of previously learned concepts. 
 
+Deep Learning requires high-end machines contrary to traditional Machine Learning algorithms. GPU/TPU has become a integral part now to execute any Deep Learning algorithm.
+
+In traditional Machine learning techniques, most of the applied features need to be identified by an domain expert in order to reduce the complexity of the data and make patterns more visible to learning algorithms to work. The biggest advantage Deep Learning algorithms are that they try to learn high-level features from data in an incremental manner. This eliminates the need of domain expertise and hard core feature extraction, therefore, less human effort. Most of the Machine Learning algorithms require structured data which are typically organized in a tabular format. However, you can work on unstructured data such as images, audios, videos using Deep Learning algorithms.
+
+Usually, a Deep Learning algorithm takes a long time to train due to large number of parameters. 
+
+Interpretability is the main issue why many sectors are still using other Machine Learning techniques over Deep Learning. 
+
 #### What are the three respects of an learning algorithm to be efficient?
 
 We want learning algorithm to be efficient in three main dimensions:
