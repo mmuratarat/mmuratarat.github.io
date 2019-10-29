@@ -3367,6 +3367,51 @@ distance.euclidean(x1, x2)
 #2.23606797749979
 {% endhighlight %}
 
+#### What is the difference between Support Vector Machines and Logistic Regression?
+
+#### What is the optimization problem for Support Vector Machines?
+
+##### Hard-Margin Classifier
+
+**Primal Problem**:
+
+$$
+\begin{array}{l} {\min \limits_{\vec{w},b} \quad \quad \quad \quad \quad \dfrac{1}{2} \left\| \vec{w}\right\| ^{2}} \\[10pt]  {\text{s.t.}\quad \quad y_{i} [(\vec{w}\cdot \vec{x}_{i} )+b]-1\ge 0,\quad i=1,...,n} \end{array}
+$$
+
+**Dual Problem**:
+
+$$
+\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.} \quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+$$
+
+##### Soft-Margin Classifier
+
+**Primal Problem**:
+
+$$
+\begin{array}{l} {\min \limits_{\vec{w},b,\xi } \quad \quad \quad \quad \quad \frac{1}{2} \left\| \vec{w}\right\| ^{2} +C\sum \limits_{i=1}^{n}\xi _{i}  } \\[10pt]  {\text{kısıtlar}\quad \quad \begin{array}{c} {y_{i} \left[(\vec{w}\cdot \vec{x}_{i} )+b\right]-1+\xi _{i} \ge 0,\quad i=1,2,...,n} \\ {\; \xi _{i} \ge 0,\quad \forall i} \end{array}} \\ {\quad \quad \quad \quad \; \; } \end{array}
+$$
+
+**Dual Problem**:
+
+$$
+\begin{array}{l} {\mathop{maks} \limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+$$
+
+##### Non-linear Classifiers
+
+###### Hard-Margin Classifier
+
+$$
+\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{kısıtlar}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+$$
+
+###### Soft-Margin Classifier
+
+$$
+\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad \; \; \; \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{kısıtlar}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+$$
 
 ## Deep Learning
 
