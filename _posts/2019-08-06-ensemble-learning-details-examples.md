@@ -274,7 +274,7 @@ plt.show()
 
 Out of bag (OOB) score is a way of validating the ensemble methods.
 
-With bagging, some instances may be sampled several times for a given predictor while some other instances might not be sampled at all. By default `BaggingClassifier` samples $m$ training instances with replacement (argument `bootstrap = True`, Whether samples are drawn with replacement). Remaining of training instances that are not sampled are called out-of-bag (OOB) instances. One-third of the cases are left out of the sample (Each bagged predictor is trained on about 63% of the data. Remaining 37% are called out-of-bag (OOB) observations). Note that they are not the same instances for all predictors. Since a predictor never sees the oob instances during training, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error.  It is estimated internally, during the run. You can evaluate the ensemble itself by averaging out the oob evaluations for each predictor.
+With bagging, some instances may be sampled several times for a given predictor while some other instances might not be sampled at all. By default `BaggingClassifier` samples $m$ training instances with replacement (argument `bootstrap = True`, Whether samples are drawn with replacement). Remaining of training instances that are not sampled are called out-of-bag (OOB) instances. One-third of the cases are left out of the sample (Each bagged predictor is trained on about 63% of the data. Remaining 37% (36.8% exactly) are called out-of-bag (OOB) observations). Note that they are not the same instances for all predictors. Since a predictor never sees the oob instances during training, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error.  It is estimated internally, during the run. You can evaluate the ensemble itself by averaging out the oob evaluations for each predictor.
 
 In Scikit-Learn you can set `oob=True` when creating a bagging classifier to request automatic OOB evaluation after training. 
 
@@ -317,6 +317,29 @@ bag_clf.oob_decision_function_[0:5]
 
 #For example, oob evaluation estimates that the first training instance has a 64% of probability belonging to positive class and 35% of belonging to the negative class
 {% endhighlight %}
+
+### How 36.8% is calculated?
+
+A boot strap sample from $D = \{X_{1}, X_{2}, \cdots , X_{n} \}$ is a sample of size $n$ drawn with replacement from $D$. In bootstrap sample, some elements of $D$ will show up multiple times or some will not show up at all!
+
+Each $X_{I}$ has a probability of $\frac{1}{n}$ to be selected or a probability of $\left( 1- \frac{1}{n} \right)$ of not being selected at a pick. Therefore, using sampling with replacement, the probability of not picking $n$ rows in random draws is $\left( 1- \frac{1}{n} \right)^{n}$, which in the limit of large $n$  this expression asymptotically approaches:
+
+$$
+\lim_{n \to \infty} \left( 1- \frac{1}{n} \right)^{n} = \frac{1}{e} = 0.368
+$$
+
+Therefore, about 36.8% of total training data are available as "out-of-bag" sample for each decision tree and hence it can be used for evaluating or validating Random Forest model. 
+
+### Why we do not use a separate validation set for evaluation?
+
+The main point here is that OOB score is calculated by using the trees in the ensemble that doesn't have those specific data points, so with OOB, we are not using the full ensemble. In other words, for predicting each sample in OOB set, we only consider trees that did not use that sample to train themselves.
+
+Where as with a validation set you use your full forest to calculate the score. And in general a full forest is better than a subsets of a forest.
+
+Hence, on average, OOB score is showing less generalization than the validation score because we are using less trees to get the predictions for each sample. 
+
+OOB particularly helps when we can't afford to hold out a validation set. 
+
 
 # Random patches and Random Subspaces
 
