@@ -4543,6 +4543,10 @@ There are quite a few data structures available. The built-in data structures ar
 
 Lists, strings and tuples are ordered sequences of objects. Unlike strings that contain only characters, list and tuples can contain any type of objects. Lists and tuples are like arrays. Tuples like strings are immutables. Lists are mutables so they can be extended or reduced at will. Sets are mutable unordered sequence of unique elements whereas frozensets are immutable sets.
 
+In Python, dynamic arrays are lists. Linked lists do not exist in Python. Python lists are dynamic arrays, not linked lists. Python also uses lists as stacks. There is no direct support for graphs, too, in Python. 
+
+But we can create our own data structures by using those already built-in Python structures.
+
 #### What is `*args` and `**kwargs` in Python?
 
 it is not necessary to write *args or `**kwargs`. Only the `*` (asterisk) is necessary. You could have also written `*var` and `**vars`. Writing *args and `**kwargs` is just a convention. `*args` and `**kwargs` are mostly used in function definitions. `*args` and `**kwargs` allow you to pass a variable number of arguments to a function. What variable means here is that you do not know beforehand how many arguments can be passed to your function by the user so in this case you use these two keywords. `*args` is used to send a non-keyworded variable length argument list to the function. `**kwargs` allows you to pass keyworded variable length of arguments to a function. You should use `**kwargs` if you want to handle named arguments in a function. 
