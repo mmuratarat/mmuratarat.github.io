@@ -3378,7 +3378,15 @@ Support Vector Machine (SVM) is an algorithm used for classification problems si
 
 SVM minimizes hinge loss while logistic regression minimizes logistic loss. 
 
-Logistic Regression produces probabilistic values while SVM produces deterministic values, i.e., -1 or 1 (or 0 or 1) (but we can use Platts model for probability score).
+LR is more sensitive to outliers than SVM because the cost function of LR diverges faster than those of SVM.
+
+Logistic Regression produces probabilistic values,that can be interpreted as confidence in a decision, while SVM produces deterministic values, i.e., -1 or 1 (or 0 or 1) (but we can use Platts model for probability score).
+
+LR gives us an unconstrained, smooth objective, whereas SVM is constrained optimization problem.
+
+LR can be (straightforwardly) used within Bayesian models. 
+
+SVMs have a nice dual form, giving sparse solutions when using the kernel trick (better scalability). 
 
 #### What is the optimization problem for Support Vector Machines?
 
