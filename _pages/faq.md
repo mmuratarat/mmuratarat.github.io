@@ -3271,6 +3271,7 @@ $$
 \begin{split}
 x = y  &\Rightarrow D = 0\\
 x \neq y  &\Rightarrow D \neq 0
+\end{split}
 $$
 
 {% highlight python %}
@@ -3369,6 +3370,16 @@ distance.euclidean(x1, x2)
 
 #### What is the difference between Support Vector Machines and Logistic Regression?
 
+An SVM tries to find the separating hyperplane that maximizes the distance of the closest points to the margin (the support vectors). If a point is not a support vector, it doesn’t really matter.
+
+Logistic regression focuses on maximizing the probability of the data. The farther the data lies from the separating hyperplane (on the correct side), the happier LR is. 
+
+Support Vector Machine (SVM) is an algorithm used for classification problems similar to Logistic Regression (LR). LR and SVM with linear Kernel function generally perform comparably in practice.
+
+SVM minimizes hinge loss while logistic regression minimizes logistic loss. 
+
+Logistic Regression produces probabilistic values while SVM produces deterministic values, i.e., -1 or 1 (or 0 or 1) (but we can use Platts model for probability score).
+
 #### What is the optimization problem for Support Vector Machines?
 
 __Hard-Margin Classifier__
@@ -3423,7 +3434,7 @@ A trained Support Vector Machine has a scoring function which computes a score f
 
 #### What are the support vectors in Support Vector Machines?
 
-Support vector machines are maximum-margin classifiers, which means they find the hyperplane that has the largest perpendicular distance between the hyperplane and the closest samples on either side.  The closest samples on either side are the support vectors. The SVM's solution is this set of support vectors which introduces sparsity.
+Support vector machines are maximum-margin classifiers, which means they find the hyperplane that has the largest perpendicular distance between the hyperplane and the closest samples on either side.  The closest samples on either side are the support vectors. They influence the position and orientation of the hyperplane. Using these support vectors, we maximize the margin of the classifier. Deleting the support vectors will change the position of the hyperplane. These are the points that help us find the solution which introduces sparsity into network
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/support_vectors.png?raw=true)
 
