@@ -194,13 +194,14 @@ permalink: /faq/
 42. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 43. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
 44. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
-45. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
-46. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
-47. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
-48. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
-49. How do you deal with missing value in a data set?
-50. How do you deal with imbalanced data?
-51. How do you deal with high cardinality? 
+45. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
+46. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
+47. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
+48. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
+49. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
+50. How do you deal with missing value in a data set?
+51. How do you deal with imbalanced data?
+52. How do you deal with high cardinality? 
 
 ## Linear Algebra
 
@@ -3458,12 +3459,12 @@ $$
 
 #### Why do we find the dual problem when fitting SVM?
 
-Solving the primal problem, we obtain the optimal $w$. In order to classify a query point $x$ we need to explicitly compute the scalar product $w^{T}X$, which may be expensive if the number of features in the data is large.
+Solving the primal problem, we obtain the optimal $w$. In order to classify a query point $x$ we need to explicitly compute the scalar product $w^{T}x$, which may be expensive if the number of features in the data is large.
 
 Solving the dual problem, we obtain the $\alpha_{i}$ (where $\alpha_{i}=0$ for all but a few points - the support vectors). In order to classify a query point $x$, we calculate
 
 $$
-w^Tx + b = \left(\sum_{i=1}^{n}{\alpha_i y_i x_i} \right)^T x + b = \sum_{i=1}^{n}{\alpha_i y_i \langle x_i, x \rangle} + b
+w^{T}x + b = \left(\sum_{i=1}^{n}{\alpha_i y_i x_i} \right)^{T} x + b = \sum_{i=1}^{n}{\alpha_i y_i \langle x_i, x \rangle} + b
 $$
 
 This term is very efficiently calculated if there are only few support vectors. Further, since we now have a scalar product only involving data vectors, we may apply the kernel trick.
