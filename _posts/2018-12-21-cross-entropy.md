@@ -29,7 +29,7 @@ Just considering a single observed input/output pair $(x, y)$, $p$ would be the 
 
 # ENTROPY
 
-Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $K$ distinct states. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy".
+Entropy is a measure of the uncertainty associated with a given distribution $p(y)$ with $K$ distinct states. The higher the entropy, the less certain we are about the value we're going to get. Calculating the information for a random variable is called "information entropy", "Shannon entropy", or simply "entropy".
 
 $$
 H(p) = - \sum_{k=1}^{K} p(y_{k}) \log p(y_{k})
@@ -58,6 +58,20 @@ $$
 (This can also be thought as in the following. There are $K$ distinct events. Each event $k$ has probability $p(y_{k})$)
 
 Note that the $log()$ function uses base-2 and the units are bits. A natural logarithm can be used instead.
+
+**An Example**
+
+{% highlight python %} 
+from numpy import log
+
+p = {'rain': .14, 'snow': .37, 'sleet': .03, 'hail': .46}
+
+def entropy(prob_dist):
+    return -sum([ p*log(p) for p in prob_dist.values() ])
+
+entropy(p)
+#1.1055291211185652
+{% endhighlight %}
 
 If we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
 
