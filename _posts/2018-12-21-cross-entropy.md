@@ -173,7 +173,7 @@ Reading this formula, it tells you that, for each positive point ($y_{i}=1$), it
 
 **How to obtain this formula?**
 
-In a classification problem, we try to find posterior probabilities of classes. in binary classification, we have two outcomes, 0 or 1. Since $P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1- P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) $, we can say that so $y^{(i)}=1$ with probability $ h_{\theta} ( \mathbf{x}^{(i)} )$ and $y^{(i)}=0$ with probability $1− h_{\theta} ( \mathbf{x}^{(i)} )$.
+In a classification problem, we try to find posterior probabilities of classes. in binary classification, we have two outcomes, 0 or 1. Since $P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1- P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) $, we can say that $y^{(i)}=1$ with probability $ h_{\theta} ( \mathbf{x}^{(i)} )$ and $y^{(i)}=0$ with probability $1− h_{\theta} ( \mathbf{x}^{(i)} )$.
 
 This can be combined into a single equation as follows because, for binary classification, $y^{(i)}$ follows a Bernoulli distribution:
 
