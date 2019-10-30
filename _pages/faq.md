@@ -358,6 +358,8 @@ $$
 
 Note that when $m=1$, the Jacobian is the same as gradient because it is a generalization of the gradient.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jacobian_example1.png?raw=true)
+
 #### What is a Hessian matrix?
 
 The hessian matrix is a square matrix of the second-order partial derivatives of a scalar-values (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
