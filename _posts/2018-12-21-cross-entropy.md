@@ -193,8 +193,8 @@ Since in linear regression we found the $\theta$ that minimizes our cost functio
 
 $$
 \begin{align}
-J(\theta) &=  - \dfrac{1}{m} \mathcal{L}(\theta)\\
-&= - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))
+J(\theta) &=  - \dfrac{1}{n} \mathcal{L}(\theta)\\
+&= - \dfrac{1}{m} \sum_{i=1}^{n} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))
 \end{align}
 $$
 
