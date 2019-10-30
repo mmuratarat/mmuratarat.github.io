@@ -3810,10 +3810,16 @@ $$
 - log P(data \mid model) = -n_{1} \log(p_{1}) -n_{2} \log(p_{2})- \ldots -n_{K} \log(p_{K}) = - \sum_{j=1}^{K} n_{j} \log(p_{j})
 $$
 
-One can easily see that $n_{1} + n_{2} + \ldots + n_{K} = n$ which is the number of observations in the dataset. Basically, now, you have a multinomial distribution with parameters $n$ (independent trials) and $p_{1}, p_{2}, \ldots , p_{K}$. Empirical probabilities are then computed as $y_{j} = \frac{n_{j}}{p_{j}}$. Therefore, loss for one observation is then computed as:
+One can easily see that $n_{1} + n_{2} + \ldots + n_{K} = n$ which is the number of observations in the dataset. Basically, now, you have a multinomial distribution with parameters $n$ (independent trials) and $p_{1}, p_{2}, \ldots , p_{K}$. Empirical probabilities are then computed as $y_{j} = \frac{n_{j}}{n}$. Therefore, loss for one observation is then computed as:
 
 $$
 L(\theta \mid x_{i}) = - \sum_{j=1}^{K} n_{j} \log(p_{j})
+$$
+
+if you now divide the right-hand sum by the number of observations, we will have:
+
+$$
+L(\theta \mid x_{i}) = -\frac{1}{n} log P(data \mid model) = - \frac{1}{n} \sum_{j=1}^{K} n_{j} \log(p_{j}) = - \sum_{j=1}^{K} y_{j} \log(p_{j}) 
 $$
 
 If we compute the cross-entropy over $n$ observations, we will have:
