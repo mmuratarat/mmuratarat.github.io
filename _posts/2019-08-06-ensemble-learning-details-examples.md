@@ -351,7 +351,7 @@ Sampling both training instances and features is called the **Random Patches** m
 
 Decision trees tend to have high variance. A small change in the training data can produce big changes in the estimated Tree. It also involves the greedy selection of the best split point from the dataset at each step.
 
-This algorithm makes decision trees susceptible to high variance if they are not pruned. This high variance can be harnessed and reduced by creating multiple trees with different samples of the training dataset (different views of the problem) and combining their predictions. This approach is called bootstrap aggregation or bagging for short.
+This makes decision trees susceptible to high variance if they are not pruned. This high variance can be harnessed and reduced by creating multiple trees with different samples of the training dataset (different views of the problem) and combining their predictions. This approach is called bootstrap aggregation or bagging for short.
 
 A limitation of bagging is that the same greedy algorithm is used to create each tree, meaning that it is likely that the same or very similar split points will be chosen in each tree making the different trees very similar (trees might be correlated). This, in turn, makes their predictions similar, mitigating the variance originally sought.
 
