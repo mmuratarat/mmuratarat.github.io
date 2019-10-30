@@ -24,7 +24,11 @@ Since to compare two different models it is often more convenient to have a sing
 
 * **False positive rate (FPR)**, a.k.a. _false alarm rate_, _fall-out_ or _1 - specificity_, which is defined as $\frac{FP}{FP+TN}$. Intuitively this metric corresponds to the proportion of negative data points that are mistakenly considered as positive, with respect to all negative data points. In other words, the higher FPR, the more negative data points will be missclassified.
 
-To combine the FPR and the TPR into one single metric, we first compute the two former metrics with many different threshold (for example 0.00;0.01,0.02,…,1.00) for the logistic regression, then plot them on a single graph, with the FPR values on the abscissa and the TPR values on the ordinate. The resulting curve is called ROC curve, and the metric we consider is the AUC of this curve, which we call AUROC. Threshold values from 0 to 1 are decided based on the number of samples in the dataset. 
+To combine the FPR and the TPR into one single metric, we first compute the two former metrics with many different threshold (for example $0.00, 0.01, 0.02, \cdots , 1.00$) for the logistic regression, then plot them on a single graph, with the FPR values on the abscissa and the TPR values on the ordinate. The resulting curve is called ROC curve, and the metric we consider is the AUC of this curve, which we call AUROC. Threshold values from 0 to 1 are decided based on the number of samples in the dataset. 
+
+AUC is probably the second most popular one, after accuracy. Accuracy deals with ones and zeros, meaning you either got the class label right or you didn’t. But many classifiers are able to quantify their uncertainty about the answer by outputting a probability value. To compute accuracy from probabilities you need a threshold to decide when zero turns into one. The most natural threshold is of course 0.5. Let’s suppose you have a quirky classifier. It is able to get all the answers right, but it outputs 0.7 for negative examples and 0.9 for positive examples. Clearly, a threshold of 0.5 won’t get you far here. But 0.8 would be just perfect.
+
+That’s the whole point of using AUC - it considers all possible thresholds. Various thresholds result in different true positive/false positive rates. As you decrease the threshold, you get more true positives, but also more false positives.
 
 The following figure shows the AUROC graphically:
 
