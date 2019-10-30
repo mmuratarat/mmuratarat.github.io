@@ -272,7 +272,7 @@ plt.show()
 
 ## Out-of-bag Evaluation
 
-Out of bag (OOB) score is a way of validating the ensemble methods.
+Out of bag (OOB) score (or OOB error) is a way of validating the ensemble methods. It is the average error for each $(x_{i}, y_{i})$ calculated using predictions from the trees that do not contain $(x_{i}, y_{i})$ in their respective bootstrap sample.
 
 With bagging, some instances may be sampled several times for a given predictor while some other instances might not be sampled at all. By default `BaggingClassifier` samples $m$ training instances with replacement (argument `bootstrap = True`, Whether samples are drawn with replacement). Remaining of training instances that are not sampled are called out-of-bag (OOB) instances. One-third of the cases are left out of the sample (Each bagged predictor is trained on about 63% of the data. Remaining 37% (36.8% exactly) are called out-of-bag (OOB) observations). Note that they are not the same instances for all predictors. Since a predictor never sees the oob instances during training, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error.  It is estimated internally, during the run. You can evaluate the ensemble itself by averaging out the oob evaluations for each predictor.
 
