@@ -3993,6 +3993,89 @@ The magic of deep neural networks lies in finding the set of weights for each la
 
 During the training process, batches of data are passed through the network and the output is compared to the ground truth. The error in the prediction is then propagated backward through the network, adjusting each set of weights a small amount in the direction that improves the prediction most significantly. This process is appropriately called backpropagation. Gradually each unit becomes skilled at identifying a particular feature that ultimately helpt the network to make better predictions.
 
+#### What is gradient checking? Why it is important?
+
+When implementing a neural network from scratch, Backpropagation is more prone to mistakes. Therefore, a method to debug this step could potentially save a lot of time and headaches when debugging a neural network. This is what we call gradient checking.
+
+This method consists in approximating the gradient using a numerical approach. If this numerical gradient is close to analytical gradient (gradient from backpropagation), then Backpropagation is implemented correctly.
+
+While checking the gradients, we do not use all examples in the training dataset and also, we do not run gradient checking in every iteration at the training because gradient check is slow. You can pick random number of examples from the training data to ompute both numerical and analytical gradients. After we are sure that the implementation is bug-free/correct, we turn it off and use backprop for actual learning. Another note is that gradient checking does not work with dropout. One would usually run the gradient checking without dropout to make sure that backpropagation implementation is correct. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2009.36.24.png?raw=true)
+
+Derivatives tell us the slop or how steep the function is. For example, for the function $y = x^{2}$, the first-order derivative is $y^{'} = 2x$. 
+
+Definition of derivative in calculus is:
+
+$$
+f'\left( x \right) = \mathop {\lim }\limits_{\Delta x \to 0} \frac{{f\left( {x + \Delta x} \right) - f\left( x \right)}}{\Delta x}\
+$$
+
+where the numerator is to give change in $y$ ($y_{2} - y_{1}$) and the denominator gives change in x ($x_{2} - x_{1}$).
+
+For this example $f(x) = x^{2}$, we can write:
+
+$$
+\begin{split}
+f'\left( x \right) &= \mathop {\lim }\limits_{\Delta x \to 0} \frac{(x +  \Delta x)^{2} - x^{2}}{\Delta x}\\
+&= \mathop {\lim }\limits_{\Delta x \to 0} \frac{x^{2} + 2 x \Delta x + {\Delta x}^{2} - x^{2}}{\Delta x}\\
+&= \mathop {\lim }\limits_{\Delta x \to 0} \frac{2 x \Delta x + {\Delta x}^{2}}{\Delta x}\\
+& = \mathop {\lim }\limits_{\Delta x \to 0}  \Delta x + 2x \\
+& = 2x
+\end{split}
+$$
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2009.44.03.png?raw=true)
+
+We will call the distance we move in each direction $\varepsilon$. 
+
+There are two formulations to find numerical gradients. One-sided difference is given by:
+
+$$
+f'\left( x \right) = \mathop {\lim }\limits_{\varepsilon \to 0} \frac{{f\left( {x + \varepsilon } \right) - f\left( x \right)}}{\varepsilon}\
+$$
+
+The two-sided difference is:
+
+$$
+f'\left( x \right) = \mathop {\lim }\limits_{\varepsilon \to 0} \frac{{f\left( {x + \varepsilon} \right) - f\left( x - \varepsilon\right)}}{2\varepsilon}\
+$$
+
+For the example above, if we compute analytical and numerical gradient,
+
+{% highlight python %}
+def f(x):
+    return x**2
+
+epsilon = 1e-4
+x=1.5
+
+numericGradient_onesided = (f(x+epsilon) - f(x))/(epsilon)
+numericGradient_twosided = (f(x+epsilon) - f(x-epsilon))/(2*epsilon)
+numericGradient_onesided, numericGradient_twosided, 2*x
+#(3.0001000000012823, 2.9999999999996696, 3.0)
+{% endhighlight %}
+
+We see that the difference between analytical derivative and two-sided numerical gradient is almost zero, however, the difference between analytical derivative and one-sided derivative is 0.0001. Therefore, we’ll use two-sided epsilon method to compute the numerical gradients.
+
+Two-sided difference formula (also known as centered difference) requires you to evaluate loss function twice to check every single dimension of the gradient, so it is about 2 times as expensive, but the gradient approximation turns out to be much more precise. In order to see this, you can use Taylor expansion of $f(x + \varepsilon)$ and $f(x − \varepsilon)$ and verify that the one-sided formula has an error on order of $O(h)$, while the two-sided formula only has error terms on order of $O(h^{2})$ (i.e. it is a second order approximation).
+
+$\varepsilon = 10e-7$ is a common value used for the difference between analytical gradient and numerical gradient. If the difference is less than $10e-7$ then the implementation of backpropagation is correct.
+
+For the case of a neural network, we generally use vectorized implementation. We take the weight and bias matrices and reshape them into a big vector $\theta$. Similarly, all their respective derivatives will be placed on a vector $d_{\theta}$. Therefore, the approximate gradient can be expressed as
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2010.04.47.png?raw=true)
+
+and
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2010.08.43.png?raw=true)
+
+Then, we apply following formulat for gradient check:
+
+$$
+\frac{\left\lVert d_{\theta_{approx}} - d_{\theta} \right\rVert_{2}}{\left\lVert d_{\theta_{approx}} \right\rVert_{2} + \left\lVert d_{\theta} \right\rVert_{2}}
+$$
+
 #### What is Early Stopping?
 It is a regularization technique that stops the training process as soon as the validation loss reaches a plateau or starts to increase.
 
@@ -4229,7 +4312,6 @@ With parameter sharing, which means no matter the size of your input image, the 
 #### What is Vanishing Gradient Problem?
 
 #### What is Exploding Gradient Problem?
-
 
 Exploding gradients can be dealt with by gradient clipping (truncating the gradient if it exceeds some magnitude)
 
