@@ -4003,7 +4003,7 @@ While checking the gradients, we do not use all examples in the training dataset
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2009.36.24.png?raw=true)
 
-Derivatives tell us the slop or how steep the function is. For example, for the function $y = x^{2}$, the first-order derivative is $y^{'} = 2x$. 
+Derivatives tell us the slope or how steep the function is. For example, for the function $y = x^{2}$, the first-order derivative is $y^{'} = 2x$. 
 
 Definition of derivative in calculus is:
 
@@ -4038,7 +4038,7 @@ $$
 The two-sided difference is:
 
 $$
-f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon \right) - f\left( x - \varepsilon\right}{2\varepsilon}
+f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{ f \left( x + \varepsilon \right) - f \left( x - \varepsilon \right}{2 \varepsilon}
 $$
 
 For the example above, if we compute analytical and numerical gradient,
