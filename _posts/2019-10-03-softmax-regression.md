@@ -99,3 +99,7 @@ model.predict(new_observation)
 model.predict_proba(new_observation)
 #array([[0.01982536, 0.74491994, 0.2352547 ]])
 {% endhighlight %}
+
+# REFERENCES
+1. [https://rstudio-pubs-static.s3.amazonaws.com/337306_79a7966fad184532ab3ad66b322fe96e.html](https://rstudio-pubs-static.s3.amazonaws.com/337306_79a7966fad184532ab3ad66b322fe96e.html){:target="_blank"}
+2. [https://rstudio-pubs-static.s3.amazonaws.com/337306_79a7966fad184532ab3ad66b322fe96e.html](https://rstudio-pubs-static.s3.amazonaws.com/337306_79a7966fad184532ab3ad66b322fe96e.html){:target="_blank"}
