@@ -383,7 +383,7 @@ It is versatile. It can handle binary features, categorical features, and numeri
 
 Random Forest handles higher dimensionality data very well.
 
-Random Forest can automatically handle missing values.
+Random Forest can automatically handle missing values using proximity matrix as a measure
 
 No feature scaling (standardization and normalization) required in case of Random Forest as it uses rule based approach instead of distance calculation.
 
