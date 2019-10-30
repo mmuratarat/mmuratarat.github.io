@@ -59,6 +59,20 @@ $$
 
 Note that the $log()$ function uses base-2 and the units are bits. A natural logarithm can be used instead.
 
+**An Example**
+
+{% highlight python %}
+from numpy import log
+
+p = {'rain': .14, 'snow': .37, 'sleet': .03, 'hail': .46}
+
+def entropy(prob_dist):
+    return -sum([ p*log(p) for p in prob_dist.values() ])
+
+entropy(p)
+#1.1055291211185652
+{% endhighlight %}
+
 If we know the true distribution of a random variable, we can compute its entropy. However, we cannot always know the true distribution. That is what Machine Learning algorithms do. We try to approximate the true distribution with an other distribution, say, $q(y)$.
 
 Let’s assume data points follow this other distribution $q(y)$. But we know they are actually coming from the true (unknown) distribution $p(y)$.
