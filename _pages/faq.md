@@ -191,9 +191,15 @@ permalink: /faq/
 40. [What is the difference between norm and distance?](#what-is-the-difference-between-norm-and-distance)
 41. [What is Hamming Distance?](#what-is-hamming-distance)
 42. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
-29. How do you deal with missing value in a data set?
-30. How do you deal with imbalanced data?
-31. How do you deal with high cardinality? 
+43. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
+44. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
+45. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
+46. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
+47. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
+48. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
+49. How do you deal with missing value in a data set?
+50. How do you deal with imbalanced data?
+51. How do you deal with high cardinality? 
 
 ## Linear Algebra
 
@@ -1044,6 +1050,19 @@ If a function is convex, the midpoint $B$ of each chord $A_{1}A_{2}$ lies above 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.png?raw=true)
 
+#### What are the Karush-Kuhn-Tucker conditions?
+
+The SVM problem can be expressed as a so-called "convex quadratic" optimization problem, meaning the objective is a quadratic function and the constraints form a convex set (are linear inequalities and equalities). There is a neat theorem that addresses such, and it’s the "convex quadratic" generalization of the Lagrangian method. The result is due to Karush, Kuhn, and Tucker conditions.
+
+The "original" optimization problem is often called the "primal" problem. While a "primal problem" can be either a minimization or a maximization (and there is a corresponding KKT theorem for each) we'll use the minimization form here. Next we define a corresponding "dual" optimization problem, which is a maximization problem whose objective and constraints are related to the primal in a standard way.
+
+Duality is an optimization problem that allows us to transform one problem into another equivalent problem. In SVM case, we have convex minimization problem. Its dual problem will be concave over a convex set and a maximization problem because minimizing a convex function and maximizing a concave function over a convex set are both convex problems. Therefore, minimizing a convex f is maximizing −f, which is concave. 
+
+Slater's condition holds for the primal convex problem of SVM, therefore, the duality gap is 0, meaning that strong duality holds, so that the optimal solutions for the primal and dual problems have equal objective value.
+
+The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima). To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/kkt_conditions.png?raw=true)
 
 ## Set Theory
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/set_theory.gif?raw=true)
@@ -3413,7 +3432,7 @@ But what if our dataset isn't linearly separable? We introduce soft margin SVM. 
 **Primal Problem**:
 
 $$
-\begin{array}{l} {\min \limits_{\vec{w},b,\xi } \quad \quad \quad \quad \quad \frac{1}{2} \left\| \vec{w}\right\| ^{2} +C\sum \limits_{i=1}^{n}\xi _{i}  } \\[10pt]  {\text{kısıtlar}\quad \quad \begin{array}{c} {y_{i} \left[(\vec{w}\cdot \vec{x}_{i} )+b\right]-1+\xi _{i} \ge 0,\quad i=1,2,...,n} \\ {\; \xi _{i} \ge 0,\quad \forall i} \end{array}} \\ {\quad \quad \quad \quad \; \; } \end{array}
+\begin{array}{l} {\min \limits_{\vec{w},b,\xi } \quad \quad \quad \quad \quad \frac{1}{2} \left\| \vec{w}\right\| ^{2} +C\sum \limits_{i=1}^{n}\xi _{i}  } \\[10pt]  {\text{s.t.}\quad \quad \begin{array}{c} {y_{i} \left[(\vec{w}\cdot \vec{x}_{i} )+b\right]-1+\xi _{i} \ge 0,\quad i=1,2,...,n} \\ {\; \xi _{i} \ge 0,\quad \forall i} \end{array}} \\ {\quad \quad \quad \quad \; \; } \end{array}
 $$
 
 **Dual Problem**:
@@ -3424,21 +3443,33 @@ $$
 
 __Non-linear Classifiers__
 
-###### Hard-Margin Classifier
+**Hard-Margin Classifier**
 
 $$
 \begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
-###### Soft-Margin Classifier
+**Soft-Margin Classifier**
 
 $$
 \begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad \; \; \; \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
+#### Why do we find the dual problem when fitting SVM?
+
+Solving the primal problem, we obtain the optimal $w$. In order to classify a query point $x$ we need to explicitly compute the scalar product $w^{T}X$, which may be expensive if the number of features in the data is large.
+
+Solving the dual problem, we obtain the $\alpha_{i}$ (where $\alpha_{i}=0$ for all but a few points - the support vectors). In order to classify a query point $x$, we calculate
+
+$$
+w^Tx + b = \left(\sum_{i=1}^{n}{\alpha_i y_i x_i} \right)^T x + b = \sum_{i=1}^{n}{\alpha_i y_i \langle x_i, x \rangle} + b
+$$
+
+This term is very efficiently calculated if there are only few support vectors. Further, since we now have a scalar product only involving data vectors, we may apply the kernel trick.
+
 #### What is the output of Support Vector Machines?
 
-A trained Support Vector Machine has a scoring function which computes a score for a new input, $sign(w \cdot x_{i})+ b)$ This score tells us on which side of the hyperplane generated by the classifier we are (and how far we are away from it). A Support Vector Machine is a binary (two class) classifier; if the output of the scoring function is negative then the input is classified as belonging to class y = -1. If the score is positive, the input is classified as belonging to class y = 1.
+A trained Support Vector Machine has a scoring function which computes a score for a new input, $sign[(w \cdot x_{i})+ b]$ This score tells us on which side of the hyperplane generated by the classifier we are (and how far we are away from it). A Support Vector Machine is a binary (two class) classifier; if the output of the scoring function is negative then the input is classified as belonging to class y = $-1$. If the score is positive, the input is classified as belonging to class $y = 1$.
 
 #### What are the support vectors in Support Vector Machines?
 
