@@ -4008,7 +4008,7 @@ Derivatives tell us the slop or how steep the function is. For example, for the 
 Definition of derivative in calculus is:
 
 $$
-f'\left( x \right) = \lim_{\Delta x \to 0} \frac{f\left(x + \Delta x\right) - f\left( x \right)}{\Delta x}\
+f'\left( x \right) = \lim_{\Delta x \to 0} \frac{ f \left( x + \Delta x \right) - f \left( x \right) }{\Delta x}
 $$
 
 where the numerator is to give change in $y$ ($y_{2} - y_{1}$) and the denominator gives change in x ($x_{2} - x_{1}$).
@@ -4032,13 +4032,13 @@ We will call the distance we move in each direction $\varepsilon$.
 There are two formulations to find numerical gradients. One-sided difference is given by:
 
 $$
-f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon\right) - f\left( x \right)}{\varepsilon}\
+f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon\right) - f\left( x \right)}{\varepsilon}
 $$
 
 The two-sided difference is:
 
 $$
-f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon \right) - f\left( x - \varepsilon\right}{2\varepsilon}\
+f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon \right) - f\left( x - \varepsilon\right}{2\varepsilon}
 $$
 
 For the example above, if we compute analytical and numerical gradient,
