@@ -4029,16 +4029,16 @@ $$
 
 We will call the distance we move in each direction $\varepsilon$. 
 
-There are two formulations to find numerical gradients. One-sided difference is given by:
+There are two formulations to find numerical gradients. One-sided difference formula is given by:
 
 $$
 f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{f\left(x + \varepsilon\right) - f\left( x \right)}{\varepsilon}
 $$
 
-The two-sided difference is:
+The two-sided difference is then:
 
 $$
-f'\left( x \right) = \lim_{\varepsilon \to 0} \frac{ f \left( x + \varepsilon \right) - f \left( x - \varepsilon \right}{2 \varepsilon}
+f' \left( x \right) = \lim_{\varepsilon \to 0} \frac{ f \left( x + \varepsilon \right) - f \left( x - \varepsilon \right}{2 \varepsilon}
 $$
 
 For the example above, if we compute analytical and numerical gradient,
