@@ -70,6 +70,7 @@ permalink: /faq/
 9. What is hill climbing?
 10. What is curvature?
 11. [Describe convex function.](#describe-convex-function)
+12. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
 
 
 [Set Theory](#set-theory)
