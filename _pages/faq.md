@@ -4481,9 +4481,61 @@ UNION removes duplicate records (where all columns in the results are the same),
 
 ## Miscellaneous
 
+#### What is a good code?
+
+Properties of a good code are:
+
+1. Readable
+2. Time efficiency
+2. Space (Memory) efficiency
+
 #### What is a data structure?
 
-A data structure is a specialized format for organizing, processing, retrieving and storing data.  This "format" allows a data structure to be efficient in some operations and inefficient in others. Your goal is to understand data structures so that you can pick the data structure that’s most optimal for the problem at hand.
+At the backbone of every program or piece of software there are two entities: data and algorithms. Algorithms transform data into something a program can effectively use. Data structure is a specialized format for organizing, processing, retrieving and storing data. This "format" allows a data structure to be efficient in some operations and inefficient in others.
+
+#### What are the commonly used Data Structures?
+
+The most commonly used data structures are
+
+1. Arrays
+2. Stacks
+3. Queues
+4. Linked Lists (Singly-linked list, Doubly linked list, Circular linked list, Circular double linked list)
+5. Trees (and varianst: N-ary Tree, Balanced Tree, Binary Tree, Binary Search Tree, AVL Tree, Red Black Tree, 2–3 Tree, Heap)
+6. Graphs
+7. Tries (Prefix Trees)
+8. Hash Tables
+9. Skip Lists
+
+Each of these data structures has its own advantages and disadvantages.
+
+#### What is space complexity and time complexity?
+
+Sometimes, there are more than one way to solve a problem. We need to learn how to compare the performance different algorithms and choose the best one to solve a particular problem. While analyzing an algorithm, we mostly consider **time complexity** and **space complexity**. **Time complexity** of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Similarly, **Space complexity** of an algorithm quantifies the amount of space or memory taken by an algorithm to run as a function of the length of the input.
+
+Time and space complexity depends on lots of things like hardware, operating system, processors, etc. However, we don't consider any of these factors while analyzing the algorithm. We will only consider the execution time of an algorithm.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2021.25.05.png?raw=true)
+
+#### What are the built-in data types in Python?
+
+Python has the following data types built-in by default, in these categories:
+
+1. **Text Type**:	str
+2. **Numeric Types**:	int, float, complex
+3. **Sequence Types**:	list, tuple, range
+4. **Mapping Type**:	dict
+5. **Set Types**:	set, frozenset
+6. **Boolean Type**:	bool
+7. **Binary Types**:	bytes, bytearray, memoryview
+
+In Python, the data type is set when you assign a value to a variable:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/data_types_python.png?raw=true)
+
+If you want to specify the data type, you can use the following constructor functions:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/setting_data_types.png?raw=true)
 
 #### What are the data structures in Python?
 
@@ -4550,54 +4602,6 @@ When ordering arguments within a function or function call, arguments need to oc
 def example2(arg_1, arg_2, *args, kw_1="shark", kw_2="blobfish", **kwargs):
 ...
 {% endhighlight %}
-
-#### What is a good code?
-
-Properties of a good code are:
-
-1. Readable
-2. Time efficiency
-2. Space (Memory) efficiency
-
-#### What is a data structure?
-
-At the backbone of every program or piece of software there are two entities: data and algorithms. Algorithms transform data into something a program can effectively use. Data sructure is a particular way of organizing, processing, retrieving and storing data. 
-
-#### What are the commonly used Data Structures?
-
-The most commonly used data structures are
-
-1. Arrays
-2. Stacks
-3. Queues
-4. Linked Lists (Singly-linked list, Doubly linked list, Circular linked list, Circular double linked list)
-5. Trees (and varianst: N-ary Tree, Balanced Tree, Binary Tree, Binary Search Tree, AVL Tree, Red Black Tree, 2–3 Tree, Heap)
-6. Graphs
-7. Tries (Prefix Trees)
-8. Hash Tables
-9. Skip Lists
-
-Each of these data structures has its own advantages and disadvantages.
-
-#### What is space complexity and time complexity?
-
-Sometimes, there are more than one way to solve a problem. We need to learn how to compare the performance different algorithms and choose the best one to solve a particular problem. While analyzing an algorithm, we mostly consider **time complexity** and **space complexity**. **Time complexity** of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Similarly, **Space complexity** of an algorithm quantifies the amount of space or memory taken by an algorithm to run as a function of the length of the input.
-
-Time and space complexity depends on lots of things like hardware, operating system, processors, etc. However, we don't consider any of these factors while analyzing the algorithm. We will only consider the execution time of an algorithm.
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2021.25.05.png?raw=true)
-
-#### What are the built-in data types in Python?
-
-Python has the following data types built-in by default, in these categories:
-
-1. **Text Type**:	str
-2. **Numeric Types**:	int, float, complex
-3. **Sequence Types**:	list, tuple, range
-4. **Mapping Type**:	dict
-5. **Set Types**:	set, frozenset
-6. **Boolean Type**:	bool
-7. **Binary Types**:	bytes, bytearray, memoryview
 
 #### What is the difference between stack and queue?
 
