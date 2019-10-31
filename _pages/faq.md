@@ -3413,11 +3413,27 @@ where $x_{i}$ is an observation, $\mu$ and $\sigma$ are the mean and standard de
 
 Euclidean distance treats each variable as equally important in calculating. An alternative approach is to scale the contribution of the individual variables to the distance value according to the variability of each variable.
 
-The Mahalanobis distance of an observation $\vec {x} = (x_{1}, x_{2}, x_{3}, \dots , x_{n})^{T}$ from a set of observations with mean $\vec {\mu } = (\mu_{1}, \mu_{2}, \mu_{3}, \dots ,\mu_{N})^{T}$ and covariance matrix $S$ is defined as:
+Mahalonobis distance is the distance between a point and a distribution. And not between two distinct points. It is effectively a multivariate equivalent of the Euclidean distance. Mahalanobis distance has excellent applications in multivariate anomaly detection, classification on highly imbalanced datasets and one-class classification
+
+The Mahalanobis distance of an observation $\vec {x} = (x_{1}, x_{2}, x_{3}, \dots , x_{n})^{T}$ (row in a dataset) from a set of observations with mean $\vec {\mu } = (\mu_{1}, \mu_{2}, \mu_{3}, \dots ,\mu_{N})^{T}$ (mean of each column) and covariance matrix $S$ (covariance matrix of independent variables) is defined as:
 
 $$
 D_{M}(\vec{x}) = \sqrt {(\vec {x} - \vec {\mu})^{T} S^{-1}(\vec {x}- \vec {\mu})}
 $$
+
+Let’s take the $(\vec {x} - \vec {\mu})^{T} S^{-1}$ term.
+
+$(\vec {x} - \vec {\mu})$ is essentially the distance of the vector from the mean. We then divide this by the covariance matrix (or multiply by the inverse of the covariance matrix).
+
+If you think about it, this is essentially a multivariate equivalent of the regular standardization ($z_{i} = \frac{x_{i} - \mu}{\sigma}$. That is, z = (x vector) – (mean vector) / (covariance matrix).
+
+So, What is the effect of dividing by the covariance?
+
+If the variables in your dataset are strongly correlated, then, the covariance will be high. Dividing by a large covariance will effectively reduce the distance.
+
+Likewise, if the x’s are not correlated, then the covariance is not high and the distance is not reduced much.
+
+So effectively, it addresses both the problems of scale as well as the correlation of the variables that we talked about in the introduction.
 
 Mahalanobis distance can also be defined as a dissimilarity measure between two random vectors $\vec {x}$ and $\vec {y}$ of the same distribution with the covariance matrix $S$:
 
