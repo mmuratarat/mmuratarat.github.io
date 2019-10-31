@@ -1057,9 +1057,7 @@ A concave function is the negative of a convex function. $−f$ is concave if $f
 
 The introduced concept of convexity has a simple geometric interpretation. Geometrically, the line segment connecting $(x_{1}, f(x_{1}))$ to $(x_{2}, f(x_{2}))$ must sit above the graph of $f$ and never cross the graph itself.
 
-If a function is convex, the midpoint $B$ of each chord $A_{1}A_{2}$ lies above the corresponding point $A_{0}$ of the graph of the function or coincides with this point.
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.jpeg?raw=true)
 
 #### What are the Karush-Kuhn-Tucker conditions?
 
