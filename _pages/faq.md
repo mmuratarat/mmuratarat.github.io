@@ -3663,6 +3663,8 @@ $$
 
 where $\alpha$ is the learning rate , "target" is the true class label (either $-1$ or $+1$), and the "output" is the predicted class label.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/perceptron_update_rule.jpeg?raw=true)
+
 It is important to note that the convergence of the perceptron is only guaranteed if the two classes are linearly separable.
 
 #### How to solve OR problem with perceptron?
