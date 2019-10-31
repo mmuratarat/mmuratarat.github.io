@@ -193,17 +193,18 @@ permalink: /faq/
 39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
 40. [What is the difference between norm and distance?](#what-is-the-difference-between-norm-and-distance)
 41. [What is Hamming Distance?](#what-is-hamming-distance)
-42. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
-43. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
-44. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
-45. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
-46. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
-47. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
-48. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
-49. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
-50. How do you deal with missing value in a data set?
-51. How do you deal with imbalanced data?
-52. How do you deal with high cardinality? 
+42. How to find distance between mixed categorical and numeric data points?
+43. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
+44. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
+45. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
+46. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
+47. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
+48. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
+49. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
+50. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
+51. How do you deal with missing value in a data set?
+52. How do you deal with imbalanced data?
+53. How do you deal with high cardinality? 
 
 ## Mathematics and Linear Algebra
 
@@ -3339,7 +3340,7 @@ which can be shown that is translation invariant but not homogenous, e.g. for $\
 
 #### What is Hamming Distance?
 
-It is a distance measure and is used for categorical variables. If the value (x) and the value (y) are the samne, the distance will be equal to 0, otherwise it is 1.
+It is a distance measure and is used for categorical variables. If the value (x) and the value (y) are the same, the distance will be equal to 0, otherwise it is 1.
 
 $$
 D_{H} = \sum_{i=1}^{n} \lvert x_{i} - y_{i} \rvert
@@ -3348,7 +3349,7 @@ $$
 $$
 \begin{split}
 x = y  &\Rightarrow D = 0\\
-x \neq y  &\Rightarrow D \neq 0
+x \neq y  &\Rightarrow D = 1
 \end{split}
 $$
 
@@ -3371,6 +3372,14 @@ hamming_distance(s1, s2)
 {% endhighlight %}
 
 Hamming distance can be seen as Manhattan distance between categorical variables.
+
+#### How to find distance between mixed categorical and numeric data points?
+
+When the data point contains a mixture of numeric and categorical attributes, we can calculate the distance of each group and then treat each measure of distance as a separate dimension (numeric value).
+
+$$
+\text{distance final} = alpha distance_{numeric} + (1- \alpha) distance_{categorical}
+$$
 
 #### What is the difference between Mahalanobis distance and Euclidean distance?
 
