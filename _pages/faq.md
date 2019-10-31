@@ -4848,6 +4848,8 @@ $$
 Total Error = Bias^{2} + Variance + Irreducible Error
 $$
 
+We can create a graphical visualization of bias and variance using a bulls-eye diagram, representing combinations of both high and low bias and variance.
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bias_variance_tradeoff_illustration.png?raw=true)
 
 Bias refers to an error from an estimator that is general and does not learn relationships from a data set that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target functions). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data and in both cases, -high bias and high variance- the model is not able to generalize well to a new data.
