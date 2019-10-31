@@ -4828,7 +4828,21 @@ A queue is an ordered list where you can delete the first added element (at the 
 
 #### What is the Bias-Variance Tradeoff?
 
-In a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
+If we denote the variable we are trying to predict as $Y$ and our covariates as $X$, we may assume that there is a relationship relating one to the other such as $Y = f(X) + \varepsilon$ where the error term $\varepsilon$ is normally distributed with a mean of zero like so $\varepsilon \sim N(0, \sigma_{\varepsilon})$.
+
+We may estimate a model $\hat{f}(X)$ of $f(X)$ using linear regressions or another modeling technique. In this case, the expected squared prediction error at a point $x$ is:
+
+$$
+Err(x)=E[( Y - \hat{f}(x))^{2}]
+$$
+
+This error may then be decomposed into bias and variance components:
+
+$$
+Err(x)=(E[\hat{f}(x)] − f(x))^{2} + E[(\hat{f}(x) − E[\hat{f}(x)(x)])^{2}]+ \sigma_{\varepsilon}^{2}
+ $$
+
+Hence, in a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
 
 $$
 Total Error = Bias^{2} + Variance + Irreducible Error
@@ -4839,7 +4853,7 @@ $$
 Bias refers to an error from an estimator that is general and does not learn relationships from a data set that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target functions). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data and in both cases, -high bias and high variance- the model is not able to generalize well to a new data.
 
 Examples of low bias ML algorithms: Decision Trees, k-Nearest Neighbors, SVM etc...
-Examples of high bias ML algorithms: Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
+Examples of high bias ML algorithms: Generally, parametric algorithms have high bias, making them fast to learn and easier to understant but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias. Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
 
 Variance refers to an error from an estimator being too spefic and learning relationships that are specific to the training set but will not generalize well to new observations, as well. This part is due to the model's excessive sensitivity to small variations in the training data. A model with many degrees of freedom (such as a high-degree polynomial model)is like to have high variance and thus to overfit the training data. Overfitting happens when a model learns not only the actual relationships (signals) in the training data but also any noise that is present, to the extent that it negatively impacts the performance of the model on a new data. This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impacts the model ability to generalize. Overfitting occurs when we have a very flexible model (a model which has a high capacity, i.e., it has more power to capture the distribution of the data) which essentially memorizes the training data by fitting it too closely. A flexible model is said to have a high variance because the learned parameters (such as the structure of the decision tree) will vary considerably with the training data. Models with small variance error will not change much if you replace couple of samples in the training set. Models with high variance might be affeced even with small changes in the training set.
 
