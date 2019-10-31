@@ -55,6 +55,7 @@ permalink: /faq/
 49. [What is Spectral Decomposition?](#what-is-spectral-decomposition)
 49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
 50. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
+51. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
 
 
 [Numerical Optimization](#numerical-optimization)
