@@ -4826,3 +4826,30 @@ A stack is an ordered list where you can insert or delete only the last added el
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
 
+#### What is the Bias-Variance Tradeoff?
+
+In a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
+
+$$
+Total Error = Bias^{2} + Variance + Irreducible Error
+$$
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bias_variance_tradeoff_illustration.png?raw=true)
+
+Bias refers to an error from an estimator that is general and does not learn relationships from a data set that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target functions). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data and in both cases, -high bias and high variance- the model is not able to generalize well to a new data.
+
+Examples of low bias ML algorithms: Decision Trees, k-Nearest Neighbors, SVM etc...
+Examples of high bias ML algorithms: Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
+
+Variance refers to an error from an estimator being too spefic and learning relationships that are specific to the training set but will not generalize well to new observations, as well. This part is due to the model's excessive sensitivity to small variations in the training data. A model with many degrees of freedom (such as a high-degree polynomial model)is like to have high variance and thus to overfit the training data. Overfitting happens when a model learns not only the actual relationships (signals) in the training data but also any noise that is present, to the extent that it negatively impacts the performance of the model on a new data. This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impacts the model ability to generalize. Overfitting occurs when we have a very flexible model (a model which has a high capacity, i.e., it has more power to capture the distribution of the data) which essentially memorizes the training data by fitting it too closely. A flexible model is said to have a high variance because the learned parameters (such as the structure of the decision tree) will vary considerably with the training data. Models with small variance error will not change much if you replace couple of samples in the training set. Models with high variance might be affeced even with small changes in the training set.
+
+Examples of low variance ML algorithms:  Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
+Examples of high variance ML algorithms: Generally, non-parametric ML algorithms that have a lot of flexibility have a high variance, such as, Decision Trees, k-Nearest Neighbors, SVM etc...
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/overfit_underfit_example.png?raw=true)
+
+Irreducible error is the noise term in the true relationship that cannot be fundamentally be reduced by any model and its parameter selection. The only was to reduce this part of the error is to clean up the data (e.g., fix the data sources, such as broken sensors, or detect and remove outliers). In predictive modeling, signal can be thought of as the true underlying pattern one wished to learn from the data. Noise, on the other hand, refers to the irrelevant information or randomness in the dataset. 
+
+The balance between creating a model that is so flexible (high capacity), it memorizes the training data, versus, an inflexible model (low capacity) that cannot learn the training data is known as bias-variance trade-off and is a fundamental concept in Machine Learning. In other words, as you decrease the variance, you tend to increase the bias. As you decrease the bias, you tend to increase the variance. Generally speaking, the goal is to create models that minimize the overall error by careful model selection and tuning to ensure that there is a balance between bias and variance; general enough to make a good predictions on a new data, but specific enough to pick up as much signal as possible. Given the true model and the infinite data to calibrate it, we should be able to reduce both bias and variance terms to 0. However, in a world with imperfect models and finite data, this is not the case.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/capacity_vs_error.png?raw=true)
