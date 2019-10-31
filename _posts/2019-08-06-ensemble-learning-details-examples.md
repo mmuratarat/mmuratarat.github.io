@@ -753,6 +753,8 @@ print(y_pred)
 #[0.75026781]
 {% endhighlight %}
 
+The three principal hyperparameters to tune in gradient boosting are the number of the trees, the learning rate and the dept of trees - all three affect the model performance, The dept of the tree also affects the speed of training and prediction: the shorter, the faster.
+
 The `learning_rate` hyperparameter scales the contribution of each tree. If you set it to a low value, such as 0.1, you will need more trees in the ensemble to fit the training set, but the predictions will usually generalize better. This is a regularization technique called _shrinkage_. If your Gradient Boosting ensemble overfits the training data, you should try to decrease the learning rate. You could also use early stopping to find the right number of predictors (you probably have too many).
 
 {% highlight python %}
@@ -896,6 +898,8 @@ print(gbrt.n_estimators)
 print("Minimum validation MSE:", min_val_error)
 #Minimum validation MSE: 0.002712853325235463
 {% endhighlight %}
+
+Boosting reduces the bias (or underfitting) instead of variance. As sucan, boosting can overfit. However, by tuning the hyperparameters, overfitting can be largely avoided. It usually outperforms random forest in accuracy but because of its sequential nature, can be significantly slower in training.
 
 # XGBoost
 
