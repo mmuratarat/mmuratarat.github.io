@@ -2746,7 +2746,7 @@ $$
 This error may then be decomposed into bias and variance components:
 
 $$
-Err(x)=(E[\hat{f}(x)] − f(x))^{2} + E[(\hat{f}(x) − E[\hat{f}(x)(x)])^{2}]+ \sigma_{\varepsilon}^{2}
+Err(x)= \left( E \left[ \hat{f}(x) \right] − f(x) \right)^{2} + E \left[ \left( \hat{f}(x) − E \left[\ hat{f}(x) \right] \right)^{2} \right] + \sigma_{\varepsilon}^{2}
  $$
 
 Hence, in a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
