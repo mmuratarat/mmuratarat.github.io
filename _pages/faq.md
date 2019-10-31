@@ -6,7 +6,7 @@ social: true
 comments: false
 permalink: /faq/
 ---
-[Linear Algebra](#linear-algebra)
+[Mathematics and Linear Algebra](#mathematics-and-linear-algebra)
 
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
 2. [How do you normalize a vector?](#how-do-you-normalize-a-vector)
@@ -204,7 +204,7 @@ permalink: /faq/
 51. How do you deal with imbalanced data?
 52. How do you deal with high cardinality? 
 
-## Linear Algebra
+## Mathematics and Linear Algebra
 
 #### What are scalars, vectors, matrices, and tensors?
 
@@ -1002,11 +1002,16 @@ $$
   
   Since eigenvalues $u_{i}$'s are positive and $y_{i}^{2} > 0$, this summation is always positive, therefore, $v^{T} A v > 0$.
 
-### How to make a positive definite matrix with a matrix that’s not symmetric?
+#### How to make a positive definite matrix with a matrix that’s not symmetric?
 
 The problem with definite matrices is that they are not always symmetric. However, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
 
 Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$ which is a square matrix in real space. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert_{2}^{2} > 0$, then $B^{T}B$ is positive definite matrix.
+
+#### What are the one-dimensional and multi-dimensional Taylor expansions?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Taylor_expansion_single_variable.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Taylor_Expansion_multiple_variable.jpeg?raw=true)
 
 
 ## Numerical Optimization
