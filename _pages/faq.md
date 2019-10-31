@@ -157,6 +157,7 @@ permalink: /faq/
 6. [What is R squared?](#what-is-r-squared)
 7. [You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?](#you-have-built-a-multiple-regression-model-your-model-r2-isnt-as-good-as-you-wanted-for-improvement-your-remove-the-intercept-term-your-model-r2-becomes-08-from-03-is-it-possible-how)
 8. [How do you validate a machine learning model?](#how-do-you-validate-a-machine-learning-model)
+9. [What is the Bias-Variance Tradeoff?](#what-is-the-bias-variance-tradeoff)
 9. [What is the Bias-variance trade-off for Leave-one-out and k-fold cross validation?](#what-is-the-bias-variance-trade-off-for-leave-one-out-and-k-fold-cross-validation)
 10. [Describe Machine Learning, Deep Learning, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Reinforcement Learning with examples](#describe-machine-learning-deep-learning-supervised-learning-unsupervised-learning-semi-supervised-learning-reinforcement-learning-with-examples)
 11. [What is batch learning and online learning?](#what-is-batch-learning-and-online-learning)
@@ -2732,6 +2733,51 @@ The most important thing you can do to properly evaluate your model is to not tr
 
 * **Bootstrapping Method**: Under this technique training dataset is randomly selected with replacement and the remaining data sets that were not selected for training are used for testing. The error rate of the model is average of the error rate of each iteration  as estimation of our model performance, the value is likely to change from fold-to-fold during the validation process.
 
+#### What is the Bias-Variance Tradeoff?
+
+If we denote the variable we are trying to predict as $Y$ and our covariates as $X$, we may assume that there is a relationship relating one to the other such as $Y = f(X) + \varepsilon$ where the error term $\varepsilon$ is normally distributed with a mean of zero like so $\varepsilon \sim N(0, \sigma_{\varepsilon})$.
+
+We may estimate a model $\hat{f}(X)$ of $f(X)$ using linear regressions or another modeling technique. In this case, the expected squared prediction error at a point $x$ is:
+
+$$
+Err(x)=E[( Y - \hat{f}(x))^{2}]
+$$
+
+This error may then be decomposed into bias and variance components:
+
+$$
+Err(x)=(E[\hat{f}(x)] − f(x))^{2} + E[(\hat{f}(x) − E[\hat{f}(x)(x)])^{2}]+ \sigma_{\varepsilon}^{2}
+ $$
+
+Hence, in a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
+
+$$
+Total Error = Bias^{2} + Variance + Irreducible Error
+$$
+
+We can create a graphical visualization of bias and variance using a bulls-eye diagram, representing combinations of both high and low bias and variance.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bias_variance_tradeoff_illustration.png?raw=true)
+
+Bias refers to an error from an estimator that is general and does not learn relationships from a data set that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target functions). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data and in both cases, -high bias and high variance- the model is not able to generalize well to a new data.
+
+Examples of low bias ML algorithms: Decision Trees, k-Nearest Neighbors, SVM etc...
+Examples of high bias ML algorithms: Generally, parametric algorithms have high bias, making them fast to learn and easier to understant but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias. Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
+
+Variance refers to an error from an estimator being too spefic and learning relationships that are specific to the training set but will not generalize well to new observations, as well. This part is due to the model's excessive sensitivity to small variations in the training data. A model with many degrees of freedom (such as a high-degree polynomial model)is like to have high variance and thus to overfit the training data. Overfitting happens when a model learns not only the actual relationships (signals) in the training data but also any noise that is present, to the extent that it negatively impacts the performance of the model on a new data. This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impacts the model ability to generalize. Overfitting occurs when we have a very flexible model (a model which has a high capacity, i.e., it has more power to capture the distribution of the data) which essentially memorizes the training data by fitting it too closely. A flexible model is said to have a high variance because the learned parameters (such as the structure of the decision tree) will vary considerably with the training data. Models with small variance error will not change much if you replace couple of samples in the training set. Models with high variance might be affeced even with small changes in the training set.
+
+Examples of low variance ML algorithms:  Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
+Examples of high variance ML algorithms: Generally, non-parametric ML algorithms that have a lot of flexibility have a high variance, such as, Decision Trees, k-Nearest Neighbors, SVM etc...
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/overfit_underfit_example.png?raw=true)
+
+Irreducible error is the noise term in the true relationship that cannot be fundamentally be reduced by any model and its parameter selection. The only was to reduce this part of the error is to clean up the data (e.g., fix the data sources, such as broken sensors, or detect and remove outliers). In predictive modeling, signal can be thought of as the true underlying pattern one wished to learn from the data. Noise, on the other hand, refers to the irrelevant information or randomness in the dataset. 
+
+The balance between creating a model that is so flexible (high capacity), it memorizes the training data, versus, an inflexible model (low capacity) that cannot learn the training data is known as bias-variance trade-off and is a fundamental concept in Machine Learning. In other words, as you decrease the variance, you tend to increase the bias. As you decrease the bias, you tend to increase the variance. Generally speaking, the goal is to create models that minimize the overall error by careful model selection and tuning to ensure that there is a balance between bias and variance; general enough to make a good predictions on a new data, but specific enough to pick up as much signal as possible. Given the true model and the infinite data to calibrate it, we should be able to reduce both bias and variance terms to 0. However, in a world with imperfect models and finite data, this is not the case.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/capacity_vs_error.png?raw=true)
+
+
 #### What is the Bias-variance trade-off for Leave-one-out and k-fold cross validation?
 
 When we perform Leave-One-Out Cross Validation (LOOCV), we are in effect averaging the outputs of $n$ fitted models (assuming we have $n$ observations), each of which is trained on an almost identical set of observations; therefore, these outputs are highly (positively) correlated with each other. In contrast, when we perform $k$-fold CV with $k < n$ are averaging the outputs of $k$ fitted models that are somewhat less correlated with each other, since the overlap between the training sets in each model is smaller. Since the mean of many highly correlated quantities has higher variance than does the mean of many quantities that are not as highly correlated, the test error estimate resulting from LOOCV tends to have higher variance than does the test error estimate resulting from $k$-fold CV (the variance of the sum of correlated variables increases with the amount of covariance). However, LOOCV estimator is approximately unbiased for the true (expected) prediction error
@@ -4826,46 +4872,3 @@ A stack is an ordered list where you can insert or delete only the last added el
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
 
-#### What is the Bias-Variance Tradeoff?
-
-If we denote the variable we are trying to predict as $Y$ and our covariates as $X$, we may assume that there is a relationship relating one to the other such as $Y = f(X) + \varepsilon$ where the error term $\varepsilon$ is normally distributed with a mean of zero like so $\varepsilon \sim N(0, \sigma_{\varepsilon})$.
-
-We may estimate a model $\hat{f}(X)$ of $f(X)$ using linear regressions or another modeling technique. In this case, the expected squared prediction error at a point $x$ is:
-
-$$
-Err(x)=E[( Y - \hat{f}(x))^{2}]
-$$
-
-This error may then be decomposed into bias and variance components:
-
-$$
-Err(x)=(E[\hat{f}(x)] − f(x))^{2} + E[(\hat{f}(x) − E[\hat{f}(x)(x)])^{2}]+ \sigma_{\varepsilon}^{2}
- $$
-
-Hence, in a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
-
-$$
-Total Error = Bias^{2} + Variance + Irreducible Error
-$$
-
-We can create a graphical visualization of bias and variance using a bulls-eye diagram, representing combinations of both high and low bias and variance.
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bias_variance_tradeoff_illustration.png?raw=true)
-
-Bias refers to an error from an estimator that is general and does not learn relationships from a data set that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target functions). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data and in both cases, -high bias and high variance- the model is not able to generalize well to a new data.
-
-Examples of low bias ML algorithms: Decision Trees, k-Nearest Neighbors, SVM etc...
-Examples of high bias ML algorithms: Generally, parametric algorithms have high bias, making them fast to learn and easier to understant but generally less flexible. In turn, they have lower predictive performance on complex problems that fail to meet the simplifying assumptions of the algorithms bias. Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
-
-Variance refers to an error from an estimator being too spefic and learning relationships that are specific to the training set but will not generalize well to new observations, as well. This part is due to the model's excessive sensitivity to small variations in the training data. A model with many degrees of freedom (such as a high-degree polynomial model)is like to have high variance and thus to overfit the training data. Overfitting happens when a model learns not only the actual relationships (signals) in the training data but also any noise that is present, to the extent that it negatively impacts the performance of the model on a new data. This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impacts the model ability to generalize. Overfitting occurs when we have a very flexible model (a model which has a high capacity, i.e., it has more power to capture the distribution of the data) which essentially memorizes the training data by fitting it too closely. A flexible model is said to have a high variance because the learned parameters (such as the structure of the decision tree) will vary considerably with the training data. Models with small variance error will not change much if you replace couple of samples in the training set. Models with high variance might be affeced even with small changes in the training set.
-
-Examples of low variance ML algorithms:  Linear Regression, Linear Discriminant Analysis, Logistic Regression etc...
-Examples of high variance ML algorithms: Generally, non-parametric ML algorithms that have a lot of flexibility have a high variance, such as, Decision Trees, k-Nearest Neighbors, SVM etc...
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/overfit_underfit_example.png?raw=true)
-
-Irreducible error is the noise term in the true relationship that cannot be fundamentally be reduced by any model and its parameter selection. The only was to reduce this part of the error is to clean up the data (e.g., fix the data sources, such as broken sensors, or detect and remove outliers). In predictive modeling, signal can be thought of as the true underlying pattern one wished to learn from the data. Noise, on the other hand, refers to the irrelevant information or randomness in the dataset. 
-
-The balance between creating a model that is so flexible (high capacity), it memorizes the training data, versus, an inflexible model (low capacity) that cannot learn the training data is known as bias-variance trade-off and is a fundamental concept in Machine Learning. In other words, as you decrease the variance, you tend to increase the bias. As you decrease the bias, you tend to increase the variance. Generally speaking, the goal is to create models that minimize the overall error by careful model selection and tuning to ensure that there is a balance between bias and variance; general enough to make a good predictions on a new data, but specific enough to pick up as much signal as possible. Given the true model and the infinite data to calibrate it, we should be able to reduce both bias and variance terms to 0. However, in a world with imperfect models and finite data, this is not the case.
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/capacity_vs_error.png?raw=true)
