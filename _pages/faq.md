@@ -2761,6 +2761,9 @@ $$
 \text{Total Error} = \text{Bias}^{2} + \text{Variance} + \text{Irreducible Error}
 $$
 
+Our goal is to minimize the total, which we have decomposed into the sum of a (squared) bias, a variance, and a constant noise term. As we shall see later, there is a trade-off between bias and variance, with very flexible models having low bias
+and high variance, and relatively rigid models having high bias and low variance. The model with the optimal predictive capability is the one that leads to the best balance between bias and variance.
+
 We can create a graphical visualization of bias and variance using a bulls-eye diagram, representing combinations of both high and low bias and variance.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bias_variance_tradeoff_illustration.png?raw=true)
