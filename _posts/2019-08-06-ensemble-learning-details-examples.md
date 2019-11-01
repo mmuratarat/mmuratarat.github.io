@@ -387,15 +387,15 @@ Random Forest can automatically handle missing values using proximity matrix as 
 
 No feature scaling (standardization and normalization) required in case of Random Forest as it uses rule based approach instead of distance calculation.
 
+It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel
+
 Random Forest is usually robust to outliers and can handle them automatically.
 
 Similar to other ensemble methods, interprebility is a problem for Random Forests algorithm too. 
 
 It’s more complex and computationally expensive than decision tree algorithm, which makes the algorithm slow and ineffective for real-time predictions, due to a large number of trees, as a more accurate prediction requires more trees.
 
-It cannot extrapolate at all to data that are outside the range that they have seen.
-
-It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel
+It cannot extrapolate at all to data that are outside the range that they have seen. The reason is simple: the predictions from a Random Forest are done through averaging the results obtained in several trees. The trees themselves output the mean value of the samples in each terminal node, the leaves. It's impossible for the result to be outside the range of the training data, because the average is always inside the range of its constituents. In other words, it's impossible for an average to be bigger (or lower) than every sample, and Random Forests regressions are based on averaging.
 
 ## OOB Evaluation in Random Forest
 The out of bag samples associated with each tree in a RandomForestClassifier  will be different from one tree to another. Each of the OOB sample rows is passed through every Decision Trees that did not contain the OOB sample row in its bootstrap training data and a majority prediction is noted for each row.
