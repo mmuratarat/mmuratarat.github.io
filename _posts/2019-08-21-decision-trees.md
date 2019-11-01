@@ -105,7 +105,7 @@ Root node:
 * `gini = 0.6667` is the gini impurity of the node. It discribes how much the classes are mixed up. We compute it as follows: $1 - ((50/150)^{2} + (50/150)^{2} + (50/150)^{2}) = 0.6667$. Its formula is given below.
 * `petal length (cm) <= 2.45` This means that the node is split so that all samples where the feature petal length (cm) is lower than 2.45 go to the left child and the samples where the feature is higher than 2.45 go to the right child.
 
-A node’s `samples` attribute counts how many training instances it applies to. For example, 100 training instances have a petal length greater than 2.45 cm (depth 1, right), among which 54 have a petal width smaller than 1.75 cm (depth 2, left). A node’s `value` attribute tells you how many training instances of each class this node applies to: for example, the bottom-right node applies to 0 Iris-Setosa, 1 Iris- Versicolor, and 45 Iris-Virginica. Finally, a node’s gini attribute measures its impurity (Gini impurity is lower bounded by 0, with 0 occurring if the data set contains only one class): a node is “pure” (gini=0) if all training instances it applies to belong to the same class. For example, since the depth-1 left node applies only to Iris-Setosa training instances, it is pure and its gini score is 0. Equation below shows how the training algorithm computes the gini score Gi of the ith node. For example, the depth-2 left node has a gini score equal to $1 - (0/54)^{2} - (49/54)^{2} - (5/54)^{2} = 0.168$. 
+A node’s `samples` attribute counts how many training instances it applies to. For example, 100 training instances have a petal length greater than 2.45 cm (depth 1, right), among which 54 have a petal width smaller than 1.75 cm (depth 2, left). A node’s `value` attribute tells you how many training instances of each class this node applies to: for example, the bottom-right node applies to 0 Iris-Setosa, 1 Iris- Versicolor, and 45 Iris-Virginica. Finally, a node’s gini attribute measures its impurity (Gini impurity is lower bounded by 0, with 0 occurring if the data set contains only one class): a node is “pure” (gini=0) if all training instances it applies to belong to the same class. For example, since the depth-1 left node applies only to Iris-Setosa training instances, it is pure and its gini score is 0. Equation below shows how the training algorithm computes the gini score $G_{i}$ of the $i$-th node. For example, the depth-2 left node has a gini score equal to $1 - (0/54)^{2} - (49/54)^{2} - (5/54)^{2} = 0.168$. 
 
 Considering we have $J$ classes, Gini index is computed by:
 
@@ -119,11 +119,11 @@ I_{G} (p) &= \sum_{i=1}^{J} p_{i} \sum_{k \neq i} p_{k} = \sum_{i=1}^{J} p_{i} (
 
 This is for multiple classes and also used for binary classes.
 
-For instance, if a data set has only one class, its gini index is $1 − 1^{2} = 0$, which is a purity data set. On the other hand, if a probability distribution is uniform $p = (1/k, 1/k, \cdot , 1/k)$, its gini index achieves maximum.
+For instance, if a data set has only one class, its gini index is $1 − 1^{2} = 0$, which is a purity data set. On the other hand, if a probability distribution is uniform $p = (1/k, 1/k, \cdots , 1/k)$, its gini index achieves maximum.
 
-**NOTE** You might often come across the term ‘Gini Impurity’ which is determined by subtracting the gini value from 1. So mathematically we can say, Gini Impurity = 1-Gini
+**NOTE** You might often come across the term 'Gini Impurity' which is determined by subtracting the gini value from 1. So mathematically we can say, $\text{Gini Impurity} = 1 - \text{Gini}$.
 
-**NOTE**: Scikit-Learn uses the CART algorithm, which produces only binary trees and makes use of Gini impurity as metric to measure uncertainty: nonleaf nodes always have two children (i.e., questions only have yes/no answers). However, other algorithms such as  Iterative Dichotomiser 3 (ID3) which uses entropy as metric to measure uncertainty, can produce Decision Trees with nodes that have more than two children.
+**NOTE**: Scikit-Learn uses the CART algorithm, which produces only binary trees and makes use of Gini impurity as metric to measure uncertainty: non-leaf nodes always have two children (i.e., questions only have yes/no answers). However, other algorithms such as  Iterative Dichotomiser 3 (ID3) which uses entropy as metric to measure uncertainty, can produce Decision Trees with nodes that have more than two children.
 
 # Estimating Class Probabilities
 
