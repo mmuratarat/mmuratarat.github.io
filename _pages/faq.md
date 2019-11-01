@@ -3667,13 +3667,15 @@ There also exist more powerful sampling methods that go beyond simple oversampli
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ImbalancedClasses_fig11.png?raw=true)
 
+SMOTE is implemented in Python using the `imblearn` library.
+
 Very similar to SMOTE, ADYSYN (Adaptive Synthetic Sampling Method) also creates synthetic data points with feature space vectors. However, for the new data points to be realistic, ADYSYN adds a small error to the data points to allow for some variance. This is because observations are not perfectly correlated in real life.
  
 Instead of relying on random samples to cover the variety of the training samples, we can also cluster abundant classes. Let n be number of samples in the rare class. Cluster the abundant class into n clusters, and use the resulting cluster mediods/means as the training data for the abundant class. To be clear, you throw out the original training data from the abundant class, and use the mediods instead. Now your classes are balanced! But your dataset is much smaller, so that might be an issue.
 
 You could even use a method like Naive Bayes that can sample each attribute independently when run in reverse.
 
-A recent study shows that the combination of Undersampling with ensemble learning can achieve better results
+A recent study shows that the combination of undersampling with ensemble learning can achieve better results. Although you are undersampling the majority class for each individual model, as long as you build enough models, you'll be able to fully sample the training data.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/blagging.png?raw=true)
 
