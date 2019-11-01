@@ -3287,7 +3287,7 @@ lower, upper = data_mean - cut_off, data_mean + cut_off
 outliers = [x for x in data if x < lower or x > upper]
 {% endhighlight %}
 
-Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance.
+Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Cook’s Distance, (3) Isolation Forest, (4)  DBScan Clustering.
 
 #### What is the difference between norm and distance?
 
