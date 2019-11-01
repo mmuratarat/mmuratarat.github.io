@@ -3095,6 +3095,10 @@ For better predictions, categorical variable can be considered as a continuous v
 
 #### Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
 
+In machine learning, there's something called the "No Free Lunch" theorem. In a nutshell, it states that no one algorithm works best for every problem, and it’s especially relevant for supervised learning (i.e. predictive modeling).
+
+Of course, the algorithms you try must be appropriate for your problem, which is where picking the right machine learning task comes in. 
+
 Choosing a machine learning algorithm can be a difficult task. If you have much time, you can try all of them. However, usually the time you have to solve a problem is limited. You can ask yourself several questions before starting to work on the problem. Depending on your answers, you can shortlist some algorithms and try them on your data.
 
 1. **Explainability**: Most very accurate learning algorithms are so-called "black boxes." They learn models that make very few errors, but why a model made a specific prediction could be very hard to understand and even harder to explain. Examples of such models are neural networks or ensemble models. On the other hand, kNN, linear regression, or decision tree learning algorithms produce models that are not always the most accurate, however, the way they make their prediction is very straightforward.
