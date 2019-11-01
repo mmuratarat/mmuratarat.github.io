@@ -3671,7 +3671,7 @@ There also exist more powerful sampling methods that go beyond simple oversampli
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ImbalancedClasses_fig11.png?raw=true)
 
-SMOTE is implemented in Python using the `imblearn` library.
+SMOTE is implemented in Python using the `imblearn` library. Details can be found [here](https://imbalanced-learn.readthedocs.io/en/stable/over_sampling.html#mathematical-formulation){:target="_blank"}.
 
 Very similar to SMOTE, ADYSYN (Adaptive Synthetic Sampling Method) also creates synthetic data points with feature space vectors. However, for the new data points to be realistic, ADYSYN adds a small error to the data points to allow for some variance. This is because observations are not perfectly correlated in real life.
  
