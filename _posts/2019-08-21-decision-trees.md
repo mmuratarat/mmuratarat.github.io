@@ -172,7 +172,7 @@ So should you use Gini impurity or entropy? The truth is, most of the time it do
 
 Decision tree algorithms use information gain to split a node. There are three commonly used impurity measures used in binary decision trees: Entropy, Gini index, and Classification Error. A node having multiple classes is impure whereas a node having only one class is pure, meaning that there is no disorder in that node.
 
-**Entropy** (a way to measure impurity):
+**Entropy (Cross-Entropy)** (a way to measure impurity):
 
 \begin{equation}
 Entropy = - \sum_{j} p_{j} \log_{2} p_{j}
@@ -223,7 +223,6 @@ Gini = 1 - (p_1^2 + p_2^2) = 1-(0.5^2+0.5^2) = 0.5
 \end{equation}
 
 **NOTE**: Whether using gini or entropy, the resulting trees are typically very similar in practice. Maybe an advantage of Gini would be that you don’t need to compute the log, which can make it a bit faster in your implementation.
- 
  
 {% highlight python %}
 import matplotlib.pyplot as plt
@@ -413,6 +412,26 @@ IG_{B}(G_p) = 1 - \frac{60}{80} \times 0.92 - \frac{20}{80} \times 0 = 0.31
 
 So, the entropy criterion favors B.
 
+# How to split with different variable?
+
+The set of split points considered for any variable depends upon whether the variable is numeric or categorical. The values of the variable taken by the cases at that node also play a role.
+
+When a predictor is numeric, if all values are unique, there are $n - 1$ split points for $n$ data points. Because this may be a large number, it is common to consider only split points at certain percentiles of the distribution of values. For example, we may consider every tenth percentile (that is, 10%, 20%, 30%, etc).
+
+When a predictor is categorical we can decide to split it to create either one child node per class (multiway splits) or only two child nodes (binary split). It is usual to make only binary splits because multiway splits break the data into small subsets too quickly. This causes a bias towards splitting predictors with many classes since they are more likely to produce relatively pure child nodes, which results in overfitting.
+
+If a categorical predictor has only two classes, there is only one possible split. However, if a categorical predictor has more than two classes, various conditions can apply.
+
+If there is a small number of classes, all possible splits into two child nodes can be considered.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/decision_tree_split_variables.png?raw=true)
+
+For k classes there are $2^{k-1} – 1$ splits, which is computationally prohibitive if $k$ is a large number.
+
+If there are many classes, they may be ordered according to their average output value. We can the make a binary split into two groups of the ordered classes. This means there are $k – 1$ possible splits for $k$ classes.
+
+If $k$ is large, there are more splits to consider. As a result, there is a greater chance that a certain split will create a significant improvement, and is therefore best. This causes trees to be biased towards splitting variables with many classes over those with fewer classes.
+
 # Regularization Hyperparameters
 
 Decision Trees make very few assumptions about the training data (as opposed to linear models, which obviously assume that the data is linear, for example). If left unconstrained, the tree structure will adapt itself to the training data, fitting it very closely, and most likely overfitting it. Such a model is often called a nonparametric model, not because it does not have any parameters (it often has a lot) but because the number of parameters is not determined prior to training, so the model structure is free to stick closely to the data. In contrast, a parametric model such as a linear model has a predetermined number of parameters, so its degree of freedom is limited, reducing the risk of overfitting (but increasing the risk of underfitting).
@@ -524,9 +543,9 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 5. Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the data set prior to fitting with the decision tree.
 
-6. Calculations can become complex when there are many class label
+6. Calculations can become complex when there are many class labels.
 
-7. Generally, it gives low prediction accuracy for a dataset as compared to other machine learning algorithms
+7. Generally, it gives low prediction accuracy for a dataset as compared to other machine learning algorithms.
 
 8. Information gain in a decision tree with categorical variables gives a biased response for attributes with greater number of categories.
 
