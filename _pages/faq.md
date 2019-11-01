@@ -203,8 +203,8 @@ permalink: /faq/
 49. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 50. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 51. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
-52. How do you deal with missing value in a data set?
-53. How do you deal with imbalanced data?
+52. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
+53. How do you deal with missing value in a data set?
 54. How do you deal with high cardinality? 
 
 ## Mathematics and Linear Algebra
