@@ -3673,6 +3673,12 @@ Instead of relying on random samples to cover the variety of the training sample
 
 You could even use a method like Naive Bayes that can sample each attribute independently when run in reverse.
 
+A recent study shows that the combination of Undersampling with ensemble learning can achieve better results
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/blagging.png?raw=true)
+
+This technique has not been implemented in Scikit-learn, though a file called `blagging.py` (balanced bagging) is available that implements a BlaggingClassifier, which balances bootstrapped samples prior to aggregation. https://github.com/yanshanjing/learning-from-imbalanced-classes/blob/master/blagging.py
+
 You can try different algorithms. Some algorithms are less sensitive to the problem of imbalanced dataset. Tree-based algorithms such as decision trees often perform well on imbalanced datasets because their hierarchical structure allows them to learn signals from both classes. In modern applied machine learning, tree ensembles (Random Forests, Gradient Boosted Trees, etc.) almost always outperform singular decision trees
 
 In more extreme cases, it may be better to think of classification under the context of anomaly detection, a.k.a. outlier detection. In anomaly detection, we assume that there is a "normal" distribution(s) of data-points, and anything that sufficiently deviates from that distribution(s) is an anomaly. When we reframe our classification problem into an anomaly detection problem, we treat the majority class as the "normal" distribution of points, and the minority as anomalies. Thinking of the minority class as the outliers class which might help you think of new ways to separate and classify samples. There are many algorithms for anomaly detection such as clustering methods, One-class SVMs, and Isolation Forests.
