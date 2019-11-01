@@ -193,7 +193,7 @@ permalink: /faq/
 39. [How do you detect outliers in a dataset?](#how-do-you-detect-outliers-in-a-dataset)
 40. [What is the difference between norm and distance?](#what-is-the-difference-between-norm-and-distance)
 41. [What is Hamming Distance?](#what-is-hamming-distance)
-42. How to find distance between mixed categorical and numeric data points?
+42. [How to find distance between mixed categorical and numeric data points?](#how-to-find-distance-between-mixed-categorical-and-numeric-data-points)
 43. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 44. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
 45. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
@@ -3378,7 +3378,7 @@ Hamming distance can be seen as Manhattan distance between categorical variables
 When the data point contains a mixture of numeric and categorical attributes, we can calculate the distance of each group and then treat each measure of distance as a separate dimension (numeric value).
 
 $$
-\text{distance final} = alpha distance_{numeric} + (1- \alpha) distance_{categorical}
+\text{distance final} = \alpha distance_{numeric} + (1- \alpha) distance_{categorical}
 $$
 
 #### What is the difference between Mahalanobis distance and Euclidean distance?
@@ -3568,6 +3568,15 @@ It gives posterior probability $P(y = 1 \mid x)$. Because of the sigmoid functio
 #### Can you interpret probabilistically the output of a Support Vector Machine?
 
 SVMs don’t output probabilities natively, but probability calibration methods can be used to convert the output to class probabilities. Various methods exist, including Platt scaling (particularly suitable for SVMs) and isotonic regression. For more details, look [here](https://mmuratarat.github.io/2019-10-12/probabilistic-output-of-svm)
+
+#### What is a parsimonious model?
+
+Parsimonious models are simple models with great explanatory predictive power. They explain data with a minimum number of parameters, or predictor variables.
+
+The idea behind parsimonious models stems from Occam’s razor (law of parsimony - Entities should not be multiplied unnecessarily). The most useful statement of the principle for scientists is "when you have two competing theories that make exactly the same predictions, the simpler one is the better". The law states that you should use no more "things" than necessary; In the case of parsimonious models, those "things" are parameters. Parsimonious models have optimal parsimony, or just the right amount of predictors needed to explain the model well.
+
+There is generally a tradeoff between goodness of fit and parsimony: low parsimony models (i.e. models with many parameters) tend to have a better fit than high parsimony models. This is not usually a good thing; adding more parameters usually results in a good model fit for the data at hand, but that same model will likely be useless for predicting other data sets.
+Finding the right balance between parsimony and goodness of fit can be challenging. Popular methods include Akaike’s Information Criterion (AIC), Bayesian Information Criterion (BIC), Bozdogan’s index of informational complexity (ICOMP), Bayes Factors and Minimum Description Length. The best model minimizes those critera.
 
 
 ## Deep Learning
