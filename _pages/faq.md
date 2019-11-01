@@ -1055,11 +1055,11 @@ A strictly convex function has exactly one local minimum point, which is also th
 
 If the functions $f$ and $g$ are convex, then any linear combination $a f + b g$ where $a$, $b$ are positive real numbers is also convex.
 
-A concave function is the negative of a convex function. $−f$ is concave if $f$ is convex.
-
 The introduced concept of convexity has a simple geometric interpretation. Geometrically, the line segment connecting $(x_{1}, f(x_{1}))$ to $(x_{2}, f(x_{2}))$ must sit above the graph of $f$ and never cross the graph itself.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.jpeg?raw=true)
+
+If a function has the opposite property, namely that every chord lies on or below the function, it is called concave, with a corresponding definition for strictly concave. If a function $f(x)$ is convex, then $−f(x)$ will be concave.
 
 #### What are the Karush-Kuhn-Tucker conditions?
 
