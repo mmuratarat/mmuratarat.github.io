@@ -3577,6 +3577,54 @@ It gives posterior probability $P(y = 1 \mid x)$. Because of the sigmoid functio
 
 SVMs don’t output probabilities natively, but probability calibration methods can be used to convert the output to class probabilities. Various methods exist, including Platt scaling (particularly suitable for SVMs) and isotonic regression. For more details, look [here](https://mmuratarat.github.io/2019-10-12/probabilistic-output-of-svm)
 
+#### What are the advantages and disadvantages of Support Vector Machines?
+
+**Advantages**
+
+1. SVM works relatively well when there is clear margin of separation between classes.
+
+2. SVM is more effective in high dimensional spaces.
+
+3. SVM can efficiently handle non-linear data using Kernel trick. The feature mapping is implicitly carried out via simple dot products.
+
+4. SVM is effective in cases where number of dimensions is greater than the number of samples (high dimensional data).
+
+5. SVM can be used to solve both classification and regression problems. SVM is used for classification problems while SVR (Support Vector Regression) is used for regression problems.
+
+6. SVM works well with even unstructured and semi-structured data like text and images.
+
+7. SVM results in sparsity. We are using only a subset of data points (support vectors) for the decision function (the sparseness of the solution).
+
+8. SVM can control overfitting and underfitting (Using $C$ hyperparameter - the capacity control obtained by optimising the margin).
+
+9. Due to the nature of convex optimization, the solution is guaranteed to be the global minimum not a local minimum (the absence of local minima).
+
+10. It is useful for both linearly seperable (hard-margin classifier) and non-linearly seperable (soft margin classifier) data. The only thing to do is to come up with the optimal penalty variable C (the hyper-parameter that multiplies slack variables).
+
+**Disadvantages**
+
+1. Perhaps the biggest limitation of the support vector approach lies in choice of the kernel. Choosing an appropriate kernel function (to handle the non-linear data) is not an easy task. It could be tricky and complex. In case of using a high dimension kernel, you might generate too many support vectors which reduce the training speed drastically. 
+
+2. Extensive memory requirement: Algorithmic complexity and memory requirements of SVM are very high. You need a lot of memory since you have to store all the support vectors in the memory and this number grows abruptly with the training dataset size.
+
+3. The optimal design for multiclass SVM classifiers is a further area for research.
+
+4. SVM does not perform very well, when the data set has more noise i.e. target classes are overlapping.
+
+5. As the support vector classifier works by putting data points, above and below the classifying hyper plane there is no probabilistic explanation for the classification.
+
+6. It is not that easy to fine-tune the hyper-parameters of SVM, such as the selection of the kernel function parameters - for Gaussian kernels the width parameter [sigma] - and the value of [epsilon] in the [epsilon]-insensitive loss function, that will allow for sufficient generalization performance. It is hard to visualize their impact.
+
+7. SVMs are difficult to interpret: SVM model is difficult to understand and interpret by human beings unlike Decision Trees.
+
+8. They require feature scaling. One must do feature scaling of variables before applying SVM.
+
+9. SVM algorithm is not suitable for large data sets.
+
+10. Discete data presents another problem in SVMs.
+
+11. Another limitation is speed and size, both in training and testing. SVM takes a long training time on large datasets. They can also be abysmally slow in test phase, although SVMs have good generalization performance.
+
 #### What is a parsimonious model?
 
 Parsimonious models are simple models with great explanatory predictive power. They explain data with a minimum number of parameters, or predictor variables.
@@ -3801,7 +3849,6 @@ The weight matrix $\mathbf{W}^{(1)}$ for the first layer $l = 1$ has the dimensi
 
 The number of inputs $p$ and the number of outputs $K$ (number of classes) are given by the problem, but the number of layers
 $L$ and the dimensions $M_{1}, M_{2},\ldots$ are user design choices that will determine the flexibility of the model.
-
 
 #### What is softmax function and when we use it?
 
