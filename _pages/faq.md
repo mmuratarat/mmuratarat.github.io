@@ -2624,16 +2624,12 @@ Definition of terms:
 * **F1 Score**: This is harmonic mean of TPR (Sensitivity / Recall) and Precision. F1 score reaches its best value at 1 (perfect precision and recall) and worst at 0. Therefore, the F1 score can not be greater than precision.
 
   $$
-  F1 Score = \left(\frac{2}{Recall^{-2} + Precision^{-1}} \right)= \frac{ 2 \times Recall \times Precision}{Recall + Precision}
+  \text{F1 Score} = \left(\frac{2}{Recall^{-1} + Precision^{-1}} \right)= \frac{ 2 \times Recall \times Precision}{Recall + Precision}
   $$
   
   It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. 
 
-* **ROC curves and AUC**: ROC curves are two-dimensional graphs in which true positive rate (TPR) is plotted on the Y axis and false positive rate (FPR) is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings.
-
-
-AUC is computed as area under this curve
-
+* **ROC curves and AUC**: ROC curves are two-dimensional graphs in which true positive rate (TPR) is plotted on the Y axis and false positive rate (FPR) is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). AUC is computed as area under this curve. It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings.
 
 #### What are the assumptions required for linear regression?
 
