@@ -2602,13 +2602,13 @@ Definition of terms:
   TNR = \frac{TN}{TN + FP}
   $$
   
-* **False Positive Rate (FPR)**: When it is actually negative, how often does the classifier predict positive? FPR is equal to the significance level, which is Type I error. It can also be computed as 1- Specificity.
+* **False Positive Rate (FPR)**: When it is actually negative, how often does the classifier predict positive?  FPR is equal to the significance level, which is Type I error.  It is also known as false alarm rate, fall-out or 1 - specificity
 
   $$
   FPR = \frac{TP}{TP+FN}
   $$
 
-* **False Negative Rate (FNR)**: When it is actually positive, how often does the classifier predict negative? FNR is Type II error. 1-FNR equals to the power (sensitivity) of the test in statistical hypothesis testing. 
+* **False Negative Rate (FNR)**: When it is actually positive, how often does the classifier predict negative? FNR is Type II error. 1-FNR equals to the power (sensitivity) of the test in statistical hypothesis testing. It is also known as Miss-rate.
 
   $$
   FNR = \frac{FN}{FN + TP}
