@@ -417,13 +417,27 @@ So, the entropy criterion favors B.
 
 The set of split points considered for any variable depends upon whether the variable is numeric or categorical. The values of the variable taken by the cases at that node also play a role.
 
-When a predictor is numeric, if all values are unique, there are $n - 1$ split points for $n$ data points. Because this may be a large number, it is common to consider only split points at certain percentiles of the distribution of values. For example, we may consider every tenth percentile (that is, 10%, 20%, 30%, etc).
+When a predictor is numeric, if all values are unique, there are $n - 1$ split points for $n$ data points. Suppose we have a training set with an attribute “age” which contains following values: 10, 11, 16, 18, 20, 35. Now at a node, the algorithm will consider following possible splitting:
 
-Another way to do so is to discretize the values into ranges. Alternatively, we can split nodes based on thresholds ($A < c$) such that the data is partitioned into examples that satisfy $A < c$ and $A \geq c$. Information gain for these splits can be calculated in the same way as before, since in this setup each node becomes a Boolean value. To find the split with the highest gain for continuous attribute A, we would sort examples according to the value, and for each ordered pair (x, y) with different labels, we would check the midpoint as a possible threshold. For example, consider the following data:
+$$
+\begin{split}
+Age \leq 10 \quad & \quad Age>10
+Age \leq 11 \quad & \quad Age>11
+Age \leq 16 \quad & \quad Age>16
+Age \leq 18 \quad & \quad Age>18
+Age \leq 20 \quad & \quad Age>20
+\end{split}
+$$
+
+Because this may be a large number, it is common to consider only split points at certain percentiles of the distribution of values. For example, we may consider every tenth percentile (that is, 10%, 20%, 30%, etc).
+
+Another way to do so is to discretize the values into ranges. 
+
+Alternatively, we can split nodes based on thresholds ($A < c$) such that the data is partitioned into examples that satisfy $A < c$ and $A \geq c$. Information gain for these splits can be calculated in the same way as before, since in this setup each node becomes a Boolean value. To find the split with the highest gain for continuous attribute A, we would sort examples according to the value, and for each ordered pair (x, y) with different labels, we would check the midpoint as a possible threshold. For example, consider the following data:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-02%20at%2018.17.44.png?raw=true)
 
-Using the above, we would check thresholds $L < 12.5$, $L < 24.5$, $L < 45$, and could then use the standard decision tree algorithms. It is important to note, though, that domain knowledge may influence how we choose these splits; the midpoint may not always be appropriate
+Using the above, we would check thresholds $L < 12.5$, $L < 24.5$, $L < 45$, and could then use the standard decision tree algorithms. It is important to note, though, that domain knowledge may influence how we choose these splits; the midpoint may not always be appropriate (for example for the variable 'age'. We won’t consider $Age \leq 10.5$ as 10.5 never appears in the training set)
 
 When a predictor is categorical we can decide to split it to create either one child node per class (multiway splits) or only two child nodes (binary split). It is usual to make only binary splits because multiway splits break the data into small subsets too quickly. This causes a bias towards splitting predictors with many classes since they are more likely to produce relatively pure child nodes, which results in overfitting.
 
