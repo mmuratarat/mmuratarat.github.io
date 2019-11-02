@@ -421,11 +421,11 @@ When a predictor is numeric, if all values are unique, there are $n - 1$ split p
 
 $$
 \begin{split}
-Age \leq 10 \quad & \quad Age>10
-Age \leq 11 \quad & \quad Age>11
-Age \leq 16 \quad & \quad Age>16
-Age \leq 18 \quad & \quad Age>18
-Age \leq 20 \quad & \quad Age>20
+Age \leq 10 \quad & \quad Age>10 \\
+Age \leq 11 \quad & \quad Age>11 \\
+Age \leq 16 \quad & \quad Age>16 \\
+Age \leq 18 \quad & \quad Age>18 \\ 
+Age \leq 20 \quad & \quad Age>20 
 \end{split}
 $$
 
