@@ -2558,6 +2558,76 @@ Confusion Matrix, also known as an error matrix, is a specific table layout that
 * **Regression problems**: Mean Absolute Error, Mean Squared Error, Root Mean Squared Error, R-squared
 * **Classification problems**: Accuracy, Precision, Recall, Sensitivity, Specificity, False Positive Rate, F1 Score, AUC, Lift and gain charts
 
+#### What is confusion matrix and its elements?
+
+A much better way to evaluate the performance of a classifier is look at the confusion matrix. In order to compute the confusion matrix, you first need to have a set of predictions, so they can be compared to the actual targets.
+
+
+Definition of terms:
+
+* **Positive (P)**: Observation is positive
+
+* **Negative (N)**: Observation is not positive
+
+* **True Positive (TP)**: Observation is positive and is predicted to be positive
+
+* **True Negative (TN)**: Observation is negative and is predicted to be negative
+
+* **False Positive (FP)**: Observation is negative and is predicted to be positive. It is also called Type I error which is rejection of true null hypothesis.
+
+* **False Negative (FN)**: Observation is positive and is predicted to be negative. It is also called Type II error which is non-rejection of false null hypothesis. 1 - FNR will give the power of the hypothesis test. 
+
+* **Accuracy (ACC)**: Accuracy is calculated as the number of correct predictions divided by total number of observations in the dataset. The best accuracy is 1.0 where as the worst is 0.0.
+
+  $$
+  ACC = \frac{TP + TN}{TP + TN + FP + FN}
+  $$
+  
+* **Error Rate (ERR)**: Error rate if calculated as the number of all incorrect predictions, divided by the total number of observations in the dataset. The best error rate is 0.0 where as the worst is 1.0.
+
+  $$
+  ERR = \frac{FP + FN}{TP + TN + FP + FN}
+  $$
+
+
+* **True Positive Rate (TPR)**: When it is actually positive, how often does the classifier predict positive? It is also called _Recall_ or _Sensitivity_. The best sensitivity is 1.0 whereas the worst is 0.0. It is a measure of a classifier’s completeness. Low sensitivity (recall) indicates a high number of false negatives. 
+
+  $$
+  TPR = \frac{TP}{TP+FN}
+  $$
+  
+* **True Negative Rate (TNR)**: When it is actually negative, how often does the classifier predict negative? It is also known as _Specificity_. It is equivalent of 1 - FPR.
+
+  $$
+  TNR = \frac{TN}{TN + FP}
+  $$
+  
+* **False Positive Rate (FPR)**: When it is actually negative, how often does the classifier predict positive? FPR is equal to the significance level, which is Type I error. It can also be computed as 1- Specificity.
+
+  $$
+  FPR = \frac{TP}{TP+FN}
+  $$
+
+* **False Negative Rate (FNR)**: When it is actually positive, how often does the classifier predict negative? FNR is Type II error. 1-FNR equals to the power (sensitivity) of the test in statistical hypothesis testing. 
+
+  $$
+  FNR = \frac{FN}{FN + TP}
+  $$
+
+* **Precision**: Out of all positive classes that we have predicted, how many are actually positive? Precision is also called Positive Predictive Value. It is a measure of a classifier’s exactness. Low precision indicates a high number of false positives.
+
+  $$
+  Precision = \frac{TP}{TP + FP}
+  $$
+
+* **F1 Score**: This is harmonic mean of TPR (Sensitivity / Recall) and Precision. F1 score reaches its best value at 1 (perfect precision and recall) and worst at 0. Therefore, the F1 score can not be greater than precision.
+
+  $$
+  F1 Score = \left(\frac{2}{Recall^{-2} + Precision^{-1}} \right)= \frac{ 2 \times Recall \times Precision}{Recall + Precision}
+  $$
+  
+  It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. 
+
 #### What are the assumptions required for linear regression?
 
 * Linear Relationship between the features and target
