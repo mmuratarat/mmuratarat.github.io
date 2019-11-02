@@ -10,6 +10,8 @@ Decision tree is a hierarchical data structure that represents data through a di
 * Calculate information gain for each feature and value
 * Choose the feature and values which grants the biggest information gain
 
+One important thing to remember is that the decisions at the bottom of the tree are less statistically robust than those at the top because the decisions are based on less data.
+
 Decision trees has three types of nodes. There is the root node, internal nodes and leaf nodes. However, you might also hear about other common terms, which are described below:
 
 1. **Root Node**: It represents entire population or sample and this further gets divided into two or more homogeneous sets.  the only node without parents.
