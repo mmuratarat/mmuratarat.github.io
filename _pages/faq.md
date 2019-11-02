@@ -2246,7 +2246,7 @@ The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness
 
 #### What is the sampling distribution of sample proportion, p-hat?
 
-The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and variance $\sigma_{\hat{p}}^{2} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
+The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and variance $\sigma_{\hat{p}}^{2} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
 
 In actual practice $p$ is not known, hence neither is $\sigma_{\hat{p}}^{2}$. In that case in order to check that the sample is sufficiently large we substitute the known quantity $\hat{p}$ for $p$. 
 
