@@ -661,6 +661,13 @@ Norms, including the $L^{p}$ norm, are functions mapping vectors to non-negative
 * $f(x + y) \leq f (x) + f(y)$ (the triangle inequality)
 * $\forall \alpha \in \mathbb{R}, f( \alpha x) = \lvert \alpha \rvert f(x)$ (homogenity)
 
+Note that any valid norm $\lVert \cdot \rVert$ is a convex function. We can prove it using the triangle inequality and homogeneity of the norm for any $x, y \in \mathbb{R}^{n}$ and any $\theta \in (0, 1)$:
+
+$$
+\lVert \theta x + (1 - \theta) y \rVert \leq \lVert \theta x \rVert + \lVert (1-\theta) y \rVert = \theta \lVert x \rVert + (1 - \theta) \lVert y \rVert
+$$
+
+
 #### What is Frobenius norm?
 
 Sometimes we may also wish to measure the size of a matrix. In the context of deep learning, the most common way to do this is with the otherwise obscure Frobenius norm.
