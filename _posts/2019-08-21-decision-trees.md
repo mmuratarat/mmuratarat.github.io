@@ -552,9 +552,11 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 8. The number of hyper-parameters to be tuned is almost null.
 
+9. Decision Trees can handle multicollinearity. They make no assumptions on relationships between features. They are greedy algorithms. They will fit on the most effective variable they encounter, leaving other plausible variables out. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
+
 # Disadvantages
 
-1. Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. This problem gets solved by setting constraints on model parameters and pruning.
+1. Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. This problem gets solved by setting constraints on model parameters (e.g., limiting depth of the tree) and heavily pruning.
 
 2. Not fit for continuous variables: While working with continuous numerical variables, decision tree loses information, when it categorizes variables in different categories.
 
