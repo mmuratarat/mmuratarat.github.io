@@ -15,7 +15,7 @@ $$
 will also blow up when $\mathbf{X}^{T} \cdot \mathbf{X}$ is singular. If that matrix isn’t exactly singular, but is
 close to being non-invertible, the variances will become huge. 
 
-If you dive into the matrix algebra, you will find that the term $\mathbf{X}^{T} \cdot \mathbf{X}$ is equal to a matrix with ones on the diagonals and the pairwise Pearson’s correlation coefficients ($\rho$) on the off-diagonals (this is the factg when columns are standardized):
+If you dive into the matrix algebra, you will find that the term $\mathbf{X}^{T} \cdot \mathbf{X}$ is equal to a matrix with ones on the diagonals and the pairwise Pearson’s correlation coefficients ($\rho$) on the off-diagonals (this is the true when columns are standardized.):
 
 $$
 (\mathbf{X}^{T} \cdot \mathbf{X}) =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}
