@@ -387,6 +387,8 @@ Random Forest can automatically handle missing values using proximity matrix as 
 
 Random Forest is usually robust to outliers and can handle them automatically.
 
+Random Forest uses bootstrap sampling and feature sampling, i.e row sampling and column sampling. Therefore Random Forest is not affected by multicollinearity that much since it is picking different set of features for different models and of course every model sees a different set of data points. But there is a chance of multicollinear features getting picked up together, and when that happens we will see some trace of it. Feature importance will definitely be affected by multicollinearity. Intuitively, if the features have same effect or there is a relation in between the features, it can be difficult to rank the relative importance of features. In other words, it’s not easy to say which one is even if we can access the underlying effect by measuring more than one variable, or if they are mutual symptoms of a third effect.
+
 No feature scaling (standardization and normalization) required in case of Random Forest as it uses rule based approach instead of distance calculation.
 
 It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel.
