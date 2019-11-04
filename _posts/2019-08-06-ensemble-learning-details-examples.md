@@ -383,13 +383,13 @@ It is versatile. It can handle binary features, categorical features, and numeri
 
 Random Forest handles higher dimensionality data very well.
 
-Random Forest can automatically handle missing values using proximity matrix as a measure
+Random Forest can automatically handle missing values using proximity matrix as a measure.
+
+Random Forest is usually robust to outliers and can handle them automatically.
 
 No feature scaling (standardization and normalization) required in case of Random Forest as it uses rule based approach instead of distance calculation.
 
-It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel
-
-Random Forest is usually robust to outliers and can handle them automatically.
+It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel.
 
 Similar to other ensemble methods, interprebility is a problem for Random Forests algorithm too. 
 
