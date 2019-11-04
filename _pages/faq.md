@@ -1593,7 +1593,7 @@ $$
 cov(\mathbf{X}) = diag\left(\sqrt{\sigma_{11}},\sqrt{\sigma_{22}}, \ldots,\sqrt{\sigma_{nn}}\right) \times corr(\mathbf{X}) \times diag\left(\sqrt{\sigma_{11}},\sqrt{\sigma_{22}}, \ldots,\sqrt{\sigma_{nn}}\right)
 $$
 
-This is easily seen using $corr(X_{i}, X_{j}) = \dfrac{cov(X_{i}, X_{j})}{\sqrt{\sigma_{ii}\sigma_{jj}}}$
+This is easily seen using $corr(X_{i}, X_{j}) = \dfrac{cov(X_{i}, X_{j})}{\sigma_{ii}\sigma_{jj}}$
 
 Do not forget that covariance indicates the direction of the linear relationship between variables. Correlation on the other hand measures both the strength and direction of the linear relationship between two variables. Correlation is a function of the covariance. 
 
