@@ -219,7 +219,7 @@ $$
 
 where $d_{j}$ are the eigenvalues of $\mathbf{X}^{T} \cdot \mathbf{X}$. Degrees of freedom is a monotone decreasing function of $\lambda$ with $df_{ridge} = n$ at $\lambda = 0$ and $df_{ridge} = 0$ at $\lambda = \infty$. Of course there is always an additional one degree of freedom for the intercept, which was removed apriori.
 
-Furthermore, the ridge regression estimator is related to the classical OLS estimator:
+Furthermore, the ridge regression estimator is related to the classical OLS estimator and is a biased estimator. Remember that the Gauss-Markov theorem states that the OLS estimate for regression coefficients is the BLUE, so by using ridge regression, we are sacrificing some benefits of OLS estimators in order to constrain estimator variance. Estimators constructed using ridge regression are in fact biased:
 
 $$
 \begin{split}
@@ -288,7 +288,7 @@ $$
 \text{minimize}\,\,\,\,\, \left(y - \mathbf{X} \theta\right)^{T} \left( y - \mathbf{X} \theta\right) \,\,\,\,\, \text{s.t.} \sum_{j=1}^{n} |\theta_{j}| \leq t \,\,\,\,\,\text{for some value of t}.
 $$
 
-there exists a one-to-one correspondence between $t$ and $\lambda$. Therefore, this is equivalent to loss function :
+there exists a one-to-one correspondence between $t$ and $\lambda$. To solve the constrained optimization, Lagrange multipliers can be employed. Therefore, this is equivalent to loss function :
 
 $$
 \begin{split}
@@ -379,7 +379,7 @@ The optimization problem we have here is
 
 $$
 \begin{split}
-\min_{\theta_{0}, \theta_{1}, \theta_{2}}  MSE (\mathbf{X}, \theta_{0}, \theta_{1}, \theta_{2}) &= \frac{1}{m} \sum_{i=1}^{m} \left(h_{\theta}(\mathbf{x}^{(i)}) - y^{(i)}\right)^{2}\\
+\min_{\theta_{0}, \theta_{1}, \theta_{2}}  MSE (\mathbf{X}, \theta_{0}, \theta_{1}, \theta_{2}) &= \frac{1}{m} \sum_{i=1}^{m} \left(h_{\theta_{0}, \theta_{1}, \theta_{2}}(\mathbf{x}^{(i)}) - y^{(i)}\right)^{2}\\
 &= \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\\
 \end{split}
 $$
