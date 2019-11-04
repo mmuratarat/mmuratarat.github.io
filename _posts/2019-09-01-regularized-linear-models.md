@@ -6,14 +6,38 @@ comments: true
 ---
 Ridge regression and the Lasso are two forms of regularized regression (i.e., to constraint the model) which are typically achieved by constraining the weights of the model. These methods are seeking to alleviate the consequences of multicollinearity and overfitting the training set (by reducing model complexity).
 
-When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not full rank. This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. Actually we can, however, estimates of coefficients will be unrealistically large, untrustable. Similarly, the variance of the estimates,
+When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not full rank. This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible, we cannot compute $\hat{\theta}_{OLS} = \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$. Actually we can, however, estimates of coefficients will be unrealistically large, untrustable / unstable, meaning that if you construct estimators from different data samples you will potentially get wildly different estimates of your coefficient values. Similarly, the variance of the estimates,
 
 $$
 Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}
 $$
 
 will also blow up when $\mathbf{X}^{T} \cdot \mathbf{X}$ is singular. If that matrix isn’t exactly singular, but is
-close to being non-invertible, the variances will become huge. Consequently, corresponding t-statistics are typically lower, which could lead to the false rejection of a significant predictor.
+close to being non-invertible, the variances will become huge. 
+
+If you dive into the matrix algebra, you will find that the term $\mathbf{X}^{T} \cdot \mathbf{X}$ is equal to a matrix with ones on the diagonals and the pairwise Pearson’s correlation coefficients ($\rho$) on the off-diagonals:
+
+$$
+(\mathbf{X}^{T} \cdot \mathbf{X}) =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}
+$$
+
+As the correlation values increase, the values within $(\mathbf{X}^{T} \cdot \mathbf{X})^{-1}$ also increase. Even with a low residual variance, multicollinearity can cause large increases in estimator variance. Here are a few examples of the effect of multicollinearity using a hypothetical regression with two predictors:
+
+$$
+\begin{split}
+ \rho = .3 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 1.09 & -0.33 \\ -0.33 & 1.09 \end{bmatrix}\\
+ \rho = .9 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 5.26 & -4.73 \\ -5.26 & -4.73 \end{bmatrix}\\
+ \rho = .999 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 500.25 & -499.75 \\ -499.75 & 500.25\end{bmatrix}
+\end{split}
+$$
+
+Large estimator variance also undermines the trustworthiness of hypothesis testing of the significance of coefficients. Because, consequently, corresponding t-statistics are typically lower:
+
+$$
+t_{n-2} = \frac{\hat{\beta_{j}} - 0}{s_{\beta_{j}}}
+$$
+
+An estimator with an inflated standard deviation, $s_{\beta_{j}}$, will thus yield a lower t-value,  which could lead to the false rejection of a significant predictor (ie. a type II error).
 
 A square matrix with no inverse is called singular (noninvertible). A matrix $A$ is singular if and only if $det(A) = 0$, which its determinant equals the product of the eigenvalues of $A$. In case of singularity, one of the eigenvalues is zero. In order to see this, you can consider the spectral decomposition of $A$. The spectral decomposition recasts a matrix in terms of its eigenvalues and eigenvectors. This representation turns out to be enormously useful:
 
