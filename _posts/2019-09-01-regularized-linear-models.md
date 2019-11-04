@@ -39,6 +39,8 @@ $$
 
 An estimator with an inflated standard deviation, $s_{\beta_{j}}$, will thus yield a lower t-value,  which could lead to the false rejection of a significant predictor (ie. a type II error).
 
+### Singular matrix 
+
 A square matrix with no inverse is called singular (noninvertible). A matrix $A$ is singular if and only if $det(A) = 0$, which its determinant equals the product of the eigenvalues of $A$. In case of singularity, one of the eigenvalues is zero. In order to see this, you can consider the spectral decomposition of $A$. The spectral decomposition recasts a matrix in terms of its eigenvalues and eigenvectors. This representation turns out to be enormously useful:
 
 Let $A$ be a real symmetric $p \times p$ matrix with eigenvalues $u_{1}, u_{2}, ..., u_{p}$ and corresponding orthonormal eigenvectors $v_{1}, v_{2},...,v_{p}$. Then,
