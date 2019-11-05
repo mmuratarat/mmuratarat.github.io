@@ -365,7 +365,11 @@ $$
 \text{$L_{2}$ Loss} = \sum_{i=1}^{n} (y_{true} - y_{predicted})^{2}
 $$
 
-Generally, $L_{2}$ Loss Function is preferred in most of the cases. But when the outliers are present in the dataset, then the L2 Loss Function does not perform well. The reason behind this bad performance is that if the dataset is having outliers, then because of the consideration of the squared differences, it leads to the much larger error. Hence, $L_{2}$ Loss Function is not useful here. Prefer $L_{1}$ Loss Function as it is not affected by the outliers or remove the outliers and then use $L_{2}$ Loss Function.
+Among the main differences between the two are that using the squared error is easier to solve for and using the absolute error is more robust to outliers.
+
+When the outliers are present in the dataset, then the L2 Loss Function does not perform well. The reason behind this bad performance is that if the dataset is having outliers, then because of the consideration of the squared differences, it leads to the much larger error. Hence, $L_{2}$ Loss Function is not useful here. Prefer $L_{1}$ Loss Function as it is not affected by the outliers or remove the outliers and then use $L_{2}$ Loss Function.
+
+The reason that the squared error is easier to solve for is that the derivatives are continuous. In the case of linear regression, this means that you can find the solution in closed form (by setting the derivative to zero). Linear regression with absolute error requires an iterative approach, which is more complicated and isn't as efficient. For other models, even if the solution can't be found in closed form, it's usually easier to solve for because simple methods such as gradient descent (and related methods) can be used.
 
 # Why does $L_{1}$ regularization cause parameter sparsity where $L_{2}$ regularization does not?
 
