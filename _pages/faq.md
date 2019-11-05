@@ -177,8 +177,8 @@ permalink: /faq/
 28. [What is feature engineering?](#what-is-feature-engineering)
 29. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 30. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
-31. When should you reduce the number of features used by your features?
-32. When is feature selection is unnecessary?
+31. [When should you reduce the number of features used by your features?](#when-should-you-reduce-the-number-of-features-used-by-your-features)
+32. [When is feature selection is unnecessary?](#when-is-feature-selection-is-unnecessary)
 31. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 32. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
 33. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
