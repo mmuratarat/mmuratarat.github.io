@@ -177,6 +177,8 @@ permalink: /faq/
 28. [What is feature engineering?](#what-is-feature-engineering)
 29. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 30. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
+31. When should you reduce the number of features used by your features?
+32. When is feature selection is unnecessary?
 31. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 32. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
 33. [How do we use probability in Machine Learning/Deep Learning framework?](#how-do-we-use-probability-in-machine-learningdeep-learning-framework)
@@ -3101,6 +3103,23 @@ Note that when you standardize all your variables, the intercept will be zero.
 * **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done. One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
 * **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
 * **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., L1-Regularization.
+
+#### When should you reduce the number of features used by your features?
+
+1. When there is strong collinearity between features
+2. There are an overwhelming number of features
+3. There is not enough computational power to process all features
+4. The algorithm forces the model to use all features, even when they are not useful (parametric or linear models)
+5. When you wish to make the model simpler for any reasons, e.g., easier to explain, less computational power needed etc.
+
+#### When is feature selection is unnecessary?
+
+1. There are relatively few features
+2. All features contain useful and important signal
+3. There is no collinearity between features
+4. The model will automatically select the most useful features
+5. The computing resources can handle processing all of the features
+6. Throroughly explaining the model to a non-technical audience is not critical
 
 #### How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
 
