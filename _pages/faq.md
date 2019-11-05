@@ -5017,7 +5017,7 @@ The most commonly used data structures are
 
 1. Arrays
 2. Stacks
-3. Queues
+3. Queues (Circular Queues)
 4. Linked Lists (Singly-linked list, Doubly linked list, Circular linked list, Circular double linked list)
 5. Trees (and varianst: N-ary Tree, Balanced Tree, Binary Tree, Binary Search Tree, AVL Tree, Red Black Tree, 2–3 Tree, Heap)
 6. Graphs
