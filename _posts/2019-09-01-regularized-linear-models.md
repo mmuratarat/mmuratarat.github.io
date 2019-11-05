@@ -365,6 +365,8 @@ $$
 \text{$L_{2}$ Loss} = \sum_{i=1}^{n} (y_{true} - y_{predicted})^{2}
 $$
 
+If the difference between actual value and predicted value is large, the squared difference would be larger. So, squared error approach penalizes large errors more as compared to absolute error approach. Therefore, if you want the model to penalize large errors more, minimizing squared error would be better.
+
 Among the main differences between the two are that using the squared error is easier to solve for and using the absolute error is more robust to outliers.
 
 When the outliers are present in the dataset, then the L2 Loss Function does not perform well. The reason behind this bad performance is that if the dataset is having outliers, then because of the consideration of the squared differences, it leads to the much larger error. Hence, $L_{2}$ Loss Function is not useful here. Prefer $L_{1}$ Loss Function as it is not affected by the outliers or remove the outliers and then use $L_{2}$ Loss Function.
