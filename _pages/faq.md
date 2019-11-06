@@ -1208,9 +1208,11 @@ Number of permutations when 'r' elements are arranged out of a total of 'n' elem
 
 **Combination** : It is the different selections of a given number of elements taken one by one, or some, or all at a time. For example, if we have two elements A and B, then there is only one way select two items, we select both of them.
 
-Number of combinations when 'r' elements are selected out of a total of 'n' elements is $^n P_r =\frac{n!}{r! (n-r)!}$. For example, let $n = 4$ (A, B, C and D) and $r = 2$ (All combinations of size 2). The answer is $4!/((4-2)! 2!) = 6$. The six combinations are AB, AC, AD, BC, BD, CD.
+Number of combinations when 'r' elements are selected out of a total of 'n' elements is ${n \choose x} = ^n C_r =\frac{n!}{r! (n-r)!}$. For example, let $n = 4$ (A, B, C and D) and $r = 2$ (All combinations of size 2). The answer is $4!/((4-2)! 2!) = 6$. The six combinations are AB, AC, AD, BC, BD, CD.
 
+Note that the order of the objects matters in permutation. 
 
+Also note that ${n \choose r} = ^n C_r = \frac{^n P_r}{r!}$
 
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
