@@ -1082,7 +1082,7 @@ Duality is an optimization problem that allows us to transform one problem into 
 
 Slater's condition holds for the primal convex problem of SVM, therefore, the duality gap is 0, meaning that strong duality holds, so that the optimal solutions for the primal and dual problems have equal objective value.
 
-The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima). To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
+The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima), which is why the Karush–Kuhn–Tucker theorem is sometimes referred to as the saddle-point theorem. To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/kkt_conditions.png?raw=true)
 
