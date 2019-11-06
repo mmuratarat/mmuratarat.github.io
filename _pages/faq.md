@@ -4533,6 +4533,8 @@ difference
 #### What is Early Stopping?
 It is a regularization technique that stops the training process as soon as the validation loss reaches a plateau or starts to increase.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/early-stopping-graphic.jpg?raw=true)
+
 #### Why is Weight Initialization important in Neural Networks?
 
 #### What are the Hyperparameteres? Name a few used in any Neural Network.
