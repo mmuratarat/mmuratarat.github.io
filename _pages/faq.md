@@ -90,7 +90,7 @@ permalink: /faq/
 
 [Probability](#probability)
 
-9. What is the permutation and combination?
+9. [What is the permutation and combination?](#what-is-the-permutation-and-combination)
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
