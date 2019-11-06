@@ -1214,6 +1214,19 @@ Note that the order of the objects matters in permutation.
 
 Also note that ${n \choose r} = ^n C_r = \frac{^n P_r}{r!}$
 
+
+##### Calculate the total number of combinations over n elements, where the number of elements in each subset is in {0,..,n}?
+
+If order doesn't matter, you can use: ${n \choose 0} + {n \choose 1} + {n \choose 2} + \dots + {n \choose n} = 2^n$.
+
+The intuition here is that we're simply summing up all the possible combinations of different length-ed sets. We start with the combinations of length zero (there's only one - the empty set), and then add the combinations of length one (there's 𝑛 of them), etc. until we get to adding the combinations of length 𝑛 (there's only one).
+
+If order does matter you can use: ${n \choose 0}0! + {n \choose 1}1! + {n \choose 2}2! + \dots + {n \choose n}n!$.
+
+All we do here is multiply each element in the last equation by the number of different arrangements that are possible for each length. If, for example, we're considering a set of 7 elements, there are 7! different ways of rearranging that set. Note that this assumes that your set elements are unique (i.e. it's a proper set). If you have duplicate elements, don't use this formula (because, for example, it will count the ordered set AAB twice, given that we can switch the positions of the As).
+
+Perhaps an easier way to think about the ordered case it we're just summing permutations of each possible length: $^n P_0 + ^n P_1 + ^n P_2 + \dots + ^n P_n = \frac{n!}{n!} +  \frac{n!}{(n-1)!} + \frac{n!}{(n-2)!} + \cdots + \frac{n!}{0!}$.
+
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
 
