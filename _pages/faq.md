@@ -2817,6 +2817,24 @@ The most important thing you can do to properly evaluate your model is to not tr
 
 * **Cross-Validation**: When you do not have a decent validation set to tune the hyperparameters of the model on, the common approach that can help is called cross-validation. In the case of having a few training instances, it could be prohibitive to have both validation and test set separately. You would prefer to use more data to train the model. In such a situation, you only split your data into a training and a test set. Then you can use cross-validation on the training set to simulate a validation set. Cross-validation works as follows. First, you fix the values of hyperparameters you want to evaluate. Then you split your training set into several subsets of the same space. Each subset is called a _fold_. Typically, five-fold or ten-fold provides a good compromise for the bias-variance trade-off. With five-fold CV, you randomly split your training data into five folds: $\{F_{1}, F_{2}, ..., F_{5}\}$. Each $F_{k}$ contains $20\%$ of the training data. Then you train five models as follows. To train the first model, $f_{1}$, you use all examples from folds  $\{F_{2}, F_{3}, F_{4}, F_{5}\}$ as the training set and the examples from $F_{1}$ as the validation set. To train the second model, $f_{2}$, you use the examples from fold $\{F_{1}, F_{3}, F_{4}, F_{5}\}$ to train and the examples from $F_{2}$ as the validation set. You continue building models iteratively like this and compute the value of the metric of interest on each validation sets, from $F_{1}$ to $F_{5}$. Then you average the five values of the metric to get the final value. You can use grid search with cross-validation to find the best values of hyperparameters for your model. Once you have found those values, you use the entire training set to build the model with these best values of parameters you have found via cross-validation. Finally, you assess the model using the test set. 
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Cross-Validation-Diagram.jpg?raw=true)
+
+{% highlight python %}
+all_folds = split_into_k_parts(all_training_data)
+ 
+for set_p in hyperparameter_sets:
+    model = InstanceFromModelFamily()
+ 
+    for fold_k in all_folds:
+        training_folds = all_folds besides fold_k
+        fit model on training_folds using set_p
+        fold_k_performance = evaluate model on fold_k
+ 
+    set_p_performance = average all k fold_k_performances for set_p
+ 
+select set from hyperparameter_sets with best set_p_performance
+{% endhighlight %}
+
 * **Stratified Cross Validation**:  When we split our data into folds, we want to make sure that each fold is a good representative of the whole data. The most basic example is that we want the same proportion of different classes in each fold. Most of the times it happens by just doing it randomly, but sometimes, in complex datasets, we have to enforce a correct distribution for each fold.
 
 * **Bootstrapping Method**: Under this technique training dataset is randomly selected with replacement and the remaining data sets that were not selected for training are used for testing. The error rate of the model is average of the error rate of each iteration  as estimation of our model performance, the value is likely to change from fold-to-fold during the validation process.
