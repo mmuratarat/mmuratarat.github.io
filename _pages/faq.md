@@ -2519,6 +2519,10 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2009.42.22.png?raw=true)
 
+#### When to use the z-test versus t-test
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z-vs-t-distribution-flowchart.jpg?raw=true)
+
 #### What does statistical interaction mean?
 
 Statistical interaction means the effect of one independent variable(s) on the dependent variable depends on the value of another independent variable(s). Conversely, additivity (i.e., no interaction) means that the effect of one independent variable(s) on the dependent variable does NOT depend on the value of another independent variable(s).
