@@ -90,6 +90,7 @@ permalink: /faq/
 
 [Probability](#probability)
 
+9. What is the permutation and combination?
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
@@ -1198,6 +1199,18 @@ P\left(\cup_{i=1}^{n} A_{i}\right) =\sum_{i=1}^{n} P(A_{i}) &- \sum_{1 \leq i \l
 $$
 
 ## Probability 
+
+#### What is the permutation and combination?
+
+**Permutation** : It is the different arrangements of a given number of elements taken one by one, or some, or all at a time. For example, if we have two elements A and B, then there are two possible arrangements, AB and BA.
+
+Number of permutations when 'r' elements are arranged out of a total of 'n' elements is $^n P_r =\frac{n!}{(n-r)!}$. For example, let $n = 4$ (A, B, C and D) and $r = 2$ (All permutations of size 2). The answer is $4!/(4-2)! = 12$. The twelve permutations are AB, AC, AD, BA, BC, BD, CA, CB, CD, DA, DB and DC.
+
+**Combination** : It is the different selections of a given number of elements taken one by one, or some, or all at a time. For example, if we have two elements A and B, then there is only one way select two items, we select both of them.
+
+Number of combinations when 'r' elements are selected out of a total of 'n' elements is $^n P_r =\frac{n!}{r! (n-r)!}$. For example, let $n = 4$ (A, B, C and D) and $r = 2$ (All combinations of size 2). The answer is $4!/((4-2)! 2!) = 6$. The six combinations are AB, AC, AD, BC, BD, CD.
+
+
 
 #### What is a probability?
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
