@@ -71,7 +71,8 @@ permalink: /faq/
 9. What is hill climbing?
 10. What is curvature?
 11. [Describe convex function.](#describe-convex-function)
-12. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
+12. What is Lagrangian function?
+13. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
 
 
 [Set Theory](#set-theory)
@@ -148,6 +149,7 @@ permalink: /faq/
 
 [General Machine Learning](#general-machine-learning)
 
+1. What is hypothesis in Machine Learning?
 1. [What is an epoch, a batch and an iteration?](#what-is-an-epoch-a-batch-and-an-iteration)
 2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
 3. [What is confusion matrix and its elements?](#what-is-confusion-matrix-and-its-elements)
@@ -207,9 +209,11 @@ permalink: /faq/
 55. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 56. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 57. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
+58. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 58. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
 59. How do you deal with missing value in a data set?
 60. How do you deal with high cardinality? 
+
 
 ## Mathematics and Linear Algebra
 
@@ -1075,6 +1079,9 @@ The introduced concept of convexity has a simple geometric interpretation. Geome
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/graphic_convex.jpeg?raw=true)
 
 If a function has the opposite property, namely that every chord lies on or below the function, it is called concave, with a corresponding definition for strictly concave. If a function $f(x)$ is convex, then $−f(x)$ will be concave.
+
+#### What is Lagrangian function?
+
 
 #### What are the Karush-Kuhn-Tucker conditions?
 
@@ -2596,6 +2603,10 @@ $$
 
 
 ## General Machine Learning
+
+#### What is hypothesis in Machine Learning?
+
+Machine Learning, specifically supervised learning, can be described as the desire to use available data to learn a function that best maps inputs to outputs. Technically, this is a problem called function approximation, where we approximating an unknown target function (that we assume it exists) that can best map inputs to outputs on all possible observations from the problem domain. An example of a model that approximates the target function and performs mappings of inputs to outputs is called a hypothesis in Machine Learning. The choice of algorithm (e.g. neural network) and the configuration of the algorithm (e.g. network architecture and hyperparameters) define the space of the possible hypothesis that the model may represent.
 
 #### What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?
 
