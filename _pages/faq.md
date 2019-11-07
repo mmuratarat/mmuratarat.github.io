@@ -1983,13 +1983,14 @@ Notice that $\pi_{1} + \pi_{2} + \ldots + \pi_{k} = 1$. The probabilities, regar
 
 Here, random variables are:
 
-$X_{1} = \text{ number of trials in which }E_{1}\text{ occurs}$,
-
-$X_{2} = \text{ number of trials in which }E_{2}\text{ occurs}$
-
-...
-
-$X_{k} = \text{ number of trials in which }E_{k}\text{ occurs}$.
+$$
+\begin{split}
+X_{1} &= \text{ number of trials in which }E_{1}\text{ occurs}\\
+X_{2} &= \text{ number of trials in which }E_{2}\text{ occurs}\\
+&\cdots \\
+X_{k} &= \text{ number of trials in which }E_{k}\text{ occurs}
+\end{split}
+$$
 
 Then $X = (X_{1}, X_{2}, \ldots, X_{k})$ is said to have a multinomial distribution with index $n$ and parameter $\pi = (\pi_{1}, \pi_{2}, \ldots , \pi_{k})$. In most problems, $n$ is regarded as fixed and known.
 
