@@ -2098,11 +2098,17 @@ $$
 where
 
 $n = 12$ (12 games are played),
+
 $n_{1} = 7$ (number won by Player A),
+
 $n_{2} = 2$ (number won by Player B),
+
 $n_{3} = 3$ (the number drawn),
+
 $p_{1} = 0.40$ (probability Player A wins)
+
 $p_{2} = 0.35$ (probability Player B wins)
+
 $p_{3} = 0.25$ (probability of a draw)
 
 {% highlight python %}
@@ -2111,7 +2117,6 @@ rv = multinomial(12, [0.40, 0.35, 0.25])
 rv.pmf([7, 2, 3])
 #0.02483711999999996
 {% endhighlight %}
-
 
 #### What is a normal distribution?
 
