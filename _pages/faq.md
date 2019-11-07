@@ -1048,6 +1048,10 @@ The prototypical convex function is shaped something like the letter U.
 
 If the inequality above is strict for all $x_{1}$ and $x_{2}$, then $f(x)$ is called strictly convex.
 
+* $$
+f[\lambda x_{1} + (1 - \lambda) x_{2}] < \lambda f(x_{1}) + (1 - \lambda) f(x_{2}) 
+$$
+
 An inequality is strict if replacing any "less than" and "greater than" signs with equal signs never gives a true expression. For example, $a \leq b$ is not strict, whereas $a < b$ is.
 
 Some convex function examples are shown below:
