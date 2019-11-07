@@ -2071,16 +2071,48 @@ for $i, j$ distinct.
 
 Note that when $k$ is 2 and $n$ is 1, the multinomial distribution is the _Bernoulli distribution_. When $k$ is 2 and $n$ is bigger than 1, it is the _binomial distribution_. When $k$ is bigger than 2 and $n$ is 1, it is the _categorical distribution (multinoulli distribution)_. The Bernoulli distribution models the outcome of a single Bernoulli trial. In other words, it models whether flipping a (possibly biased) coin one time will result in either a success (obtaining a head) or failure (obtaining a tail). The binomial distribution generalizes this to the number of heads from performing n independent flips (Bernoulli trials) of the same coin. The multinomial distribution models the outcome of $n$ experiments, where the outcome of each trial has a categorical distribution, such as rolling a $k$-sided die $n$ times.
 
-**Example**: roll a fair die five times. Here $n = 5$, $k = 6$, and $\pi_{i} = \dfrac{1}{6}$. Our vector $x$ might look like
-this:
+**Example 1**: Roll a fair die five times. Here $n = 5$, $k = 6$, and $\pi_{i} = \dfrac{1}{6}$. Our vector $x$ might look like this:
 
 $$
 \begin{bmatrix}
-1\\2\\0\\2\\0
+1\\2\\0\\2\\0 \\0
 \end{bmatrix}
 $$
 
-Then $p = \dfrac{5!}{1!2!2!} \dfrac{1}{6}^{1} \dfrac{1}{6}^{2} \dfrac{1}{6}^{2}$.
+Then $p = \dfrac{5!}{1!2!2!} \dfrac{1}{6}^{1} \dfrac{1}{6}^{2} \dfrac{1}{6}^{2} = 0.0038580246913580236$.
+
+{% highlight python %}
+from scipy.stats import multinomial
+rv = multinomial(5, [1/6.]*6)
+rv.pmf([1,2,0,2,0,0])
+#0.003858024691358019
+{% endhighlight %}
+
+**Example 2**: Suppose that two chess players had played numerous games and it was determined that the probability that Player A would win is 0.40, the probability that Player B would win is 0.35, and the probability that the game would end in a draw is 0.25. If these two chess players played 12 games, what is the probability that Player A would win 7 games, Player B would win 2 games, and the remaining 3 games would be drawn?
+
+Multinomial for 3 outcomes:
+
+$$
+p = \frac{n!}{n_{1}! n_{2}! n_{3}!} p_{1}^{n_{1}} p_{2}^{n_{2}} p_{3}^{n_{3}} = \frac{12!}{7!2!3!} 0.40^{7} 0.35^{2} 0.25^{3} = 0.02483
+$$
+
+where
+
+$n = 12$ (12 games are played),
+$n_{1} = 7$ (number won by Player A),
+$n_{2} = 2$ (number won by Player B),
+$n_{3} = 3$ (the number drawn),
+$p_{1} = 0.40$ (probability Player A wins)
+$p_{2} = 0.35$ (probability Player B wins)
+$p_{3} = 0.25$ (probability of a draw)
+
+{% highlight python %}
+from scipy.stats import multinomial
+rv = multinomial(12, [0.40, 0.35, 0.25])
+rv.pmf([7, 2, 3])
+#0.02483711999999996
+{% endhighlight %}
+
 
 #### What is a normal distribution?
 
