@@ -1113,7 +1113,7 @@ Moreover if $f$ is strictly convex, then $E[f(x)] = f[E(x)]$ hold true if and on
 
 Geometrically we can show the inequality above:
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jensen_inequality.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jensen.png?raw=true)
 
 Similarly, $f$ is (strictly) concave if and only if $-f$ is (strictly) convex (i.e., $f^{\prime \prime}(x) \leq 0$ ($f^{\prime \prime}(x) < 0$) or $H \leq 0$ ($H < 0$)).
 
