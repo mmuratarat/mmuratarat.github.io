@@ -1101,7 +1101,7 @@ The idea of the Lagrangian duality is to take the constrains into account by aug
 
 #### What is Jensen's inequality?
 
-Let f be a function whose domain is set of real numbers. f is a convex function if $f^{''}(x) \geq 0$  (for all $x \in \mathbb{R}$). In the case of $f$ taking vector-valued inputs ($\mathbb{R}^{n}$), this is generalized to the condition that its Hessian $H$ is positive semi-definite ($H \geq 0$). If $f^{''}(x) > 0$ for all $x$, then we say that $f$ is strictly convex (in the vector-valued case, the corresponding statement is that $H$ must be positive definite, i.e. $H > 0$). Jensen inequality can be stated ass follows:
+Let f be a function whose domain is set of real numbers. f is a convex function if $f^{\prime \prime}(x) \geq 0$  (for all $x \in \mathbb{R}$). In the case of $f$ taking vector-valued inputs ($\mathbb{R}^{n}$), this is generalized to the condition that its Hessian $H$ is positive semi-definite ($H \geq 0$). If $f^{\prime \prime}(x) > 0$ for all $x$, then we say that $f$ is strictly convex (in the vector-valued case, the corresponding statement is that $H$ must be positive definite, i.e. $H > 0$). Jensen's inequality can be stated ass follows:
 
 Let $f$ be a convex function and let $x$ be a random variable. Then,
 
@@ -1115,7 +1115,7 @@ Geometrically we can show the inequality above:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jensen_inequality.png?raw=true)
 
-Similarly, $f$ is (strictly) concave if and only if $-f$ is (strictly) convex (i.e., $f^{''}(x) \leq 0$ ($f^{''}(x) < 0$) or $H \leq 0$ ($H < 0$)).
+Similarly, $f$ is (strictly) concave if and only if $-f$ is (strictly) convex (i.e., $f^{\prime \prime}(x) \leq 0$ ($f^{\prime \prime}(x) < 0$) or $H \leq 0$ ($H < 0$)).
 
 Jensen's inequality also holds for concave functions $f$ but with the direction of all inequalities reversed:
 
