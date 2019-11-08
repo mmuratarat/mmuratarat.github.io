@@ -649,7 +649,7 @@ $$
 Sometimes, we need to measure the size of a vector (length of the vector). In machine learning, we usually measure the size of vectors using a function called a norm. Formally, assuming $x$ is a vector and $x_{i}$ is its $i$th-element, the $L^{p}$ norm is given by
 
 $$
-    \lvert x \rvert_{p} = \left(\sum_{i=1}\lvert x_{i} \rvert^{p}  \right)^{1/p}
+    \lVert x \rVert_{p} = \left(\sum_{i=1}\lvert x_{i} \rvert^{p}  \right)^{1/p}
 $$
 
 for $p \in \mathbb{R}$, and $p \geq 1$.
@@ -673,7 +673,6 @@ $$
 \lVert \theta x + (1 - \theta) y \rVert \leq \lVert \theta x \rVert + \lVert (1-\theta) y \rVert = \theta \lVert x \rVert + (1 - \theta) \lVert y \rVert
 $$
 
-
 #### What is Frobenius norm?
 
 Sometimes we may also wish to measure the size of a matrix. In the context of deep learning, the most common way to do this is with the otherwise obscure Frobenius norm.
@@ -681,7 +680,7 @@ Sometimes we may also wish to measure the size of a matrix. In the context of de
 The Frobenius norm, sometimes also called the Euclidean norm (a term unfortunately also used for the vector $L^{2}$-norm), is matrix norm of an $m \times n$ matrix $A$ defined as the square root of the sum of the squares of its elements:
 
 $$
-\lvert A \rvert_{F} = \sqrt{\sum_{i=1}^{m}\sum_{j=1}^{n} a_{ij}^{2}}
+\lVert A \rVert_{F} = \sqrt{\sum_{i=1}^{m}\sum_{j=1}^{n} a_{ij}^{2}}
 $$
 
 which is analogous to the $L^{2}$-norm of a vector
