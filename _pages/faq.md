@@ -1080,6 +1080,23 @@ If a function has the opposite property, namely that every chord lies on or belo
 
 #### What is Lagrangian function?
 
+The notation
+
+$$
+\begin{split}
+\text{minimize } &f_{0}(x) ]]\\
+\text{subject to } &f_{i}(x) \leq 0, 1 \leq i \leq m \\
+&h_{j} (x) = 0, 1 \leq j \leq k
+\end{split}
+$$
+
+describes the problem of finding the $x$ that minimizes $f_{0}(x)$ among all $x$ that satisfy the constrains. It is called a convex optimization problem if $f_{0}, \cdots, f_{m}$ are convex functions and $h_{1}, \cdots, h_{k}$ are affine. For a constrained optimization problem like that, we define the Lagrangian:
+
+$$
+L(x, \lambda, \nu) = f_{0}(x) + \sum_{i=1}^{m} \lambda_{i}f_{i}(x) + \sum_{j=1}^{k} \nu_{j} h_{j}(x)
+$$
+
+The idea of the Lagrangian duality is to take the constrains into account by augmenting the objective function with a weighted sum of the constraint functions.
 
 #### What are the Karush-Kuhn-Tucker conditions?
 
@@ -1094,6 +1111,7 @@ Slater's condition holds for the primal convex problem of SVM, therefore, the du
 The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima), which is why the Karush–Kuhn–Tucker theorem is sometimes referred to as the saddle-point theorem. To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/kkt_conditions.png?raw=true)
+
 
 ## Set Theory
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/set_theory.gif?raw=true)
