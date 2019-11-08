@@ -91,8 +91,10 @@ A number of other techniques exist for validating K, including cross-validation,
 
 ## Constraints of the algorithm
 
-Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. 
+Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. However, we must be careful about curse of dimensionality. any more than few tens of dimensions mean that distance interpretation isn’t obvious and must be guarded against. Appropriate dimensionality reduction techniques and distance measure must be used.
 
+K-Means clustering is prone to initial seeding i.e. random initialization of centroids which is required to kick-off iterative clustering process. Bad initialization may end up getting bad clusters.
+ 
 The standard K-means algorithm isn't directly applicable to categorical data, for various reasons. The sample space for categorical data is discrete, and doesn't have a natural origin. A Euclidean distance function on such a space isn't really meaningful. However, The clustering algorithm is free to choose any distance metric / similarity score. Euclidean is the most popular. But any other metric can be used that scales according to the data distribution in each dimension/attribute, for example the Mahalanobis metric.
 
 The use of Euclidean distance as the measure of dissimilarity can also make the determination of the cluster means nonrobust to outliers.
@@ -104,6 +106,8 @@ There's a variation of K-means known as K-modes, introduced in [this paper](http
 K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes. In that case, one can use Mixture models using EM algorithm. As a matter of fact, K-means is special variant of the EM algorithm with the assumption that the clusters are spherical.
 
 It is important to scale the input features before you run K-Means, or else the clusters may be very stretched, and K-Means will perform poorly. Scaling the features does not guarantee that all the clusters will be nice and spherical, but it generally improves things.
+
+k-Means clustering just cannot deal with missing values. Any observation even with one missing dimension must be specially handled. If there are only few observations with missing values then these observations can be excluded from clustering. However, this must have equivalent rule during scoring about how to deal with missing values. Since in practice one cannot just refuse to exclude missing observations from segmentation, often better practice is to impute missing observations. There are various methods available for missing value imputation but care must be taken to ensure that missing imputation doesn’t distort distance calculation implicit in k-Means algorithm. For example, replacing missing age with -1 or missing income with 999999 can be misleading!
 
 # DATA: Iris Flower Dataset 
 
