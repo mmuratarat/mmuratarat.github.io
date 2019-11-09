@@ -157,6 +157,7 @@ permalink: /faq/
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 7. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
+7. Why is the loss function for Logistic Regression?
 8. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
 9. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 10. [What is R squared?](#what-is-r-squared)
@@ -211,6 +212,7 @@ permalink: /faq/
 57. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
 58. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 58. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
+59. What is the difference between L1/L2 regularization?
 59. How do you deal with missing value in a data set?
 60. How do you deal with high cardinality? 
 
@@ -2840,6 +2842,54 @@ $$
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/sigmoid.png)
 
+#### Why is the loss function for Logistic Regression?
+
+A very common scenario in Machine Learning is supervised learning, where we have data points $\mathbf{x}^{(i)}$ and their labels $y^{(i)}$, for $i=1, 2, \cdots, m$, building up our dataset where we’re interested in estimating the conditional probability of $y^{(i)}$ given $\mathbf{x}^{(i)}$, or more precisely $P(\mathbf{y} \mid \mathbf{X}, \theta)$.
+
+Now logistic regression says that the probability that class variable value $y^{(i)} = 1$, for $i=1, 2, \cdots, m$ can be modelled as follows
+
+$$P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) = h_{\theta} ( \mathbf{x}^{(i)} ) = \dfrac{1}{1+exp(-\theta^{T} \cdot \mathbf{x}^{(i)})} $$
+
+Since $P(y^{(i)}=0 \mid \mathbf{x}^{(i)}, \theta) = 1- P(y^{(i)}=1 \mid \mathbf{x}^{(i)}, \theta) $, we can say that so $y^{(i)}=1$ with probability $ h_{\theta} ( \mathbf{x}^{(i)} )$ and $y^{(i)}=0$ with probability $1− h_{\theta} ( \mathbf{x}^{(i)} )$.
+
+This can be combined into a single equation as follows because, for binary classification, $y^{(i)}$ follows a Bernoulli distribution:
+
+$$P(y^{(i)} \mid \mathbf{x}^{(i)}, \theta) =  \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left(1− h_{\theta} ( \mathbf{x}^{(i)} ) \right)^{1-y^{(i)}}$$
+
+Assuming that the $m$ training examples were generated independently, the likelihood of the training labels, which is the entire dataset $\mathbf{X}$, is the product of the individual data point likelihoods. Thus,
+
+$$ L(\theta) = P(\mathbf{y} \mid \mathbf{X}, \theta) = \prod_{i=1}^{m} L(\theta; y^{(i)} \mid \mathbf{x}^{(i)}) =\prod_{i=1}^{m} P(\mathbf{y} = y^{(i)} \mid \mathbf{X} = \mathbf{x}^{(i)}, \theta) = \prod_{i=1}^{m} \left[h_{\theta} ( \mathbf{x}^{(i)} )\right]^{y^{(i)}} \times \left[1− h_{\theta} ( \mathbf{x}^{(i)} ) \right]^{1-y^{(i)}} $$
+
+Now, Maximum Likelihood principle says that we need to find the parameters that maximise the likelihood $L(\theta)$.
+
+Logarithms are used because they convert products into sums and do not alter the maximization search, as they are monotone increasing functions. Here too we have a product form in the likelihood. So, we take the natural logarithm as maximising the likelihood is same as maximising the log likelihood, so log likelihood $\mathcal{L}(\theta)$ is now:
+
+$$ \mathcal{L}(\theta) = \log L(\theta) =  \sum_{i=1}^{m} y^{(i)} \log(h_{\theta} ( \mathbf{x}^{(i)} )) + (1 - y^{(i)} ) \log(1− h_{\theta} ( \mathbf{x}^{(i)} )) $$
+
+Since in linear regression we found the $\theta$ that minimizes our cost function , here too for the sake of consistency, we would like to have a minimization problem. And we want the average cost over all the data points. Currently, we have a maximimization of $\mathcal{L}(\theta)$ . Maximization of $\mathcal{L}(\theta)$ is equivalent to minimization of $ - \mathcal{L}(\theta)$. And using the average cost over all data points, our cost function for logistic regresion comes out to be:
+
+$$
+\begin{align}
+J(\theta) &=  - \dfrac{1}{m} \mathcal{L}(\theta)\\
+&= - \dfrac{1}{m} \sum_{i=1}^{m} y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)}))
+\end{align}
+$$
+
+As you can see, maximizing the log-likelihood (minimizing the *negative* log-likelihood) is equivalent to minimizing the binary cross entropy. 
+
+Now we can also understand why the cost for single data point comes as follows... The cost for a single data point is $- \log ( P( \mathbf{x}^{(i)} \mid y^{(i)} )) $, which can be written as:
+
+$$ -\left( y^{(i)} \log(h_\theta(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1-h_\theta(\mathbf{x}^{(i)})) \right)$$
+
+We can now split the above into two depending upon the value of $y^{(i)}$. Thus we get:
+
+$$\mathrm{Cost}(h_{\theta}(\mathbf{x}^{(i)}), y^{(i)}) =
+\begin{cases}
+-\log(h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 1$} \\
+-\log(1-h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 0$}
+\end{cases}$$
+
+
 #### What is Softmax regression and how is it related to Logistic regression?
 
 Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
@@ -3939,11 +3989,12 @@ You can try different algorithms. Some algorithms are less sensitive to the prob
 
 In more extreme cases, it may be better to think of classification under the context of anomaly detection, a.k.a. outlier detection. In anomaly detection, we assume that there is a "normal" distribution(s) of data-points, and anything that sufficiently deviates from that distribution(s) is an anomaly. When we reframe our classification problem into an anomaly detection problem, we treat the majority class as the "normal" distribution of points, and the minority as anomalies. Thinking of the minority class as the outliers class which might help you think of new ways to separate and classify samples. There are many algorithms for anomaly detection such as clustering methods, One-class SVMs, and Isolation Forests.
 
-#### What is the difference between L1/L2 regularization.
+#### What is the difference between L1/L2 regularization?
 
 $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solution. $L_{1}$ has multiple solutions. $L_{1}$ has built in feature selection. $L_{1}$ is robust to outliers. $L_{1}$ generates model that are simple and interpretable but cannot learn complex patterns.
 
 $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
+
 
 ## Deep Learning
 
