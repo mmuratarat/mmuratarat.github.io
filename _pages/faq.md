@@ -2889,6 +2889,10 @@ $$\mathrm{Cost}(h_{\theta}(\mathbf{x}^{(i)}), y^{(i)}) =
 -\log(1-h_\theta(\mathbf{x}^{(i)})) & \mbox{if $y^{(i)} = 0$}
 \end{cases}$$
 
+#### How do you find the parameters in logistic regression?
+
+there is no closed form solution for estimating the parameters of a logistic regression. Instead, an iterative search algorithm is used. The most common choices are the Newton-Raphson algorithm and Gradient-descent algorithm, but there are [many possibilities](https://en.wikipedia.org/wiki/Search_algorithm).
+
 
 #### What is Softmax regression and how is it related to Logistic regression?
 
