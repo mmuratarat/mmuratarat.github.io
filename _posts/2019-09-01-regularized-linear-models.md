@@ -299,7 +299,7 @@ $$
 
 This has the nice property that it tends to give sparse solutions -it sets coefficients to be exactly zero (unlike ridge), so we can say that Lasso automatically does feature selection. As $\lambda$ increases, more and more coefficients are set to zero and eliminated (theoretically, when $\lambda = \infty$, all coefficients are eliminated).
 
-Contrary to ridge regression, $\hat{\theta}_{lasso}$ has no closed-form solution. The L1-penalty makes the solution non-linear in the $y$'s. The above constrained minimization is a quadratic programming problem, whose solution can be efficiently approximated.
+Contrary to ridge regression, $\hat{\theta}_{lasso}$ has no closed-form solution (with a single predictor, the LASSO solution has a closed form solution). The L1-penalty makes the solution non-linear in the $y$'s. The above constrained minimization is a quadratic programming problem, whose solution can be efficiently approximated. Coordinate Descent can be used  to solve this problem. 
 
 ## Lasso Regression in Scikit-Learn
 
@@ -417,3 +417,4 @@ Notice that you need at least two different training examples because with one e
 # REFERENCES
 
 1. [https://web.stanford.edu/~hastie/Papers/ESLII.pdf](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){:target="_blank"}
+2. [https://www.ias.ac.in/article/fulltext/reso/023/04/0439-0464](https://www.ias.ac.in/article/fulltext/reso/023/04/0439-0464){:target="_blank"}
