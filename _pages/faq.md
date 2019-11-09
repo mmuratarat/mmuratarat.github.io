@@ -158,6 +158,7 @@ permalink: /faq/
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 7. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
 7. Why is the loss function for Logistic Regression?
+7. How do you find the parameters in logistic regression?
 8. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
 9. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 10. [What is R squared?](#what-is-r-squared)
