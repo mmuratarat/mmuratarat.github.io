@@ -216,6 +216,7 @@ permalink: /faq/
 59. What is the difference between L1/L2 regularization?
 60. Why is dimension reduction important?
 61. Why would you want to avoid dimensionality reduction techniques to transform your data before training?
+62. If you have large number of predictors how would you handle them?
 59. How do you deal with missing value in a data set?
 60. How do you deal with high cardinality? 
 
@@ -1312,15 +1313,13 @@ Discrete probability functions are referred to as probability mass functions and
 
 Discrete probability function is referred to as probability mass function (pms). It is a function that gives the probability that a discrete random variable is exactly equal to some value. The mathematical definition of a discrete probability function, $p(x)$, is a function that satisfies the following properties:
 
-* The probability that $x$ can take a specific value is $p(x)$. That is
+1. The probability that $x$ can take a specific value is $p(x)$. That is
 
-$$
-P[X=x]=p(x)=p_{x}
-$$
+  $$P[X=x]=p(x)=p_{x}$$
 
-* $p(x)$ is non-negative for all real $x$.
+2. $p(x)$ is non-negative for all real $x$.
 
-* The sum of $p(x)$ over all possible values of $x$ is $1$, that is
+4. The sum of $p(x)$ over all possible values of $x$ is $1$, that is
 
   $$
   \sum_{j}p_{j} = 1
@@ -1355,11 +1354,11 @@ $$
 #### What is a joint probability distribution? What is a marginal probability? Given the joint probability function, how will you calculate it?
 
 In general, if $X$ and $Y$ are two random variables, the probability distribution that defines their simultaneous behavior is called a joint probability distribution, shown as $P(X =x, Y = y)$. If $X$ and $Y$ are discrete, this distribution can be
-described with a _joint probability mass function_. If $X$ and $Y$ are continuous, this distribution can be described with a _joint probability density function_. If we are given a joint probability distribution for $X$ and $Y$ , we can obtain the individual probability distribution for $X$ or for $Y$ (and these are called the _Marginal Probability Distributions_).
+described with a _joint probability mass function_. If $X$ and $Y$ are continuous, this distribution can be described with a _joint probability density function_. If we are given a joint probability distribution for $X$ and $Y$ , we can obtain the individual probability distributions for $X$ or for $Y$ (and these are called the _Marginal Probability Distributions_).
 
 Note that when there are two random variables of interest, we also use the term _bivariate probability distribution_ or _bivariate distribution_ to refer to the joint distribution.
 
-The joint probability mass Punction of the discrete random variables $X$ and $Y$, denoted as $P_{XY} (x, y)$, satisfies:
+The joint probability mass function of the discrete random variables $X$ and $Y$, denoted as $P_{XY} (x, y)$, satisfies:
 
 * $P_{XY} (x, y) \geq 0$ for all x, y
 * $\sum_{x} \sum_{y} P_{XY} (x, y) = 1$
@@ -1535,7 +1534,13 @@ $$
 Var(X+Y) = Var(X) + Var(Y).
 $$
 
-In general,
+This comes from the fact that 
+
+$$
+cov(X, Y) =  E(XY)- E(X)E(Y) = E(X)E(Y) - E(X)E(Y) = 0
+$$
+
+We generalize those results,
 
 $$
 Var\left( \sum_{i=1}^{n} X_i \right)= \sum_{i,j=1}^{N}  cov(X_{i},X_{j}) = \sum_{i=1}^{n} Var( X_i) + \sum_{i \neq j} cov(X_{i},X_{j}).
@@ -2227,7 +2232,7 @@ $$
 \begin{split}
 F(x) = P(X \leq x) &= \int_{a}^{x} \frac{1}{b-a} du \\
 &= \frac{u}{b-a} \Big|_{a}^{x} \\
-&= \frac{x-1}{b-a}\,\,\,  a\leq x \leq b
+&= \frac{x-a}{b-a}\,\,\,  a\leq x \leq b
 \end{split}
 $$
 
@@ -2237,7 +2242,8 @@ $$
 F^{-1}(x) = a + x(b-a)
 $$
 
-* Sampling from Uniform Distribution
+* **Sampling from Uniform Distribution**
+
   If $u$ is a value sampled from standard uniform distribution, then the value $a + u(b-a)$ follows uniform distribution according to inverse transform method.
   
   Uniform distribution is also useful for sampling from arbitrary distributions. A general method is the inverse transform sampling method which uses the CDF of the target random variable. However, when the CDF is not known in a closed form, alternative methods such as rejection sampling can be used. 
@@ -2268,7 +2274,7 @@ $$
 
   Here, the indicator function $I(A)$ equals to 1 if event $A$ happens and 0 otherwise.
 
-  If $b$ is less than the maximum of observations, then the likelihood is 0. Similarly, if $a$ is greater than the minimum of observations, then the likelihood is also 0, since you have observations lying outside the range of the distribution $[a, b]$, which has probability 0. Then is you make $b$ bigger than maximum or $a$ smaller than the minimum, the denominator of the likelihood gets bigger,  since the difference of $a$ and $b$ clearly gets bigger, so the likelihood is necessarily lower than $b=max(x_{i})$ and $a=min(x_{i})$. Because you want to maximize the likelihood. In order to do so, we need to minimize the value $(b-a)$ in the denominator subject to having all data contained in $[a, b]$.
+  If $b$ is less than the maximum of observations, then the likelihood is 0. Similarly, if $a$ is greater than the minimum of observations, then the likelihood is also 0, since you have observations lying outside the range of the distribution $[a, b]$, which has probability 0. Then, you make $b$ bigger than maximum or $a$ smaller than the minimum, the denominator of the likelihood gets bigger,  since the difference of $a$ and $b$ clearly gets bigger, so the likelihood is necessarily lower than $b=max(x_{i})$ and $a=min(x_{i})$. Because you want to maximize the likelihood. In order to do so, we need to minimize the value $(b-a)$ in the denominator subject to having all data contained in $[a, b]$.
 
 * **Another Example**
 
@@ -2298,11 +2304,11 @@ $$
 
 * **Another Example**
 
-  For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}}$ for any sample. To maximize this, we need to minimize the value of$\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
+  For $Uniform(-\theta, \theta)$, the likelihood $L(\theta \mid x) = \frac{1}{(2\theta)^{n}}$ for any sample. To maximize this, we need to minimize the value of $\theta$, yet we must keep all samples withing the range $\forall x_{i}, -\theta \leq x_{i} \leq \theta$. An MLE for $\theta$ would be $\hat{\theta} = max(\mid x_{i} \mid )$. This is the smallest value that promises that all sampled points are in the required range.
 
 * **Unbiased Estimator**
 
-  However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiases estimator of $\theta$. Since $X_{max}$ is an order statistics, we can find its density function.
+  However, $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n}) = max(x_{i}) = X_{max}$ is not unbiased estimator of $\theta$. Since $X_{max}$ is an order statistics, we can find its density function.
 
   $$
 \begin{split}
@@ -2328,7 +2334,7 @@ $$
 E(X_{max}) = \int_{0}^{\theta} x  \frac{n}{\theta} \left(\frac{x}{\theta} \right)^{n-1} dx = \frac{n}{n+1} \theta
 $$
 
-  Therefore $X_{max}$ is biased because $E(\hat{\theta}) = E(X_{max}) \neq \theta$. However, it can be readily pached as
+  Therefore $X_{max}$ is biased because $E(\hat{\theta}) = E(X_{max}) \neq \theta$. However, it can be readily patched as
 
   $$
 \hat{X_{max}} =\frac{n+1}{n} X_{max}
@@ -2777,7 +2783,7 @@ Definition of terms:
 * The number of observations must be greater than number of features
 * No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables.It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features.
 * Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. 
-     More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. 
+     More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. It means that the model has not perfectly captured the information in the data.
 * Normal distribution of error terms $\varepsilon \sim N(0, \sigma^{2})$: The fourth assumption is that the error(residuals) follow a normal distribution.However, a less widely known fact is that, as sample sizes increase, the normality assumption for the residuals is not needed. More precisely, if we consider repeated sampling from our population, for large sample sizes, the distribution (across repeated samples) of the ordinary least squares estimates of the regression coefficients follow a normal distribution. As a consequence, for moderate to large sample sizes, non-normality of residuals should not adversely affect the usual inferential procedures. This result is a consequence of an extremely important result in statistics, known as the central limit theorem.
      Normal distribution of the residuals can be validated by plotting a q-q plot.
 * No autocorrelation of residuals (Independence of errors $E(\varepsilon_{i} \varepsilon_{j}] = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy. This usually occurs in time series models where the next instant is dependent on previous instant.
@@ -4019,6 +4025,14 @@ Dimension reduction can:
 2. Make the model difficult to interpret if the latent features are not easy to understand
 3. Add complexity to the model pipeline
 4. Reduce predictive power of the model if too much signal is lost
+
+#### If you have large number of predictors how would you handle them?
+
+This is a very open-ended question and in many cases domain knowledge will play a crucial role. Besides, There are no such hard and fast rules and this is wholly dependent upon the nature of the data. With such a large number of independent variables, there is a strong presence of multicollinearity. The variables will be highly correlated to each other and this will provide incorrect results. One should certainly investigate collinearity before embarking on any analysis.
+
+You can apply regularization tools and select from Ridge, LASSO and Elastic Net regression. The best will be LASSO regression as it removes all the non significant variables that cause multicollinearity. You can use appropriate dimension reduction (eg. PCA) to see if there are still multicolinearity among the independent factors. If some eigen-value is near zero, you may drop one of them, or define a new factor (transformation). You can also use Principal Component Regression which is similar PCA but does regression. Severe multicollinearity will be detected as very small eigenvalues. To rid the data of the multicollinearity, principal component omit the components associated with small eigen values.
+
+You may also use some intelligent information criterion such as Akaike’s information criterion or Bayesian information criterion or Mallows’ CP to decide how many predictors should be in. 
 
 
 ## Deep Learning
