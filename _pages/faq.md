@@ -214,6 +214,8 @@ permalink: /faq/
 58. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 58. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
 59. What is the difference between L1/L2 regularization?
+60. Why is dimension reduction important?
+61. Why would you want to avoid dimensionality reduction techniques to transform your data before training?
 59. How do you deal with missing value in a data set?
 60. How do you deal with high cardinality? 
 
@@ -3999,6 +4001,24 @@ In more extreme cases, it may be better to think of classification under the con
 $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solution. $L_{1}$ has multiple solutions. $L_{1}$ has built in feature selection. $L_{1}$ is robust to outliers. $L_{1}$ generates model that are simple and interpretable but cannot learn complex patterns.
 
 $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
+
+#### Why is dimension reduction important?
+
+Dimension reduction can allow you to:
+
+1. Remove collinearity from the feature space
+2. Speed up training by reducing the number of features
+3. Reduce memory usage by reducing the number of features
+4. Identifying underlying, latent, features that impact multiple featuresin the original space
+
+#### Why would you want to avoid dimensionality reduction techniques to transform your data before training?
+
+Dimension reduction can:
+
+1. Add extra unnecessary computation
+2. Make the model difficult to interpret if the latent features are not easy to understand
+3. Add complexity to the model pipeline
+4. Reduce predictive power of the model if too much signal is lost
 
 
 ## Deep Learning
