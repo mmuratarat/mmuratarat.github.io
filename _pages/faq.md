@@ -4016,6 +4016,7 @@ Dimension reduction can allow you to:
 2. Speed up training by reducing the number of features
 3. Reduce memory usage by reducing the number of features
 4. Identifying underlying, latent, features that impact multiple featuresin the original space
+5. Make it much easier to find a good solution
 
 #### Why would you want to avoid dimensionality reduction techniques to transform your data before training?
 
