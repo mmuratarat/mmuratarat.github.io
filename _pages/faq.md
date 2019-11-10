@@ -962,6 +962,8 @@ $$
 A = \sum_{i=1}^{p} u_{i} \mathbf{v}_{i} \mathbf{v}_{i}^{T}
 $$
 
+Eigendecomposition can only exists for square matrices, and even among square matrices sometimes it doesn't exist.
+
 #### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
 
 A matrix $A$ is positive semi-definite if it is symmetric and all its eigenvalues are non-negative. If all eigenvalues are strictly positive then it is called a positive definite matrix.
