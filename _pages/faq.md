@@ -34,28 +34,21 @@ permalink: /faq/
 23. Why is multiplication by diagonal matrix computationally cheap? How is the multiplication different for square vs. non-square diagonal matrix?
 24. At what conditions does the inverse of a diagonal matrix exist?
 25. [What is a symmetric matrix?](#what-is-a-symmetric-matrix)
-26. What is a unit vector?
 27. When are two vectors x and y orthogonal?
 28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
 29. When are two vectors x and y orthonormal?
 30. What is an orthogonal matrix? Why is computationally preferred?
 31. [What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?](#what-is-eigendecomposition-eigenvectors-and-eigenvalues-how-to-find-eigenvalues-of-a-matrix)
-36. What is Singular Value Decomposition? Why do we use it? Why not just use ED?
-37. Given a matrix A, how will you calculate its Singular Value Decomposition?
-38. What are singular values, left singulars and right singulars?
-39. What is the connection of Singular Value Decomposition of A with functions of A?
-40. Why are singular values always non-negative?
-41. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-the-moore-penrose-pseudo-inverse-and-how-to-calculate-it)
-43. Which matrices can be decomposed by ED?
-44. Which matrices can be decomposed by SVD?
-45. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
-46. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
-47. Why is trace of a multiplication of matrices invariant to cyclic permutations?
-48. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
-49. [What is Spectral Decomposition?](#what-is-spectral-decomposition)
-49. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
-50. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
-51. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
+32. What is Spectral Decomposition (Eigendecompoisition)?
+33. What is Singular Value Decomposition?
+34. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-the-moore-penrose-pseudo-inverse-and-how-to-calculate-it)
+35. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
+36. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
+37. Why is trace of a multiplication of matrices invariant to cyclic permutations?
+38. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
+39. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
+40. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
+41. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
 
 
 [Numerical Optimization](#numerical-optimization)
@@ -302,6 +295,8 @@ Therefore, if we normalize the vector $x$, we will get:
 $$
 \bar{x} = \begin{bmatrix} 2/3 \\ 1/3 \\ 2/3\end{bmatrix}
 $$
+
+A Unit Vector has a magnitude of 1. The term normalized vector is sometimes used as a synonym for unit vector.
 
 #### What is Hadamard product of two matrices?
 Hadamard product is also known as Element-wise Multiplication. It is named after French Mathematician, Jacques Hadamard. Elements corresponding to same row and columns of given vectors/matrices are multiplied together to form a new vector/matrix.
@@ -929,11 +924,7 @@ $$
 
 This equation is known as the characteristic equation of A, and the left-hand side is known as the characteristic polynomial, and is an $p$-th order polynomial in $u$ with $p$ roots. These roots are called the eigenvalues of $A$.  We will only deal with the case of $p$ distinct roots, though they may be repeated.  For each eigenvalue there will be an eigenvector for which the eigenvalue equation is true.  
 
-#### What is the trace of a scalar?
-
-A scalar is its own trace $a=Tr(a)$
-
-#### What is Spectral Decomposition?
+#### What is Spectral Decomposition (Eigendecompoisition)?
 
 Spectral decomposition, sometimes called _eigendecomposition_, recasts a real symmetric $p \times p$ matrix $A$ with its eigenvalues $u_{1}, u_{2}, \ldots, u_{p}$ and corresponding orthonormal eigenvectors $v_{1}, v_{2}, \ldots, v_{p}$, then, 
 
@@ -964,6 +955,68 @@ A = \sum_{i=1}^{p} u_{i} \mathbf{v}_{i} \mathbf{v}_{i}^{T}
 $$
 
 Eigendecomposition can only exists for square matrices, and even among square matrices sometimes it doesn't exist.
+
+#### What is Singular Value Decomposition?
+The data matrix $X \in \mathbb{R}^{n \times p}$ can be decomposed in a singular-value decomposition (SVD) as
+
+$$
+X_{n \times p} = U_{n\times n} D_{n \times p} V_{p\times p}^{T}
+$$
+
+where
+
+1. $U$ is orthogonal in $\mathbb{R}^{n}: $U^{T}U = U U^{T} = 1_{n \times n}$.
+2. $V$ is orthogonal in $\mathbb{R}^{p}: $V^{T}V = V V^{T} = 1_{p \times p}$.
+3. D diagonal in $\mathbb{R}^{n \times p}$.
+
+If $n > p$, the decomposition looks like:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sv_decomposition.png?raw=true)
+
+where
+
+1. the columns of $U$ contain the left-singular vectors $u_{1}, \cdots, u_{n}$ that form an orthonormal basis of $\mathbb{R}^{n}$.
+2. the columns of $V$ contain the right-singular vectors $v_{1}, \cdots, v_{n}$ that form an orthonormal basis of $\mathbb{R}^{p}$.
+3. and the diagonal elements of $D$ (usually denoted by $d_{1} \geq d_{2} \geq \cdots d_{min{n,p}}$ where $d_{i} = D_{ii}\,\,\, for i = 1, \cdots , min{n, p}$) contain the non-negative singular values which are ordered in decreasing magnitude.
+
+Calculating the SVD of $X$ consists of finding the eigenvalues and eigenvectors of $X^{T}X$ and $XX^{T}$. 
+
+The second moment $X^{T}X \in \mathbb{R}^{p \times p}$ is sometimes called the Gram matrix and it is equal to the empirical covarince if the columns of $X$ are mean-centered. It can be decomposed, using the SVD of $X$, as
+
+$$
+\begin{split}
+X^{T}X &= \left(U D V^{T}\right)^{T} \left(U D V^{T}\right)\\
+&= V D^{T} \underset{1_{n \times n}}{U^{T} U} D V^{T}\\
+&= V D^{T} D V^{T}
+\end{split}
+$$
+
+where 
+
+$$
+D^{T} D = \begin{bmatrix}
+    D_{11}^{2} & & &\\
+    & D_{22}^{2} & &\\
+    & & \ddots &\\
+    & & D_{pp}^{2}
+  \end{bmatrix}
+$$
+
+The eigenvalue decomposition of $X^{T}X \in \mathbb{R}^{p \times p}$ is hence given by
+
+$$
+X^{T}X = V D^{T} \Lambda V^{T}
+$$
+
+where the orthogonal matrix $V \in  \mathbb{R}^{p \times p}$ is identical to the matrix in the SVD of $X$ and $\Lambda \in  \mathbb{R}^{p \times p}$ is the diagonal matrix containing the eigenvalues.
+
+$$$\lambda_{k} := \Lambda_{kk} = D_{kk}^{2}\,\,\, for\,\,\, k = 1, 2, \cdots, p$$
+
+The eigenvectors of $X^{T}X$ make up the columns of $V$, the eigenvectors of $XX^{T}$ make up the columns of $U$. Also, the singular values in $D$ are square roots of eigenvalues from $X^{T}X$ or $XX^{T}$. The singular values are the diagonal entries of the $D$ matrix and are arranged in descending order. The singular values are always real numbers. If the matrix $X$ is a real matrix, then $U$ and $V$ are also real.
+
+#### What is the trace of a scalar?
+
+A scalar is its own trace $a=Tr(a)$
 
 #### What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?
 
