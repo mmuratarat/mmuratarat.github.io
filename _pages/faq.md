@@ -904,7 +904,7 @@ $$
 
 #### What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?
 
-In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition-eigendecompoisition).
+In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition-eigendecompoisition){:target="_blank"}.
 
 Given a $p \times p$ matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
 
@@ -2520,7 +2520,7 @@ When we calculate the sample standard deviation from a sample of $n$ values, we 
 
 Here's another way to look at it: Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what $9$ of the $10$ sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary. Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
-Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, look at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof).
+Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, look at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof){:target="_blank"}.
 
 #### What is the sampling distribution of the sample mean?
 
@@ -4022,7 +4022,7 @@ It gives posterior probability $P(y = 1 \mid x)$. Because of the sigmoid functio
 
 #### Can you interpret probabilistically the output of a Support Vector Machine?
 
-SVMs don’t output probabilities natively, but probability calibration methods can be used to convert the output to class probabilities. Various methods exist, including Platt scaling (particularly suitable for SVMs) and isotonic regression. For more details, look [here](https://mmuratarat.github.io/2019-10-12/probabilistic-output-of-svm)
+SVMs don’t output probabilities natively, but probability calibration methods can be used to convert the output to class probabilities. Various methods exist, including Platt scaling (particularly suitable for SVMs) and isotonic regression. For more details, look [here](https://mmuratarat.github.io/2019-10-12/probabilistic-output-of-svm){:target="_blank"}.
 
 #### What are the advantages and disadvantages of Support Vector Machines?
 
