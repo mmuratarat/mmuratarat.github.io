@@ -138,14 +138,14 @@ permalink: /faq/
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
-57. When to use the z-test versus t-test
-58. How to do one sample test of means?
-59. How to do two samples test of means?
-60. How to do paired t-test?
-61. How to do one sample test of proportions?
-62. How to do two samples test of proportions?
-63. How to do chi-square test for variance?
-64. How to do F-test for equality of two variances?
+57. [When to use the z-test versus t-test?](#when-to-use-the-z-test-versus-t-test)
+58. [How to do one sample test of means?](#how-to-do-one-sample-test-of-means)
+59. [How to do two samples test of means?](#how-to-do-two-samples-test-of-means)
+60. [How to do paired t-test?](#how-to-do-paired-t-test)
+61. [How to do one sample test of proportions?](#how-to-do-one-sample-test-of-proportions)
+62. [How to do two samples test of proportions?](#how-to-do-two-samples-test-of-proportions)
+63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
+64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 
@@ -2744,7 +2744,7 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-07%20at%2009.42.22.png?raw=true)
 
-#### When to use the z-test versus t-test
+#### When to use the z-test versus t-test?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z-vs-t-distribution-flowchart.jpg?raw=true)
 
