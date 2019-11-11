@@ -4016,6 +4016,8 @@ The Kernel Trick is a mathematical technique that implicitly maps instances into
 
 For example, let's say we have two data points: $\mathbf x = (x_1, x_2)$ and $\mathbf y = (y_1, y_2)$. Let's move from 2-dimensional space to 6-dimensional space. So we have to compute $(1, x_1^2, x_2^2, \sqrt{2} x_1, \sqrt{2} x_2, \sqrt{2} x_1 x_2)$ and $(1, y_1^2, y_2^2, \sqrt{2} y_1, \sqrt{2} y_2, \sqrt{2} y_1 y_2)$. The dot product between these two vectors will be $1 + x_1^2 y_1^2 + x_2^2 y_2^2 + 2 x_1 y_1 + 2 x_2 y_2 + 2 x_1 x_2 y_1 y_2$. This is nothing but $(1 + x_1 \, y_1  + x_2 \, y_2)^2$. So, $k(\mathbf x, \mathbf y) = (1 + \mathbf x^T \mathbf y)^2 = \varphi(\mathbf x)^T \varphi(\mathbf y)$ computes a dot product in 6-dimensional space without explicitly visiting this space.
 
+The kernel is effectively a distance and if different features vary on different scales then it is often recommended to do feature scaling (e.g. by normalization) when using a Support Vector Machines. 
+
 #### What is the output of Logistic Regression?
 
 It gives posterior probability $P(y = 1 \mid x)$. Because of the sigmoid function, outputs are bounded between 0 and 1 which can be interpreted as probability.
