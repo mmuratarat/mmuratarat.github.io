@@ -1014,6 +1014,38 @@ $$ \lambda_{k} := \Lambda_{kk} = D_{kk}^{2}\,\,\, for\,\,\, k = 1, 2, \cdots, p$
 
 The eigenvectors of $X^{T}X$ make up the columns of $V$, the eigenvectors of $XX^{T}$ make up the columns of $U$. Also, the singular values in $D$ are square roots of eigenvalues from $X^{T}X$ or $XX^{T}$. The singular values are the diagonal entries of the $D$ matrix and are arranged in descending order. The singular values are always real numbers. If the matrix $X$ is a real matrix, then $U$ and $V$ are also real.
 
+{% highlight python %}
+import numpy as np
+X = np.random.rand(50,3)
+
+eigenvalues_XTX, eigenvectors_XTX = np.linalg.eig(X.T @ X)
+eigenvalues_XTX.shape, eigenvectors_XTX.shape
+# ((3,), (3, 3))
+
+U, s, Vt = np.linalg.svd(X, full_matrices=True)
+U.shape, s.shape, Vt.shape
+#((50, 50), (3,), (3, 3))
+
+eigenvalues_XTX
+#array([44.10686679,  3.50061913,  4.88378011])
+
+s
+#array([6.64130008, 2.20992762, 1.87099416])
+
+np.sqrt(eigenvalues_XTX)
+#array([6.64130008, 1.87099416, 2.20992762])
+
+Vt.T
+# array([[-0.57735925,  0.08795263, -0.81173927],
+#        [-0.60991707,  0.61449879,  0.50039225],
+#        [-0.54282361, -0.78399973,  0.30114275]])
+
+eigenvectors_XTX
+# array([[ 0.57735925,  0.81173927, -0.08795263],
+#        [ 0.60991707, -0.50039225, -0.61449879],
+#        [ 0.54282361, -0.30114275,  0.78399973]])
+{% endhighlight %}
+
 #### What is the trace of a scalar?
 
 A scalar is its own trace $a=Tr(a)$
