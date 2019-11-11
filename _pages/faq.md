@@ -208,17 +208,18 @@ permalink: /faq/
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
-55. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
-56. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
-57. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
-58. [What is a parsimonious model?](#what-is-a-parsimonious-model)
-58. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
-59. What is the difference between L1/L2 regularization?
-60. Why is dimension reduction important?
-61. Why would you want to avoid dimensionality reduction techniques to transform your data before training?
-62. If you have large number of predictors how would you handle them?
-59. How do you deal with missing value in a data set?
-60. How do you deal with high cardinality? 
+55. What is the Kernel Trick?
+56. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
+57. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
+58. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
+59. [What is a parsimonious model?](#what-is-a-parsimonious-model)
+60. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
+61. What is the difference between L1/L2 regularization?
+62. Why is dimension reduction important?
+63. Why would you want to avoid dimensionality reduction techniques to transform your data before training?
+64. If you have large number of predictors how would you handle them?
+65. How do you deal with missing value in a data set?
+66. How do you deal with high cardinality? 
 
 
 ## Mathematics and Linear Algebra
@@ -3880,6 +3881,10 @@ A trained Support Vector Machine has a scoring function which computes a score f
 Support vector machines are maximum-margin classifiers, which means they find the hyperplane that has the largest perpendicular distance between the hyperplane and the closest samples on either side.  The closest samples on either side are the support vectors. They influence the position and orientation of the hyperplane. Using these support vectors, we maximize the margin of the classifier. Deleting the support vectors will change the position of the hyperplane. These are the points that help us find the solution which introduces sparsity into network
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/support_vectors.png?raw=true)
+
+#### What is the Kernel Trick?
+
+The Kernel Trick is a mathematical technique that implicitly maps instances into a very high dimensional space (feature space), enabling nonlinear classification and regression with Support Vector Machines because a linear decision boundary in the high-dimensional feature space corresponds to a complex nonlinear decision boundary in the original space. 
 
 #### What is the output of Logistic Regression?
 
