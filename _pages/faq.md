@@ -986,7 +986,7 @@ The second moment $X^{T}X \in \mathbb{R}^{p \times p}$ is sometimes called the G
 $$
 \begin{split}
 X^{T}X &= \left(U D V^{T}\right)^{T} \left(U D V^{T}\right)\\
-&= V D^{T} \underset{1_{n \times n}}{\overbrace{U^{T} U}} D V^{T}\\
+&= V D^{T} \underset{1_{n \times n}}{\underbrace{U^{T} U}} D V^{T}\\
 &= V D^{T} D V^{T}
 \end{split}
 $$
