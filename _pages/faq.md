@@ -150,8 +150,8 @@ permalink: /faq/
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 7. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
-7. Why is the loss function for Logistic Regression?
-7. How do you find the parameters in logistic regression?
+7. [What is the loss function for Logistic Regression?](#what-is-the-loss-function-for-logistic-regression)
+7. [How do you find the parameters in logistic regression?](#how-do-you-find-the-parameters-in-logistic-regression)
 8. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
 9. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 10. [What is R squared?](#what-is-r-squared)
@@ -201,16 +201,16 @@ permalink: /faq/
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
-55. What is the Kernel Trick?
+55. [What is the Kernel Trick?](#what-is-the-kernel-trick)
 56. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 57. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 58. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
 59. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 60. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
-61. What is the difference between L1/L2 regularization?
-62. Why is dimension reduction important?
-63. Why would you want to avoid dimensionality reduction techniques to transform your data before training?
-64. If you have large number of predictors how would you handle them?
+61. [What is the difference between L1/L2 regularization?](#what-is-the-difference-between-l1l2-regularization)
+62. [Why is dimension reduction important?](#why-is-dimension-reduction-important)
+63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
+64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
 65. How do you deal with missing value in a data set?
 66. How do you deal with high cardinality? 
 
@@ -2939,7 +2939,7 @@ $$
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/sigmoid.png)
 
-#### Why is the loss function for Logistic Regression?
+#### What is the loss function for Logistic Regression?
 
 A very common scenario in Machine Learning is supervised learning, where we have data points $\mathbf{x}^{(i)}$ and their labels $y^{(i)}$, for $i=1, 2, \cdots, m$, building up our dataset where we’re interested in estimating the conditional probability of $y^{(i)}$ given $\mathbf{x}^{(i)}$, or more precisely $P(\mathbf{y} \mid \mathbf{X}, \theta)$.
 
@@ -2988,8 +2988,7 @@ $$\mathrm{Cost}(h_{\theta}(\mathbf{x}^{(i)}), y^{(i)}) =
 
 #### How do you find the parameters in logistic regression?
 
-there is no closed form solution for estimating the parameters of a logistic regression. Instead, an iterative search algorithm is used. The most common choices are the Newton-Raphson algorithm and Gradient-descent algorithm, but there are [many possibilities](https://en.wikipedia.org/wiki/Search_algorithm).
-
+There is no closed form solution for estimating the parameters of a logistic regression. Instead, an iterative search algorithm is used. The most common choices are the Newton-Raphson algorithm and Gradient-descent algorithm, but there are [many possibilities](https://en.wikipedia.org/wiki/Search_algorithm).
 
 #### What is Softmax regression and how is it related to Logistic regression?
 
@@ -4124,7 +4123,7 @@ Dimension reduction can:
 
 #### If you have large number of predictors how would you handle them?
 
-This is a very open-ended question and in many cases domain knowledge will play a crucial role. Besides, There are no such hard and fast rules and this is wholly dependent upon the nature of the data. With such a large number of independent variables, there is a strong presence of multicollinearity. The variables will be highly correlated to each other and this will provide incorrect results. One should certainly investigate collinearity before embarking on any analysis.
+This is a very open-ended question and in many cases domain knowledge will play a crucial role. Besides, there are no such hard and fast rules and this is wholly dependent upon the nature of the data. With such a large number of independent variables, there is a strong presence of multicollinearity. The variables will be highly correlated to each other and this will provide incorrect results. One should certainly investigate collinearity before embarking on any analysis.
 
 You can apply regularization tools and select from Ridge, LASSO and Elastic Net regression. The best will be LASSO regression as it removes all the non significant variables that cause multicollinearity. You can use appropriate dimension reduction (eg. PCA) to see if there are still multicolinearity among the independent factors. If some eigen-value is near zero, you may drop one of them, or define a new factor (transformation). You can also use Principal Component Regression which is similar PCA but does regression. Severe multicollinearity will be detected as very small eigenvalues. To rid the data of the multicollinearity, principal component omit the components associated with small eigen values. Partial Least Squares Regression can laos cut the number of predictors to a smaller set of uncorrelated components.
 
