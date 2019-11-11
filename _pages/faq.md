@@ -39,8 +39,8 @@ permalink: /faq/
 29. When are two vectors x and y orthonormal?
 30. What is an orthogonal matrix? Why is computationally preferred?
 31. [What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?](#what-is-eigendecomposition-eigenvectors-and-eigenvalues-how-to-find-eigenvalues-of-a-matrix)
-32. What is Spectral Decomposition (Eigendecompoisition)?
-33. What is Singular Value Decomposition?
+32. [What is Spectral Decomposition (Eigendecompoisition)?](#what-is-spectral-decomposition-eigendecompoisition)
+33. [What is Singular Value Decomposition?](#what-is-singular-value-decomposition)
 34. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-the-moore-penrose-pseudo-inverse-and-how-to-calculate-it)
 35. [What is the trace of a matrix?](#what-is-the-trace-of-a-matrix)
 36. [How to write Frobenius norm of a matrix A in terms of trace?](#how-to-write-frobenius-norm-of-a-matrix-a-in-terms-of-trace)
@@ -896,7 +896,7 @@ $$
 
 #### What is eigendecomposition, eigenvectors and eigenvalues? How to find eigenvalues of a matrix?
 
-In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition).
+In linear algebra, eigendecomposition or sometimes spectral decomposition is the factorization of a matrix into a canonical form, whereby the matrix is represented in terms of its eigenvalues and eigenvectors. Only diagonalizable matrices can be factorized in this way. The eigen-decomposition can also be use to build back a matrix from it eigenvectors and eigenvalues. For details look [here](#what-is-spectral-decomposition-eigendecompoisition).
 
 Given a $p \times p$ matrix $A$, the real number $u$ and the vector $v$ are an eigenvalue and corresponding eigenvector of $A$ if
 
@@ -965,8 +965,8 @@ $$
 
 where
 
-1. $U$ is orthogonal in $\mathbb{R}^{n}: $U^{T}U = U U^{T} = 1_{n \times n}$.
-2. $V$ is orthogonal in $\mathbb{R}^{p}: $V^{T}V = V V^{T} = 1_{p \times p}$.
+1. $U$ is orthogonal in $\mathbb{R}^{n}$: $U^{T}U = U U^{T} = 1_{n \times n}$.
+2. $V$ is orthogonal in $\mathbb{R}^{p}$: $V^{T}V = V V^{T} = 1_{p \times p}$.
 3. D diagonal in $\mathbb{R}^{n \times p}$.
 
 If $n > p$, the decomposition looks like:
@@ -977,7 +977,7 @@ where
 
 1. the columns of $U$ contain the left-singular vectors $u_{1}, \cdots, u_{n}$ that form an orthonormal basis of $\mathbb{R}^{n}$.
 2. the columns of $V$ contain the right-singular vectors $v_{1}, \cdots, v_{n}$ that form an orthonormal basis of $\mathbb{R}^{p}$.
-3. and the diagonal elements of $D$ (usually denoted by $d_{1} \geq d_{2} \geq \cdots d_{min{n,p}}$ where $d_{i} = D_{ii}\,\,\, for i = 1, \cdots , min{n, p}$) contain the non-negative singular values which are ordered in decreasing magnitude.
+3. and the diagonal elements of $D$ (usually denoted by $d_{1} \geq d_{2} \geq \cdots d_{min(n,p)}$ where $d_{i} = D_{ii}\,\,\, for i = 1, \cdots , min(n, p)$) contain the non-negative singular values which are ordered in decreasing magnitude.
 
 Calculating the SVD of $X$ consists of finding the eigenvalues and eigenvectors of $X^{T}X$ and $XX^{T}$. 
 
@@ -998,19 +998,19 @@ D^{T} D = \begin{bmatrix}
     D_{11}^{2} & & &\\
     & D_{22}^{2} & &\\
     & & \ddots &\\
-    & & D_{pp}^{2}
+    & & & D_{pp}^{2}
   \end{bmatrix}
 $$
 
 The eigenvalue decomposition of $X^{T}X \in \mathbb{R}^{p \times p}$ is hence given by
 
 $$
-X^{T}X = V D^{T} \Lambda V^{T}
+X^{T}X = V \Lambda V^{T}
 $$
 
 where the orthogonal matrix $V \in  \mathbb{R}^{p \times p}$ is identical to the matrix in the SVD of $X$ and $\Lambda \in  \mathbb{R}^{p \times p}$ is the diagonal matrix containing the eigenvalues.
 
-$$$\lambda_{k} := \Lambda_{kk} = D_{kk}^{2}\,\,\, for\,\,\, k = 1, 2, \cdots, p$$
+$$ \lambda_{k} := \Lambda_{kk} = D_{kk}^{2}\,\,\, for\,\,\, k = 1, 2, \cdots, p$$
 
 The eigenvectors of $X^{T}X$ make up the columns of $V$, the eigenvectors of $XX^{T}$ make up the columns of $U$. Also, the singular values in $D$ are square roots of eigenvalues from $X^{T}X$ or $XX^{T}$. The singular values are the diagonal entries of the $D$ matrix and are arranged in descending order. The singular values are always real numbers. If the matrix $X$ is a real matrix, then $U$ and $V$ are also real.
 
