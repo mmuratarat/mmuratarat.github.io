@@ -138,8 +138,16 @@ permalink: /faq/
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
-57. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
-58. [Explain generalized linear model](#explain-generalized-linear-model).
+57. When to use the z-test versus t-test
+58. How to do one sample test of means?
+59. How to do two samples test of means?
+60. How to do paired t-test?
+61. How to do one sample test of proportions?
+62. How to do two samples test of proportions?
+63. How to do chi-square test for variance?
+64. How to do F-test for equality of two variances?
+65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
+66. [Explain generalized linear model](#explain-generalized-linear-model).
 
 [General Machine Learning](#general-machine-learning)
 
@@ -2740,6 +2748,42 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/z-vs-t-distribution-flowchart.jpg?raw=true)
 
+#### How to do one sample test of means?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-01.png?raw=true)
+
+#### How to do two samples test of means?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-02.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-03.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-04.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-05.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-06.png?raw=true)
+
+#### How to do paired t-test?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-07.png?raw=true)
+
+#### How to do one sample test of proportions?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-08.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-09.png?raw=true)
+
+#### How to do two samples test of proportions?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-10.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-11.png?raw=true)
+
+#### How to do chi-square test for variance?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-12.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-13.png?raw=true)
+
+#### How to do F-test for equality of two variances?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-14.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-15.png?raw=true)
+
 #### What does statistical interaction mean?
 
 Statistical interaction means the effect of one independent variable(s) on the dependent variable depends on the value of another independent variable(s). Conversely, additivity (i.e., no interaction) means that the effect of one independent variable(s) on the dependent variable does NOT depend on the value of another independent variable(s).
@@ -3968,7 +4012,7 @@ Support vector machines are maximum-margin classifiers, which means they find th
 
 #### What is the Kernel Trick?
 
-The Kernel Trick is a mathematical technique that implicitly maps instances into a very high dimensional space (feature space), enabling nonlinear classification and regression with Support Vector Machines because a linear decision boundary in the high-dimensional feature space corresponds to a complex nonlinear decision boundary in the original space. 
+The Kernel Trick is a mathematical technique that implicitly maps instances into a very high dimensional space (feature space), enabling nonlinear classification and regression with Support Vector Machines because a linear decision boundary in the high-dimensional feature space corresponds to a complex nonlinear decision boundary in the original space. In essence, what the kernel trick does for us is to offer a more efficient and less expensive way to transform data into higher dimensions.
 
 #### What is the output of Logistic Regression?
 
