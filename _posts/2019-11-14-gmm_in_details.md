@@ -15,7 +15,7 @@ NOTE: This blog post consists of images. It might take a while to load in your b
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-05.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-06.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-07.png?raw=true)
-![]https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-08.png?raw=true()
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-08.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-09.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-10.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-11.png?raw=true)
