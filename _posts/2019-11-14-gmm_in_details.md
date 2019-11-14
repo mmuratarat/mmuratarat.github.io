@@ -7,6 +7,7 @@ comments: true
 
 NOTE: This blog post consists of images. It might take a while to load in your browser!
 
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-01.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-02.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111319-11132019141108-03.png?raw=true)
