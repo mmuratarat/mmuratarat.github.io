@@ -83,7 +83,7 @@ permalink: /faq/
 10. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 
 
-[Probability](#probability)
+[Probability and Statistics](#probability)
 
 9. [What is the permutation and combination?](#what-is-the-permutation-and-combination)
 9. [What is a probability?](#what-is-a-probability)
@@ -148,6 +148,7 @@ permalink: /faq/
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
+67. Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -1352,7 +1353,7 @@ P\left(\cup_{i=1}^{n} A_{i}\right) =\sum_{i=1}^{n} P(A_{i}) &- \sum_{1 \leq i \l
 \end{split}
 $$
 
-## Probability 
+## Probability and Statistics 
 
 #### What is the permutation and combination?
 
@@ -1367,7 +1368,6 @@ Number of combinations when 'r' elements are selected out of a total of 'n' elem
 Note that the order of the objects matters in permutation. 
 
 Also note that ${n \choose r} = ^n C_r = \frac{^n P_r}{r!}$
-
 
 ##### Calculate the total number of combinations over n elements, where the number of elements in each subset is in {0,..,n}?
 
@@ -2823,6 +2823,10 @@ $$
 g(\mu) = logit(\mu) = ln\left(\frac{\mu}{1-\mu}\right) = \mathbf{X}\beta \Rightarrow \mu =  \frac{exp(\mathbf{X}\beta)}{1+exp(\mathbf{X}\beta)} = \frac{1}{1+exp(-\mathbf{X}\beta)}
 $$
 
+#### Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111819-11182019114711-1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111819-11182019114711-2.png?raw=true)
 
 ## General Machine Learning
 
