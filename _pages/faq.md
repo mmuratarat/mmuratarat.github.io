@@ -83,7 +83,7 @@ permalink: /faq/
 10. [What is Inclusion-Exlusive Principle?](#what-is-inclusion-exlusive-principle)
 
 
-[Probability and Statistics](#probability)
+[Probability and Statistics](#probability-and-statistics)
 
 9. [What is the permutation and combination?](#what-is-the-permutation-and-combination)
 9. [What is a probability?](#what-is-a-probability)
@@ -148,7 +148,7 @@ permalink: /faq/
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
-67. Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?
+67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 
 [General Machine Learning](#general-machine-learning)
 
