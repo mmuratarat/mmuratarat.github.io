@@ -4402,7 +4402,7 @@ $L$ and the dimensions $M_{1}, M_{2},\ldots$ are user design choices that will d
 The softmax function is used in various multiclass classification methods. It takes an un-normalized vector, and normalizes it into a probability distribution. It is often used in neural networks, to map the non-normalized output to a probability distribution over predicted output classes. It is a function which gets applied to a vector in $z \in R^{K}$ and returns a vector in $[0,1] ^{K}$ with the property that the sum of all elements is 1, in other words, the softmax function is useful for converting an arbitrary vector of real numbers into a discrete probability distribution:
 
 $$
-softmax(z_j) = \frac{e^{z_{j}}}{\sum_{j=1}^K e^{z_{j}}} \;\;\;\text{ for } j=1, \dots, K
+softmax(z_j) = \frac{e^{z_{j}}}{\sum_{k=1}^K e^{z_{k}}} \;\;\;\text{ for } j = 1, \dots, K
 $$
 
 where $\mathbf{z} = \left[z_{1}, \ldots, z_{K}\right]^{T}$. The inputs to the softmax function, i.e., the variables $z_{1}, z_{2}, \ldots, z_{K}$ are referred to as _logits_.
