@@ -221,7 +221,7 @@ permalink: /faq/
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
 65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
 66. [What are the assumptions of Principle Component Analysis?](#what-are-the-assumptions-of-principle-component-analysis)
-67. If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?
+67. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
 65. How do you deal with missing value in a data set?
 66. How do you deal with high cardinality? 
 
@@ -4243,7 +4243,7 @@ In each case the final computed output is $p = 0.5474$, which corresponds to a p
 
 The statistical component of your exercise ends when you output a probability for each class of your new sample. Choosing a threshold beyond which you classify a new observation as 1 vs. 0 is not part of the statistics any more. It is part of the decision component. It should be evaluated and tuned in regard to the objective function of the whole process.
 
-However, one basic idea is to plot ROC curve. It is a plot of the false positive rate (x-axis) versus the true positive rate (y-axis) for a number of different candidate threshold values between 0.0 and 1.0. Put another way, it plots the false alarm rate versus the hit rate. From that plot you can choose thresh hold, based on where you get much better results, which mean high True Positive Rate (TPR) but low False Positive Rate (FPR) from graph. Larger values on the y-axis of the plot indicate higher true positives and lower false negatives.
+However, one basic idea is to plot ROC curve. It is a plot of the false positive rate (x-axis) versus the true positive rate (y-axis) for a number of different candidate threshold values between 0.0 and 1.0. Put another way, it plots the false alarm rate versus the hit rate. From that plot you can choose thresh hold, based on where you get much better results, which mean high True Positive Rate (TPR) but low False Positive Rate (FPR). Larger values on the y-axis of the plot indicate higher true positives and lower false negatives.
 
 Another idea is to use Precision-Recall curves, that focus on the positive class. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model using different probability thresholds.
 
