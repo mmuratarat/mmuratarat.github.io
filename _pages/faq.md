@@ -218,6 +218,7 @@ permalink: /faq/
 59. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 60. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
 61. [What is the difference between L1/L2 regularization?](#what-is-the-difference-between-l1l2-regularization)
+62. What is curse of dimensionality?
 62. [Why is dimension reduction important?](#why-is-dimension-reduction-important)
 63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
@@ -4158,6 +4159,20 @@ In more extreme cases, it may be better to think of classification under the con
 $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solution. $L_{1}$ has multiple solutions. $L_{1}$ has built in feature selection. $L_{1}$ is robust to outliers. $L_{1}$ generates model that are simple and interpretable but cannot learn complex patterns.
 
 $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
+
+#### What is curse of dimensionality?
+
+As the number of features (dimensionality) increases, the data becomes relatively more sparse and often exponentially more samples are needed to make statistically significant predictions. 
+
+Curse of Dimensionality refers to the fact that many problems that do not exist in low-dimensional space arise in high-dimensional space. It makes it very difficult to identify the patterns in the data without having plenty of training data because of sparsity of training data in the high dimensional space.
+
+Imagine going from a $10 \times 10$ grid to a $10 \times 10 \times 10$ grid. We want ONE sample in each '$1 \times 1$ square', then the addition of the third parameter requires us to have 10 times as many samples (1000) as we needed when we had 2 parameters (100).
+
+High-dimensional datasets are at risk of being very sparse: most training instances are likely to be far away from each other. Of course, this also means that a new instance will likely be far away from any training instances, making predictions much less reliable than in lower dimensions , since they will be based on much larger extrapolations. In short, the more dimensions the training set has, the greater the risk of overfitting it.
+
+In theory, one solution to the curse of dimensionality could be to increase the size of the training set to reach a sufficient density of training instances. Unfortunately, in practice, the number of training instances required to reach a given density grows exponentially with the number of dimensions. 
+
+Linear models with no feature selection or regularization, kNN, Bayesian models are models that are most affected by curse of dimensionality. Models that are less affected by the curse of dimensionaliy are regularized models, random forest, some neural networks, stochastic models (e.g. monte carlo simulations).
 
 #### Why is dimension reduction important?
 
