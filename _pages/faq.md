@@ -4240,10 +4240,6 @@ In each case the final computed output is $p = 0.5474$, which corresponds to a p
 3. **Linearity**: it is assumed that the relationship between the variables are linearly related
 4. **Outliers**: PCA is sensitive to outliers; they should be removed.
 
-#### What is a ROC Curve and how do you compute Area Under Curve (AUC)?
-
-
-
 #### If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?
 
 The statistical component of your exercise ends when you output a probability for each class of your new sample. Choosing a threshold beyond which you classify a new observation as 1 vs. 0 is not part of the statistics any more. It is part of the decision component. It should be evaluated and tuned in regard to the objective function of the whole process.
