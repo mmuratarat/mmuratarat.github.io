@@ -4715,11 +4715,11 @@ When implementing a neural network from scratch, Backpropagation is more prone t
 
 This method consists in approximating the gradient using a numerical approach. If this numerical gradient is close to analytical gradient (gradient from backpropagation), then Backpropagation is implemented correctly.
 
-While checking the gradients, we do not use all examples in the training dataset and also, we do not run gradient checking in every iteration at the training because gradient check is slow. You can pick random number of examples from the training data to ompute both numerical and analytical gradients. After we are sure that the implementation is bug-free/correct, we turn it off and use backprop for actual learning. Another note is that gradient checking does not work with dropout. One would usually run the gradient checking without dropout to make sure that backpropagation implementation is correct. 
+While checking the gradients, we do not use all examples in the training dataset and also, we do not run gradient checking in every iteration at the training because gradient check is slow. You can pick random number of examples from the training data to compute both numerical and analytical gradients. After we are sure that the implementation is bug-free/correct, we turn it off and use backprop for actual learning. Another note is that gradient checking does not work with dropout. One would usually run the gradient checking without dropout to make sure that backpropagation implementation is correct. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-30%20at%2009.36.24.png?raw=true)
 
-Derivatives tell us the slope or how steep the function is. For example, for the function $y = x^{2}$, the first-order derivative is $y^{'} = 2x$. 
+Derivatives tell us the slope or how steep the function is. For example, for the function $y = x^{2}$, the first-order derivative is $y^{\prime} = 2x$. 
 
 Definition of derivative in calculus is:
 
@@ -4774,7 +4774,7 @@ numericGradient_onesided, numericGradient_twosided, 2*x
 
 We see that the difference between analytical derivative and two-sided numerical gradient is almost zero, however, the difference between analytical derivative and one-sided derivative is 0.0001. Therefore, we’ll use two-sided epsilon method to compute the numerical gradients.
 
-Two-sided difference formula (also known as centered difference) requires you to evaluate loss function twice to check every single dimension of the gradient, so it is about 2 times as expensive, but the gradient approximation turns out to be much more precise. In order to see this, you can use Taylor expansion of $f(x + \varepsilon)$ and $f(x − \varepsilon)$ and verify that the one-sided formula has an error on order of $O(h)$, while the two-sided formula only has error terms on order of $O(h^{2})$ (i.e. it is a second order approximation).
+Two-sided difference formula (also known as centered difference) requires you to evaluate loss function twice to check every single dimension of the gradient, so it is about 2 times as expensive, but the gradient approximation turns out to be much more precise. In order to see this, you can use Taylor expansion of $f(x + \varepsilon)$ and $f(x − \varepsilon)$ and verify that the one-sided formula has an error on order of $O(\varepsilon)$, while the two-sided formula only has error terms on order of $O(\varepsilon^{2})$ (i.e. it is a second order approximation).
 
 $\varepsilon = 10e-7$ is a common value used for the difference between analytical gradient and numerical gradient. If the difference is less than $10e-7$ then the implementation of backpropagation is correct.
 
