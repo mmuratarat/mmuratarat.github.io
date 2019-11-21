@@ -222,7 +222,7 @@ permalink: /faq/
 63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
 65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
-66. What are the assumptions of Principle Component Analysis?
+66. [What are the assumptions of Principle Component Analysis?](#what-are-the-assumptions-of-principle-component-analysis)
 65. How do you deal with missing value in a data set?
 66. How do you deal with high cardinality? 
 
