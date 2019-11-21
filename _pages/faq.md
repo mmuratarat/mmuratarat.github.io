@@ -986,7 +986,7 @@ where
 
 1. the columns of $U$ contain the left-singular vectors $u_{1}, \cdots, u_{n}$ that form an orthonormal basis of $\mathbb{R}^{n}$.
 2. the columns of $V$ contain the right-singular vectors $v_{1}, \cdots, v_{n}$ that form an orthonormal basis of $\mathbb{R}^{p}$.
-3. and the diagonal elements of $D$ (usually denoted by $d_{1} \geq d_{2} \geq \cdots d_{min(n,p)}$ where $d_{i} = D_{ii}\,\,\, for i = 1, \cdots , min(n, p)$) contain the non-negative singular values which are ordered in decreasing magnitude.
+3. and the diagonal elements of $D$ (usually denoted by $d_{1} \geq d_{2} \geq \cdots d_{min(n,p)}$ where $d_{i} = D_{ii}\,\,\, for\,\,\, i = 1, \cdots , min(n, p)$) contain the non-negative singular values which are ordered in decreasing magnitude.
 
 Calculating the SVD of $X$ consists of finding the eigenvalues and eigenvectors of $X^{T}X$ and $XX^{T}$. 
 
