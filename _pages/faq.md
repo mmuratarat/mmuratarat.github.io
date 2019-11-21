@@ -118,10 +118,7 @@ permalink: /faq/
 30. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 31. What is discrete Uniform distribution?
 30. What are exponential and Laplace distribution?
-31. What are Dirac distribution and Empirical distribution?
-32. What is mixture of distributions?
-33. Name two common examples of mixture of distributions? (Empirical and Gaussian Mixture)
-34. Is Gaussian mixture model a universal approximator of densities?
+32. What is mixture of distributions? Name a common example of mixture of distributions? 
 35. Write the formulae for logistic and softplus function.
 36. Write the formulae for Bayes rule.
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
@@ -218,7 +215,7 @@ permalink: /faq/
 59. [What is a parsimonious model?](#what-is-a-parsimonious-model)
 60. [How do you deal with imbalanced data?](#how-do-you-deal-with-imbalanced-data)
 61. [What is the difference between L1/L2 regularization?](#what-is-the-difference-between-l1l2-regularization)
-62. What is curse of dimensionality?
+62. [What is curse of dimensionality?](#what-is-curse-of-dimensionality)
 62. [Why is dimension reduction important?](#why-is-dimension-reduction-important)
 63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
@@ -2487,6 +2484,26 @@ The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness
 The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and variance $\sigma_{\hat{p}}^{2} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
 
 In actual practice $p$ is not known, hence neither is $\sigma_{\hat{p}}^{2}$. In that case in order to check that the sample is sufficiently large we substitute the known quantity $\hat{p}$ for $p$. 
+
+#### Write the formulae for Bayes rule.
+
+Bayes' theorem is a formula that describes how to update the probabilities of hypotheses when given evidence. It follows simply from the axioms of conditional probability, but can be used to powerfully reason about a wide range of problems involving belief updates.
+
+Bayes rule provides us with a way to update our beliefs based on the arrival of new, relevant pieces of evidence. For example, if we were trying to provide the probability that a given person has cancer, we would initially just say it is whatever percent of the population has cancer. However, given additional evidence such as the fact that the person is a smoker, we can update our probability, since the probability of having cancer is higher given that the person is a smoker. This allows us to utilize prior knowledge to improve our probability estimations.
+
+Given a hypothesis $A$ and evidence $B$, Bayes' theorem states that the relationship between the probability of the hypothesis before getting the evidence $P(A)$ and the probability of the hypothesis after getting the evidence $P(A \mid B)$ is
+
+$$
+\underbrace{P(A \mid B)}_\text{posterior} = \frac{P(A \cap B)}{P(B)} = \frac{P(B \mid A)} {P(B)} \overbrace{P(A)}^\text{prior}
+$$
+
+So in the equation we have two random variables $A$ and $B$ and their conditional and marginal probabilities, that's all. Prior $P(A)$ is the probability of $A$ "before" learning about $B$, while posterior $P(A \mid B)$ is the probability of $A$ "after" learning about $B$, where the "before" and "after" refer to your procedure of calculating the probabilities, not any chronological order. The naming convention is that the left hand side is the posterior, while the prior appears in the right hand side part. Using Bayes theorem you can easily switch the sides back and forth (that's the point of the theorem). The usual use case is when you know only $P(B \mid A)$ and $P(A)$, but you don't know $P(A \mid B)$ and want to learn about it
+
+The specific case is Bayesian inference, where we use Bayes theorem to learn about the distribution of the parameter of interest $\theta$ given the data $X$, i.e. obtain the posterior distribution $f(\theta \mid X)$. This is achieved by looking at the likelihood function (that looks at the "evidence" you gathered) and the prior (the distribution of $\theta$ that is assumed before looking at the data).
+
+$$
+\underbrace{f(\theta|X)}_\text{posterior}=\frac{\overbrace{f(X|\theta)}^\text{likelihood}\,\overbrace{f(\theta)}^\text{prior}}{\underbrace{f(X)}_\text{normalizing constant}}
+$$
 
 #### What is population mean and sample mean?
 
