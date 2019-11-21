@@ -149,7 +149,7 @@ permalink: /faq/
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
-68. A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?
+68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
 
 [General Machine Learning](#general-machine-learning)
 
@@ -221,6 +221,7 @@ permalink: /faq/
 62. [Why is dimension reduction important?](#why-is-dimension-reduction-important)
 63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
+65. How can you compare a neural network that has one layer, one input and output to a logistic regression model?
 65. How do you deal with missing value in a data set?
 66. How do you deal with high cardinality? 
 
@@ -4187,6 +4188,16 @@ You can apply regularization tools and select from Ridge, LASSO and Elastic Net 
 
 You may also use some intelligent information criterion such as Akaike’s information criterion or Bayesian information criterion or Mallows’ CP to decide how many predictors should be in. 
 
+#### How can you compare a neural network that has one layer, one input and output to a logistic regression model?
+
+Logistic regression is a Machine lEARNING technique used to predict in situations where there are exactly two possibilities. For example, you might want to predict the sex of a person (0 = male, 1 = female) based on three predictor variables such as age, height, and annual income.
+
+A good way to compare logistic regression to a neural network is to understand that you can simulate logistic regression with a neural network that has one hidden layer with a single hidden node and the identity activation function, and a single output node with the logistic sigmoid activation function.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/logistic_ann.jpeg?raw=true)
+
+In each case the final computed output is p = 0.5474, which corresponds to a prediction of class = 1 because the p (probability) is greater than 0.50. Notice that the neural network hidden node has a bias value that corresponds to the bias in LR. The neural network output node has a bias of 0. The single hidden-to-output weight has constant value of 1.
+
 
 ## Deep Learning
 
@@ -5528,4 +5539,3 @@ def example2(arg_1, arg_2, *args, kw_1="shark", kw_2="blobfish", **kwargs):
 A stack is an ordered list where you can insert or delete only the last added element. A real-life example of Stack could be a pile of books placed in a vertical order. In order to get the book that’s somewhere in the middle, you will need to remove all the books placed on top of it. This is how the LIFO (Last In First Out) method works.
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
-
