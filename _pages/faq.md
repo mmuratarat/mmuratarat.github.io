@@ -149,6 +149,7 @@ permalink: /faq/
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
+68. A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -2827,6 +2828,11 @@ $$
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111819-11182019114711-1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC111819-11182019114711-2.png?raw=true)
+
+#### A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?
+
+Let $P_{fail} = 0.1$ be the probability that the system fails in any given hour. Let $P_{no fail} = 1 - P_{fail} = 0.9$, be the probability that the system does not fail in any given hour. The joint probability of two independent events is the product of the probability of each event (that is, $P(A \cap B) = P(A) \times P(B)$). Therefore, The chance of it failing in 2 hours is $P_{fail}^{2} = 0.1^{2}$. The chance of it NOT failing in $n$ hours is $P_{no fail}^{n} = 0.9^{n}$. The chance of it failing in $n$ hours is `1 - (chance of not failing in n hours)`, which is $ 1 - 0.9^{n}$.
+
 
 ## General Machine Learning
 
