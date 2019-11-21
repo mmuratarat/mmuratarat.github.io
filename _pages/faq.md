@@ -221,9 +221,10 @@ permalink: /faq/
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
 65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
 66. [What are the assumptions of Principle Component Analysis?](#what-are-the-assumptions-of-principle-component-analysis)
-67. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
-65. How do you deal with missing value in a data set?
-66. How do you deal with high cardinality? 
+67. What is a ROC Curve and how do you compute Area Under Curve (AUC)?
+68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
+69. How do you deal with missing value in a data set?
+70. How do you deal with high cardinality? 
 
 
 ## Mathematics and Linear Algebra
@@ -4239,7 +4240,7 @@ In each case the final computed output is $p = 0.5474$, which corresponds to a p
 3. **Linearity**: it is assumed that the relationship between the variables are linearly related
 4. **Outliers**: PCA is sensitive to outliers; they should be removed.
 
-#### What is AUC - ROC Curve?
+#### What is a ROC Curve and how do you compute Area Under Curve (AUC)?
 
 
 
