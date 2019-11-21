@@ -221,7 +221,8 @@ permalink: /faq/
 62. [Why is dimension reduction important?](#why-is-dimension-reduction-important)
 63. [Why would you want to avoid dimensionality reduction techniques to transform your data before training?](#why-would-you-want-to-avoid-dimensionality-reduction-techniques-to-transform-your-data-before-training)
 64. [If you have large number of predictors how would you handle them?](#if-you-have-large-number-of-predictors-how-would-you-handle-them)
-65. How can you compare a neural network that has one layer, one input and output to a logistic regression model?
+65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
+66. What are the assumptions of Principle Component Analysis?
 65. How do you deal with missing value in a data set?
 66. How do you deal with high cardinality? 
 
@@ -4190,13 +4191,20 @@ You may also use some intelligent information criterion such as Akaike’s infor
 
 #### How can you compare a neural network that has one layer, one input and output to a logistic regression model?
 
-Logistic regression is a Machine lEARNING technique used to predict in situations where there are exactly two possibilities. For example, you might want to predict the sex of a person (0 = male, 1 = female) based on three predictor variables such as age, height, and annual income.
+Logistic regression is a Machine Learning technique used to predict in situations where there are exactly two possibilities. For example, you might want to predict the sex of a person (0 = male, 1 = female) based on three predictor variables such as age, height, and annual income.
 
 A good way to compare logistic regression to a neural network is to understand that you can simulate logistic regression with a neural network that has one hidden layer with a single hidden node and the identity activation function, and a single output node with the logistic sigmoid activation function.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/logistic_ann.jpeg?raw=true)
 
-In each case the final computed output is p = 0.5474, which corresponds to a prediction of class = 1 because the p (probability) is greater than 0.50. Notice that the neural network hidden node has a bias value that corresponds to the bias in LR. The neural network output node has a bias of 0. The single hidden-to-output weight has constant value of 1.
+In each case the final computed output is $p = 0.5474$, which corresponds to a prediction of class = 1 because the p (probability) is greater than 0.50. Notice that the neural network hidden node has a bias value that corresponds to the bias in LR. The neural network output node has a bias of 0. The single hidden-to-output weight has constant value of 1.
+
+#### What are the assumptions of Principle Component Analysis?
+
+1. **Sample size**: ideally, there should be 150+ cases and there should be ratio of at least five cases for each variable (Pallant, 2010)
+2. **Correlations**: there should be some (moderate at least) correlation among the factors to be considered for PCA. Otherwise, the number of principal components will be almost the same as the number of features in the dataset, which means carrying out PCA would be pointless.
+3. **Linearity**: it is assumed that the relationship between the variables are linearly related
+4. **Outliers**: PCA is sensitive to outliers; they should be removed.
 
 
 ## Deep Learning
