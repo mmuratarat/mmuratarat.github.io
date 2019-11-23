@@ -222,6 +222,7 @@ permalink: /faq/
 65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
 66. [What are the assumptions of Principle Component Analysis?](#what-are-the-assumptions-of-principle-component-analysis)
 67. What is a ROC Curve and how do you compute Area Under Curve (AUC)?
+68. What is micro-averaging and macro-averaging?
 68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
 69. How do you deal with missing value in a data set?
 70. How do you deal with high cardinality? 
@@ -4239,6 +4240,16 @@ In each case the final computed output is $p = 0.5474$, which corresponds to a p
 2. **Correlations**: there should be some (moderate at least) correlation among the factors to be considered for PCA. Otherwise, the number of principal components will be almost the same as the number of features in the dataset, which means carrying out PCA would be pointless.
 3. **Linearity**: it is assumed that the relationship between the variables are linearly related
 4. **Outliers**: PCA is sensitive to outliers; they should be removed.
+
+#### What is micro-averaging and macro-averaging?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-5.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-6.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-7.png?raw=true)
 
 #### If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?
 
