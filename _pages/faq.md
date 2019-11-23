@@ -3764,7 +3764,7 @@ You will see that $p$ is 0.993, so that 99.3% of N(0,1) data are within the whis
 
 **2** - **Standard Deviation Method**
 
-If we know that the distribution of values in the sample is Gaussian or Gaussian-like, we can use the standard deviation of the sample as a cut-off for identifying outliers. Using the same plot above, ghree standard deviations from the mean is a common cut-off in practice for identifying outliers in a Gaussian or Gaussian-like distribution. For smaller samples of data, perhaps a value of 2 standard deviations (95%) can be used, and for larger samples, perhaps a value of 4 standard deviations (99.9%) can be used. A value that falls outside of these ranges is part of the distribution, but it is an unlikely or rare event.
+If we know that the distribution of values in the sample is Gaussian or Gaussian-like, we can use the standard deviation of the sample as a cut-off for identifying outliers. Using the same plot above, three standard deviations from the mean is a common cut-off in practice for identifying outliers in a Gaussian or Gaussian-like distribution. For smaller samples of data, perhaps a value of 2 standard deviations (95%) can be used, and for larger samples, perhaps a value of 4 standard deviations (99.9%) can be used. A value that falls outside of these ranges is part of the distribution, but it is an unlikely or rare event.
 
 {% highlight python %}
 data_mean, data_std = mean(data), std(data)
