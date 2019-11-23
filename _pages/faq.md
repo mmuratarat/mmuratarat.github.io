@@ -222,7 +222,7 @@ permalink: /faq/
 65. [How can you compare a neural network that has one layer, one input and output to a logistic regression model?](#how-can-you-compare-a-neural-network-that-has-one-layer-one-input-and-output-to-a-logistic-regression-model)
 66. [What are the assumptions of Principle Component Analysis?](#what-are-the-assumptions-of-principle-component-analysis)
 67. What is a ROC Curve and how do you compute Area Under Curve (AUC)?
-68. What is micro-averaging and macro-averaging?
+68. [What is micro-averaging and macro-averaging?](#what-is-micro-averaging-and-macro-averaging)
 68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
 69. How do you deal with missing value in a data set?
 70. How do you deal with high cardinality? 
@@ -4246,6 +4246,38 @@ In each case the final computed output is $p = 0.5474$, which corresponds to a p
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-2.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-3.png?raw=true)
+
+{% highlight python %}
+from sklearn import metrics
+# Constants
+C="Cat"
+F="Fish"
+H="Hen"
+
+# True values
+y_true = [C,C,C,C,C,C, F,F,F,F,F,F,F,F,F,F, H,H,H,H,H,H,H,H,H]
+# Predicted values
+y_pred = [C,C,C,C,H,F, C,C,C,C,C,C,H,H,F,F, C,C,C,H,H,H,H,H,H]
+
+# Print the confusion matrix
+print(metrics.confusion_matrix(y_true, y_pred))
+# [[4 1 1]
+#  [6 2 2]
+#  [3 0 6]]
+
+# Print the precision and recall, among other metrics
+print(metrics.classification_report(y_true, y_pred, digits=3))
+#               precision    recall  f1-score   support
+
+#          Cat      0.308     0.667     0.421         6
+#         Fish      0.667     0.200     0.308        10
+#          Hen      0.667     0.667     0.667         9
+
+#     accuracy                          0.480        25
+#    macro avg      0.547     0.511     0.465        25
+# weighted avg      0.581     0.480     0.464        25
+{% endhighlight %}
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-4.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-5.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-6.png?raw=true)
