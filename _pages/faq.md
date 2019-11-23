@@ -49,7 +49,8 @@ permalink: /faq/
 38. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 39. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
 40. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
-41. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
+41. How is the set of positive semi-definite matrices a convex set?
+42. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
 
 
 [Numerical Optimization](#numerical-optimization)
@@ -1133,6 +1134,10 @@ $$
 The problem with definite matrices is that they are not always symmetric. However, we can simply multiply the matrix that’s not symmetric by its transpose and the product will become symmetric, square, and positive definite!
 
 Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{R}^{n\times n}$ which is a square matrix in real space. If $v^{T}B^{T}Bv = \left( Bv\right)^{T}\left( Bv\right) = \left\Vert Bv \right\Vert_{2}^{2} > 0$, then $B^{T}B$ is positive definite matrix.
+
+#### How is the set of positive semi-definite matrices a convex set?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-23%20at%2010.18.51.png?raw=true)
 
 #### What are the one-dimensional and multi-dimensional Taylor expansions?
 
