@@ -1144,9 +1144,9 @@ Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{
 
 #### Describe convex function
 
-A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any lambda where $0< \lambda < 1$,
+A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any $\lambda$ where $0< \lambda < 1$,
 
-* the domain M of the function is convex, meaning it is a convex set if it contains all convex combinations of any two points within it.
+* the domain $M$ of the function is convex, meaning it is a convex set if it contains all convex combinations of any two points within it.
 
 and 
 
