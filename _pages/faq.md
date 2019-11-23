@@ -3684,6 +3684,11 @@ Consider the problem of learning a linear model: an out-of-core algorithm learns
 
 #### How do you detect outliers in a dataset?
 
+When starting an outlier detection quest you have to answer two important questions about your dataset:
+
+1. Which and how many features am I taking into account to detect outliers ? (univariate / multivariate)
+2. Can I assume a distribution(s) of values for my selected features? (parametric / non-parametric)
+
 **1** - **Interquartile Range Method**
 
 Not all data is normal or normal enough to treat it as being drawn from a Gaussian distribution.
