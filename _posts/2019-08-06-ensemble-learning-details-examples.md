@@ -347,6 +347,8 @@ The `BaggingClassifier` class supports sampling the features as well. This is co
 
 Sampling both training instances and features is called the **Random Patches** method. Keeping all training instances (i.e., `bootstrap = False` and `max_sample = 1.0`) but sampling features (i.e., `bootstrap_features = True` and/or `max_features` smaller than 1.0)  is called the **Random Subspaces** method. Sampling features in even more predictor diversity, trading a bit more bias for a lower variance. 
 
+Both situations are a matter of limiting our ability to explain the population: First we limit the number of observations, then we limit the number of variables to split on in each split. Both limitations leads to higher bias in each tree, but often the variance reduction in the model overshines the bias increase in each tree, and thus Bagging and Random Forests tend to produce a better model than just a single decision tree.
+
 # Random Forest
 
 Decision trees tend to have high variance. A small change in the training data can produce big changes in the estimated Tree. It also involves the greedy selection of the best split point from the dataset at each step.
