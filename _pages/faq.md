@@ -49,7 +49,7 @@ permalink: /faq/
 38. [What is the trace of a scalar?](#what-is-the-trace-of-a-scalar)
 39. [What do positive definite, positive semi-definite and negative definite/negative semi-definite mean?](#what-do-positive-definite-positive-semi-definite-and-negative-definitenegative-semi-definite-mean)
 40. [How to make a positive definite matrix with a matrix that’s not symmetric?](#how-to-make-a-positive-definite-matrix-with-a-matrix-thats-not-symmetric)
-41. How is the set of positive semi-definite matrices a convex set?
+41. [How is the set of positive semi-definite matrices a convex set?](#how-is-the-set-of-positive-semi-definite-matrices-a-convex-set)
 42. [What are the one-dimensional and multi-dimensional Taylor expansions?](#what-are-the-one-dimensional-and-multi-dimensional-taylor-expansions)
 
 
