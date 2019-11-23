@@ -6,6 +6,7 @@ social: true
 comments: false
 permalink: /faq/
 ---
+
 [Mathematics and Linear Algebra](#mathematics-and-linear-algebra)
 
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
@@ -224,6 +225,7 @@ permalink: /faq/
 67. What is a ROC Curve and how do you compute Area Under Curve (AUC)?
 68. [What is micro-averaging and macro-averaging?](#what-is-micro-averaging-and-macro-averaging)
 68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
+69. What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?
 69. How do you deal with missing value in a data set?
 70. How do you deal with high cardinality? 
 
@@ -4297,6 +4299,12 @@ Therefore generally, the use of ROC curves and precision-recall curves are as fo
 
 1. ROC curves should be used when there are roughly equal numbers of observations for each class.
 2. Precision-Recall curves should be used when there is a moderate to large class imbalance.
+
+#### What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?
+
+A convex function is a function which the line segment betwen any two points on the graph lies above the graph and never cross graph itself. For non-convex functions, there will be at least one intersection. 
+
+In a convex optimization problem, there can be only one optimal solution, which is globally optimal or you might prove that there is no feasible solution to the problem, while in a non-convex optimization may have multiple locally optimal points (or only a local minima) and it can take a lot of time to identify whether the problem has no solution or if the solution is global. Hence, the efficiency in time of the convex optimization problem is much better. A convex problem usually is much more easier to deal with in comparison to a non convex problem which takes a lot of time and it might lead you to a dead end.
 
 
 ## Deep Learning
