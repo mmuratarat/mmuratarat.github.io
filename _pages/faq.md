@@ -4194,11 +4194,13 @@ $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse
 
 #### What is curse of dimensionality?
 
-As the number of features (dimensionality) increases, the data becomes relatively more sparse and often exponentially more samples are needed to make statistically significant predictions. 
+As the number of features (dimensionality) increases, the data becomes relatively more sparse and often exponentially, more samples are needed to make statistically significant predictions. 
 
 Curse of Dimensionality refers to the fact that many problems that do not exist in low-dimensional space arise in high-dimensional space. It makes it very difficult to identify the patterns in the data without having plenty of training data because of sparsity of training data in the high dimensional space.
 
 Imagine going from a $10 \times 10$ grid to a $10 \times 10 \times 10$ grid. We want ONE sample in each '$1 \times 1$ square', then the addition of the third parameter requires us to have 10 times as many samples (1000) as we needed when we had 2 parameters (100).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/curse_of_dimensionality_example.png?raw=true)
 
 High-dimensional datasets are at risk of being very sparse: most training instances are likely to be far away from each other. Of course, this also means that a new instance will likely be far away from any training instances, making predictions much less reliable than in lower dimensions , since they will be based on much larger extrapolations. In short, the more dimensions the training set has, the greater the risk of overfitting it.
 
