@@ -80,11 +80,16 @@ For classification problem the class outputted by each model can be seen as a vo
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bagging2.png?raw=true)
 
-Idea of bagging comes from the fact that averaging models reduces model variance.. As one can see easily, averaging variances reduce overall variance. Let $Z_{1}, Z_{2},..., Z_{N}$ be i.i.d. random variables,
+Idea of bagging comes from the fact that averaging models reduces model variance. Since trees are notoriously noisy, they benefit greatly from the averaging. Moreover, since each tree generated in bagging is identically distributed
+(i.d.), the expectation of an average of $B$ such trees is the same as the expectation of any one of them. This means the bias of bagged trees is the same as that of the individual trees, and the only hope of improvement is through variance reduction. This is in contrast to boosting, where the trees are grown in an adaptive way to remove bias, and hence are not i.d.
+
+An average of $B$ i.i.d. random variables, each with variance $\sigma^{2}$, has variance $\frac{1}{B}\sigma^{2}$. If the variables are simply i.d. (identically distributed, but not necessarily independent) with positive pairwise correlation $\ro$, the variance of the average is:
 
 $$
-Var \left(\frac{1}{N} \sum_{i=1}^{N} Z_{i} \right) = \frac{1}{N} Var \left(Z_{i} \right)
+\rho \sigma^{2} + \frac{1- \rho}{B} \sigma^{2}
 $$
+
+As $B$ increases, the second term disappears, but the first remains, and hence the size of the correlation of pairs of bagged trees limits the benefits of averaging. The idea in random forests is to improve the variance reduction of bagging by reducing the correlation between the trees, without increasing the variance too much. This is achieved in the tree-growing process through random selection of the input variables which we will see in the next part.
 
 When bagging with decision trees, we are less concerned about individual trees overfitting the training data. For this reason and for efficiency, the individual decision trees are grown deep (e.g. few training samples at each leaf-node of the tree) and the trees are not pruned. **These trees will have both high variance and low bias**. These are important characterize of sub-models when combining predictions using bagging.
 
