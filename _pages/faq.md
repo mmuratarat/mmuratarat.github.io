@@ -2451,7 +2451,7 @@ $$
 
 #### What is the central limit theorem?
 
-The gist of Central Limit Theorem is that the sample mean will be approximately normally distributed for large sample sizes, regardless of the distribution from which we are sampling. 
+The gist of Central Limit Theorem is that if we take a sufficient number of random samples of sufficient size from any type of distribution with some variance, the distribution of the sample means will be a normal distribution. This new distribution is called a sampling distribution. The mean of the sampling distribution should be approximately equal to the population mean.
 
 Suppose we are sampling from a population with mean $\mu$ and standard deviation $\sigma$. Let $\bar{X}$ be a random variable representing the sample mean of $n$ independently drawn observations.
 
@@ -2488,6 +2488,48 @@ s^{2} = \frac{1}{n-1} \sum_{i=1}^{n} \left(X_{i} - \bar{X} \right)^{2}
 $$
 
 The denominator $n-1$ in the sample variance is necessary to ensure unbiasedness of the population variance.
+
+{% highlight python %}
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+np.random.seed(42)
+population = np.random.normal(loc=181, scale=24, size=6000)
+
+sns.distplot(population, color="darkslategrey")
+plt.title("Population Distribution", y=1.015, fontsize=20);
+
+pop_mean = population.mean()
+#180.92508820056628
+
+pop_std= population.std()
+#23.959903286074418
+
+sample_means = []
+n = 35
+for sample in range(0, 300):
+    sample_values = np.random.choice(population, size=n)    
+    sample_mean = np.mean(sample_values)
+    sample_means.append(sample_mean)
+    
+sns.distplot(sample_means)
+plt.title("Distribution of Sample Means ($n=35$)", y=1.015, fontsize=12)
+plt.xlabel("sample mean", labelpad=14)
+plt.ylabel("frequency of occurence", labelpad=14);
+
+# Calculate Mean of Sample Means
+mean_of_sample_means = np.mean(sample_means)
+# 180.88531324062302
+
+std_dev_of_sample_means = np.std(sample_means)
+#4.1080239177902005
+#which is equal to 23.959903286074418/np.sqrt(34), unbiased estimator of the population variance
+{% endhighlight %}
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-25%20at%2016.11.43.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-25%20at%2016.11.49.png?raw=true)
 
 #### What is the sampling distribution of sample proportion, p-hat?
 
