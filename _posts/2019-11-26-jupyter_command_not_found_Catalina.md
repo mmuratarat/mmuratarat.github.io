@@ -19,7 +19,7 @@ So just open up a “Terminal” and create that file like this; I am using nano
 
 One needs to add an alias of here in case — jupyter. Follow the following steps.
 
-> alias jupyter=’/Library/Frameworks/Python.framework/Versions/3.7/bin/jupyter-notebook ‘
+> alias jupyter='/Library/Frameworks/Python.framework/Versions/3.7/bin/jupyter-notebook'
 
 Copy the above line to add an alias to the `~/.zshrc` file.
 
