@@ -15,11 +15,11 @@ The `~/.zshrc` file doesn’t exist by default in MacOS X so you need to create 
 
 So just open up a “Terminal” and create that file like this; I am using nano as a text editor but feel free to use whatever text editor you feel comfortable with:
 
-```bash
-nano ~/.zshrc
-```
+> nano ~/.zshrc
 
-    alias jupyter=’/Library/Frameworks/Python.framework/Versions/3.7/bin/jupyter-notebook ‘
+One needs to add an alias of here in case — jupyter. Follow the following steps.
+
+> alias jupyter=’/Library/Frameworks/Python.framework/Versions/3.7/bin/jupyter-notebook ‘
 
 Copy the above line to add an alias to the `~/.zshrc` file.
 
@@ -27,9 +27,9 @@ Now to save the file in `nano` just hit <kbd>ctrl</kbd>+<kbd>X</kbd>. When it pr
 
 > Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?
 
-Just type “Y” and then you will get a new prompt which looks something like this; just note the path `/Users/jake/` will match your local user’s path:
+Just type “Y” and then you will get a new prompt which looks something like this; just note the path `/Users/mustafamuratarat/` will match your local user’s path:
 
-> File Name to Write: /Users/jake/.zshrc
+> File Name to Write: /Users/mustafamuratarat/.zshrc
 
 Now just hit <kbd>return</kbd> and the file will be saved and you will now be back to the command line prompt in the "Terminal". If you now exit from the Terminal and then open a new window, the `~/.zshrc` settings should now be loaded in.
 
