@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac-Os Catalina Update — ZSH instead of Bash (“Command not found” issue for Jupyter)"
+title: "Mac-Os Catalina Update — ZSH instead of Bash ("Command not found" issue for Jupyter)"
 author: "MMA"
 comments: true
 ---
