@@ -27,7 +27,7 @@ Now to save the file in `nano` just hit <kbd>ctrl</kbd>+<kbd>X</kbd>. When it pr
 
 > Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?
 
-Just type “Y” and then you will get a new prompt which looks something like this; just note the path `/Users/mustafamuratarat/` will match your local user’s path:
+Just type "Y" and then you will get a new prompt which looks something like this; just note the path `/Users/mustafamuratarat/` will match your local user’s path:
 
 > File Name to Write: /Users/mustafamuratarat/.zshrc
 
