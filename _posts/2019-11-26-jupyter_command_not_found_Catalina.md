@@ -31,7 +31,7 @@ Just type "Y" and then you will get a new prompt which looks something like this
 
 > File Name to Write: /Users/mustafamuratarat/.zshrc
 
-Now just hit <kbd>return</kbd> and the file will be saved and you will now be back to the command line prompt in the "Terminal". If you now exit from the Terminal and then open a new window, the `~/.zshrc` settings should now be loaded in.
+Now, just hit <kbd>return</kbd> and the file will be saved and you will now be back to the command line prompt in the "Terminal". If you now exit from the Terminal and then open a new window, the `~/.zshrc` settings should now be loaded in.
 
 And voila! Jupyter Notebook runs perfectly. It can similarly be implemented for other applications.
 
