@@ -2764,7 +2764,7 @@ Some tests do not return a p-value. A fixed level alpha test can be calculated w
 
 You can use either P values or confidence intervals to determine whether your results are statistically significant. If a hypothesis test produces both, these results will agree.
 
-The confidence level is equivalent to 1 – the alpha level. So, if your significance level is $0.05$, the corresponding confidence level is $95\%$.
+The confidence level, which is the probability that the value of a parameter falls within a specified range of values, is equivalent to 1 – the alpha level. So, if your significance level is $0.05$, the corresponding confidence level is $95\%$.
 
 * If the P value is less than your significance (alpha) level, the hypothesis test is statistically significant.
 * If the confidence interval does not contain the null hypothesis value, the results are statistically significant.
