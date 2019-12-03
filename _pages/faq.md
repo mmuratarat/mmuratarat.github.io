@@ -4339,6 +4339,8 @@ print(metrics.classification_report(y_true, y_pred, digits=3))
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-6.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC112219-11222019121938-7.png?raw=true)
 
+Micro-average is preferable if there is a class imbalance problem.
+
 #### If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?
 
 The statistical component of your exercise ends when you output a probability for each class of your new sample. Choosing a threshold beyond which you classify a new observation as 1 vs. 0 is not part of the statistics any more. It is part of the decision component. It should be evaluated and tuned in regard to the objective function of the whole process.
