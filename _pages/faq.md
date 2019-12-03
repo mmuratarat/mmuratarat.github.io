@@ -3183,6 +3183,8 @@ where
 $$
 \bar{y} = \frac{1}{n_{samples}}\sum {y_{true}}$$
 
+The denominator is the variance in $y$ values. Higher the MSE, smaller the $R^{2}$ and poorer is the model.
+
 R-squared values range from 0 to 1 and are commonly stated as percentages from $0\%$ to $100\%$. 
 
 R squared alone cannot be used as a meaningful comparison of models with very different numbers of independent variables. It only works as intended in a simple linear regression model with one explanatory variable. R-squared is monotone increasing with the number of variables included—i.e., it will never decrease because when we add a new variable, regression model will try to minimize the sum of squared of residuals but total sum of squared will be the same. Thus, a model with more terms may seem to have a better fit just for the fact that it has more terms. This leads to the alternative approach of looking at the adjusted R squared. The adjusted R-squared compares the descriptive power of regression models that include diverse numbers of predictors. The adjusted R-squared compensates for the addition of variables and only increases if the new term enhances the model above what would be obtained by probability and decreases when a predictor enhances the model less than what is predicted by chance. In an overfitting condition, an incorrectly high value of R-squared, which leads to a decreased ability to predict, is obtained. This is not the case with the adjusted R-squared.
