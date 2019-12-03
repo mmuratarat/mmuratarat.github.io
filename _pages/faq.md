@@ -4825,7 +4825,9 @@ Note: with batch size $b = m$ (number of training examples), we get the Batch Gr
 Mini-batch requires the configuration of an additional "mini-batch size" hyperparameter for the learning algorithm. It is usually chosen as power of 2 such as 32, 64, 128, 256, 512, etc. The reason behind it is because some hardware such as GPUs achieve better run time with common batch sizes such as power of 2.
 
 **3**- **Stochastic Gradient Descent**: 
-This is a type of gradient descent which processes 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. It adds even more noise to the learning process than mini-batch that helps improving generalization error. However, this would increase the run time.
+This is a type of gradient descent which processes 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. It is "stochastic" because it involves randomly shuffling the training dataset before each iteration that causes different orders of updates to the model parameters.
+
+Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. It adds even more noise to the learning process than mini-batch that helps improving generalization error. However, this would increase the run time.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_tUqDJ5IYOhegTourdKqL0w.png?raw=true)
 
