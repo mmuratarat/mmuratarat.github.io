@@ -3207,7 +3207,7 @@ $$
 R^2 =1 - \frac{\sum \left(y_{true} - y_{pred} \right)^2}{\sum \left(y_{true} \right)^2}
 $$
 
-equation's value becomes smaller than actual, resulting in higher $R^{2}$.
+Equation's value becomes smaller than actual, resulting in higher $R^{2}$.
 
 #### How do you validate a machine learning model?
 
