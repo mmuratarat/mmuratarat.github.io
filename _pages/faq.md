@@ -4011,7 +4011,7 @@ distance.euclidean(x1, x2)
 
 #### What is the difference between Support Vector Machines and Logistic Regression?
 
-An SVM tries to find the separating hyperplane that maximizes the distance of the closest points to the margin (the support vectors). If a point is not a support vector, it doesn’t really matter.
+A support vector machine constructs a hyperplane or set of hyperplanes in a high- or infinite-dimensional space, which can be used for classification, regression, or other tasks. Intuitively, a good separation is achieved by the hyperplane that has the largest distance to the nearest training-data points  (the support vectors. If a point is not a support vector, it doesn’t really matter) of any class (so-called functional margin), since in general the larger the margin the lower the generalization error of the classifier. 
 
 Logistic regression focuses on maximizing the probability of the data. The farther the data lies from the separating hyperplane (on the correct side), the happier LR is. 
 
