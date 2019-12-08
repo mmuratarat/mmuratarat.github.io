@@ -242,7 +242,7 @@ permalink: /faq/
 8. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
 9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
-11. What are the mutable and immutable objects in Python?
+11. [What are the mutable and immutable objects in Python?](#what-are-the-mutable-and-immutable-objects-in-python)
 12. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 
 
