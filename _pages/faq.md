@@ -238,7 +238,7 @@ permalink: /faq/
 4. [What is a big-O notation?](#what-is-a-big-o-notation)
 5. [What are the different big-O notation measures?](#what-are-the-different-big-o-notation-measures)
 6. [What is space complexity and time complexity?](#what-is-space-complexity-and-time-complexity)
-7. What are the best, average, worst case scenarios in big-O notation?
+7. [What are the best, average, worst case scenarios in big-O notation?](#what-are-the-best-average-worst-case-scenarios-in-big-o-notation)
 8. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
 9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
