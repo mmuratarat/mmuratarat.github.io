@@ -5602,6 +5602,25 @@ Each of these data structures has its own advantages and disadvantages.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cheatdiagram.png?raw=true)
 
+#### What is a big-O notation?
+
+In simplest terms, Big O notation is a way to measure performance of an operation in terms of space (memory) and time, based on the input size, known as n.
+
+#### What are the different big-O notation measures?
+
+There are a number of common Big O notations which we need to be familiar with.
+
+Let’s consider $n$ to be the size of the input collection. In terms of time complexity:
+
+1. **O(1)**: No matter how big your collection is, the time it takes to perform an operation is constant. This is the constant time complexity notation. These operations are as fast as we can get. As an instance, operations that check whether a collection has any items inside it is an O(1) operation.
+2. **O(log n)**: When the size of a collection increases, the time it takes to perform an operation increases logarithmically. This is the logarithmic time complexity notation. Potentially optimised searching algorithms are O(log n).
+3. **O(n)**: The time it takes to perform an operation is directly and linearly proportional to the number of items in the collection. This is the linear time complexity notation. This is some-what in-between or medium in terms of performance. As an instance, if we want to sum all of the items in a collection then we would have to iterate over the collection. Hence the iteration of a collection is an O(n) operation.
+4. **(n log n)**: Where the performance of performing an operation is a quasilinear function of the number of items in the collection. This is known as the quasilinear time complexity notation. Time complexity of optimised sorting algorithm is usually n(log n).
+5. **O($n^{2}$)**: When the time it takes to perform an operation is proportional to the square of the items in the collection. This is known as the quadratic time complexity notation.
+6. **(n!)**: When every single permutation of a collection is computed in an operation and hence the time it takes to perform an operation is factorial of the size of the items in the collection. This is known as factorial time complexity notation. It is very slow.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/big_o_order.png?raw=true)
+
 #### What is space complexity and time complexity?
 
 Sometimes, there are more than one way to solve a problem. We need to learn how to compare the performance different algorithms and choose the best one to solve a particular problem. While analyzing an algorithm, we mostly consider **time complexity** and **space complexity**. **Time complexity** of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Similarly, **Space complexity** of an algorithm quantifies the amount of space or memory taken by an algorithm to run as a function of the length of the input.
