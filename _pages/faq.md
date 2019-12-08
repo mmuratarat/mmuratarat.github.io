@@ -238,10 +238,11 @@ permalink: /faq/
 4. [What is a big-O notation?](#what-is-a-big-o-notation)
 5. [What are the different big-O notation measures?](#what-are-the-different-big-o-notation-measures)
 6. [What is space complexity and time complexity?](#what-is-space-complexity-and-time-complexity)
-7. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
-8. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
-9. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
-10. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
+7. What are the best, average, worst case scenarios in big-O notation?
+8. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
+9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
+10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
+11. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 
 
 ## Mathematics and Linear Algebra
@@ -5641,6 +5642,12 @@ Sometimes, there are more than one way to solve a problem. We need to learn how 
 Time and space complexity depends on lots of things like hardware, operating system, processors, etc. However, we don't consider any of these factors while analyzing the algorithm. We will only consider the execution time of an algorithm.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2021.25.05.png?raw=true)
+
+#### What are the best, average, worst case scenarios in big-O notation?
+
+1. **Best case scenario**: As the name implies, these are the scenarios when the data structures and the items in the collection along with the parameters are at their optimum state. As an instance, imagine we want to find an item in a collection. If that item happens to be the first item of the collection then it is the best-case scenario for the operation.
+2. **Average case scenario** is when we define the complexity based on the distribution of the values of the input.
+3. **Worst case scenario** could be an operation that requires finding an item that is positioned as the last item in a large-sized collection such as a list and the algorithm iterates over the collection from the very first item.
 
 #### What are the built-in data types in Python?
 
