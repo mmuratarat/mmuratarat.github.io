@@ -230,6 +230,19 @@ permalink: /faq/
 69. How do you deal with missing value in a data set?
 70. How do you deal with high cardinality? 
 
+[Miscellaneous](#miscellaneous)
+
+1. [What is a good code?](#what-is-a-good-code)
+2. [What is a data structure?](#what-is-a-data-structure)
+3. [What are the commonly used Data Structures?](#what-are-the-commonly-used-data-structures)
+4. [What is a big-O notation?](#what-is-a-big-o-notation)
+5. [What are the different big-O notation measures?](#what-are-the-different-big-o-notation-measures)
+6. [What is space complexity and time complexity?](#what-is-space-complexity-and-time-complexity)
+7. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
+8. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
+9. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
+10. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
+
 
 ## Mathematics and Linear Algebra
 
