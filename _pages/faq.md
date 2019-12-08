@@ -242,7 +242,8 @@ permalink: /faq/
 8. [What are the built-in data types in Python?](#what-are-the-built-in-data-types-in-python)
 9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
-11. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
+11. What are the mutable and immutable objects in Python?
+12. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 
 
 ## Mathematics and Linear Algebra
@@ -5740,6 +5741,13 @@ When ordering arguments within a function or function call, arguments need to oc
 def example2(arg_1, arg_2, *args, kw_1="shark", kw_2="blobfish", **kwargs):
 ...
 {% endhighlight %}
+
+#### What are the mutable and immutable objects in Python?
+
+A mutable object can be changed after it is created, and an immutable object can not. 
+
+1. **Mutable objects**: list, dict, set, byte array
+2. **Immutable objects**: int, float, complex, string, tuple, frozen set (immutable version of set), bytes
 
 #### What is the difference between stack and queue?
 
