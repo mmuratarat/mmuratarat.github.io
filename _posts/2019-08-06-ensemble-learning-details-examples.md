@@ -910,7 +910,7 @@ print("Minimum validation MSE:", min_val_error)
 #Minimum validation MSE: 0.002712853325235463
 {% endhighlight %}
 
-Boosting reduces the bias (or underfitting) instead of variance. As sucan, boosting can overfit. However, by tuning the hyperparameters, overfitting can be largely avoided. It usually outperforms random forest in accuracy but because of its sequential nature, can be significantly slower in training.
+Boosting reduces the bias (or underfitting) instead of variance. Thus, boosting can overfit. However, by tuning the hyperparameters, overfitting can be largely avoided. It usually outperforms random forest in accuracy but because of its sequential nature, can be significantly slower in training.
 
 # XGBoost
 
