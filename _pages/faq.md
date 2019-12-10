@@ -230,11 +230,11 @@ permalink: /faq/
 69. How do you deal with missing value in a data set?
 70. How do you deal with high cardinality? 
 
-SQL
+[SQL](#SQL)
 
-1.What is a primary key and a foreign key?
-2. In which order do SQL queries happen?
-4. What is the difference between UNION and UNION ALL?
+1. [What is a primary key and a foreign key?](#what-is-a-primary-key-and-a-foreign-key)
+2. [In which order do SQL queries happen?](#in-which-order-do-sql-queries-happen)
+4. [What is the difference between UNION and UNION ALL?](#what-is-the-difference-between-union-and-union-all)
 
 [Miscellaneous](#miscellaneous)
 
