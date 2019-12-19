@@ -19,7 +19,7 @@ You can find my one-page resume and full CV below:
 
 [Resumé](https://github.com/mmuratarat/MMA-CV/blob/master/Arat_s_One_page_CV.pdf){:target="_blank"} (1 Page)
 
-[Full](https://github.com/mmuratarat/MMA-CV/raw/master/MMA_Full_CV.pdf){:target="_blank"} (5 Pages)
+[Full](https://github.com/mmuratarat/MMA-CV/blob/master/MMA_Full_CV.pdf){:target="_blank"} (5 Pages)
 
 <br>
 **Mustafa Murat ARAT** (M.Sc.)<br>
