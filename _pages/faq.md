@@ -5609,6 +5609,11 @@ In practice this order of execution is most likely unchanged from above. With th
 
 UNION removes duplicate records (where all columns in the results are the same), UNION ALL does not.
 
+#### What's the difference between VARCHAR and CHAR?
+
+`VARCHAR(x)` is variable-length, which can have up to x characters. `CHAR(x)` is fixed length, which can only have exactly x characters. `CHAR` always uses the same amount of storage space per entry, while `VARCHAR` only uses the amount necessary to store the actual text. If your content is a fixed size, you'll get better performance with `CHAR`.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-12-21%20at%2010.56.33.png?raw=true)
 
 ## Miscellaneous
 
