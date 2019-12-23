@@ -235,6 +235,12 @@ permalink: /faq/
 1. [What is a primary key and a foreign key?](#what-is-a-primary-key-and-a-foreign-key)
 2. [In which order do SQL queries happen?](#in-which-order-do-sql-queries-happen)
 4. [What is the difference between UNION and UNION ALL?](#what-is-the-difference-between-union-and-union-all)
+5. [What's the difference between VARCHAR and CHAR?](#whats-the-difference-between-varchar-and-char)
+6. [How to insert rows into a table?](#how-to-insert-rows-into-a-table)
+7. [How to update rows in a table?](#how-to-insert-rows-into-a-table)
+8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
+9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
+10. [How to drop a table?](#how-to-create-a-new-database-table)
 
 [Miscellaneous](#miscellaneous)
 
