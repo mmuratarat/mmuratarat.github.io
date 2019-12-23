@@ -5619,10 +5619,43 @@ UNION removes duplicate records (where all columns in the results are the same),
 
 ```sql
 INSERT INTO mytable
-(column, another_column, …)
-VALUES (value_or_expr, another_value_or_expr, …),
-      (value_or_expr_2, another_value_or_expr_2, …),
-      …;
+(column, another_column, ...)
+VALUES (value_or_expr, another_value_or_expr, ...),
+      (value_or_expr_2, another_value_or_expr_2,  ...),
+       ...;
+```
+
+#### How to update rows in a table?
+
+```sql
+UPDATE mytable
+SET column = value_or_expr, 
+    other_column = another_value_or_expr, 
+    ...
+WHERE condition;
+```
+
+#### How to delete rows in a table?
+
+```sql
+DELETE FROM mytable
+WHERE condition;
+```
+
+#### How to create a new database table?
+
+```sql
+CREATE TABLE IF NOT EXISTS mytable (
+    column DataType TableConstraint DEFAULT default_value,
+    another_column DataType TableConstraint DEFAULT default_value,
+    ...
+);
+```
+
+#### How to drop a table?
+
+```sql
+DROP TABLE IF EXISTS mytable;
 ```
 
 
