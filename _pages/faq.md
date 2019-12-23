@@ -5615,6 +5615,17 @@ UNION removes duplicate records (where all columns in the results are the same),
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-12-21%20at%2010.56.33.png?raw=true)
 
+#### How to insert rows into a table?
+
+```sql
+INSERT INTO mytable
+(column, another_column, …)
+VALUES (value_or_expr, another_value_or_expr, …),
+      (value_or_expr_2, another_value_or_expr_2, …),
+      …;
+```
+
+
 ## Miscellaneous
 
 #### What is a good code?
