@@ -31,6 +31,7 @@ Based on the origin of the missing data, the following terminology is used to de
 * **Missing Not at Random (MNaR)**
 
   This category of missing data is dependent on the value of the data itself. For example, a survey need people to reveal their 10th grade marks in the chemistry. It may happen that people with lower marks may choose not to reveal them so you would see only high marks in the data sample. 
+  
 
 1. Ignore the data row or a whole column
 
