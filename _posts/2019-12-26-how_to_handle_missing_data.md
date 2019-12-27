@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Step by Step Backpropagation Example for Regression using a Categorical Variable"
+title: "Basic Methods to Handle Missing Data"
 author: "MMA"
 comments: true
 ---
