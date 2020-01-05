@@ -3551,7 +3551,7 @@ Note that when you standardize all your variables, the intercept will be zero.
  
 * **Filter Methods**: Feature Selection is done independent of the learning algorithm before any modeling is done. One example is finding the correlation between every feature and the target and throwing out those that do not meet a threshold. Easy, fast but naive and not as performant as other methods.
 * **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
-* **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., L1-Regularization.
+* **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., Random forest's feature importance and L1-Regularization.
 
 #### When should you reduce the number of features used by your features?
 
