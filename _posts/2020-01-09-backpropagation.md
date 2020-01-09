@@ -191,11 +191,9 @@ $$
 b_{2}^{+} = b_{2} - \alpha * \frac{\partial J_{1}(\theta)}{\partial b_{2}} = 0.1 - 0.5 * (-0.09481912) = 0.14740956
 $$
 
-
 #### From Output Layer to Hidden Layer
 
 Let's now consider $\theta_{16}$. We want to know how much a change in $\theta_{16}$ affects the total error. In other words, we would like to compute $\frac{\partial J_{1}(\theta)}{\partial \theta_{16}}$. 
-
 
 By applying the chain rule, again, we know that:
 
@@ -242,6 +240,7 @@ $$
 We will repeat the same process for $\theta_{17}$ and $\theta_{18}$.
 
 For $\theta_{17}$:
+
 $$
 \begin{split}
 \theta_{17}^{+} &= \theta_{17} - \alpha * \frac{\partial J_{1}(\theta)}{\partial \theta_{17}} \\
@@ -253,8 +252,8 @@ $$
 \end{split}
 $$
 
-
 For $\theta_{18}$:
+
 $$
 \begin{split}
 \theta_{18}^{+} &= \theta_{18} - \alpha * \frac{\partial J_{1}(\theta)}{\partial \theta_{18}} \\
@@ -272,7 +271,6 @@ Computing $b_{1}$ is a bit trickier because each element of this vector gets con
 
 Let's start with $b_{1}^{1}$. This offset value takes its contribution from the first neuron of the hidden layer, i.e., $h_{1}$:
 
-For $\theta_{17}$:
 $$
 \begin{split}
 b_{1}^{1+} &= b_{1}^{1} - \alpha * \frac{\partial J_{1}(\theta)}{\partial b_{1}^{1}} \\
@@ -284,7 +282,6 @@ b_{1}^{1+} &= b_{1}^{1} - \alpha * \frac{\partial J_{1}(\theta)}{\partial b_{1}^
 $$
 
 There are couple of things different we have while we compute for $b_{1}^{1}$ as you can realize easily:
-
 
 Since we know
 
@@ -414,7 +411,6 @@ $$
 
 For $\theta_{10}$, the calculations are the same. But this time, because of the fact that we will have gradient of $net_{h_{1}}$ with respect to $\theta_{10}$ as zero, therefore, there will be no gradient update for this particular weight.
 
-
 $$
 \begin{split}
 \theta_{10}^{+} &= \theta_{10} - \alpha * \frac{\partial J_{1}(\theta)}{\partial \theta_{10}} \\
@@ -426,7 +422,6 @@ $$
 $$
 
 we will leave it as it is here since the rest of the computations are fairly simple and straightforward. You have to repeat the process for all other weights and continue to do so for all observations. After the last update (of observation 4), loss will be 2.02787184715271 and weight are:
-
 
 $$
 \begin{split}
