@@ -372,7 +372,7 @@ net_{h_{1}} = input_{1} * \theta_{1} +  input_{2} * \theta_{4} + \text{DummyCat0
 $$
 
 
-The same applies for $\theta_{2}, \theta_{3}, \theta_{4}, \theta_{5}, \theta_{6}$. For now let's skip those and do the computations for neuron representing $\text{DummyCat0}$ and $\text{DummyCat1}$ to see how one hot encoding affects the gradient updates. Therefore, let's do the computations for $\theta_{7}$ and $\theta{10}$.
+The same applies for $\theta_{2}, \theta_{3}, \theta_{4}, \theta_{5}, \theta_{6}$. For now let's skip those and do the computations for neurons representing $\text{DummyCat0}$ and $\text{DummyCat1}$ to see how one-hot encoding affects the gradient updates. Therefore, let's do the computations for $\theta_{7}$ and $\theta{10}$.
 
 For $\theta_{7}$, the weight will be updated as such:
 
