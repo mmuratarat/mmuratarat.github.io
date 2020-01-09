@@ -360,6 +360,7 @@ $$
 $$
 
 Here, 
+
 $$
 \frac{\partial net_{h_{1}}}{\partial \theta_{1}} = input_{1} = 0.5
 $$
