@@ -170,7 +170,7 @@ Next, we need to compute how much the $\text{output}^{(1)}$ change with respect 
 
 $$
 \begin{split}
-\text{output}^{(1)} &= out_{h_{1}} * \theta_{16} + out_{h_{2}} * \theta_{17} + out_{h_{3}} * \theta_{18} + 1*b_{2}\\
+\text{output}^{(1)} &= out_{h_{1}} * \theta_{16} + out_{h_{2}} * \theta_{17} + out_{h_{3}} * \theta_{18} + 1 * b_{2}\\
 \frac{\partial \text{output}^{(1)}}{\partial b_{2}} &= 1
 \end{split}
 $$
@@ -216,7 +216,7 @@ Next, we need to compute how much the $\text{output}^{(1)}$ change with respect 
 
 $$
 \begin{split}
-\text{output}^{(1)} &= out_{h_{1}} * \theta_{16} + out_{h_{2}} * \theta_{17} + out_{h_{3}} * \theta_{18} + 1*b_{2}\\
+\text{output}^{(1)} &= out_{h_{1}} * \theta_{16} + out_{h_{2}} * \theta_{17} + out_{h_{3}} * \theta_{18} + 1 * b_{2}\\
 \frac{\partial \text{output}^{(1)}}{\partial \theta_{16}} &= out_{h_{1}} = 0.65203583
 \end{split}
 $$
