@@ -5715,7 +5715,6 @@ There are four basic types of SQL joins: inner, left, right and full. The easies
 Let's say we have two sets of data in our relational database: table X and table Y with some sort of relation specified by primary and foreign keys. The extent of the overlap, if any, is determined by how many records in Table X match the records in Table Y. Depending on what subset of data we would like to select from the two tables, the seven join types can be used:
 
 1. (INNER) JOIN: Returns records that have matching values in both tables.
-
 ![](https://tableplus.com/assets/images/sql-joins/inner-join.png)
 
 ```sql
@@ -5725,13 +5724,72 @@ INNER JOIN table2
 ON table1.col1 = table2.col2;
 ```
 
-2. LEFT (OUTER) JOIN: Returns all records from the left table and matches the records from the right table.
-3. RIGHT (OUTER) JOIN: Returns all records from the right table and matches records from the left table.
-4. FULL (OUTER) JOIN: Returns all records where there is a match in either left of right table. 
-5. LEFT (OUTER) JOIN without Intersection: This join type is a variant of the basic left outer join. It returns all rows from the left-hand table specified in the ON condition that also meets the join condition but None of the rows from the right-hand table that matches the join condition.
-6. Right (OUTER) JOIN without Intersection: This join type is a variant of the basic right outer join. It returns all rows from the right-hand table specified in the ON condition that also meets the join condition but None of the rows from the left-hand table that matches the join condition.
-7. FULL (OUTER) JOIN without Intersection: This variant of the full outer join (sometimes abbreviated to full join) clause returns all records that match the ON condition, excluding those are in common between two tables, or those records exist in both tables. In plain term, it can be understood as (OUTER JOIN) - (INNER JOIN).
+2. LEFT (OUTER) JOIN: Returns all records from the left table and matches the records from the right table. 
+![](https://tableplus.com/assets/images/sql-joins/left-join.png)
 
+```sql
+SELECT *
+FROM table1
+LEFT JOIN table2
+ON table1.col1 = table2.col2;
+```
+
+3. RIGHT (OUTER) JOIN: Returns all records from the right table and matches records from the left table.
+![](https://tableplus.com/assets/images/sql-joins/right-join.png)
+
+```sql
+SELECT *
+FROM table1
+RIGHT JOIN table2
+ON table1.col1 = table2.col2;
+```
+
+4. FULL (OUTER) JOIN: Returns all the records that match the ON condition, no matter which table they are stored in. It can be from table1, table2, or both. 
+![](https://tableplus.com/assets/images/sql-joins/full-join.png)
+
+```sql
+SELECT *
+FROM table1
+FULL JOIN table2
+ON table1.col1 = table2.col2;
+```
+
+5. LEFT (OUTER) JOIN without Intersection: This join type is a variant of the basic left outer join. It returns all rows from the left-hand table specified in the ON condition that also meets the join condition but None of the rows from the right-hand table that matches the join condition. In plain term, it can be understood as (LEFT JOIN) - (INNER JOIN).
+![](https://tableplus.com/assets/images/sql-joins/left-join-no-intersection.png)
+
+```sql
+SELECT *
+FROM table1
+LEFT JOIN table2
+ON table1.col1 = table2.col2
+WHERE table2.col2 IS NULL;
+```
+
+6. RIGHT (OUTER) JOIN without Intersection: This join type is a variant of the basic right outer join. It returns all rows from the right-hand table specified in the ON condition that also meets the join condition but None of the rows from the left-hand table that matches the join condition. In plain term, it can be understood as (RIGHT JOIN) - (INNER JOIN).
+![](https://tableplus.com/assets/images/sql-joins/right-join-no-intersection.png)
+
+```sql
+SELECT *
+FROM table1
+RIGHT JOIN table2
+ON table1.col1 = table2.col2
+WHERE table1.col1 IS NULL;
+```
+
+7. FULL (OUTER) JOIN without Intersection: This variant of the full outer join (sometimes abbreviated to full join) clause returns all records that match the ON condition, excluding those are in common between two tables, or those records exist in both tables. In plain term, it can be understood as (OUTER JOIN) - (INNER JOIN).
+![](https://tableplus.com/assets/images/sql-joins/full-outer-join-no-intersection.png)
+
+```sql
+SELECT *
+FROM table1
+FULL JOIN table2
+ON table1.col1 = table2.col2
+WHERE table1.col1 IS NULL
+OR table2.col2 IS NULL;
+```
+
+8. SELF JOIN:  It is a mechanism of joining a table to itself. You would use self join when you want to create a result of set joining records in a table with same other records from the same table.
+9. CROSS JOIN: This type of join returns all rows for all possible combinations of two tables.
 
 
 ## Miscellaneous
