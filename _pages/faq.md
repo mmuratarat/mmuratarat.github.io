@@ -241,6 +241,9 @@ permalink: /faq/
 8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
 9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
 10. [How to drop a table?](#how-to-create-a-new-database-table)
+11. What is the difference between BETWEEN and IN operators in SQL?
+12. What is the difference between primary key and unique constraints?
+
 
 [Miscellaneous](#miscellaneous)
 
@@ -5665,6 +5668,30 @@ CREATE TABLE IF NOT EXISTS mytable (
 ```sql
 DROP TABLE IF EXISTS mytable;
 ```
+
+#### What is the difference between BETWEEN and IN operators in SQL?
+
+The BETWEEN operator is used to fetch rows based on a range of values.
+For example,
+
+```sql
+SELECT * FROM Students WHERE ROLL_NO BETWEEN 20 AND 30;
+```
+This query will select all those rows from the table Students where the value of the field ROLL_NO lies between 20 and 30.
+
+The IN operator is used to check for values contained in specific sets.
+For example,
+
+```sql
+SELECT * FROM Students WHERE ROLL_NO IN (20,21,23);
+```
+
+This query will select all those rows from the table Students where the value of the field ROLL_NO is either 20 or 21 or 23.
+
+#### What is the difference between primary key and unique constraints?
+
+Primary key cannot have NULL value, the unique constraints can have NULL values. There is only one primary key in a table, but there can be multiple unique constrains. The primary key creates the cluster index automatically but the Unique key does not.
+
 
 
 ## Miscellaneous
