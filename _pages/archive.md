@@ -6,6 +6,7 @@ social: true
 comments: false
 permalink: /archive/
 years:
+- 2020
 - 2019
 - 2018
 ---
