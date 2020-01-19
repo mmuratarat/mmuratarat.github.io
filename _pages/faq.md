@@ -243,7 +243,7 @@ permalink: /faq/
 10. [How to drop a table?](#how-to-create-a-new-database-table)
 11. What is the difference between BETWEEN and IN operators in SQL?
 12. What is the difference between primary key and unique constraints?
-
+13. What is the difference between a Fact Table and a Dimension Table?
 
 [Miscellaneous](#miscellaneous)
 
@@ -5790,6 +5790,41 @@ OR table2.col2 IS NULL;
 
 8. SELF JOIN:  It is a mechanism of joining a table to itself. You would use self join when you want to create a result of set joining records in a table with same other records from the same table.
 9. CROSS JOIN: This type of join returns all rows for all possible combinations of two tables.
+
+#### What is the difference between a Fact Table and a Dimension Table?
+
+The Fact Table and Dimension Table, are the essential factors to create a schema. In Data Warehouse Modeling, a **star schema** consists of Fact and Dimension tables.
+
+Star schema is a mature modeling approach widely adopted by relational data warehouses. It requires modelers to classify their model tables as either dimension or fact.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/star-schema-example2.png?raw=true)
+
+**Dimension Tables**
+* They provides descriptive information for all the measurements recorded in fact table. 
+* They are relatively very small as comparison of fact table.
+* Commonly used dimensions are people, products, place and time.
+* Each dimension table contains its primary key. Every dimension table must have a primary key that uniquely identifies each record of the table.
+* Dimension tables need to be created first.
+* Dimension table contains more attributes and less records.
+* Dimension table grows horizontally.
+
+**Fact Tables**
+* Fact tables store observations or events.
+* It also contains all the primary keys of the dimension and associated facts or measures(is a property on which calculations can be made) like quantity sold, amount sold and average sales.
+* The dimension key columns determine the dimensionality of a fact table, while the dimension key values determine the granularity of a fact table. For example, consider a fact table designed to store sale targets that has two dimension key columns Date and ProductKey. It's easy to understand that the table has two dimensions. The granularity, however, can't be determined without considering the dimension key values. In this example, consider that the values stored in the Date column are the first day of each month. In this case, the granularity is at month-product level.
+* Fact table contains a primary key which is a concatenation of primary keys of all dimension table. The concatenated key of fact table must uniquely identify the row in a fact table.
+* Fact table can be created only when dimension tables are completed.
+* Fact table contains less attributes and more records.
+Generally, dimension tables contain a relatively small number of rows. Fact tables, on the other hand, can contain a very large number of rows and continue to grow over time.
+* Fact table grows vertically.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/aB9k9.jpg?raw=true)
+
+Dimension table then could be say a Product table consisting of attributes like Product Name, Price, Date of Expiry etc along with the surrogate key for each  product in the store etc. This table contains values which are more likely to remain constant for a product.
+
+Fact table would be, say Sales table which would contain the quantity, price, date of sale etc for each product sold along with the surrogate key for that product (foreign key). Fact tables store transaction data.
+
+So basically your fact table will have much more data than the dimension table and data in dimension table changes less frequently compared to Fact tables. Surrogate keys from dimension tables are used in fact tables as foreign keys.
 
 
 ## Miscellaneous
