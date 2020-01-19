@@ -5795,7 +5795,7 @@ OR table2.col2 IS NULL;
 
 The Fact Table and Dimension Table, are the essential factors to create a schema. In Data Warehouse Modeling, a **star schema** consists of Fact and Dimension tables.
 
-Star schema is a mature modeling approach widely adopted by relational data warehouses. It requires modelers to classify their model tables as either dimension or fact.
+Star schema is a mature modeling approach widely adopted by relational data warehouses. It requires modelers to classify their model tables as either dimension or fact. Fact table has numbers/measures/facts. Dimension tables give more context to a Fact table
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/star-schema-example2.png?raw=true)
 
@@ -5818,7 +5818,7 @@ Star schema is a mature modeling approach widely adopted by relational data ware
 Generally, dimension tables contain a relatively small number of rows. Fact tables, on the other hand, can contain a very large number of rows and continue to grow over time.
 * Fact table grows vertically.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/aB9k9.jpg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/022218_0758_StarandSnow1.png?raw=true)
 
 Dimension table then could be say a Product table consisting of attributes like Product Name, Price, Date of Expiry etc along with the surrogate key for each  product in the store etc. This table contains values which are more likely to remain constant for a product.
 
