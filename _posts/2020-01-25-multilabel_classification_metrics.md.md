@@ -97,7 +97,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
   It is the propotion of predicted correct labels to the total number of predicted labels, averaged over all instances.
   
   \begin{equation}
-  \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert \hat{y_{i}}\rvert}
+  \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %}
