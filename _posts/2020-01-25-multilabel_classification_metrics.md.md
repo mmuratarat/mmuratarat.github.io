@@ -56,7 +56,7 @@ There are multiple metrics to be used. We will look at couple of them below.
   Accuracy for each instance is defined as the proportion of the predicted correct labels to the total number (predicted and actual) of labels for that instance. Overall accuracy is the average across all instances.
   
   \begin{equation}
-  Accuracy = \frac{1}{n} \sum_{i=1}^{n} \frac{y_{i} \cap \hat{y_{i}}}{y_{i} \cup \hat{y_{i}}}
+  Accuracy = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lverty_{i} \cup \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %} 
@@ -89,6 +89,15 @@ There are multiple metrics to be used. We will look at couple of them below.
   Hamming_Loss(y_true, y_pred)
   #0.4166666666666667
   {% endhighlight %}
+  
+* Precision
+  It is the propotion of predicted correct labels to the total number of predicted labels, averaged over all instances.
+  
+  \begin{equation}
+  \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert \hat{y_{i}}\rvert}
+  \end{equation}
+  
+  
 
 One can also use Scikit Learn's functions to compute accuracy and Hamming loss:
 
