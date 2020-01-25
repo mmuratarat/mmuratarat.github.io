@@ -241,9 +241,11 @@ permalink: /faq/
 8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
 9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
 10. [How to drop a table?](#how-to-create-a-new-database-table)
-11. What is the difference between BETWEEN and IN operators in SQL?
-12. What is the difference between primary key and unique constraints?
-13. What is the difference between a Fact Table and a Dimension Table?
+11. [What is the difference between BETWEEN and IN operators in SQL?](#what-is-the-difference-between-between-and-in-operators-in-sql)
+12. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
+13. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
+14. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
+15. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
 
 [Miscellaneous](#miscellaneous)
 
@@ -259,7 +261,7 @@ permalink: /faq/
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
 11. [What are the mutable and immutable objects in Python?](#what-are-the-mutable-and-immutable-objects-in-python)
 12. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
-13. Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
+13. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
 
 ## Mathematics and Linear Algebra
 
