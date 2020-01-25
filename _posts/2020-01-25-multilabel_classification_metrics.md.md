@@ -59,7 +59,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
   Accuracy for each instance is defined as the proportion of the predicted correct labels to the total number (predicted and actual) of labels for that instance. Overall accuracy is the average across all instances. It is less ambiguously referred to as the *Hamming score*. 
   
   \begin{equation}
-  \text{Accuracy} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lverty_{i} \cup \hat{y_{i}}\rvert}
+  \text{Accuracy} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert y_{i} \cup \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %} 
