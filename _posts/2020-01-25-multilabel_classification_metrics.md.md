@@ -139,7 +139,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
   Definition of *precision* and *recall* naturally leads to the following definition for F1-measure (harmonic mean of precision and recall):
   
   \begin{equation}
-  F_{1} = \frac{1}{n} \sum_{i=1}^{n} \frac{2 \lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert y_{i}\rvert + lvert \hat{y_{i}}\rvert}
+  F_{1} = \frac{1}{n} \sum_{i=1}^{n} \frac{2 \lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert y_{i}\rvert + \lvert \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %}
