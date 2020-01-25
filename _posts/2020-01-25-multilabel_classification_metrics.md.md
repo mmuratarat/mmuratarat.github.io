@@ -37,6 +37,7 @@ There are multiple metrics to be used. We will look at couple of them below.
   
   {% highlight python %} 
   MR = np.all(y_pred == y_true, axis=1).mean()
+  #0.25
   {% endhighlight %}
   
 * 0/1 Loss
@@ -48,6 +49,7 @@ There are multiple metrics to be used. We will look at couple of them below.
 
   {% highlight python %} 
   01_Loss = np.any(y_true != y_pred, axis=1).mean()
+  #0.75
   {% endhighlight %}
 
 * Accuracy
@@ -92,7 +94,7 @@ One can also use Scikit Learn's functions to compute accuracy and Hamming loss:
 
 {% highlight python %}
 import sklearn.metrics
-print('Subset accuracy: {0}'.format(sklearn.metrics.accuracy_score(y_true, y_pred, normalize=True, sample_weight=None)))
+print('Exact Match Ratio: {0}'.format(sklearn.metrics.accuracy_score(y_true, y_pred, normalize=True, sample_weight=None)))
 #Subset accuracy: 0.25
 print('Hamming loss: {0}'.format(sklearn.metrics.hamming_loss(y_true, y_pred))) 
 #Hamming loss: 0.4166666666666667
