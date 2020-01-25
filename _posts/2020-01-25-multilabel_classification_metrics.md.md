@@ -24,7 +24,7 @@ y_pred = np.array([[0,1,1],
                    [0,0,0]])
 {% endhighlight %}
 
-There are multiple metrics to be used. We will look at couple of them below.
+There are multiple example-based metrics to be used. We will look at couple of them below.
 
 * Exact Match Ratio
   One trivial way around would just to ignore partially correct (consider them incorrect) and extend the *accuracy* used in single label case for multi-label prediction. 
@@ -97,16 +97,72 @@ There are multiple metrics to be used. We will look at couple of them below.
   \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert \hat{y_{i}}\rvert}
   \end{equation}
   
-  
+  {% highlight python %}
+  def Precision(y_true, y_pred):
+    temp = 0
+    for i in range(y_true.shape[0]):
+        if sum(y_pred[i]) == 0:
+            continue
+        temp+= sum(np.logical_and(y_true[i], y_pred[i]))/ sum(y_pred[i])
+    return temp/ y_true.shape[0]
+   {% endhighlight %}
 
+  
+* Recall
+  It is the propotion of predicted correct labels to the total number of actual labels, averaged over all instances.
+  
+  \begin{equation}
+  \text{Recall} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert y_{i}\rvert}
+  \end{equation}
+  
+  {% highlight python %}
+  def Recall(y_true, y_pred):
+    temp = 0
+    for i in range(y_true.shape[0]):
+        if sum(y_true[i]) == 0:
+            continue
+        temp+= sum(np.logical_and(y_true[i], y_pred[i]))/ sum(y_true[i])
+    return temp/ y_true.shape[0]
+   {% endhighlight %}
+
+* F1-Measure
+  Definition of *precision* and *recall* naturally leads to the following definition for F1-measure (harmonic mean of precision and recall):
+  
+  \begin{equation}
+  F_{1} = \frac{1}{n} \sum_{i=1}^{n} \frac{2 \lvert y_{i} \cap \hat{y_{i}}\rvert}{lvert y_{i}\rvert + lvert \hat{y_{i}}\rvert}
+  \end{equation}
+  
+  {% highlight python %}
+  def F1Measure(y_true, y_pred):
+    temp = 0
+    for i in range(y_true.shape[0]):
+        if (sum(y_true[i]) == 0) and (sum(y_pred[i]) == 0):
+            continue
+        temp+= (2*sum(np.logical_and(y_true[i], y_pred[i])))/ (sum(y_true[i])+sum(y_pred[i]))
+    return temp/ y_true.shape[0]
+   {% endhighlight %}
+  
 One can also use Scikit Learn's functions to compute accuracy and Hamming loss:
 
 {% highlight python %}
 import sklearn.metrics
+
 print('Exact Match Ratio: {0}'.format(sklearn.metrics.accuracy_score(y_true, y_pred, normalize=True, sample_weight=None)))
-#Subset accuracy: 0.25
+#Exact Match Ratio: 0.25
+
 print('Hamming loss: {0}'.format(sklearn.metrics.hamming_loss(y_true, y_pred))) 
 #Hamming loss: 0.4166666666666667
+
+#"samples" applies only to multilabel problems. It does not calculate a per-class measure, instead calculating the metric over the true and predicted classes 
+#for each sample in the evaluation data, and returning their (sample_weight-weighted) average.
+print('Precision: {0}'.format(recall_score(y_true=y_true, y_pred=y_pred, average='samples')))
+#Precision: 0.5
+
+print('Recall: {0}'.format(precision_score(y_true=y_true, y_pred=y_pred, average='samples'))) 
+#Recall: 0.375
+
+print('F1 Measure: {0}'.format(sklearn.metrics.f1_score(y_true=y_true, y_pred=y_pred, average='samples'))) 
+#F1 Measure: 0.41666666666666663
 {% endhighlight %}
 
 [Sorower (2010)](https://pdfs.semanticscholar.org/6b56/91db1e3a79af5e3c136d2dd322016a687a0b.pdf) gives a nice overview for other metrics to be used:
