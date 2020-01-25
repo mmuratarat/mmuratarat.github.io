@@ -5996,3 +5996,43 @@ A mutable object can be changed after it is created, and an immutable object can
 A stack is an ordered list where you can insert or delete only the last added element. A real-life example of Stack could be a pile of books placed in a vertical order. In order to get the book that’s somewhere in the middle, you will need to remove all the books placed on top of it. This is how the LIFO (Last In First Out) method works.
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
+
+#### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
+
+While the class is the blueprint, an instance is a copy of the class with actual values, literally an object belonging to a specific class.
+
+All classes create objects, and all objects contain characteristics called attributes (referred to as properties in the opening paragraph). Use the `__init__()` method to initialize (e.g., specify) an object’s initial attributes by giving them their default value (or state). This method must have at least one argument as well as the self variable, which refers to the object itself.
+
+While instance attributes are specific to each object, class attributes are the same for all instances (objects).
+
+{% highlight python %}
+class Robot():
+    types = "Electronic" #Class attribute
+    def __init__(self, name, color, weight):
+        self.name = name #Instance attribute
+        self.color = color #Instance attribute
+        self.weight = weight #Instance attribute
+        
+    def IntroduceYourself(self): #Instance Method
+        print("My name is " + self.name)
+        
+    def MakeSound(self, sound): #Instance Method with additional parameter
+        print("My name is " + self.name + sound)
+        
+r1 = Robot(name = "Tom", color = "red", weight = 30) # An object (instance)
+#<__main__.Robot at 0x10a1d3048>
+
+r2 = Robot(name = "Jerry", color = "blue", weight = 40) # Another object (instance)
+#<__main__.Robot at 0x10a1d38d0>
+
+r1.IntroduceYourself()
+# My name is Tom
+
+r2.IntroduceYourself()
+# My name is Jerry
+
+r1.MakeSound(' YAAAYYY!')
+#My name is Tom YAAAYYY!
+r2.MakeSound(' HURRRAAAY!')
+#My name is Jerry HURRRAAAY!
+{% endhighlight %}
