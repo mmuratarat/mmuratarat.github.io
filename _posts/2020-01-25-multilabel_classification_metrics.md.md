@@ -110,8 +110,10 @@ There are multiple example-based metrics to be used. We will look at couple of t
             continue
         temp+= sum(np.logical_and(y_true[i], y_pred[i]))/ sum(y_pred[i])
     return temp/ y_true.shape[0]
+    
+   print(Precision(y_true, y_pred))
+   #0.375
    {% endhighlight %}
-
   
 * **Recall**
 
@@ -129,6 +131,9 @@ There are multiple example-based metrics to be used. We will look at couple of t
             continue
         temp+= sum(np.logical_and(y_true[i], y_pred[i]))/ sum(y_true[i])
     return temp/ y_true.shape[0]
+    
+   print(Recall(y_true, y_pred))
+   #0.5
    {% endhighlight %}
 
 * **F1-Measure**
@@ -147,6 +152,9 @@ There are multiple example-based metrics to be used. We will look at couple of t
             continue
         temp+= (2*sum(np.logical_and(y_true[i], y_pred[i])))/ (sum(y_true[i])+sum(y_pred[i]))
     return temp/ y_true.shape[0]
+    
+    print(F1Measure(y_true, y_pred))
+    #0.41666666666666663
    {% endhighlight %}
   
 One can also use Scikit Learn's functions to compute accuracy and Hamming loss:
