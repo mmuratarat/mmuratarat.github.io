@@ -4,8 +4,6 @@ title: "Metrics for Multilabel Classification"
 author: "MMA"
 comments: true
 ---
-
-
 Most of the supervised learning algorithms focus on either binary classification or multi-class classification. But sometimes, we will have dataset where we will have multi-labels for each observations. In this case, we would have different metrics to evaluate the algorithms, itself because multi-label prediction has an additional notion of being *partially correct*. 
 
 Let's say that we have 4 observations and the actual and predicted values have been given as follows:
@@ -50,7 +48,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
   \end{equation}
 
   {% highlight python %} 
-  01_Loss = np.any(y_true != y_pred, axis=1).mean()
+  01Loss = np.any(y_true != y_pred, axis=1).mean()
   #0.75
   {% endhighlight %}
 
