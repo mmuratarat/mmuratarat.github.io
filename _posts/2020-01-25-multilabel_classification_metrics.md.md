@@ -26,7 +26,8 @@ y_pred = np.array([[0,1,1],
 
 There are multiple example-based metrics to be used. We will look at couple of them below.
 
-* Exact Match Ratio
+* **Exact Match Ratio**
+
   One trivial way around would just to ignore partially correct (consider them incorrect) and extend the *accuracy* used in single label case for multi-label prediction. 
   
   \begin{equation}
@@ -40,7 +41,8 @@ There are multiple example-based metrics to be used. We will look at couple of t
   #0.25
   {% endhighlight %}
   
-* 0/1 Loss
+* **0/1 Loss**
+
   This metric is basically known as $1 - \text{Exact Match Ratio}$, where we calculate proportions of instances whose actual value is not equal to predicted value.
   
   \begin{equation}
@@ -52,11 +54,12 @@ There are multiple example-based metrics to be used. We will look at couple of t
   #0.75
   {% endhighlight %}
 
-* Accuracy
-  Accuracy for each instance is defined as the proportion of the predicted correct labels to the total number (predicted and actual) of labels for that instance. Overall accuracy is the average across all instances.
+* **Accuracy**
+
+  Accuracy for each instance is defined as the proportion of the predicted correct labels to the total number (predicted and actual) of labels for that instance. Overall accuracy is the average across all instances. It is less ambiguously referred to as the *Hamming score*. 
   
   \begin{equation}
-  Accuracy = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lverty_{i} \cup \hat{y_{i}}\rvert}
+  \text{Accuracy} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lverty_{i} \cup \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %} 
@@ -70,7 +73,8 @@ There are multiple example-based metrics to be used. We will look at couple of t
   #0.375
   {% endhighlight %}
   
-* Hamming Loss
+* **Hamming Loss**
+
   It reports how many times on average, the relevance of an example to a class label is incorrectly predicted. Therefore, hamming loss takes into account the prediction error (an incorrect label is predicted) and missing error (a relevant label not predicted), normalized over total number of classes and total number of examples.
   
   \begin{equation}
@@ -90,7 +94,8 @@ There are multiple example-based metrics to be used. We will look at couple of t
   #0.4166666666666667
   {% endhighlight %}
   
-* Precision
+* **Precision**
+
   It is the propotion of predicted correct labels to the total number of predicted labels, averaged over all instances.
   
   \begin{equation}
@@ -108,7 +113,8 @@ There are multiple example-based metrics to be used. We will look at couple of t
    {% endhighlight %}
 
   
-* Recall
+* **Recall**
+
   It is the propotion of predicted correct labels to the total number of actual labels, averaged over all instances.
   
   \begin{equation}
@@ -125,7 +131,8 @@ There are multiple example-based metrics to be used. We will look at couple of t
     return temp/ y_true.shape[0]
    {% endhighlight %}
 
-* F1-Measure
+* **F1-Measure**
+
   Definition of *precision* and *recall* naturally leads to the following definition for F1-measure (harmonic mean of precision and recall):
   
   \begin{equation}
