@@ -6044,10 +6044,58 @@ A stack is an ordered list where you can insert or delete only the last added el
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stack_pop.jpg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stack_push.jpg?raw=true)
 
+{% highlight python %} 
+letters = []
+
+# Let's push some letters into our list
+letters.append('c')
+letters.append('a')
+letters.append('t')
+letters.append('g')
+
+# Now let's pop letters, we should get 'g'
+last_item = letters.pop()
+print(last_item)
+#g
+
+# If we pop again we'll get 't'
+last_item = letters.pop()
+print(last_item)
+#t
+
+# 'c' and 'a' remain
+print(letters) 
+#['c', 'a']
+{% endhighlight %}
+
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out.  In the queue only two operations are allowed **enqueue** and **dequeue**. Enqueue means to insert an item into the back of the queue, dequeue means removing the front item. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/queue_enqueue.jpg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/queue_dequeue.jpg?raw=true)
+
+{% highlight python %} 
+fruits = []
+
+# Let's enqueue some fruits into our list
+fruits.append('banana')
+fruits.append('grapes')
+fruits.append('mango')
+fruits.append('orange')
+
+# Now let's dequeue our fruits, we should get 'banana'
+first_item = fruits.pop(0)
+print(first_item)
+#banana 
+
+# If we dequeue again we'll get 'grapes'
+first_item = fruits.pop(0)
+print(first_item)
+#grapes
+
+# 'mango' and 'orange' remain
+print(fruits) 
+#['mango', 'orange']
+{% endhighlight %}
 
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
 
