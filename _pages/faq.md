@@ -260,9 +260,10 @@ permalink: /faq/
 9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
 11. [What are the mutable and immutable objects in Python?](#what-are-the-mutable-and-immutable-objects-in-python)
-12. What is the difference between linked list and array?
+12. [What is the difference between linked list and array?](#what-is-the-difference-between-linked-list-and-array)
 13. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 14. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
+15. How to create a JSON file? How to load a JSON file?
 
 ## Mathematics and Linear Algebra
 
@@ -6062,4 +6063,58 @@ r1.MakeSound(' YAAAYYY!')
 #My name is Tom YAAAYYY!
 r2.MakeSound(' HURRRAAAY!')
 #My name is Jerry HURRRAAAY!
+{% endhighlight %}
+
+#### How to create a JSON file? How to load a JSON file?
+
+The built-in json package has the magic code that transforms your Python dict object in to the serialized JSON string.
+
+{% highlight python %}
+import json
+
+data = {}
+data['people'] = []
+data['people'].append({
+    'name': 'Scott',
+    'website': 'stackabuse.com',
+    'from': 'Nebraska'
+})
+data['people'].append({
+    'name': 'Larry',
+    'website': 'google.com',
+    'from': 'Michigan'
+})
+data['people'].append({
+    'name': 'Tim',
+    'website': 'apple.com',
+    'from': 'Alabama'
+})
+
+data 
+# {'people': [{'name': 'Scott', 'website': 'stackabuse.com', 'from': 'Nebraska'},
+#             {'name': 'Larry', 'website': 'google.com', 'from': 'Michigan'},
+#             {'name': 'Tim', 'website': 'apple.com', 'from': 'Alabama'}]}
+
+with open('data.txt', 'w') as outfile:
+    json.dump(data, outfile)
+    
+with open('data.txt') as json_file:
+    data = json.load(json_file)
+    for p in data['people']:
+        print('Name: ' + p['name'])
+        print('Website: ' + p['website'])
+        print('From: ' + p['from'])
+        print('')
+        
+# Name: Scott
+# Website: stackabuse.com
+# From: Nebraska
+
+# Name: Larry
+# Website: google.com
+# From: Michigan
+
+# Name: Tim
+# Website: apple.com
+# From: Alabama
 {% endhighlight %}
