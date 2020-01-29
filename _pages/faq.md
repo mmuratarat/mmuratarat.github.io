@@ -260,8 +260,9 @@ permalink: /faq/
 9. [What are the data structures in Python?](#what-are-the-data-structures-in-python)
 10. [What is `*args` and `**kwargs` in Python?](#what-is-args-and-kwargs-in-python)
 11. [What are the mutable and immutable objects in Python?](#what-are-the-mutable-and-immutable-objects-in-python)
-12. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
-13. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
+12. What is the difference between linked list and array?
+13. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
+14. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
 
 ## Mathematics and Linear Algebra
 
@@ -5992,6 +5993,8 @@ A mutable object can be changed after it is created, and an immutable object can
 
 1. **Mutable objects**: list, dict, set, byte array
 2. **Immutable objects**: int, float, complex, string, tuple, frozen set (immutable version of set), bytes
+
+#### What is the difference between linked list and array?
 
 #### What is the difference between stack and queue?
 
