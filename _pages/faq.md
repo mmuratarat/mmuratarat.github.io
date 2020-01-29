@@ -5996,6 +5996,28 @@ A mutable object can be changed after it is created, and an immutable object can
 
 #### What is the difference between linked list and array?
 
+**Array**
+1. Array is a collection of elements of similar data type.
+2. Array supports Random Access, which means elements can be accessed directly using their index, like arr[0] for 1st element, arr[6] for 7th element etc. Hence, accessing elements in an array is fast with a constant time complexity of O(1).
+3. In array, each element is independent and can be accessed using it's index value.
+4. Array can single dimensional, two dimensional or multidimensional
+5. Size of the array must be specified at time of array decalaration.
+6. Array gets memory allocated in the Stack section.
+7. In an array, elements are stored in contiguous memory location or consecutive manner in the memory.
+8. Memory is allocated as soon as the array is declared, at compile time. It's also known as Static Memory Allocation.
+9. In array, Insertion and Deletion operation takes more time, as the memory locations are consecutive and fixed.
+
+**Linked List**
+1. Linked list is considered as non-primitive data structure contains a collection of unordered linked elements known as nodes.
+2. Linked List supports Sequential Access, which means to access any element/node in a linked list, we have to sequentially traverse the complete linked list, upto that element. To access nth element of a linked list, time complexity is O(n).
+3. In case of a linked list, each node/element points to the next, previous, or maybe both nodes.
+4. Linked list can be Linear (Singly), Doubly or Circular linked list.
+5. Size of a Linked list is variable. Linked lists are dynamic and flexible and can expand and contract its size. It grows at runtime, as more nodes are added to it.
+6. Whereas, linked list gets memory allocated in Heap section.
+7. In a linked list, new elements can be stored anywhere in the memory. Address of the memory location allocated to the new element is stored in the previous node of linked list, hence formaing a link between the two nodes/elements.
+8. Memory is allocated at runtime/execution time, as and when a new node is added. It's also known as Dynamic Memory Allocation.
+9. Insertion and Deletion operations are fast in linked list.
+
 #### What is the difference between stack and queue?
 
 A stack is an ordered list where you can insert or delete only the last added element. A real-life example of Stack could be a pile of books placed in a vertical order. In order to get the book that’s somewhere in the middle, you will need to remove all the books placed on top of it. This is how the LIFO (Last In First Out) method works.
