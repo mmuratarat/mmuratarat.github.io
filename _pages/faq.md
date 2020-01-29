@@ -6048,6 +6048,7 @@ A stack is an ordered list where you can insert or delete only the last added el
 letters = []
 
 # Let's push some letters into our list
+#append adds an element at the end of an existing list
 letters.append('c')
 letters.append('a')
 letters.append('t')
@@ -6066,6 +6067,46 @@ print(last_item)
 # 'c' and 'a' remain
 print(letters) 
 #['c', 'a']
+{% endhighlight %}
+
+We can create a class for this data structure in Python:
+
+{% highlight python %} 
+class Stack():
+    def __init__(self):
+        self.stack = []
+    
+    def pop(self):
+        if len(self.stack) < 1:
+            return None
+        return self.stack.pop()
+    
+    def push(self, item):
+        return self.stack.append(item)
+    
+    def size(self):
+        return len(self.stack)
+
+stack_example = Stack()
+
+stack_example.push('c')
+stack_example.push('a')
+stack_example.push('t')
+stack_example.push('g')
+
+stack_example.size()
+#4
+
+last_item = stack_example.pop()
+print(last_item)
+#g
+
+last_item = stack_example.pop()
+print(last_item)
+#t
+
+stack_example.size()
+#2
 {% endhighlight %}
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out.  In the queue only two operations are allowed **enqueue** and **dequeue**. Enqueue means to insert an item into the back of the queue, dequeue means removing the front item. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
@@ -6088,13 +6129,56 @@ print(first_item)
 #banana 
 
 # If we dequeue again we'll get 'grapes'
-first_item = fruits.pop(0)
-print(first_item)
+second_item = fruits.pop(0)
+print(second_item)
 #grapes
 
 # 'mango' and 'orange' remain
 print(fruits) 
 #['mango', 'orange']
+{% endhighlight %}
+
+We can create a class for this data structure in Python:
+
+{% highlight python %} 
+#A queue that only has enqueue and dequeue operations
+class Queue():
+
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    def dequeue(self):
+        if len(self.queue) < 1:
+            return None
+        return self.queue.pop(0)
+
+    def size(self):
+        return len(self.queue) 
+    
+queue_example = Queue()
+
+# Let's enqueue some fruits into our list
+queue_example.enqueue('banana')
+queue_example.enqueue('grapes')
+queue_example.enqueue('mango')
+queue_example.enqueue('orange')
+
+# Now let's dequeue our fruits, we should get 'banana'
+first_item = queue_example.dequeue()
+print(first_item)
+#banana
+
+# If we dequeue again we'll get 'grapes'
+second_item = queue_example.dequeue()
+print(second_item)
+#grapes
+
+# 'mango' and 'orange' remain
+queue_example.size()
+#2
 {% endhighlight %}
 
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
