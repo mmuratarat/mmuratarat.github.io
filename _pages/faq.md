@@ -6067,7 +6067,9 @@ r2.MakeSound(' HURRRAAAY!')
 
 #### How to create a JSON file? How to load a JSON file?
 
-The built-in json package has the magic code that transforms your Python dict object in to the serialized JSON string.
+JSON (JavaScript Object Notation) is a popular data format used for representing structured data.
+
+The built-in `json` package of Python has the magic code that transforms your Python dict object in to the serialized JSON string.
 
 {% highlight python %}
 import json
@@ -6118,3 +6120,5 @@ with open('data.txt') as json_file:
 # Website: apple.com
 # From: Alabama
 {% endhighlight %}
+
+To analyze and debug JSON data, we may need to print it in a more readable format. This can be done by passing additional parameters `indent` and `sort_keys` to `json.dumps()` and `json.dump()` method.
