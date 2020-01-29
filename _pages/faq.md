@@ -263,7 +263,7 @@ permalink: /faq/
 12. [What is the difference between linked list and array?](#what-is-the-difference-between-linked-list-and-array)
 13. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 14. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
-15. How to create a JSON file? How to load a JSON file?
+15. [How to create a JSON file? How to load a JSON file?](#how-to-create-a-json-file-how-to-load-a-json-file)
 
 ## Mathematics and Linear Algebra
 
@@ -4641,6 +4641,24 @@ The objective here, therefore, is to find parameters, weights/biases or a struct
 The terms cost function and loss function are synonymous, some people also call it error function.
 
 However, there are also some different definitions out there. The loss function computes the error for a single training example, while the cost function will be average over all data points.
+
+**Regression Problem**
+A problem where you predict a real-value quantity.
+
+1. Output Layer Configuration: One node with a linear activation unit.
+2. Loss Function: Mean Squared Error (MSE).
+
+**Binary Classification Problem**
+A problem where you classify an example as belonging to one of two classes. The problem is framed as predicting the likelihood of an example belonging to class one, e.g. the class that you assign the integer value 1, whereas the other class is assigned the value 0.
+
+1. Output Layer Configuration: One node with a sigmoid activation unit.
+2. Loss Function: Binary Cross-Entropy, also referred to as Logarithmic loss.
+
+**Multi-Class Classification Problem**
+A problem where you classify an example as belonging to one of more than two classes. The problem is framed as predicting the likelihood of an example belonging to each class.
+
+1. Output Layer Configuration: One node for each class using the softmax activation function.
+2. Loss Function: Categorical Cross-Entropy.
 
 #### What is cross-entropy? How we define the cross-entropy cost function?
 
