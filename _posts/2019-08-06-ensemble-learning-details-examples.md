@@ -83,7 +83,7 @@ For classification problem the class outputted by each model can be seen as a vo
 Idea of bagging comes from the fact that averaging models reduces model variance. Since trees are notoriously noisy, they benefit greatly from the averaging. Moreover, since each tree generated in bagging is identically distributed
 (i.d.), the expectation of an average of $B$ such trees is the same as the expectation of any one of them. This means the bias of bagged trees is the same as that of the individual trees, and the only hope of improvement is through variance reduction. This is in contrast to boosting, where the trees are grown in an adaptive way to remove bias, and hence are not i.d.
 
-An average of $B$ i.i.d. random variables, each with variance $\sigma^{2}$, has variance $\frac{1}{B}\sigma^{2}$. If the variables are simply i.d. (identically distributed, but not necessarily independent) with positive pairwise correlation $\ro$, the variance of the average is:
+An average of $B$ i.i.d. random variables, each with variance $\sigma^{2}$, has variance $\frac{1}{B}\sigma^{2}$. If the variables are simply i.d. (identically distributed, but not necessarily independent) with positive pairwise correlation $\rho$, the variance of the average is:
 
 $$
 \rho \sigma^{2} + \frac{1- \rho}{B} \sigma^{2}
