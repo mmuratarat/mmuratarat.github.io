@@ -244,8 +244,9 @@ permalink: /faq/
 11. [What is the difference between BETWEEN and IN operators in SQL?](#what-is-the-difference-between-between-and-in-operators-in-sql)
 12. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
 13. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
-14. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
-15. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
+14. What are the aggregate functions?
+15. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
+16. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
 
 [Miscellaneous](#miscellaneous)
 
@@ -5727,6 +5728,28 @@ Primary key cannot have NULL value, the unique constraints can have NULL values.
 #### What is the default ordering of data using the ORDER BY clause? How could it be changed?
 
 The default sorting order is ascending. It can be changed using the DESC keyword, after the column name in the ORDER BY clause.
+
+#### What are the aggregate functions?
+
+An aggregate function performs a calculation on a set of values, and returns a single value. Except for COUNT, aggregate functions ignore null values. Aggregate functions are often used with the GROUP BY clause of the SELECT statement.
+
+```sql
+aggregate_function_name(DISTINCT | ALL expression)
+```
+
+In this syntax;
+
+1. First, specify the name of an aggregate function that you want to use such as AVG, SUM, and MAX.
+2. Second, use DISTINCT if you want only distinct values are considered in the calculation or ALL if all values are considered in the calculation. By default, ALL is used if you don’t specify any modifier.
+3. Third, the expression can be a column of a table or an expression that consists of multiple columns with arithmetic operators.
+
+Some aggregate functions are given below:
+
+1. AVG – calculates the average of a set of values.
+2. COUNT – counts rows in a specified table or view.
+3. MIN – gets the minimum value in a set of values.
+4. MAX – gets the maximum value in a set of values.
+5. SUM – calculates the sum of values.
 
 #### What is a join in SQL? What are the types of joins?
 
