@@ -4273,6 +4273,8 @@ $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solutio
 
 $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
 
+Depending on on the situation, we can choose which regularization to use. One important remark is that since nowadays we are concerned with a number of features, hence $L_{1}$ would be preferred.
+
 #### What is curse of dimensionality?
 
 As the number of features (dimensionality) increases, the data becomes relatively more sparse and often exponentially, more samples are needed to make statistically significant predictions. 
