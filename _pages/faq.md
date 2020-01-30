@@ -6039,9 +6039,9 @@ A mutable object can be changed after it is created, and an immutable object can
 #### What is the difference between linked list and array?
 
 **Array**
-1. Array is a collection of elements of similar data type.
+1. Array is a collection of elements of similar data type. Arrays are one of the oldest, most commonly used data structures.
 2. Array supports Random Access, which means elements can be accessed directly using their index, like arr[0] for 1st element, arr[6] for 7th element etc. Hence, accessing elements in an array is fast with a constant time complexity of O(1).
-3. In array, each element is independent and can be accessed using it's index value.
+3. In array, each element is independent and can be accessed using it's index value. Index is most commonly 0 based.
 4. Array can single dimensional, two dimensional or multidimensional
 5. Size of the array must be specified at time of array decalaration.
 6. Array gets memory allocated in the Stack section.
@@ -6049,16 +6049,31 @@ A mutable object can be changed after it is created, and an immutable object can
 8. Memory is allocated as soon as the array is declared, at compile time. It's also known as Static Memory Allocation.
 9. In array, Insertion and Deletion operation takes more time, as the memory locations are consecutive and fixed.
 
+Linear arrays, or one dimensional arrays, are the most basic. They are static in size, meaning that they are declared with a fixed size. Dynamic arrays are like one dimensional arrays, but have reserved space for additional elements. If a dynamic array is full, it copies its contents to a larger array. Multi dimensional arrays nested arrays that allow for multiple dimensions such as an array of arrays providing a 2 dimensional spacial representation via x, y coordinates.
+
+**Time Complexity for Arrays:**
+
+* Access (Indexing): Linear array: O(1), Dynamic array: O(1)
+* Search: Linear array: O(n), Dynamic array: O(n)
+* Deletion: Linear array: O(n)
+* Insertion: Linear array: O(n) Dynamic array: O(n)
+
 **Linked List**
 1. Linked list is considered as non-primitive data structure contains a collection of unordered linked elements known as nodes.
 2. Linked List supports Sequential Access, which means to access any element/node in a linked list, we have to sequentially traverse the complete linked list, upto that element. To access nth element of a linked list, time complexity is O(n).
 3. In case of a linked list, each node/element points to the next, previous, or maybe both nodes.
-4. Linked list can be Linear (Singly), Doubly or Circular linked list.
+4. Linked list can be Linear (Singly), Doubly or Circular linked list. Doubly linked list has nodes that also reference the previous node. Circularly linked list is simple linked list whose tail, the last node, references the head, the first node.
 5. Size of a Linked list is variable. Linked lists are dynamic and flexible and can expand and contract its size. It grows at runtime, as more nodes are added to it.
 6. Whereas, linked list gets memory allocated in Heap section.
 7. In a linked list, new elements can be stored anywhere in the memory. Address of the memory location allocated to the new element is stored in the previous node of linked list, hence formaing a link between the two nodes/elements.
 8. Memory is allocated at runtime/execution time, as and when a new node is added. It's also known as Dynamic Memory Allocation.
 9. Insertion and Deletion operations are fast in linked list.
+
+**Time Complexity for Linked List:**
+* Access (Indexing): Singly Linked Lists: O(n), Doubly Linked Lists: O(n)
+* Search: Linked Lists: O(n), Doubly Linked Lists: O(n)
+* Insertion: Linked Lists: O(1), Doubly Linked Lists: O(1)
+* Deletion: Linked Lists: O(1), Doubly Linked Lists: O(1)
 
 #### What is the difference between stack and queue?
 
