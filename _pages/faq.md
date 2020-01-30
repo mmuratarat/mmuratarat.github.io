@@ -2649,7 +2649,7 @@ Assuming that $X_{i}$'s are independent and identically distributed, we know tha
   Var(\bar{X}) = Var \left(\frac{X_{1} + X_{2} + \ldots + X_{n}}{n} \right) = \frac{1}{n^{2}} \left(\sigma^{2} + \sigma^{2}+ \ldots + \sigma^{2} \right) = \frac{\sigma^{2}}{n}
   $$
   
-  which is called the "standard error of the mean".
+  which is called the "standard error", that is the Standard Deviation of the population mean.
 
 #### What is the sampling distribution of the sample variance?
 
