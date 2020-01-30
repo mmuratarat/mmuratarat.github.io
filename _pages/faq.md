@@ -2954,6 +2954,8 @@ Confusion Matrix, also known as an error matrix, is a specific table layout that
 * **Regression problems**: Mean Absolute Error, Mean Squared Error, Root Mean Squared Error, R-squared
 * **Classification problems**: Accuracy, Precision, Recall, Sensitivity, Specificity, False Positive Rate, F1 Score, AUC, Lift and gain charts
 
+There are different metrics to classify a dataset, depending on the use case, for example, if we have an imbalanced dataset we would concentrate more on F1 score and less on accuracy.
+
 #### What is confusion matrix and its elements?
 
 A much better way to evaluate the performance of a classifier is look at the confusion matrix. In order to compute the confusion matrix, you first need to have a set of predictions, so they can be compared to the actual targets.
