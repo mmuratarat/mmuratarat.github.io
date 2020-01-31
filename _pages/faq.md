@@ -155,7 +155,7 @@ permalink: /faq/
 1. [What is hypothesis in Machine Learning?](#what-is-hypothesis-in-machine-learning)
 2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
 3. [What is confusion matrix and its elements?](#what-is-confusion-matrix-and-its-elements)
-4. What is a linear regression model?
+4. [What is a linear regression model?](#what-is-a-linear-regression-model)
 4. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
