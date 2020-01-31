@@ -155,6 +155,7 @@ permalink: /faq/
 1. [What is hypothesis in Machine Learning?](#what-is-hypothesis-in-machine-learning)
 2. [What is the matrix used to evaluate the predictive model? How do you evaluate the performance of a regression prediction model vs a classification prediction model?](#what-is-the-matrix-used-to-evaluate-the-predictive-model-how-do-you-evaluate-the-performance-of-a-regression-prediction-model-vs-a-classification-prediction-model)
 3. [What is confusion matrix and its elements?](#what-is-confusion-matrix-and-its-elements)
+4. What is a linear regression model?
 4. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
@@ -3028,6 +3029,10 @@ Definition of terms:
 
 * **ROC curves and AUC**: ROC curves are two-dimensional graphs in which true positive rate (TPR) is plotted on the Y axis and false positive rate (FPR) is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). AUC is computed as area under this curve. It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings. The probabilistic interpretation of ROC-AUC score is that if you randomly choose a positive case and a negative case, the probability that the positive case outranks the negative case according to the classifier is given by the AUC. Here, rank is determined according to order by predicted values.
 
+#### What is a linear regression model?
+
+Linear regression is perhaps one of the most well known and well understood algorithms in statistics and machine learning.  it studies the linear, additive relationships between variables. The overall idea of regression is to examine two things: (1) does a set of predictor variables do a good job in predicting an outcome (dependent) variable?  (2) Which variables in particular are significant predictors of the outcome variable, and in what way do they–indicated by the magnitude and sign of the beta estimates–impact the outcome variable? The values of the coefficients of the regression equation are estimated using Ordinary Least Square method or a numerical approach, such as Gradient Descent.
+
 #### What are the assumptions required for linear regression?
 
 * Linear Relationship between the features and target
@@ -4215,13 +4220,20 @@ Imbalanced classes are a common problem in machine learning classification where
 
 For example, you may have a 2-class (binary) classification problem with 100 instances (rows). A total of 80 instances are labeled with Class-1 and the remaining 20 instances are labeled with Class-2. This is an imbalanced dataset and the ratio of Class-1 to Class-2 instances is 80:20 or more concisely 4:1. In this case, examples of some class will be underrepresented in the training data. You can have a class imbalance problem on two-class classification problems as well as multi-class classification problems. Most techniques can be used on either.
 
+**Buy or collect more data**
+
 The first solution that comes to the mind is to buy or collect data. If collecting data is expensive and time-consuming, one can try other methods. 
 
+**Use the right evaluation metrics**
+
 Applying inappropriate evaluation metrics for model generated using imbalanced data can be dangerous. For example, if accuracy is used to measure the goodness of a model, a model which classifies all testing samples into "0" will have an excellent accuracy (99.8%), but obviously, this model won't provide any valuable information for us. This situation is called _accuracy paradox_. It is the case where your accuracy measures tell the story that you have excellent accuracy (such as 90%), but the accuracy is only reflecting the underlying class distribution. The Area Under the ROC curve (AUC), Precision/Recall, F1 Score and/or Cohen’s Kappa are other metrics to be used. 
+
 
 At the algorithm level, or after it, you can adjust the class weight (misclassification costs), you can adjust the decision threshold (Look at performance curves and decide for yourself what threshold to use), you can modify an existing algorithm to be more sensitive to rare classes (cost-sensitive training models require a custom loss function) or you can construct an entirely new algorithm to perform well on imbalanced data.
 
 One of the solutions for imbalanced data is to weight the classes. Normally, each example and class in our loss function will carry equal weight. For example, if you use SVM with soft margin, you can define a cost for misclassified example because noise is always present in the training data, there are high chances, that many examples would end up in the wrong side of the decision boundary contributing to the cost. The SVM will try to move the hyperplane to avoid as much as possible misclassified examples. The minority class examples risk being misclassified in order to classify more numerous examples of majority class correctly. However, if you set the cost of misclassification of examples of the minority class higher, then the model will try to harder to avoid misclassifying those examples, obviously for the cost of misclassification of some examples of the majority class.  Some SVM implementations allow you to provide weights for every class. The learning algorithm takes this information into account when looking for the best hyperplane. Scikit-learn, for example, has many classifiers that take an optional `class_weight` parameter that can be set higher than one. Specifically, the `class_weight = balanced` argument will automatically weigh classes inversely proportional to their frequency as `n_samples / (n_classes * np.bincount(y)`
+
+**Resample the training set**
 
 Selecting the proper class weights can sometimes be complicated (doing a simple inverse-frequency might not always work very well) or a learning algorithm might not allow weighting classes. In these case, you can try resampling techniques. Two approaches to make a balanced dataset out of an imbalanced one are under-sampling and over-sampling randomly.
 
@@ -4239,7 +4251,11 @@ However, in practice, these simple sampling approaches have flaws. Unlike unders
 
 Note that you must always split into test and train sets BEFORE trying oversampling techniques! Oversampling before splitting the data can allow the exact same observations to be present in both the test and train sets. This can allow our model to simply memorize specific data points and cause overfitting and poor generalization to the test data.
 
+**K-fold Cross-Validation**
+
 Do not also forget to use `StratifiedKFold` in an imbalanced data situation. `StratifiedKFold` is a variation of k-fold cross-validation which returns stratified folds. It is a proper cross validate approach. It will keep the distribution of classes in each of the folds.
+
+**Data Generation**
 
 There also exist more powerful sampling methods that go beyond simple oversampling or undersampling. Rather than getting rid of abundant samples, new rare samples can be generated (Data Augmentation) by using e.g. repetition, bootstrapping, SMOTE (Synthetic Minority Over-Sampling Technique) which is an oversampling method. Many modifications and extensions have been made to the SMOTE method ever since its proposal. SMOTE first considers the K nearest neighbors of the minority instances. It then constructs feature space vectors between these K neighbors, generating new synthetic data points on the lines.
 
@@ -4263,8 +4279,10 @@ Another similar approach might be applied as can be seen [here](http://francesco
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-01%20at%2011.26.02.png?raw=true)
 
+**Different algorithms**
 You can try different algorithms. Some algorithms are less sensitive to the problem of imbalanced dataset. Tree-based algorithms such as decision trees often perform well on imbalanced datasets because their hierarchical structure allows them to learn signals from both classes. In modern applied machine learning, tree ensembles (Random Forests, Gradient Boosted Trees, etc.) almost always outperform singular decision trees.
 
+**Anomaly detection**
 In more extreme cases, it may be better to think of classification under the context of anomaly detection, a.k.a. outlier detection. In anomaly detection, we assume that there is a "normal" distribution(s) of data-points, and anything that sufficiently deviates from that distribution(s) is an anomaly. When we reframe our classification problem into an anomaly detection problem, we treat the majority class as the "normal" distribution of points, and the minority as anomalies. Thinking of the minority class as the outliers class which might help you think of new ways to separate and classify samples. There are many algorithms for anomaly detection such as clustering methods, One-class SVMs, and Isolation Forests.
 
 #### What is the difference between L1/L2 regularization?
