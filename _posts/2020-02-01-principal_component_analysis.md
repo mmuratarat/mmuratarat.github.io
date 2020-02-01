@@ -553,7 +553,7 @@ Notice that running PCA multiple times on slightly different datasets may result
 PCA is a method that brings together:
 
 1. A measure of how each variable is associated with one another. (Covariance matrix.)
-2. The directions in which our data are dispersed. (Eigenvectors.)
-3. The relative importance of these different directions. (Eigenvalues.)
+2. The directions in which our data are dispersed. (Eigenvectors represent directions.)
+3. The relative importance of these different directions. (Eigenvalues represent magnitude, or importance.)
 
 PCA combines our predictors and allows us to drop the eigenvectors that are relatively unimportant.
