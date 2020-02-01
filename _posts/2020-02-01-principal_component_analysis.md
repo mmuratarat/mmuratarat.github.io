@@ -1,6 +1,8 @@
 ---
-title: "Untitled"
-output: html_document
+layout: post
+title:  "Principal Component Analysis"
+author: "MMA"
+comments: true
 ---
 
 # CURSE OF DIMENSIONALITY
@@ -545,3 +547,13 @@ X2D
 {% endhighlight %}
 
 Notice that running PCA multiple times on slightly different datasets may result in different results. In general the only difference is that some axes may be flipped. In this example, PCA using Scikit-Learn gives the same projection as the one given by the SVD approach, except both axes are flipped:
+
+## WHY PCA WORKS?
+
+PCA is a method that brings together:
+
+1. A measure of how each variable is associated with one another. (Covariance matrix.)
+2. The directions in which our data are dispersed. (Eigenvectors.)
+3. The relative importance of these different directions. (Eigenvalues.)
+
+PCA combines our predictors and allows us to drop the eigenvectors that are relatively unimportant.
