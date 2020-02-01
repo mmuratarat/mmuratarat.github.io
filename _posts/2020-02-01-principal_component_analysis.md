@@ -71,12 +71,12 @@ NOTE: The direction of the principal components is not stable: if you perturb th
 
 There is a standard matrix factorization technique called Singular Value Decomposition (SVD) that can decompose the training set matrix $X$ into the dot product of three matrices $U \cdot \Sigma \cdot V^{T}$, where $V^{T}$ contains all the principal components that we are looking for:
 
-\begin{equation}
+$$
 V = \begin{bmatrix} \uparrow & \uparrow & \ldots & \uparrow \\
 c_{1} & c_{2} & \ldots &  c_{n} \\
 \downarrow & \downarrow & \ldots & \downarrow \\
 \end{bmatrix}
-\end{equation}
+$$
 
 The following Python code uses NumPy’s `svd()` function to obtain all the principal components of the training set, then extracts the first two PCs:
 
