@@ -57,6 +57,8 @@ Note: The accuracy of the VotingClassifier is generally higher than the individu
 # Bootstrap Aggregation (Bagging) And Pasting
 Bootstrap Aggregation (or _Bagging_ for short, also called _Parallel Ensemble_), is a simple and very powerful ensemble method. Ensembles are combinations of multiple diverse (potentially weak) models trained on a different set of datasets and almost always outperform the best model in the ensemble. It aims at producing an ensemble model that is more robust than the individual models composing it. The basic motivation of parallel methods is to exploit independence between the base learners since the error can be reduced dramatically by averaging.
 
+Specifically, bagging involves constructing k different datasets. Each dataset has the same number of examples as the original dataset, but each dataset is contructed by sampling with replacement. This means that, with high probability, each dataset is missing some of the examples from the original dataset and contains several duplicate examples (on average around two-thirds of the examples from the original dataset are found in the resulting training set, if it has the same size as the original). Model i is then trained on dataset i. The differences between which examples are included in each dataset results in differences between the trained models. 
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bagging1.png?raw=true)
 
 **NOTE**: It is a general procedure that can be used to __reduce the variance__ for those algorithm that have high variance such as decision trees, like Classification And Regression Trees (CART) (Ensembling can reduce variance without increasing bias. It is however, only helpful if bias is low).
