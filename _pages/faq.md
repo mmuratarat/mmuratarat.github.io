@@ -1033,7 +1033,7 @@ where
 
 Calculating the SVD of $X$ consists of finding the eigenvalues and eigenvectors of $X^{T}X$ and $XX^{T}$. 
 
-The second moment $X^{T}X \in \mathbb{R}^{p \times p}$ is sometimes called the Gram matrix and it is equal to the empirical covariance if the columns of $X$ are mean-centered. It can be decomposed, using the SVD of $X$, as
+The second moment $X^{T}X \in \mathbb{R}^{p \times p}$ is sometimes called the Gram matrix and $X^{T}X / (n-1)$ is equal to the empirical covariance if the columns of $X$ are mean-centered. It can be decomposed, using the SVD of $X$, as
 
 $$
 \begin{split}
