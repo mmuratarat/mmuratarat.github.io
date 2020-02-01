@@ -4178,7 +4178,9 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 9. Due to the nature of convex optimization, the solution is guaranteed to be the global minimum not a local minimum (the absence of local minima).
 
-10. It is useful for both linearly seperable (hard-margin classifier) and non-linearly seperable (soft margin classifier) data. The only thing to do is to come up with the optimal penalty variable C (the hyper-parameter that multiplies slack variables).
+10. Training a support vector machine involves solving a convex optimization problem defined with the hinge loss function. Due to convexity of the problem, the choice of optimization algorithm has no influence on the classifier obtained at the end of training.
+
+11. It is useful for both linearly seperable (hard-margin classifier) and non-linearly seperable (soft margin classifier) data. The only thing to do is to come up with the optimal penalty variable C (the hyper-parameter that multiplies slack variables).
 
 **Disadvantages**
 
@@ -4418,7 +4420,7 @@ Therefore generally, the use of ROC curves and precision-recall curves are as fo
 
 A convex function is a function which the line segment betwen any two points on the graph lies above the graph and never cross graph itself. For non-convex functions, there will be at least one intersection. 
 
-One of the most prominent features of a convex optimization problem is that it can be reduced to the problem of finding a local minimum. Any local minimum is guaranteed to be a global minimum. Some convex functions may have a flat region at the bottom rather than a single global minimum point, but any point within such a flat region is an acceptable solution. When optimizing a convex function, we know that we have reached a good solution if we find a critical point of any kind. We can also prove that there is no feasible solution to the problem (strong theoretical guarantees). However, in a non-convex optimization may have multiple locally optimal points (or only a local minima) and it can take a lot of time to identify whether the problem has no solution or if the solution is global (weak theoretical guarantees). Hence, the efficiency in time of the convex optimization problem is much better. A convex problem usually is much more easier to deal with in comparison to a non convex problem which takes a lot of time and it might lead you to a dead end.
+One of the most prominent features of a convex optimization problem is that it can be reduced to the problem of finding a local minimum. Any local minimum is guaranteed to be a global minimum. Some convex functions may have a flat region at the bottom rather than a single global minimum point, but any point within such a flat region is an acceptable solution. When optimizing a convex function, we know that we have reached a good solution if we find a critical point of any kind. We can also prove that there is no feasible solution to the problem (strong theoretical guarantees). However, a non-convex optimization problem may have multiple locally optimal points (or only a local minima) and it can take a lot of time to identify whether the problem has no solution or if the solution is global (weak theoretical guarantees). Hence, the efficiency in time of the convex optimization problem is much better. A convex problem usually is much more easier to deal with in comparison to a non convex problem which takes a lot of time and it might lead you to a dead end.
 
 Linear regression/ Ridge regression, with Tikhonov regularisation, Sparse linear regression with L1 regularisation, such as Lasso, Support vector machines are examples of algorithms with convex optimization problem. Neural networks algorithm is an example for non-convex problems.
 
