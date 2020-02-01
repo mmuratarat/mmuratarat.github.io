@@ -79,6 +79,8 @@ As before, it can be more convenient to use logarithm,
 
 As one can see easily, MAP estimate is a special case of MLE, which uses the mode as a point estimate of posterior distribution.
 
+MAP inference has the advantage of leveraging information that is brought by the prior and cannot be found in the data.
+
 For computational simplicity, specific probability distributions are used corresponding to the probability distribution of the likelihood. It is called conjugate prior distribution. 
 
 # An Example
