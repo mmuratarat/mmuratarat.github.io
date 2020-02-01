@@ -396,7 +396,7 @@ X_centered = X - mean_X
 #        [ -18.,  -48.,   12.,   42.,   12.]])
 {% endhighlight %}
 
-Compute the covariance matrix of the whole dataset (sometimes also called as the variance-covariance matrix).
+Then, we ompute the unbiased covariance matrix (sometimes also called as the variance-covariance matrix) associated with the data.
 
 $$
 \Sigma_i = \Bigg[
