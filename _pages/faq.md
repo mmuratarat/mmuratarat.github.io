@@ -3308,7 +3308,7 @@ $$
 $$
 
 Our goal is to minimize the total, which we have decomposed into the sum of a (squared) bias, a variance, and a constant noise term. As we shall see later, there is a trade-off between bias and variance and this trade-off leads to two concepts called Underfitting and Overfitting. In summary, Underfitting occurs when the model is not able to obtain a sufficiently low error value on the training set. Overfitting occurs when the gap between the training error and test error is too large.We can control whether a model is more likely to overfit or underfit by altering its capacity. Informally, a model's capacity is its ability to fit a wide variety of functions. Models with high capacity generally are very flexible models having low bias
-and high variance and they can overfit easilyby memorizing the properties of the training set that do not serve them well on the test set. Models with low capacity relatively are rigid models having high bias and low variance. The model with the optimal predictive capability is the one that leads to the best balance between bias and variance.
+and high variance and they can overfit easilyby memorizing the properties of the training set that do not serve them well on the test set. Models with low capacity relatively are rigid models having high bias and low variance. Models with insufficient capacity are unable to solve complex tasks. The model with the optimal predictive capability is appropriate for the true complexity of the task and is the one that leads to the best balance between bias and variance.
 
 We can create a graphical visualization of bias and variance using a bulls-eye diagram, representing combinations of both high and low bias and variance.
 
