@@ -6420,7 +6420,7 @@ queue_example.size()
 
 **Additional remarks...**
 
-Python has a `deque` (pronounced 'deck') library that provides a sequence with efficient methods to work as a stack or a queue. `deque` is short for Double Ended Queue - a generalized queue that can get the first or last element that's stored:
+Python has a `deque` (pronounced 'deck') library that provides a sequence with efficient methods to work as a stack or a queue. `deque` is short for Double Ended Queue - a generalized queue that can get the first or last element that's stored. It has two ends, a front and a rear. What makes a deque different is the unrestrictive nature of adding and removing items. New items can be added at either the front or the rear. Likewise, existing items can be removed from either end. In a sense, this hybrid linear structure provides all the capabilities of stacks and queues in a single data structure.
 
 {% highlight python %} 
 from collections import deque
@@ -6445,6 +6445,31 @@ first_item = numbers.popleft()
 print(first_item) # 99
 print(numbers) # deque([15, 82, 50])
 {% endhighlight %}
+
+It can also be implemented easily from scratch:
+
+{% highlight python %} 
+class Deque():
+    
+    def __init__(self):
+        self.items = []
+        
+    def add_front(self, item):
+        return self.items.append(item)
+    
+    def add_read(self, item):
+        self.items.insert(0, item)
+        
+    def remove_front(self):
+        return self.items.pop()
+    
+    def remove_rear(self):
+        return self.items.pop(0)
+    
+    def size(self):
+        return len(self.items)
+{% endhighlight %}
+
 
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
 
