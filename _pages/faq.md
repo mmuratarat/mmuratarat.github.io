@@ -5859,10 +5859,40 @@ CREATE TABLE IF NOT EXISTS mytable (
 );
 ```
 
+#### What are the Dta Types in SQL?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-03%20at%2009.22.09.png?raw=true)
+
+#### What are the Table Constaints?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-03%20at%2009.21.57.png?raw=true)
+
 #### How to drop a table?
 
 ```sql
 DROP TABLE IF EXISTS mytable;
+```
+
+#### How to add a new column to a table?
+
+```sql
+ALTER TABLE mytable
+ADD column DataType OptionalTableConstraint 
+    DEFAULT default_value;
+ ```
+ 
+#### How to remove a column from a table? 
+
+```sql
+ALTER TABLE mytable
+DROP column_to_be_deleted;
+```
+
+#### How to rename a table?
+
+```sql
+ALTER TABLE mytable
+RENAME TO new_table_name;
 ```
 
 #### What is the difference between BETWEEN and IN operators in SQL?
