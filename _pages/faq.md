@@ -244,12 +244,18 @@ permalink: /faq/
 8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
 9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
 10. [How to drop a table?](#how-to-create-a-new-database-table)
-11. [What is the difference between BETWEEN and IN operators in SQL?](#what-is-the-difference-between-between-and-in-operators-in-sql)
-12. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
-13. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
-14. [What are the aggregate functions?](#what-are-the-aggregate-functions)
-15. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
-16. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
+11. What are the Dta Types in SQL?
+12. What are the Table Constaints?
+13. How to drop a table?
+14. How to add a new column to a table?
+15. How to remove a column from a table? 
+16. How to rename a table?
+17. [What is the difference between BETWEEN and IN operators in SQL?](#what-is-the-difference-between-between-and-in-operators-in-sql)
+18. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
+19. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
+20. [What are the aggregate functions?](#what-are-the-aggregate-functions)
+21. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
+22. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
 
 [Miscellaneous](#miscellaneous)
 
