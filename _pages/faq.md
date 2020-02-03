@@ -149,6 +149,8 @@ permalink: /faq/
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
+69. What is analysis of variance (ANOVA)?
+70. What is analysis of covariance (ANCOVA)?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -2940,6 +2942,65 @@ $$
 #### A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?
 
 Let $P_{fail} = 0.1$ be the probability that the system fails in any given hour. Let $P_{no fail} = 1 - P_{fail} = 0.9$, be the probability that the system does not fail in any given hour. The joint probability of two independent events is the product of the probability of each event (that is, $P(A \cap B) = P(A) \times P(B)$). Therefore, The chance of it failing in 2 hours is $P_{fail}^{2} = 0.1^{2}$. The chance of it NOT failing in $n$ hours is $P_{no fail}^{n} = 0.9^{n}$. The chance of it failing in $n$ hours is `1 - (chance of not failing in n hours)`, which is $ 1 - 0.9^{n}$.
+
+#### What is analysis of variance (ANOVA)?
+
+Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way ANOVA (MANOVA).
+
+1. **One-Way ANOVA**
+
+One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, difference in IQ can be assessed by Country, and County can have 2, 5, 10, 20, or more different categories (groups/levels) to compare.
+
+A one way ANOVA will tell you that at least two groups were different from each other. But it won’t tell you which groups were different. If your test returns a significant f-statistic, you may need to run an ad hoc test to tell you exactly which groups had a difference in means.
+
+2. **Two-Way ANOVA**
+
+A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, a 2-way ANOVA can examine differences in IQ scores (the dependent variable) by Country (independent variable 1) and Gender (independent variable 2).  Two-way ANOVA can be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables.  For example, females may have higher IQ scores overall compared to males, but this difference could be greater (or less) in European countries compared to North American countries. Two-way ANOVAs are also called factorial ANOVAs.
+
+The results from a Two-Way ANOVA will calculate a main effect and an interaction effect. The main effect is similar to a One Way ANOVA: each factor’s effect is considered separately. With the interaction effect, all factors are considered at the same time. Thus, there are three different hypotheses to be tested in two-way ANOVA:
+
+H01: All the country groups have equal IQ scores.
+
+H02: All the gender groups have equal IQ scores.
+
+For multiple observations in cells, you would also be testing a third hypothesis:
+H03: The factors are independent or the interaction effect does not exist.
+
+An F-statistic is computed for each hypothesis you are testing.
+
+3 **N-Way ANOVA**
+
+A researcher can also use more than two independent variables, and this is an n-way ANOVA (with n being the number of independent variables you have).  For example, potential differences in IQ scores can be examined by Country, Gender, Age group, Ethnicity, etc, simultaneously.
+
+4. **Multivariate ANOVA (MANOVA)**
+
+Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. If there is two or more dependent variables as well as two or more independent variables, it is called factorial MANOVA.  
+
+**Assumptions for ANOVA** 
+
+* The population from which samples are drawn should be normally distributed (can be tested using histograms, the values of skewness and kurtosis, or using tests such as Shapiro-Wilk or Kolmogorov-Smirnov).
+* Observation must be independent (can be determined from the design of the study).
+* Population variances must be equal. (The assumption of homogeneity of variance must be tested before ANOVA, such as Hartley’s $F_{max}$, Cochran’s, Levene’s, Brown-Forsythe and Barlett’s test.)
+* Groups must have equal sample sizes.
+
+**So what if you find statistical significance?  Multiple comparison tests**
+
+When you conduct an ANOVA, you are attempting to determine if there is a statistically significant difference among the groups.  If you find that there is a difference, you will then need to examine where the group differences lay. At this point you could run post-hoc tests for double comparisons, which are t-tests examining mean differences between the groups. There are several multiple comparison tests that can be conducted that will control for Type I error rate, including the LSD, Bonferroni, Sidak's, Student-Newman-Keuls test (or short S-N-K), Scheffe, Dunnet, and Tukey tests.
+
+#### What is analysis of covariance (ANCOVA)?
+
+ANCOVA is an extension of the ANOVA, the researcher can still can assess main effects and interactions to answer their research hypotheses.  The difference between an ANCOVA and an ANOVA is that an ANCOVA model includes a “covariate” that is correlated with the dependent variable and means on the dependent variable are adjusted due to the effects the covariate has on it. This technique answers the question: Are mean differences or interactive effects likely to have occurred by chance after scores have been adjusted on the dependent variable because of the effect of the covariate?
+
+The task  is to remove the extraneous variation from the dependent variable.
+
+MANCOVA is a statistical technique that is the extension of ANCOVA. MANCOVA feature two or more dependent variables and one or more more covariates are added to the mix. MANCOVA removes the effects of one or more covariates from your model
+
+
+MANCOVA, MANOVA, ANOVA, ANCOVA: it can all get a little confusing to remember which is which. However, all of the tests can be thought of as variants of the MANCOVA, if you remember that the “M” in MANCOVA stands for Multiple and the “C” stands for Covariates.
+
+* ANOVA: a MANCOVA without multiple dependent variables and covariates (hence the missing M and C).
+* ANCOVA: a MANCOVA without multiple dependent variables (hence the missing M).
+* MANOVA: A MANCOVA without covariates (hence the missing C).
 
 
 ## General Machine Learning
