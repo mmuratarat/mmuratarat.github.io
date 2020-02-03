@@ -247,7 +247,7 @@ permalink: /faq/
 11. [What is the difference between BETWEEN and IN operators in SQL?](#what-is-the-difference-between-between-and-in-operators-in-sql)
 12. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
 13. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
-14. What are the aggregate functions?
+14. [What are the aggregate functions?](#what-are-the-aggregate-functions)
 15. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
 16. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
 
