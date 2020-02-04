@@ -234,6 +234,7 @@ permalink: /faq/
 70. How to find a confidence interval for accuracy of a model?
 71. Does tree-based methods such as Decision Tree handle multicollinearity by itself?
 72. How to model count data?
+73. Why should weights of Neural Networks be initialized to random numbers?
 71. How do you deal with high cardinality? 
 
 
