@@ -4,7 +4,11 @@ title: "Decision Trees"
 author: "MMA"
 comments: true
 ---
-Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. A decision tree always considers all features and values for every feature. This means we could call it a greedy algorithm. The way a decision tree decides on which question, i.e. which feature, to ask, is by which question will have the highest information gain. In other words, it chooses the local optimal next feature. This process can be explained with three bullet points:
+Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-04%20at%2013.05.25.png?raw=true)
+
+A decision tree always considers all features and values for every feature. This means we could call it a greedy algorithm. The way a decision tree decides on which question, i.e. which feature, to ask, is by which question will have the highest information gain. In other words, it chooses the local optimal next feature. This process can be explained with three bullet points:
 
 * Calculate impurity at root node
 * Calculate information gain for each feature and value
