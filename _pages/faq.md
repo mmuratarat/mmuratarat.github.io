@@ -5409,6 +5409,8 @@ By default an image data consists of integers between 0 and 255 for each pixel c
 
 #### What is a CNN?
 
+Convolutional networks are simply neural networks that use convolution in place of general matrix multiplication in at least one of their layers.
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/putting_all_together.png?raw=true)
 
 #### Why CNN?
@@ -5433,7 +5435,7 @@ There are 4 different layers in a convolutional neural network:
 
 #### What is convolution?
 
-The convolution is the sum of the element-wise multiplication, spanning over channels resulting in one number. It is performed by multiplying the filter or kernel (feature detectors - these terms are used interchangeably) pixelwise with the portion of the image (by sliding the filter over the input) and summing the result, to then produce a feature map. You can think of the feature detector as a window consisting of $F^{2}$ ($F \times F$) cells.
+The convolution is a specialized kind of linear operation. It is the sum of the element-wise multiplication, spanning over channels resulting in one number. It is performed by multiplying the filter or kernel (feature detectors - these terms are used interchangeably) pixelwise with the portion of the image (by sliding the filter over the input) and summing the result, to then produce a feature map. You can think of the feature detector as a window consisting of $F^{2}$ ($F \times F$) cells.
 
 The output is more positive when the portion of the image closely matches the filter and more negative when the portion of the image is the inverse of the filter. 
 
