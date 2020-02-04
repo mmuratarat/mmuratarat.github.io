@@ -4,7 +4,7 @@ title: "Decision Trees"
 author: "MMA"
 comments: true
 ---
-Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. 
+Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. They have a natural "if ... then ... else ..." construction. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. Decision Tree process starts at the root and is repeated recursively until a leaf node is hit, at which point the value written in the leaf constitutes the output.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-04%20at%2013.05.25.png?raw=true)
 
@@ -537,6 +537,16 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 5. Both the trees follow a top-down greedy approach known as recursive binary splitting. We call it as ‘top-down’ because it begins from the top of tree when all the observations are available in a single region and successively splits the predictor space into two new branches down the tree. It is known as ‘greedy’ because, the algorithm cares (looks for best variable available) about only the current split, and not about future splits which will lead to a better tree.
 6. This splitting process is continued until a user defined stopping criteria is reached. For example: we can tell the the algorithm to stop once the number of observations per node becomes less than 50.
 7. In both the cases, the splitting process results in fully grown trees until the stopping criteria is reached. But, the fully grown tree is likely to overfit data, leading to poor accuracy on unseen data. This bring 'pruning'. Pruning is one of the technique used tackle overfitting.
+
+# Pruning Trees
+
+While stopping criteria are a relatively crude method of stopping tree growth, early studies showed that they tended to degrade the tree's performance. An alternative approach to stopping growth is to allow the tree to grow and then prune it back to an optimum size.
+
+Frequently, a node is not split further if the number of training instances reaching a node is smaller than a certain percentage of the training set, for example 5 percent, regardless of impurity or error. The idea is that any decision based on too few instances can cause the variance and thus generalization error. Stopping tree construction early on before it is full is called *preprunning* the tree.
+
+Another possibility to get simpler trees is *postpruning*, which in practice works better than preprunning. Tree growing is greedy and at each step, we can a decision, namely to generate a decision node and continue to further on, never backtracking, and trying out an altervative. The only exception is postprunning where we try to find and prune unnecessary subtrees.
+
+Comparing preprunning and postprunning, we can say that preprunning is faster but postprunning generally leads to more accurate trees.
 
 # Advantages
 
