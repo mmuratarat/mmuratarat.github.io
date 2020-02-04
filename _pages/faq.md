@@ -3130,7 +3130,15 @@ However, some other assumptions still apply.
 
 #### Why is logistic regression considered to be linear model?
 
-Logistic regression is a generalized linear model, is of the form:
+Logistic regression is not a linear model. It is a generalized linear model.  In order to call a particular method to be GLM, that method should have following three components.
+
+1. Random Component: It refers a response variable (y), which need to satisfy some PDF assumption. For example: Linear regression of y (dependent variable) follows normal distribution. Logistic regression response variable follows binomial distribution.
+
+2. Systematic Component: It is nothing but explanatory variables in the model. Systematic components helps to explain the random component.
+
+3. Link Function: It is link between systematic and random component. Link function tells how the expected value of response variable relates to explanatory variable. Link function of linear regression is $E[y]$ and link function of logistic regression is $logit(p)$.
+
+Logistic Regression is of the form:
 
 $$
 \text{logit}(P(y=1)) = log\left(\frac{P(y=1)}{1-P(y=1)}\right)=log\left(\frac{P(y=1)}{P(y=0)}\right)=\theta_{0}+\theta_{1}x_{1}+\ldots+\theta_{p}x_{p}
