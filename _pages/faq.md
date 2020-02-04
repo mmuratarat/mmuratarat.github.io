@@ -3272,11 +3272,13 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 * Leads to overfitting
 
 **Remove multicollinearity:**
+* Make sure you have not fallen into the dummy variable trap
+* Obtain more data, if possible. 
 * Drop some of affected variables
 * Combine the affected variables
+* Standardize your independent variables. This may help reduce a false flagging of a condition index above 30.
 * Removing correlated variables might lead to loss of information. In order to retain those variables, we can use penalized regression models like ridge or lasso regression. 
-* Partial least square regression
-* Principal component regression: gives uncorrelated predictors
+* Principal component regression or partial least squares regression can be used.
 
 **Detection of multicollinearity:**
 * Large changes in the individual coefficients when a predictor variable is added or deleted
@@ -3304,7 +3306,7 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
   CN = \sqrt{\frac{\lambda_{max}}{\lambda_{min}}}
   $$
   
-  $CN > 15$ indicates the possible presence of multicollinearity, while a $CN > 30$ indicates serious multicollinearity problems.
+  $CN > 15$ indicates the possible presence of multicollinearity, while a $CN > 30$ indicates serious multicollinearity problems. One advantage of this method is that it also shows which variables are causing the problem
   
 * Investigate the signs of the regression coefficients. Variables whose regression coefficients are opposite in sign from what you would expect may indicate multicollinearity
 
