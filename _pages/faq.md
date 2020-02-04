@@ -4634,6 +4634,23 @@ There appears to be an underlying assumption that not checking for collinearity 
 
 Desicion trees make no assumptions on relationships between features. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
 
+#### How to model count data?
+
+When the response variable is the counted number of occurrences of an event, we apply different modeling techniques. 
+
+The distribution of counts is discrete, not continuous, and is limited to non-negative values. Besides count data are positively skewed with many observations in the data set having a value of 0. 
+
+1. Poisson Regression
+2. Negative Binomial Regression
+3. Zero-Inflated Count Models
+4. Zero-inflated Poisson
+5. Zero-inflated Negative Binomial
+6. Zero-Truncated Count Models
+7. Zero-truncated Poisson
+8. Zero-truncated Negative Binomial
+9. Hurdle Models
+
+
 
 ## Deep Learning
 
