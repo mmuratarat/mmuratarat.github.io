@@ -3397,7 +3397,7 @@ $$
 Err(x)= \left( E \left[ \hat{f}(x) \right] − f(x) \right)^{2} + E \left[ \left( \hat{f}(x) − E \left[ \hat{f}(x) \right] \right)^{2} \right] + \sigma_{\varepsilon}^{2}
  $$
 
-Hence, in a machine learning algorithm, a model's generalization error can be expressed as the sum of three different errors. 
+Hence, in a machine learning algorithm, the bias–variance decomposition is a way of analyzing a learning algorithm's expected generalization error with respect to a particular problem as a sum of three terms, the bias, variance, and a quantity called the irreducible error, resulting from noise in the problem itself:
 
 $$
 \text{Total Error} = \text{Bias}^{2} + \text{Variance} + \text{Irreducible Error}
@@ -4549,7 +4549,6 @@ Based on the origin of the missing data, the following terminology is used to de
 * **Missing Not at Random (MNaR)**
 
   This category of missing data is dependent on the value of the data itself. For example, a survey need people to reveal their 10th grade marks in the chemistry. It may happen that people with lower marks may choose not to reveal them so you would see only high marks in the data sample. 
-  
 
 1. Ignore the data row or a whole column
 
@@ -4598,6 +4597,30 @@ Based on the origin of the missing data, the following terminology is used to de
 9. Assigning a unique category
 
 This approach is valid only for a categorical feature. We assign another class for the missing value. This strategy will add more information into dataset which will result in the change of variance. Since they are categoricl, we need to use one-hot encoding to convert it to a numeric form for the algorithm to understand it.
+
+# How to find a confidence interval for accuracy of a model?
+
+In order to determine the confidence interval, we need to establish the probability distribution that governs the accuracy measure. A Binomial experiment has
+* N independent trials, where each trial has two possible outcomes
+* the probability of success, p, in each trial is constant.
+
+The expected value of binomial distribution is $N \times p$ and its variance is $Np(1-p)$. Its probability mass function is given by:
+
+$$
+Binomial(x; n,p) = {n \choose x} p^{x} (1-p)^{n-x}
+$$
+
+where $x$ is the number of successes.
+
+The task of predicting the class labels of test records can also be considered as a binomial experiment. Given a test set that contains $N$ records, let $X$ be the number of records correctly predicted by a model and $p$ be the true accuracy of the model. By modeling the prediction task as a binomial experiment, $X$ has Binomial distribution with mean $Np$ and variance $Np(1-p)$. It can be shown that the empirical accuracy $acc = X/N$ also has binomial distribution with mean $p$ and variance $p(1-p)/N$. Although the binomial distribution can be used to estimate the confidence interval for $acc$, it is often approximated by a normal distribution when $N$ is sufficiently large. Based on the normal distribution, the following confidence interval for $acc$ can be derived:
+
+$$
+P \left(-Z_{\alpha/2} \leq  \frac{acc - p}{\sqrt{p(1-p)/N}} \leq Z_{1-\alpha/2} \right) = 1 - \alpha
+$$
+
+where $-Z_{\alpha/2}$ and $Z_{\alpha/2}$ are the upper and lower bounds obtained from a standard normal distribution at confidence level $(1-\alpha)$. 
+
+Note that when you increase the sample size $N$, the confidence interval will be tighter. 
 
 
 ## Deep Learning
