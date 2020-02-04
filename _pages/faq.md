@@ -232,6 +232,8 @@ permalink: /faq/
 69. [What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?](#What’s the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?)
 69. How do you deal with missing value in a data set?
 70. How to find a confidence interval for accuracy of a model?
+71. Does tree-based methods such as Decision Tree handle multicollinearity by itself?
+72. How to model count data?
 71. How do you deal with high cardinality? 
 
 
@@ -4436,7 +4438,7 @@ Dimension reduction can:
 
 This is a very open-ended question and in many cases domain knowledge will play a crucial role. Besides, there are no such hard and fast rules and this is wholly dependent upon the nature of the data. With such a large number of independent variables, there is a strong presence of multicollinearity. The variables will be highly correlated to each other and this will provide incorrect results. One should certainly investigate collinearity before embarking on any analysis.
 
-You can apply regularization tools and select from Ridge, LASSO and Elastic Net regression. The best will be LASSO regression as it removes all the non significant variables that cause multicollinearity. You can use appropriate dimension reduction (eg. PCA) to see if there are still multicolinearity among the independent factors. If some eigen-value is near zero, you may drop one of them, or define a new factor (transformation). You can also use Principal Component Regression which is similar PCA but does regression. Severe multicollinearity will be detected as very small eigenvalues. To rid the data of the multicollinearity, principal component omit the components associated with small eigen values. Partial Least Squares Regression can laos cut the number of predictors to a smaller set of uncorrelated components.
+You can apply regularization tools and select from Ridge, LASSO and Elastic Net regression. The best will be LASSO regression as it removes all the non-significant variables that cause multicollinearity. You can use appropriate dimension reduction (eg. PCA) to see if there are still multicolinearity among the independent factors. If some eigen-value is near zero, you may drop one of them, or define a new factor (transformation). You can also use Principal Component Regression which is similar PCA but does regression. Severe multicollinearity will be detected as very small eigenvalues. To rid the data of the multicollinearity, principal component omit the components associated with small eigen values. Partial Least Squares Regression can laos cut the number of predictors to a smaller set of uncorrelated components.
 
 You may also use some intelligent information criterion such as Akaike’s information criterion or Bayesian information criterion or Mallows’ CP to decide how many predictors should be in. 
 
@@ -4525,7 +4527,6 @@ One of the most prominent features of a convex optimization problem is that it c
 Linear regression/ Ridge regression, with Tikhonov regularisation, Sparse linear regression with L1 regularisation, such as Lasso, Support vector machines are examples of algorithms with convex optimization problem. Neural networks algorithm is an example for non-convex problems.
 
 #### How do you deal with missing value in a data set?
-
 
 In some cases, the data comes in the form of a dataset with features already defined. In some cases, values of some features can be missing. That often happens when the dataset was handcrafted and the person working on it forgot to fill some values or did not get them measured at all.
 
