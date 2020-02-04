@@ -6471,6 +6471,13 @@ class Deque():
 {% endhighlight %}
 
 
+Let's now look at the big-O notations of Stacks and Queues:
+
+* **Access**: O(n) for Stacks; O(n) for Queues.
+* **Search***: O(n) for Stacks; O(n) for Queues.
+* **Insert**: O(1) for Stacks since we insert the element at the end; O(1) for Queues since we insert an element at the "rear" of the queue.
+* **Delete**: O(1) for Stacks since we delete the element at the end; O(1) for Queues since we delete the first added element (at the "front" of the queue).
+
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
 
 While the class is the blueprint, an instance is a copy of the class with actual values, literally an object belonging to a specific class.
