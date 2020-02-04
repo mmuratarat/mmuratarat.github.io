@@ -3056,11 +3056,14 @@ Definition of terms:
   ERR = \frac{FP + FN}{TP + TN + FP + FN}
   $$
 
-* **True Positive Rate (TPR)**: When it is actually positive, how often does the classifier predict positive? It is also called _Recall_ or _Sensitivity_. The best sensitivity is 1.0 whereas the worst is 0.0. It is a measure of a classifier’s completeness. Low sensitivity (recall) indicates a high number of false negatives. 
+* **True Positive Rate (TPR/Recall/Sensitivity)**: When it is actually positive, how often does the classifier predict positive? It is also called _Recall_ or _Sensitivity_. The best sensitivity is 1.0 whereas the worst is 0.0. It is a measure of a classifier’s completeness. Low sensitivity (recall) indicates a high number of false negatives. 
 
   $$
   TPR = \frac{TP}{TP+FN}
   $$
+  
+  Recall actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive). Recall shall be the model metric we use to select our best model when there is a high cost associated with False Negative. For instance, in fraud detection or sick patient detection. If a fraudulent transaction (Actual Positive) is predicted as non-fraudulent (Predicted Negative), the consequence can be very bad for the bank.
+Similarly, in sick patient detection. If a sick patient (Actual Positive) goes through the test and predicted as not sick (Predicted Negative). The cost associated with False Negative will be extremely high if the sickness is contagious.
   
 * **True Negative Rate (TNR)**: When it is actually negative, how often does the classifier predict negative? It is also known as _Specificity_. It is equivalent of 1 - FPR.
 
@@ -3068,7 +3071,7 @@ Definition of terms:
   TNR = \frac{TN}{TN + FP}
   $$
   
-* **False Positive Rate (FPR)**: When it is actually negative, how often does the classifier predict positive?  FPR is equal to the significance level, which is Type I error.  It is also known as false alarm rate, fall-out or 1 - specificity
+* **False Positive Rate (FPR)**: When it is actually negative, how often does the classifier predict positive?  FPR is equal to the significance level, which is Type I error.  It is also known as false alarm rate, fall-out or 1 - specificity.
 
   $$
   FPR = \frac{FP}{FP+TN}
@@ -3085,16 +3088,34 @@ Definition of terms:
   $$
   Precision = \frac{TP}{TP + FP}
   $$
+  
+  The denominator is actually the Total Predicted Positive. Precision talks about how precise/accurate your model is out of those predicted positive, how many of them are actual positive. Precision is a good measure to determine, when the costs of False Positive is high. For instance, email spam detection. In email spam detection, a false positive means that an email that is non-spam (actual negative) has been identified as spam (predicted spam). The email user might lose important emails if the precision is not high for the spam detection model.
 
-* **F1 Score**: This is harmonic mean of TPR (Sensitivity / Recall) and Precision. F1 score reaches its best value at 1 (perfect precision and recall) and worst at 0. Therefore, the F1 score can not be greater than precision.
+* **F1 Score**: This is harmonic mean of TPR (Sensitivity / Recall) and Precision. F1 score reaches its best value at 1 (perfect precision and recall) and worst at 0. Therefore, the F1 score can not be greater than precision. It gives a better measure of the incorrectly classified cases than the Accuracy Metric. Accuracy is used when the True Positives and True negatives are more important while F1-score is used when the False Negatives and False Positives are crucial. It is a better metric when there exists uneven class distributions.
 
   $$
   \text{F1 Score} = \left(\frac{2}{Recall^{-1} + Precision^{-1}} \right)= \frac{ 2 \times Recall \times Precision}{Recall + Precision}
   $$
   
-  It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. 
+  It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. It is needed when you want to seek a balance between Precision and Recall
+  
+  Note that Precision, Recall and F1 scores are mostly used when the costs of having a mis-classified actual positive (or false negative) is very high. For example, positive is actually someone who is sick and carrying a virus that can spread very quickly? Or the positive case represents a fraud case? Or the positive represents a terrorist that the model says its a non-terrorist?
 
 * **ROC curves and AUC**: ROC curves are two-dimensional graphs in which true positive rate (TPR) is plotted on the Y axis and false positive rate (FPR) is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). AUC is computed as area under this curve. It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings. The probabilistic interpretation of ROC-AUC score is that if you randomly choose a positive case and a negative case, the probability that the positive case outranks the negative case according to the classifier is given by the AUC. Here, rank is determined according to order by predicted values.
+
+**Which one to choose?**
+
+Here is a set of questions you need to ask yourself, to decide the model selection metrics.
+
+First Question: Does both True Positive and True Negatives matters to the business or just True Positives? If both is important, Accuracy is what you go for.
+
+Second Question: After establishing that True Positive is what you are concerned with more, ask yourself, which one has a higher costs to business, False Positives or False Negatives?
+
+If having large number of False Negatives has a higher cost to business, choose Recall.
+
+If having large number of False Positives has a higher cost to business, choose Precision.
+
+If you cannot decide, using the best of both worlds is way to go, then choose F1.
 
 #### What is a linear regression model?
 
