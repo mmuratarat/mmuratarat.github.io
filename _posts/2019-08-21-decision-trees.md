@@ -104,6 +104,7 @@ tree_clf.predict([[5, 1.5]])
 {% endhighlight %}
 
 # How to interpret the tree above?
+
 Root node:
 * `samples = 150` that means the node 'contains' 150 samples. Since it's the root node that means the tree was trained on 150 samples.
 * `value = [50, 50, 50]` are to give class probabilities. The data set contains 3 classes of 50 instances each (Iris Setosa, Iris Versicolour, Iris Virginica). About 1/3 of the samples belong to class Setosa and 1/3 to class Versicolour and 1/3 to Virginica.
@@ -140,6 +141,7 @@ tree_clf.predict_proba([[5, 1.5]])
 {% endhighlight %}
 
 # The CART Training Algorithm
+
 There are many methodologies for constructing decision trees but the most well-known is the classification and regression tree (CART) algorithm proposed in Breiman. CART uses binary recursive partitioning (it’s recursive because each split or rule depends on the the splits above it).
 
 Scikit-Learn uses CART algorithm to train Decision Trees (also called "growing" trees). The idea is really quite simple: the algorithm first splits the training set in two subsets using a single feature $k$ and a threshold $t_{k}$ (e.g., "petal length $\leq$ 2.45"). How does it choose $k$ and $t_{k}$? It searches for the pair ($k, t_{k}$) that produces the purest subsets (weighted by their size). The cost function that the algorithm tries to minimize is then given by:
@@ -421,7 +423,7 @@ So, the entropy criterion favors B.
 
 The set of split points considered for any variable depends upon whether the variable is numeric or categorical. The values of the variable taken by the cases at that node also play a role.
 
-When a predictor is numeric, if all values are unique, there are $n - 1$ split points for $n$ data points. Suppose we have a training set with an attribute “age” which contains following values: 10, 11, 16, 18, 20, 35. Now at a node, the algorithm will consider following possible splitting:
+When a predictor is numerical, we can use a brute-force method to split this variable to use a Decision Tree algorithm. If all values are unique, there are $n - 1$ split points for $n$ data points. Suppose we have a training set with an attribute “age” which contains following values: 10, 11, 16, 18, 20, 35. Now at a node, the algorithm will consider following possible splitting:
 
 $$
 \begin{split}
@@ -429,13 +431,16 @@ Age \leq 10 \quad & \quad Age>10 \\
 Age \leq 11 \quad & \quad Age>11 \\
 Age \leq 16 \quad & \quad Age>16 \\
 Age \leq 18 \quad & \quad Age>18 \\ 
-Age \leq 20 \quad & \quad Age>20 
+Age \leq 20 \quad & \quad Age>20 \\
+Age \leq 35 \quad & \quad Age>35 \\
 \end{split}
 $$
 
-Because this may be a large number, it is common to consider only split points at certain percentiles of the distribution of values. For example, we may consider every tenth percentile (that is, 10%, 20%, 30%, etc).
+At every split candidate, we then compute the Gini index and choose the that gives the lowest value. However, this approach is computationally expensive because we need to consider every value of the attribute in the N records as a candidate split position. 
 
-Another way to do so is to discretize the values into ranges. 
+Because number of unique values of a numerical attribute may be a large number, it is common to consider only split points at certain percentiles of the distribution of values. For example, we may consider every tenth percentile (that is, 10%, 20%, 30%, etc).
+
+Another way to do so is to discretize the values into ranges and treat this numerical attribute as a categorical variable.
 
 Alternatively, we can split nodes based on thresholds ($A < c$) such that the data is partitioned into examples that satisfy $A < c$ and $A \geq c$. Information gain for these splits can be calculated in the same way as before, since in this setup each node becomes a Boolean value. To find the split with the highest gain for continuous attribute A, we would sort examples according to the value, and for each ordered pair (x, y) with different labels, we would check the midpoint as a possible threshold. For example, consider the following data:
 
@@ -452,6 +457,8 @@ If there is a small number of classes, all possible splits into two child nodes 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/decision_tree_split_variables.png?raw=true)
 
 For k classes there are $2^{k-1} – 1$ splits, which is computationally prohibitive if $k$ is a large number.
+
+Ordinal attributes can also produce binary or multiway splits. Ordinal attrbute values can be grouped as long as the grouping does not violate the order proprty of the attribute values.
 
 If there are many classes, they may be ordered according to their average output value. We can the make a binary split into two groups of the ordered classes. This means there are $k – 1$ possible splits for $k$ classes.
 
@@ -538,11 +545,15 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 6. This splitting process is continued until a user defined stopping criteria is reached. For example: we can tell the the algorithm to stop once the number of observations per node becomes less than 50.
 7. In both the cases, the splitting process results in fully grown trees until the stopping criteria is reached. But, the fully grown tree is likely to overfit data, leading to poor accuracy on unseen data. This bring 'pruning'. Pruning is one of the technique used tackle overfitting.
 
+# How should the splitting procedure stop?
+
+A stopping condition is needed to terminate the tree growing process. A possible strategy is to continue expanding a node until either all the reconds belong to the same class or all the records have identical attribute values. Although both conditions are sufficient to stop any decision tree induction algorithm, other criteria can be imposed to allow the tree-growing procedure to terminate earlier. 
+
 # Pruning Trees
 
 While stopping criteria are a relatively crude method of stopping tree growth, early studies showed that they tended to degrade the tree's performance. An alternative approach to stopping growth is to allow the tree to grow and then prune it back to an optimum size.
 
-Frequently, a node is not split further if the number of training instances reaching a node is smaller than a certain percentage of the training set (Minimum samples for a terminal node (leaf)), for example 5 percent, regardless of impurity or error. The idea is that any decision based on too few instances can cause the variance and thus generalization error. Stopping tree construction early on before it is full is called *preprunning* the tree.
+Frequently, a node is not split further if the number of training instances reaching a node is smaller than a certain percentage of the training set (Minimum samples for a terminal node (leaf)), for example 5 percent, regardless of impurity or error. The idea is that any decision based on too few instances can cause the variance and thus generalization error. Stopping tree construction early on before it is full is called *preprunning* the tree (also known as Early Stopping Rule).
 
 Another possibility to get simpler trees is *postpruning*, which in practice works better than preprunning. Tree growing is greedy and at each step, we can a decision, namely to generate a decision node and continue to further on, never backtracking, and trying out an altervative. The only exception is postprunning where we try to find and prune unnecessary subtrees.
 
