@@ -6471,12 +6471,21 @@ class Deque():
 {% endhighlight %}
 
 
-Let's now look at the big-O notations of Stacks and Queues:
+##### Let's now look at the big-O notations of Stacks and Queues:
 
 * **Access**: O(n) for Stacks; O(n) for Queues.
 * **Search***: O(n) for Stacks; O(n) for Queues.
 * **Insert**: O(1) for Stacks since we insert the element at the end; O(1) for Queues since we insert an element at the "rear" of the queue.
 * **Delete**: O(1) for Stacks since we delete the element at the end; O(1) for Queues since we delete the first added element (at the "front" of the queue).
+
+##### Comparing it with priority queues
+Stacks and queues may be modeled as particular kinds of priority queues. As a reminder, here is how stacks and queues behave:
+
+* stack – elements are pulled in last-in first-out-order (e.g., a stack of papers)
+* queue – elements are pulled in first-in first-out-order (e.g., a line in a cafeteria)
+
+In a stack, the priority of each inserted element is monotonically increasing; thus, the last element inserted is always the first retrieved. In a queue, the priority of each inserted element is monotonically decreasing; thus, the first element inserted is always the first retrieved.
+
 
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
 
