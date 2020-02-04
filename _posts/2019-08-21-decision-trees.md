@@ -581,6 +581,8 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 
 9. Decision Trees can handle multicollinearity. They make no assumptions on relationships between features. They are greedy algorithms. They will fit on the most effective variable they encounter, leaving other plausible variables out. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
 
+10. Decision Trees naturally handle categorical features
+
 # Disadvantages
 
 1. Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. This problem gets solved by setting constraints on model parameters (e.g., limiting depth of the tree) and heavily pruning.
