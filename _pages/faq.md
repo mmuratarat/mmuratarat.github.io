@@ -236,7 +236,8 @@ permalink: /faq/
 72. How to model count data?
 73. Why should weights of Neural Networks be initialized to random numbers?
 74. Why is loss function in Neural Networks not convex?
-71. How do you deal with high cardinality? 
+75. What is the difference between a loss function and decision function?
+76. How do you deal with high cardinality? 
 
 
 [SQL](#SQL)
@@ -4672,6 +4673,20 @@ Any loss function takes two parameters, the predicted label $\hat{y}$  and the t
 However, when people say that the loss function of neural networks is not convex, it is not the function above that they are referring to. Note that you do not control $\hat{y}$  directly. You control some weight parameters (called model parameters), which in turn change $\hat{y}$ . So you’re interested in convexity of the loss function with respect to these weight parameters. Let’s say $\hat{y}$ = f(w, x)$, where $w$ is the vector of all weights, $x$ is the input example and $f$ is a function mapping those to a label $\hat{y}$ . You are interested in the function $g(x, y, w) = L(\hat{y}, y) = L(f(w, x),y)$.
 
 It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
+
+#### What is the difference between a loss function and decision function?
+
+The loss function is what is minimized to obtain a model which is optimal in some sense. The model itself has a decision function which is used to predict.
+
+For example, in SVM classifiers:
+
+* loss function: minimizes error and squared norm of the separating hyperplane 
+
+  $$
+  \mathcal{L}(\mathbf{w}, \xi) =\frac{1}{2}\|\mathbf{w}\|^2 + C\sum_i \xi_i
+  $$
+
+* decision function: signed distance to the separating hyperplane: f(\mathbf{x}) = sign(\mathbf{w}^T\mathbf{x} + b)
 
 
 ## Deep Learning
