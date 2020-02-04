@@ -4350,7 +4350,7 @@ Note that there is no absolute advantage of one resampling method over another. 
 
 However, in practice, these simple sampling approaches have flaws. Unlike undersampling, oversampling method leads to no information loss. Oversampling the minority can lead to model overfitting, since it will introduce duplicate instances (it makes variables appear to have lower variance than they do), drawing from a pool of instances that is already small. Similarly, undersampling the majority can end up leaving out important instances that provide important differences between the two classes. Hence, it might discard useful information. Undersampling can make the independent variables look like they have a higher variance than they do. The sample chosen by undersampling may be a biased sample. And it will not be an accurate representation of the population in that case. Therefore, it can cause the classifier to perform poorly on real unseen data.
 
-Note that you must always split into test and train sets BEFORE trying oversampling techniques! Oversampling before splitting the data can allow the exact same observations to be present in both the test and train sets. This can allow our model to simply memorize specific data points and cause overfitting and poor generalization to the test data.
+Note that you must always split into test and train sets BEFORE trying oversampling  (or undersampling)techniques! Oversampling before splitting the data can allow the exact same observations to be present in both the test and train sets. This can allow our model to simply memorize specific data points and cause overfitting and poor generalization to the test data.
 
 **K-fold Cross-Validation**
 
@@ -4601,6 +4601,8 @@ Based on the origin of the missing data, the following terminology is used to de
 9. Assigning a unique category
 
 This approach is valid only for a categorical feature. We assign another class for the missing value. This strategy will add more information into dataset which will result in the change of variance. Since they are categoricl, we need to use one-hot encoding to convert it to a numeric form for the algorithm to understand it.
+
+Note that you should first split your data and then apply the imputation technique. 
 
 # How to find a confidence interval for accuracy of a model?
 
