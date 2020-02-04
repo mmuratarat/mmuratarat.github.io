@@ -231,7 +231,9 @@ permalink: /faq/
 68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
 69. [What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?](#What’s the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?)
 69. How do you deal with missing value in a data set?
-70. How do you deal with high cardinality? 
+70. How to find a confidence interval for accuracy of a model?
+71. How do you deal with high cardinality? 
+
 
 [SQL](#SQL)
 
