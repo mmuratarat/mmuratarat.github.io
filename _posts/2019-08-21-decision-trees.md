@@ -542,9 +542,11 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 While stopping criteria are a relatively crude method of stopping tree growth, early studies showed that they tended to degrade the tree's performance. An alternative approach to stopping growth is to allow the tree to grow and then prune it back to an optimum size.
 
-Frequently, a node is not split further if the number of training instances reaching a node is smaller than a certain percentage of the training set, for example 5 percent, regardless of impurity or error. The idea is that any decision based on too few instances can cause the variance and thus generalization error. Stopping tree construction early on before it is full is called *preprunning* the tree.
+Frequently, a node is not split further if the number of training instances reaching a node is smaller than a certain percentage of the training set (Minimum samples for a terminal node (leaf)), for example 5 percent, regardless of impurity or error. The idea is that any decision based on too few instances can cause the variance and thus generalization error. Stopping tree construction early on before it is full is called *preprunning* the tree.
 
 Another possibility to get simpler trees is *postpruning*, which in practice works better than preprunning. Tree growing is greedy and at each step, we can a decision, namely to generate a decision node and continue to further on, never backtracking, and trying out an altervative. The only exception is postprunning where we try to find and prune unnecessary subtrees.
+
+Any runing should reduce the size of a learning tree without reducing predictive accuracy as measured by a cross-validation set.
 
 Comparing preprunning and postprunning, we can say that preprunning is faster but postprunning generally leads to more accurate trees.
 
@@ -576,7 +578,7 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 
 3. Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This is called variance, which needs to be lowered by methods like bagging and boosting.
 
-4. Greedy algorithm, which always makes the choice that seems to be the best at that moment without regard for consequences, cannot guarantee to return the globally optimal decision tree. This can be mitigated by training multiple trees, where the features and samples are randomly sampled with replacement.
+4. Greedy algorithm, which always makes the choice that seems to be the best at that moment without regard for consequences, cannot guarantee to return the globally optimal decision tree. This can be mitigated by training multiple trees, where the features and samples are randomly sampled with replacement (Random Forest).
 
 5. Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the data set prior to fitting with the decision tree.
 
