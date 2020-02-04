@@ -4624,6 +4624,12 @@ where $-Z_{\alpha/2}$ and $Z_{\alpha/2}$ are the upper and lower bounds obtained
 
 Note that when you increase the sample size $N$, the confidence interval will be tighter. 
 
+#### Does tree-based methods such as Decision Tree handle multicollinearity by itself?
+
+There appears to be an underlying assumption that not checking for collinearity is a reasonable or even best practice. This seems flawed. Therefore, it is a good practice to remove any redundant features from any dataset used for training, irrespective of the model's algorithm. 
+
+Desicion trees make no assumptions on relationships between features. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
+
 
 ## Deep Learning
 
