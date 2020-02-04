@@ -235,6 +235,7 @@ permalink: /faq/
 71. Does tree-based methods such as Decision Tree handle multicollinearity by itself?
 72. How to model count data?
 73. Why should weights of Neural Networks be initialized to random numbers?
+74. Why is loss function in Neural Networks not convex?
 71. How do you deal with high cardinality? 
 
 
@@ -4659,6 +4660,18 @@ Let's start with all zero initialization. It is soemthing that we we should not 
 For large-size networks, most local minima are equivalent and yield similar performance on a test set. The probability of finding a "bad" (high value) local minimum is non-zero for small-size networks and decreases quickly with network size. Struggling to find the global minimum on the training set (as opposed to one of the many good local ones) is not useful in practice and may lead to overfitting.
 
 There are several weight initialization strategies; each one is best suited for a type of activation function. For instance, Glorot's initialization aims at not saturating sigmoid activations, while He's initialization is meant for Rectified Linear Units (ReLUs).
+
+#### Why is loss function in Neural Networks not convex?
+
+I’ll be using mean squared error (MSE) loss for the discussion below, instead of cross-entropy loss, because the analysis is simpler with MSE, and the conclusions directly apply to cross-entropy loss.
+
+MSE is always convex. But your confusion arises because the answer depends on what you’re taking the convexity with respect to.
+
+Any loss function takes two parameters, the predicted label $\hat{y}$  and the true label $y$. Now MSE is defined as $L(\hat{y}, y) = \frac{1}{n} \sum_{i=1}^{n} \left(y_{i} - \hat{y_{i}} \right)^{2}$. So this is clearly convex with respect to $\hat{y}$ . This is irrespective of any algorithm — logistic regression or neural networks.
+
+However, when people say that the loss function of neural networks is not convex, it is not the function above that they are referring to. Note that you do not control $\hat{y}$  directly. You control some weight parameters (called model parameters), which in turn change $\hat{y}$ . So you’re interested in convexity of the loss function with respect to these weight parameters. Let’s say $\hat{y}$ = f(w, x)$, where $w$ is the vector of all weights, $x$ is the input example and $f$ is a function mapping those to a label $\hat{y}$ . You are interested in the function $g(x, y, w) = L(\hat{y}, y) = L(f(w, x),y)$.
+
+It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
 
 
 ## Deep Learning
