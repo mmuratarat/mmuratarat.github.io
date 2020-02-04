@@ -187,7 +187,7 @@ permalink: /faq/
 28. [What is feature engineering?](#what-is-feature-engineering)
 29. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 30. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
-31. [When should you reduce the number of features used by your features?](#when-should-you-reduce-the-number-of-features-used-by-your-features)
+31. [When should you reduce the number of features?](#when-should-you-reduce-the-number-of-features)
 32. [When is feature selection is unnecessary?](#when-is-feature-selection-is-unnecessary)
 31. [How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?](#how-can-you-prove-that-one-improvement-youve-brought-to-an-algorithm-is-really-an-improvement-over-not-doing-anything)
 32. [What are the hyperparameter tuning methods?](#what-are-the-hyperparameter-tuning-methods)
@@ -3672,7 +3672,7 @@ Note that when you standardize all your variables, the intercept will be zero.
 * **Wrapper Methods**: Train models on subsets of features and use the subset that results in the best performance. Examples are Forward, Backward, Stepwise or Recursive Feature selection. Advantages are that it considers each feature in the context of other features but can be computationally expensive.
 * **Embedded Methods**: Learning algorithms have built-in feature selection, e.g., Random forest's feature importance and L1-Regularization.
 
-#### When should you reduce the number of features used by your features?
+#### When should you reduce the number of features?
 
 1. When there is strong collinearity between features
 2. There are an overwhelming number of features
