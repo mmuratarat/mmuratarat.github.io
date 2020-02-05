@@ -4399,7 +4399,11 @@ $L_{1}$ penalizes sum of absolute value of weights. $L_{1}$ has a sparse solutio
 
 $L_{2}$ regularization penalizes sum of square weights. $L_{2}$ has a non sparse solution. $L_{2}$ has one solution. $L_{2}$ has no feature selection. $L_{2}$ is not robust to outliers. $L_{2}$ gives better prediction when output variable is a function of all input features. $L_{2}$ regularization is able to learn complex data patterns.
 
+A regression model that uses L1 regularization technique is called Lasso Regression and model which uses L2 is called Ridge Regression. Ridge regression adds “squared magnitude” of coefficient as penalty term to the loss function. Lasso Regression (Least Absolute Shrinkage and Selection Operator) adds “absolute value of magnitude” of coefficient as penalty term to the loss function. The key difference between these techniques is that Lasso shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
+
 Depending on on the situation, we can choose which regularization to use. One important remark is that since nowadays we are concerned with a number of features, hence $L_{1}$ would be preferred.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/geometrical_representation_of_l1_l2.png?raw=true)
 
 #### What is curse of dimensionality?
 
