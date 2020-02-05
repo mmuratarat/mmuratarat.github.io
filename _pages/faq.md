@@ -4694,6 +4694,21 @@ For example, in SVM classifiers:
 
 * decision function: signed distance to the separating hyperplane: f(\mathbf{x}) = sign(\mathbf{w}^T\mathbf{x} + b)
 
+#### What is the difference between SVM and Random Forest?
+
+The no free lunch theorem basically says that there will always be data sets where one classifier is better than another. The choice depends very much on what data you have and what is your purpose.
+
+Random Forest is intrinsically suited for multiclass classification problems, while SVM can only do binary classification. It cannot be naturally extended to multi-class problems. For multiclass problem you will need to reduce the problem using some schemes existing in the literature such as One-vs-All (usually referred to as One-vs-Rest or OVA classification) and One-vs-One (OVO, also known as All-versus-All or AVA).
+
+Random Forest provides feature importance plot. This plot can be used as feature selection method. However, SVM does not have that option.
+
+Since Random Forest is a tree-based model. Scaling the data typically does not change the performance. SVM maximizes the "margin" and thus relies on the concept of "distance" between different points. It is up to you to decide if "distance" is meaningful. Therefore, data scaling or normalization procedure is highly recommended at preprocessing step.
+
+Random forest can handle categorical variables naturally. However, SVM cannot. As a consequence, one-hot encoding (or  another encoding strategy) for categorical features is a must-do. 
+
+Each tree in Random Forest predicts class probabilities and these probabilities are averaged for the forest prediction. SVM gives you distance to the boundary, it does not provide probability. Various methods applied to the output of SVM, including Platt scaling and isotonic regression.
+
+Random Forest has very little need for tuning of hyperparameters. This is not the case for SVM. With SVM, there are more things to worry the regularization penalty, choosing an appropriate kernel, kernel parameters etc. Random Forests are much more automated and thus "easier" to train compared to SVM
 
 ## Deep Learning
 
