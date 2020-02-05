@@ -55,7 +55,7 @@ In this method, we create predictions for each model and saved them in a matrix 
 Note: The accuracy of the VotingClassifier is generally higher than the individual classifiers. Make sure to include diverse classifiers so that models which fall prey to similar types of errors do not aggregate the errors.
 
 # Bootstrap Aggregation (Bagging) And Pasting
-Bootstrap Aggregation (or _Bagging_ for short, also called _Parallel Ensemble_), is a simple and very powerful ensemble method. Ensembles are combinations of multiple diverse (potentially weak) models trained on a different set of datasets and almost always outperform the best model in the ensemble. It aims at producing an ensemble model that is more robust than the individual models composing it. The basic motivation of parallel methods is to exploit independence between the base learners since the error can be reduced dramatically by averaging.
+Bootstrap Aggregation (or _Bagging_ for short, also called _Parallel Ensemble_), is a simple and very powerful ensemble method. Ensembles are combinations of multiple diverse (potentially weak) models trained on a different set of datasets and almost always outperform the best model in the ensemble. It aims at producing an ensemble model that is more robust than the individual models composing it. The basic motivation of parallel methods is to exploit independence between the base learners since the error can possibly be reduced dramatically by averaging.
 
 Specifically, bagging involves constructing k different datasets. Each dataset has the same number of examples as the original dataset, but each dataset is contructed by sampling with replacement. This means that, with high probability, each dataset is missing some of the examples from the original dataset and contains several duplicate examples (on average around two-thirds of the examples from the original dataset are found in the resulting training set, if it has the same size as the original). Model i is then trained on dataset i. The differences between which examples are included in each dataset results in differences between the trained models. 
 
@@ -85,13 +85,22 @@ For classification problem the class outputted by each model can be seen as a vo
 Idea of bagging comes from the fact that averaging models reduces model variance. Since trees are notoriously noisy, they benefit greatly from the averaging. Moreover, since each tree generated in bagging is identically distributed
 (i.d.), the expectation of an average of $B$ such trees is the same as the expectation of any one of them. This means the bias of bagged trees is the same as that of the individual trees, and the only hope of improvement is through variance reduction. This is in contrast to boosting, where the trees are grown in an adaptive way to remove bias, and hence are not i.d.
 
-An average of $B$ i.i.d. random variables, each with variance $\sigma^{2}$, has variance $\frac{1}{B}\sigma^{2}$. If the variables are simply i.d. (identically distributed, but not necessarily independent) with positive pairwise correlation $\rho$, the variance of the average is:
+An average of $B$ identically distributed (but possible dependent) random variables $\frac{1}{B}\sum_{i=1}^{B} X_{i}$, each with mean $\mu$ and variance $\sigma^{2}$, has mean $\mu$ variance $\frac{1}{B}\sigma^{2}$. If the variables are simply i.d. (identically distributed, but not necessarily independent) with positive pairwise correlation $\rho$, the variance of the average is computed as follows:
 
 $$
-\rho \sigma^{2} + \frac{1- \rho}{B} \sigma^{2}
+\text{Var}(\bar{X}_B) = \dfrac{1}{B^2}\text{Var}\left(\sum_{i=1}^{B}X_i\right) = \dfrac{1}{B^2}\sum_{i=1}^{B}\sum_{j=1}^{B}\text{Cov}(X_i, X_j)
 $$
 
-As $B$ increases, the second term disappears, but the first remains, and hence the size of the correlation of pairs of bagged trees limits the benefits of averaging. The idea in random forests is to improve the variance reduction of bagging by reducing the correlation between the trees, without increasing the variance too much. This is achieved in the tree-growing process through random selection of the input variables which we will see in the next part.
+Suppose, in the above summation, that $i=j$. Then $\text{Cov}(X_i, X_j) = \sigma^2$. Exactly 𝐵 of these occur.
+
+Suppose, in the above summation, that $i \neq j$. Then $\text{Cov}(X_i, X_j) = \rho\sigma^2$, since $\rho (X_i, X_j) = \frac{\text{Cov}(X_i, X_j)}{\sqrt{Var(X_{i}) Var(X_{j})}}$ where the variances are identical. There are $B^2 - B = B(B-1)$ of these occurrences. Hence,
+
+$$
+\text{Var}(\bar{X}_B)  = \dfrac{1}{B^2}\left(B\sigma^2+B(B-1)\rho\sigma^2\right) = \dfrac{\sigma^2}{B}+\dfrac{B-1}{B}\rho\sigma^2 = \dfrac{\sigma^2}{B}+\rho\sigma^2-\dfrac{1}{B}\rho\sigma^2 = \rho \sigma^{2} + \frac{1- \rho}{B} \sigma^{2}
+$$
+
+As $B$ increases, the second term disappears (or can be made arbitrarily small), but the first remains, and hence the size of the correlation of pairs of bagged trees limits the benefits of averaging. The idea in random forests is to improve the variance reduction of bagging by reducing the correlation between the trees, without increasing the variance too much. Also note that the bias of prediction model is tightly connected to its mean value. Consequently, by averaging the predictions from several identically distributed models, each with low bias, the bias remains low and the variance is reduced. This is achieved in the tree-growing process through random selection of the input variables which we will see in the next part.
+
 
 When bagging with decision trees, we are less concerned about individual trees overfitting the training data. For this reason and for efficiency, the individual decision trees are grown deep (e.g. few training samples at each leaf-node of the tree) and the trees are not pruned. **These trees will have both high variance and low bias**. These are important characterize of sub-models when combining predictions using bagging.
 
