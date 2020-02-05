@@ -237,6 +237,9 @@ permalink: /faq/
 73. Why should weights of Neural Networks be initialized to random numbers?
 74. Why is loss function in Neural Networks not convex?
 75. What is the difference between a loss function and decision function?
+76. What is the difference between SVM and Random Forest?
+77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variantss?
+78. What are some of the issues with K-means?
 76. How do you deal with high cardinality? 
 
 
@@ -3104,7 +3107,7 @@ Similarly, in sick patient detection. If a sick patient (Actual Positive) goes t
   \text{F1 Score} = \left(\frac{2}{Recall^{-1} + Precision^{-1}} \right)= \frac{ 2 \times Recall \times Precision}{Recall + Precision}
   $$
   
-  It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. It is needed when you want to seek a balance between Precision and Recall
+  It is difficult to compare two models with low precision and high recall or vice versa. So, in order to make them comparable, we use F1 Score. F1 Score helps to measure Recall and Precision at the same time. It is needed when you want to seek a balance between Precision and Recall. 
   
   Note that Precision, Recall and F1 scores are mostly used when the costs of having a misclassified actual positive (or false negative) is very high. For example, positive is actually someone who is sick and carrying a virus that can spread very quickly? Or the positive case represents a fraud case? Or the positive represents a terrorist that the model says its a non-terrorist?
 
@@ -4708,7 +4711,32 @@ Random forest can handle categorical variables naturally. However, SVM cannot. A
 
 Each tree in Random Forest predicts class probabilities and these probabilities are averaged for the forest prediction. SVM gives you distance to the boundary, it does not directly provide probabilityS, which are desirable in most classification problems. Various methods applied to the output of SVM, including Platt scaling and isotonic regression.
 
-Random Forest has very little need for tuning of hyperparameters. This is not the case for SVM. With SVM, there are more things to worry the regularization penalty, choosing an appropriate kernel, kernel parameters etc. Random Forests are much more automated and thus "easier" to train compared to SVM
+Random Forest has very little need for tuning of hyperparameters. This is not the case for SVM. With SVM, there are more things to worry the regularization penalty, choosing an appropriate kernel, kernel parameters etc. Random Forests are much more automated and thus "easier" to train compared to SVM.
+
+Both random forests and SVMs are non-parametric models.
+
+The more trees we have, the more expensive it is to build a random forest. Also, we can end up with a lot of support vectors in SVMs; in the worst-case scenario, we have as many support vectors as we have samples in the training set.
+
+As a rule of thumb, I’d say that SVMs are great for relatively small data sets with fewer outliers. Random forests may require more data but they almost always come up with a pretty robust model. 
+
+#### What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variantss?
+
+We can either solve the model parameters analytically (closed-form equations) or use an optimization algorithm (Gradient Descent, Stochastic Gradient Descent, Newton’s Method, Simplex Method, etc.). The closed-form solution may (should) be preferred for "smaller" datasets – if computing (a "costly") matrix inverse is not a concern. For very large datasets, or datasets where the inverse of $X^{T}X$ may not exist (the matrix is non-invertible or singular, e.g., in case of perfect multicollinearity), the GD or SGD approaches are to be preferred. 
+
+#### What are some of the issues with K-means?
+
+The different results via k-means with distinct random centroid initializations are definitely a problem.
+
+The number of clusters is (typically) not known a priori (that’s basically the characteristic of unsupervised learning problems), but there are a few"performance or evaluation metrics one can use to infer a satisfying grouping against the value of K. This is also called the elbow method.
+
+There is no underlying probability model in K-means. The goal is to group data into K clusters.
+
+K-means have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries (soft clustering), where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$. Additionally, in probabilistic clustering, clusters can overlap (k-means doesn’t allow this).
+
+K-means lack of flexibility in cluster shape. K-means is that the cluster models must be circular. . K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
+
+K-means is sensitive to outliers and noise.
+
 
 ## Deep Learning
 
