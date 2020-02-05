@@ -402,6 +402,8 @@ $$
 \min_{\theta_{0}, \theta_{1}, \theta_{2}} \left[ \lambda \left((\theta_{1})^{2} + (\theta_{2})^{2} \right) + \frac{1}{m} \sum_{i=1}^{m} \left( \theta_{0} + \theta_{1}x_{1}^{(i)} + \theta_{2}x_{2}^{(i)} - y^{(i)}\right)^{2}\right]
 $$
 
+By adding the size of the weights to the loss function, we force the minimization algorithm to seek for such solution that along with minimizing the loss function, would make the "size" of weights smaller. 
+
 $\lambda$ plays the role of a trade-off between model complexity and underfitting. Once this optimal value for $\lambda$ is found by cross-validation or validation set, we can say that we have found a certain optimal value for regularization term.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-13%20at%2014.36.11.png?raw=true)
