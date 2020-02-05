@@ -173,7 +173,7 @@ H_{i} = - \sum_{k=1}^{J} p_{k} log_{2}\left(p_{k} \right)
 
 where $p_{k} \neq 0$. 
 
-So should you use Gini impurity or entropy? The truth is, most of the time it does not make a big difference: they lead to similar trees. Gini impurity is slightly faster to compute, so it is a good default. However, when they differ, Gini impurity tends to isolate the most frequent class in its own branch of the tree, while entropy tends to produce slightly more balanced trees.
+So should you use Gini impurity or entropy? The truth is, most of the time it does not make a big difference: they lead to similar trees. Gini impurity is slightly faster to compute since you do not need to compute the log, so it is a good default. However, when they differ, Gini impurity tends to isolate the most frequent class in its own branch of the tree, while entropy tends to produce slightly more balanced trees.
 
 # Impurity - Entropy & Gini
 
