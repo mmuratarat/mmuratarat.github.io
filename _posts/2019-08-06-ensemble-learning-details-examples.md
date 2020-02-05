@@ -14,9 +14,9 @@ In bootstrap sampling, some original examples may appear more than once and some
  
  
 # Ensemble Learning
-If you aggregate the predictions of a group of predictors (such as classifiers and regressors), you will often get better predictions than the best individual predictor. A group of predictors is called an ensemble, thus, this technique is called Ensemble Learning, and an Ensemble Learning algorithm is called an Ensemble method.
+If you aggregate the predictions of a group of predictors (such as classifiers and regressors), you will often get better predictions than the best individual predictor. A group of predictors is called an ensemble, thus, this technique is called Ensemble Learning, and an Ensemble Learning algorithm is called an Ensemble method. They can be seen as a type of meta-algorithms, in the sense that they are methods composed of other methods.
 
-Most ensemble methods use a single base learning algorithm to produce homogeneous base learners, i.e. learners of the same type, leading to homogeneous ensembles.
+Most ensemble methods use a single base learning algorithm to produce homogeneous base learners, i.e. learners of the same type, leading to homogeneous ensembles. 
 
 There are also some methods that use heterogeneous learners, i.e. learners of different types, leading to heterogeneous ensembles. In order for ensemble methods to be more accurate than any of its individual members, the base learners have to be as accurate as possible and as diverse as possible.
 
