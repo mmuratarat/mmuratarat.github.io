@@ -414,6 +414,17 @@ You can make sure that indeed the equation $\frac{1}{m} \sum_{i=1}^{m} \left( \t
 
 Notice that you need at least two different training examples because with one example, you will obtain two parallel lines not ellipse.
 
+# A Probabilistic Interpretation of Regularization
+
+In this section, we will look at a probabilistic (Bayesian) interpretation of regularization. We'll take a look at both L1 and L2 regularization in the context of ordinary linear regression. 
+
+In the context of a ordinary linear regression, we have MSE that we try to minimize:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0001-1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0002-1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0003-1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0004-1.png?raw=true)
+
 # REFERENCES
 
 1. [https://web.stanford.edu/~hastie/Papers/ESLII.pdf](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){:target="_blank"}
