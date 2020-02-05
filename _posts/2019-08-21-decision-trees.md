@@ -547,7 +547,8 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 # How should the splitting procedure stop?
 
-A stopping condition is needed to terminate the tree growing process. A possible strategy is to continue expanding a node until either all the reconds belong to the same class or all the records have identical attribute values. Although both conditions are sufficient to stop any decision tree induction algorithm, other criteria can be imposed to allow the tree-growing procedure to terminate earlier. 
+The basic version of the decision tree algorithm keeps subdividing treenodes until every leaf is pure. We
+don’t have to do that. A stopping condition is needed to terminate the tree growing process. A possible strategy is to continue expanding a node until either all the reconds belong to the same class or all the records have identical attribute values. Although both conditions are sufficient to stop any decision tree induction algorithm, other criteria can be imposed to allow the tree-growing procedure to terminate earlier. 
 
 # Pruning Trees
 
