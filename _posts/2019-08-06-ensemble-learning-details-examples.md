@@ -610,7 +610,7 @@ Predictions are made by calculating the weighted average of the weak classifiers
 For a new input instance, each weak learner calculates a predicted value as either +1.0 or -1.0. The predicted values are weighted by each weak learners stage value. The prediction for the ensemble model is taken as a the sum of the weighted predictions. If the sum is positive, then the first class is predicted, if negative the second class is predicted.
 
 $$
-P(x) = \hat{y} = \sum_{m=1}^{M} \alpha_{m} P_{m}(x)
+P(x) = \hat{y} = sign(\sum_{m=1}^{M} \alpha_{m} P_{m}(x))
 $$
 
 where $M$ the number of models (i.e., ensemble size) and $P_{m}(x) \in [-1,1]$ and $\alpha_{m}$'s are stage values for the model $m$. 
