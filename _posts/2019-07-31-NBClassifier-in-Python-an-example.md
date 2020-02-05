@@ -89,6 +89,8 @@ Using one of the three common distributions is not mandatory; for example, if a 
 
 * As new data becomes available, it can be relatively straightforward to use this new data with the old data to update the estimates of the parameters for each variable’s probability distribution. This allows the model to easily make use of new data or the changing distributions of data over time.
 
+* It can handle numeric and categorical variables very well.
+
 # Disadvantages
 
 * Ensembling, boosting, bagging will not work here since the purpose of these methods is to reduce variance. Naive Bayes has no variance to minimize.
