@@ -77,7 +77,7 @@ As before, it can be more convenient to use logarithm,
 \theta_{MAP} = \underset{\theta}{\operatorname{argmax}} \sum_{i=1} log \left(P(x_{i} \mid \theta)\right) + log \left( P(\theta)\right)
 \end{equation}
 
-As one can see easily, MAP estimate is a special case of MLE, which uses the mode as a point estimate of posterior distribution.
+As one can see easily, MAP estimate is a special case of MLE, which uses the mode of the posterior distribution of the parameters as a point estimate.
 
 MAP inference has the advantage of leveraging information that is brought by the prior and cannot be found in the data.
 
