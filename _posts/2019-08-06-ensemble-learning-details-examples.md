@@ -371,9 +371,9 @@ Decision trees tend to have high variance. A small change in the training data c
 
 This makes decision trees susceptible to high variance if they are not pruned. This high variance can be harnessed and reduced by creating multiple trees with different samples of the training dataset (different views of the problem) and combining their predictions. This approach is called bootstrap aggregation or bagging for short.
 
-A limitation of bagging is that the same greedy algorithm is used to create each tree, meaning that it is likely that the same or very similar split points will be chosen in each tree making the different trees very similar (trees might be correlated). This, in turn, makes their predictions similar, mitigating the variance originally sought.
+A limitation of bagging is that the same greedy algorithm is used to create each tree, meaning that it is likely that the same or very similar split points will be chosen in each tree when there is one dominant variable, making the different trees very similar (trees might be correlated). This, in turn, makes their predictions similar, mitigating the variance originally sought.
 
-We can modify the tree-growing procedure. We can force the decision trees to be different by limiting the features that the greedy algorithm can evaluate at each split point when creating the tree, **BE CAREFUL!** not for each tree, but for each split (node) of each tree. Each tree gets the full set of features but at each node, only a random subset of features is considered. This is called the Random Forest algorithm. Random Forests algorithm is a classifier based on primarily two methods: (1) Bagging, and (2) Random subspace method.
+We can modify the tree-growing procedure. We can force the decision trees to be different by limiting the features that the greedy algorithm can evaluate at each split point when creating the tree, **BE CAREFUL!** not for each tree, but for each split (node) of each tree. Each tree gets the full set of features but at each node, only a random subset of features is considered (some of the ensemble members will not even have access to this dominant variable that we mentioned above). This is called the Random Forest algorithm. Random Forests algorithm is a classifier based on primarily two methods: (1) Bagging, and (2) Random subspace method. Random sampling of both observations and variables cause the individual trees to be less correlated and can therefore result in larges variance reduction compared to bagging. It should be noted however that this random perturbation of the training procedure will increase both the bias and the variance of each *individual* tree. That being said, experience has shown that the reduction in correlation is the dominant effect so that the overall prediction loss is often reduced.
 
 Each individual tree is grown on a bootstrap sample using Binary Recursive Partitioning (BRP). In random forests, the BRP algorithm starts by randomly selecting a subset of candidate variables and evaluating all possible splits of all candidate variables. A binary partitioning of the data is then created using the best split. The algorithm proceeds recursively by, within each parent partition, again randomly selecting a subset of variables, evaluating all possible splits, and creating two child partitions based on the best split. In sum, random forests uses random feature selection at each node of each tree, and each tree is built on a bootstrap sample.
 
@@ -389,7 +389,7 @@ For classification, the default value for $m$ is $\lfloor \sqrt{M} \rfloor$, and
 
 ## Predictions in Random Forest
 
-When it comes time to make a prediction, the random forest takes an average of all the individual decision tree estimates in the case for a regression task. For classification, the random forest will take a majority vote for the predicted class.
+When it comes time to make a prediction, the random forest takes plain average of all the individual decision tree estimates in the case for a regression task. For classification, the random forest will take a majority vote for the predicted class.
 
 ## Advantages and Disadvantages of Random Forest
 
@@ -408,6 +408,8 @@ Random Forest is usually robust to outliers and can handle them automatically.
 Random Forest uses bootstrap sampling and feature sampling, i.e row sampling and column sampling. Therefore Random Forest is not affected by multicollinearity that much since it is picking different set of features for different models and of course every model sees a different set of data points. But there is a chance of multicollinear features getting picked up together, and when that happens we will see some trace of it. Feature importance will definitely be affected by multicollinearity. Intuitively, if the features have same effect or there is a relation in between the features, it can be difficult to rank the relative importance of features. In other words, it’s not easy to say which one is even if we can access the underlying effect by measuring more than one variable, or if they are mutual symptoms of a third effect.
 
 No feature scaling (standardization and normalization) required in case of Random Forest as it uses rule based approach instead of distance calculation.
+
+It has an effective method for estimating missing data and maintains accuracy when large proportion of the data are missing.
 
 It is parallelizable: You can distribute the computations across multiple processors and build all the trees in parallel.
 
