@@ -418,7 +418,7 @@ Notice that you need at least two different training examples because with one e
 
 # A Probabilistic Interpretation of Regularization
 
-In this section, we will look at a probabilistic (Bayesian) interpretation of regularization. We'll take a look at both L1 and L2 regularization in the context of ordinary linear regression. 
+In this section, we will look at a probabilistic (Bayesian) interpretation of regularization. We'll take a look at both L1 and L2 regularization in the context of ordinary linear regression. Remember that in a Bayesian analysis we multiply the likelihood function by a prior probability for the parameter in order to obtain the posterior distribution.
 
 In the context of a ordinary linear regression, we have MSE that we try to minimize:
 
