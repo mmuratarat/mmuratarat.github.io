@@ -3141,6 +3141,7 @@ Linear regression is perhaps one of the most well known and well understood algo
 * Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. 
      More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There are a couple of tests that comes handy to establish the presence or absence of heteroscedasticity – The Breush-Pagan test and the NCV test.
      There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. It means that the model has not perfectly captured the information in the data.
+     Typically, transformed data will satisfy the assumption of homoscedasticity
      
 * Normal distribution of error terms $\varepsilon \sim N(0, \sigma^{2})$: The fourth assumption is that the error(residuals) follow a normal distribution.However, a less widely known fact is that, as sample sizes increase, the normality assumption for the residuals is not needed. More precisely, if we consider repeated sampling from our population, for large sample sizes, the distribution (across repeated samples) of the ordinary least squares estimates of the regression coefficients follow a normal distribution. As a consequence, for moderate to large sample sizes, non-normality of residuals should not adversely affect the usual inferential procedures. This result is a consequence of an extremely important result in statistics, known as the central limit theorem.
      Normal distribution of the residuals can be validated by plotting a q-q plot.
@@ -4742,6 +4743,12 @@ K-means lack of flexibility in cluster shape. K-means is that the cluster models
 
 K-means is sensitive to outliers and noise.
 
+#### Why multicollinearity does not affect the predictive performance?
+
+In the literature, you can read statements like "Multicollinearity does not affect the predictive power but individual predictor variable’s impact on the response variable could be calculated wrongly". This may seem contradictory and As parameters of independent variables are estimated wrongly, you would think that it would affect the predictive performance. 
+
+There is a simple explanation for it. Let's assume that you have trained a model on a training dataset, and want to predict some values in a test/holdout dataset. Multicollinearity in your training dataset should only reduce predictive performance in the test dataset if the covariance between variables in your training and test datasets is different. If the covariance structure (and consequently the multicollinearity) is similar in both training and test datasets, then it does not pose a problem for prediction. Since a test dataset is typically a random subset of the full dataset, it's generally reasonable to assume that the covariance structure is the same. Therefore, multicollinearity is typically not an issue for this purpose.
+
 
 ## Deep Learning
 
@@ -4920,6 +4927,44 @@ The sigmoid activation function, which is defined as $f(x) = \frac{1}{1+e^{-x}}$
 The tanh (hyperbolic tangent) activation function, which is defined as $tanh(x)= \dfrac{sinh(x)}{cosh(x)} =\dfrac{e^{x}-e^{-x}}{e^{x}+e^{-x}} = 2 \times sigmoid(2x)-1$, is saturating, because it squashes real numbers to range between $[-1,1]$:
 
 ![](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/tanh.png)
+
+#### Derivative of ReLU function at zero does not exist. Is not it a problem for backpropagation?
+
+Yes, correct. Derivative of ReLU function at $x=0$ does not exist.
+
+A function is only differentiable if the derivative exists for each value in the function's domain (for instance, at each point). One criterion for the derivative to exist at a given point is continuity at that point. However, the continuity is not sufficient for the derivative to exist. For the derivative to exist, we require the left-hand and the right-hand limit to exist and be equal.
+
+General definition of the derivative of a continuous function $f(x)$ is given by:
+
+$$
+f^{\prime}(x) = \frac{d f}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+where $\lim_{h \rightarrow 0}$ means "as the change in h becomes infinitely small (for instance h approaches to zero)".
+
+Let's get back to ReLU function. If we substitute the ReLU equation into the limit definition of derivative above:
+
+$$
+f^{\prime} (x) = \frac{d f}{dx} = \lim_{x \rightarrow 0} \frac{max(0, x + \Delta x) - max(0, x)}{\Delta x}
+$$
+
+Next, let us compute the left- and right-side limits. Starting from the left side, where $\Delta x$ is an infinitely small, negative number, we get,
+
+$$
+f^{\prime} (0) = \lim_{x \rightarrow 0^{-}} \frac{0 - 0}{\Delta x} = 0.
+$$
+
+And for the right-hand limit, where $\Delta x$ is an infinitely small, positive number, we get:
+
+$$
+f^{\prime} (0) = \lim_{x \rightarrow 0^{+}} \frac{0+\Delta x - 0}{\Delta x} = 1.
+$$
+
+The left- and right-hand limits are not equal at $x=0$; hence, the derivative of ReLU function at $x=0$ is not defined. 
+
+So we can say that ReLU is a convex function that has subdifferential at $x > 0$ and $x < 0$. The subdifferential at any point $x < 0$ is the singleton set $\{0\}$, while the subdifferential at any point $x > 0$ is the singleton set $\{1\}$. ReLU is actually not differentiable at $x = 0$, but it has subdifferential $[0,1]$. Any value in that interval can be taken as a subderivative, and can be used in gradient descent if we generalize from gradient descent to "subgradient descent". In the implementation, we choose the subgradient at $x = 0$ to be $0$ for simplicity. 
+
+However, some people explain with "theory of limits" that the derivative at $x = 0$ is nearly zero and so we can take it while doing SGD but that’s mathematically wrong. Anything between the interval $[0,1]$ can be taken as subderivative to compute SGD. In built-in library functions (for example: `tf.nn.relu()`) derivative at $x = 0$ is taken zero to ensure a sparse matrix, otherwise if you write your own function for ReLU, you can code it anything random between the interval $[0,1]$ for $x = 0$. That would be mathematically fine!
 
 #### What is a Multi-Layer-Perceptron
 
