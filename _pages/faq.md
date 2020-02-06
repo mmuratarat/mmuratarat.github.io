@@ -3040,7 +3040,7 @@ A much better way to evaluate the performance of a classifier is look at the con
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/confusion_matrix_elements.png?raw=true)
 
-Definition of terms:
+Let’s first understand the concepts of True Positive (TP), True Negative (TN), False Positive (FP), and False Negative (FN). In all of those, the first word refers to wether the classifier got it right or not, and the second to the predicted value. For example a True Positive is when the classifier predicted a Positive and it was True. A False Negative is when an algorithm predicted a Negative but that prediction was False (it was in fact a Positive).
 
 * **Positive (P)**: Observation is positive
 
@@ -3072,10 +3072,9 @@ Definition of terms:
   TPR = \frac{TP}{TP+FN}
   $$
   
-  Recall actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive). Recall shall be the model metric we use to select our best model when there is a high cost associated with False Negative. For instance, in fraud detection or sick patient detection. If a fraudulent transaction (Actual Positive) is predicted as non-fraudulent (Predicted Negative), the consequence can be very bad for the bank.
-Similarly, in sick patient detection. If a sick patient (Actual Positive) goes through the test and predicted as not sick (Predicted Negative). The cost associated with False Negative will be extremely high if the sickness is contagious.
+  Recall actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive). Recall shall be the model metric we use to select our best model when there is a high cost associated with False Negative. For instance, in fraud detection or sick patient detection. If a fraudulent transaction (Actual Positive) is predicted as non-fraudulent (Predicted Negative), the consequence can be very bad for the bank. Similarly, in sick patient detection. If a sick patient (Actual Positive) goes through the test and predicted as not sick (Predicted Negative). The cost associated with False Negative will be extremely high if the sickness is contagious.
   
-* **True Negative Rate (TNR)**: When it is actually negative, how often does the classifier predict negative? It is also known as _Specificity_. It is equivalent of 1 - FPR.
+* **True Negative Rate (TNR / Specificity)**: When it is actually negative, how often does the classifier predict negative? It is also known as _Specificity_. It is equivalent of 1 - FPR.
 
   $$
   TNR = \frac{TN}{TN + FP}
