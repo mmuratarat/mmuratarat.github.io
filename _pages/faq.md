@@ -4749,6 +4749,16 @@ In the literature, you can read statements like "Multicollinearity does not affe
 
 There is a simple explanation for it. Let's assume that you have trained a model on a training dataset, and want to predict some values in a test/holdout dataset. Multicollinearity in your training dataset should only reduce predictive performance in the test dataset if the covariance between variables in your training and test datasets is different. If the covariance structure (and consequently the multicollinearity) is similar in both training and test datasets, then it does not pose a problem for prediction. Since a test dataset is typically a random subset of the full dataset, it's generally reasonable to assume that the covariance structure is the same. Therefore, multicollinearity is typically not an issue for this purpose.
 
+# How does multicollinearity affect feature importances in random forest classifier?
+
+Tree based models such as decision tree, Random Forest robust to multicollinearity issues in the aspect of prediction accuracy since it has the nature of selecting samples with replacement as well as selecting subsets of features on those samples randomly. However, it definitely can affect variable importances in random forest models. Intuitively, it can be difficult to rank the relative importance of different variables if they have the same or similar underlying effect, which is implied by multicollinearity. That is- if we can access the underlying effect by measuring more than one variable, it's not easy to say which is causing the effect, or if they are mutual symptoms of a third effect.
+
+When the dataset has two (or more) correlated features, then from the point of view of the model, any of these correlated features can be used as the predictor, with no concrete preference of one over the others. However once one of them is used, the importance of others is significantly reduced since effectively the impurity they can remove is already removed by the first feature.
+
+As a consequence, they will have a lower reported importance. This is not an issue when we want to use feature selection to reduce overfitting, since it makes sense to remove features that are mostly duplicated by other features, But when interpreting the data, it can lead to the incorrect conclusion that one of the variables is a strong predictor while the others in the same group are unimportant, while actually they are very close in terms of their relationship with the response variable.
+
+The effect of this phenomenon is somewhat reduced thanks to random selection of features at each node creation, but in general the effect is not removed completely.
+
 
 ## Deep Learning
 
