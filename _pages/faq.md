@@ -6318,6 +6318,11 @@ Fact table would be, say Sales table which would contain the quantity, price, da
 
 So basically your fact table will have much more data than the dimension table and data in dimension table changes less frequently compared to Fact tables. Surrogate keys from dimension tables are used in fact tables as foreign keys.
 
+#### What is Data Normalization?
+
+Normalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data. It divides larger tables to smaller tables and links them using relationships. The most used data normalization technique is 3rd Normal Form (3NF). It states that all column reference in referenced data that are not dependent on the primary key should be removed.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/3NF.gif?raw=true)
 
 ## Miscellaneous
 
