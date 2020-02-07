@@ -6289,7 +6289,22 @@ OR table2.col2 IS NULL;
 ```
 
 8. SELF JOIN:  It is a mechanism of joining a table to itself. You would use self join when you want to create a result of set joining records in a table with same other records from the same table.
-9. CROSS JOIN: This type of join returns all rows for all possible combinations of two tables.
+
+```sql
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+```
+
+9. CROSS JOIN: This type of join returns all rows for all possible combinations of two tables. It is also known as Cartesian Join.
+
+```sql
+SELECT * 
+FROM table1 
+CROSS JOIN table2;
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cross-join-round.png?raw=true)
 
 #### What is the difference between a Fact Table and a Dimension Table?
 
