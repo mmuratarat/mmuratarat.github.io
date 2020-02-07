@@ -564,15 +564,15 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 
 # Advantages
 
-1. Easy to understand, interpret, visualize.: Decision tree is a white-box model and its output is very easy to understand even for people from non-analytical background. It does not require any statistical knowledge to read and interpret them. Its graphical representation is very intuitive and users can easily relate their hypothesis.
+1. Easy to understand, interpret, visualize.: Decision tree is a white-box model and its output is very easy to understand even for people from non-analytical background. It does not require any statistical knowledge to read and interpret them. Its graphical representation is very intuitive and users can easily relate their hypothesis (if the trees are small).
 
-2. Decision trees implicitly perform variable screening or feature selection.
+2. They perform internal feature selection or variable screening as an integral part of the procedure. They are thereby resistant, if not completely immune, to the inclusion of many irrelevant predictor variables.
 
 3. Decision trees require relatively little effort from users for data preparation.
 
 4. Less data cleaning required: It requires less data cleaning compared to some other modeling techniques. It is not influenced by outliers and missing values to a fair degree.
 
-5. Data type is not a constraint: It can handle both numerical and categorical variables. Can also handle multi-output problems.
+5. Data type is not a constraint: Decision Trees can naturally handle both numerical and categorical variables. Can also handle multi-output problems.
 
 6. Non-Parametric Method: Decision tree is considered to be a non-parametric method. This means that decision trees have no assumptions about the space distribution and the classifier structure.
 
@@ -581,8 +581,6 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 8. The number of hyper-parameters to be tuned is almost null.
 
 9. Decision Trees can handle multicollinearity. They make no assumptions on relationships between features. They are greedy algorithms. They will fit on the most effective variable they encounter, leaving other plausible variables out. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
-
-10. Decision Trees naturally handle categorical features
 
 # Disadvantages
 
