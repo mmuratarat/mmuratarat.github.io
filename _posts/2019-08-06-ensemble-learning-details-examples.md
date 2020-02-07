@@ -12,7 +12,6 @@ comments: true
 
 In bootstrap sampling, some original examples may appear more than once and some original examples are not present in the sample. If you want to create a sub-dataset with m elements, you should select a random element from the original dataset m times. And if the goal is generating n dataset, you follow this step n times. At the end, we have n datasets where the number of elements in each dataset is m. 
  
- 
 # Ensemble Learning
 If you aggregate the predictions of a group of predictors (such as classifiers and regressors), you will often get better predictions than the best individual predictor. A group of predictors is called an ensemble, thus, this technique is called Ensemble Learning, and an Ensemble Learning algorithm is called an Ensemble method. They can be seen as a type of meta-algorithms, in the sense that they are methods composed of other methods.
 
@@ -594,6 +593,8 @@ There are many boosting algorithms available but here we will focus on Adaptive 
 AdaBoost was the first really successful boosting algorithm developed for binary classification. Modern boosting methods build on AdaBoost, most notably stochastic gradient boosting machines.
 
 One way for a new predictor to correct its predecessor is to pay a bit more attention to the training instances that the predecessor underfitted. This results in new predictors focusing more and more on the hard cases. For example, to build an AdaBoost classifier, it begins by training a decision tree in which each observation is assigned an equal weight. A first base classifier (such as a Decision Tree) is trained and used to make predictions on the training set. The relative weight of misclassified training instances is then increased. A second classifier is trained using the updated weights and again it makes predictions on the training set, weights are updated, and so on. The first classifier gets many instances wrong, so their weights get boosted. The second classifier therefore does a better job on these instances, and so on. Once all predictors are trained, the ensemble makes predictions very much like bagging or pasting, except that predictors have different weights depending on their overall accuracy on the weighted training set. There is one important drawback to this sequential learning technique: it cannot be parallelized (or only partially), since each predictor can only be trained after the previous predictor has been trained and evaluated. As a result, it does not scale as well as bagging or pasting.
+
+When we train each ensemble on a subset of the training set, we also call this _Stochastic Gradient Boosting_, which can help improve generalizability of the model.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stochastic_adaboost.png?raw=true)
 
