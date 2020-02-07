@@ -245,6 +245,8 @@ permalink: /faq/
 
 [SQL](#SQL)
 
+What is SQL?
+What is Database?
 1. [What is a primary key and a foreign key?](#what-is-a-primary-key-and-a-foreign-key)
 2. [In which order do SQL queries happen?](#in-which-order-do-sql-queries-happen)
 4. [What is the difference between UNION and UNION ALL?](#what-is-the-difference-between-union-and-union-all)
@@ -6007,6 +6009,12 @@ We have 4 different cases while training a model: (1) _Underfitting_ - Validatio
 
 ## SQL
 
+#### What is SQL?
+SQL stands for Structured Query Language , and it is used to communicate with the Database. This is a standard language used to perform tasks such as retrieval, updation, insertion and deletion of data from a database.
+
+#### What is Database?
+Database is nothing but an organized form of data for easy access, storing, retrieval and managing of data. This is also known as structured form of data which can be accessed in many ways.
+
 #### What is a primary key and a foreign key?
 
 A primary key is a special database table column or combination of columns designated to uniquely identify all table records. A primary key's main features are:
@@ -6320,9 +6328,23 @@ So basically your fact table will have much more data than the dimension table a
 
 #### What is Data Normalization?
 
-Normalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data. It divides larger tables to smaller tables and links them using relationships. The most used data normalization technique is 3rd Normal Form (3NF). It states that all column reference in referenced data that are not dependent on the primary key should be removed.
+Normalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data. It divides larger tables to smaller tables and links them using relationships. The most used data normalization technique is 3rd Normal Form (3NF). It states that all columns in referenced data that are not dependent on the primary key should be removed.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/3NF.gif?raw=true)
+
+#### What is a View?
+
+In SQL, a view is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database. 
+
+It does not hold the actual data. It does not use the physical memory, only the query is stored in the data dictionary.
+
+If you could make change to a view, then it will change the actual table, if the view is not updatable (READ-ONLY), then you can't make change to it.
+
+The view has primarily two purposes:
+
+1. Simplify the complex SQL queries.
+2. Provide restriction to users from accessing sensitive data.
+
 
 ## Miscellaneous
 
