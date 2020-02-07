@@ -6255,7 +6255,7 @@ UNIQUE (ID, FirstName);
 
 #### How to drop a table?
 
-This operation cannot be rolled back.
+If a table is dropped, all things associated with the tables are dropped as well. This includes - the relationships defined on the table with other tables, the integrity checks and constraints, access privileges and other grants that the table has. Therefore, this operation cannot be rolled back.
 
 ```sql
 DROP TABLE IF EXISTS mytable;
@@ -6544,6 +6544,12 @@ ON students (enroll_no);
 * **One-to-Many** and **Many-to-One** : This is the most commonly used relationship where a record in a table is associated with multiple records in the other table.
 * **Many-to-Many** : This is used in cases when multiple instances on both sides are needed for defining a relationship.
 * **Self Referencing Relationships** : This is used when a table needs to define a relationship with itself.
+
+#### What is an Alias in SQL?
+
+An alias is a temporary name assigned to the table or table column for the purpose of a particular SQL query. In addition, aliasing can be employed as an obfuscation technique to secure the real names of database fields. A table alias is also called a _correlation name_.
+
+An alias is represented explicitly by the `AS` keyword but in some cases the same can be performed without it as well. Nevertheless, using the `AS` keyword is always a good practice.
 
 
 ## Miscellaneous
