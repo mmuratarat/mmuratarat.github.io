@@ -254,7 +254,7 @@ permalink: /faq/
 8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
 9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
 10. [How to drop a table?](#how-to-create-a-new-database-table)
-11. What are the Dta Types in SQL?
+11. What are the data types in SQL?
 12. What are the Table Constaints?
 13. How to drop a table?
 14. How to add a new column to a table?
@@ -6113,7 +6113,7 @@ CREATE TABLE IF NOT EXISTS mytable (
 );
 ```
 
-#### What are the Dta Types in SQL?
+#### What are the data types in SQL?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-03%20at%2009.22.09.png?raw=true)
 
