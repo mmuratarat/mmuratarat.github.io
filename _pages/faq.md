@@ -6177,6 +6177,8 @@ CREATE TABLE IF NOT EXISTS mytable (
 
 #### How to drop a table?
 
+This operation cannot be rolled back.
+
 ```sql
 DROP TABLE IF EXISTS mytable;
 ```
@@ -6424,6 +6426,20 @@ WHERE condition;
 
 A subquery is a query within another query. The outer query is called as main query, and inner query is called subquery. SubQuery is always executed first and one time, and the result of subquery is passed on to the main query.
 
+#### Which operator is used in query for pattern matching?
+
+LIKE operator is used for pattern matching, and it can be used as -.
+
+% - Matches zero or more characters.
+\_ (Underscore) – Matching exactly one character.
+
+```sql
+Select * from Student where studentname like 'a%'
+```
+
+```sql
+Select * from Student where studentname like 'ami_'
+```
 
 ## Miscellaneous
 
