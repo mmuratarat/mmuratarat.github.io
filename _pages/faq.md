@@ -6015,6 +6015,12 @@ SQL stands for Structured Query Language , and it is used to communicate with th
 #### What is Database?
 Database is nothing but an organized form of data for easy access, storing, retrieval and managing of data. This is also known as structured form of data which can be accessed in many ways.
 
+#### What are the different subsets of SQL?
+
+* DDL (Data Definition Language) – It allows you to perform various operations on the database such as `CREATE`, `ALTER` and `DELETE` objects.
+* DML ( Data Manipulation Language) – It allows you to access and manipulate data. It helps you to `INSERT`, `UPDATE`, `DELETE` AND retrieve data from the database.
+* DCL ( Data Control Language) – It allows you to control access to the database. Example – Grant, Revoke access permissions.
+
 #### What is a primary key and a foreign key?
 
 A primary key is a special database table column or combination of columns designated to uniquely identify all table records. A primary key's main features are:
@@ -6073,6 +6079,14 @@ the order is:
 7. `LIMIT`
 
 In practice this order of execution is most likely unchanged from above. With this information, we can fine-tune our queries for speed and performance.
+
+#### What are the different operators available in SQL?
+
+There are three operators available in SQL, namely:
+
+1. Arithmetic Operators such as `+`, `-`, `*`, `/`, `%` and `^`.
+2. Logical Operators such as `=`, `!=`, `>`, `<`, `>=`, `<=` and `<>`.
+3. Comparison Operators such as `AND`, `NOT` and `OR`.
 
 #### What is the difference between UNION and UNION ALL?
 
@@ -6137,7 +6151,7 @@ DELETE FROM mytable
 WHERE condition;
 ```
 
-`WHERE` clause can be used for conditional set of parameters. Commit and Rollback can be performed after delete statement.
+Commit and Rollback can be performed after delete statement. `DELETE` command is a DML command.
 
 If you want to delete all the rows:
 
@@ -6145,7 +6159,7 @@ If you want to delete all the rows:
 DELETE FROM mytable
 ```
 
-The `TRUNCATE` command also removes all rows of a table. We cannot use a `WHERE` clause in this. This operation cannot be rolled back.
+The `TRUNCATE` command also removes all rows of a table. We cannot use a `WHERE` clause in this. This operation cannot be rolled back. This command is a DDL command.
 
 ```sql
 TRUNCATE TABLE table_name;
@@ -6174,6 +6188,27 @@ CREATE TABLE IF NOT EXISTS mytable (
 #### What are the Table Constaints?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-03%20at%2009.21.57.png?raw=true)
+
+#### What is CHECK constraint?
+
+You normally use the `CHECK` constraint at the time of creating the table using the `CREATE TABLE` statement. The following statement defines an `employees` table.
+
+```sql
+CREATE TABLE employees (
+   id serial PRIMARY KEY,
+   first_name VARCHAR (50),
+   last_name VARCHAR (50),
+   birth_date DATE CHECK (birth_date > '1900-01-01'),
+   joined_date DATE CHECK (joined_date > birth_date),
+   salary numeric CHECK(salary > 0)
+);
+```
+
+The `employees` table has three `CHECK` constraints:
+
+1. First, the birth date (`birth_date`) of the employee must be greater than "01/01/1900". If you try to insert a birth date before 0"1/01/1900", you will receive an error message.
+2. Second, the joined date (`joined_date`) must be greater than the birth date (`birth_date`). This check will prevent from updating invalid dates in terms of their semantic meanings.
+3. Third, the salary must be greater than zero, which is obvious.
 
 #### How to drop a table?
 
@@ -6440,6 +6475,19 @@ Select * from Student where studentname like 'a%'
 ```sql
 Select * from Student where studentname like 'ami_'
 ```
+
+### What is an Index?
+
+An index refers to a performance tuning method of allowing faster retrieval of records from the table. An index creates an entry for each value and hence it will be faster to retrieve data.
+
+There are three types of index namely:
+
+1. **Unique Index**: This index does not allow the field to have duplicate values if the column is unique indexed. If a primary key is defined, a unique index can be applied automatically.
+
+2. **Clustered Index**: This index reorders the physical order of the table and searches based on the basis of key values. Each table can only have one clustered index. Note that PostgreSQL does not have a clustered index
+
+3. **Non-Clustered Index**: Non-Clustered Index does not alter the physical order of the table and maintains a logical order of the data. Each table can have many nonclustered indexes.
+
 
 ## Miscellaneous
 
