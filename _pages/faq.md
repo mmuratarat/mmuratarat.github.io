@@ -6430,8 +6430,8 @@ A subquery is a query within another query. The outer query is called as main qu
 
 LIKE operator is used for pattern matching, and it can be used as -.
 
-% - Matches zero or more characters.
-\_ (Underscore) – Matching exactly one character.
+* % - Matches zero or more characters.
+* \_ (Underscore) – Matching exactly one character.
 
 ```sql
 Select * from Student where studentname like 'a%'
