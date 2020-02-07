@@ -596,9 +596,33 @@ AdaBoost was the first really successful boosting algorithm developed for binary
 
 One way for a new predictor to correct its predecessor is to pay a bit more attention to the training instances that the predecessor underfitted. This results in new predictors focusing more and more on the hard cases. For example, to build an AdaBoost classifier, it begins by training a decision tree in which each observation is assigned an equal weight. A first base classifier (such as a Decision Tree) is trained and used to make predictions on the training set. The observation weights are individually modified and the weight of misclassified training instances is then increased. A second classifier is then reapplied to the weighted observations and again it makes predictions on the training set, weights are updated, and so on. The first classifier gets many instances wrong, so their weights get boosted. The second classifier therefore does a better job on these instances, and so on. Once all predictors are trained, the ensemble makes predictions very much like bagging or pasting, except that predictors have different weights depending on their overall accuracy on the weighted training set. There is one important drawback to this sequential learning technique: it cannot be parallelized (or only partially), since each predictor can only be trained after the previous predictor has been trained and evaluated. As a result, it does not scale as well as bagging or pasting.
 
+
+We begin by describing the algorithm itself. Consider a two-class problem, with the output variable coded as $Y in \{−1, 1\}$. Given a vector of predictor variables $X$, a classifier $G(X)$ produces a prediction taking one of the two values $\{−1, 1\}$. The error rate on the training sample is:
+
+$$
+err = \frac{1}{N} \sum_{i=1}^{N} I(y_{i} \neq G(x_{i}))$
+$$
+
+
+A weak classifier is one whose error rate is only slightly better than random guessing. The purpose of boosting is to sequentially apply the weak classification algorithm to repeatedly modified versions of the data, thereby producing a sequence of weak classifiers $G_{m}(x), m = 1, 2, \cdots , M$. The algorithm belows shows the steps:
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stochastic_adaboost.png?raw=true)
 
-Scikit-Learn actually uses a multiclass version of AdaBoost called `SAMME` (which stands for _Stagewise Additive Modeling using a Multiclass Exponential loss function_). When there are just two classes, `SAMME` is equivalent to AdaBoost. Moreover, if the predictors can estimate class probabilities (i.e., if they have a `predict_proba()` method), Scikit-Learn can use a variant of `SAMME` called `SAMME.R` (the R stands for “Real”), which relies on class probabilities rather than predictions and generally performs better.
+
+Here, $I(\cdot)$ is the indicator function, where $I(y_{i} \neq G_{m}(x_{i})) = 1$ if $G_{m}(x_{i}) \neq y_{i}$ and 0 otherwise. 
+
+As can be seen from Step 2.d, observations misclassified by $G_{m}(x)$ have their weights scaled by a factor $exp(\alpha_{m})$, increasing their relative influence for inducing the next classifier $G_{m+1}(x)$ in the sequence.
+
+The algorithm defined above is known as "Discrete AdaBoost" because the base classifier $G_{m}(x)$ returns a discrete class
+label. If the base classifier instead returns a real-valued prediction (e.g., a probability mapped to the interval $[−1, 1]$), AdaBoost can be modified appropriately.
+
+Scikit-Learn actually uses a multiclass version of AdaBoost called `SAMME` (which stands for _Stagewise Additive Modeling using a Multiclass Exponential loss function_). When there are just two classes, `SAMME` is equivalent to AdaBoost.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/samme_algo.png?raw=true)
+
+Moreover, if the predictors can estimate class probabilities (i.e., if they have a `predict_proba()` method), Scikit-Learn can use a variant of `SAMME` called `SAMME.R` (the R stands for “Real”), which relies on class probabilities rather than predictions and generally performs better.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/samme_r_algo.png?raw=true)
 
 The number of iterations needed for AdaBoost depends on the problem. [Mease and Wyner (2008)](http://jmlr.org/papers/volume9/mease08a/mease08a_with_discussion.pdf) argue that AdaBoost should be run for a long time, until it converges, and that 1,000 iterations should be enough.
 
