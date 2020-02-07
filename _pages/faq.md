@@ -6076,7 +6076,31 @@ In practice this order of execution is most likely unchanged from above. With th
 
 #### What is the difference between UNION and UNION ALL?
 
+UNION is a Set Operator, which combines data sets vertically. To implement a Set Operator like UNION, both queries must return the same number of columns. The corresponding columns in the queries must have compatible data types.
+
 UNION removes duplicate records (where all columns in the results are the same), UNION ALL does not.
+
+```sql
+SELECT
+   column_1,
+   column_2
+FROM
+   tbl_name_1
+UNION (UNION ALL)
+SELECT
+   column_1,
+   column_2
+FROM
+   tbl_name_2;
+```
+
+If the number of columns are different, you can use a trick with the NULL to make the datasets UNION compatible.
+
+```sql
+Select Col1, Col2, Col3, Col4, Col5 from Table1
+Union
+Select Col1, Col2, Col3, Null as Col4, Null as Col5 from Table2
+```
 
 #### What's the difference between VARCHAR and CHAR?
 
@@ -6113,13 +6137,15 @@ DELETE FROM mytable
 WHERE condition;
 ```
 
+`WHERE` clause can be used for conditional set of parameters. Commit and Rollback can be performed after delete statement.
+
 If you want to delete all the rows:
 
 ```sql
 DELETE FROM mytable
 ```
 
-The `TRUNCATE` command removes all rows of a table. We cannot use a `WHERE` clause in this.
+The `TRUNCATE` command also removes all rows of a table. We cannot use a `WHERE` clause in this. This operation cannot be rolled back.
 
 ```sql
 TRUNCATE TABLE table_name;
@@ -6324,6 +6350,13 @@ FROM table1
 CROSS JOIN table2;
 ```
 
+The following statement is also equivalent to the CROSS JOIN above:
+
+```sql
+SELECT * 
+FROM T1, T2;
+```
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cross-join-round.png?raw=true)
 
 #### What is the difference between a Fact Table and a Dimension Table?
@@ -6379,6 +6412,13 @@ The view has primarily two purposes:
 
 1. Simplify the complex SQL queries.
 2. Provide restriction to users from accessing sensitive data.
+
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
 
 #### What is subquery?
 
