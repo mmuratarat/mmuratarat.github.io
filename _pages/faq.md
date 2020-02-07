@@ -4759,6 +4759,18 @@ As a consequence, they will have a lower reported importance. This is not an iss
 
 The effect of this phenomenon is somewhat reduced thanks to random selection of features at each node creation, but in general the effect is not removed completely.
 
+#### How come does the loss functions have $1/m$ and $2$ from the square cancels out? 
+
+In gradient descent, we take find the derivative of loss function with respect to parameters $\theta$ of model. Some formulations you find online might contain $1/2$ and $1\m$ terms.
+
+The $1/2$ does not matter and actually, neither does the $m$ (number of observations - they're both constants. The optimal value of $\theta$ would remain the same in both cases.
+
+The expression for the gradient becomes prettier with the $1\2$, because the $2$ from the square term cancels out. When writing code or algorithms, we're usually concerned more with the gradient, so it helps to keep it concise. You can check progress just by checking the norm of the gradient. The loss function itself is sometimes omitted from code because it is used only for validation of the final answer.
+
+The $m$ (number of observations) is useful if you solve this problem with gradient descent. Then your gradient becomes the average of $m$ terms instead of a sum, so its' scale does not change when you add more data points. 
+
+These aesthetic decisions are used here to maintain consistency with future equations where you'll add regularization terms. If you include the $m$, the regularization parameter $\lambda$ will not depend on the dataset size $m$ and it will be more interpretable across problems.
+
 
 ## Deep Learning
 
