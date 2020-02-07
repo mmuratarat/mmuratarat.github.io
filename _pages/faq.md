@@ -6106,9 +6106,29 @@ WHERE condition;
 
 #### How to delete rows in a table?
 
+The command below will remove specific records defined by WHERE clause:
+
 ```sql
 DELETE FROM mytable
 WHERE condition;
+```
+
+If you want to delete all the rows:
+
+```sql
+DELETE FROM mytable
+```
+
+The `TRUNCATE` command removes all rows of a table. We cannot use a `WHERE` clause in this.
+
+```sql
+TRUNCATE TABLE table_name;
+```
+
+To remove all data from multiple tables at once, you separate each table by a comma (,) as follows:
+
+```sql
+TRUNCATE TABLE table_name1, table_name2, ...
 ```
 
 #### How to create a new database table?
@@ -6359,6 +6379,10 @@ The view has primarily two purposes:
 
 1. Simplify the complex SQL queries.
 2. Provide restriction to users from accessing sensitive data.
+
+#### What is subquery?
+
+A subquery is a query within another query. The outer query is called as main query, and inner query is called subquery. SubQuery is always executed first and one time, and the result of subquery is passed on to the main query.
 
 
 ## Miscellaneous
