@@ -6376,7 +6376,7 @@ OR table2.col2 IS NULL;
 ```sql
 SELECT column_name(s)
 FROM table1 T1, table1 T2
-WHERE condition;
+WHERE T1.id=T2.id;
 ```
 
 9. CROSS JOIN: This type of join returns all rows for all possible combinations of two tables. It is also known as Cartesian Join.
@@ -6445,10 +6445,13 @@ It does not hold the actual data. It does not use the physical memory, only the 
 
 If you could make change to a view, then it will change the actual table, if the view is not updatable (READ-ONLY), then you can't make change to it.
 
+A view refers to a logical snapshot based on a table or another view. It is used for the following reasons:
+
 The view has primarily two purposes:
 
 1. Simplify the complex SQL queries.
 2. Provide restriction to users from accessing sensitive data.
+3. Ensure data independence
 
 ```sql
 CREATE VIEW view_name AS
