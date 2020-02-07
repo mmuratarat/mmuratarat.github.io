@@ -4761,15 +4761,14 @@ The effect of this phenomenon is somewhat reduced thanks to random selection of 
 
 #### How come does the loss functions have $1/m$ and $2$ from the square cancels out? 
 
-In gradient descent, we take find the derivative of loss function with respect to parameters $\theta$ of model. Some formulations you find online might contain $1/2$ and $1\m$ terms.
+In some books/tutorials/articles, you can see that the cost function for linear regression is defined as follows:
 
-The $1/2$ does not matter and actually, neither does the $m$ (number of observations - they're both constants. The optimal value of $\theta$ would remain the same in both cases.
+$$J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left(\theta^{T} \mathbf{x}^{(i)} - y^{(i)}\right)^{2}$$
 
-The expression for the gradient becomes prettier with the $1\2$, because the $2$ from the square term cancels out. When writing code or algorithms, we're usually concerned more with the gradient, so it helps to keep it concise. You can check progress just by checking the norm of the gradient. The loss function itself is sometimes omitted from code because it is used only for validation of the final answer.
+The $\frac{1}{m}$ is to "average" the squared error over the number of observations so that the number of observations doesn't affect the function.
 
-The $m$ (number of observations) is useful if you solve this problem with gradient descent. Then your gradient becomes the average of $m$ terms instead of a sum, so its' scale does not change when you add more data points. 
+So now the question is why there is an extra $\frac{1}{2}$. In short, it is merely for convenience, and actually, so is the $m$ - they're both constants. The expression for the gradient becomes prettier with the $\frac{1}{2}$, because the $2$ from the square term cancels out. However, the $m$ is useful if you solve this problem with gradient descent because it will take out the dependency on the number of observations. Then your gradient becomes the average of $m$ terms instead of a sum, so it's scale does not change when you add more data points.
 
-These aesthetic decisions are used here to maintain consistency with future equations where you'll add regularization terms. If you include the $m$, the regularization parameter $\lambda$ will not depend on the dataset size $m$ and it will be more interpretable across problems.
 
 
 ## Deep Learning
