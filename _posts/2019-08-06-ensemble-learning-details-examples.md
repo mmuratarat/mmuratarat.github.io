@@ -657,7 +657,9 @@ print('Accuracy of AdaBoost algorithm: {}'.format(accuracy_score(y_test, y_pred_
 {% endhighlight %}
 
 # Gradient Boosting
-Another very popular Boosting algorithm is Gradient Boosting. Just like AdaBoost, Gradient Boosting adds predictors to an ensemble in a gradual, additive and sequential manner, each one correcting its predecessor. However, instead of tweaking the instance weights at every iteration like AdaBoost does, this method tries to fit the new predictor to the residual errors made by the previous predictor because errors of early predictions indicate the "hard" examples.
+Another very popular Boosting algorithm is Gradient Boosting. It gets its name from the combination of Gradient Descent and boosting.
+
+Just like AdaBoost, Gradient Boosting adds predictors to an ensemble in a gradual, additive and sequential manner, each one correcting its predecessor. However, instead of tweaking the instance weights at every iteration like AdaBoost does, this method tries to fit the new predictor to the residual errors made by the previous predictor because errors of early predictions indicate the "hard" examples.
 
 Let's go through a simple regression example using Decision Trees as the base predictors (of course Gradient Boosting works great with regression tasks) This is called Gradient Tree Boosting or Gradient Boosted Regression Trees (GBRT). First let's fit `DecisionTreeRegressor` to the training set (for example, a noist quadratic training set):
 
