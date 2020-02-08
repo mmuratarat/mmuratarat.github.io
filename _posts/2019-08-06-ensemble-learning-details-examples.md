@@ -625,6 +625,17 @@ The number of iterations needed for AdaBoost depends on the problem. [Mease and 
 
 **NOTE**: If your AdaBoost ensemble is overfitting the training set, you can try reducing the number of estimators or more strongly regularizing the base estimator. If it underfits the training data, you can try increasing the number of base estimators or reducing the regularization hyperparameters of the base estimator. You may also try slightly increasing the learning rate. Learning rate is the opposite of penalty term in loss regularization. If you increase this penalty term, the amount of regularization will increase therefore, overfitting model might underfit. 
 
+**NOTE** : Many, perhaps even most, learning and statistical methods that are in common use can be viewed as procedures for minimizing a loss function (also called a cost or objective function) that in some way measures how well a model fits the observed data. A classic example is least-squares regression in which a sum of squared errors is minimized. AdaBoost, though not originally designed for this purpose, later, Later, it was discovered that AdaBoost can also be expressed as in terms of the more general framework of additive models with a particular loss function (the exponential loss) to be minimized.
+
+Viewing the algorithm in this light can be helpful for a number of reasons. First, such an understanding can help to clarify the goal of the algorithm and can be useful in proving convergence properties. And second, by decoupling the algorithm from its objective, we may be able to derive better or faster algorithms for the same objective, or alternatively, we might be able to generalize AdaBoost for new challenges.
+
+Details can be seen here [http://www.cs.toronto.edu/~mbrubake/teaching/C11/Handouts/AdaBoost.pdf](here). 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo4.png?raw=true)
+
 ## Predictions with AdaBoost
 
 Predictions are made by calculating the weighted average of the weak classifiers.
@@ -666,7 +677,6 @@ ada_clf = AdaBoostClassifier(
     DecisionTreeClassifier(max_depth=1), n_estimators=200,
     algorithm="SAMME.R", learning_rate=0.5, random_state=42)
 ada_clf.fit(X_train, y_train)
-
 
 # Train Adaboost Classifer
 ada_clf.fit(X_train, y_train)
