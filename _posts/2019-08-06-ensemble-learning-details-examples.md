@@ -592,10 +592,9 @@ There are many boosting algorithms available but here we will focus on Adaptive 
 # Adaptive Boosting
 AdaBoost was the first really successful boosting algorithm developed for binary classification. In AdaBoost, classifiers are trained on weighted versions of the dataset, and then combined to produce a final prediction.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_algorithm.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-07%20at%2018.58.13.png?raw=true)
 
 One way for a new predictor to correct its predecessor is to pay a bit more attention to the training instances that the predecessor underfitted. This results in new predictors focusing more and more on the hard cases. For example, to build an AdaBoost classifier, it begins by training a decision tree in which each observation is assigned an equal weight. A first base classifier (such as a Decision Tree) is trained and used to make predictions on the training set. The observation weights are individually modified and the weight of misclassified training instances is then increased. A second classifier is then reapplied to the weighted observations and again it makes predictions on the training set, weights are updated, and so on. The first classifier gets many instances wrong, so their weights get boosted. The second classifier therefore does a better job on these instances, and so on. Once all predictors are trained, the ensemble makes predictions very much like bagging or pasting, except that predictors have different weights depending on their overall accuracy on the weighted training set. There is one important drawback to this sequential learning technique: it cannot be parallelized (or only partially), since each predictor can only be trained after the previous predictor has been trained and evaluated. As a result, it does not scale as well as bagging or pasting.
-
 
 We begin by describing the algorithm itself. Consider a two-class problem, with the output variable coded as $Y in \{−1, 1\}$. Given a vector of predictor variables $X$, a classifier $G(X)$ produces a prediction taking one of the two values $\{−1, 1\}$. The error rate on the training sample is:
 
@@ -603,11 +602,9 @@ $$
 err = \frac{1}{N} \sum_{i=1}^{N} I(y_{i} \neq G(x_{i}))$
 $$
 
-
 A weak classifier is one whose error rate is only slightly better than random guessing. The purpose of boosting is to sequentially apply the weak classification algorithm to repeatedly modified versions of the data, thereby producing a sequence of weak classifiers $G_{m}(x), m = 1, 2, \cdots , M$. The algorithm belows shows the steps:
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stochastic_adaboost.png?raw=true)
-
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_algorithm.png?raw=true)
 
 Here, $I(\cdot)$ is the indicator function, where $I(y_{i} \neq G_{m}(x_{i})) = 1$ if $G_{m}(x_{i}) \neq y_{i}$ and 0 otherwise. 
 
