@@ -2598,6 +2598,8 @@ $$
 
 The standard error is an excellent approximation for the standard deviation. We will use it to find confidence intervals, but will not need it for sampling distribution or hypothesis tests because we assume a specific value for $p$ in those cases.
 
+In general, if $np \geq 10$ and $n(1- p) \geq 10$ (SPECIAL NOTE: Some textbooks use 15 instead of 10 believing that 10 is to liberal), the sampling distribution of $\hat{p}$ is about normal with mean of $p$ and standard error $s.e.(p) = \sqrt{\frac{p(1-p)}{n}}$.
+
 #### Write the formulae for Bayes rule.
 
 Bayes' theorem is a formula that describes how to update the probabilities of hypotheses when given evidence. It follows simply from the axioms of conditional probability, but can be used to powerfully reason about a wide range of problems involving belief updates.
