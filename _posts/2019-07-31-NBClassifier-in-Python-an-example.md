@@ -81,6 +81,8 @@ Using one of the three common distributions is not mandatory; for example, if a 
 
 * CPU usage is modest: there are no gradients or iterative parameter updates to compute, since prediction and training employ only analytic formulae.
 
+* The Naive Bayes classifier does not converge at all. Rather than learning its parameters by iteratively tweaking them to minimize a loss function using gradient descent like the vast majority of machine learning models, the Naive Bayes classifier learns it parameters by explicitly calculating them. The Naive Bayes classifier trains faster than logistic regression for this reason; the simple counting the calculation of its parameters consists run much faster than gradient decent.
+
 * The memory requirement is very low because these operations do not require the whole data set to be held in RAM at once.
 
 * It is often a good first thing to try. For problems with a small amount of training data, it can achieve better results than other classifiers, thanks to Occam’s Razor because it has a low propensity to overfit.
@@ -97,7 +99,7 @@ Using one of the three common distributions is not mandatory; for example, if a 
 
 * It is important to note that categorical variables need to be factors with the same levels in both training and new data (testing dataset). This can be problematic in a predictive context if the new data obtained in the future does not contain all the levels, meaning it will be unable to make a prediction. This is often known as "Zero Frequency". To solve this, we can use a smoothing technique. One of the simplest smoothing techniques is called Laplace smoothing. 
 
-* Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent. Additionally, the performance of the algorithm degrrades the more dependent the input variables happen to be. 
+* Another limitation of Naive Bayes is the assumption of independent predictors. In real life, it is almost impossible that we get a set of predictors which are completely independent. Additionally, the performance of the algorithm degrades, the more dependent the input variables happen to be because Naive Bayes algorithm ignores correlation among the features, which induces bias and hence reduces variance.
 
 * It cannot incorporate feature interactions.
 
