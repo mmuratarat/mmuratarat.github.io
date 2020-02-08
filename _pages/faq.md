@@ -2588,9 +2588,15 @@ std_dev_of_sample_means = np.std(sample_means)
 
 #### What is the sampling distribution of sample proportion, p-hat?
 
-The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and variance $\sigma_{\hat{p}}^{2} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
+The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
 
-In actual practice $p$ is not known, hence neither is $\sigma_{\hat{p}}^{2}$. In that case in order to check that the sample is sufficiently large we substitute the known quantity $\hat{p}$ for $p$. 
+In practice, we don’t know the true population proportion $p$, so we cannot compute the variance of $\hat{p}$. Replacing $p$ with $\hat{p}$ in the standard deviation expression gives us an estimate that is called the standard error of $\hat{p}$:
+
+$$
+s.e.(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+$$
+
+The standard error is an excellent approximation for the standard deviation. We will use it to find confidence intervals, but will not need it for sampling distribution or hypothesis tests because we assume a specific value for $p$ in those cases.
 
 #### Write the formulae for Bayes rule.
 
