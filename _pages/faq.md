@@ -5753,9 +5753,11 @@ When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, t
 
 #### Why does pooling work?
 
-After convolutional layers and activation functions, we introduce a pooling function to modify the output of the layer further. Pooling helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by small amount, the values of the most of the pooled outputs do not change.
+After convolutional layers and activation functions, we introduce a pooling function to modify the output of the layer further by sub-sampling. Pooling helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by small amount, the values of the most of the pooled outputs do not change.
 
 Suppose that you have draw a figure with a very thick brush. Then draw the same figure with a thin brush. These two figures has same information but one of them has a lot of unneccesary painting. Pooling simplifies the image with hard coding. Not with the AI. If you built a pooling layer with $2 \times 2$  filter, you squeeze the information of four pixels into one pixel. Whether it is max pooling or avarage pooling it is squeezing and reduction. Reduction of the feature map does not only reduces computational cost but also controls the overfitting.
+
+Pooling mainly helps in extracting sharp and smooth features. Max-pooling helps in extracting low-level features like edges, points, etc. While Avg-pooling goes for smooth features.
 
 It also makes the network robust and invarient to the small changes and disturbances. When you use avarage pooling on $2 \times 2$ pooling layer, small changes on four nodes makes a tiny effect on avarage of that four nodes. If you use max pooling instead of avarage, small changes on that small valued three nodes won’t affect the output. Because we get the biggest value of that four nodes.
 
