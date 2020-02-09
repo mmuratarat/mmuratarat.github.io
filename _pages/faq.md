@@ -6007,9 +6007,13 @@ $$
 
 We, therefore, seek to drive our loss down therefore improving the model accuracy. We want to do so as fast as possible and with as little hyperparameter updates/experiments and all without overfitting our network and modeling the training data too closely.  However, choosing the values for the parameters that minimize the loss function on the training data is not necessarily the best policy. We want the learning machine to model true regularities in the data and ignore the noise in the data and to do well on test data that is not known during the learning. 
 
-We have 4 different cases while training a model: (1) _Underfitting_ - Validation and training error high, (2) _Overfitting_ - Validation error is high, training error low, (3) _Good fit_ - Validation error low, slightly higher than the training error and (4) _Unknown fit_ - Validation error low, training error 'high'. 
+The training loss is calculated over the entire training dataset. Likewise, the validation loss is calculated over the entire validation dataset. The training set is typically at least 4 times as large as the validation (80-20). Given that the error is calculated over all samples, you could expect up to approximately 4X the loss measure of the validation set. You will notice, however, that the training loss and validation loss are approaching one another as training continues. This is intentional as if your training error begins to get lower than your validation error you would be beginning to overfit your model!
+
+Though, we have 4 different cases while training a model: (1) _Underfitting_ - Validation and training error high, (2) _Overfitting_ - Validation error is high, training error low, (3) _Good fit_ - Validation error low, slightly higher than the training error and (4) _Unknown fit_ - Validation error low, training error 'high'. 
 
 **Reason 1**: Regularization mechanisms, such as Dropout and $L_{1}$/$L_{2}$ weight regularization, are turned off at validation/testing time. When training a deep neural network we often apply regularization to help our model in order to obtain higher validation/testing accuracy and ideally, to generalize better to the data outside the validation and testing sets. Regularization methods often sacrifice training accuracy to improve validation/testing accuracy. 
+
+Batch norm can also be considered of the regularization methods. During training batch-norm uses mean and variance of the given input batch, which might be different from batch to batch. But during evaluation batch-norm uses running mean and variance, both of which reflect properties of the whole training set much better than mean and variance of a single batch during training. Therefore, if it is turned off, training loss and validation loss can get closer.
 
 **Reason 2**: The training loss is the average of the losses over each batch of training data. Because your model is changing over time, the loss over the first batches of an epoch is generally higher than over the last batches.
  
@@ -6017,6 +6021,9 @@ We have 4 different cases while training a model: (1) _Underfitting_ - Validatio
  
 **Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
 
+**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training s
+
+**Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
 ## SQL
 
