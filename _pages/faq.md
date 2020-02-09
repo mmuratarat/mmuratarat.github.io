@@ -5747,7 +5747,9 @@ For example, if we apply a $5 \times 5$ filter on a $28 \times 28$ image, the ou
 
 When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, the output dimension will be equal. If there is no zero-padding used, then the output volume will have spatial dimension of only 3, because that it is how many neurons would have “fit” across the original input. In general, setting zero padding to be $P=(F−1)/2$ when the stride is $S=1$ ensures that the input volume and output volume will have the same size spatially.
 
-#### Why Zero-Padding?
+#### Why Padding?
+
+Padding is used when you don’t want to decrease the spatial resolution of the image when you use convolution. Besides avoiding shrinkage, with padding you benefit more from the information contained in pixels on the edges of the picture. Otherwise pixels on the edges processed by fewer filters than the pixels on the inner side.
 
 #### What is Pooling in CNN and how does it work?
 
