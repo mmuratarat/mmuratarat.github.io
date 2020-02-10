@@ -5840,7 +5840,6 @@ A conventional approach is to look for similar problems and  some of the most po
 
 However, common kernel sizes are $3 \times 3$, $5 \times 5$ and $7 \times 7$. A well known architecture for classification is to use convolution, pooling and some fully connected layers on top. Just start of with a modest number of layers and increase the number while measuring you performance on the test set.
 
-
 #### What is an RNN?
 
 #### What is the number of parameters in an RNN?
@@ -6009,7 +6008,7 @@ $o_{t} \in \mathbb{R}^{B \times U}$
 4. **Update memory state**: Use forget and input gates to combine new temporary memory and the current memory cell state to get $C_{t}$.
 5. **Output gate**: Decides which part of $C_{t}$ should be exposed to $h_{t}$. 
 
-#### Why sigmoid function in activations of the 3 gates?
+#### Why the 3 gates have sigmoid function as activation function?
 
 Gates contains sigmoid activations. A sigmoid activation is similar to the tanh activation. Instead of squishing values between $-1$ and $1$, it squishes values between $0$ and $1$. That is helpful to update or forget data because any number getting multiplied by $0$ is $0$, causing values to disappears or be "forgotten". Any number multiplied by $1$ is the same value therefore that value stay’s the same or is "kept". The network can learn which data is not important therefore can be forgotten or which data is important to keep.
 
@@ -6026,6 +6025,51 @@ The main reason for stacking LSTM cells is to allow for greater model complexity
 The output of a LSTM is not a softmax. Many frameworks just give you the internal state $h$ as output, so the dimensionality of this output is equals to the number of unit, which is propably not the dimensionality of your desired target. Output dimension of a dense layer would be the number of labels you want result.
 
 #### What is an autoencoder?
+
+An autoencoder neural network are not a true unsupervised learning technique (which would imply a different learning process altogether), they are a self-supervised technique, a specific instance of supervised learning where the targets are generated from the input data (we're discarding the labels).
+
+They work by compressing the input into a latent-space representation which this process is to reduce the size of the inputs into a smaller representation, and then reconstructing the output from this representation. They apply backpropagation, setting the target values to be equal to the inputs. This network can be trained by minimizing the reconstruction error, $L(x, \hat{x})$, which measures the differences between our original input and the consequent reconstruction.
+
+If anyone needs the original data, they can reconstruct it from the compressed data.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_8ixTe1VHLsmKB3AquWdxpQ-768x257.png?raw=true)
+
+Autoencoders are generally used for
+
+1. Feature Extraction
+2. Dimensionality Reduction
+3. Unsupervised pretraining of DNN
+4. Generative models
+5. Anomaly Detection (Autoencoders are generally bad at reconstructing outliers).
+
+An Autoencoder consist of three layers:
+
+* Encoder
+* Code
+* Decoder
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_44eDEuZBEsmG_TCAKRI3Kw@2x-1.png?raw=true)
+
+Encoder: This part of the network compresses the input into a latent space representation. The encoder layer encodes the input image as a compressed representation in a reduced dimension. The compressed image is the distorted version of the original image.
+
+Code: This part of the network represents the compressed input which is fed to the decoder.
+
+Decoder: This layer decodes the encoded image back to the original dimension. The decoded image is a lossy reconstruction of the original image and it is reconstructed from the latent space representation.
+
+The layer between the encoder and decoder, ie. the code, is also known as Bottleneck. This is a well-designed approach to decide which aspects of observed data are relevant information and what aspects can be discarded.
+
+#### What is the difference between undercomplete and overcomplete Autoencoders?
+
+One way to obtain useful features from the autoencoder is to constrain laten space $h$ to have smaller dimensions than $X$, in this case the autoencoder is called undercomplete. By training an undercomplete representation, we force the autoencoder to learn the most salient features of the training data by limiting the amount of information that can flow through the network. If the autoencoder is given too much capacity, it can learn to perform the copying task (memorizing the data) without extracting any useful information about the distribution of the data. This can also occur if the dimension of the latent representation is the same as the input, and in the overcomplete case, where the dimension of the latent representation is greater than the input. In these cases, even a linear encoder and linear decoder can learn to copy the input to the output without learning anything useful about the data distribution. Ideally, one could train any architecture of autoencoder successfully, choosing the code dimension and the capacity of the encoder and decoder based on the complexity of distribution to be modeled.
+
+#### What are the practical applications of Autoencoders?
+
+They are rarely used in practical applications. In 2012 they briefly found an application in greedy layer-wise pretraining for deep convolutional neural networks, but this quickly fell out of fashion as we started realizing that better random weight initialization schemes were sufficient for training deep networks from scratch. In 2014, batch normalization started allowing for even deeper networks, and from late 2015 we could train arbitrarily deep networks from scratch using residual learning
+
+
+Today two interesting practical applications of autoencoders are data denoising (which we feature later in this post), and dimensionality reduction for data visualization. With appropriate dimensionality and sparsity constraints, autoencoders can learn data projections that are more interesting than PCA or other basic techniques.
+
+For 2D visualization specifically, t-SNE (pronounced "tee-snee") is probably the best algorithm around, but it typically requires relatively low-dimensional data. So a good strategy for visualizing similarity relationships in high-dimensional data is to start by using an autoencoder to compress your data into a low-dimensional space (e.g. 32 dimensional), then use t-SNE for mapping the compressed data to a 2D plane. 
 
 #### What are some limitations of deep learning?
 
