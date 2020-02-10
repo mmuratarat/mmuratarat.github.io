@@ -4768,7 +4768,7 @@ As a consequence, they will have a lower reported importance. This is not an iss
 
 The effect of this phenomenon is somewhat reduced thanks to random selection of features at each node creation, but in general the effect is not removed completely.
 
-#### How come does the loss functions have $1/m$ and $2$ from the square cancels out? 
+#### How come do the loss functions have $1/m$ and $2$ from the square cancels out? 
 
 In some books/tutorials/articles, you can see that the cost function for linear regression is defined as follows:
 
@@ -4778,6 +4778,17 @@ The $\frac{1}{m}$ is to "average" the squared error over the number of observati
 
 So now the question is why there is an extra $\frac{1}{2}$. In short, it is merely for convenience, and actually, so is the $m$ - they're both constants. The expression for the gradient becomes prettier with the $\frac{1}{2}$, because the $2$ from the square term cancels out. However, the $m$ is useful if you solve this problem with gradient descent because it will take out the dependency on the number of observations. Then your gradient becomes the average of $m$ terms instead of a sum, so it's scale does not change when you add more data points.
 
+#### What is Feature Engineering?
+
+In a nutshell, feature engineering is to creat new features from your existing ones to improve model performance.
+
+* **Creating Indicator Variables**: Indicator variable from thresholds (Let’s say you’re studying alcohol preferences by U.S. consumers and your dataset has an `age` feature. You can create an indicator variable for `age >= 21` to distinguish subjects who were over the legal drinking age), indicator variable from multiple features (You’re predicting real-estate prices and you have the features n_bedrooms and n_bathrooms. If houses with 2 beds and 2 baths command a premium as rental properties, you can create an indicator variable to flag them), indicator variable for special events (You’re modeling weekly sales for an e-commerce site. You can create two indicator variables for the weeks of Black Friday and Christmas), and indicator variable for groups of classes (You’re analyzing website conversions and your dataset has the categorical feature traffic_source. You could create an indicator variable for paid_traffic by flagging observations with traffic source values of  "Facebook Ads" or "Google Adwords"). 
+
+* Creating interaction Features such as Sum of two features, Difference between two features, Product of two features and Quotient of two features
+
+* **Feature Representation**: the data won’t always come in the ideal format. You should consider if you’d gain information by representing the same feature in a different way, such as Date and time features (extracting year from purchase date or demcomposing month/hour/minutes/second variables into two by creating a sine and a cosine facet of each of these three variable to preserve the cyclical nature ), Numeric to categorical mappings, Grouping sparse classes, and Creating dummy variables
+
+* **External Data**: External API’s (There are plenty of API’s that can help you create features. For example, the Microsoft Computer Vision API can return the number of faces from an image), Geocoding (Let’s say have you street_address, city, and state. Well, you can geocode them into latitude and longitude. This will allow you to calculate features such as local demographics (e.g. median_income_within_2_miles)), and using other sources to collect features (such as Fac
 
 
 ## Deep Learning
