@@ -6073,6 +6073,11 @@ For 2D visualization specifically, t-SNE (pronounced "tee-snee") is probably the
 
 #### What are some limitations of deep learning?
 
+1. Deep learning usually requires large amounts of training data and a computational power.
+2. Deep neural networks are easily fooled. For example, researchers have now created an adversarial patch that makes an object invisible to YOLO v2.
+3. Successes of deep learning are purely empirical, deep learning algorithms have been criticized as uninterpretable “black-boxes”.
+4. Deep learning thus far has not been well integrated with prior knowledge.
+
 #### What is transfer learning ?
 
 A deep learning model trained on a specific task (a pre-trained model) can be reused for different problem in the same domain even if the amount of data is not that huge.
