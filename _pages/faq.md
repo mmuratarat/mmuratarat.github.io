@@ -5784,13 +5784,19 @@ Padding is used when you don’t want to decrease the spatial resolution of the 
 
 #### Why does pooling work?
 
-After convolutional layers and activation functions, we introduce a pooling function to modify the output of the layer further by sub-sampling. Pooling helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by small amount, the values of the most of the pooled outputs do not change.
+After convolutional layers and activation functions, we introduce a pooling function to modify the output of the layer further by downsampling. Pooling extracts low level features from neighbourhood and helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by small amount, the values of the most of the pooled outputs do not change.
 
-Suppose that you have draw a figure with a very thick brush. Then draw the same figure with a thin brush. These two figures has same information but one of them has a lot of unneccesary painting. Pooling simplifies the image with hard coding. Not with the AI. If you built a pooling layer with $2 \times 2$  filter, you squeeze the information of four pixels into one pixel. Whether it is max pooling or avarage pooling it is squeezing and reduction. Reduction of the feature map does not only reduces computational cost but also controls the overfitting.
+Suppose that you have draw a figure with a very thick brush. Then draw the same figure with a thin brush. These two figures has same information but one of them has a lot of unneccesary painting. Pooling simplifies the image with hard coding. Not with the AI. If you built a pooling layer with $2 \times 2$  filter, you squeeze the information of four pixels into one pixel. Whether it is max pooling or avarage pooling it is squeezing and reduction. Reduction of the feature map does not only reduces computational cost (as $2\times 2$ max pooling/average pooling reduces 75% data) but also controls the overfitting by controling the number of features the CNN model is learning 
 
-Pooling mainly helps in extracting sharp and smooth features. Max-pooling helps in extracting low-level features like edges, points, etc. While Avg-pooling goes for smooth features.
+Pooling mainly helps in extracting sharp and smooth features. Max-pooling helps in extracting low-level extreme features like edges, points, etc. while average pooling goes for smooth features.
 
 It also makes the network robust and invarient to the small changes and disturbances. When you use avarage pooling on $2 \times 2$ pooling layer, small changes on four nodes makes a tiny effect on avarage of that four nodes. If you use max pooling instead of avarage, small changes on that small valued three nodes won’t affect the output. Because we get the biggest value of that four nodes.
+
+#### What is the benefit of using average pooling rather than max pooling?
+
+While the max and average pooling are rather similar, the use of average pooling encourages the network to identify the complete extent of the object. The basic intuition behind this is that the loss for average pooling benefits when the network identifies all discriminative regions of an object as compared to max pooling. In simpler words, max pooling rejects a big chunk of data and retains at max 1/4th. Average pooling on the other hand, do not reject all of it and retains more information, in comparison to max pooling. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/main-qimg-c9d498b278f6db5040d861eac821e7d9.png?raw=true)
 
 #### What are the weights in a CNN?
 
@@ -5825,6 +5831,15 @@ In a Conv Layer, the depth of every kernel (filter) is always equal to the numbe
 Parameter sharing scheme is used in Convolutional Layers to control the number of parameters.
 
 With parameter sharing, which means no matter the size of your input image, the number of parameters will remain fixed. $F \cdot F \cdot D_{1}$ weights per feature map are introduced and for a total of $(F \cdot F \cdot D_{1}) \cdot K$ weights and $K$ biases. Number of parameters of the Conv Layer is $(F \cdot F \cdot D_{1}) \cdot K + K$
+
+#### How can I decide the kernel size?
+
+Unfortunately there is absolutely no general answer to this question. No prinicipal method to determine these hyperparameters is known.
+
+A conventional approach is to look for similar problems and  some of the most popular architectures which have already been shown to work. Than a suitable architecture can be developed by experimentation.
+
+However, common kernel sizes are $3 \times 3$, $5 \times 5$ and $7 \times 7$. A well known architecture for classification is to use convolution, pooling and some fully connected layers on top. Just start of with a modest number of layers and increase the number while measuring you performance on the test set.
+
 
 #### What is an RNN?
 
