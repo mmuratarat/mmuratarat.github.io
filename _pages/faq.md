@@ -7079,6 +7079,21 @@ Stacks and queues may be modeled as particular kinds of priority queues. As a re
 In a stack, the priority of each inserted element is monotonically increasing; thus, the last element inserted is always the first retrieved. In a queue, the priority of each inserted element is monotonically decreasing; thus, the first element inserted is always the first retrieved.
 
 
+#### What is the idea of a hashtable?
+
+If the keys were integers, you could implement a Map using an array of values: given key $k$, store the associated value in the array cell with index $k$. Then adding and looking up entries would be $O(1)$, since you now have random access based on the array index.   
+
+But of course, the keys are not always integers.  The idea of a hashtable is to try to make a lookup table for arbitrary key/value pairs that "acts" as though you had random access into an array.  The ideas are as follows:
+
+1. From each key, compute an integer, called its hash code, and then use the integer as an index into an array of values. 
+2. Take the hash code modulo the array size to get an index into an array. (You want the array to be bounded in size ‐ ideally it would be not much bigger than the total number of entries).
+3. Store the key and the value in a linked list of entries at the array index.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-10%20at%2010.50.16.png?raw=true)
+
+The point of item (3) is that it is possible that two different keys end up with the same hash code, or that
+two different hash codes result in the same array index.  That means you’ll try to store two values at the same array index.  This is called a collision. Irrespective of how good a hash function is, collisions are bound to occur. Therefore, to maintain the performance of a hash table, it is important to manage collisions through various collision resolution techniques. One of the solutions is based on the idea of putting the keys that collide in a linked list. Using a linked list of entries allows you to store multiple values at the same array index.  In this case, a hastable then is an array of lists. This tecnique is called a *separate chaining collision* resolution. Traditionally these lists are called buckets.  
+
 #### Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.
 
 While the class is the blueprint, an instance is a copy of the class with actual values, literally an object belonging to a specific class.
