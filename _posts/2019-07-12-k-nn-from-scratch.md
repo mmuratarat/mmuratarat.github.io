@@ -80,7 +80,7 @@ Cross-validation is another way to retrospectively determine a good K value by u
 
 4. K-NN also not suitable for high dimensional data because there is little difference between the nearest and farthest neighbor.
 
-5. K-NN performs better with a lower number of features than a large number of features. You can say that when the number of features increases than it requires more data. Increase in dimension also leads to the problem of overfitting. To avoid overfitting, the needed data will need to grow exponentially as you increase the number of dimensions. This problem of higher dimension is known as the Curse of Dimensionality.
+5. K-NN performs better with a lower number of features than a large number of features. You can say that when the number of features increases than it requires more data. Increase in dimension also leads to the problem of overfitting. To avoid overfitting, the needed data will need to grow exponentially as you increase the number of dimensions. As the amount of dimension increases, the distance between various data points increases as well which can make predictions are much less reliable. This problem of higher dimension is known as the Curse of Dimensionality.
 
 # A Basic Example
 We are given a training data set with n = 6 observations of $p = 2$ input variables $x_1$, $x_2$ and one (qualitative) output $y$, the color Red or Blue:
