@@ -151,6 +151,8 @@ permalink: /faq/
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
 69. What is analysis of variance (ANOVA)?
 70. What is analysis of covariance (ANCOVA)?
+71. How to determine sample size?
+
 
 [General Machine Learning](#general-machine-learning)
 
