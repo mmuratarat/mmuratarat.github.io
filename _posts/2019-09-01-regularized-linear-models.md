@@ -317,7 +317,7 @@ Note that you could also use an `SGDRegressor(penalty="l1")`
 
 # Elastic Net
 
-Use of Lasso penalty function has several limitations. For example, in the "large number of predictors $p$, small number of observation $n$" case (high-dimensional data with few examples), the LASSO selects at most $n$ variables before it saturates. Also if there is a group of highly correlated variables, then the LASSO tends to select one variable from a group and ignore the others. To overcome these limitations, the elastic net adds a quadratic part to the penalty, which when used alone is ridge regression (known also as Tikhonov regularization).
+Use of Lasso penalty function has several limitations. For example, in the "large number of predictors $p$, small number of observation $n$" case (high-dimensional data with few examples), the LASSO selects at most $n$ variables before it saturates. Also if there is a group of highly correlated variables, then the LASSO tends to select one variable from a group and ignore the others. To overcome these limitations, the elastic net adds a quadratic part to the penalty, which is, when used alone is ridge regression (known also as Tikhonov regularization).
 
 Elastic Net is a middle ground between Ridge Regression and Lasso Regression. The regularization term is a simple mix of both Ridge and Lasso's regularization terms and you can control the mix ratio $r$. When $r=0$ Elastic Net is equivalent to Ridge Regression and when $r=1$, it is equivalent to Lasso Regression. Therefore we can choose an $r$ value between 0 and 1 to optimize the elastic net. Effectively this will shrink some coefficients and set some to 0 for sparse selection.
 
