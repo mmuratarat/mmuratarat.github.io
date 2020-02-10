@@ -4285,6 +4285,8 @@ Support vector machines are maximum-margin classifiers, which means they find th
 
 The Kernel Trick is a mathematical technique that implicitly maps instances into a very high dimensional space (feature space), enabling nonlinear classification and regression with Support Vector Machines because a linear decision boundary in the high-dimensional feature space corresponds to a complex nonlinear decision boundary in the original space. In essence, what the kernel trick does for us is to offer a more efficient and less expensive way to transform data into higher dimensions.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-09%20at%2021.20.29.png?raw=true)
+
 For example, let's say we have two data points: $\mathbf x = (x_1, x_2)$ and $\mathbf y = (y_1, y_2)$. Let's move from 2-dimensional space to 6-dimensional space. So we have to compute $(1, x_1^2, x_2^2, \sqrt{2} x_1, \sqrt{2} x_2, \sqrt{2} x_1 x_2)$ and $(1, y_1^2, y_2^2, \sqrt{2} y_1, \sqrt{2} y_2, \sqrt{2} y_1 y_2)$. The dot product between these two vectors will be $1 + x_1^2 y_1^2 + x_2^2 y_2^2 + 2 x_1 y_1 + 2 x_2 y_2 + 2 x_1 x_2 y_1 y_2$. This is nothing but $(1 + x_1 \, y_1  + x_2 \, y_2)^2$. So, $k(\mathbf x, \mathbf y) = (1 + \mathbf x^T \mathbf y)^2 = \varphi(\mathbf x)^T \varphi(\mathbf y)$ computes a dot product in 6-dimensional space without explicitly visiting this space.
 
 The kernel is effectively a distance and if different features vary on different scales then it is often recommended to do feature scaling (e.g. by normalization) when using a Support Vector Machines. 
