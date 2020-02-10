@@ -569,19 +569,17 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 
 2. They perform internal feature selection or variable screening as an integral part of the procedure. They are thereby resistant, if not completely immune, to the inclusion of many irrelevant predictor variables.
 
-3. Decision trees require relatively little effort from users for data preparation.
+3. Less data cleaning required: It requires less data cleaning compared to some other modeling techniques. It is not influenced by outliers and missing values to a fair degree.
 
-4. Less data cleaning required: It requires less data cleaning compared to some other modeling techniques. It is not influenced by outliers and missing values to a fair degree.
+4. Decision Trees can naturally handle both numerical and categorical variables. Can also handle multi-output problems.
 
-5. Data type is not a constraint: Decision Trees can naturally handle both numerical and categorical variables. Can also handle multi-output problems.
+5. Decision tree is considered to be a non-parametric method. This means that decision trees have no assumptions about the space distribution and the classifier structure.
 
-6. Non-Parametric Method: Decision tree is considered to be a non-parametric method. This means that decision trees have no assumptions about the space distribution and the classifier structure.
+6. Non-linear relationships between parameters do not affect tree performance.
 
-7. Non-linear relationships between parameters do not affect tree performance.
+7. The number of hyper-parameters to be tuned is almost null.
 
-8. The number of hyper-parameters to be tuned is almost null.
-
-9. Decision Trees can handle multicollinearity. They make no assumptions on relationships between features. They are greedy algorithms. They will fit on the most effective variable they encounter, leaving other plausible variables out. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
+8. Decision Trees can handle multicollinearity. They make no assumptions on relationships between features. They are greedy algorithms. They will fit on the most effective variable they encounter, leaving other plausible variables out. It just constructs splits on single features that improves classification, based on an impurity measure like Gini or entropy. If features A, B are heavily correlated, no /little information can be gained from splitting on B after having split on A. So it would typically get ignored in favor of C.
 
 # Disadvantages
 
@@ -591,7 +589,8 @@ Comparing preprunning and postprunning, we can say that preprunning is faster bu
 
 3. Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This is called variance, which needs to be lowered by methods like bagging and boosting.
 
-4. Greedy algorithm, which always makes the choice that seems to be the best at that moment without regard for consequences, cannot guarantee to return the globally optimal decision tree. This can be mitigated by training multiple trees, where the features and samples are randomly sampled with replacement (Random Forest).
+4. Greedy algorithm, which always makes the choice that seems to be the best at that moment without regard for consequences, cannot guarantee to return the globally optimal decision tree. This is its over–sensitivity to the training set,
+to irrelevant attributes and to noise. This can be mitigated by training multiple trees, where the features and samples are randomly sampled with replacement (Random Forest).
 
 5. Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the data set prior to fitting with the decision tree.
 
