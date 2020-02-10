@@ -5774,14 +5774,13 @@ If you are working with color images, then each filter would have three channels
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Stride2.png?raw=true)
 
 #### What is Zero Padding?
-
+ 
 * Zero padding refers to padding the input volume with zeros around the border.
 * The zero padding also allows us to control the spatial size of the output volume
 * If we do not add any zero padding and we use a stride of 1, the spatial size of the output volume is reduced.
-* However, with the first few convolutional layers in the network we would want to preserve the spatial size and make sure that the input volume is equal to the output volume. 
-* This is where the zero padding is helpful. 
-* In the $7 \times 7$ input image example, if we use a stride of $1$ and a zero padding of $1$, then the output volume is also equal to $7 \times 7$.
-    
+* However, with the first few convolutional layers in the network we would want to preserve the spatial size and make sure that the input volume is equal to the output volume. This is where the zero padding is helpful. In the $7 \times 7$ input image example, if we use a stride of $1$ and a zero padding of $1$, then the output volume is also equal to $7 \times 7$.
+* If we just keep applying the convolution, we might lose the data too fast. Padding is the trick we can use here to fix this problem
+
 For example, if we apply a $5 \times 5$ filter on a $28 \times 28$ image, the output will have $24\times 24$ image. The spatial dimension is decreasing but in initial layers we want to preserve as much data as we can, as it contains low level features. In order to ensure or maintain the same dimension we can add two rows and columns at respective edges as shown. Depending on the dimension of filter, the number of the rows or columns added may change.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/padding.png?raw=true)
@@ -5796,7 +5795,7 @@ When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, t
 
 #### Why Padding?
 
-Padding is used when you don’t want to decrease the spatial resolution of the image when you use convolution. Besides avoiding shrinkage, with padding you benefit more from the information contained in pixels on the edges of the picture. Otherwise pixels on the edges processed by fewer filters than the pixels on the inner side.
+Padding is used when you do not want to decrease the spatial resolution of the image when you use convolution. Besides avoiding shrinkage, with padding you benefit more from the information contained in pixels on the edges of the picture. Otherwise, pixels on the edges processed by fewer filters than the pixels on the inner side.
 
 #### What is Pooling in CNN and how does it work?
 
