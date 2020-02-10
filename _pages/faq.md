@@ -212,6 +212,7 @@ permalink: /faq/
 49. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 50. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
 51. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
+51. What does the parameter C do in SVM?
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
@@ -4258,6 +4259,10 @@ $$
 $$
 \begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad \; \; \; \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
+
+#### What does the parameter C do in SVM?
+
+C is not regularization parameter actually but it can be thought of a tradeoff between preferring large margin and preferring small number of misclassified data points. A small C prefers large margins but allow potentially large number of misclassified points (ignore errors/underfit the data). A large C prefers small number of misclassified examples at the expense of smaller margin (high tendency to overfit). Therefore, it is basically deciding between classifying the training data well (minimizing the empirical risk) and classifying the future examples well (generalization).
 
 #### Why do we find the dual problem when fitting SVM?
 
