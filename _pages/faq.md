@@ -4809,6 +4809,16 @@ In a nutshell, feature engineering is to creat new features from your existing o
 
 * **External Data**: External API’s (There are plenty of API’s that can help you create features. For example, the Microsoft Computer Vision API can return the number of faces from an image), Geocoding (Let’s say have you street_address, city, and state. Well, you can geocode them into latitude and longitude. This will allow you to calculate features such as local demographics (e.g. median_income_within_2_miles)), and using other sources to collect features (such as Fac
 
+#### When to choose Decision Tree over Random Forest?
+
+Even though it completely depends on the data we have and the output we are looking for, there might be some reasons why we can choose Decision Trees over Random Forest:
+
+1. When entire dataset and features can be used
+2. When we have limited computational power
+3. When we want the model to be simple and explainable even to non-technical users, with a relatively lower accuracy that can be tolerated, since Decision Tree is easy to understand and interpret
+
+If we need to analyse a bigger dataset, with a lot of features with a higher demand for accuracy a Random Forest would be a better choice.
+
 
 ## Deep Learning
 
