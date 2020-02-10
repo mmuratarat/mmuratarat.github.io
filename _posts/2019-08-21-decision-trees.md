@@ -602,6 +602,8 @@ to irrelevant attributes and to noise. This can be mitigated by training multipl
 
 9. It cannot be used for incremental learning (online learning).
 
+10. Decision trees also suffer from the curse of dimensionality. Decision trees directly partition the sample space at each node. As the sample space increases, the distances between data points increases, which makes it much harder to find a "good" split.
+
 # Types of Decision Tree
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/types_of_DT.png?raw=true)
 
