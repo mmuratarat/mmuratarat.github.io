@@ -623,6 +623,8 @@ Moreover, if the predictors can estimate class probabilities (i.e., if they have
 
 The number of iterations needed for AdaBoost depends on the problem. [Mease and Wyner (2008)](http://jmlr.org/papers/volume9/mease08a/mease08a_with_discussion.pdf) argue that AdaBoost should be run for a long time, until it converges, and that 1,000 iterations should be enough.
 
+**NOTE 1**: AdaBoost suffer from the curse of dimensionality and tend to overffit if regularization is not utilized.
+
 **NOTE**: If your AdaBoost ensemble is overfitting the training set, you can try reducing the number of estimators or more strongly regularizing the base estimator. If it underfits the training data, you can try increasing the number of base estimators or reducing the regularization hyperparameters of the base estimator. You may also try slightly increasing the learning rate. Learning rate is the opposite of penalty term in loss regularization. If you increase this penalty term, the amount of regularization will increase therefore, overfitting model might underfit. 
 
 **NOTE** : Many, perhaps even most, learning and statistical methods that are in common use can be viewed as procedures for minimizing a loss function (also called a cost or objective function) that in some way measures how well a model fits the observed data. A classic example is least-squares regression in which a sum of squared errors is minimized. AdaBoost, though not originally designed for this purpose, later, it was discovered that AdaBoost can also be expressed as in terms of the more general framework of additive models with a particular loss function (the exponential loss) to be minimized.
@@ -813,7 +815,7 @@ print(y_pred)
 
 The three principal hyperparameters to tune in gradient boosting are the number of the trees, the learning rate and the dept of trees - all three affect the model performance, The dept of the tree also affects the speed of training and prediction: the shorter, the faster.
 
-The `learning_rate` hyperparameter scales the contribution of each tree. If you set it to a low value, such as 0.1, you will need more trees in the ensemble to fit the training set, but the predictions will usually generalize better. This is a regularization technique called _shrinkage_. If your Gradient Boosting ensemble overfits the training data, you should try to decrease the learning rate. You could also use early stopping to find the right number of predictors (you probably have too many).
+The `learning_rate` hyperparameter scales the contribution of each tree. It essentially slows down the learning. If you set it to a low value, such as 0.1, you will need more trees in the ensemble to fit the training set, but the predictions will usually generalize better. This is a regularization technique called _shrinkage_. If your Gradient Boosting ensemble overfits the training data, you should try to decrease the learning rate. You could also use early stopping to find the right number of predictors (you probably have too many).
 
 {% highlight python %}
 from sklearn.ensemble import GradientBoostingRegressor
