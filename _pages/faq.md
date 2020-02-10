@@ -3917,7 +3917,7 @@ When starting an outlier detection quest you have to answer two important questi
 
 Not all data is normal or normal enough to treat it as being drawn from a Gaussian distribution.
 
-A good statistic for summarizing a non-Gaussian distribution sample of data is the Interquartile Range, or IQR for short. This is the simplest, nonparametric outlier detection method in a one dimensional feature space. Here outliers are calculated by means of the IQR (InterQuartile Range).
+A good statistic for summarizing a non-Gaussian distribution sample of data is the Interquartile Range, or IQR for short. This is the simplest, nonparametric outlier detection method in a one dimensional feature space. Here outliers are calculated by means of the IQR (InterQuartile Range), also known as Tukey's fences.
 
 The first and the third quartile (Q1, Q3) are calculated. The first quartile is the median of the data points to the left of the median. The third quartile is the median of the data points to the right of the median. Median is considered to be Q2/50th Percentile.
 
@@ -4006,6 +4006,8 @@ outliers = [x for x in data if x < lower or x > upper]
 {% endhighlight %}
 
 Several methods are used to identify outliers in multivariate datasets. Two of the widely used methods are: (1) Mahalanobis Distance, (2) Difference in Fits / Cook’s Distance, (3) Isolation Forest, (4)  DBScan (Density Based Spatial Clustering of Applications with Noise) Clustering. It is a clustering algorithm that is used cluster data into groups. It is also used as a density-based anomaly detection method with either single or multi-dimensional data. Other clustering algorithms such as k-means and hierarchal clustering can also be used to detect outliers.
+ 
+You can even treat outliers as anomaly and use a an Anomaly Detection algorithm. Modified Thompson Tau test is another method used to determine if an outlier exists in a data set. 
 
 #### What is the difference between norm and distance?
 
