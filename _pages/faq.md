@@ -5758,6 +5758,10 @@ Within one feature map, we apply the same filter which means all neurons share t
 
 If you are working with color images, then each filter would have three channels rather than one (i.e. each having shape $3 \times 3 \times 3$) to match the three channels (red, green, blue) of the image.
 
+#### What is the core idea of CNN?
+
+The core idea about convolutional neural networks is that, contrary to fully-connected layers, instead to assigning different weights per each pixel of the image, you have some kernel that is smaller then the input picture and slides through it. What follows, we apply same set of weights to different parts of the picture (so called weight sharing). By this we hope to detect same patterns in different parts of the image.
+
 #### What is stride?
 
 * Stride means the step of the convolution operation; the number of steps that you move the filter over the input image.
