@@ -4372,6 +4372,7 @@ The first solution that comes to the mind is to buy or collect data. If collecti
 
 Applying inappropriate evaluation metrics for model generated using imbalanced data can be dangerous. For example, if accuracy is used to measure the goodness of a model, a model which classifies all testing samples into "0" will have an excellent accuracy (99.8%), but obviously, this model won't provide any valuable information for us. This situation is called _accuracy paradox_. It is the case where your accuracy measures tell the story that you have excellent accuracy (such as 90%), but the accuracy is only reflecting the underlying class distribution. The Area Under the ROC curve (AUC), Precision/Recall, F1 Score and/or Cohen’s Kappa are other metrics to be used. 
 
+**Cost sensitive learning:**
 
 At the algorithm level, or after it, you can adjust the class weight (misclassification costs), you can adjust the decision threshold (Look at performance curves and decide for yourself what threshold to use), you can modify an existing algorithm to be more sensitive to rare classes (cost-sensitive training models require a custom loss function) or you can construct an entirely new algorithm to perform well on imbalanced data.
 
