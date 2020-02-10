@@ -3027,6 +3027,20 @@ MANCOVA, MANOVA, ANOVA, ANCOVA: it can all get a little confusing to remember wh
 * ANCOVA: a MANCOVA without multiple dependent variables (hence the missing M).
 * MANOVA: A MANCOVA without covariates (hence the missing C).
 
+#### How to determine sample size?
+
+Given magnitude of desired margin of error, confidence level and variability, it is computed for mean:
+
+$$
+\frac{\sigma^{2}z^{2}}{{M.E.}^{2}}
+$$
+
+and for proportion:
+
+$$
+\frac{p(1-p)z^{2}}{{M.E.}^{2}}
+$$
+
 
 ## General Machine Learning
 
