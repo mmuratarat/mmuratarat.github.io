@@ -631,7 +631,7 @@ The number of iterations needed for AdaBoost depends on the problem. [Mease and 
 
 Viewing the algorithm in this light can be helpful for a number of reasons. First, such an understanding can help to clarify the goal of the algorithm and can be useful in proving convergence properties. And second, by decoupling the algorithm from its objective, we may be able to derive better or faster algorithms for the same objective, or alternatively, we might be able to generalize AdaBoost for new challenges.
 
-Details can be seen here [http://www.cs.toronto.edu/~mbrubake/teaching/C11/Handouts/AdaBoost.pdf](here). 
+Details can be seen here [here](http://www.cs.toronto.edu/~mbrubake/teaching/C11/Handouts/AdaBoost.pdf). 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/adaboost_theo2.png?raw=true)
