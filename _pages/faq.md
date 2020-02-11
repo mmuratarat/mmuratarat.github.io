@@ -4768,7 +4768,7 @@ We can either solve the model parameters analytically (closed-form equations) or
 
 The different results via k-means with distinct random centroid initializations are definitely a problem.
 
-The number of clusters is (typically) not known a priori (that’s basically the characteristic of unsupervised learning problems), but there are a few"performance or evaluation metrics one can use to infer a satisfying grouping against the value of K. This is also called the elbow method.
+The number of clusters is (typically) not known a priori (that’s basically the characteristic of unsupervised learning problems), but there are a few performance or evaluation metrics one can use to infer a satisfying grouping against the value of K. This is also called the elbow method.
 
 There is no underlying probability model in K-means. The goal is to group data into K clusters.
 
