@@ -240,7 +240,7 @@ permalink: /faq/
 74. Why is loss function in Neural Networks not convex?
 75. What is the difference between a loss function and decision function?
 76. What is the difference between SVM and Random Forest?
-77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variantss?
+77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?
 78. What are some of the issues with K-means?
 76. How do you deal with high cardinality? 
 
@@ -4760,7 +4760,7 @@ The more trees we have, the more expensive it is to build a random forest. Also,
 
 As a rule of thumb, I’d say that SVMs are great for relatively small data sets with fewer outliers. Random forests may require more data but they almost always come up with a pretty robust model. 
 
-#### What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variantss?
+#### What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?
 
 We can either solve the model parameters analytically (closed-form equations) or use an optimization algorithm (Gradient Descent, Stochastic Gradient Descent, Newton’s Method, Simplex Method, etc.). The closed-form solution may (should) be preferred for "smaller" datasets – if computing (a "costly") matrix inverse is not a concern. For very large datasets, or datasets where the inverse of $X^{T}X$ may not exist (the matrix is non-invertible or singular, e.g., in case of perfect multicollinearity), the GD or SGD approaches are to be preferred. 
 
