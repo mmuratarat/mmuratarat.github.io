@@ -4148,7 +4148,7 @@ $(\vec {x} - \vec {\mu})$ is essentially the distance of the vector from the mea
 
 If you think about it, this is essentially a multivariate equivalent of the regular standardization ($z_{i} = \frac{x_{i} - \mu}{\sigma}$. That is, z = (x vector) – (mean vector) / (covariance matrix).
 
-So, What is the effect of dividing by the covariance?
+So, what is the effect of dividing by the covariance?
 
 If the variables in your dataset are strongly correlated, then, the covariance will be high. Dividing by a large covariance will effectively reduce the distance.
 
