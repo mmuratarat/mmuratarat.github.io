@@ -623,7 +623,7 @@ Moreover, if the predictors can estimate class probabilities (i.e., if they have
 
 The number of iterations needed for AdaBoost depends on the problem. [Mease and Wyner (2008)](http://jmlr.org/papers/volume9/mease08a/mease08a_with_discussion.pdf) argue that AdaBoost should be run for a long time, until it converges, and that 1,000 iterations should be enough.
 
-**NOTE 1**: AdaBoost suffer from the curse of dimensionality and tend to overffit if regularization is not utilized.
+**NOTE 1**: AdaBoost suffer from the curse of dimensionality and tend to overfit if regularization is not utilized.
 
 **NOTE**: If your AdaBoost ensemble is overfitting the training set, you can try reducing the number of estimators or more strongly regularizing the base estimator. If it underfits the training data, you can try increasing the number of base estimators or reducing the regularization hyperparameters of the base estimator. You may also try slightly increasing the learning rate. Learning rate is the opposite of penalty term in loss regularization. If you increase this penalty term, the amount of regularization will increase therefore, overfitting model might underfit. 
 
