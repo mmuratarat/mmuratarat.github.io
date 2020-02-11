@@ -4736,7 +4736,7 @@ For example, in SVM classifiers:
   \mathcal{L}(\mathbf{w}, \xi) =\frac{1}{2}\|\mathbf{w}\|^2 + C\sum_i \xi_i
   $$
 
-* decision function: signed distance to the separating hyperplane: f(\mathbf{x}) = sign(\mathbf{w}^T\mathbf{x} + b)
+* decision function: signed distance to the separating hyperplane: $f(\mathbf{x}) = sign(\mathbf{w}^T\mathbf{x} + b)$.
 
 #### What is the difference between SVM and Random Forest?
 
