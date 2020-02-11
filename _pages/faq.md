@@ -4052,7 +4052,7 @@ If we take the discrete distance on any space:
 
 $$
 d(x,y) = \begin{cases}
-1, \text{ if x \neq y}\\
+1, \text{ if x $\neq$ y}\\
 0, \text{ if x $=$ y}
 \end{cases}
 $$
