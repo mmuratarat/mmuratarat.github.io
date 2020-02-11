@@ -4475,7 +4475,7 @@ Dimension reduction can allow you to:
 4. Simply save space (compression)
 4. Reduce memory usage by reducing the number of features
 5. Identifying underlying, latent, features that impact multiple features in the original space
-6. Make it much easier to find a good solution (extreme number of featuress make it much harder to find a good solution due to the curse of dimensionality)
+6. Make it much easier to find a good solution (extreme number of features make it much harder to find a good solution due to the curse of dimensionality)
 7. It is also extremely useful for data visualization. It can make it possible to plot a high-dimensional training set on a graph and often gain some important insights by visually detecting patterns, such as clusters.
 
 #### Why would you want to avoid dimensionality reduction techniques to transform your data before training?
