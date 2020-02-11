@@ -4348,11 +4348,11 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 7. SVMs are difficult to interpret: SVM model is difficult to understand and interpret by human beings unlike Decision Trees.
 
-8. They require feature scaling. One must do feature scaling of variables before applying SVM.
+8. They require feature scaling. One must do feature scaling of variables before applying SVM. Because SVM constructs a hyperplane such that it has the largest distance to the nearest data points (called support vectors). If the dimensions have different ranges, the dimension with much bigger range of values influences the distance more than other dimensions. So its necessary to scale the features such that all the features have similar influence when calculating the distance to construct a hyperplane. Another advantage is to avoid the numerical difficulties during the calculation. Because kernel values usually depend on inner products of features vectors, large attribute values might cause numerical problems.
 
 9. SVM algorithm is not suitable for large data sets.
 
-10. Discete data presents another problem in SVMs.
+10. Discrete data presents another problem in SVMs.
 
 11. Another limitation is speed and size, both in training and testing. SVM takes a long training time on large datasets. They can also be abysmally slow in test phase, although SVMs have good generalization performance.
 
