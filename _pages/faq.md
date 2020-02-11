@@ -4750,7 +4750,7 @@ Since Random Forest is a tree-based model. Scaling the data typically does not c
 
 Random forest can handle categorical variables naturally. However, SVM cannot. As a consequence, one-hot encoding (or  another encoding strategy) for categorical features is a must-do. 
 
-Each tree in Random Forest predicts class probabilities and these probabilities are averaged for the forest prediction. SVM gives you distance to the boundary, it does not directly provide probabilityS, which are desirable in most classification problems. Various methods applied to the output of SVM, including Platt scaling and isotonic regression.
+Each tree in Random Forest predicts class probabilities and these probabilities are averaged for the forest prediction. SVM gives you distance to the boundary, it does not directly provide probabilities, which are desirable in most classification problems. Various methods applied to the output of SVM, including Platt scaling and isotonic regression.
 
 Random Forest has very little need for tuning of hyperparameters. This is not the case for SVM. With SVM, there are more things to worry the regularization penalty, choosing an appropriate kernel, kernel parameters etc. Random Forests are much more automated and thus "easier" to train compared to SVM.
 
