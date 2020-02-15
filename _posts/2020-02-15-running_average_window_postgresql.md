@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simple Running Averag using Window Function of PostgreSQL"
+title:  "Simple Running Average using Window Functions of PostgreSQL"
 author: "MMA"
 comments: true
 ---
