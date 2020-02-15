@@ -52,7 +52,7 @@ VALUES
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-15%20at%2008.15.16.png?raw=true)
 
-To apply the aggregate function to subsets of rows, you use the GROUP BY clause. The following example returns the average price for every product group.
+To apply the aggregate function to subsets of rows, we use the GROUP BY clause. The following example returns the average price for every product group.
 
 ```sql
 SELECT
