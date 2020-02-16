@@ -6683,13 +6683,39 @@ An alias is a temporary name assigned to the table or table column for the purpo
 
 An alias is represented explicitly by the `AS` keyword but in some cases the same can be performed without it as well. Nevertheless, using the `AS` keyword is always a good practice.
 
-### How to get random records from a table?
+#### How to get random records from a table?
 
 ```sql
 SELECT col1, col1 from table1 order by random() limit 5;
 ```
 
 This line of code will pick 5 records randomly every time you call.
+
+#### How to transfer Nulls into real values?
+
+If you would like to transform null values into non-null values in place of those nulls, you can use `COALESCE (argument_1, argument_2, ...)` function. The `COALESCE` function provides the same functionality as `NVL` or `IFNULL` function provided by SQL-standard. MySQL has `IFNULL` function, while Oracle provides `NVL` function.
+
+```sql
+select coalesce(comm, 0) from emp;
+```
+
+You can also use `CASE`:
+
+```sql
+select case when comm is not null then comm else 0 end from emp;
+```
+
+#### How to concatenate two string columns?
+
+```sql
+select ename || ' WORKS AS A ' || job from emp where deptno = 10;
+```
+
+Or
+
+```sql
+select CONCAT(ename, ' WORKS AS ', job)  from emp where deptno = 10;
+```
 
 
 ## Miscellaneous
