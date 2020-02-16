@@ -6638,6 +6638,12 @@ FROM table_name
 WHERE condition;
 ```
 
+#### How to drop a view?
+
+```sql
+DROP VIEW IF EXISTS View_table; 
+```
+
 #### Which operator is used in query for pattern matching?
 
 LIKE operator is used for pattern matching, and it can be used as -.
@@ -6715,6 +6721,27 @@ Or
 
 ```sql
 select CONCAT(ename, ' WORKS AS ', job)  from emp where deptno = 10;
+```
+
+#### 
+
+The `SUBSTRING` function returns a part of string. 
+
+```sql
+SUBSTRING ( string ,start_position , length )
+```
+
+For example:
+
+```sql
+SELECT
+   SUBSTRING ('PostgreSQL', 1, 8); -- PostgreS
+   
+SELECT
+   SUBSTRING ('PostgreSQL', 8); -- SQL # We do not need to submit length parameter
+   
+SELECT
+   SUBSTRING ('PostgreSQL', length('PostgreSQL')-2, 3) -- SQL
 ```
 
 
