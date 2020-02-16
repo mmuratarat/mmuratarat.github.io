@@ -6728,7 +6728,7 @@ select CONCAT(ename, ' WORKS AS ', job)  from emp where deptno = 10;
 The `SUBSTRING` function returns a part of string. 
 
 ```sql
-SUBSTRING ( string ,start_position , length )
+SUBSTRING ( string, start_position , length)
 ```
 
 For example:
@@ -6744,6 +6744,19 @@ SELECT
    SUBSTRING ('PostgreSQL', length('PostgreSQL')-2, 3) -- SQL
 ```
 
+#### How to retrieve values from one table that do not exists in another table?
+
+`EXCEPT` query will return rows from the upper query (query before the `EXCEPT`) that do not exists in the lower query (query after the `EXCEPT`). 
+
+```sql
+select deptno from dept
+except 
+select deptno from emp;
+```
+
+will return the value of `deptno` which exists in dept table but not in emp table.
+
+`EXCEPT` clause will not return duplicates. 
 
 ## Miscellaneous
 
