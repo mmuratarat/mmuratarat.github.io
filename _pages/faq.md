@@ -6683,6 +6683,14 @@ An alias is a temporary name assigned to the table or table column for the purpo
 
 An alias is represented explicitly by the `AS` keyword but in some cases the same can be performed without it as well. Nevertheless, using the `AS` keyword is always a good practice.
 
+### How to get random records from a table?
+
+```sql
+SELECT col1, col1 from table1 order by random() limit 5;
+```
+
+This line of code will pick 5 records randomly every time you call.
+
 
 ## Miscellaneous
 
