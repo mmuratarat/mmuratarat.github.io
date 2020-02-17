@@ -6275,6 +6275,36 @@ VALUES (value_or_expr, another_value_or_expr, ...),
        ...;
 ```
 
+#### How to insert rows from one table to another?
+
+The `INSERT INTO SELECT` statement copies rows from one table and inserts it into another table.
+
+```sql
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+```
+
+In order to use above query, you must have already created `table2`. When `table2` is ready you can insert rows from `table1`. 
+
+If you want to create a new table and insert values into it from another table at the same time, use query below:
+
+```sql
+CREATE TABLE table2 as
+select column1, column2, column3, ... from table1 where condition;
+```
+
+#### How to copy a table definition?
+
+You want to create a new table having the same set of columns as an existing table. You do not want to copy the rows, only the column structure of the table:
+
+```sql
+CREATE TABLE new_table
+AS 
+SELECT * FROM existing_table where 1=0
+```
+
 #### How to update rows in a table?
 
 ```sql
@@ -6723,7 +6753,7 @@ Or
 select CONCAT(ename, ' WORKS AS ', job)  from emp where deptno = 10;
 ```
 
-#### 
+#### How to extract a part of string?
 
 The `SUBSTRING` function returns a part of string. 
 
