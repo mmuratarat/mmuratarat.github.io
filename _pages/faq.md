@@ -6305,6 +6305,8 @@ AS
 SELECT * FROM existing_table where 1=0
 ```
 
+The subquery in above query will return no rows.
+
 #### How to update rows in a table?
 
 ```sql
