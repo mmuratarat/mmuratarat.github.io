@@ -7001,6 +7001,8 @@ Inserting into a linked list requires re-pointing the previous node (the node be
 
 Deleting from a linked list requires re-pointing the previous node (the node before the deleted node) to the next node (the node after the deleted node). Thus deletion is O(1).
 
+Sometimes, append and prepend can also be used. Append means appending a new element at the tail and prepend means adding a new head. Append is a O(1) operation because we have the tail and there is no need to traverse through the entire linked list. Similarly, prepend is a O(1) operation.
+
 #### What is the difference between stack and queue?
 
 A stack is an ordered list where you can insert or delete only the last added element. A real-life example of Stack could be a pile of books placed in a vertical order. In order to get the book that’s somewhere in the middle, you will need to remove all the books placed on top of it. This is how the LIFO (Last In First Out) method works. A stack is a limited access data structure - elements can be added and removed from the stack only at the top. push adds an item to the top of the stack, pop removes the item from the top. A stack is a recursive data structure. 
