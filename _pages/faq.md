@@ -6784,6 +6784,8 @@ The PostgreSQL `split_part` function is used to split a given string based on a 
 split_part(<string>,<delimiter>, <field_number>)
 ```
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/postgresql-split_part-function.png?raw=true)
+
 ```sql
 select split_part('MUSTAFA MURAT ARAT', ' ', 1); --- MUSTAFA
 select split_part('MUSTAFA MURAT ARAT', ' ', 2); --- MURAT
