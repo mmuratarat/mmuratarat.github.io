@@ -6776,6 +6776,20 @@ SELECT
    SUBSTRING ('PostgreSQL', length('PostgreSQL')-2, 3) -- SQL
 ```
 
+#### How to split a string?
+
+The PostgreSQL `split_part` function is used to split a given string based on a delimiter and pick out the desired field from the string, start from the left of the string.
+
+```sql
+split_part(<string>,<delimiter>, <field_number>)
+```
+
+```sql
+select split_part('MUSTAFA MURAT ARAT', ' ', 1); --- MUSTAFA
+select split_part('MUSTAFA MURAT ARAT', ' ', 2); --- MURAT
+select split_part('MUSTAFA MURAT ARAT', ' ', 3); --- ARAT
+```
+
 #### How to retrieve values from one table that do not exists in another table?
 
 `EXCEPT` query will return rows from the upper query (query before the `EXCEPT`) that do not exists in the lower query (query after the `EXCEPT`). 
