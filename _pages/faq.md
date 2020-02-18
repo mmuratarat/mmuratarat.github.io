@@ -6984,7 +6984,7 @@ Linear arrays, or one dimensional arrays, are the most basic. They are static in
 5. Size of a Linked list is variable. Linked lists are dynamic and flexible and can expand and contract its size. It grows at runtime, as more nodes are added to it.
 6. Whereas, linked list gets memory allocated in Heap section.
 7. In a linked list, new elements can be stored anywhere in the memory. Address of the memory location allocated to the new element is stored in the previous node of linked list, hence formaing a link between the two nodes/elements.
-8. Memory is allocated at runtime/execution time, as and when a new node is added. It's also known as Dynamic Memory Allocation.
+8. Memory is allocated at runtime/execution time, as and when a new node is added. It's also known as Dynamic Memory Allocation. It has poor locality, the memory used for linked list is scattered around in a mess. In contrast with, arrays which uses a contiguous addresses in memory. Arrays (slightly) benefits from processor caching since they are all near each other
 9. Insertion and Deletion operations are fast in linked list.
 
 **Time Complexity for Linked List:**
