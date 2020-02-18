@@ -6965,7 +6965,7 @@ A mutable object can be changed after it is created, and an immutable object can
 6. Array gets memory allocated in the Stack section.
 7. In an array, elements are stored in contiguous memory location or consecutive manner in the memory.
 8. Memory is allocated as soon as the array is declared, at compile time. It's also known as Static Memory Allocation.
-9. In array, Insertion and Deletion operation takes more time, as the memory locations are consecutive and fixed.
+9. In array, Insertion and Deletion operations take more time, as the memory locations are consecutive and fixed and you are shifting indexes while running those operations.
 
 Linear arrays, or one dimensional arrays, are the most basic. They are static in size, meaning that they are declared with a fixed size. Dynamic arrays are like one dimensional arrays, but have reserved space for additional elements. If a dynamic array is full, it copies its contents to a larger array. Multi dimensional arrays nested arrays that allow for multiple dimensions such as an array of arrays providing a 2 dimensional spacial representation via x, y coordinates.
 
