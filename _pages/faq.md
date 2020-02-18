@@ -6806,6 +6806,13 @@ will return the value of `deptno` which exists in dept table but not in emp tabl
 
 `EXCEPT` clause will not return duplicates. 
 
+#### What is the difference between EXTRACT and DATE_PART in PostgreSQL?
+
+They both allow you to retrieve subfields e.g., year, month, week from a date or time value.
+
+The `EXTRACT` syntax ends up as a call to the internal `date_part(...)` function. If SQL-portability is not a concern, calling `date_part()` directly should be a bit quicker.
+
+
 ## Miscellaneous
 
 #### What is a good code?
