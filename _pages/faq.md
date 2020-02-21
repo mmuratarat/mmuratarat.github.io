@@ -6812,6 +6812,33 @@ They both allow you to retrieve subfields e.g., year, month, week from a date or
 
 The `EXTRACT` syntax ends up as a call to the internal `date_part(...)` function. If SQL-portability is not a concern, calling `date_part()` directly should be a bit quicker.
 
+#### How to use ROW_NUMBER(), RANK(), DENSE_RANK() window functions?
+
+* ROW_NUMBER(): This one generates a new row number for every row, regardless of duplicates within a partition.
+* RANK(): This one generates a new row number for every distinct row, leaving gaps between groups of duplicates within a partition.
+* DENSE_RANK(): This one generates a new row number for every distinct row, leaving no gaps between groups of duplicates within a partition.
+
+```sql
+CREATE TABLE t AS
+SELECT 'a' v UNION ALL
+SELECT 'a'   UNION ALL
+SELECT 'a'   UNION ALL
+SELECT 'b'   UNION ALL
+SELECT 'c'   UNION ALL
+SELECT 'c'   UNION ALL
+SELECT 'd'   UNION ALL
+SELECT 'e';
+
+SELECT
+  v,
+  ROW_NUMBER() OVER (ORDER BY v) row_number,
+  RANK()       OVER (ORDER BY v) rank,
+  DENSE_RANK() OVER (ORDER BY v) dense_rank
+FROM t;
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-21%20at%2008.49.35.png?raw=true)
+
 
 ## Miscellaneous
 
