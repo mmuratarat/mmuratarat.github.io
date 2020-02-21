@@ -6839,6 +6839,11 @@ FROM t;
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-21%20at%2008.49.35.png?raw=true)
 
+As you can see clearly from the output:
+
+* The first, second and third rows receive the same rank because they have the same value A.
+* The fourth row receives the rank 4 because the `RANK()` functions the rank 2 and 3. The fifth and sixth rows receive the rank 5 because of the same reason as before and so on...
+
 
 ## Miscellaneous
 
