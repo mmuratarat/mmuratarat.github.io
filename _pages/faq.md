@@ -6790,6 +6790,10 @@ split_part(<string>,<delimiter>, <field_number>)
 select split_part('MUSTAFA MURAT ARAT', ' ', 1); --- MUSTAFA
 select split_part('MUSTAFA MURAT ARAT', ' ', 2); --- MURAT
 select split_part('MUSTAFA MURAT ARAT', ' ', 3); --- ARAT
+
+SELECT split_part('Hello, My name is murat!', ' ', 5) --- murat!
+
+SELECT split_part('Hello, My name is murat!', ',', 2) --- " My name is murat!"
 ```
 
 #### How to retrieve values from one table that do not exists in another table?
@@ -6992,20 +6996,42 @@ As you can see clearly from the output:
 * The fourth row receives the rank 4 because the `RANK()` functions the rank 2 and 3. The fifth and sixth rows receive the rank 5 because of the same reason as before and so on...
 
 
-#### How does 
+#### How to find modulus?
 
-The PostgreSQL `split_part` function is used to split a given string based on a delimiter and pick out the desired field from the string, start from the left of the string.
+The PostgreSQL `MOD()` function performs the modulo operation that returns the remainder after division of the first argument by the second one.
 
 ```sql
-split_part(<string>,<delimiter>, <field_number>)
+MOD(x,y)
 ```
 
-![](https://www.w3resource.com/w3r_images/postgresql-split_part-function.png)
+```sql
+SELECT  MOD(15,4) --- 3
+
+SELECT MOD(15,-4) ---3
+
+SELECT MOD(-15,4); --- -3
+
+SELECT MOD(-15,-4); --- -3
+```
+
+#### How to use DATE_TRUNC Function?
+
+The `date_trunc` function truncates a TIMESTAMP or an  INTERVAL value based on a specified date part e.g., hour, week, or month and returns the truncated timestamp or interval with a level of precision.
 
 ```sql
-SELECT split_part('Hello, My name is murat!', ' ', 5) --- murat!
+date_trunc('datepart', field)
+```
 
-SELECT split_part('Hello, My name is murat!', ',', 2) --- " My name is murat!"
+```sql
+SELECT date_trunc('hour', TIMESTAMP '2017-03-17 02:09:30'); --- "2017-03-17 02:00:00"
+SELECT date_trunc('minute', TIMESTAMP '2017-03-17 02:09:30'); --- "2017-03-17 02:09:00"
+
+SELECT date_trunc('year', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years"
+SELECT date_trunc('month', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons"
+SELECT date_trunc('day', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days"
+SELECT date_trunc('hour', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days 03:00:00"
+SELECT date_trunc('minute', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days 03:02:00"
+SELECT date_trunc('second', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days 03:02:01"
 ```
 
 ## Miscellaneous
