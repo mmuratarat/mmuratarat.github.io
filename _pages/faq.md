@@ -6992,6 +6992,22 @@ As you can see clearly from the output:
 * The fourth row receives the rank 4 because the `RANK()` functions the rank 2 and 3. The fifth and sixth rows receive the rank 5 because of the same reason as before and so on...
 
 
+#### How does 
+
+The PostgreSQL `split_part` function is used to split a given string based on a delimiter and pick out the desired field from the string, start from the left of the string.
+
+```sql
+split_part(<string>,<delimiter>, <field_number>)
+```
+
+![](https://www.w3resource.com/w3r_images/postgresql-split_part-function.png)
+
+```sql
+SELECT split_part('Hello, My name is murat!', ' ', 5) --- murat!
+
+SELECT split_part('Hello, My name is murat!', ',', 2) --- " My name is murat!"
+```
+
 ## Miscellaneous
 
 #### What is a good code?
