@@ -6806,6 +6806,46 @@ will return the value of `deptno` which exists in dept table but not in emp tabl
 
 `EXCEPT` clause will not return duplicates. 
 
+#### How does EXTRACT and DATE_PART work in PostgreSQL?
+
+The PostgreSQL `EXTRACT()` function retrieves a field such as a year, month, and day from a date/time value.
+
+```sql
+EXTRACT(field FROM source)
+```
+
+The `DATE_PART()` function extracts a subfield from a date or time value. 
+
+```sql
+DATE_PART(field,source)
+```
+
+The `field` is an identifier that determines what field to extract from the `source`. The values of the `field` must be in a list of permitted values: century, decade, year, month, day, hour, minute, second, microseconds, milliseconds, dow, doy, epoch, isodow, isoyear, timezone, timezone_hour, timezone_minute
+
+```sql
+SELECT date_part('year',TIMESTAMP '2017-02-01 13:30:15'); --- 2017
+SELECT extract('year' from TIMESTAMP '2017-02-01 13:30:15'); --- 2017
+
+SELECT date_part('month',TIMESTAMP '2017-02-01 13:30:15'); --- 2
+SELECT extract('month' from TIMESTAMP '2017-02-01 13:30:15'); --- 2
+
+SELECT date_part('day',TIMESTAMP '2017-02-01 13:30:15'); --- 1
+SELECT extract('day' from TIMESTAMP '2017-02-01 13:30:15'); --- 1
+
+SELECT date_part('hour',TIMESTAMP '2017-02-01 13:30:15'); --- 13
+SELECT extract('hour' from TIMESTAMP '2017-02-01 13:30:15'); --- 13
+
+SELECT date_part('minute',TIMESTAMP '2017-02-01 13:30:15'); --- 30
+SELECT extract('minute' from TIMESTAMP '2017-02-01 13:30:15'); --- 30
+
+SELECT date_part('decade',TIMESTAMP '2017-02-01 13:30:15'); --- 201
+SELECT extract('decade' from TIMESTAMP '2017-02-01 13:30:15'); --- 201
+
+--- The number of seconds since 1970-01-01 00:00:00 UTC
+SELECT date_part('epoch',TIMESTAMP '2017-02-01 13:30:15'); --- 1485955815
+SELECT extract('epoch' from TIMESTAMP '2017-02-01 13:30:15'); --- 1485955815
+```
+
 #### What is the difference between EXTRACT and DATE_PART in PostgreSQL?
 
 They both allow you to retrieve subfields e.g., year, month, week from a date or time value.
