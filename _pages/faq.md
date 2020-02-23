@@ -6844,6 +6844,12 @@ SELECT extract('decade' from TIMESTAMP '2017-02-01 13:30:15'); --- 201
 --- The number of seconds since 1970-01-01 00:00:00 UTC
 SELECT date_part('epoch',TIMESTAMP '2017-02-01 13:30:15'); --- 1485955815
 SELECT extract('epoch' from TIMESTAMP '2017-02-01 13:30:15'); --- 1485955815
+
+SELECT EXTRACT(YEAR FROM INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second' ); --- 6
+SELECT EXTRACT(MONTH FROM INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second' ); --- 5
+
+SELECT DATE_PART('YEAR', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second' ); --- 6
+SELECT DATE_PART('MONTH', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second' ); --- 5
 ```
 
 #### What is the difference between EXTRACT and DATE_PART in PostgreSQL?
@@ -6851,6 +6857,107 @@ SELECT extract('epoch' from TIMESTAMP '2017-02-01 13:30:15'); --- 1485955815
 They both allow you to retrieve subfields e.g., year, month, week from a date or time value.
 
 The `EXTRACT` syntax ends up as a call to the internal `date_part(...)` function. If SQL-portability is not a concern, calling `date_part()` directly should be a bit quicker.
+
+#### How to convert from  12 hours timestamp format to 24 hours timestamp?
+
+You can use `TO_CHAR()` function. The end result will be text.
+
+```sql
+select to_char(TIMESTAMP '2016-07-01 01:12:22 PM', 'yyyy-mm-dd hh24:mi:ss') --- 2016-07-01 13:12:22
+```
+
+#### How does AGE function work in PostgreSQL?
+
+The `age()` function subtract arguments, producing a "symbolic" result that uses years and months.
+
+```sql
+age(timestamp, timestamp)
+--- OR
+
+age(timestamp)
+```
+
+```sql
+SELECT age(timestamp '2015-01-15', timestamp '1972-12-28'); --- "42 years 18 days"
+```
+
+```sql
+SELECT AGE(CURRENT_DATE, DATE '1989-09-18') --- "30 years 5 mons 5 days"
+```
+
+If you do not define the other time stamp, Postgresql finds the age between current date and the date as specified in the argument.
+
+```sql
+SELECT AGE(CURRENT_DATE, DATE '1989-09-18') --- "30 years 5 mons 5 days"
+```
+
+#### How to get yesterday's date?
+
+```sql
+SELECT TIMESTAMP 'yesterday' --- "2020-02-22 00:00:00"
+SELECT current_date - 1 as Yesterday --- "2020-02-22"
+select current_timestamp - interval '1 day' ---- "2020-02-22 13:49:32.615199-05"
+```
+
+#### How to get current date, time, timestamp?
+
+```sql
+select NOW() --- "2020-02-23 13:50:25.058092-05" NOTE: THIS HAS TIMEZONE
+select NOW()::TIMESTAMP --- "2020-02-23 13:56:45.638871"
+--- The cast converts the timestamp to the current timestamp of your time zone. 
+--- That's also how the standard SQL function LOCALTIMESTAMP is implemented in Postgres.
+
+
+select current_date --- "2020-02-23"
+select current_time --- "13:50:44.069109-05:00"  NOTE: THIS HAS TIMEZONE
+select current_timestamp --- "2020-02-23 13:50:57.99141-05" NOTE: THIS HAS TIMEZONE
+select timestamp 'NOW' --- "2020-02-23 13:51:19.856137"
+select timeofday() --- "Sun Feb 23 13:52:06.027367 2020 EST" NOTE: THIS IS TEXT NOT TIME WITH TIMEZONE
+```
+
+`CURRENT_TIME` and `CURRENT_TIMESTAMP` deliver values with time zone; `LOCALTIME` and `LOCALTIMESTAMP` deliver values without time zone.
+
+```sql
+SELECT LOCALTIMESTAMP --- "2020-02-23 13:54:50.047158"
+SELECT LOCALTIME --- "13:54:56.317438"
+```
+
+Timezones are computed from Coordinated Universal Time (or UTC). Right now, I am on Eastern Standard Time, which is 5 hours further from UTC so PostgreSQL shows `-05` or `-05:00`.
+
+You can also set the timezone different than yours and compute the time:
+
+```sql
+SET TIMEZONE='US/Eastern';
+select NOW() --- "2020-02-23 14:03:23.057357-05"
+
+SET TIMEZONE='US/Pacific';
+select NOW() --- "2020-02-23 11:03:41.265654-08"
+```
+
+In order to get current timezone,
+
+```sql
+show timezone; --- "US/Pacific"
+```
+
+```sql
+SELECT * FROM pg_timezone_names;
+```
+
+will give the timezone names
+
+
+To get 2 hours 30 minutes ago, you use the minus (-) operator as follows:
+
+```sql
+SELECT NOW() - interval '2 Hours 30 Minutes' --- "2020-02-23 11:40:07.788344-05"
+```
+
+To get 1 hour from now:
+ 
+```sql
+SELECT (NOW() + interval '1 hour') AS an_hour_later; --- "2020-02-23 15:10:38.840118-05"
+```
 
 #### How to use ROW_NUMBER(), RANK(), DENSE_RANK() window functions?
 
