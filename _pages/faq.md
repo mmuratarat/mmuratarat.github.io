@@ -7034,6 +7034,30 @@ SELECT date_trunc('minute', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 
 SELECT date_trunc('second', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days 03:02:01"
 ```
 
+#### 
+
+Sometimes, you want to search and replace a string in a column with a new one such as replacing outdated phone numbers, broken URLs, and spelling mistakes.
+
+To search and replace all occurrences of a string with a new one, you use the REPLACE() function.
+
+```sql
+REPLACE(source, old_text, new_text );
+```
+
+This function is case-sensitive
+```sql
+SELECT REPLACE ('ABC AA', 'A', 'Z'); --- "ZBC ZZ"
+
+SELECT REPLACE ('Mustafa Murat ARAT', 'a', 'p');
+```
+
+You can also use `TRANSLATE` function:
+
+```sql
+SELECT TRANSLATE('ABC AA', 'A', 'Z'); --- "ZBC ZZ"
+SELECT TRANSLATE('Mustafa Murat ARAT', 'a', 'p'); --- "Mustpfp Murpt ARAT"
+```
+
 ## Miscellaneous
 
 #### What is a good code?
