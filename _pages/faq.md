@@ -7552,17 +7552,27 @@ class Queue():
 
     def __init__(self):
         self.queue = []
+        self.length = 0
+        
+    def __str__(self):
+        return str(self.__dict__)
 
     def enqueue(self, item):
+        self.length +=1
         self.queue.append(item)
 
     def dequeue(self):
         if len(self.queue) < 1:
             return None
+        self.length -=1
         return self.queue.pop(0)
 
     def size(self):
         return len(self.queue) 
+    
+    #Peek: Get the top most element of the queue. i.e, the element at the front position.
+    def peek(self):
+        return self.queue[0]
     
 queue_example = Queue()
 
@@ -7572,20 +7582,34 @@ queue_example.enqueue('grapes')
 queue_example.enqueue('mango')
 queue_example.enqueue('orange')
 
+print(queue_example)
+#{'queue': ['banana', 'grapes', 'mango', 'orange'], 'length': 4}
+
 # Now let's dequeue our fruits, we should get 'banana'
 first_item = queue_example.dequeue()
 print(first_item)
 #banana
+
+print(queue_example)
+#{'queue': ['grapes', 'mango', 'orange'], 'length': 3}
 
 # If we dequeue again we'll get 'grapes'
 second_item = queue_example.dequeue()
 print(second_item)
 #grapes
 
+print(queue_example)
+#{'queue': ['mango', 'orange'], 'length': 2}
+
 # 'mango' and 'orange' remain
 queue_example.size()
 #2
+
+print(queue_example.peek())
+#mango
 {% endhighlight %}
+
+Queue has O(n) lookup, O(1) enqueue, O(1) dequeue, and O(1) peek.
 
 **Additional remarks...**
 
