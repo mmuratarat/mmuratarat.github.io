@@ -450,7 +450,7 @@ Note that when $m=1$, the Jacobian is the same as gradient because it is a gener
 
 #### What is a Hessian matrix?
 
-The hessian matrix is a square matrix of the second-order partial derivatives of a scalar-values (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
+The hessian matrix is a square matrix of the second-order partial derivatives of a scalar-valued (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
 
 If we have a scalar-valued multi-variable function $f(x_{1}, x_{2}, x_{3}, ...)$, its Hessian with respect to x, is the $n \times n$ matrix of partial derivatives:
 
