@@ -7200,6 +7200,27 @@ SELECT
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.24.02.png?raw=true)
 
+#### How to find the position of a substring in a string?
+
+The PostgreSQL `POSITION()` function returns the location of a substring in a string.
+
+```sql
+POSITION(substring in string)
+```
+
+The `POSITION()` function returns an integer that represents the location of the substring within the string.
+
+The `POSITION()` function returns zero (0) if the substring is not found in the string. It returns null if either substring or string argument is null.
+
+Note that the `POSITION()` function searches for the substring case-sensitively.
+
+```sql
+SELECT POSITION('Murat' IN 'Mustafa Murat ARAT') --- 9
+
+SELECT POSITION('arat' IN 'Mustafa Murat ARAT') --- 0 Case-sensitive
+
+SELECT POSITION(Null IN 'Mustafa Murat ARAT') --- [null]
+```
 
 ## Miscellaneous
 
