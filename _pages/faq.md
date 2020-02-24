@@ -6862,12 +6862,22 @@ They both allow you to retrieve subfields e.g., year, month, week from a date or
 
 The `EXTRACT` syntax ends up as a call to the internal `date_part(...)` function. If SQL-portability is not a concern, calling `date_part()` directly should be a bit quicker.
 
-#### How to convert from  12 hours timestamp format to 24 hours timestamp?
+#### How to convert from  12 hours timestamp format to 24 hours timestamp or other way around?
 
 You can use `TO_CHAR()` function. The end result will be text.
 
 ```sql
 select to_char(TIMESTAMP '2016-07-01 01:12:22 PM', 'yyyy-mm-dd hh24:mi:ss') --- 2016-07-01 13:12:22
+```
+
+Or from 24 hours to 12 hours, you can use Meridiem indicator (PM or AM), what are given below are equal:
+
+```sql
+select to_char(TIMESTAMP '2016-07-01 13:12:22', 'yyyy-mm-dd hh12:mi:ss PM') --- "2016-07-01 01:12:22 PM"
+select to_char(TIMESTAMP '2016-07-01 11:12:22', 'yyyy-mm-dd hh12:mi:ss PM') --- "2016-07-01 11:12:22 AM"
+
+select to_char(TIMESTAMP '2016-07-01 13:12:22', 'yyyy-mm-dd hh12:mi:ss AM') --- "2016-07-01 01:12:22 PM"
+select to_char(TIMESTAMP '2016-07-01 11:12:22', 'yyyy-mm-dd hh12:mi:ss AM') --- "2016-07-01 11:12:22 AM"
 ```
 
 #### How does AGE function work in PostgreSQL?
@@ -7034,7 +7044,7 @@ SELECT date_trunc('minute', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 
 SELECT date_trunc('second', INTERVAL '6 years 5 months 4 days 3 hours 2 minutes 1 second'); --- "6 years 5 mons 4 days 03:02:01"
 ```
 
-#### 
+#### How to use REPLACE and TRANSLATE functions? 
 
 Sometimes, you want to search and replace a string in a column with a new one such as replacing outdated phone numbers, broken URLs, and spelling mistakes.
 
@@ -7045,17 +7055,64 @@ REPLACE(source, old_text, new_text );
 ```
 
 This function is case-sensitive
+
 ```sql
 SELECT REPLACE ('ABC AA', 'A', 'Z'); --- "ZBC ZZ"
 
 SELECT REPLACE ('Mustafa Murat ARAT', 'a', 'p');
 ```
 
-You can also use `TRANSLATE` function:
+You can also use `TRANSLATE` function. The PostgreSQL `TRANSLATE()` function performs several single-character, **one-to-one** translation in one operation.
 
 ```sql
+TRANSLATE(string, from, to)
+```
+
+There are some cases where both functions will return the same result. Like this:
+
+```sql
+SELECT REPLACE('ABC AA', 'A', 'Z'); --- "ZBC ZZ"
+SELECT REPLACE ('Mustafa Murat ARAT', 'a', 'p'); --- "Mustpfp Murpt ARAT"
+
 SELECT TRANSLATE('ABC AA', 'A', 'Z'); --- "ZBC ZZ"
 SELECT TRANSLATE('Mustafa Murat ARAT', 'a', 'p'); --- "Mustpfp Murpt ARAT"
+```
+
+Now for an example that demonstrates one of the differences between `TRANSLATE()` and `REPLACE()`:
+
+```sql
+--- First Example
+SELECT REPLACE('Mustafa Murat ARAT', 'Murat', 'Jack'); --- "Mustafa Jack ARAT"
+SELECT TRANSLATE('Mustafa Murat ARAT', 'Murat', 'Jack'); --- "Jaskfk Jack ARAT"
+
+--- Second Example
+SELECT REPLACE('Mustafa Murat ARAT', 'urat', 'ack'); --- "Mustafa Mack ARAT"
+SELECT TRANSLATE('Mustafa Murat ARAT', 'urat', 'ack'); --- "Maskfk Mack ARAT"
+
+--- Third Example
+SELECT REPLACE('Mustafa Murat ARAT', 'Tarum', 'Jack'); --- "Mustafa Murat ARAT"
+SELECT TRANSLATE('Mustafa Murat ARAT', 'Tarum', 'Jack'); --- "Mkstafa Mkcat ARAJ"
+```
+
+For the third example, `REPLACE()` has no effect (it returns the original string) because the second argument is not an exact match for the first argument (or a substring within it, like second example). Even though the second argument contains the correct characters, they are not in the same order as the first argument, and therefore, the whole string doesn't match.
+
+`TRANSLATE()` does have an effect because each character in the second argument is present in the first argument. It doesn’t matter that they are in a different order, because each character is translated one by one. PostgreSQL translates the first character, then the second, then the third, and so on.
+
+Similar to the previous example, you can also get different results when the first argument contains the characters in the second argument, but they are non-contiguous:
+
+```sql
+SELECT REPLACE('Mustafa Murat ARAT', 'MARAT', 'Jack'); --- "Mustafa Murat ARAT"
+SELECT TRANSLATE('Mustafa Murat ARAT', 'MARAT', 'Jack'); --- "Justafa Jurat aca"
+```
+
+As you can see, `REPLACE` function returned the same string because `MARAT` is not contained in the first argument, however, `TRANSLATE` function returned one-by-one translation. From this example, we cann see another feature of `TRANSLATE()` function, that it removes the extra character in the string 'MARAT', which is 'T', from the string 'Jack'.
+
+Another example for non-Contiguous Strings:
+
+```sql
+SELECT 
+    REPLACE('1car23', '123', '456') AS Replace, --- "1car23"
+    TRANSLATE('1car23', '123', '456') AS Translate; --- "4car56"
 ```
 
 ## Miscellaneous
