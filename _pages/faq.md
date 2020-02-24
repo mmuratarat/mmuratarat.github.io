@@ -7408,6 +7408,8 @@ Sometimes, append and prepend can also be used. Append means appending a new ele
 
 #### What is the difference between stack and queue?
 
+Stack is a linear data structure.
+
 A stack is an ordered list where you can insert or delete only the last added element. A real-life example of Stack could be a pile of books placed in a vertical order. In order to get the book that’s somewhere in the middle, you will need to remove all the books placed on top of it. This is how the LIFO (Last In First Out) method works. A stack is a limited access data structure - elements can be added and removed from the stack only at the top. push adds an item to the top of the stack, pop removes the item from the top. A stack is a recursive data structure. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/stack_pop.jpg?raw=true)
@@ -7510,6 +7512,8 @@ print(stack_example)
 print(stack_example.peek())
 #a
 {% endhighlight %}
+
+Stack has O(n) lookup, O(1) pop, O(1) push, and O(1) peek.
 
 A queue is an ordered list where you can delete the first added element (at the "front" of the queue) and insert an element at the "rear" of the queue. The only significant difference between Stack and Queue is that instead of using the LIFO method, Queue implements the FIFO method, which is short for First in First Out.  In the queue only two operations are allowed **enqueue** and **dequeue**. Enqueue means to insert an item into the back of the queue, dequeue means removing the front item. A perfect real-life example of Queue: a line of people waiting at a ticket booth. If a new person comes, they will join the line from the end, not from the start — and the person standing at the front will be the first to get the ticket and hence leave the line.
 
