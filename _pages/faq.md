@@ -7222,6 +7222,37 @@ SELECT POSITION('arat' IN 'Mustafa Murat ARAT') --- 0 Case-sensitive
 SELECT POSITION(Null IN 'Mustafa Murat ARAT') --- [null]
 ```
 
+#### How to replace Null in PostgreSQL?
+
+SQL Server supports `ISNULL` function that replaces NULL with a specified replacement value:
+
+```sql
+ISNULL(expression, replacement)
+```
+
+If the `expression` is NULL, then the `ISNULL` function returns the `replacement`. Otherwise, it returns the result of the `expression`.
+
+PostgreSQL does not have the `ISNULL` function. However, you can use the `COALESCE` function which provides the similar functionality. Note that the `COALESCE` function returns the first non-null argument, so the following syntax has the similar effect as the `ISNULL` function above:
+
+```sql
+COALESCE(expression,replacement)
+```
+
+```sql
+SELECT COALESCE(Null, 2) --- will return 2
+```
+
+In addition to `COALESCE` function, you can use the `CASE` expression:
+
+```sql
+SELECT 
+    CASE WHEN expression IS NULL 
+            THEN replacement 
+            ELSE expression 
+    END AS column_alias;
+```
+
+
 ## Miscellaneous
 
 #### What is a good code?
