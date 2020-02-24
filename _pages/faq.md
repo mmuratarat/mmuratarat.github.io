@@ -7115,6 +7115,84 @@ SELECT
     TRANSLATE('1car23', '123', '456') AS Translate; --- "4car56"
 ```
 
+#### How to pad a string on left or right?
+
+The PostgreSQL `LPAD()` function pads a string on the left to a specified length with a sequence of characters.
+
+```sql
+LPAD(string, length[, fill])    
+```
+
+`length` is an positive integer that specifies the length of the result string **after padding**.
+
+Similarly, `RPAD()` function pads a string on the right.
+
+```sql
+SELECT LPAD('PostgreSQL',15,'*'); --- "*****PostgreSQL"
+
+SELECT RPAD('PostgreSQL',15,'*'); --- "PostgreSQL*****"
+```
+
+In this example, the length of the PostgreSQL string is 10, the result string should have the length 15, therefore, the `LPAD()` function pads 5 character `*` on the left of the string. Similarly, `RPAD()` function pads 5 character `*` on the right of the string.
+
+#### How to convert a value of one data type into another?
+
+There are many cases that you want to convert a value of one data type into another. PostgreSQL provides you with the `CAST` operator that allows you to do this.
+
+```sql
+CAST ( expression AS target_type );
+```
+
+For example:
+
+```sql
+SELECT '2019-06-15 14:30:20'::timestamp;
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.19.33.png?raw=true)
+
+```sql
+SELECT '15 minute'::interval,
+ '2 hour'::interval,
+ '1 day'::interval,
+ '2 week'::interval,
+ '3 month'::interval;
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.20.10.png?raw=true)
+
+```sql
+SELECT
+   CAST ('2015-01-01' AS DATE),
+   CAST ('01-OCT-2015' AS DATE);
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.21.30.png?raw=true)
+
+```sql
+SELECT
+   CAST ('100' AS INTEGER);
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.22.15.png?raw=true)
+
+
+Besides the type CAST syntax, you can use the following syntax to convert a value of one type into another:
+
+```sql
+expression::type
+```
+
+For example,
+
+```sql
+SELECT
+  '100'::INTEGER, --- 100
+  '01-OCT-2015'::DATE; --- "2015-10-01"
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.24.02.png?raw=true)
+
+
 ## Miscellaneous
 
 #### What is a good code?
