@@ -6092,6 +6092,14 @@ Today two interesting practical applications of autoencoders are data denoising 
 
 For 2D visualization specifically, t-SNE (pronounced "tee-snee") is probably the best algorithm around, but it typically requires relatively low-dimensional data. So a good strategy for visualizing similarity relationships in high-dimensional data is to start by using an autoencoder to compress your data into a low-dimensional space (e.g. 32 dimensional), then use t-SNE for mapping the compressed data to a 2D plane. 
 
+#### Why to denoise autoencoder procedure?
+
+The denoising autoencoder procedure was invented to help:
+
+* The hidden layers of the autoencoder learn more robust filters
+* Reduce the risk of overfitting in the autoencoder
+* Prevent the autoencoder from learning a simple identify function
+
 #### What are some limitations of deep learning?
 
 1. Deep learning usually requires large amounts of training data and a computational power.
