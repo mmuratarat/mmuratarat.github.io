@@ -6919,6 +6919,8 @@ SELECT AGE(CURRENT_DATE, DATE '1989-09-18') --- "30 years 5 mons 5 days"
 SELECT TIMESTAMP 'yesterday' --- "2020-02-22 00:00:00"
 SELECT current_date - 1 as Yesterday --- "2020-02-22"
 select current_timestamp - interval '1 day' ---- "2020-02-22 13:49:32.615199-05"
+
+select (DATE '2019-07-05' - Interval '1 Day')::Date --- "2019-07-04" (assuming 2019-07-05 is today)
 ```
 
 #### How to get current date, time, timestamp?
