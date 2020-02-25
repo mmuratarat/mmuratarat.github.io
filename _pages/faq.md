@@ -7252,6 +7252,15 @@ SELECT
     END AS column_alias;
 ```
 
+#### How to find date differences?
+
+```sql
+select '2020-01-12'::date - '2020-01-01'::date;
+select DATE '2020-01-12' - DATE '2020-01-01';
+select extract('Day' from DATE '2020-01-12') - extract('Day' from DATE '2020-01-01')
+select DATE_PART('Day', DATE '2020-01-12') - DATE_PART('Day', DATE '2020-01-01')
+```
+
 
 ## Miscellaneous
 
