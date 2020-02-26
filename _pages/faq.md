@@ -7016,6 +7016,12 @@ As you can see clearly from the output:
 * The fourth row receives the rank 4 because the `RANK()` functions the rank 2 and 3. The fifth and sixth rows receive the rank 5 because of the same reason as before and so on...
 
 
+The `RANK`, `DENSE_RANK` and `ROW_NUMBER` Functions have the following similarities:
+1. All of them require an `ORDER BY` clause.
+2. All of them return an increasing integer with a base value of 1.
+3. When combined with a `PARTITION BY` clause, all of these functions reset the returned integer value to 1.
+4. If there are no duplicated values in the column used by the `ORDER BY` clause, these functions return the same output.
+
 #### How to find modulus?
 
 The PostgreSQL `MOD()` function performs the modulo operation that returns the remainder after division of the first argument by the second one.
