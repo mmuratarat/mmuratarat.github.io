@@ -7269,6 +7269,31 @@ select extract('Day' from DATE '2020-01-12') - extract('Day' from DATE '2020-01-
 select DATE_PART('Day', DATE '2020-01-12') - DATE_PART('Day', DATE '2020-01-01')
 ```
 
+#### How to extract n number of characters specified in the argument from the left or right of a given string?
+
+The PostgreSQL `LEFT()` function returns the first *n* characters in the string.
+
+```sql
+LEFT(string, n) 
+```
+
+For example, let's extract the first 2 letters from the string 'murat':
+
+```sql
+SELECT left('murat', 2) --- mu
+```
+
+Simirlary, `RIGHT()` function returns the last *n* characters in the string.
+
+```sql
+RIGHT(string, n) 
+```
+
+For example, let's extract the last 2 letters from the string 'murat':
+
+```sql
+SELECT right('murat', 2) --- at
+```
 
 ## Miscellaneous
 
