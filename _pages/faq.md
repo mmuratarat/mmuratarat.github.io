@@ -7313,6 +7313,8 @@ Therefore a faster way is given below:
 select * from mytable offset floor(random() * (select count(*) from mytable)) limit 1 ;
 ```
 
+The reason why we use `FLOOR()` function is that `FLOOR(RANDOM()*N)` where N is the number of records in the table, is guaranteed to be $0 .. . N-1$ and never $N$. Because `RANDOM()` returns a completely random number >= 0 and <1 and we will have always have 1 observation left after `OFFSET`.
+
 
 ## Miscellaneous
 
