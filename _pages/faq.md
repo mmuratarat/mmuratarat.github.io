@@ -7296,6 +7296,24 @@ For example, let's extract the last 2 letters from the string 'murat':
 SELECT right('murat', 2) --- at
 ```
 
+#### How to randomly select a row?
+
+```sql
+SELECT column FROM table
+ORDER BY RANDOM()
+ORDER BY 1
+```
+
+But this is not the best solution. What happens when you run such a query? Let’s say you run this query on a table with 10000 rows, than the SQL server generates 10000 random numbers, scans this numbers for the smallest one and gives you this row. Generating random numbers is relatively expensive operation, scaning them for the lowest one (if you have LIMIT 10, it will need to find 10 smallest numbers) is also not so fast (if quote is text it’s slower, if it’s something with fixed size it is faster, maybe because of need to create temporary table).
+
+
+Therefore a faster way is given below:
+
+```sql
+select * from mytable offset floor(random() * (select count(*) from mytable)) limit 1 ;
+```
+
+
 ## Miscellaneous
 
 #### What is a good code?
