@@ -2923,6 +2923,16 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-14.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-15.png?raw=true)
 
+#### When to use chi-square tests?
+
+The Chi-Square test is a statistical procedure used by researchers to examine the differences between categorical variables in the same population. 
+
+There are two types of chi-square tests. Both use the chi-square statistic and distribution for different purposes:
+
+1. A chi-square goodness of fit test determines if a sample data matches a population, i.e., Goodness of Fit Test.
+
+2. A chi-square test for independence compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. For example, it is used to test that Baby gender (boy/girl) and baby heart rate (low/high) are independent.
+
 #### What does statistical interaction mean?
 
 Statistical interaction means the effect of one independent variable(s) on the dependent variable depends on the value of another independent variable(s). Conversely, additivity (i.e., no interaction) means that the effect of one independent variable(s) on the dependent variable does NOT depend on the value of another independent variable(s).
