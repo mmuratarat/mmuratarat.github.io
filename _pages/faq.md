@@ -6773,27 +6773,6 @@ Or
 select CONCAT(ename, ' WORKS AS ', job)  from emp where deptno = 10;
 ```
 
-#### How to extract a part of string?
-
-The `SUBSTRING` function returns a part of string. 
-
-```sql
-SUBSTRING ( string, start_position , length)
-```
-
-For example:
-
-```sql
-SELECT
-   SUBSTRING ('PostgreSQL', 1, 8); -- PostgreS
-   
-SELECT
-   SUBSTRING ('PostgreSQL', 8); -- SQL # We do not need to submit length parameter
-   
-SELECT
-   SUBSTRING ('PostgreSQL', length('PostgreSQL')-2, 3) -- SQL
-```
-
 #### How to split a string?
 
 The PostgreSQL `split_part` function is used to split a given string based on a delimiter and pick out the desired field from the string, start from the left of the string.
@@ -6936,6 +6915,8 @@ select (DATE '2019-07-05' - Interval '1 Day')::Date --- "2019-07-04" (assuming 2
 
 #### How to get current date, time, timestamp?
 
+The different options vary in precision. 
+
 ```sql
 select NOW() --- "2020-02-23 13:50:25.058092-05" NOTE: THIS HAS TIMEZONE
 select NOW()::TIMESTAMP --- "2020-02-23 13:56:45.638871"
@@ -6979,7 +6960,7 @@ show timezone; --- "US/Pacific"
 SELECT * FROM pg_timezone_names;
 ```
 
-will give the timezone names
+will give the timezone names. Complete time-zones are given in [here](https://www.postgresql.org/docs/7.2/timezones.html).
 
 
 To get 2 hours 30 minutes ago, you use the minus (-) operator as follows:
@@ -7243,6 +7224,8 @@ SELECT POSITION(Null IN 'Mustafa Murat ARAT') --- [null]
 
 #### How to replace Null in PostgreSQL?
 
+Occasionally, you will end up with a dataset that has some nulls that you'd prefer to contain actual values. This happens frequently in numerical data (displaying nulls as 0 is often preferable), and when performing outer joins that result in some unmatched rows. In cases like this, you can use `COALESCE` to replace the null values.
+
 SQL Server supports `ISNULL` function that replaces NULL with a specified replacement value:
 
 ```sql
@@ -7304,6 +7287,58 @@ For example, let's extract the last 2 letters from the string 'murat':
 
 ```sql
 SELECT right('murat', 2) --- at
+```
+
+#### How to extract a part of string?
+
+The `SUBSTRING` function returns a part of string. 
+
+```sql
+SUBSTRING ( string, start_position , length)
+```
+
+For example:
+
+```sql
+SELECT
+   SUBSTRING ('PostgreSQL', 1, 8); -- PostgreS
+   
+SELECT
+   SUBSTRING ('PostgreSQL', 8); -- SQL # We do not need to submit length parameter
+   
+SELECT
+   SUBSTRING ('PostgreSQL', length('PostgreSQL')-2, 3) -- SQL
+```
+
+#### How to remove (trim) characters from the beginning, end or both sides of a string?
+
+The syntax of LTRIM() and RTRIM() function are as follows:
+
+```sql
+LTRIM(string, [character]);
+RTRIM(string, [character]);
+BTRIM(string, [character]);
+```
+
+This is equivalent to the following syntax of the TRIM() function:
+
+```sql
+TRIM(LEADING character FROM string); -- LTRIM(string,character)
+TRIM(TRAILING character FROM string); -- RTRIM(string,character)
+TRIM(BOTH character FROM string); -- BTRIM(string,character)
+```
+
+he TRIM function takes 3 arguments. First, you have to specify whether you want to remove characters from the beginning ('leading'), the end ('trailing'), or both ('both'). Next you must specify all characters to be trimmed. Any characters included in the single quotes will be removed from both beginning, end, or both sides of the string. Finally, you must specify the text you want to trim using `FROM`.
+
+```sql
+SELECT LTRIM('enterprise', 'e'); --- "nterprise"
+SELECT TRIM(LEADING 'e' FROM 'enterprise') --- "nterprise"
+
+SELECT RTRIM('enterprise', 'e'); --- "enterpris"
+SELECT TRIM(TRAILING 'e' FROM 'enterprise') --- "enterpris"
+
+SELECT BTRIM('enterprise', 'e'); --- "nterpris"
+SELECT TRIM(BOTH 'e' FROM 'enterprise') --- "nterpris"
 ```
 
 #### How to randomly select a row?
