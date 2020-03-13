@@ -7540,6 +7540,8 @@ A mutable object can be changed after it is created, and an immutable object can
 
 Linear arrays, or one dimensional arrays, are the most basic. They are static in size, meaning that they are declared with a fixed size. Dynamic arrays are like one dimensional arrays, but have reserved space for additional elements. If a dynamic array is full, it copies its contents to a larger array. Multi dimensional arrays nested arrays that allow for multiple dimensions such as an array of arrays providing a 2 dimensional spacial representation via x, y coordinates.
 
+Keep in mind that unless you're writing your own data structure (e.g. linked list in C), it can depend dramatically on the implementation of data structures in your language/framework of choice.
+
 **Time Complexity for Arrays:**
 
 * Access (Indexing): Linear array: O(1), Dynamic array: O(1)
@@ -7559,6 +7561,8 @@ It takes O(n) time to find the element you want to delete. Then in order to dele
 7. In a linked list, new elements can be stored anywhere in the memory. Address of the memory location allocated to the new element is stored in the previous node of linked list, hence formaing a link between the two nodes/elements.
 8. Memory is allocated at runtime/execution time, as and when a new node is added. It's also known as Dynamic Memory Allocation. It has poor locality, the memory used for linked list is scattered around in a mess. In contrast with, arrays which uses a contiguous addresses in memory. Arrays (slightly) benefits from processor caching since they are all near each other
 9. Insertion and Deletion operations are fast in linked list.
+
+Keep in mind that unless you're writing your own data structure (e.g. linked list in C), it can depend dramatically on the implementation of data structures in your language/framework of choice.
 
 **Time Complexity for Linked List:**
 * Access (Indexing): Singly Linked Lists: O(n), Doubly Linked Lists: O(n)
@@ -7964,6 +7968,8 @@ with open('data.txt') as json_file:
 To analyze and debug JSON data, we may need to print it in a more readable format. This can be done by passing additional parameters `indent` and `sort_keys` to `json.dumps()` and `json.dump()` method.
 
 #### What is the time complexity for Binary Search Tree?
+
+Keep in mind that unless you're writing your own data structure (e.g. linked list in C), it can depend dramatically on the implementation of data structures in your language/framework of choice.
 
 Binary Search Trees (BST) has different time complexities for best and worst cases. In the best cases, access, search, insert and deletion operations have O(log n) time where n is the number of nodes in the balanced binary search tree. If you do $n$ searches in the binary tree, hence the total complexity is O(nlog(n)).
 
