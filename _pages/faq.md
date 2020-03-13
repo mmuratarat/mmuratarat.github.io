@@ -7965,5 +7965,11 @@ To analyze and debug JSON data, we may need to print it in a more readable forma
 
 Binary Search Trees (BST) has different time complexities for best and worst cases. In the best cases, access, search, insert and deletion operations have O(log n) time where n is the number of nodes in the balanced binary search tree. If you do $n$ searches in the binary tree, hence the total complexity is O(nlog(n)).
 
+However, for all of these traversals (preorder, inorder, postorder, and level order) - whether done recursively or iteratively - you'll have to visit every node in the binary tree. That means that you’ll get a runtime complexity of 𝑂(𝑛) - where $n$ is the number of nodes in the binary tree.
+
 However, the time complexity for these operations is O(n) in the worst case when the tree becomes unbalanced. Because in the absolute worst case, a binary tree with $n$ elements would be like a linked list and this is why we need to balance the trees to achieve O(log N) search. Besides, similarly, if you are doing $n$ searches in the unbalanced tree, the total complexity will turn out to be O(n^2).
+
+#### Where does the log of O(log n) come from?
+
+https://stackoverflow.com/questions/9152890/what-would-cause-an-algorithm-to-have-olog-n-complexity/9153420#9153420
 
