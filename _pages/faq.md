@@ -7969,7 +7969,9 @@ Binary Search Trees (BST) has different time complexities for best and worst cas
 
 However, for all of these traversals (preorder, inorder, postorder, and level order) - whether done recursively or iteratively - you'll have to visit every node in the binary tree. That means that you’ll get a runtime complexity of 𝑂(𝑛) - where $n$ is the number of nodes in the binary tree.
 
-However, the time complexity for these operations is O(n) in the worst case when the tree becomes unbalanced. Because in the absolute worst case, a binary tree with $n$ elements would be like a linked list and this is why we need to balance the trees to achieve O(log N) search. Besides, similarly, if you are doing $n$ searches in the unbalanced tree, the total complexity will turn out to be O(n^2).
+![](https://i.stack.imgur.com/SulR5.png)
+
+However, the time complexity for these operations is O(n) in the worst case when the tree becomes unbalanced as in given above. Because in the absolute worst case, a binary tree with $n$ elements would be like a linked list and this is why we need to balance the trees to achieve O(log N) search. Besides, similarly, if you are doing $n$ searches in the unbalanced tree, the total complexity will turn out to be O(n^2).
 
 #### Where does the log of O(log n) come from?
 
