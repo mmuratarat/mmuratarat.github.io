@@ -7547,6 +7547,8 @@ Linear arrays, or one dimensional arrays, are the most basic. They are static in
 * Deletion: Linear array: O(n)
 * Insertion: Linear array: O(n) Dynamic array: O(n)
 
+It takes O(n) time to find the element you want to delete. Then in order to delete it, you must shift all elements to the right of it one space to the left. The same case is valid for insertion. For searching, you have to traverse all the nodes. Indexing is O(1) because when you know the index of the element, you can access it easily.
+
 **Linked List**
 1. Linked list is considered as non-primitive data structure contains a collection of unordered linked elements known as nodes.
 2. Linked List supports Sequential Access, which means to access any element/node in a linked list, we have to sequentially traverse the complete linked list, upto that element. To access nth element of a linked list, time complexity is O(n).
