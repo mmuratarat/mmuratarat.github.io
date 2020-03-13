@@ -7960,3 +7960,10 @@ with open('data.txt') as json_file:
 {% endhighlight %}
 
 To analyze and debug JSON data, we may need to print it in a more readable format. This can be done by passing additional parameters `indent` and `sort_keys` to `json.dumps()` and `json.dump()` method.
+
+#### What is the time complexity for Binary Search Tree?
+
+Binary Search Trees (BST) has different time complexities for best and worst cases. In the best cases, access, search, insert and deletion operations have O(log n) time where n is the number of nodes in the balanced binary search tree. If you do $n$ searches in the binary tree, hence the total complexity is O(nlog(n)).
+
+However, the time complexity for these operations is O(n) in the worst case when the tree becomes unbalanced. Because in the absolute worst case, a binary tree with $n$ elements would be like a linked list and this is why we need to balance the trees to achieve O(log N) search. Besides, similarly, if you are doing $n$ searches in the unbalanced tree, the total complexity will turn out to be O(n^2).
+
