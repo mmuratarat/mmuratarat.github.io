@@ -7971,5 +7971,7 @@ However, the time complexity for these operations is O(n) in the worst case when
 
 #### Where does the log of O(log n) come from?
 
+You repeatedly divide n by two until you reach 1 or less. Therefore your stop condition is (roughly) expressed by the equation n/2^k = 1 <=> n = 2^k <=> log_2 n = k ( / is an integer division in your code). Roughness is allowed because we are dealing with O( ) and constants will disappear anyway.
+
 https://stackoverflow.com/questions/9152890/what-would-cause-an-algorithm-to-have-olog-n-complexity/9153420#9153420
 
