@@ -21,7 +21,7 @@ Shells may be used interactively or non-interactively. As the term implies, inte
 
 Bash is a type of interpreter that processes shell commands. A shell interpreter takes commands in plain text format and calls Operating System services to do something.
 
-It stands for **Bourne Again Shell**, an enhanced version of the original Unix shell program, `sh`, written by Steve Bourne and it is the default shell on many Linux distributions today. Besides `bash`, there are other shell programs that can be installed in a Linux system. These include: Korn shell (`ksh`), enhanced C shell (`tcsh`), friendly interactive shell (`fish`) and `zsh`. Note that each shell does the same job, but each understand a different command syntax and provides different built-in functions.
+It stands for **Bourne Again Shell**, an enhanced version of the original Unix shell program, `sh`, written by Steve Bourne and it is the default shell on many Linux distributions today. Besides `bash`, there are other shell programs that can be installed in a Linux system. These include: Korn shell (`ksh`), enhanced C shell (`tcsh`), friendly interactive shell (`fish`) and Z-shell `zsh`. Note that each shell does the same job, but each understand a different command syntax and provides different built-in functions.
 
 `bash` and `sh` are two different shells. Basically `bash` is `sh`, with more features and better syntax. Most commands work the same, but they are different.
 
