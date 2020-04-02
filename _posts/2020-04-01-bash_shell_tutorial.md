@@ -37,21 +37,21 @@ When you open the Terminal app, it automatically opens a shell to connect you to
 
 A "command" is a line that tells the terminal to perform an action. For example:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ date
 Mon Mar 30 08:20:02 EDT 2020
 ```
 
 Another example: `echo` perform an action to print hellp on screen
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "hello"
 hello
 ```
 
 Another example: `say` will read whatever string you write on terminal.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ say "hello there"
 ```
 
@@ -60,7 +60,7 @@ There are three rules of commands:
 2. A command can act on something. For example, `echo` command can act on a string. It does not act alone.
 3. A command can have **Options** which let the command perform its action in a different way. For example, using command `date` giving time in UTC time zone:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ date -u
 Mon Mar 30 12:25:10 UTC 2020
 ```
@@ -75,7 +75,7 @@ Command (-option) (something)
 
 For example,
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "Hello"
 Hello
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo -n "Hello"
@@ -88,7 +88,7 @@ A couple of other examples:
 * `killall`: For example, turn on Mac browser Safari and on terminal, do `killall Safari`, it will close the Safari application.
 * `cal` can act alone or on something.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cal 01 2020
     January 2020      
 Su Mo Tu We Th Fr Sa  
@@ -99,7 +99,7 @@ Su Mo Tu We Th Fr Sa
 26 27 28 29 30 31     
 ```
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cal
      March 2020       
 Su Mo Tu We Th Fr Sa  
@@ -116,21 +116,21 @@ will give directly current date and month which is 30th of March.
 
 `whoami` will print your username on your computer:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ whoami
 mustafamuratarat
 ```
 
 `pwd` will print the present working directory:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ pwd
 /Users/mustafamuratarat
 ```
 
 `ls` will print what is insider the current folder, standing for "list":
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ ls
 \some folders here
 ```
@@ -172,7 +172,7 @@ You can also see what's inside of a folder without going to that folder by just 
 
 I can also find some information about a file using `file` command:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ file X_test.txt
 X_test.txt: ASCII text, with very long lines
 
@@ -182,7 +182,7 @@ projection_from_2d_into_line.png: PNG image data, 1404 x 692, 8-bit/color RGBA, 
 
 We can change the current directory using the command `cd`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ pwd
 /Users/mustafamuratarat
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cd Desktop/
@@ -191,7 +191,7 @@ We can change the current directory using the command `cd`.
 
 In order to move out of the current directory, use `cd ..`. We will go back out of present directory one-step.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ pwd
 /Users/mustafamuratarat/Desktop
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ cd ..
@@ -202,7 +202,7 @@ However, whichever folder you are in, you can just type `cd` and it will take yo
 
 Let's say I am in the folder called `spark_book` which is insider `spark` folder which is in `Desktop` folder.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:spark_book mustafamuratarat$ pwd
 /Users/mustafamuratarat/Desktop/spark/spark_book
 (base) Arat-MacBook-Pro:spark_book mustafamuratarat$ cd 
@@ -214,7 +214,7 @@ Let's say I am in the folder called `spark_book` which is insider `spark` folder
 
 Again, we are in the folder `Desktop/spark/spark_book`. If we want to go back two-steps back which is `Desktop` folder but not to home directory:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cd Desktop/spark/spark_book
 (base) Arat-MacBook-Pro:spark_book mustafamuratarat$ cd ../..
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ 
@@ -222,7 +222,7 @@ Again, we are in the folder `Desktop/spark/spark_book`. If we want to go back tw
 
 `open` will open whichever file you call. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ open test.txt
 ```
 
@@ -232,7 +232,7 @@ will open the pdf file `test.txtf`.
 
 `touch` command will create a file. You will provide the extension.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ touch Untitled_test.xls
 ```
 
@@ -243,7 +243,7 @@ will create an Excel file named `Untitled_test`.
 
 First let's create a new folder named `newfolder` and inside this folder, let's create some files and folders.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ mkdir newfolder
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ cd newfolder/
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ pwd
@@ -260,20 +260,20 @@ First let's create a new folder named `newfolder` and inside this folder, let's 
 
 What if you want to create a new directory and, at the same time, create a new directory to contain it? 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ mkdir newfolder2/newfolder
 mkdir: newfolder2: No such file or directory
 ```
 
 Only `mkdir` will not work because `newfolder2` does not even exist.  Simply use the `-p` command option. The following command will create a new folder called `newfolder2` and, at the same time, create a directory within `newfolder2` called `newfolder`:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ mkdir -p newfolder2/newfolder
 ```
 
 `mv` will move a file (or a folder) or quickly rename it.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv a.txt aaa.txt
 ```
 
@@ -283,7 +283,7 @@ will rename the file `a.txt` to `aaa.txt`.
 
 Similarly,
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv A-folder A-renamed-folder
 ```
 
@@ -291,7 +291,7 @@ will rename the folder (directory) `A-folder` as `A-renamed-folder`.
 
 Additionally, the command below
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv a.txt A-folder
 ```
 
@@ -303,7 +303,7 @@ will move the file `aaa.txt` from `newfolder` to `A-folder`.
 
 We are in folder `newfolder`. Let's add some text in `1.txt` using `nano`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ nano 1.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat 1.txt
 write something
@@ -311,7 +311,7 @@ write something
 
 Let's make a copy of `1.txt` to another file `1a.txt`. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cp 1.txt 1a.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat 1a.txt
 write something
@@ -325,7 +325,7 @@ will copy the file `a.html` into the folder `A-folder`.
 
 `rm` command will remove a file. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ rm 2.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ rm a.html
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ rm A-folder/a.html
@@ -339,7 +339,7 @@ The `-f` stands for force (that is, force the deletion).
 
 `*` practically means zero or more characters.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ file 1.txt 2.txt
 1.txt: ASCII text
 2.txt: cannot open `2.txt' (No such file or directory)
@@ -378,7 +378,7 @@ One important command-line option is `-r`. This stands for *recursive* and tells
 
 For example, `ls -R .` will recursively list all the files inside the working directory and also, files of other folders inside the current directory.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -R .
 1.txt		3.txt		B-folder	aaa.txt
 1a.txt		A-folder	C-folder
@@ -397,13 +397,13 @@ For example, `ls -R .` will recursively list all the files inside the working di
 If, at the command prompt, you try to copy, move or otherwise manipulate files that have spaces in their names, you’ll run into problems. For example, suppose you want to move the file `picture from
 germany.jpg` to the directory mydirectory. In theory the following command should do the trick:
 
-```console
+```shell
 mv picture from germany.jpg mydirectory/
 ```
  
 But you will get the following error:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv picture from germany.jpg B-folder
 mv: rename picture to B-folder/picture: No such file or directory
 mv: rename from to B-folder/from: No such file or directory
@@ -412,13 +412,13 @@ mv: rename germany.jpg to B-folder/germany.jpg: No such file or directory
 
 There are two solutions. The easiest is to enclose the filename in quotation marks ("), so the previous command would read as follows:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv "picture from germany.jpg" B-folder
 ```
 
 The other solution is to precede each space with a backslash. This tells BASH you’re including a literal character in the filename. In other words, you’re telling BASH not to interpret the space in the way it normally does, which is as a separator between filenames or commands. Here’s how the command looks if you use backslashes:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv picture\ from\ germany.jpg B-folder
 ```
 
@@ -440,7 +440,7 @@ These values below are always used for `stdin`, `stdout`, and `stderr`:
 
 `echo` will print whatever string it is given. You can redirect this string into a new file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "adjnnjkjkfd"
 adjnnjkjkfd
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "hello there" > newtext.txt
@@ -450,7 +450,7 @@ hello there
 
 But if you want to add something else in the same file that already exists, 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "something else" > newtext.txt
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cat newtext.txt
 something else
@@ -458,7 +458,7 @@ something else
 
 Using `>` command will erase everything what was inside. What if instead we want to append some line into already existing file? In this case we use `>>`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo "I want to add this line" >> newtext.txt
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cat newtext.txt
 something else
@@ -467,7 +467,7 @@ I want to add this line
 
 You can use this command with every other commands.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ ls -l > listing_home.txt
 ```
 
@@ -475,7 +475,7 @@ This command redirects the stdout of `ls -l` to a file. If the file already exis
 
 NOTE: `>` command is the same as `1>` which means that "redirect all stdout to a file". This `1` is just the file descriptor for `stdout`. The syntax for redirecting is `[FILE_DESCRIPTOR]>`, leaving the file descriptor out is just a shortcut to `1>`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ ls -l 1> listing_home.txt
 ```
 
@@ -486,14 +486,14 @@ because `1` stands for `stdout`.
 
 So, to redirect `stderr`, it should be just a matter of adding the right file descriptor in place, which is `2>`. Additionally, when you use `2>&1` you are basically saying "Redirect the `stderr` to the same place we are redirecting the `stdout`". For example:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch foo.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ open foo.txt
 ```
 
 Here, let's add some text inside `foo.txt`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat foo.txt
 foo
 bar
@@ -507,7 +507,7 @@ baz
 
 Note that we don’t see any output in the screen after running `cat foo.txt > output.txt 2>&1` because we use `2>&1`. However, let's do the same for a file `nop.txt` that does not exist in the directory: 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat nop.txt > output.txt 2>&1
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat output.txt
 cat: nop.txt: No such file or directory
@@ -519,7 +519,7 @@ Note that `>file 2>&1` is semantically equivalent to `&>` and `>&`.
 
 `>>` is the same as `>` but if the file `listing_home.txt` already existed, `stdout` will be appended to the end of the file instead of overwriting it. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ ls -l . >> listing_home.txt
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cat listing_home.txt
 total 128496
@@ -532,7 +532,7 @@ total 128496
 
 Let's say we have two text files and we can concatenate them.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ cat test.txt
 Hello!
 
@@ -555,7 +555,7 @@ This is a new file!
 
 We can redirect this output to a new txt file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ cat test.txt test2.txt > new3.txt
 ```
 
@@ -563,7 +563,7 @@ We can redirect this output to a new txt file.
 
 When you run a sequence of commands in the interactive shell, like
 
-```console
+```shell
 echo xxx; cat file; ls; echo yyy
 ```
 
@@ -572,13 +572,13 @@ then everything is executed consecutively and the output is send to the terminal
 
 Let's say `newfile.txt` is a text file in our directory and has `Hello!` string in it. The command below
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ (echo "Some text to prepend"; cat newfile.txt) > file.txt
 ```
 
 will output 
 
-```console
+```shell
 Some text to prepend
 Hello!
 ```
@@ -587,7 +587,7 @@ and this output will be written into `file.txt`.
 
 The direction is not always from left to right. It can also be from right to left!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat < file.txt 
 Some text to prepend
 Hello!
@@ -616,7 +616,7 @@ less [OPTIONS] filename
 
 You can also redirect the output from a command to `less` using a pipe. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ ls -la | less
 ```
 
@@ -626,14 +626,14 @@ will redirect the contents of the directory `Desktop` to command `less`.
 
 `find` command is a command to look for some files you are interested in.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ find Desktop/newfolder -name aaa.txt
 Desktop/newfolder/A-folder/aaa.txt
 ```
 
 Let's say the folder `Desktop/newfolder/` has some files in it: `aaa.txt` and `aaa_image.png`:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ touch Desktop/newfolder/A-folder/aaa_image.png
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ find Desktop/ -name aaa*
 Desktop//newfolder/A-folder/aaa_image.png
@@ -644,7 +644,7 @@ will find files whose name starts with `aaa`.
 
 Additionally,
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ find Desktop/newfolder -type d
 Desktop/newfolder
 Desktop/newfolder/B-folder
@@ -654,7 +654,7 @@ Desktop/newfolder/A-folder
 
 will find all the folders in a folder.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ find Desktop/newfolder -type f
 Desktop/newfolder/1a.txt
 Desktop/newfolder/.DS_Store
@@ -676,7 +676,7 @@ Syntax:
 grep [options] pattern [files]
 ```
 
-```console
+```shell
 Options Description
 -c : This prints only a count of the lines that match a pattern
 -h : Display the matched lines, but do not display the filenames.
@@ -694,7 +694,7 @@ Options Description
 
 Let's create a new file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ cd Desktop/newfolder
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch grep_example.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ nano grep_example.txt 
@@ -702,7 +702,7 @@ Let's create a new file.
  
 Let's add something inside of this text file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat grep_example.txt 
 This is a new file.
 Something
@@ -718,14 +718,14 @@ A test file.
  
 Let's search for `so` inside this file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ grep so grep_example.txt 
 son
 ```
  
 It will pick up the line `son` because grep is case-sensitive. The `-i` option enables to search for a string case insensitively in the give file.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ grep -i so grep_example.txt 
 Something
 son
@@ -733,7 +733,7 @@ son
  
 It will also pick up every pattern wherever they are
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ grep s grep_example.txt 
 This is a new file.
 son
@@ -742,7 +742,7 @@ A test file.
 
 You can pipe and use the `grep` command.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls
 1.txt			3.txt			B-folder		grep_example.txt
 1a.txt			A-folder		C-folder
@@ -757,7 +757,7 @@ will grep the character `t` in the contents of the directory
 
 You can also print out all the lines that do not matches the pattern using the option `-v`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls
 1.txt			3.txt			B-folder		grep_example.txt
 1a.txt			A-folder		C-folder
@@ -773,7 +773,7 @@ The `sudo` command allows you to run programs with the security privileges of an
 
 To use the `sudo` command, at the command prompt, enter:
 
-```console
+```shell
 sudo command
 ```
 
@@ -781,7 +781,7 @@ Replace command with the command for which you want to use`sudo`.
 
 Let's create a new file:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ sudo touch newfile.txt
 Password:
 
@@ -809,7 +809,7 @@ If we try to edit this file without using `sudo` command, we will get permission
 
 We can also open whole new bash as root!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ sudo bash
 
 The default interactive shell is now zsh.
@@ -828,7 +828,7 @@ mustafamuratarat
 
 Let's say we have a file `dish.txt`, whose ownership belongs to some other user or to root.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ sudo touch dish.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l
 total 32
@@ -845,7 +845,7 @@ drwxr-xr-x  2 mustafamuratarat  staff   64 Mar 30 09:18 C-folder
 
 We can change its ownership.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ sudo chown mustafamuratarat dish.txt 
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l
 total 32
@@ -864,7 +864,7 @@ As you can see now it belongs to the user `mustafamuratarat`.
 
 We can also change the ownership to a different group.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ sudo chgrp _guest dish.txt 
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l
 total 40
@@ -885,13 +885,13 @@ You can easily change permissions of files and directories by using the `chmod` 
 
 If you specify `u`, you can change permissions just for the owner (`u` is for "user"", which is the same as "owner""). You can substitute a `g` to change group (guests) permissions. If you use `a`, it means all users including the owner, the group, and everybody else. Using an `o`, which is for "others"", will configure the file permissions for those who aren't the owner of the file or who are not in the group that owns the file—the last three digits of the permission list.
 
-```console
+```shell
 chmod a+rw myfile
 ```
 
 In other words, you’re adding read and write (rw) permissions for all users (a), including the owner, the group, and everybody else. Here’s another example:
 
-```console
+```shell
 chmod a-w myfile
 ```
 
@@ -899,13 +899,13 @@ This tells Linux that you want to take away (-) the ability of all users (a) to 
 
 If you leave out the `a`, `chmod` assumes you mean "all". In other words, commands like `chmod a+r myfile` and `chmod +r` myfile do the same thing. 
 
-```console
+```shell
 chmod u+rw
 ```
 
 This will add (+) read/write (rw) permissions for the owner.
 
-```console
+```shell
 chmod g-rw
 ```
 
@@ -936,7 +936,7 @@ General syntax is given by
 
 # Variables
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo "this is a line"
 this is a line
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ myvar=553
@@ -951,7 +951,7 @@ I have 553 cat
 
 Be careful with whitespaces. For a variable assignment, a contiguous string that contains `=` is important. The following will fail:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ myvar = 553
 -bash: myvar: command not found
 ```
@@ -960,7 +960,7 @@ In this case, bash splits the input `myvar = 553` into three "words" (`myvar`, `
 
 We can unset the variable using command `unset` command:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ unset myvar
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo $myvar
 
@@ -969,7 +969,7 @@ We can unset the variable using command `unset` command:
 
 You can also use curly brackets to access to a variable:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ var=hello
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo ${var}
 hello
@@ -977,7 +977,7 @@ hello
 
 This can also be used for commands. Let's say you invent a new command:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mycommand=ls
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo $mycommand
 ls
@@ -990,7 +990,7 @@ Variable `mycommand` will act like command `ls`.
 
 There are already some variables saved in the system. These are called environment variables.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo $USER
 mustafamuratarat
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo $HOME
@@ -1003,7 +1003,7 @@ If you run the `printenv` or `env` command without any arguments it will show a 
 
 You can also use `read` command to read a variable.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ read myvariable
 Hellohello there32
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ echo $myvariable
@@ -1012,7 +1012,7 @@ Hellohello there32
 
 # alias
 
-```console
+```shell
 alias alias_name="command_to_run"
 ```
 
@@ -1022,13 +1022,13 @@ The `alias` command allows you to create keyboard shortcuts, or aliases, for com
 Open the `~/.bash_profile` in your text editor:
 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ nano ~/.bash_profile
 ```
 
 and add your aliases:
 
-```console
+```shell
 # Aliases
 # alias alias_name="command_to_run"
 ```
@@ -1037,7 +1037,7 @@ The aliases should be named in a way that is easy to remember. It is also recomm
 
 Once done, save and close the file. Make the aliases available in your current session by typing:
 
-```console
+```shell
 source ~/.bash_profile
 ```
 
@@ -1049,7 +1049,7 @@ The terminal usually allows just one command at the time. Shell scripts allow yo
 
 Let's create a new file called `shortscript.txt`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch shortscript.txt
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ nano shortscript.txt 
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l shortscript.txt 
@@ -1058,13 +1058,13 @@ Let's create a new file called `shortscript.txt`.
 
 Let's make it executable for all the users (we leave out the `a`, `chmod` assumes you mean "all")
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ chmod +x shortscript.txt 
 ```
 
 and add
 
-```console
+```shell
 #!/bin/bash
 
 echo Hello
@@ -1075,7 +1075,7 @@ in this file.
 
 In order to run this executable file, we can just do,
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ file shortscript.txt 
 shortscript.txt: Bourne-Again shell script text executable, ASCII text
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$  ./shortscript.txt 
@@ -1091,7 +1091,7 @@ As stated previously, `bash` and `sh` are two different shells. Basically `bash`
 
 We can use `which` command to see where our `bash` lives in:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ which bash
 /bin/bash
 ```
@@ -1100,7 +1100,7 @@ We can use `which` command to see where our `bash` lives in:
 
 `which` command in Linux is a command which is used to locate the executable file associated with the given command by searching it in the path environment variable.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ which ls
 /bin/ls
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ which pwd
@@ -1115,7 +1115,7 @@ We can use `which` command to see where our `bash` lives in:
 
 You can see this `bin` folder and locate all the built-in executable files:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:/ mustafamuratarat$ ls
 Applications	Preboot 1	Volumes		dev		opt		tmp
 Library		System		bin		etc		private		usr
@@ -1127,7 +1127,7 @@ Preboot		Users		cores		home		sbin		var
 
 Even by clicking on these files, you can run those executables. So, when you run `ls` command on your command window, you are actually running `/bin/ls`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:/ mustafamuratarat$ /bin/ls
 Applications	Preboot 1	Volumes		dev		opt		tmp
 Library		System		bin		etc		private		usr
@@ -1142,13 +1142,13 @@ If you constantly run the same set of commands at the command line, why not auto
 
 Let's create a file first!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch myscript.txt
 ```
 
 and then we add on the first line of the program,
 
-```console
+```shell
 #!
 ```
 
@@ -1158,13 +1158,13 @@ Shebang contains path (of executable), from which you are telling Interpreter th
 
 Since we are going to use Shell language, `bash`, the path is 
 
-```console
+```shell
 #/bin/bash
 ```
 
 Let's add some commands in this file!
 
-```console
+```shell
 #! /bin/bash
 
 echo hello this is my first script
@@ -1175,14 +1175,14 @@ echo hello this is my first script
 
 When we try to run it, we will get permission denied error.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./myscript.txt
 -bash: ./myscript.txt: Permission denied
 ```
 
 Because it is not executable! When we give necessary permissions and run it, it will work!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ chmod +x myscript.txt 
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$  ./myscript.txt
 hello this is my first script
@@ -1190,7 +1190,7 @@ hello this is my first script
 
 However, `.txt` is not a proper extension for an executable file! For shell file, an appropriate extension is `.sh`. Let's change it and run!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mv myscript.txt myscript.sh
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./myscript.sh 
 hello this is my first script
@@ -1200,7 +1200,7 @@ hello this is my first script
 
 The information about where your programs are stored, and therefore where Ubuntu should look for commands you type in, as well as any programs you might want to run, is stored in the `PATH` variable. You can take a look at what’s currently stored there by typing the following:
 
-```console
+```shell
 echo $PATH
 ```
 
@@ -1213,7 +1213,7 @@ sequence. In other words, when you type `ls`, the shell will look in each of the
 
 Let's say you have a executable file `myscript.sh` inside a folder `/Users/mustafamuratarat/Desktop/newfolder`. 
 
-```console
+```shell
 #! /bin/bash
 
 echo "What is your name?"
@@ -1230,7 +1230,7 @@ Everytime you run it, it will ask you to enter your name!
 
 If you are already in the directory where the program in question is located, you can type the following:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ myscript.sh
 ```
 
@@ -1241,7 +1241,7 @@ You have to enter the full path of the script with whichever directory you are i
 
 Let's say you are on home directory and the script that you want to run is in another folder:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ myscript.sh
 -bash: myscript.sh: command not found
 
@@ -1253,38 +1253,38 @@ hello MMA ! nice to meet you!
 
 In order to prevent it, you can add the PATH to `.bash_profile`.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ nano .bash_profile
 ```
 
 Add the line below
 
-```console
+```shell
 PATH="/Users/mustafamuratarat/Desktop/newfolder:${PATH}"
 export PATH
 ```
 
 to `.bash_profile` and source it. 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ source .bash_profile
 ```
 
 Now, you can run the script everywhere and even use `tab` to complete its name!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ myscript.sh 
 ```
 
 or 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:MLE_BOOK mustafamuratarat$ myscript.sh 
 ```
 
 or 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:paper1 mustafamuratarat$ myscript.sh 
 ```
 
@@ -1294,14 +1294,14 @@ et cetera... Pay attention that I can access the script from different directori
 
 Let's first create a new `.sh` file and open it
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch create_script.sh
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ open create_script.sh 
 ```
 
 and add the lines below into this `create_script.sh` file:
 
-```console
+```shell
 #! /bin/bash
 
 read -p "name of the script to create: " name_s
@@ -1318,13 +1318,13 @@ echo "DONE!"
 
 Let's give execution permission to this scrip
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ chmod +x create_script.sh
 ```
 
 and then let's run it!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./create_script.sh
 name of the script to create: my_try.sh
 DONE!
@@ -1332,7 +1332,7 @@ DONE!
 
 It will ask to provide a name to this new script and will automatically give permissions will add two lines of codes.
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l
 total 80
 -rwxr-xr-x@ 1 mustafamuratarat  staff   210 Apr  1 07:59 create_script.sh
@@ -1359,14 +1359,14 @@ We cant use `echo "\n"` or `echo '\n'` as they will give output as `\n` in both 
 
 Let's create a script which uses some mathematical operations:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch arithmetic_expressions.sh
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ open arithmetic_expressions.sh 
 ```
 
 and write the script given below to this shell script:
 
-```console
+```shell
 #! /bin/bash
 
 number1=10
@@ -1401,7 +1401,7 @@ Don't you forget to give execution permission `chmod +x arithmetic_expressions.s
 
 When you run this script, the output will be:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./arithmetic_expressions.sh 
  
 number1 is 10 and number2 is 20
@@ -1460,7 +1460,7 @@ some operations are given below:
 
 some examples are given below:
 
-```console
+```shell
 #! /bin/bash
 
 echo "hello"
@@ -1513,7 +1513,7 @@ exit status is particularly important in shell scripting because you can take so
 ![](https://i.stack.imgur.com/90t48.png)
 
 * The `$` character represents the process ID number, or PID, of the current shell −
-  ```console
+  ```shell
   (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ echo $$
   6087
   ```
@@ -1526,7 +1526,7 @@ exit status is particularly important in shell scripting because you can take so
 -o OR
 ```
 
-```console
+```shell
 #! /bin/bash
 
 echo "hello"
@@ -1557,7 +1557,7 @@ String comparison operators enable the comparison of alphanumeric strings of cha
 * `string1 < string2`: 	True if string1 sorts before string2 lexicographically (refers to locale-specific sorting sequences for all alphanumeric and special characters).
 * `string1 > string2`:	True if string1 sorts after string2 lexicographically.
 
-```console
+```shell
 #! /bin/bash
 
 read -p "Type something:  (Enter to exit)" str
@@ -1574,7 +1574,7 @@ echo "moving on"
 
 Let's write a script to see whether a file exists in the directory or not. We use `read` command to enter the name of the file interactively.
 
-```console
+```shell
 #! /bin/bash
 
 # Condition to check if a file EXISTS
@@ -1629,7 +1629,7 @@ fi
 
 Output of this script will be:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
 Enter the file name:  file.txt
 file.txt exists!
@@ -1645,7 +1645,7 @@ it is NOT a directory!
 
 because `file.txt` exists in `newfolder` folder, it is empty and it is a file NOT directory and it is readable/writable but not executable for the user!
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ls -l file.txt
 -rw-r--r--@ 1 mustafamuratarat  staff  29 Mar 31 12:55 file.txt
 ```
@@ -1697,7 +1697,7 @@ sleep 2m 30s
 
 An shell script example:
 
-```console
+```shell
 #! /bin/bash
 
 echo " some lines of code here "
@@ -1714,7 +1714,7 @@ echo "bye"
 
 will output
 
-```console
+```shell
  some lines of code here 
 number:    0 
 number:    1 
@@ -1731,7 +1731,7 @@ With every iteration, there will be 1.5 seconds pause.
 
 # Loops
 
-```console
+```shell
 #! /bin/bash
 
 echo " some lines of code here"
@@ -1744,7 +1744,7 @@ done
 echo "we continue..."
 ```
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
  some lines of code here
 Hello, this is number 1
@@ -1756,7 +1756,7 @@ we continue...
 
 here `i` can be anything:
 
-```console
+```shell
 #! /bin/bash
 
 echo " some lines of code here"
@@ -1771,7 +1771,7 @@ echo "we continue..."
 
 will print out
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
  some lines of code here
 Hello, this is number {1,cat,
@@ -1784,7 +1784,7 @@ we continue...
 
 We can use `break` command to break the loop:
 
-```console
+```shell
 #! /bin/bash
 
 for i in {0,"danger","dog","hello there",9}
@@ -1799,7 +1799,7 @@ done
 
 will run and break right after `i` equals "danger" and print out:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
 this is the value  0
 this is the value  danger
@@ -1808,7 +1808,7 @@ this is the value  danger
 
 We can also go through all the files in a directory using for-loop.
 
-```console
+```shell
 #! /bin/bash
 
 #* stands for 'all'
@@ -1820,7 +1820,7 @@ done
 
 will print 
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
 name of the file if ./1.txt
 name of the file if ./1a.txt
@@ -1842,7 +1842,7 @@ name of the file if ./shortscript.txt
 ```
 If you want to increment `i` in a loop, you can do it in two different approaches:
 
-```console
+```shell
 #! /bin/bash
 
 #APPROACH 1
@@ -1864,7 +1864,7 @@ done
 
 will print out:
 
-```console
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ ./if_else.sh 
 the number is 1
 the number is 2
@@ -1917,7 +1917,7 @@ The script initializes the variable n to 1, and then increments it by one. The w
 
 You can use `((expression))` syntax to test arithmetic evaluation (condition) to improve code readability.
 
-```console
+```shell
 #! /bin/bash
 
 # set n to 1
@@ -1995,4 +1995,4 @@ When you run your script, you can add `&` at the end of your command line.
 
 This is known as "job control"" under unix. The `&` informs the shell to put the command in the background, so you can continue to use the shell and do not have to wait until the script is finished. If you forget it, you can stop the current running process with `Ctrl-Z` and continue it in the background with `bg` (or in the foreground with `fg`).
 
-You can see the list of jobs presently running with the `jobs` command. 
+You can see the list of jobs presently running with the `jobs` command.
