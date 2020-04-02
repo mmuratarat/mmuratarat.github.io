@@ -1983,7 +1983,7 @@ when using scp you don’t have to log in to one of the servers to transfer file
 
 The following command will copy the file `/files/file.txt` from the remote host `host1.com` to the directory `/files` on the remote host `host2.com`.
 
-```console
+```
 scp user1@host1.com:/files/file.txt user2@host2.com:/files
 ```
 
@@ -1991,7 +1991,7 @@ You will be prompted to enter the passwords for both remote accounts. The data w
 
 # What does ampersand (`&`) mean at the end of a shell script line?
 
-When you run your script, you can add `&` at the end of your command.
+When you run your script, you can add `&` at the end of your command line.
 
 This is known as "job control"" under unix. The `&` informs the shell to put the command in the background, so you can continue to use the shell and do not have to wait until the script is finished. If you forget it, you can stop the current running process with `Ctrl-Z` and continue it in the background with `bg` (or in the foreground with `fg`).
 
