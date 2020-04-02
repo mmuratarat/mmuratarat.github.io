@@ -1426,7 +1426,7 @@ ADD: 14
 
 # if-else statement
 
-```console
+```shell
 if [ expression1 ]
 then
    statement1
