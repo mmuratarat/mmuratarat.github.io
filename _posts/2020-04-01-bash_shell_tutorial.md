@@ -1426,7 +1426,7 @@ ADD: 14
 
 # if-else statement
 
-```shell
+```console
 if [ expression1 ]
 then
    statement1
@@ -1448,14 +1448,14 @@ fi
 
 some operations are given below:
 
-```console
+```
 3 -eq 3  	3 = 3
 3 -ne 4		3 is not 4
 3 -gt 1		3 > 1
 3 -lt 7		3 < 7
 
-3 -ge 3 		3 >= 3
-3 -le 3 		3 <= 3
+3 -ge 3         3 >= 3
+3 -le 3 	3 <= 3
 ```
 
 some examples are given below:
@@ -1521,7 +1521,7 @@ exit status is particularly important in shell scripting because you can take so
 
 # logic conditions
 
-```console
+```
 -a AND
 -o OR
 ```
@@ -1660,7 +1660,7 @@ The `sleep` command is useful when used within a bash shell script, for example,
 
 The syntax for the `sleep` command is as follows:
 
-```console
+```
 sleep NUMBER[SUFFIX]...
 ```
 
@@ -1679,19 +1679,19 @@ Here are a few simple examples demonstrating how to use the `sleep` command:
 
 Sleep for 5 seconds:
 
-```console
+```
 sleep 5
 ```
 
 Sleep for 0.5 seconds:
 
-```console
+```
 sleep 0.5
 ```
 
 Sleep for 2 minute and 30 seconds:
 
-```console
+```
 sleep 2m 30s
 ```
 
@@ -1953,7 +1953,7 @@ Be careful when copying files that share the same name and location on both syst
 
 To copy a file from a local to a remote system, run the following command:
 
-```console
+```
 scp file.txt remote_username@10.10.0.2:/remote/directory
 ```
 
@@ -1961,7 +1961,7 @@ Where, `file.txt` is the name of the file we want to copy, `remote_username` is 
 
 To copy a directory from a local to remote system, use the `-r` option:
 
-```console
+```
 scp -r /local/directory remote_username@10.10.0.2:/remote/directory
 ```
 
@@ -1969,13 +1969,13 @@ To copy a file from a remote to a local system, use the remote location as a sou
 
 For example to copy a file named `file.txt` from a remote server with IP 10.10.0.2 run the following command:
 
-```console
+```
 scp remote_username@10.10.0.2:/remote/file.txt /local/directory
 ```
 
 To copy a directory from remote system to a local directory, use the `-r` option:
 
-```console
+```
 scp -r remote_username@10.10.0.2:/remote/directory /local/directory
 ```
 
