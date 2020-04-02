@@ -189,7 +189,14 @@ We can change the current directory using the command `cd`.
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ 
 ```
 
-In order to move out of the current directory, use `cd ..`. We will go back out of present directory one-step.
+```
+.(a single dot) - this represents the current directory.
+..(two dots) - this represents the parent directory. 
+```
+
+Now, what this actually means is that if we are currently in directory `/home/kt/abc` and now you can use `..` as an argument to `cd` to move to the parent directory `/home/kt as`:
+
+For an example, let's say our home directory is `/Users/mustafamuratarat` and we are in `/Users/mustafamuratarat/Desktop`:
 
 ```shell
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ pwd
@@ -198,9 +205,9 @@ In order to move out of the current directory, use `cd ..`. We will go back out 
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ 
 ```
 
-However, whichever folder you are in, you can just type `cd` and it will take you to the home directory.
+Additionally, whichever folder you are in, you can just type `cd` and it will take you back to the home directory.
 
-Let's say I am in the folder called `spark_book` which is insider `spark` folder which is in `Desktop` folder.
+Let's say that I am in the folder called `spark_book` which is inside `spark` folder which is in `Desktop` directory.
 
 ```shell
 (base) Arat-MacBook-Pro:spark_book mustafamuratarat$ pwd
@@ -210,7 +217,7 @@ Let's say I am in the folder called `spark_book` which is insider `spark` folder
 /Users/mustafamuratarat
 ```
 
-`cd` will directly take me back to home directory which is `/Users/mustafamuratarat`.
+`cd` directly takes me back to home directory which is `/Users/mustafamuratarat`.
 
 Again, we are in the folder `Desktop/spark/spark_book`. If we want to go back two-steps back which is `Desktop` folder but not to home directory:
 
@@ -219,6 +226,7 @@ Again, we are in the folder `Desktop/spark/spark_book`. If we want to go back tw
 (base) Arat-MacBook-Pro:spark_book mustafamuratarat$ cd ../..
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ 
 ```
+# open
 
 `open` will open whichever file you call. 
 
@@ -230,6 +238,8 @@ will open the pdf file `test.txtf`.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_command.png?raw=true)
 
+#touch 
+
 `touch` command will create a file. You will provide the extension.
 
 ```shell
@@ -238,6 +248,7 @@ will open the pdf file `test.txtf`.
 
 will create an Excel file named `Untitled_test`.
 
+# mkdir
 
 `mkdir` will create a new folder, stands for "make directory".
 
@@ -265,11 +276,13 @@ What if you want to create a new directory and, at the same time, create a new d
 mkdir: newfolder2: No such file or directory
 ```
 
-Only `mkdir` will not work because `newfolder2` does not even exist.  Simply use the `-p` command option. The following command will create a new folder called `newfolder2` and, at the same time, create a directory within `newfolder2` called `newfolder`:
+Command `mkdir` will not work because `newfolder2` does not even exist.  Simply use the `-p` command option. The following command will create a new folder called `newfolder2` and, at the same time, create a directory within `newfolder2` called `newfolder`:
 
 ```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ mkdir -p newfolder2/newfolder
 ```
+
+# mv
 
 `mv` will move a file (or a folder) or quickly rename it.
 
@@ -299,6 +312,8 @@ will move the file `aaa.txt` from `newfolder` to `A-folder`.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/4_command.png?raw=true)
 
+# cp
+
 `cp` will make copy of the existing file.
 
 We are in folder `newfolder`. Let's add some text in `1.txt` using `nano`.
@@ -319,9 +334,13 @@ write something
 
 This will result in two identical files: one called `1.txt`and one called `1a.txt`.
 
+```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cp a.html A-folder/
+```
 
 will copy the file `a.html` into the folder `A-folder`.
+
+# rm
 
 `rm` command will remove a file. 
 
@@ -333,9 +352,9 @@ will copy the file `a.html` into the folder `A-folder`.
 
 The first two commands will remove the files `2.txt` and `a.html` from folder `newfolder` and the last command will remove `a.html` insider the folder `A-folder`.
 
-In some instances,you’ll be asked to confirm the deletion after you issue the command. If you want to delete a file without being asked to confirm it, type the following: `rm –f myfile`.
+In some instances, you'll be asked to confirm the deletion after you issue the command. If you want to delete a file without being asked to confirm it, type the following: `rm –f myfile`.
 
-The `-f` stands for force (that is, force the deletion).
+The `-f` option stands for force (that is, force the deletion).
 
 `*` practically means zero or more characters.
 
@@ -424,17 +443,25 @@ The other solution is to precede each space with a backslash. This tells BASH yo
 
 # stdin, stdout, and stderr
 
+STDIN, STDOUT and STDERR are the three standard streams. 
+
 * **Standard input** - this is the file descriptor that your process reads to get information from you.
 
 * **Standard output** - your process writes normal information to this file descriptor.
 
 * **Standard error** - your process writes errors or log messages to this file descriptor.
 
-These values below are always used for `stdin`, `stdout`, and `stderr`:
+They are identified to the shell by a number rather than a name:
 
 * 0: stdin
 * 1: stdout
 * 2: stderr
+
+By default, `stdin` is attached to the keyboard (Linux also allows you take standard input from a file using `<`), and both `stdout` and `stderr` appear in the terminal. 
+
+So each of these numbers in your command refer to a file descriptor. You can either redirect a file descriptor to a file with `>` or redirect it to another file descriptor with `>&`.
+
+`>&number` means redirect output to file descriptor number. So the `&` is needed to tell the shell you mean a file descriptor, not a file name.
 
 # redirect
 
@@ -473,7 +500,7 @@ You can use this command with every other commands.
 
 This command redirects the stdout of `ls -l` to a file. If the file already existed, it is overwritten.
 
-NOTE: `>` command is the same as `1>` which means that "redirect all stdout to a file". This `1` is just the file descriptor for `stdout`. The syntax for redirecting is `[FILE_DESCRIPTOR]>`, leaving the file descriptor out is just a shortcut to `1>`.
+NOTE: `>` command is the same as `1>` which implicitly means that "redirect all stdout to a file". This `1` is just the file descriptor for `stdout`. The syntax for redirecting is `[FILE_DESCRIPTOR]>`, leaving the file descriptor out is just a shortcut to `1>`. For example, the `>&2` redirection is a shortcut for `1>& 2`.
 
 ```shell
 (base) Arat-MacBook-Pro:~ mustafamuratarat$ ls -l 1> listing_home.txt
@@ -484,7 +511,7 @@ because `1` stands for `stdout`.
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/7_command.png?raw=true)
 
 
-So, to redirect `stderr`, it should be just a matter of adding the right file descriptor in place, which is `2>`. Additionally, when you use `2>&1` you are basically saying "Redirect the `stderr` to the same place we are redirecting the `stdout`". For example:
+So, to redirect `stderr`, it should be just a matter of adding the right file descriptor in place, which is `2>`. Additionally, when you use `2>&1` you are basically saying "Redirect the `stderr` to the same place we are redirecting the `stdout`". For example:  
 
 ```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ touch foo.txt
@@ -505,7 +532,7 @@ bar
 baz
 ```
 
-Note that we don’t see any output in the screen after running `cat foo.txt > output.txt 2>&1` because we use `2>&1`. However, let's do the same for a file `nop.txt` that does not exist in the directory: 
+Note that we don't see any output in the screen after running `cat foo.txt > output.txt 2>&1` because we use `2>&1`. However, let's do the same for a file `nop.txt` that does not exist in the directory: 
 
 ```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ cat nop.txt > output.txt 2>&1
@@ -593,7 +620,7 @@ Some text to prepend
 Hello!
 ```
 
-`<` takes the standard input from the file on the right and inputs it into the program on the left.
+`<` takes the standard input from the file on the right instead of keyboard and inputs it into the program on the left.
 
 # pipe
 
@@ -603,7 +630,8 @@ A pipe is a form of redirection (transfer of standard output to some other desti
 command_1 | command_2 | command_3 | .... | command_N 
 ```
 
-**LESS command**:
+** less command**:
+
 `less` is a command line utility that displays the contents of a file or a command output, one page at a time. It is similar to `more`, but has more advanced features and allows you to navigate both forward and backward through the file.
 
 When starting less doesn’t read the entire file which results in much faster load times compared to text editors like `vim` or `nano`. The less command is mostly used for opening large files.
