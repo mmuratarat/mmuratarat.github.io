@@ -342,7 +342,7 @@ The `-f` stands for force (that is, force the deletion).
 ```shell
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ file 1.txt 2.txt
 1.txt: ASCII text
-2.txt: cannot open `2.txt' (No such file or directory)
+2.txt: cannot open '2.txt' (No such file or directory)
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ file 1.txt 3.txt
 1.txt: ASCII text
 3.txt: empty
