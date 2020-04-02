@@ -372,7 +372,7 @@ b.html	b.txt
 
 `rm -rf` will remove a directory. 
 
-So, you can type `rm –f *` to delete all files within a directory, or type `rm –f myfile*` to delete all files that start with the word `myfile`. But remember to be careful with the rm command. Keep in mind that you cannot salvage files easily if you accidentally delete them!
+So, you can type `rm –f *` to delete all files within a directory, or type `rm –f myfile*` to delete all files that start with the word `myfile`. But be careful with the `rm` command. Keep in mind that you cannot salvage files easily if you accidentally delete them!
 
 One important command-line option is `-r`. This stands for *recursive* and tells BASH that you want to compy a directory and its contents (as well as any directories within this directory). Only a handful of BASH commands default to recursive copying. `rm` command needs `-R` option if there are some files inside the folder to be removed. Similar case is valid for `cp`. However, `mv` command does not need such an option. 
 
