@@ -153,11 +153,11 @@ drwxr-xr-x@  4 mustafamuratarat  staff    128 Mar 26 11:45 Zoom
 * It will also print number of links this file has (`4`)
 * Files can be Readable (r), Writable (w) or Executable (Accessable) (x) (`drwxr-xr-x@`).
 
-![](viewing_permissions.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/viewing_permissions.png?raw=true)
 
 Let's look at the first character. The first character identifies the file type: `d` means directory which means a folder. `-` means that this line is a regular file. 
 
-![](file_types.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/file_types.png?raw=true)
 
 The rest of this line is divided by into three groups. They describe the permissions on the file. The first three `rwx`, the second three `r-x` and the last three `r-x`. The first three characters refer to the owner of the file. They are telling us the owner (`mustafamuratarat`) can read, write and execute the file. The second three characters refer to the group which this folder is assigned to. They are telling us that this folder is the group stuff can read and execute. They cannot write because there is no `w`. The third group of three characters refer to everyone else (or world). They can read and execute but cannot write. 
 
@@ -228,7 +228,7 @@ Again, we are in the folder `Desktop/spark/spark_book`. If we want to go back tw
 
 will open the pdf file `test.txtf`.
 
-![](1_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_command.png?raw=true)
 
 `touch` command will create a file. You will provide the extension.
 
@@ -255,7 +255,7 @@ First let's create a new folder named `newfolder` and inside this folder, let's 
 (base) Arat-MacBook-Pro:newfolder mustafamuratarat$ mkdir A-folder B-folder C-folder
 ```
 
-![](2_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2_command.png?raw=true)
 
 
 What if you want to create a new directory and, at the same time, create a new directory to contain it? 
@@ -279,7 +279,7 @@ Only `mkdir` will not work because `newfolder2` does not even exist.  Simply use
 
 will rename the file `a.txt` to `aaa.txt`.
 
-![](3_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/3_command.png?raw=true)
 
 Similarly,
 
@@ -297,7 +297,7 @@ Additionally, the command below
 
 will move the file `aaa.txt` from `newfolder` to `A-folder`.
 
-![](4_command.png))
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/4_command.png?raw=true)
 
 `cp` will make copy of the existing file.
 
@@ -436,8 +436,6 @@ These values below are always used for `stdin`, `stdout`, and `stderr`:
 * 1: stdout
 * 2: stderr
 
-
-
 # redirect
 
 `echo` will print whatever string it is given. You can redirect this string into a new file.
@@ -483,7 +481,7 @@ NOTE: `>` command is the same as `1>` which means that "redirect all stdout to a
 
 because `1` stands for `stdout`.
 
-![](7_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/7_command.png?raw=true)
 
 
 So, to redirect `stderr`, it should be just a matter of adding the right file descriptor in place, which is `2>`. Additionally, when you use `2>&1` you are basically saying "Redirect the `stderr` to the same place we are redirecting the `stdout`". For example:
@@ -561,8 +559,7 @@ We can redirect this output to a new txt file.
 (base) Arat-MacBook-Pro:Desktop mustafamuratarat$ cat test.txt test2.txt > new3.txt
 ```
 
-![](5_command.png)
-
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/5_command.png?raw=true)
 
 When you run a sequence of commands in the interactive shell, like
 
@@ -808,7 +805,7 @@ As you can see, `newfile.txt` will be owned by `root`. Everthing done by `sudo` 
 
 If we try to edit this file without using `sudo` command, we will get permission error!
 
-![](6_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/6_command.png?raw=true)
 
 We can also open whole new bash as root!
 
@@ -1114,7 +1111,7 @@ We can use `which` command to see where our `bash` lives in:
 
 `info which`: It displays help information.
 
-![](8_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/8_command.png?raw=true)
 
 You can see this `bin` folder and locate all the built-in executable files:
 
@@ -1126,9 +1123,9 @@ Preboot		Users		cores		home		sbin		var
 (base) Arat-MacBook-Pro:/ mustafamuratarat$ open bin
 ```
 
-![](9_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/9_command.png?raw=true)
 
-So, you even click on these files and it will open a terminal window and run those executables. So, when you run `ls` command on your command window, you are actually running `/bin/ls`.
+Even by clicking on these files, you can run those executables. So, when you run `ls` command on your command window, you are actually running `/bin/ls`.
 
 ```console
 (base) Arat-MacBook-Pro:/ mustafamuratarat$ /bin/ls
@@ -1344,7 +1341,7 @@ total 80
 
 As you can see, `my_try.sh` is already executable!
 
-![](10_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/10_command.png?raw=true)
 
 # How to to echo a blank line in a shell script?
 
@@ -1507,7 +1504,7 @@ As a rule, most commands return an exit status of 0 if they were successful, and
 
 Every command has a exit status in its description page. For example, for `pwd`:
 
-![](11_command.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/11_command.png?raw=true)
 
 exit status is particularly important in shell scripting because you can take some actions in case you get some problem with some commands that you are running.
 
