@@ -65,9 +65,9 @@ There are three rules of commands:
 Mon Mar 30 12:25:10 UTC 2020
 ```
 
-#### so, how do you type commands?
+#### So, how do you type commands?
 
-syntaxt of commands is given in the following:
+The syntax of commands is given in the following:
 
 ```
 Command (-option) (something)
@@ -599,7 +599,7 @@ Hello!
 
 A pipe is a form of redirection (transfer of standard output to some other destination) that is used in Linux and other Unix-like operating systems to send the output of one command/program/process to another command/program/process for further processing. The Unix/Linux systems allow `stdout` of a command to be connected to `stdin` of another command. You can make it do so by using the pipe character `|`. Its syntax is:
 
-```console
+```
 command_1 | command_2 | command_3 | .... | command_N 
 ```
 
@@ -610,7 +610,7 @@ When starting less doesn’t read the entire file which results in much faster l
 
 The general syntax for the `less` program is as follows:
 
-```console
+```
 less [OPTIONS] filename
 ```
 
@@ -672,7 +672,7 @@ will find all the files in a folder.
 The `grep` filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern.
 Syntax:
 
-```console
+```
 grep [options] pattern [files]
 ```
 
@@ -915,7 +915,7 @@ The access permission can be specified in the following format. The three parts 
 
 General syntax is given by
 
-```console
+```
 [who] [operator] [permission]
 ```
 
@@ -1426,7 +1426,7 @@ ADD: 14
 
 # if-else statement
 
-```console
+```
 if [ expression1 ]
 then
    statement1
@@ -1886,7 +1886,7 @@ the number is 5
 
 The syntax is:
 
-```console
+```
 while [ condition ]
 do
       command1
