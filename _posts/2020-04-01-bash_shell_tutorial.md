@@ -1899,7 +1899,7 @@ done
 
 An example:
 
-```console
+```shell
 #! /bin/bash
 
 # set n to 1
