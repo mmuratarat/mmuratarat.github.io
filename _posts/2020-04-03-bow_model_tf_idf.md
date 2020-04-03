@@ -53,7 +53,8 @@ We will use `CountVectorizer` of Sci-kit Learn to convert a collection of text d
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 
-corpus = ['John likes to match movies. Mary likes movies too.', 'Mary also likes to watch a football game.']
+corpus = ['John likes to match movies. Mary likes movies too.', 
+          'Mary also likes to watch a football game.']
 
 vectorizer = CountVectorizer(analyzer = "word", 
                              lowercase=True, 
