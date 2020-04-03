@@ -282,23 +282,23 @@ $$
 
 The word "example" is more interesting - it occurs three times, but only in the second document:
 
-\begin{equation}
+$$
 \begin{split}
 tf (example, d_{1}) &= \frac {0}{5} = 0\\
 tf (example, d_{2}) &= \frac {3}{7} \approx 0.429\\
 idf (example, D) &= \log \left( \frac {2}{1} \right) = 0.301
 \end{split}
-\end{equation}
+$$
 
 
 Finally,
 
-\begin{equation}
+$$
 \begin{split}
 tf-idf (example, d_{1}, D) &= tf (example, d_{1}) \times idf (example, D) = 0 \times 0.301=0\\
 tf-idf (example, d_{2}, D) &= tf (example, d_{2}) \times idf (example, D) = 0.429 \times 0.301 \approx 0.129
 \end{split}
-\end{equation}
+$$
 
 (using the base 10 logarithm).
 
