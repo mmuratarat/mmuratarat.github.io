@@ -9,7 +9,7 @@ In information retrieval and text mining, TF-IDF, short for term-frequency inver
 
 The TF-IDF is a product of two statistics term: tern frequency and inverse document frequency. There are various ways for determining the exact values of both statistics.
 
-Before jumping to TF-IDF let's first understand Bag-of-Words (BoW) model
+Before jumping to TF-IDF, let's first understand Bag-of-Words (BoW) model
 
 # Bag-of-Words (BoW) model
 
