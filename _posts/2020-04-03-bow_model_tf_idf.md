@@ -264,23 +264,29 @@ Suppose that we have term count tables of a corpus consisting of only two docume
 The calculation of tf–idf for the term "this" is performed as follows:
 
 $$tf ( this, d_{1}) = \frac {1}{5} = 0.2$$
+
 $$tf (this, d_{2}) =  \frac {1}{7} \approx 0.14 $$
+
 $$idf (this, D) = \log \left({\frac {2}{2}}\right)=0$$
 
 So tf–idf is zero for the word "this", which implies that the word is not very informative as it appears in all documents.
 
 $$tf-idf (this, d_{1}, D) = 0.2 \times 0 = 0 $$
+
 $$tf-idf  (this, d_{2}, D) = 0.14 \times 0 = 0$$
 
 The word "example" is more interesting - it occurs three times, but only in the second document:
 
 $$tf (example, d_{1}) = \frac {0}{5} = 0$$
+
 $$tf (example, d_{2}) = \frac {3}{7} \approx 0.429$$
+
 $$idf (example, D) = \log \left( \frac {2}{1} \right) = 0.301$$
 
 Finally,
 
 $$tf-idf (example, d_{1}, D) = tf (example, d_{1}) \times idf (example, D) = 0 \times 0.301=0$$
+
 $$tf-idf (example, d_{2}, D) = tf (example, d_{2}) \times idf (example, D) = 0.429 \times 0.301 \approx 0.129$$
 
 (using the base 10 logarithm).
