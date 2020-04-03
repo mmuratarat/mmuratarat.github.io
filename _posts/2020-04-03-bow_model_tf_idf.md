@@ -47,6 +47,8 @@ The drawbacks of Bag-of-Words model are:
 
 # BoW model in Sci-kit Learn
 
+We will use `CountVectorizer` of Sci-kit Learn to convert a collection of text documents to a matrix of token counts:
+
 {% highlight python %} 
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
