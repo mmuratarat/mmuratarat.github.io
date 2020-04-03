@@ -241,7 +241,7 @@ The inverse-document frequency is a measure of how much information the word pro
 idf(t, D) = log \left(\frac{N}{\mid \\{d \in D: t \in d \\} \mid} \right)
 \end{equation}
 
-where $N$ is the total number of documents in the corpus, $N = \left| D \right|$ and $\left| \{d \in D: t \in d \} \right|$ is the number of documents where the term $t$ appears (i.e., $tf(t, d) \neq 0$). If the term is not in the corpus, this will lead to division by zero. It is therefore common to adjust the denominator to $\left( 1 + \left| \{d \in D: t \in d \} \right| \right)$. 
+where $N$ is the total number of documents in the corpus, $N = \mid D \mid$ and $\mid \\{d \in D: t \in d \\} \mid$ is the number of documents where the term $t$ appears (i.e., $tf(t, d) \neq 0$). If the term is not in the corpus, this will lead to division by zero. It is therefore common to adjust the denominator to $\left( 1 + \mid \\{d \in D: t \in d \\} \mid \right)$. 
 
 Then tf-idf is calculated as
 
