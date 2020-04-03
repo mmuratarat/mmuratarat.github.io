@@ -273,23 +273,32 @@ idf (this, D) &= \log \left({\frac {2}{2}}\right)=0
 
 So tf–idf is zero for the word "this", which implies that the word is not very informative as it appears in all documents.
 
-$$tf-idf (this, d_{1}, D) = 0.2 \times 0 = 0 $$
-
-$$tf-idf  (this, d_{2}, D) = 0.14 \times 0 = 0$$
+\begin{equation}
+\begin{split}
+tf-idf (this, d_{1}, D) &= 0.2 \times 0 = 0 \\
+tf-idf  (this, d_{2}, D) &= 0.14 \times 0 = 0
+\end{split}
+\end{equation}
 
 The word "example" is more interesting - it occurs three times, but only in the second document:
 
-$$tf (example, d_{1}) = \frac {0}{5} = 0$$
+\begin{equation}
+\begin{split}
+tf (example, d_{1}) &= \frac {0}{5} = 0\\
+tf (example, d_{2}) &= \frac {3}{7} \approx 0.429\\
+idf (example, D) &= \log \left( \frac {2}{1} \right) = 0.301
+\end{split}
+\end{equation}
 
-$$tf (example, d_{2}) = \frac {3}{7} \approx 0.429$$
-
-$$idf (example, D) = \log \left( \frac {2}{1} \right) = 0.301$$
 
 Finally,
 
-$$tf-idf (example, d_{1}, D) = tf (example, d_{1}) \times idf (example, D) = 0 \times 0.301=0$$
-
-$$tf-idf (example, d_{2}, D) = tf (example, d_{2}) \times idf (example, D) = 0.429 \times 0.301 \approx 0.129$$
+\begin{equation}
+\begin{split}
+tf-idf (example, d_{1}, D) &= tf (example, d_{1}) \times idf (example, D) = 0 \times 0.301=0\\
+tf-idf (example, d_{2}, D) &= tf (example, d_{2}) \times idf (example, D) = 0.429 \times 0.301 \approx 0.129
+\end{split}
+\end{equation}
 
 (using the base 10 logarithm).
 
