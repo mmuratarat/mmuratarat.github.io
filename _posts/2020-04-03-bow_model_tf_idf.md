@@ -28,13 +28,13 @@ Based on these two documents, we can construct a list for each document:
 Representing each bag-of-words as a `JSON` object, we get:
 
 ```
-BOW1 = { "John":1, "likes": 2, "to": 1, "watch":1, "movies":2, "Mary":1, "too":1}
+BOW1 = { "John": 1, "likes": 2, "to": 1, "watch": 1, "movies": 2, "Mary": 1, "too": 1}
 ```
 
 and
 
 ```
-BOW2 = {"Mary":1, "also": 1, "likes": 1, "to": 1, "watch": 1, "football": 1, "games":1}
+BOW2 = {"Mary": 1, "also": 1, "likes": 1, "to": 1, "watch": 1, "football": 1, "games": 1}
 ```
 
 where each key is the word and each value is the number of occurences of that word in the given text documents.
