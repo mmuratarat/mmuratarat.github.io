@@ -238,7 +238,7 @@ For term frequency in a document $tf(t, d)$, the simplest choice is to use the r
 The inverse-document frequency is a measure of how much information the word provides, i.e., if it is a common or rare across all the documents. It determines the weight of rare words across all documents in the corpus. For example, the most commonly used word in english language is "the" which represents 7% of all words written or spoken. You could not deduce anything about a text given the fact that it containts the word "the". On the other hand, words like "good" and "awesome" could be used to determine whether a rating is positive or not. Inverse-document frequency is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient).
 
 \begin{equation}
-idf(t, D) = log \left(\frac{N}{\left| \{d \in D: t \in d \} \right|} \right)
+idf(t, D) = log \left(\frac{N}{\mid \\{d \in D: t \in d \\} \mid} \right)
 \end{equation}
 
 where $N$ is the total number of documents in the corpus, $N = \left| D \right|$ and $\left| \{d \in D: t \in d \} \right|$ is the number of documents where the term $t$ appears (i.e., $tf(t, d) \neq 0$). If the term is not in the corpus, this will lead to division by zero. It is therefore common to adjust the denominator to $\left( 1 + \left| \{d \in D: t \in d \} \right| \right)$. 
