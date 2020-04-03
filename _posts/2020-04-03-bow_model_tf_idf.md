@@ -220,7 +220,6 @@ For term frequency in a document $tf(t, d)$, the simplest choice is to use the r
   \begin{equation}
   \frac{f_{t,d}}{\sum_{t^{'} \in d} f_{t^{'}, d}}
   \end{equation}
-  
   where the denominator is total number of words (terms) in the document $d$. 
   
 3. Logarithmically scaled frequency:
