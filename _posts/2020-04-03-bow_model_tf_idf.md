@@ -111,7 +111,7 @@ df = pd.DataFrame(data=wm.toarray(), index=doc_names,
 df
 {% endhighlight %}
 
-![](BoW1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/BoW1.png?raw=true)
 
 #### How to provide stop words in a list?
 
@@ -257,7 +257,7 @@ This example can be found in Wikipedia page of this subject:
 
 Suppose that we have term count tables of a corpus consisting of only two documents:
 
-![](tf_idf_example_wiki.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tf_idf_example_wiki.png?raw=true)
 
 The calculation of tf–idf for the term "this" is performed as follows:
 
@@ -338,7 +338,7 @@ df = pd.DataFrame(data=word_count_vector.toarray(), index=doc_names,
 df
 {% endhighlight %}
 
-![](tf_idf1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tf_idf1.png?raw=true)
 
 Now it’s time to compute the IDFs. Note that in this example, we are using all the defaults with `CountVectorizer`. You can actually specify a custom stop word list, enforce minimum word count, etc... Now we are going to compute the IDF values by calling `tfidf_transformer.fit(word_count_vector)` on the word counts we computed earlier.
 
@@ -354,7 +354,7 @@ df_idf = pd.DataFrame(tfidf_transformer.idf_, index=tokens,columns=["idf_weights
 df_idf
 {% endhighlight %}
 
-![](tf_idf2.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tf_idf2.png?raw=true)
 
 Note that the idf formula above differs from the standard textbook notation that defines the idf as `idf(t) = log [ n / (df(t) + 1) ])` where n is the total number of documents in the document set and df(t) is the document frequency of t; the document frequency is the number of documents in the document set that contain the term t.
 
@@ -394,7 +394,7 @@ df = pd.DataFrame(first_document_vector.T.todense(), index=tokens, columns=["tf-
 df.sort_values(by=["tf-idf"],ascending=False)
 {% endhighlight %}
 
-![](tf_idf3.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tf_idf3.png?raw=true)
 
 Notice that only certain words have scores because they only appear in the first document. The first document is “the house had a tiny little mouse”  all the words in this document have a tf-idf score and everything else show up as zeroes. Notice that the word “a” is missing from this list. This is possibly due to internal pre-processing of `CountVectorizer` where it removes single characters. Note that the more common the word across documents, the lower its score and the more unique a word is to our first document (e.g. 'had' and 'tiny') the higher the score.
 
