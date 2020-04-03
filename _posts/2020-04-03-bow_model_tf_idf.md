@@ -146,7 +146,7 @@ print(stopWords)
 #['to', 'too']
 {% endhighlight %}
 
-In this example, we provide a list of words that act as our stop words. Notice that the shape has gone from (2,11) to (2,9) because of the stop words that were removed. Note that we can actually load stop words directly from a file into a list and supply that as the stop word list. One of the lists is given in https://github.com/kavgan/nlp-in-practice/blob/master/tf-idf/resources/stopwords.txt
+In this example, we provide a list of words that act as our stop words. Notice that the shape has gone from (2,11) to (2,9) because of the stop words that were removed, `['to', 'too']`. Note that we can actually load stop words directly from a file into a list and supply that as the stop word list. One of the lists is given in https://github.com/kavgan/nlp-in-practice/blob/master/tf-idf/resources/stopwords.txt
 
 we can also use `min_df` and `max_df` arguments to get rid of some words.
 
