@@ -178,6 +178,7 @@ permalink: /faq/
 17. [What is instance-based and model-based learning?](#what-is-instance-based-and-model-based-learning)
 18. [What are the main challenges of machine learning algorithms?](#what-are-the-main-challenges-of-machine-learning-algorithms)
 19. [What are the most important unsupervised learning algorithms?](#what-are-the-most-important-unsupervised-learning-algorithms)
+19. What is a Machine Learning pipeline?
 20. [What is Tensorflow?](#what-is-tensorflow)
 21. [Why Deep Learning is important?](#why-deep-learning-is-important)
 22. [What are the three respects of an learning algorithm to be efficient?](#what-are-the-three-respects-of-an-learning-algorithm-to-be-efficient)
@@ -3576,6 +3577,10 @@ In supervised learning, the training data is unlabeled. The system tries to lear
 * Association rule learning
     - Apriori
     - Eclat
+
+#### What is a Machine Learning pipeline?
+
+A machine learning pipeline is a sequence of operations on the dataset that does from its itial state to the mode. A pipeline can include, among others, such stages as data partitioning, missing data imputations, feature extraction, data augmentation, class imbalance reduction, dimensionality reduction and model building. In practice, when we deploy a model in production, we usually deploy an entire pipeline, Furthermore, an entire pipeline is usually optimized when hyperparameters are tuned. 
 
 #### What is Tensorflow?
 
