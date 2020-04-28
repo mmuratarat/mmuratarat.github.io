@@ -3630,7 +3630,7 @@ A parameter
 
 An example of a parameter is the weights in a neural network.
 
-Note that if you have to specify a model parameter manually, then it is probably a model parameter. 
+Note that if you have to specify a model parameter manually, then it is probably a hyperparameter. 
 
 #### Why do we have three sets: training, validation and test?
 
