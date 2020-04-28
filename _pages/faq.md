@@ -6202,6 +6202,46 @@ Batch norm can also be considered of the regularization methods. During training
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
+#### What are the data augmentation techniques for text?
+
+One technique consists of replacing random words in a sentence with their exact or very close synonyms. For example, we can obtain several equivalent sentences from the following one:
+
+The car stopped near a shopping mall. Some examples are:
+
+* The automobile stopped near a shopping mall.
+* The car stopped near a shopping center.
+* The auto stopped near a mall.
+
+A similar technique consists of using hypernyms instead of synonyms. A hypernym is a word that has more general meaning. For example, "mammal" is a hypernym for "whale" and "cat"; "vehicle" is a hypernym for "car" and "bus". From our example sentence above, by using hypernyms, we could obtain the following sentences:
+
+* The vehicle stopped near a shopping mall.
+* The car stopped near a building.
+
+Another text data augmentation technique that works well is back translation. To obtain a new example from sentence text *t*
+in English (it can be a sentence or a document), you translate it into language *l* using a machine translation system and then translate it back from *l* into English. If the text obtained by back translation is different from the original
+text, you add it to the dataset by assigning the same label as the label of the original text.
+
+A simple baseline for data augmentation is shuffling the text elements to create new text. For example, if we have labeled sentences and we want to get more, we can shuffle each sentence words to create a new sentence. This option is only valid for classification algorithms that don’t take into account the words order within a sentence. So in practice, we should tokenize each sentence into words. Then we shuffle those words and rejoin them to create new sentences.
+
+If you represent words or documents in your dataset using word or document embeddings, you can apply slight Gaussian noise to randomly chosen features of an embedding to hopefully obtain a variation of the same word or document. You can tune the number of features to modify and the intensity of noise as hyperparameters by using the validation data.
+
+Alternatively, to replace a given word *w* in the sentence, you can find *k* nearest neighbors to the word *w* in the word embedding space and generate *k* new sentences by replacing the word *w* by its respective neighbor. The nearest neighbors can be found using a metric such as **cosine similarity** or **Euclidean distance**. The choice of the metric, as well as the value of *k*, can be tuned as hyperparameters.
+
+The paper "EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks" by Jason Wei and Kai Zou (https://www.aclweb.org/anthology/D19-1670.pdf) also mentions some basic methods:
+
+For a given sentence in the training set, we randomly choose and perform one of the following operations:
+
+1. **Synonym Replacement (SR)**: Randomly choose n words from the sentence that are not stop words. Replace each of these words with one of its synonyms chosen at random.
+2. **Random Insertion (RI)**: Find a random synonym of a random word in the sentence that is not a stop word. Insert that synonym into a random position in the sentence. Do this n times.
+3. **Random Swap (RS)**: Randomly choose two words in the sentence and swap their positions. Do this n times.
+4. **Random Deletion (RD)**: Randomly remove each word in the sentence with probability p
+
+Since long sentences have more words than short ones, they can absorb more noise while maintaining their original class label. To compensate, the authors vary the number of words changed, n, for SR, RI, and RS based on the sentence length l with the formula $n = \alpha l$, where $\alpha$ is a parameter that indicates the percent of the words in a sentence are changed
+(they use $p = \alpha$ for RD). Furthermore, for each original sentence, we generate naug augmented sentences. Examples of augmented sentences are shown in
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-04-28%20at%2009.45.53.png?raw=true)
+
+
 ## SQL
 
 #### What is SQL?
