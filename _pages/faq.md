@@ -244,7 +244,7 @@ permalink: /faq/
 77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?
 78. What are some of the issues with K-means?
 76. How do you deal with high cardinality? 
-
+77. What is a machine learning project lifecycle?
 
 [SQL](#SQL)
 
@@ -4840,6 +4840,20 @@ Even though it completely depends on the data we have and the output we are look
 3. When we want the model to be simple and explainable even to non-technical users, with a relatively lower accuracy that can be tolerated, since Decision Tree is easy to understand and interpret
 
 If we need to analyse a bigger dataset, with a lot of features with a higher demand for accuracy a Random Forest would be a better choice.
+
+#### What is a machine learning project lifecycle?
+
+Overall, a machine learning project lifecycle consists of the following stages:
+
+1. Goal definition
+2. Data collection and preparation
+3. Feature engineering
+4. Model building
+5. Model evaluation
+6. Model deployment
+7. Model serving
+8. Model monitoring
+9. Model maintenance
 
 
 ## Deep Learning
