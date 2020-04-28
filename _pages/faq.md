@@ -245,6 +245,8 @@ permalink: /faq/
 78. What are some of the issues with K-means?
 76. How do you deal with high cardinality? 
 77. What is a machine learning project lifecycle?
+78. What are the unknowns of a machine learning project?
+79. What are the properties of a successful model?
 
 [SQL](#SQL)
 
@@ -4854,6 +4856,30 @@ Overall, a machine learning project lifecycle consists of the following stages:
 7. Model serving
 8. Model monitoring
 9. Model maintenance
+
+#### What are the unknowns of a machine learning project?
+
+There are several major unknowns that are almost impossible to guess with confidence unless you worked on a similar project in the past or read about such a project. The unknowns are:
+
+1. whether the required accuracy level (or the value of any other metric important to you) is attainable in practice,
+2. how much data you will need to reach the required accuracy level,
+3. what features and how many features are needed so that the model can learn and generalize sufficiently well,
+4. how large the model should be (especially relevant for neural networks and ensemble
+architectures),
+5. how long will it take to train one model (in other words, how much time is needed to
+run one experiment) and how many experiments will be needed to reach the desired
+level of performance.
+
+#### What are the properties of a successful model?
+
+A successful model has the following four properties:
+
+1. it respects the input and output specifications and the minimum performance requirement,
+2. it benefits the organization (measured via cost reduction, increased sales or profit),
+3. it benefits the user (measured via productivity, engagement, and sentiment),
+4. it is scientifically rigorous
+
+A scientifically rigorous model is characterized by a predictable behavior (for the input examples that are similar to the examples that were used for training) and is reproducible. The former property (predictability) means that if input feature vectors come from the same distribution of values as the training data, then the model, on average, has to make the same amount of errors as was observed on the holdout data when the model was trained. The latter property (reproducibility) means that a model with similar properties can be easily built once again from the same training data using the same algorithm and values of hyperparameters. The word “easily” means that no additional analysis, labeling, or coding is necessary to rebuild the model, only the compute power.
 
 
 ## Deep Learning
