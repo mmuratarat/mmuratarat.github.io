@@ -6227,6 +6227,8 @@ If you represent words or documents in your dataset using word or document embed
 
 Alternatively, to replace a given word *w* in the sentence, you can find *k* nearest neighbors to the word *w* in the word embedding space and generate *k* new sentences by replacing the word *w* by its respective neighbor. The nearest neighbors can be found using a metric such as **cosine similarity** or **Euclidean distance**. The choice of the metric, as well as the value of *k*, can be tuned as hyperparameters.
 
+Similarly, if your problem is document classification and you have a large corpus of unlabeled documents and only a small corpus of labeled documents, you can do as follows. First, build document embeddings for all documents in your corpus. To do that you can use **doc2vec** or any other technique of document embedding. Then, for each labeled document d in your dataset, find k closest unlabeled documents in the document embedding space and label them with the same label as d. Again, tune k on the validation data.
+
 The paper "EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks" by Jason Wei and Kai Zou (https://www.aclweb.org/anthology/D19-1670.pdf) also mentions some basic methods:
 
 For a given sentence in the training set, we randomly choose and perform one of the following operations:
