@@ -233,8 +233,8 @@ permalink: /faq/
 68. [What is micro-averaging and macro-averaging?](#what-is-micro-averaging-and-macro-averaging)
 68. [If the model isn't perfect, how would you like to select the threshold so that the model outputs 1 or 0 for label?](#if-the-model-isnt-perfect-how-would-you-like-to-select-the-threshold-so-that-the-model-outputs-1-or-0-for-label)
 69. [What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?](#whats-the-difference-between-convex-and-non-convex-cost-function-what-does-it-mean-when-a-cost-function-is-non-convex)
-69. How do you deal with missing value in a data set?
-70. How to find a confidence interval for accuracy of a model?
+69. [How do you deal with missing value in a data set?](#how-do-you-deal-with-missing-value-in-a-data-set)
+70. [How to find a confidence interval for accuracy of a model?](#how-to-find-a-confidence-interval-for-accuracy-of-a-model)
 71. Does tree-based methods such as Decision Tree handle multicollinearity by itself?
 72. How to model count data?
 73. Why should weights of Neural Networks be initialized to random numbers?
@@ -4675,13 +4675,13 @@ This approach is valid only for a categorical feature. We assign another class f
 
 Note that you should first split your data and then apply the imputation technique. 
 
-# How to find a confidence interval for accuracy of a model?
+#### How to find a confidence interval for accuracy of a model?
 
 In order to determine the confidence interval, we need to establish the probability distribution that governs the accuracy measure. A Binomial experiment has
-* N independent trials, where each trial has two possible outcomes
+* n independent trials, where each trial has two possible outcomes
 * the probability of success, p, in each trial is constant.
 
-The expected value of binomial distribution is $N \times p$ and its variance is $Np(1-p)$. Its probability mass function is given by:
+The expected value of binomial distribution is $n \times p$ and its variance is $n p(1-p)$. Its probability mass function is given by:
 
 $$
 Binomial(x; n,p) = {n \choose x} p^{x} (1-p)^{n-x}
@@ -4689,15 +4689,36 @@ $$
 
 where $x$ is the number of successes.
 
-The task of predicting the class labels of test records can also be considered as a binomial experiment. Given a test set that contains $N$ records, let $X$ be the number of records correctly predicted by a model and $p$ be the true accuracy of the model. By modeling the prediction task as a binomial experiment, $X$ has Binomial distribution with mean $Np$ and variance $Np(1-p)$. It can be shown that the empirical accuracy $acc = X/N$ also has binomial distribution with mean $p$ and variance $p(1-p)/N$. Although the binomial distribution can be used to estimate the confidence interval for $acc$, it is often approximated by a normal distribution when $N$ is sufficiently large. Based on the normal distribution, the following confidence interval for $acc$ can be derived:
+The task of predicting the class labels of test records can also be considered as a binomial experiment. The accuracy can be calculated based on a hold-out dataset not seen by the model during training, such as a validation or test dataset.
+
+Given a test set that contains $n$ records, let $X$ be the number of records correctly predicted by a model and $p$ be the true accuracy of the model. Classification accuracy or classification error is a proportion or a ratio.
+
+By modeling the prediction task as a binomial experiment, $X$ has Binomial distribution with mean $n p$ and variance $n p(1-p)$. It can be shown that the empirical accuracy $acc = X/n$ also has binomial distribution with mean $p$ and variance $p(1-p)/n$. Although the binomial distribution can be used to estimate the confidence interval for $acc$, it is often approximated by a normal distribution when $n$ is sufficiently large (e.g. more than 30). Based on the normal distribution, the following confidence interval for $acc$ can be derived:
 
 $$
-P \left(-Z_{\alpha/2} \leq  \frac{acc - p}{\sqrt{p(1-p)/N}} \leq Z_{1-\alpha/2} \right) = 1 - \alpha
+P \left(-Z_{\alpha/2} \leq  \frac{acc - p}{\sqrt{p(1-p)/n}} \leq Z_{1-\alpha/2} \right) = 1 - \alpha
 $$
 
 where $-Z_{\alpha/2}$ and $Z_{\alpha/2}$ are the upper and lower bounds obtained from a standard normal distribution at confidence level $(1-\alpha)$. 
 
-Note that when you increase the sample size $N$, the confidence interval will be tighter. 
+Note that when you increase the sample size $n$, the confidence interval will be tighter. 
+
+Consider a model with an error of 20\%, or 0.2 (error = 0.2), on a validation dataset with 50 examples ($n = 50$). We can calculate the 95% confidence interval (z = 1.96) as follows:
+
+```python
+# binomial confidence interval
+from math import sqrt
+interval = 1.96 * sqrt( (0.2 * (1 - 0.2)) / 50)
+print('%.3f' % interval)
+#0.111
+```
+
+Running the example, we see the calculated radius of the confidence interval calculated and printed 0.111.
+
+We can then make claims such as:
+
+* The classification error of the model is 20% +/- 11%
+* The true classification error of the model is likely between 9% and 31%
 
 #### Does tree-based methods such as Decision Tree handle multicollinearity by itself?
 
