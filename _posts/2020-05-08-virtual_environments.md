@@ -47,7 +47,7 @@ Installing collected packages: distlib, appdirs, virtualenv
 Successfully installed appdirs-1.4.3 distlib-0.3.0 virtualenv-20.0.20
 ```
 
-Once that is done, do what's given below, which will call the program `virtualenv` we installed, and it is going to create a folder called `venv` insider our current folder and in `venv` it is going put a fresh Python 3.7.3 installation (you can of course change the Python version you want to install). 
+Once that is done, go to the folder where your application will reside in and do what's given below, which will call the program `virtualenv` we installed, and it is going to create a folder called `venv` insider our current folder and in `venv` it is going put a fresh Python 3.7.3 installation (you can of course change the Python version you want to install). 
 
 ```shell
 (base) Arat-MacBook-Pro:REST APIs with Flask and Python mustafamuratarat$ virtualenv venv --python=python3.7.3
