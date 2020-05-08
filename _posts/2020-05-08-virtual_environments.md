@@ -62,8 +62,39 @@ The command above creates a `venv/` directory in your project where all dependen
 
 This will fire up a shell (as you see the shell is now on `venv` not `base`) for your environment.
 
-Packages installed here will not affect the global Python installation. `Virtualenv` does not create every file needed to get a whole new python environment It uses links to global environment files instead in order to save disk space end speed up your `virtualenv`. Therefore, there must already have an active python environment installed on your
-system.
+Now you can install any packages you want in this environment:
+
+```shell
+(venv) (base) Arat-MacBook-Pro:REST APIs with Flask and Python mustafamuratarat$ pip3 install Flask-RESTful
+Collecting Flask-RESTful
+  Downloading Flask_RESTful-0.3.8-py2.py3-none-any.whl (25 kB)
+Collecting pytz
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+     |████████████████████████████████| 510 kB 772 kB/s
+Collecting aniso8601>=0.82
+  Downloading aniso8601-8.0.0-py2.py3-none-any.whl (43 kB)
+     |████████████████████████████████| 43 kB 232 kB/s
+Collecting Flask>=0.8
+  Using cached Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+Collecting six>=1.3.0
+  Downloading six-1.14.0-py2.py3-none-any.whl (10 kB)
+Collecting Jinja2>=2.10.1
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+     |████████████████████████████████| 125 kB 248 kB/s
+Collecting click>=5.1
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+     |████████████████████████████████| 82 kB 28 kB/s
+Collecting itsdangerous>=0.24
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Werkzeug>=0.15
+  Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+     |████████████████████████████████| 298 kB 99 kB/s
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-macosx_10_6_intel.whl (18 kB)
+Installing collected packages: pytz, aniso8601, MarkupSafe, Jinja2, click, itsdangerous, Werkzeug, Flask, six, Flask-RESTful
+```
+
+Packages installed here will not affect the global Python installation. `Virtualenv` does not create every file needed to get a whole new python environment. It uses links to global environment files instead in order to save disk space end speed up your `virtualenv`. Therefore, there must already have an active python environment installed on your system.
 
 To install packages for your isolated environment, you can create a text file which include all the packages/tools needed with their versions and do:
 
