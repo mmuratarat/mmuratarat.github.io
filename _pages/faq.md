@@ -2455,7 +2455,7 @@ $$
   The likelihood function is
 
   $$
-L(\theta \mid x_{1}, x_{2}, \ldots , x_{n}) = \frac{1}{\theta^{n}}I_{x_{1}, \ldots , x_{n} \in [0, theta]}
+L(\theta \mid x_{1}, x_{2}, \ldots , x_{n}) = \frac{1}{\theta^{n}}I_{x_{1}, \ldots , x_{n} \in [0, \theta]}
 $$
 
   The indicator above means is that the likelihood will be $0$ if at least one of the factors is 0 and this will happen if at least one of the observation $x_{i}$ will fall outside of allowed interval $[0, \theta]$. Therefore if we choose $\hat{\theta} = max(x_{1}, x_{2}, \ldots , x_{n})$ as MLE, this likelihood will be maximized.
