@@ -1225,7 +1225,9 @@ Another highly damaging form of numerical error is overﬂow. Overﬂow occurs w
 
 The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
 
-
+$$
+softmax(\mathbold{x})_{i} = \frac{exp(x_{i}}{\sum_{i=1}^{n} exp(x_{j}}
+$$
 
 However, Softmax function is prone to two issues: overflow and underflow.
 
@@ -1236,6 +1238,32 @@ To combat these issues when doing softmax computation, a common trick is to shif
 
 Subtracting $max_{i} x_{i}$ results in the largest argument to $exp$ being 0, which rules out the possibility of overﬂow. Likewise, at least one term in the denominator has a value of 1, which rules out the possibility of underﬂow in the denominator leading to a division by zero.
 
+This is done for stability reasons: when you exponentiate even large-ish numbers, the result can be quite large. numpy will return `inf` when you exponentiate values over 710 or so.
+
+```python
+import numpy as np
+
+def softmax(w):
+    """Calculate the softmax of a list of numbers w.
+
+    Parameters
+    ----------
+    w : list of numbers
+
+    Return
+    ------
+    a list of the same length as w of non-negative numbers
+    """
+    e = np.exp(np.array(w))
+    softmax_result = e / np.sum(e)
+    return softmax_result
+
+softmax([0.1, 0.2])
+#array([0.47502081, 0.52497919])
+
+softmax([710, 800, 900])
+#array([nan, nan, nan])
+```
 
 So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
 
