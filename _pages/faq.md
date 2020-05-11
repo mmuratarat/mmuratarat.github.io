@@ -2039,12 +2039,11 @@ Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of 
 
 * **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$. For example, as $N$ goess to infinity, $V(\bar{X}) = \frac{\sigma^{2}}{N} = 0$. 
 
-#### Explain Method Of Moments (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
+#### Explain Method Of Moments (MoM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
 
 MAP (maximum a priori estimate), MLE (maximum likelihood estimate) and MoM (method of moments) in this context refer to point estimation problems and are among many other estimation methods in statistics.
 
-
-Method of Moments Estimators:
+##### Method of Moments Estimation (MoM)
 
 In short, the method of moments involves equating sample moments with theoretical moments. So, let's start by making sure we recall the definitions of theoretical moments, as well as learn the definitions of sample moments.
 
@@ -2082,7 +2081,70 @@ The basic idea behind this form of the method is to:
 
 Again, the resulting values are also called method of moments estimators. 
 
+##### Maximum Likelihood Estimation (MLE)
 
+Maximum likelihood estimation is a method that determines values for the parameters of a model. The parameter values are found such that they maximise the likelihood that the process described by the model produced the data that were actually observed.
+
+Let $X_{1}, X_{2}, \dots , X_{n}$ be a random sample from a distribution that depends on one or more unknown parameters $\theata_{1}, \theta_{2}, \dots , \theta_{m}$ with probability density (or mass) function $f(x_{i}; \theata_{1}, \theta_{2}, \dots , \theta_{m})$. Suppose that $(\theata_{1}, \theta_{2}, \dots , \theta_{m})$ is restricted to a given parameter space $\omega$. Then:
+
+When regarded as a function of $\theata_{1}, \theta_{2}, \dots , \theta_{m}$, the joint probability density (or mass) function of $X_{1}, X_{2}, \dots , X_{n}$:
+
+$$
+L(\theta_1,\theta_2,\ldots,\theta_m) = \prod\limits_{i=1}^n f(x_i;\theta_1,\theta_2,\ldots,\theta_m)
+$$
+
+$((\theata_{1}, \theta_{2}, \dots , \theta_{m}) in \omega)$ is called the likelihood function. Then we need to find the values of $\theta_1,\theta_2,\ldots,\theta_m$ that maximizes this likelihood. Rather than maximising this product which can be quite tedious, we often use the fact that the logarithm is an increasing function so it will be equivalent to maximise the log likelihood:
+
+$$
+l(\theta_1,\theta_2,\ldots,\theta_m) = log\left( L(\theta_1,\theta_2,\ldots,\theta_m) \right) =  \sum\limits_{i=1}^n log(f(x_i;\theta_1,\theta_2,\ldots,\theta_m))
+$$
+
+#### Maximum A Posteriori (MAP) Estimation
+
+MAP usually comes up in Bayesian setting. Because, as the name suggests, it works on a posterior distribution, not only the likelihood.
+
+Recall, with Bayes' rule, we could get the posterior as a product of likelihood and prior:
+
+$$
+\begin{align}
+P(\theta \vert X) &= \frac{P(X \vert \theta) P(\theta)}{P(X)} \\
+                  &\propto P(X \vert \theta) P(\theta)
+\end{align}
+$$
+
+We are ignoring the normalizing constant as we are strictly speaking about optimization here, so proportionality is sufficient.
+
+We know that MLE can be written as:
+
+$$
+\theta_{MLE} &= \mathop{\rm arg\,max}\limits_{\theta} \log P(X \vert \theta) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} \log \prod_i P(x_i \vert \theta) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} \sum_i \log P(x_i \vert \theta)
+
+\end{align}
+$$
+
+If we replace the likelihood in the MLE formula above with the posterior, we get:
+
+$$
+\begin{align}
+
+\theta_{MAP} &= \mathop{\rm arg\,max}\limits_{\theta} P(\theta \vert X) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} P(X \vert \theta) P(\theta) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} \log P(X \vert \theta) + \log P(\theta) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} \log \prod_i P(x_i \vert \theta) + \log P(\theta) \\
+             &= \mathop{\rm arg\,max}\limits_{\theta} \sum_i \log P(x_i \vert \theta) + \log P(\theta)
+
+\end{align}
+$$
+
+Comparing both MLE and MAP equation, the only thing differs is the inclusion of prior $P(\theta)$ in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.
+
+Let’s consider what if we use the simplest prior in our MAP estimation, i.e. uniform prior. This means, we assign equal weights everywhere, on all possible values of the $\theta$. The implication is that the likelihood equivalently weighted by some constants. Being constant, we could be ignored from our MAP equation, as it will not contribute to the maximization. So, we will be back at MLE equation again!
+
+If we use different prior, say, a Gaussian, then our prior is not constant anymore, as depending on the region of the distribution, the probability is high or low, never always the same.
+
+What we could conclude then, is that MLE is a special case of MAP, where the prior is uniform!
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
