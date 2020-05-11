@@ -3085,6 +3085,8 @@ When you make a decision in a hypothesis test, there’s never a 100 percent gua
 
 Although you can conduct a hypothesis test without it, calculating the power of a test beforehand will help you ensure that the sample size is large enough for the purpose of the test. Otherwise, the test may be inconclusive, leading to wasted resources. On rare occasions the power may be calculated after the test is performed, but this is not recommended except to determine an adequate sample size for a follow-up study (if a test failed to detect an effect, it was obviously underpowered – nothing new can be learned by calculating the power at this stage). 
 
+In reality, a researcher wants both Type I and Type II errors to be small. In terms of significance level and power, this means we want a small significance level (close to 0) and a large power (close to 1).
+
 The power of a hypothesis test is between 0 and 1; if the power is close to 1, the hypothesis test is very good at detecting a false null hypothesis. Type II error is commonly set at 0.2, but may be set by the researchers to be smaller. Consequently, power may be as low as 0.8, but may be higher. Powers lower than 0.8, while not impossible, would typically be considered too low for most areas of research.
 
 To increase the power of your test, you may do any of the following:
