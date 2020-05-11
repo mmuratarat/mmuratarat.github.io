@@ -1211,6 +1211,35 @@ Let's say the matrix $B \in \mathbb{R}^{m\times n}$. Then, $B^{T}B \in  \mathbb{
 
 ## Numerical Optimization
 
+#### What is underflow and overflow?
+
+Machine learning algorithms usually require a high amount of numerical computation. This typically refers to algorithms that solve mathematical problems by methods that update estimates of the solution via an iterative process, rather than analytically deriving a formula to provide a symbolic expression for the correct solution. Common operations include optimization (ﬁnding the value of an argument that minimizes or maximizes a function) and solving systems of linear equations. Even just evaluating a mathematical function on a digital computer can be diﬃcult when the function involves real numbers, which cannot be represented precisely using a ﬁnite amount of memory.
+
+The fundamental difficulty in performing continuous math on a digital computeris that we need to represent infinitely many real numbers with a finite number of bit patterns. This means that for almost all real numbers, we incur some approximation error when we represent the number in the computer. In many cases, this is just rounding error. Rounding error is problematic, especially whenit compounds across many operations, and can cause algorithms that work in theory to fail in practice if they are not designed to minimize the accumulation of rounding error
+
+One form of rounding error that is particularly devastating is underflow. Underflow occurs when numbers near zero are rounded to zero. Many functions behave qualitatively differently when their argument is zero rather than a small positive number. For example, we usually want to avoid division by zero (some software environments will raise exceptions when this occurs, others will return a result with a placeholder not-a-number value) or taking the logarithm of zero (thisis usually treated as $-\infty$, which then becomes not-a-number if it is used for many further arithmetic operations)
+
+Another highly damaging form of numerical error is overﬂow. Overﬂow occurs when numbers with large magnitude are approximated as $\infty$ or $- \infty$. Further arithmetic will usually change these inﬁnite values into not-a-number values.
+
+##### How to tackle the problem of underflow or overflow for softmax function or log softmax function?
+
+The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
+
+
+
+However, Softmax function is prone to two issues: overflow and underflow.
+
+* **Overflow**: It occurs when very large numbers are approximated as infinity
+* **Underflow**: It occurs when very small numbers (near zero in the number line) are approximated (i.e. rounded to) as zero
+
+To combat these issues when doing softmax computation, a common trick is to shift the input vector by subtracting the maximum element in it from all elements.
+
+Subtracting $max_{i} x_{i}$ results in the largest argument to $exp$ being 0, which rules out the possibility of overﬂow. Likewise, at least one term in the denominator has a value of 1, which rules out the possibility of underﬂow in the denominator leading to a division by zero.
+
+
+So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
+
+
 #### Describe convex function
 
 A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any $\lambda$ where $0< \lambda < 1$,
