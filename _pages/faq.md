@@ -2951,7 +2951,18 @@ Let $x_{1}, x_{2}, \dots, x_{n}$ be the observed values of a random variable $x$
 * Calculate the frequencies $O_{i}, i  = 1, 2, ..., k$, where $O_{i}$ is the observed frequency of the category $i$. Note that $\sum_{i=1}^{k} O_{i} = n$.
 * you will need to calculate the expected values under the given distribution for every data point. Let $p_{i}$ be the probability, that under null hypothesis, the random variable $x$ belongs to the category $i$. Calculate the expected frequencies $E_{i} = n \times p_{i}$ of the observations in category $i$. Note that $\sum_{i=1}^{k} p_{i} = 1$.
 
-Then use the formula
+The null hypothesis is a particular claim concerning how the data is distributed. The null and alternative hypotheses for each chi square test can be stated as
+
+$$
+\begin{split}
+H_{0} : O_{i} = E_{i}\\
+H_{1} : O_{i} \neq E_{i}
+\end{split}
+$$
+
+If the claim made in the null hypothesis is true, the observed and the expected values are close to each other and $O_{i} − E_{i}$ is small for each category. When the observed data does not conform to what has been expected on the basis of the null hypothesis, the difference between the observed and expected values, $O_{i} − E_{i}$, is large. 
+
+After computing expected values and setting the hypotheses and we then use the formula:
 
 $$
 \chi^{2} = \sum_{i=1}^{k} \frac{(O_{i} - E_{i})^{2}}{E_{i}}
@@ -2959,7 +2970,7 @@ $$
 
 to find the chi-square statistic where $O_{i}$ is the observed value and $E_{i}$ is the expected value. 
 
-Compare this to the critical chi-square value from a chi-square table, given your degrees of freedom and desired alpha level. 
+Compare this test statistic to the critical chi-square value from a chi-square table, given your degrees of freedom and desired alpha level. 
 
 Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. The following table shows the distribution and an associated degree of freedom:
 
@@ -2968,6 +2979,7 @@ Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom de
 | Binominal distribution |         1         |        n-1        |
 |  Poisson distribution  |         2         |        n-2        |
 |   Normal distribution  |         3         |        n-3        |
+
 
 If your chi-square statistic is larger than the table value, you may conclude your data is not following the given distribution.
 
