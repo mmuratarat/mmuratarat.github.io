@@ -55,8 +55,8 @@ permalink: /faq/
 
 [Numerical Optimization](#numerical-optimization)
 
-1. What is underflow and overflow?
-2. How to tackle the problem of underflow or overflow for softmax function or log softmax function?
+1. [What is underflow and overflow?](#what-is-underflow-and-overflow)
+2. [How to tackle the problem of underflow or overflow for softmax function or log softmax function?](#how-to-tackle-the-problem-of-underflow-or-overflow-for-softmax-function-or-log-softmax-function)
 3. What is poor conditioning?
 4. What is the condition number?
 5. What are grad, div and curl?
@@ -1221,7 +1221,7 @@ One form of rounding error that is particularly devastating is underflow. Underf
 
 Another highly damaging form of numerical error is overﬂow. Overﬂow occurs when numbers with large magnitude are approximated as $\infty$ or $- \infty$. Further arithmetic will usually change these inﬁnite values into not-a-number values.
 
-##### How to tackle the problem of underflow or overflow for softmax function or log softmax function?
+#### How to tackle the problem of underflow or overflow for softmax function or log softmax function?
 
 The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
 
