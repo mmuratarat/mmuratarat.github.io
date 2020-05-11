@@ -2047,13 +2047,13 @@ MAP (maximum a priori estimate), MLE (maximum likelihood estimate) and MoM (meth
 
 In short, the method of moments involves equating sample moments with theoretical moments. So, let's start by making sure we recall the definitions of theoretical moments, as well as learn the definitions of sample moments.
 
-1. $E(X^k)$ is the kth (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $
+1. $E(X^k)$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $
 
 2. $E\left[(X-\mu)^k\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $
 
 3. $M_k=\dfrac{1}{n}\sum\limits_{i=1}^n X_i^k$ is the $k$th sample moment, for $k = 1, 2, \dots $
 
-4. $M_k^\ast =\dfrac{1}{n}\sum\limits_{i=1}^n (X_i-\bar{X})^k$ is the kth sample moment about the mean, for k = 1, 2, ...
+4. $M_k^\ast =\dfrac{1}{n}\sum\limits_{i=1}^n (X_i-\bar{X})^k$ is the $k$th sample moment about the mean, for k = 1, 2, ...
 
 The basic idea behind this form of the method is to:
 
