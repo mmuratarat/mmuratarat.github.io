@@ -7693,10 +7693,24 @@ def example2(arg_1, arg_2, *args, kw_1="shark", kw_2="blobfish", **kwargs):
 
 #### What are the mutable and immutable objects in Python?
 
+Every variable in python holds an instance of an object. There are two types of objects in python i.e. Mutable and Immutable objects. Whenever an object is instantiated, it is assigned a unique object id. The type of the object is defined at the runtime and it can't be changed afterwards. However, it’s state can be changed if it is a mutable object.
+
+To summarise the difference, mutable objects can change their state or contents and immutable objects can’t change their state or content.
+
 A mutable object can be changed after it is created, and an immutable object can not. 
 
 1. **Mutable objects**: list, dict, set, byte array
 2. **Immutable objects**: int, float, complex, string, tuple, frozen set (immutable version of set), bytes
+
+* Mutable and immutable objects are handled differently in python. Immutable objects are quicker to access and are expensive to change because it involves the creation of a copy. Whereas mutable objects are easy to change.
+* Use of mutable objects is recommended when there is a need to change the size or content of the object.
+* Exception : However, there is an exception in immutability as well. We know that tuple in python is immutable. But the tuple consists of a sequence of names with unchangeable bindings to objects. Consider a tuple
+
+  ```
+  tup = ([3, 4, 5], 'myname')
+  ```
+
+  The tuple consists of a string and a list. Strings are immutable so we can’t change its value. But the contents of the list can change. The tuple itself isn't mutable but contain items that are mutable.
 
 #### What is the difference between linked list and array?
 
