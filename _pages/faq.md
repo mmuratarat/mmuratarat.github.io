@@ -2089,17 +2089,17 @@ However, the parameter estimates may be inaccurate. This is more frequent with s
 
 Maximum likelihood estimation is a method that determines values for the parameters of a model. The parameter values are found such that they maximise the likelihood that the process described by the model produced the data that were actually observed.
 
-Let $X_{1}, X_{2}, \dots , X_{n}$ be a random sample from a distribution that depends on one or more unknown parameters $\theata_{1}, \theta_{2}, \dots , \theta_{m}$ with probability density (or mass) function $f(x_{i}; \theata_{1}, \theta_{2}, \dots , \theta_{m})$. Suppose that $(\theata_{1}, \theta_{2}, \dots , \theta_{m})$ is restricted to a given parameter space $\omega$. Then:
+Let $X_{1}, X_{2}, \dots , X_{n}$ be a random sample from a distribution that depends on one or more unknown parameters $\theta_{1}, \theta_{2}, \dots , \theta_{m}$ with probability density (or mass) function $f(x_{i}; \theta_{1}, \theta_{2}, \dots , \theta_{m})$. Suppose that $(\theta_{1}, \theta_{2}, \dots , \theta_{m})$ is restricted to a given parameter space $\omega$. Then:
 
-When regarded as a function of $\theata_{1}, \theta_{2}, \dots , \theta_{m}$, the joint probability density (or mass) function of $X_{1}, X_{2}, \dots , X_{n}$:
+When regarded as a function of $\theta_{1}, \theta_{2}, \dots , \theta_{m}$, the joint probability density (or mass) function of $X_{1}, X_{2}, \dots , X_{n}$:
 
 $$
-L(\theta_1,\theta_2,\ldots,\theta_m) = \prod\limits_{i=1}^n f(x_i;\theta_1,\theta_2,\ldots,\theta_m)
+L(\theta_1, \theta_2, \ldots ,\theta_m) = \prod\limits_{i=1}^n f(x_i;\theta_1,\theta_2,\ldots,\theta_m)
 $$
 
 is called the likelihood function. 
 
-Note that the likelihood function is a function of $\theata_{1}, \theta_{2}, \dots , \theta_{m}$ and It is not a probability density function. Then we need to find the values of $\theta_1,\theta_2,\ldots,\theta_m$ that maximizes this likelihood. Rather than maximising this product which can be quite tedious  (for computational issues), we often use the fact that the logarithm is an increasing function so it will be equivalent to maximise the log likelihood:
+Note that the likelihood function is a function of $\theta_{1}, \theta_{2}, \dots , \theta_{m}$ and It is not a probability density function. Then we need to find the values of $\theta_1,\theta_2,\ldots,\theta_m$ that maximizes this likelihood. Rather than maximising this product which can be quite tedious  (for computational issues), we often use the fact that the logarithm is an increasing function so it will be equivalent to maximise the log likelihood:
 
 $$
 l(\theta_1,\theta_2,\ldots,\theta_m) = log\left( L(\theta_1,\theta_2,\ldots,\theta_m) \right) =  \sum\limits_{i=1}^n log(f(x_i;\theta_1,\theta_2,\ldots,\theta_m))
@@ -2125,6 +2125,7 @@ We are ignoring the normalizing constant as we are strictly speaking about optim
 We know that MLE can be written as:
 
 $$
+\begin{align}
 \theta_{MLE} &= \mathop{\rm arg\,max}\limits_{\theta} \log P(X \vert \theta) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} \log \prod_i P(x_i \vert \theta) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} \sum_i \log P(x_i \vert \theta)
@@ -2136,13 +2137,11 @@ If we replace the likelihood in the MLE formula above with the posterior, we get
 
 $$
 \begin{align}
-
 \theta_{MAP} &= \mathop{\rm arg\,max}\limits_{\theta} P(\theta \vert X) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} P(X \vert \theta) P(\theta) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} \log P(X \vert \theta) + \log P(\theta) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} \log \prod_i P(x_i \vert \theta) + \log P(\theta) \\
              &= \mathop{\rm arg\,max}\limits_{\theta} \sum_i \log P(x_i \vert \theta) + \log P(\theta)
-
 \end{align}
 $$
 
