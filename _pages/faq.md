@@ -2146,6 +2146,9 @@ $$
 \end{align}
 $$
 
+Here, $P(\theta)$ is the prior. The prior is the probability of the parameter and represents what was thought before seeing the data. $P(X \vert \theta)$ is the likelihood. The likelihood is the probability of the data given the parameter and
+represents the data now available. In the end, we will have the posterior. The posterior represents what is thought given both prior information and the data just seen.
+
 Comparing both MLE and MAP equation, the only thing differs is the inclusion of prior $P(\theta)$ in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.
 
 Let’s consider what if we use the simplest prior in our MAP estimation, i.e. uniform prior. This means, we assign equal weights everywhere, on all possible values of the $\theta$. The implication is that the likelihood equivalently weighted by some constants. Being constant, we could be ignored from our MAP equation, as it will not contribute to the maximization. So, we will be back at MLE equation again!
