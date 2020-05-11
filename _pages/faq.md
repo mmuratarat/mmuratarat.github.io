@@ -2976,9 +2976,9 @@ Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom de
 
 |  Type of distribution  | No of constraints | Degree of freedom |
 |:----------------------:|:-----------------:|:-----------------:|
-| Binominal distribution |         1         |        n-1        |
-|  Poisson distribution  |         2         |        n-2        |
-|   Normal distribution  |         3         |        n-3        |
+| Binominal distribution |         1         |        k - 1        |
+|  Poisson distribution  |         2         |        k - 2        |
+|   Normal distribution  |         3         |        k - 3        |
 
 
 If your chi-square statistic is larger than the table value, you may conclude your data is not following the given distribution.
@@ -2997,6 +2997,31 @@ Alternatives to Chi-Square Test for Normality include:
 * The Jarque-Bera test
 
 All of these tests have different strength and weaknesses, but the Shapiro Wilk test may have the best power for any given significance.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof1.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof2.jpeg?raw=true)
+
+```python
+import scipy
+from scipy.stats import binom
+
+n=3
+p=1/6
+b = scipy.stats.binom(n,p)
+
+print('P(roll 0 sixes) = P(X = 0) = {:.2f}'.format(b.pmf(0)))
+print('P(roll 1 sixes) = P(X = 1) = {:.2f}'.format(b.pmf(1)))
+print('P(roll 2 sixes) = P(X = 2) = {:.2f}'.format(b.pmf(2)))
+print('P(roll 3 sixes) = P(X = 3) = {:.2f}'.format(b.pmf(3)))
+
+# P(roll 0 sixes) = P(X = 0) = 0.58
+# P(roll 1 sixes) = P(X = 1) = 0.35
+# P(roll 2 sixes) = P(X = 2) = 0.07
+# P(roll 3 sixes) = P(X = 3) = 0.00
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof3.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof4.jpeg?raw=true)
 
 #### What does statistical interaction mean?
 
