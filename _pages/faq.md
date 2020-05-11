@@ -1226,7 +1226,7 @@ Another highly damaging form of numerical error is overﬂow. Overﬂow occurs w
 The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
 
 $$
-softmax(\mathbf{x})_{i} = \frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
+softmax(\mathbf{x})_{i} = \frac{exp(x_{i})}{\sum_{j=1}^{n} exp(x_{j})}
 $$
 
 However, Softmax function is prone to two issues: overflow and underflow.
@@ -1287,22 +1287,22 @@ print(softmax([710, 800, 900]))
 So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
 
 $$
-softmax(\mathbf{x})_{i} = \frac{exp(x_{i} - max(\mathbf{x}))}{\sum_{i=1}^{n} exp(x_{j} - max(\mathbf{x}))}
+softmax(\mathbf{x})_{i} = \frac{exp(x_{i} - max(\mathbf{x}))}{\sum_{j=1}^{n} exp(x_{j} - max(\mathbf{x}))}
 $$
 
 Subtracting within an exponent is the same as dividing between exponents ($e^{a-b} = e^a / e^b$), so:
 
 $$
-\frac{exp(x_{i}) / max(\mathbf{x})}{\sum_{i=1}^{n} exp(x_{j}) / max(\mathbf{x})}
+\frac{exp(x_{i}) / max(\mathbf{x})}{\sum_{j=1}^{n} exp(x_{j}) / max(\mathbf{x})}
 $$
 
 Then you just cancel out the maximum terms, and you're left with the original equation:
 
 $$
-\frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
+\frac{exp(x_{i})}{\sum_{j=1}^{n} exp(x_{j})}
 $$
 
-There is still one small problem. Underﬂow in the numerator can still cause the expression as a whole to evaluate to zero. This means that if we implement log softmax(x) by ﬁrst running the softmax subroutine then passing the result to the log function, we could erroneously obtain $- \infty$. Instead, we must implementa separate function that calculates log softmax in a numerically stable way. The log softmax function can be stabilized using the same trick as we used to stabilize the softmax function.
+There is still one small problem. Underﬂow in the numerator can still cause the expression as a whole to evaluate to zero. This means that if we implement log softmax(x) by ﬁrst running the softmax subroutine then passing the result to the log function (`log( exp(x_i) / exp(x).sum() )`), we could erroneously obtain $- \infty$. Instead, we must implementa separate function that calculates log softmax in a numerically stable way. The log softmax function can be stabilized using the same trick as we used to stabilize the softmax function.
 
 #### Describe convex function
 
