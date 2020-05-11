@@ -134,6 +134,7 @@ permalink: /faq/
 52. [What is Poisson approximation to Binomial distribution?](#what-is-poisson-approximation-to-binomial-distribution)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
+53. What is the power of a statistical test?
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
@@ -3077,6 +3078,21 @@ A statistical hypothesis test allows you to control the probability of false pos
 In the context of confusion matrix, we can say Type I error occurs when we classify a value as positive (1) when it is actually negative (0). For example, false-positive test result indicates that a person has a specific disease or condition when the person actually does not have it. 
 
 Type II error occurs when we classify a value as negative (0) when it is actually positive (1). Similarly, as an example, a false negative is a test result that indicates a person does not have a disease or condition when the person actually does have it
+
+#### What is the power of a statistical test?
+
+When you make a decision in a hypothesis test, there’s never a 100 percent guarantee you’re right. You must be cautious of Type I errors (rejecting a true claim) and Type II errors (failing to reject a false claim). Instead, you hope that your procedures and data are good enough to properly reject a false claim. Mathematically, power is defined to be 1 - Type II error (it is the probability of avoiding a Type II error). Just as the significance level (alpha) of a test gives the probability that the null hypothesis will be rejected when it is actually true (a wrong decision), power quantifies the chance that the null hypothesis will be rejected when it is actually false (a correct decision). In other words, Power is the probability of making a correct decision (to reject the null hypothesis) when the null hypothesis is false. 
+
+Although you can conduct a hypothesis test without it, calculating the power of a test beforehand will help you ensure that the sample size is large enough for the purpose of the test. Otherwise, the test may be inconclusive, leading to wasted resources. On rare occasions the power may be calculated after the test is performed, but this is not recommended except to determine an adequate sample size for a follow-up study (if a test failed to detect an effect, it was obviously underpowered – nothing new can be learned by calculating the power at this stage). 
+
+The power of a hypothesis test is between 0 and 1; if the power is close to 1, the hypothesis test is very good at detecting a false null hypothesis. Type II error is commonly set at 0.2, but may be set by the researchers to be smaller. Consequently, power may be as low as 0.8, but may be higher. Powers lower than 0.8, while not impossible, would typically be considered too low for most areas of research.
+
+To increase the power of your test, you may do any of the following:
+
+1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected
+2. Increase the sample size(s)
+3. Decrease the variability in the sample(s)
+4. Increase the significance level (alpha) of the test 
 
 #### What is the difference between ordinal, interval and ratio variables?
 
