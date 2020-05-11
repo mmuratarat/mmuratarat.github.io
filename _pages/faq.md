@@ -1226,7 +1226,7 @@ Another highly damaging form of numerical error is overﬂow. Overﬂow occurs w
 The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
 
 $$
-softmax(\mathbold{x})_{i} = \frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
+softmax(\mathbf{x})_{i} = \frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
 $$
 
 However, Softmax function is prone to two issues: overflow and underflow.
@@ -1287,13 +1287,13 @@ print(softmax([710, 800, 900]))
 So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
 
 $$
-softmax(\mathbold{x})_{i} = \frac{exp(x_{i} - max(\mathbold{x}))}{\sum_{i=1}^{n} exp(x_{j} - max(\mathbold{x}))}
+softmax(\mathbf{x})_{i} = \frac{exp(x_{i} - max(\mathbf{x}))}{\sum_{i=1}^{n} exp(x_{j} - max(\mathbf{x}))}
 $$
 
 Subtracting within an exponent is the same as dividing between exponents ($e^{a-b} = e^a / e^b$), so:
 
 $$
-\frac{exp(x_{i}) / max(\mathbold{x})}{\sum_{i=1}^{n} exp(x_{j}) / max(\mathbold{x})}
+\frac{exp(x_{i}) / max(\mathbf{x})}{\sum_{i=1}^{n} exp(x_{j}) / max(\mathbf{x})}
 $$
 
 Then you just cancel out the maximum terms, and you're left with the original equation:
