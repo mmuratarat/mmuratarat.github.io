@@ -2039,6 +2039,51 @@ Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of 
 
 * **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$. For example, as $N$ goess to infinity, $V(\bar{X}) = \frac{\sigma^{2}}{N} = 0$. 
 
+#### Explain Method Of Moments (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
+
+MAP (maximum a priori estimate), MLE (maximum likelihood estimate) and MoM (method of moments) in this context refer to point estimation problems and are among many other estimation methods in statistics.
+
+
+Method of Moments Estimators:
+
+In short, the method of moments involves equating sample moments with theoretical moments. So, let's start by making sure we recall the definitions of theoretical moments, as well as learn the definitions of sample moments.
+
+1. $E(X^k)# is the kth (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $
+
+2. $E\left[(X-\mu)^k\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $
+
+3. $M_k=\dfrac{1}{n}\sum\limits_{i=1}^n X_i^k$ is the $k$th sample moment, for $k = 1, 2, \dots $
+
+4. $M_k^\ast =\dfrac{1}{n}\sum\limits_{i=1}^n (X_i-\bar{X})^k$ is the kth sample moment about the mean, for k = 1, 2, ...
+
+The basic idea behind this form of the method is to:
+
+1. Equate the first sample moment about the origin $M_1=\dfrac{1}{n}\sum\limits_{i=1}^n X_i=\bar{X}$ to the first theoretical moment $E(X)$.
+
+2. Equate the second sample moment about the origin $M_2=\dfrac{1}{n}\sum\limits_{i=1}^n X_i^2$ to the second theoretical moment $E(X^{2})$.
+
+3. Continue equating sample moments about the origin, $M_{k}$, with the corresponding theoretical moments $E(X^{k}), k = 3, 4, \dots $ until you have as many equations as you have parameters.
+
+4. Solve for the parameters.
+
+The resulting values are called method of moments estimators. It seems reasonable that this method would provide good estimates, since the empirical distribution converges in some sense to the probability distribution.  Therefore, the corresponding moments should be about equal.
+
+In some cases, rather than using the sample moments about the origin, it is easier to use the sample moments about the mean. Doing so, provides us with an alternative form of the method of moments.
+
+The basic idea behind this form of the method is to:
+
+1. Equate the first sample moment about the origin $M_1=\dfrac{1}{n}\sum\limits_{i=1}^n X_i=\bar{X}$ to the first theoretical moment $E(X)$.
+
+2. Equate the second sample moment about the mean $M_2^\ast=\dfrac{1}{n}\sum\limits_{i=1}^n (X_i-\bar{X})^2$ to the second theoretical moment about the mean $E[(X-\mu)^2]$.
+
+3. Continue equating sample moments about the mean M∗k with the corresponding theoretical moments about the mean $E[(X-\mu)^k], k = 3, 4, \dots $. until you have as many equations as you have parameters.
+
+4. Solve for the parameters.
+
+Again, the resulting values are also called method of moments estimators. 
+
+
+
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
 
