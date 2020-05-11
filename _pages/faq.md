@@ -1226,7 +1226,7 @@ Another highly damaging form of numerical error is overﬂow. Overﬂow occurs w
 The softmax function is often used to predict the probabilities associated with a multinoulli distribution. The softmax function is deﬁned to be:
 
 $$
-softmax(\mathbold{x})_{i} = \frac{exp(x_{i}}{\sum_{i=1}^{n} exp(x_{j}}
+softmax(\mathbold{x})_{i} = \frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
 $$
 
 However, Softmax function is prone to two issues: overflow and underflow.
@@ -1265,8 +1265,42 @@ softmax([710, 800, 900])
 #array([nan, nan, nan])
 ```
 
+So let's implement it in pure Python:
+
+```python
+import numpy as np
+
+def softmax(x):
+    z = np.array(x) - np.max(np.array(x), axis=-1, keepdims=True)
+    numerator = np.exp(z)
+    denominator = np.sum(numerator, axis=-1, keepdims=True)
+    softmax_result = numerator / denominator
+    return softmax_result
+
+print(softmax([0.1, 0.2]))
+#[0.47502081 0.52497919]
+
+print(softmax([710, 800, 900]))
+#[3.04823495e-83 3.72007598e-44 1.00000000e+00]
+```
+
 So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
 
+$$
+softmax(\mathbold{x})_{i} = \frac{exp(x_{i} - max(\mathbold{x}))}{\sum_{i=1}^{n} exp(x_{j} - max(\mathbold{x}))}
+$$
+
+Subtracting within an exponent is the same as dividing between exponents ($e^{a-b} = e^a / e^b$), so:
+
+$$
+\frac{exp(x_{i}) / max(\mathbold{x})}{\sum_{i=1}^{n} exp(x_{j}) / max(\mathbold{x})}
+$$
+
+Then you just cancel out the maximum terms, and you're left with the original equation:
+
+$$
+\frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
+$$
 
 #### Describe convex function
 
