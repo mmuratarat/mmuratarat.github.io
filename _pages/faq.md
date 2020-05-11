@@ -1238,7 +1238,7 @@ To combat these issues when doing softmax computation, a common trick is to shif
 
 Subtracting $max_{i} x_{i}$ results in the largest argument to $exp$ being 0, which rules out the possibility of overﬂow. Likewise, at least one term in the denominator has a value of 1, which rules out the possibility of underﬂow in the denominator leading to a division by zero.
 
-This is done for stability reasons: when you exponentiate even large-ish numbers, the result can be quite large. numpy will return `inf` when you exponentiate values over 710 or so.
+This is done for stability reasons: when you exponentiate even large-ish numbers, the result can be quite large. numpy will return `inf` when you exponentiate values over 710 or so which can be seen in the small code below:
 
 ```python
 import numpy as np
@@ -1301,6 +1301,8 @@ Then you just cancel out the maximum terms, and you're left with the original eq
 $$
 \frac{exp(x_{i})}{\sum_{i=1}^{n} exp(x_{j})}
 $$
+
+There is still one small problem. Underﬂow in the numerator can still cause the expression as a whole to evaluate to zero. This means that if we implement log softmax(x) by ﬁrst running the softmax subroutine then passing the result to the log function, we could erroneously obtain $- \infty$. Instead, we must implementa separate function that calculates log softmax in a numerically stable way. The log softmax function can be stabilized using the same trick as we used to stabilize the softmax function.
 
 #### Describe convex function
 
