@@ -145,6 +145,8 @@ permalink: /faq/
 62. [How to do two samples test of proportions?](#how-to-do-two-samples-test-of-proportions)
 63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
+64. When to use chi-square tests?
+65. What is Chi-square Test for Goodness-of-fit Test?
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
@@ -2936,6 +2938,53 @@ There are two types of chi-square tests. Both use the chi-square statistic and d
 1. A chi-square goodness of fit test determines if a sample data matches a population, i.e., Goodness of Fit Test.
 
 2. A chi-square test for independence compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. For example, it is used to test that Baby gender (boy/girl) and baby heart rate (low/high) are independent.
+
+#### What is Chi-square Test for Goodness-of-fit Test?
+
+Chi-Square goodness of fit test is a non-parametric test that is used to find out how the observed value of a given phenomena is significantly different from the expected value. 
+
+To apply the Chi-Square Test for any distribution to any data set, let your null hypothesis be that your data is sampled from a distribution and apply the Chi-Square Goodness of Fit Test.
+
+Let $x_{1}, x_{2}, \dots, x_{n}$ be the observed values of a random variable $x$. Assume, that the observed values $x_{1}, x_{2}, \dots, x_{n}$ are i.i.d. 
+
+* Let's first categorize the observations ($n$) into $k$ categories.
+* Calculate the frequencies $O_{i}, i  = 1, 2, ..., k$, where $O_{i}$ is the observed frequency of the category $i$. Note that $\sum_{i=1}^{k} O_{i} = n$.
+* you will need to calculate the expected values under the given distribution for every data point. Let $p_{i}$ be the probability, that under null hypothesis, the random variable $x$ belongs to the category $i$. Calculate the expected frequencies $E_{i} = n \times p_{i}$ of the observations in category $i$. Note that $\sum_{i=1}^{k} p_{i} = 1$.
+
+Then use the formula
+
+$$
+\chi^{2} = \sum_{i=1}^{k} \frac{(O_{i} - E_{i})^{2}}{E_{i}}
+$$
+
+to find the chi-square statistic where $O_{i}$ is the observed value and $E_{i}$ is the expected value. 
+
+Compare this to the critical chi-square value from a chi-square table, given your degrees of freedom and desired alpha level. 
+
+Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. The following table shows the distribution and an associated degree of freedom:
+
+|  Type of distribution  | No of constraints | Degree of freedom |
+|:----------------------:|:-----------------:|:-----------------:|
+| Binominal distribution |         1         |        n-1        |
+|  Poisson distribution  |         2         |        n-2        |
+|   Normal distribution  |         3         |        n-3        |
+
+If your chi-square statistic is larger than the table value, you may conclude your data is not following the given distribution.
+
+Note that if your variable is continuous, you will need to bin the data before using the chi-square test for normality.
+
+Note: If the value of the test statistic is large, the sample frequencies differ greatly from the expected value, and it is clear that the null hypothesis should be rejected. However, if the value is very small, then the sample frequencies differ less than expected. This is called overfitting.
+
+Alternatives to Chi-Square Test for Normality include:
+* The Kolmogorov-Smirnov (K-S) test
+* The Lilliefors corrected K-S test
+* The Shapiro-Wilk test
+* The Anderson-Darling test
+* The Cramer-von Mises test
+* The D’Agostino-Pearson omnibus test
+* The Jarque-Bera test
+
+All of these tests have different strength and weaknesses, but the Shapiro Wilk test may have the best power for any given significance.
 
 #### What does statistical interaction mean?
 
