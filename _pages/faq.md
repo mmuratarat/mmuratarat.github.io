@@ -1281,7 +1281,7 @@ print(softmax([0.1, 0.2]))
 #[0.47502081 0.52497919]
 
 print(softmax([710, 800, 900]))
-#[3.04823495e-83 3.72007598e-44 1.00000000e+00]
+#[0. 0. 1.]
 ```
 
 So that solves the numerical stability problem, but is it mathematically correct? To clear this up, let's write out the softmax equation with the subtraction terms in there.
