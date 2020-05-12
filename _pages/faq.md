@@ -107,6 +107,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
+27. How to compute the median of a probability distribution?
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 29. Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
@@ -2016,6 +2017,30 @@ $$
 * When to use the mean: Symmetric distribution, Continuous data
 * When to use the median: Skewed distribution, Continuous data, Ordinal data
 * When to use the mode: Categorical data, Ordinal data, Count data, Probability Distributions
+
+#### How to compute the median of a probability distribution?
+
+A median by definition is a real number $m$ that satisfies:
+
+$$
+P(X\leq m)=\frac{1}{2}
+$$
+
+For example, let's find the median of exponential distribution whose distribution function is given below:
+
+$$
+f(x; \lambda) = \lambda e^{{-\lambda x}}, x \geq 0 
+$$
+
+So, we need to compute:
+
+$$
+\begin{split}
+P(X \leq m) = \int_{0}^{m} \lambda e^{{-\lambda x}} dx &= \frac{1}{2}\\
+1-e^{-\lambda m} &= \frac{1}{2}\\
+m &= \frac{\ln 2}{\lambda}
+\end{split}
+$$
 
 #### How to find the distribution of Order Statistics?
 
