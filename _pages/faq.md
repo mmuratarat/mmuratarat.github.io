@@ -107,7 +107,7 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
-27. How to compute the median of a probability distribution?
+27. [How to compute the median of a probability distribution?](#how-to-compute-the-median-of-a-probability-distribution)
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 29. Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
