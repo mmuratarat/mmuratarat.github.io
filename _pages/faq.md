@@ -3513,7 +3513,7 @@ Linear regression is perhaps one of the most well known and well understood algo
 
 #### What are the assumptions required for linear regression?
 
-* Linear Relationship between the features and target. Violations of linearity or additivity are extremely serious. The assumptions of linearity and additivity are both implicit in a simple linear regression equation. When linearity is violated, we can deal with it by applying a nonlinear transformation to the dependent and/or independent variables if you can think of a transformation that seems appropriate. In general a non-linear regression model should be considered. You can also include polynomial terms ($X$, $X^{2}$, $X^{3}$) in your model to capture the non-linear effect.
+* Linear Relationship between the features and target. Violations of linearity or additivity are extremely serious. The assumptions of linearity and additivity are both implicit in a simple linear regression equation. When linearity is violated, we can deal with it by applying a nonlinear transformation to the dependent and/or independent variables if you can think of a transformation that seems appropriate. you can use $log(y)$ or $y^{2}$ or $\sqrt{y}$ or $1/y$ instead of y for the outcome. (It never matters whether you choose natural vs. common log). In general a non-linear regression model should be considered. You can also include polynomial terms ($X$, $X^{2}$, $X^{3}$) in your model to capture the non-linear effect.
 
 * The number of observations must be greater than number of features
 
