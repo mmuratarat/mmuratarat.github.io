@@ -2029,14 +2029,14 @@ $$
 For example, let's find the median of exponential distribution whose distribution function is given below:
 
 $$
-f(x; \lambda) = \lambda e^{{-\lambda x}}, x \geq 0 
+f(x; \lambda) = \lambda e^{- \lambda x}, x \geq 0 
 $$
 
 So, we need to compute:
 
 $$
 \begin{split}
-P(X \leq m) = \int_{0}^{m} \lambda e^{{-\lambda x}} dx &= \frac{1}{2}\\
+P(X \leq m) = \int_{0}^{m} \lambda e^{-\lambda x} dx &= \frac{1}{2}\\
 1-e^{-\lambda m} &= \frac{1}{2}\\
 m &= \frac{\ln 2}{\lambda}
 \end{split}
