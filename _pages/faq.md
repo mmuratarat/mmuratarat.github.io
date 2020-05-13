@@ -244,6 +244,7 @@ permalink: /faq/
 72. How to model count data?
 73. Why should weights of Neural Networks be initialized to random numbers?
 74. Why is loss function in Neural Networks not convex?
+74. Is it possible to train a neural network without backpropagation?
 75. What is the difference between a loss function and decision function?
 76. What is the difference between SVM and Random Forest?
 77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?
@@ -5133,6 +5134,12 @@ Even though MSE is index convex in $\hat{y_{i}}$. But if $\hat{y_{i}} = f(w, x_{
 It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
 
 If you permute the neurons in the hidden layer and do the same permutation on the weights of the adjacent layers then the loss doesn't change. Hence if there is a non-zero global minimum as a function of weights, then it can't be unique since the permutation of weights gives another minimum (loss function might have also a number of local maxima and minima). Hence the function is not convex.
+
+#### Is it possible to train a neural network without backpropagation?
+
+The original neural networks, before the backpropagation revolution in the 70s, were "trained" by hand. There is a "school" of machine learning called "extreme learning machine" that does not use backpropagation. However, one can use pretty much any numerical optimization algorithm (such as Nelder-Mead, Simulated Annealing or a Genetic Algorithm. However, Nelder-Mead and Simulated Annealing are generally considered pretty much obsolete in optimization circles, as there are much better alternatives which are both more reliable and less costly. Genetic algorithms covers a wide range, and some of these can be reasonable) to optimize weights of a neural network. You can also use mixed continous-discrete optimization algorithms to optimize not only weights, but layout itself (number of layers, number of neurons in each layer, even type of the neuron). But, there's no optimization algorithm that do not suffer from "curse of dimensionality" and local optimas in some manner. Computational complexity is another trouble.
+
+There are all sorts of local search algorithms you could use, backpropagation has just proved to be the most efficient for more complex tasks in general; there are circumstances where other local searches are better. However, in the broader class of derivative-free optimization (DFO) algorithms, there are many which are significantly better than these "classics", as this has been an active area of research in recent decades. 
 
 #### What is the difference between a loss function and decision function?
 
