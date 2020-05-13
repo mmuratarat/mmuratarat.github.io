@@ -118,7 +118,6 @@ permalink: /faq/
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
 28. [What is a continuous uniform distribution?](#what-is-a-uniform-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
-30. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 31. What is discrete Uniform distribution?
 30. What are exponential and Laplace distribution?
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
@@ -129,6 +128,7 @@ permalink: /faq/
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
 49. [What is the sampling distribution of the sample mean??](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
+50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
@@ -2833,20 +2833,6 @@ std_dev_of_sample_means = np.std(sample_means)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-25%20at%2016.11.43.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-25%20at%2016.11.49.png?raw=true)
 
-#### What is the sampling distribution of sample proportion, p-hat?
-
-The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. 
-
-In practice, we don’t know the true population proportion $p$, so we cannot compute the variance of $\hat{p}$. Replacing $p$ with $\hat{p}$ in the standard deviation expression gives us an estimate that is called the standard error of $\hat{p}$:
-
-$$
-s.e.(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-$$
-
-The standard error is an excellent approximation for the standard deviation. We will use it to find confidence intervals, but will not need it for sampling distribution or hypothesis tests because we assume a specific value for $p$ in those cases.
-
-In general, if $np \geq 10$ and $n(1- p) \geq 10$ (SPECIAL NOTE: Some textbooks use 15 instead of 10 believing that 10 is to liberal), the sampling distribution of $\hat{p}$ is about normal with mean of $p$ and standard error $s.e.(p) = \sqrt{\frac{p(1-p)}{n}}$.
-
 #### Write the formulae for Bayes rule.
 
 Bayes' theorem is a formula that describes how to update the probabilities of hypotheses when given evidence. It follows simply from the axioms of conditional probability, but can be used to powerfully reason about a wide range of problems involving belief updates.
@@ -2904,6 +2890,18 @@ When we calculate the sample standard deviation from a sample of $n$ values, we 
 Another way to look at degrees of freedom is that they are the number of values that are free to vary in a data set. What does “free to vary” mean? Here’s an example using the mean (average): Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what $9$ of the $10$ sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary. Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
 Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, look at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof){:target="_blank"}.
+
+#### What is the standard error of the estimate? 
+
+The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. For a given sample size, the standard error equals the standard deviation divided by the square root of the sample size. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
+
+standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}}$
+
+Variance = $s^{2}$
+
+standard error: $s_{\bar{X}} = \sqrt{\frac{\sigma^{2}}{n}}$
+
+where $n$ is the size of the sample and $\bar{X}$ is the sample mean.
 
 #### What is the sampling distribution of the sample mean?
 
@@ -2965,17 +2963,40 @@ $$
 Var(s^{2}) = Var \left(\frac{\sigma^{2} \chi_{n-1}^{2}}{n-1} \right) =  \frac{\sigma^{4}}{(n-1)^{2}} 2(n-1) = \frac{2\sigma^{4}}{n-1}
 $$
 
-#### What is the standard error of the estimate? 
+#### What is the sampling distribution of sample proportion, p-hat?
 
-The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. For a given sample size, the standard error equals the standard deviation divided by the square root of the sample size. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
+The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. Let's see how this is possible...
 
-standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}}$
+Let $X$ count the number of observations in a sample of a specified type. For a random sample, we often model $X \sim Binomial(n, p)$ where $n$ is the sample size; and $p$ is the population proportion. The sample proportion is:
 
-Variance = $s^{2}$
+$$
+\hat{p} = \frac{X}{n}
+$$
 
-standard error: $s_{\bar{X}} = \sqrt{\frac{\sigma^{2}}{n}}$
+Adding a hat to a population parameter is a common statistical notation to indicate an estimate of the parameter calculated from sampled data. So, What is the sampling distribution of $\hat{p}$?
 
-where $n$ is the size of the sample and $\bar{X}$ is the sample mean.
+For a binomial distributed random variable, the expected value if $E(X) = np$ and variance is $Var(X) = np(1-p)$. The number $1/n$ is a constant, so
+
+$$
+E(\hat{p}) = E\left(\frac{X}{n} \right) = \frac{1}{n} E(X) = \frac{np}{n} = p
+$$
+
+Similarly,
+
+
+$$
+Var(\hat{p}) = Var\left(\frac{X}{n} \right) = \frac{1}{n^{2}} Var(X) = \frac{np(1-p)}{n^{2}} = \frac{p(1-p)}{n}
+$$
+
+In practice, we don’t know the true population proportion $p$, so we cannot compute the variance of $\hat{p}$. Replacing $p$ with $\hat{p}$ in the standard deviation expression gives us an estimate that is called the standard error of $\hat{p}$:
+
+$$
+s.e.(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+$$
+
+The standard error is an excellent approximation for the standard deviation. We will use it to find confidence intervals, but will not need it for sampling distribution or hypothesis tests because we assume a specific value for $p$ in those cases.
+
+In general, if $np \geq 10$ and $n(1- p) \geq 10$ (SPECIAL NOTE: Some textbooks use 15 instead of 10 believing that 10 is to liberal), the sampling distribution of $\hat{p}$ is about normal with mean of $p$ and standard error $s.e.(p) = \sqrt{\frac{p(1-p)}{n}}$.
 
 #### What is confidence interval?
 
