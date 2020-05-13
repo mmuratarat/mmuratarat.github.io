@@ -5128,6 +5128,8 @@ Any loss function takes two parameters, the predicted label $\hat{y}$  and the t
 
 However, when people say that the loss function of neural networks is not convex, it is not the function above that they are referring to. Note that you do not control $\hat{y}$  directly. You control some weight parameters (called model parameters), which in turn change $\hat{y}$ . So you’re interested in convexity of the loss function with respect to these weight parameters. Let’s say $\hat{y} = f(w, x)$, where $w$ is the vector of all weights, $x$ is the input example and $f$ is a function mapping those to a label $\hat{y}$ . You are interested in the function $g(x, y, w) = L(\hat{y}, y) = L(f(w, x),y)$.
 
+Even though MSE is index convex in $\hat{y_{i}}$. But if $\hat{y_{i}} = f(w, x_{i})$, it might not be convex in model parameters $w$, which is the situation with most non-linear models, and we actually care about convexity in $w$ because that's what we're optimizing the cost function over.
+
 It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
 
 #### What is the difference between a loss function and decision function?
@@ -5190,7 +5192,7 @@ In the literature, you can read statements like "Multicollinearity does not affe
 
 There is a simple explanation for it. Let's assume that you have trained a model on a training dataset, and want to predict some values in a test/holdout dataset. Multicollinearity in your training dataset should only reduce predictive performance in the test dataset if the covariance between variables in your training and test datasets is different. If the covariance structure (and consequently the multicollinearity) is similar in both training and test datasets, then it does not pose a problem for prediction. Since a test dataset is typically a random subset of the full dataset, it's generally reasonable to assume that the covariance structure is the same. Therefore, multicollinearity is typically not an issue for this purpose.
 
-# How does multicollinearity affect feature importances in random forest classifier?
+#### How does multicollinearity affect feature importances in random forest classifier?
 
 Random Forest is robust to multicollinearity issues in the aspect of prediction accuracy since it has the nature of selecting samples with replacement as well as selecting subsets of features on those samples randomly (Random Forest models handle quite well correlated/redundant variables, yes. But that does not mean your model necessarily benefits from unrelated or completely redundant variables(e.g. linear recombinations), it does not crash either). However, it definitely can affect variable importances in random forest models. Intuitively, it can be difficult to rank the relative importance of different variables if they have the same or similar underlying effect, which is implied by multicollinearity. That is- if we can access the underlying effect by measuring more than one variable, it's not easy to say which is causing the effect, or if they are mutual symptoms of a third effect.
 
