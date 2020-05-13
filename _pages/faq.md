@@ -5132,6 +5132,8 @@ Even though MSE is index convex in $\hat{y_{i}}$. But if $\hat{y_{i}} = f(w, x_{
 
 It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
 
+If you permute the neurons in the hidden layer and do the same permutation on the weights of the adjacent layers then the loss doesn't change. Hence if there is a non-zero global minimum as a function of weights, then it can't be unique since the permutation of weights gives another minimum (loss function might have also a number of local maxima and minima). Hence the function is not convex.
+
 #### What is the difference between a loss function and decision function?
 
 The loss function is what is minimized to obtain a model which is optimal in some sense. The model itself has a decision function which is used to predict.
