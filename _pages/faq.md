@@ -6327,6 +6327,27 @@ A conventional approach is to look for similar problems and  some of the most po
 
 However, common kernel sizes are $3 \times 3$, $5 \times 5$ and $7 \times 7$. A well known architecture for classification is to use convolution, pooling and some fully connected layers on top. Just start of with a modest number of layers and increase the number while measuring you performance on the test set.
 
+#### How convolution works in one dimension?
+
+Convolution is a good way to identify patterns in data that is directly tied to space or time. Adjacent pixels in an image are adjacent for a reason. In the physical world, they collect light from neighboring locations. Time series data has a similar structure. Neighboring data points were produced close together in time and are much more likely to be related then points far apart. This inherent structure is what convolution exploits. It finds local patterns that reoccur in the data. It would not be effective, for instance, if we first scrambled the pixels in an image. That would hide the patterns, the spatial relationships, that convolution tries to learn.
+
+In CNNs, there is nothing special about number of dimensions for convolution. They work the same way whether they have 1, 2, or 3 dimensions. The difference is the structure of the input data and how the filter, also known as a convolution kernel or feature detector, moves across the data. One way to think of this operation is that we are sliding the kernel over the input data. For each position of the kernel, we multiply the overlapping values of the kernel and data together, and add up the results. The number of dimensions is just a property of the problem being solved. For example, 1D for audio signals, 2D for images, 3D for movies.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1D-convolutional-example.png?raw=true)
+
+In this natural language processing (NLP) example, a sentence is made up of 9 words. Each word is a vector that represents a word. The filter covers at least one word; a height parameter specifies how many words the filter should consider at once. In this example the height is 2, meaning the filter moves 8 times to fully scan the data.
+
+Let’s call our input vector $f$ and our kernel $g$, and say that $f$ has length $n$, and $g$ has length $m$. The convolution $f * g$ of $f$ and $g$ is defined as:
+
+$$
+(f * g)(i) = \sum\limits_{j=1}^{m} g(j) f(i - j +m /2)
+$$
+
+Let’s look at a simple example. Suppose our input is 1D data:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1D_convolution_example1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1D_convolution_example2.png?raw=true)
+
 #### What is an RNN?
 
 #### What is the number of parameters in an RNN?
