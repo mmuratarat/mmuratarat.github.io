@@ -2768,7 +2768,7 @@ $$
   
 #### What is exponential distribution?
 
-In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. The exponential distribution also often models the waiting time until the next even (i.e., success, failute, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
+In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. The exponential distribution also often models the waiting time until the next even (i.e., success, failure, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
 
 A continuous random variable X is said to be exponential distribution with parameter $\lambda > 0$, shown as $X \sim Exponential(\lambda)$, if its PDF is given by 
 
