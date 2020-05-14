@@ -125,6 +125,7 @@ permalink: /faq/
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
 38. How does the denominator in Bayes rule act as normalizing constant?
+39. What is uninformative prior?
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
@@ -2973,17 +2974,17 @@ The main difficulty in putting noninformative priors is the function used, as a 
 the Jeffreys prior, named after Sir Harold Jeffreys, is a non-informative (objective) prior distribution for a parameter space; it is proportional to the square root of the determinant of the Fisher information matrix:
 
 $$
-p\left({\vec  \theta }\right)\propto {\sqrt  {\det {\mathcal  {I}}\left({\vec  \theta }\right)}}
+p\left(\theta \right)\propto {\sqrt  {\det {\mathcal  {I}}\left( \theta\right)}}
 $$
 
 
-where the Fisher information $\mathcal{I}\left({\vec  \theta }\right)$ is given by
+where the Fisher information $\mathcal{I}\left(\theta \right)$ is given by
 
 $$
-\mathcal{I}\left({\vec  \theta }\right) = - E_{\theta} \left(\frac{d^{2} log\left(P(X \mid \theta \right)}{d \theta^{2}} \right)
+\mathcal{I}\left(\theta \right) = - E_{\theta} \left(\frac{d^{2} log\left(p(x \mid \theta \right)}{d \theta^{2}} \right)
 $$
 
-Jeffrey's prior is not conjugate prior.
+Jeffrey's prior is not conjugate prior. Jeffreys priors work well for single parameter models, but not for models with multidimensional parameters. n. They are based on a principle of invariance: one should be able to apply these priors to certain situations, apply a change of variable, and still get the same answer. Suppose we are provided with some model and some data, i.e. with a likelihood function $p(x \mid \theta)$. One should be able to manipulate the likelihood and get a prior on $\theta$, from the likelihood only. Note how this approach goes contrary to the subjective Bayesian frame of mind, in which one first chooses a prior on then $\theta$ and then applies it to the likelihood to derive the posterior:
 
 
 #### What is population mean and sample mean?
