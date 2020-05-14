@@ -3172,7 +3172,7 @@ In the 1940s, Stanley Smith Stevens introduced four scales of measurement: nomin
 
 #### What is the general approach to hypothesis testing?
 
-The purpose of hypothesis testing is to determine which of the two hypotheses is correct.
+The purpose of hypothesis testing is to determine which of the two hypotheses is correct. The hypothesis testing framework involves comparing a "null hypothesis" to an “alternate hypothesis”. Typically, the null is the status quo, and the alternate is your hypothesis — the one you want to test.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/general_approach_to_hypothesis_testing.png?raw=true)
 
