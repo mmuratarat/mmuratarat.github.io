@@ -117,11 +117,10 @@ permalink: /faq/
 26. [What is a multinomial distribution?](#what-is-a-multinomial-distribution)
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
 28. [What is a continuous uniform distribution?](#what-is-a-uniform-distribution)
+28. What is exponential distribution?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 31. What is discrete Uniform distribution?
-30. What are exponential and Laplace distribution?
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
-35. Write the formulae for logistic and softplus function.
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
 38. [How does the denominator in Bayes rule act as normalizing constant?](#how-does-the-denominator-in-bayes-rule-act-as-normalizing-constant)
