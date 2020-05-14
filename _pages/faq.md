@@ -2960,6 +2960,32 @@ $$
 
 where we can "take out" the integral in the denominator out of the main integrak because $\theta$ had already been integrated out there (i.e., denominator does not depend on $\theta$).
 
+#### What is uninformative prior?
+
+If we do not have strong beliefs about what $\theta$ should be, it is common to use an uninformative or non-informative prior, and to let the data speak for itself.
+
+An uninformative prior gives you vague information about probabilities. It’s usually used when you don’t have a suitable prior distribution available. However, you could choose to use an uninformative prior if you don’t want it to affect your results too much.
+
+The uninformative prior isn't really "uninformative", because any probability distribution will have some information. However, it will have little impact on the posterior distribution because it makes minimal assumptions about the model.
+
+The main difficulty in putting noninformative priors is the function used, as a prior probability density has typically an infinite integral and is thus not, strictly speaking, a probability density at all. When formally combined with the data likelihood, sometimes it yields an improper posterior distribution. 
+
+the Jeffreys prior, named after Sir Harold Jeffreys, is a non-informative (objective) prior distribution for a parameter space; it is proportional to the square root of the determinant of the Fisher information matrix:
+
+$$
+p\left({\vec  \theta }\right)\propto {\sqrt  {\det {\mathcal  {I}}\left({\vec  \theta }\right)}}
+$$
+
+
+where the Fisher information $\mathcal{I}\left({\vec  \theta }\right)$ is given by
+
+$$
+\mathcal{I}\left({\vec  \theta }\right) = - E_{\theta} \left(\frac{d^{2} log\left(P(X \mid \theta \right)}{d \theta^{2}} \right)
+$$
+
+Jeffrey's prior is not conjugate prior.
+
+
 #### What is population mean and sample mean?
 
 A population is a collection of persons, objects or items of interest. Population mean is the average of the all the elements in the population. Suppose that whole population consists of $N$ observations:
