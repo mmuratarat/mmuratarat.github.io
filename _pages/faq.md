@@ -2879,8 +2879,8 @@ $$
 &\propto \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
 \end{split}
 $$
-
-Basically, $p(x)$ is nothing but a normalising constant, i.e., a constant that makes the posterior density integrate to one. Note that this integration will have one well known result if the prior and the likelihood are conjugate.
+ 
+Basically, the denominator, $p(x)$ is nothing but a normalising constant, i.e., a constant that makes the posterior density integrate to one. Note that this integration will have one well known result if the prior and the likelihood are conjugate.
 
 For some likelihood functions, if you choose a certain prior, the posterior ends up being in the same distribution as the prior. Such a prior then is called a Conjugate Prior.
 
