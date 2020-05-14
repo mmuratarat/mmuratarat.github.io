@@ -2220,6 +2220,13 @@ Method of moments is simple (compared to other methods like the maximum likeliho
 
 However, the parameter estimates may be inaccurate. This is more frequent with smaller samples and less common with large samples. The method may not result in sufficient statistics. In other words, it may not take into account all of the relevant information in the sample. They may not be unique in a given set of data (Multiple solutions to set of equations). Also, they need not exist.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex5.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MoM_ex6.png?raw=true)
+
 ##### Maximum Likelihood Estimation (MLE)
 
 Maximum likelihood estimation is a method that determines values for the parameters of a model. The parameter values are found such that they maximise the likelihood that the process described by the model produced the data that were actually observed.
@@ -2241,6 +2248,9 @@ l(\theta_1,\theta_2,\ldots,\theta_m) = log\left( L(\theta_1,\theta_2,\ldots,\the
 $$
 
 We can find the MLEs graphically, analytically (We use calculus to find it by taking the derivative of the likelihood function and setting it to 0) or numerically (using Grid Search or gradient descent algorithm or Newton-Raphson algorithm). 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MLE_ex1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MLE_ex2.png?raw=true)
 
 #### Maximum A Posteriori (MAP) Estimation
 
@@ -2292,6 +2302,9 @@ If we use different prior, say, a Gaussian, then our prior is not constant anymo
 What we could conclude then, is that MLE is a special case of MAP, where the prior is uniform!
 
 Use Bayesian estimations when you have a domain expert; otherwise, use MLE. Use MoM only for computational issues when (1) the posterior (or likelihood function) is not convex and (2) big data.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MAP_ex1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MAP_ex2.png?raw=true)
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
@@ -3488,6 +3501,12 @@ To increase the power of your test, you may do any of the following:
 2. Increase the sample size(s)
 3. Decrease the variability in the sample(s)
 4. Increase the significance level (alpha) of the test 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex5.png?raw=true)
 
 #### What is the difference between ordinal, interval and ratio variables?
 
