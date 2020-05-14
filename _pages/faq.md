@@ -110,7 +110,7 @@ permalink: /faq/
 27. [How to compute the median of a probability distribution?](#how-to-compute-the-median-of-a-probability-distribution)
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
-29. Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
+29. [Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).](#explain-method-of-moments-mom-maximum-a-posteriori-map-and-maximum-likelihood-estimation-mle)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
