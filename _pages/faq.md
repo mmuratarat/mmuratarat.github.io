@@ -2766,6 +2766,122 @@ $$
 $$
 
   which is the unbiased estimator of $\theta$.
+  
+#### What is exponential distribution?
+
+In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. The exponential distribution also often models the waiting time until the next even (i.e., success, failute, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
+
+A continuous random variable X is said to be exponential distribution with parameter $\lambda > 0$, shown as $X \sim Exponential(\lambda)$, if its PDF is given by 
+
+$$
+f_{X}(x) = \lambda e^{-\lambda x},\,\,\, x\in [0, \infty ); \lambda > 0
+$$
+
+Here, $\lambda$ is the event rate (it is not a time duration). 
+
+Let's find its CDF:
+
+$$
+\begin{split}
+F_{X} (x) = P(X \leq x) &= \int_{0}^{x} \lambda e^{-\lambda t} dt\\
+&= \lambda \frac{-1}{\lambda} e^{-\lambda t} \Big|_{0}^{x}\\
+&= - e^{-\lambda t} \Big|_{0}^{x}\\
+&= 1 - e^{-\lambda x}
+\end{split}
+$$
+
+Let's plot the PDF and CDF of exponential distribution for various $\lambda$'s:
+
+```pthon
+import numpy as np
+from scipy.stats import expon
+import matplotlib.pyplot as plt
+
+def plot_exp(x_range, loc=0, lamb=1, cdf=False, **kwargs):
+    '''
+    scale = 1 / lamb
+    https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.expon.html
+    '''
+    if cdf:
+        y = expon.cdf(x, loc=0, scale=1/lamb)
+    else:
+        y = expon.pdf(x, loc=0, scale=1/lamb)
+    plt.plot(x, y, **kwargs)
+    
+x = np.linspace(0, 5, 5000)
+
+plt.figure(1)
+plot_exp(x, 0, 0.5, color='red', lw=2, ls='-', alpha=0.5, label='$\lambda = 0.5$')
+plot_exp(x, 0, 1, color='blue', lw=2, ls='-', alpha=0.5, label='$\lambda = 1$')
+plot_exp(x, 0, 1.5, color='green', lw=2, ls='-', alpha=0.5, label='$\lambda = 1.5$')
+plt.title('PDF of Exponential Distribution')
+plt.xlabel('x')
+plt.ylabel('Probability density')
+plt.axis([0, 5, -0.05, 1.5])
+plt.legend()
+
+plt.figure(2)
+plot_exp(x, 0, 0.5, cdf=True, color='red', lw=2, ls='-', alpha=0.5, label='$\lambda = 0.5$')
+plot_exp(x, 0, 1, cdf=True, color='blue', lw=2, ls='-', alpha=0.5, label='$\lambda = 1$')
+plot_exp(x, 0, 1.5, cdf=True, color='green', lw=2, ls='-', alpha=0.5, label='$\lambda = 1.5$')
+plt.title('CDF of Exponential Distribution')
+plt.xlabel('x')
+plt.ylabel('$P(X \leq x)$')
+plt.axis([0, 5, -0.05, 1.02])
+plt.legend()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/exponential_dist_PDF_CDF.png?raw=true)
+
+Let's find the expected value and variance of the distribution. In order to do so, we need to compute $E(X)$ and $E(X^{2})$.
+
+$$
+\begin{split}
+E (x) = P(X \leq x) &= \int_{0}^{\infty} x \lambda e^{-\lambda x} dx\\
+&= \frac{1}{\lambda} \int_{0}^{\infty} y e^{-y}dy \,\,\,\,\,\,\,\, (\text{choosing } y=\lambda x )\\
+&= \frac{1}{\lambda}
+\end{split}
+$$
+
+Now, let's find $Var(x)$. We have:
+
+$$
+\begin{split}
+E (x^{2}) = P(X \leq x) &= \int_{0}^{\infty} x^{2} \lambda e^{-\lambda x} dx\\
+&= \frac{1}{\lambda^{2}} \int_{0}^{\infty} y^{2} e^{-y}dy \\
+&= \frac{1}{\lambda^{2}}\left[-2 e^{-y}-2y e^{-y}-y^{2} e^{-y}  \Big|_{0}^{\infty}\right]
+&= \frac{2}{\lambda^{2}}
+\end{split}
+$$
+
+Thus, we obtain:
+
+$$
+Var(x) = E (x^{2}) - \left[E(x) \right]^{2} = \frac{2}{\lambda^{2}}-\left(\frac{1}{\lambda} \right)^{2} = \frac{1}{\lambda^{2}}
+$$
+
+The most important propert of exponential distribution is memoryless property. We can state it formally as follows:
+
+$$
+P(X > x + a \mid X > a) = P(X>x), \,\,\, \text{for } a, x \geq 0
+$$
+
+From the point of view of waiting time until arrival of a customer, memoryless property means that it does not matter how long you have waited so far. If you have not observed a customer until time $a$, the distribution of waiting time (from time $a$) until the next customer is the same as when you started at zero!
+
+$$
+\begin{split}
+P(X > x + a \mid X > a) &= \frac{P(X > x + a , X > a)}{P(X > a)} \\
+&=\frac{P(X > x + a)}{P(X > a)} \\
+&=\frac{1- P(X \leq x + a)}{1 - P(X \leq a)} \\
+&=\frac{1- F_{X} (x+a)}{1 - F_{X} (a)} \\
+&=\frac{1- (1 - e^{-\lambda (x+a)})}{1 - (1 - e^{-\lambda a})} \\
+&=\frac{e^{-\lambda (x+a)}}{e^{-\lambda a}} \\
+&= e^{-\lambda x}\\
+&=P(X > x)
+\end{split}
+$$
+
+The exponential distribution is the only continuous distribution that is memoryless (or with a constant rate). Geometric distribution, its counterpart, is the only distribution that is memoryless.
 
 #### What is the central limit theorem?
 
