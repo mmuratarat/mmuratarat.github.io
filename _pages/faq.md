@@ -2791,7 +2791,7 @@ $$
 
 Let's plot the PDF and CDF of exponential distribution for various $\lambda$'s:
 
-```pthon
+```python
 import numpy as np
 from scipy.stats import expon
 import matplotlib.pyplot as plt
@@ -2875,6 +2875,7 @@ P(X > x + a \mid X > a) &= \frac{P(X > x + a , X > a)}{P(X > a)} \\
 &=\frac{1- F_{X} (x+a)}{1 - F_{X} (a)} \\
 &=\frac{1- (1 - e^{-\lambda (x+a)})}{1 - (1 - e^{-\lambda a})} \\
 &=\frac{e^{-\lambda (x+a)}}{e^{-\lambda a}} \\
+&=\frac{e^{-\lambda x} e^{-\lambda a} }{e^{-\lambda a}} \\
 &= e^{-\lambda x}\\
 &=P(X > x)
 \end{split}
