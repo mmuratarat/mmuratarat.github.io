@@ -1706,7 +1706,7 @@ $$
 P(B \mid A) = \dfrac{P(A \cap B)}{P(A)} 
 $$
 
-Note that this expression is only valid when $P(A)$ is greater than 0.
+Note that this expression is only valid when $P(A)$ is greater than 0. If this is not the case, we cannot compute the conditional probability conditioned on an event that never happened. 
 
 Technically speaking, when you condition on an event happening, you are entering the universe where that event has taken place. Mathematically, if you condition on $A$, then $A$ becomes your new sample space. In the universe where $A$ has taken place, all axioms of probability still hold! In particular,
 
@@ -1724,10 +1724,10 @@ $$
 
 #### What are the conditions for independence and conditional independence of two random variables?
 
-Two random variables X and Y are independent if they are not related to each other. 
+Two random variables x and y are independent if their probability distribution can be expressed as a product of two factors, one involving only x and one involving only y:
 
 $$
-P(X=x,Y=y)=P(X=x) P(Y=y), \text{ for all } x,y.
+P(X=x,Y=y)=P(X=x)P(Y=y), \text{ for all } x,y.
 $$
 
 Intuitively, two random variables $X$ and $Y$ are independent if knowing the value of one of them does not change the probabilities for the other one. In other words, if $X$ and $Y$ are independent, we can write
@@ -1741,10 +1741,13 @@ We can extend the definition of independence to $n$ random variables.
 They are conditionally independent if they are unrelated after taking account of a 3rd variable. 
 
 $$
-P(X \; Y | Z) = P(X | Z ) P(Y | Z)
+P(X  = x, Y = y \mid Z = z) = P(X = x | Z = z ) P(Y = y | Z = z)
 $$
 
+We can denote the independence and conditional independence with compact notation: $x \perp y$ means that x and y are independent, while $x \perp y \mid z$ means that x and y conditionally independent given z.
+
 #### What are expectation, variance and covariance?
+
 In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
 
 Suppose $X$ is a discrete random variable that takes values $x_{1}, x_{2}, . . . , x_{n}$ with probabilities $p(x_{1}), p(x_{2}), . . . , p(x_{n})$. The expected value of $X$ is defined by:
