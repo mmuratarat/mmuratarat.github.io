@@ -124,6 +124,7 @@ permalink: /faq/
 35. Write the formulae for logistic and softplus function.
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
+38. How does the denominator in Bayes rule act as normalizing constant?
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
@@ -2928,6 +2929,36 @@ p(\theta) = 0.5 Beta(\theta \mid 20, 20) + 0.5 Beta(\theta \mid 30, 10)
 $$
 
 If $\theta$ comes from the first distribution, the coin is fair, but if it comes from the second, it is biased towards heads.
+
+#### How does the denominator in Bayes rule act as normalizing constant?
+
+From a technical point of view, here is the argument:
+
+For densities (but the argument is analogous in the discrete case), we write:
+
+$$
+\pi \left( \theta |y\right) =\frac{f\left( y|\theta \right) \pi \left(\theta \right) }{f(y)}
+$$
+
+The normalizinging constant can be obtained as, by writing a marginal density as a joint density and then writing the joint as conditional times marginal, with the other parameter integrated out,
+
+$$
+\begin{split}
+f(y)&=\int f\left( y,\theta \right) d\theta\\
+&=\int f\left( y|\theta \right) \pi \left(\theta \right)d\theta
+\end{split}
+$$
+
+It ensures integration to 1 because
+
+$$
+\begin{split}
+\int \pi \left( \theta |y\right) d\theta&=\int\frac{f\left( y|\theta \right) \pi \left(\theta \right) }{\int f\left( y|\theta \right) \pi \left(\theta \right)d\theta}d\theta\\ &=\frac{\int f\left( y|\theta \right) \pi \left(\theta \right) d\theta}{\int f\left( y|\theta \right) \pi \left(\theta \right)d\theta}\\
+&=1,
+\end{split}
+$$
+
+where we can "take out" the integral in the denominator out of the main integrak because $\theta$ had already been integrated out there (i.e., denominator does not depend on $\theta$).
 
 #### What is population mean and sample mean?
 
