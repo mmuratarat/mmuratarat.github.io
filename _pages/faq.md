@@ -2959,7 +2959,7 @@ $$
 \end{split}
 $$
 
-where we can "take out" the integral in the denominator out of the main integrak because $\theta$ had already been integrated out there (i.e., denominator does not depend on $\theta$).
+where we can "take out" the integral in the denominator out of integral over entire data space, because $\theta$ had already been integrated out there (i.e., denominator does not depend on $\theta$).
 
 #### What is uninformative prior?
 
