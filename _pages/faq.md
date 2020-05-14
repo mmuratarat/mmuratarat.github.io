@@ -2876,9 +2876,11 @@ Within the Bayesian framework the parameter θ is treated as a random quantity. 
 $$
 \begin{split}
 \underbrace{p(\theta|x)}_{\text{posterior}} =& \frac{p(x|\theta)p(\theta)}{p(x)}\\
-&\sim \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
+&\propto \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
 \end{split}
 $$
+
+Basically, $p(x)$ is nothing but a normalising constant, i.e., a constant that makes the posterior density integrate to one. Note that this integration will have one well known result if the prior and the likelihood are conjugate.
 
 For some likelihood functions, if you choose a certain prior, the posterior ends up being in the same distribution as the prior. Such a prior then is called a Conjugate Prior.
 
@@ -2891,7 +2893,7 @@ All members of the exponential family have conjugate priors.
 For example, the Beta distribution is conjugate to the Binomial distribution. We know that posterior distribution is computed as:
 
 $$
-\underbrace{p(\theta|x)}_{\text{posterior}} \sim \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
+\underbrace{p(\theta|x)}_{\text{posterior}} \propto \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
 $$
 
 Likelihood function is coming from a Binomial distribution:
@@ -2910,10 +2912,10 @@ So posterior is:
 
 $$
 \begin{split}
-p(\theta|x) &\sim p(x|\theta) \cdot p(\theta)\\
-&\sim {n \choose k} \theta^{x} (1 - \theta)^{n-x} \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} \theta^{a-1} (1 - \theta)^{b-1}\\
-&\sim \theta^{x} (1 - \theta)^{n-x}\theta^{a-1} (1 - \theta)^{b-1}\\
-&\sim \theta^{x + a -1}(1 - \theta)^{n-x+b -1}
+p(\theta|x) &\propto p(x|\theta) \cdot p(\theta)\\
+&\propto {n \choose k} \theta^{x} (1 - \theta)^{n-x} \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} \theta^{a-1} (1 - \theta)^{b-1}\\
+&\propto \theta^{x} (1 - \theta)^{n-x}\theta^{a-1} (1 - \theta)^{b-1}\\
+&\propto \theta^{x + a -1}(1 - \theta)^{n-x+b -1}
 \end{split}
 $$
 
