@@ -1748,7 +1748,7 @@ We can denote the independence and conditional independence with compact notatio
 
 #### What are expectation, variance and covariance?
 
-In probability, the average value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
+In probability, the average, or mean value of some random variable X is called the **expected value** or the expectation, denoted by $E(x)$.
 
 Suppose $X$ is a discrete random variable that takes values $x_{1}, x_{2}, . . . , x_{n}$ with probabilities $p(x_{1}), p(x_{2}), . . . , p(x_{n})$. The expected value of $X$ is defined by:
 
@@ -1762,7 +1762,13 @@ $$
 E(X) = \int_{a}^{b} xf(x) dx.
 $$
 
-In probability, the **variance** of some random variable $X$, denoted by $Var(X)$ is a measure of how much values in the distribution vary on average with respect to the mean. Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
+Expectations are linear, for example,
+
+$$
+E\left(\alpha f(x) + \beta g(x) \right) = \alpha E[f(x)] + \beta E[g(x)]
+$$
+
+In probability, the **variance** of some random variable $X$, denoted by $Var(X)$ is a measure of how much values in the distribution vary on average (i.e., with respect to the mean) as we sample different values of $X$ from its probability distribution. Variance is calculated as the average squared difference of each value in the distribution from the expected value. Or the expected squared difference from the expected value.
 
 $$
 \begin{split}
@@ -1781,7 +1787,7 @@ $$
 
 Note that $Var(X) = cov(X, X) = E\left[(X - E[X])^{2}\right]$. 
 
-The sign of the covariance can be interpreted as whether the two variables increase together (positive) or decrease together (negative). The magnitude of the covariance is not easily interpreted. A covariance value of zero indicates that both variables are completely independent.
+High absolute values of the covariance mean that the values change very much and are both far from their respective means at the same time. The sign of the covariance can be interpreted as whether the two variables increase together (positive) or decrease together (negative). The magnitude of the covariance is not easily interpreted. A covariance value of zero indicates that both variables are completely independent.
 
 The covariance can be normalized to a score between $-1$ and $1$ to make the magnitude interpretable by dividing it by the standard deviation of X and Y. The result is called the correlation of the variables, also called the _Pearson correlation coefficient_, named for the developer of the method, Karl Pearson.
 
@@ -1799,7 +1805,7 @@ $$
 Var(X+Y) = Var(X)+ Var(Y) + 2cov(X,Y)
 $$
 
-If the variables are uncorrelated (that is, $cov(X, Y)=0$), then
+If the variables are uncorrelated (that is, $cov(X, Y)=0$ -- However, just because they have zero covariance does not mean that they are independent. See the note below), then
 
 $$
 Var(X+Y) = Var(X) + Var(Y).
@@ -1828,6 +1834,8 @@ The covariance is symmetric by definition since
 $$
 cov(X,Y)=cov(Y,X). 
 $$
+
+**NOTE**: the notations of covariance and dependence are related but distinct concepts. They are related because two variables that are independent have zero covariance and two variable that have non-zero covariance are dependent. Independent, however, is a distinct property from covariance. For two variables to have zero covariance, there must be no linear dependence between them. Independence is a stronger requirement than zero covariance because independence also excludes nonlinear relationships. It is possible for two variable to be dependent but have zero covariance. For example, suppose we first sample a real number $x$ from a uniform distribution over the interval $[-1, 1]$. We next sample a random variable $s$. With probability $1/2$, we choose the value of $s$ to be 1. Otherwise, we choose the value of $s$ to be $-1$. We can then generate a random variable $y$ by assigning $y=sx$. Clearly, x and are not independent, because $x$ completely determines the magnitude of $y$. However, $Cov(x, y) = 0$.
 
 #### What is the covariance for a vector of random variables?
 
