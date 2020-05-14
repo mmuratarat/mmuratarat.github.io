@@ -2904,7 +2904,7 @@ $$
 P(x \mid \theta) = {n \choose k} \theta^{x} (1 - \theta)^{n-x}
 $$
 
-Let's put Beta prior on $\theta$, since probability is between 0 and 1 and domain of Beta distribution is between 0 and 1:
+Let's put Beta prior on $\theta$, where $0 \leq \theta \leq 1$ and domain of Beta distribution is between 0 and 1:
 
 $$
 Beta(\theta; a, b) = \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} \theta^{a-1} (1 - \theta)^{b-1}
@@ -2986,6 +2986,85 @@ $$
 
 Jeffrey's prior is not conjugate prior. Jeffreys priors work well for single parameter models, but not for models with multidimensional parameters. n. They are based on a principle of invariance: one should be able to apply these priors to certain situations, apply a change of variable, and still get the same answer. Suppose we are provided with some model and some data, i.e. with a likelihood function $p(x \mid \theta)$. One should be able to manipulate the likelihood and get a prior on $\theta$, from the likelihood only. Note how this approach goes contrary to the subjective Bayesian frame of mind, in which one first chooses a prior on then $\theta$ and then applies it to the likelihood to derive the posterior:
 
+For example, suppose $x$ is binomially distributed, $x \sim Bin(n, \theta),\,\,\, 0 \leq \theta \leq 1$, whose pdf is given by:
+
+$$
+P(x \mid \theta) = {n \choose k} \theta^{x} (1 - \theta)^{n-x}
+$$
+
+We want to choose a prior $\pi (\theta)$ that is invariant under reparameterizations. Let's derive a Jeffreys prior for $\theta$. Ignoring the terms that do not depend on $\theta$, we have:
+
+$$
+\begin{split}
+log\left(p(x \mid \theta \right) &= x log(\theta) + (n-1) log(1-\theta)\\
+\frac{d}{d \theta} log\left(p(x \mid \theta \right) &= \frac{x}{\theta} - \frac{n-x}{1-\theta}\\
+\frac{d^{2}}{d \theta^{2}} log\left(p(x \mid \theta \right) &= - \frac{x}{\theta^{2}} -  \frac{n-x}{(1-\theta)^{2}}
+\end{split}
+$$
+
+Since $x \sim Bin(n, \theta)$, $E_{\theta}(x) = n\theta$. Then, we can easily compute the Fisher Information:
+
+$$
+\begin{split}
+\mathcal{I}\left(\theta \right) &= - E_{\theta} \left(\frac{d^{2} log\left(p(x \mid \theta \right)}{d \theta^{2}} \right)\\
+&= - E_{\theta} \left(- \frac{x}{\theta^{2}} -  \frac{n-x}{(1-\theta)^{2}} \right)\\
+&= - E_{\theta} \left(- \frac{x}{\theta^{2}} \right) + E_{\theta} \left(\frac{n-x}{(1-\theta)^{2}} \right)\\
+&= \frac{1}{\theta^{2}} E_{\theta}(x) + \frac{1}{(1-\theta)^{2}} \left(n - E_{\theta}(x) \right)\\
+&= \frac{1}{\theta^{2}} n\theta +  \frac{1}{(1-\theta)^{2}}\left(n - n\theta \right)\\
+&= \frac{n}{\theta} + \frac{n}{(1-\theta)}\\
+&=\frac{n}{\theta(1-\theta)}
+\end{split}
+$$
+
+Therefore, Jeffreys prior is
+
+$$
+\mathcal{I}\left( \theta\right) \propto \left(\frac{n}{\theta(1-\theta)}\right)^{\frac{1}{2}}
+$$
+
+which can be rewritten as
+
+$$
+\mathcal{I}\left( \theta\right) \propto \theta^{-\frac{1}{2}} (1 - \theta)^{-\frac{1}{2}}
+$$
+
+which is nothing but a $Beta(\frac{1}{2}, \frac{1}{2})$ distribution.
+
+```python
+import numpy as np
+import scipy.stats as ss
+import matplotlib.pyplot as plt
+
+def plot_beta(x_range, a, b, loc=0, scale=1, cdf=False, **kwargs):
+    '''
+    Plots the f distribution function for a given x range, a and b
+    If mu and sigma are not provided, standard beta is plotted
+    If cdf=True cumulative distribution is plotted
+    Passes any keyword arguments to matplotlib plot function
+    '''
+    x = x_range
+    if cdf:
+        y = ss.beta.cdf(x, a, b, loc, scale)
+    else:
+        y = ss.beta.pdf(x, a, b, loc, scale)
+    plt.plot(x, y, **kwargs)
+    
+x = np.linspace(0, 1, 5000)
+
+plot_beta(x, 0.5, 0.5, 0, 1, color='red', lw=2, ls='-', alpha=0.5, label='pdf- Beta(1/2, 1/2)')
+plot_beta(x, 1, 1, 0, 1, color='blue', lw=2, ls='-', alpha=0.5, label='pdf - Beta(1, 1)')
+plt.xlabel('$\Theta$')
+plt.ylabel('$\pi (\Theta)$')
+plt.axis([0, 1, 0, 2])
+plt.legend()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jeffreys_and_flat_prior_beta.png?raw=true)
+
+Figure compares the prior density Jeffreys prior with that for a flat prior (which is equivalent to a $Beta(1, 1)$ distribution).
+
+Note that in this case the prior is inversely proportional to the standard deviation. Why does this make sense?
+We see that the data has the least effect on the posterior when the true $\theta = \frac{1}{2}$ and has the greatest effect near the extremes, $\theta = 0$ or $\theta = 1$. The Jeffreys prior compensates for this by placing more mass near the extremes of the range, where the data has the strongest effect.
 
 #### What is population mean and sample mean?
 
