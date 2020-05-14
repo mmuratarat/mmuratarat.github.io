@@ -123,7 +123,7 @@ permalink: /faq/
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
 35. Write the formulae for logistic and softplus function.
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
-37. What is conjugate prior?
+37. [What is conjugate prior?](#what-is-conjugate-prior)
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
