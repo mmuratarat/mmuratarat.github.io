@@ -2919,6 +2919,14 @@ $$
 
 The posterior distribution is simply a $Beta(x+a, n-x+b)$ distribution. Effectively, our prior is just adding $a-1$ successes and $b-1$ failures to the dataset.
 
+Note that a mixture of conjugate priors is also conjugate. We can use a mixture of conjugate priors as a prior. For example, suppose we are modelling coin tosses, and we think the coin is either fair, or is biased towards heads. This cannot be represented by a Beta distribution. However, we can model it using a mixture of two Beta distributions. For example, we might use:
+
+$$
+p(\theta) = 0.5 Beta(\theta \mid 20, 20) + 0.5 Beta(\theta \mid 30, 10) 
+$$
+
+If $\theta$ comes from the first distribution, the coin is fair, but if it comes from the second, it is biased towards heads.
+
 #### What is population mean and sample mean?
 
 A population is a collection of persons, objects or items of interest. Population mean is the average of the all the elements in the population. Suppose that whole population consists of $N$ observations:
