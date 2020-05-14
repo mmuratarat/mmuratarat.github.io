@@ -138,7 +138,7 @@ permalink: /faq/
 52. [What is Poisson approximation to Binomial distribution?](#what-is-poisson-approximation-to-binomial-distribution)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
-53. What is the power of a statistical test?
+53. [What is the power of a statistical test?](#what-is-the-power-of-a-statistical-test)
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
