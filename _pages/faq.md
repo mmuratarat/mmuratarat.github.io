@@ -2977,7 +2977,9 @@ $$
 p\left(\theta \right)\propto {\sqrt  {\det {\mathcal  {I}}\left( \theta\right)}}
 $$
 
-where the Fisher information $\mathcal{I}\left(\theta \right)$ ) is defined when $\theta$ is unidimensional by the second derivative of the log-likelihood:
+which is most often improper, i.e. does not integrate to a finite value. The label "non-informative" associated with Jeffreys' priors is rather unfortunate, as they represent an input from the statistician, hence are informative about something! 
+
+Here, the Fisher information $\mathcal{I}\left(\theta \right)$ is defined when $\theta$ is unidimensional by the second derivative of the log-likelihood:
 
 $$
 \mathcal{I}\left(\theta \right) = - E_{\theta} \left(\frac{d^{2} log\left(p(x \mid \theta \right)}{d \theta^{2}} \right)
