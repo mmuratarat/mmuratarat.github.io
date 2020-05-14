@@ -123,6 +123,7 @@ permalink: /faq/
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
 35. Write the formulae for logistic and softplus function.
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
+37. What is conjugate prior?
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
@@ -2865,6 +2866,58 @@ The specific case is Bayesian inference, where we use Bayes theorem to learn abo
 $$
 \underbrace{f(\theta|X)}_\text{posterior}=\frac{\overbrace{f(X|\theta)}^\text{likelihood}\,\overbrace{f(\theta)}^\text{prior}}{\underbrace{f(X)}_\text{normalizing constant}}
 $$
+
+#### What is conjugate prior?
+
+Prior probability is the probability of an event before we see the data. In Bayesian Inference, the prior is our guess about the probability based on what we know now, before new data becomes available. Conjugate prior just can not be understood without knowing Bayesian inference. 
+
+Within the Bayesian framework the parameter θ is treated as a random quantity. This requires us to specify a prior distribution $p(\theta)$, from which we can obtain the posterior distribution $p(\theta \mid x)$ using the likelihood from data $P(x \mid \theta)$ via Bayes theorem:
+
+$$
+\begin{split}
+\underbrace{p(\theta|x)}_{\text{posterior}} =& \frac{p(x|\theta)p(\theta)}{p(x)}\\
+&\sim \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
+\end{split}
+$$
+
+For some likelihood functions, if you choose a certain prior, the posterior ends up being in the same distribution as the prior. Such a prior then is called a Conjugate Prior.
+
+One problem in the implementation of Bayesian approaches is analytical tractability. In other words, the computations in Bayesian Inference can be heavy or sometimes even intractable. However, when you know that your prior is a conjugate prior, you can skip the `posterior = likelihood * prior` computation. Furthermore, if your prior distribution has a closed-form form expression, you already know what the maximum posterior is going to be. 
+
+All members of the exponential family have conjugate priors.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/exp_families_priors.png?raw=true)
+
+For example, the Beta distribution is conjugate to the Binomial distribution. We know that posterior distribution is computed as:
+
+$$
+\underbrace{p(\theta|x)}_{\text{posterior}} \sim \underbrace{p(x|\theta)}_{\text{likelihood}} \cdot \underbrace{p(\theta)}_{\text{prior}}
+$$
+
+Likelihood function is coming from a Binomial distribution:
+
+$$
+P(x \mid \theta) = {n \choose k} \theta^{x} (1 - \theta)^{n-x}
+$$
+
+Let's put Beta prior on $\theta$, since probability is between 0 and 1 and domain of Beta distribution is between 0 and 1:
+
+$$
+Beta(\theta; a, b) = \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} \theta^{a-1} (1 - \theta)^{b-1}
+$$
+
+So posterior is:
+
+$$
+\begin{split}
+p(\theta|x) &\sim p(x|\theta) \cdot p(\theta)\\
+&\sim {n \choose k} \theta^{x} (1 - \theta)^{n-x} \frac{\Gamma (a + b)}{\Gamma (a) \Gamma (b)} \theta^{a-1} (1 - \theta)^{b-1}\\
+&\sim \theta^{x} (1 - \theta)^{n-x}\theta^{a-1} (1 - \theta)^{b-1}\\
+&\sim \theta^{x + a -1}(1 - \theta)^{n-x+b -1}
+\end{split}
+$$
+
+The posterior distribution is simply a $Beta(x+a, n-x+b)$ distribution. Effectively, our prior is just adding $a-1$ successes and $b-1$ failures to the dataset.
 
 #### What is population mean and sample mean?
 
