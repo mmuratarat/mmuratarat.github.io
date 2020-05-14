@@ -124,8 +124,8 @@ permalink: /faq/
 35. Write the formulae for logistic and softplus function.
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
-38. How does the denominator in Bayes rule act as normalizing constant?
-39. What is uninformative prior?
+38. [How does the denominator in Bayes rule act as normalizing constant?](#how-does-the-denominator-in-bayes-rule-act-as-normalizing-constant)
+39. [What is uninformative prior?](#what-is-uninformative-prior)
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
@@ -2977,14 +2977,15 @@ $$
 p\left(\theta \right)\propto {\sqrt  {\det {\mathcal  {I}}\left( \theta\right)}}
 $$
 
-
-where the Fisher information $\mathcal{I}\left(\theta \right)$ is given by
+where the Fisher information $\mathcal{I}\left(\theta \right)$ ) is defined when $\theta$ is unidimensional by the second derivative of the log-likelihood:
 
 $$
 \mathcal{I}\left(\theta \right) = - E_{\theta} \left(\frac{d^{2} log\left(p(x \mid \theta \right)}{d \theta^{2}} \right)
 $$
 
-Jeffrey's prior is not conjugate prior. Jeffreys priors work well for single parameter models, but not for models with multidimensional parameters. n. They are based on a principle of invariance: one should be able to apply these priors to certain situations, apply a change of variable, and still get the same answer. Suppose we are provided with some model and some data, i.e. with a likelihood function $p(x \mid \theta)$. One should be able to manipulate the likelihood and get a prior on $\theta$, from the likelihood only. Note how this approach goes contrary to the subjective Bayesian frame of mind, in which one first chooses a prior on then $\theta$ and then applies it to the likelihood to derive the posterior:
+Jeffreys prior provides a method for constructing a prior distribution over parameters for a given model (likelihood function) such that the prior distribution is "invariant under reparameterization."
+ 
+Jeffrey's prior is not conjugate prior. Jeffreys priors work well for single parameter models, but not for models with multidimensional parameters. They are based on a principle of invariance: one should be able to apply these priors to certain situations, apply a change of variable, and still get the same answer. Suppose we are provided with some model and some data, i.e. with a likelihood function $p(x \mid \theta)$. One should be able to manipulate the likelihood and get a prior on $\theta$, from the likelihood only. Note how this approach goes contrary to the subjective Bayesian frame of mind, in which one first chooses a prior on then $\theta$ and then applies it to the likelihood to derive the posterior:
 
 For example, suppose $x$ is binomially distributed, $x \sim Bin(n, \theta),\,\,\, 0 \leq \theta \leq 1$, whose pdf is given by:
 
@@ -3065,6 +3066,18 @@ Figure compares the prior density Jeffreys prior with that for a flat prior (whi
 
 Note that in this case the prior is inversely proportional to the standard deviation. Why does this make sense?
 We see that the data has the least effect on the posterior when the true $\theta = \frac{1}{2}$ and has the greatest effect near the extremes, $\theta = 0$ or $\theta = 1$. The Jeffreys prior compensates for this by placing more mass near the extremes of the range, where the data has the strongest effect.
+
+We then find:
+
+$$
+\begin{split}
+p(\theta|x) &\propto p(x|\theta) \cdot p(\theta)\\
+&\propto \theta^{x} (1 - \theta)^{n-x} \theta^{1/2 - 1} (1 - \theta)^{1/2 - 1}\\
+&\propto \theta^{x - 1/2} (1 - \theta)^{n - x - 1/2}
+\end{split}
+$$
+
+Thus, $\theta|x \ sim Beta(x + 1/2, n - x + 1/2)$.
 
 #### What is population mean and sample mean?
 
