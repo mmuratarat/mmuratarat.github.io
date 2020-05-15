@@ -2791,6 +2791,8 @@ $$
 
 Here, $\lambda$ is the event rate (it is not a time duration). Suppose, a passenger is waiting for a bus at a stop and a bus usually arrives at the stop in every 10 mins. Now I define $\lambda$ to be the rate of arrival of a bus **per minute**. So, $\lambda = 1/10$.
 
+Note that this form is parmeterization by rate. If parameterization is done by scale parameter, we will have PDF of exponential distribution as $X\sim Exp(\lambda) \rightarrow f(x) = \frac{1}{\lambda} e^{\frac{-x}{\lambda}}$. One benefit of the second form is that the $\lambda$ there is exactly the mean of the distribution ($E(x) = \lambda$ and $Var(x) = \lambda^{2}$). 
+
 Let's find its CDF:
 
 $$
