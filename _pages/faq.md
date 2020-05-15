@@ -151,7 +151,6 @@ permalink: /faq/
 62. [How to do two samples test of proportions?](#how-to-do-two-samples-test-of-proportions)
 63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
-64. When to use chi-square tests?
 65. What is Chi-square Test for Goodness-of-fit Test?
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
@@ -2908,6 +2907,19 @@ Suppose that the time that elapses between two successive events follows the exp
 #### What is Poisson distribution?
 
 
+#### What is Chi-square distribution?
+
+A chi-square distribution is a continuous distribution with $k$ degrees of freedom. This distribution is used for multiple purposes. A chi-square goodness of fit test determines if a sample data matches a population. It is also used for Test of Independence, to compare two variables in a contingency table in order to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. It is also used to determine if the standard deviation of a population is equal to a pre-specified value (one-sample hypothesis testing for variance). 
+
+Chi-square distribution is a special case of Gamma distribution when $k = 2 \beta$ and $\alpha = 2$. The gamma distribution has probability density function with $\alpha$ shape parameter and $\beta$ scale parameter:
+
+$$
+f(x; \alpha, \beta) = \frac{1}{\alpha^{\beta} \Gamma (\beta)} x^{\beta - 1} e^{-x/\alpha}, \,\,\,\, x \in (0, \infty), \alpha >0, \beta > 0
+$$
+
+When $k = 2\beta$ and $\alpha = 2$, this reduces to:
+
+
 
 #### What is the central limit theorem?
 
@@ -3584,16 +3596,6 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-14.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-15.png?raw=true)
-
-#### When to use chi-square tests?
-
-The Chi-Square test is a statistical procedure used by researchers to examine the differences between categorical variables in the same population. 
-
-There are two types of chi-square tests. Both use the chi-square statistic and distribution for different purposes:
-
-1. A chi-square goodness of fit test determines if a sample data matches a population, i.e., Goodness of Fit Test.
-
-2. A chi-square test for independence compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. For example, it is used to test that Baby gender (boy/girl) and baby heart rate (low/high) are independent.
 
 #### What is Chi-square Test for Goodness-of-fit Test?
 
