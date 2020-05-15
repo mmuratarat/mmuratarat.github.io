@@ -3337,6 +3337,9 @@ $$
 
 The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion, $\hat{p}$, is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. Let's see how this is possible...
 
+
+Often sampling is done in order to estimate the proportion of a population that has a specific characteristic, such as the proportion of all items coming off an assembly line that are defective or the proportion of all people entering a retail store who make a purchase before leaving. The population proportion is denoted $p$ and the sample proportion is denoted $\hat{p}$. Thus if in reality $43\%$ of people entering a store make a purchase before leaving, $p = 0.43$; if in a sample of $200$ people entering the store, $78$ make a purchase, $\hat{p} = 78/200=0.39$.The sample proportion is a random variable: it varies from sample to sample in a way that cannot be predicted with certainty. Viewed as a random variable it will be written $\hat{p}$. 
+
 Let $X$ count the number of observations in a sample of a specified type. For a random sample, we often model $X \sim Binomial(n, p)$ where $n$ is the sample size; and $p$ is the population proportion. The sample proportion is:
 
 $$
@@ -3352,7 +3355,6 @@ E(\hat{p}) = E\left(\frac{X}{n} \right) = \frac{1}{n} E(X) = \frac{np}{n} = p
 $$
 
 Similarly,
-
 
 $$
 Var(\hat{p}) = Var\left(\frac{X}{n} \right) = \frac{1}{n^{2}} Var(X) = \frac{np(1-p)}{n^{2}} = \frac{p(1-p)}{n}
