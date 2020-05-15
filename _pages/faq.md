@@ -3335,7 +3335,7 @@ $$
 
 #### What is the sampling distribution of sample proportion, p-hat?
 
-The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. Let's see how this is possible...
+The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion, $\hat{p}$, is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. Let's see how this is possible...
 
 Let $X$ count the number of observations in a sample of a specified type. For a random sample, we often model $X \sim Binomial(n, p)$ where $n$ is the sample size; and $p$ is the population proportion. The sample proportion is:
 
