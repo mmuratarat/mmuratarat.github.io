@@ -119,6 +119,7 @@ permalink: /faq/
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
 28. [What is a continuous uniform distribution?](#what-is-a-uniform-distribution)
 28. [What is exponential distribution?](#what-is-exponential-distribution)
+28. What is Poisson distribution?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 31. What is discrete Uniform distribution?
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
@@ -2307,6 +2308,7 @@ Use Bayesian estimations when you have a domain expert; otherwise, use MLE. Use 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MAP_ex2.png?raw=true)
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
+
 Suppose you perform an experiment with two possible outcomes: either success or failure. Success happens with probability $p$ while failure happens with probability $1-p$. A random variable that takes value $1$ in case of success and $0$ in case of failure is called a Bernoulli random variable.
 
 $X$ has Bernoulli distribution with parameter $p$, the shorthand $X \sim Bernoulli(p), 0 \leq p \leq 1$, its probability mass function is given by:
@@ -2782,7 +2784,7 @@ $$
   
 #### What is exponential distribution?
 
-In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. The exponential distribution also often models the waiting time until the next even (i.e., success, failure, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
+In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. It is a continuous probability distribution used to model the time we need to wait before a next event occurs (i.e., success, failure, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
 
 A continuous random variable X is said to be exponential distribution with parameter $\lambda > 0$, shown as $X \sim Exponential(\lambda)$, if its PDF is given by 
 
@@ -2873,13 +2875,13 @@ $$
 Var(x) = E (x^{2}) - \left[E(x) \right]^{2} = \frac{2}{\lambda^{2}}-\left(\frac{1}{\lambda} \right)^{2} = \frac{1}{\lambda^{2}}
 $$
 
-The most important propert of exponential distribution is memoryless property. We can state it formally as follows:
+The most important propert of exponential distribution is memoryless property (also called the forgetfulness property). Let $X$ be exponentially distributed with parameter $\lambda$. Suppose we know $X > a$. We can state the memoryless property formally as follows:
 
 $$
 P(X > x + a \mid X > a) = P(X>x), \,\,\, \text{for } a, x \geq 0
 $$
 
-From the point of view of waiting time until arrival of a customer, memoryless property means that it does not matter how long you have waited so far. If you have not observed a customer until time $a$, the distribution of waiting time (from time $a$) until the next customer is the same as when you started at zero!
+Let's first prove it:
 
 $$
 \begin{split}
@@ -2895,7 +2897,17 @@ P(X > x + a \mid X > a) &= \frac{P(X > x + a , X > a)}{P(X > a)} \\
 \end{split}
 $$
 
+It turns out that the conditional probability does not depend on $a$! The probability of an exponential random variable exceeding the value $x+a$ given $a$ is the same as the variable originally exceeding that value $x$, regardless of $a$. For an example, the probability that a job runs for one additional hour is the same as the probability that it ran for one hour originally, regardless of how long it’s been running.
+
+The exponential distribution is memoryless because the past has no bearing on its future behavior. Every instant is like the beginning of a new random period, which has the same distribution regardless of how much time has already elapsed ($P(X > 14 \mid X > 8) = P(X > 6)$).
+
 The exponential distribution is the only continuous distribution that is memoryless (or with a constant rate). Geometric distribution, its counterpart, is the only distribution that is memoryless.
+
+There is an interesting relationship between the exponential distribution and the Poisson distribution. Suppose that the time that elapses between two successive events follows the exponential distribution with a mean of $\lambda$ units of time. Also assume that these times are independent, meaning that the time between events is not affected by the times between previous events. If these assumptions hold, then the number of events per unit time follows a Poisson distribution with mean $\mu = \frac{1}{\lambda}$. Conversely, if the number of events per unit time follows a Poisson distribution, then the amount of time between events follows the exponential distribution
+
+#### What is Poisson distribution?
+
+
 
 #### What is the central limit theorem?
 
