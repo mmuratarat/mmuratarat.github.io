@@ -2987,12 +2987,12 @@ $$
 \frac{1}{2^{k/2}\Gamma (k/2)} x^{k/2-1} e^{-x/2},\,\,\,\, \text{$x\in (0,+\infty )$ if $k = 1$, otherwise $x\in [0,+\infty )$}
 $$
 
-which is the probability density function of a chi-square random variable with $k$ degrees of freedom, shown as $\chi_{k}^{2}$.
+which is the probability density function of a chi-square random variable with $k$ degrees of freedom, shown as $\chi_{k}^{2}$. The mean of this distribution is $k$, i.e., $E(x) = k$ and its variance is $2k$.
 
 
 #### What is the central limit theorem?
 
-The gist of Central Limit Theorem is that if we take a sufficient number of random samples of sufficient size from any type of distribution with some variance, the distribution of the sample means will be a normal distribution. This new distribution is called a sampling distribution. The mean of the sampling distribution should be approximately equal to the population mean.
+The gist of Central Limit Theorem is that if we take a sufficient number of random samples from any type of distribution with some variance, the distribution of the sample means will be a normal distribution. This new distribution is called a sampling distribution. The mean of the sampling distribution should be approximately equal to the population mean.
 
 Suppose we are sampling from a population with mean $\mu$ and standard deviation $\sigma$. Let $\bar{X}$ be a random variable representing the sample mean of $n$ independently drawn observations.
 
