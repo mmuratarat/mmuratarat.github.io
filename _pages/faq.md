@@ -151,14 +151,14 @@ permalink: /faq/
 62. [How to do two samples test of proportions?](#how-to-do-two-samples-test-of-proportions)
 63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
-65. What is Chi-square Test for Goodness-of-fit Test?
+65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
-69. What is analysis of variance (ANOVA)?
-70. What is analysis of covariance (ANCOVA)?
-71. How to determine sample size?
+69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
+70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova
+71. [How to determine sample size?](#how-to-determine-sample-size)
 
 
 [General Machine Learning](#general-machine-learning)
