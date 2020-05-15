@@ -2784,7 +2784,7 @@ $$
   
 #### What is exponential distribution?
 
-In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. It is a continuous probability distribution used to model the time we need to wait before a next event occurs (i.e., success, failure, arrival). For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). 
+In the context of deep learning, we often want to have a probability distribution with a sharp point $x=0$. To accomplish this, we can use exponential distribution. Exponential distribution describes time between events an is mostly used in Poisson events. For example, let's say Poisson distribution models the number of births in a given time period. The time in between each birth can be modeled with an exponential distribution. It is a continuous probability distribution used to model the time we need to wait before a next event occurs (i.e., success, failure, arrival). In other words, it deals with the time between occurrences of successive events as time flows by continuously. Moreover, it is memoryless. It's a special case of the Gamma distribution. For example, "How long will the transmission in my car last before it breaks?". Therefore, it also works for reliability (failure) modeling and service time modeling (queuing theory). Exponential distribution is also special case of Gamma distribution. 
 
 A continuous random variable X is said to be exponential distribution with parameter $\lambda > 0$, shown as $X \sim Exponential(\lambda)$, if its PDF is given by 
 
@@ -2792,7 +2792,7 @@ $$
 f_{X}(x) = \lambda e^{-\lambda x},\,\,\, x\in [0, \infty ); \lambda > 0
 $$
 
-Here, $\lambda$ is the event rate (it is not a time duration). 
+Here, $\lambda$ is the event rate (it is not a time duration). Suppose, a passenger is waiting for a bus at a stop and a bus usually arrives at the stop in every 10 mins. Now I define $\lambda$ to be the rate of arrival of a bus **per minute**. So, $\lambda = 1/10$.
 
 Let's find its CDF:
 
@@ -2903,7 +2903,9 @@ The exponential distribution is memoryless because the past has no bearing on it
 
 The exponential distribution is the only continuous distribution that is memoryless (or with a constant rate). Geometric distribution, its counterpart, is the only distribution that is memoryless.
 
-There is an interesting relationship between the exponential distribution and the Poisson distribution. Suppose that the time that elapses between two successive events follows the exponential distribution with a mean of $\lambda$ units of time. Also assume that these times are independent, meaning that the time between events is not affected by the times between previous events. If these assumptions hold, then the number of events per unit time follows a Poisson distribution with mean $\mu = \frac{1}{\lambda}$. Conversely, if the number of events per unit time follows a Poisson distribution, then the amount of time between events follows the exponential distribution
+There is an interesting relationship between the exponential distribution and the Poisson distribution. The exponential distribution models the time between events, while the Poisson distribution is used to represent the number of events within a unit of time. 
+
+Suppose that the time that elapses between two successive events follows the exponential distribution with a mean of $\lambda$ units of time. Also assume that these times are independent, meaning that the time between events is not affected by the times between previous events. If these assumptions hold, then the number of events per unit time follows a Poisson distribution with mean $\mu = \frac{1}{\lambda}$. Conversely, if the number of events per unit time follows a Poisson distribution, then the amount of time between events follows the exponential distribution
 
 #### What is Poisson distribution?
 
