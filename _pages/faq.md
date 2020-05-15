@@ -2336,7 +2336,7 @@ is called the score function (sometimes also called the informant or the score).
 
 $$
 \begin{split}
-    \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ s(\theta) \right] &= \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ \nabla \log p(x \vert \theta) \right] \\[5pt]
+    \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ S(\theta) \right] &= \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ \nabla \log p(x \vert \theta) \right] \\[5pt]
     &= \int \nabla \log p(x \vert \theta) \, p(x \vert \theta) \, \text{d}x \\[5pt]
     &= \int \frac{\nabla p(x \vert \theta)}{p(x \vert \theta)} p(x \vert \theta) \, \text{d}x \\[5pt]
     &= \int \nabla p(x \vert \theta) \, \text{d}x \\[5pt]
@@ -2346,9 +2346,7 @@ $$
 \end{split}
 $$
 
-The second derivative, the curvature, of the log-likelihood function is also of central importance and has its own name.
-
-The negative second derivative of the loglikelihood function:
+The second derivative, the curvature, of the log-likelihood function is also of central importance and has its own name. The negative of the expected value of second derivative of the log-likelihood function:
 
 $$
 I(\theta) = - E\left[ \frac{\partial^{2} l(\theta)}{\partial \theta^{2}} \right]
@@ -2358,7 +2356,9 @@ is called the Fisher information. Strictly, this definition corresponds to the e
 
 However, in practice, the true value of $\theta$ is not known and has to be inferred from the observed data. The value of the Fisher information at the MLE $\hat{\theta_{MLE}}$, i.e. $I\left(\hat{\theta_{MLE}} \right$, is the *observed* Fisher information. Note that the MLE $\hat{\theta_{MLE}}$ is a function of the observed data, which explains the terminology “observed” Fisher information for $I\left(\hat{\theta_{MLE}} \right$.
 
-Fisher information is a key concept in the theory of statistical inference and essentially describes the amount of information data provide about an unknown parameter. It has applications in finding the variance of an estimator (The Cramer–Rao bound states that the inverse of the Fisher information is a lower bound on the variance of any unbiased estimator of $\theta$), as well as in the asymptotic behavior of maximum likelihood estimates, and in Bayesian inference (for example, a default prior by Jeffreys’s rule). 
+Fisher information is a key concept in the theory of statistical inference and essentially describes the amount of information data provide about an unknown parameter. More formally, it measures the expected amount of information given by a random variable ($X$) for a parameter($\theta$) of interest. The concept is related to the law of entropy, as both are ways to measure disorder in a system
+
+It has applications in finding the variance of an estimator (The Cramer–Rao bound states that the inverse of the Fisher information is a lower bound on the variance of any unbiased estimator of $\theta$), as well as in the asymptotic behavior of maximum likelihood estimates, and in Bayesian inference (for example, a default prior by Jeffreys’s rule). 
 
 Note that the negative expected Hessian of log-likelihood is equal to the Fisher Information Matrix. Hessian is the Jacobian of the gradient of log likelihood, which is defined as:
 
