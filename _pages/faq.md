@@ -2919,6 +2919,11 @@ $$
 
 When $k = 2\beta$ and $\alpha = 2$, this reduces to:
 
+$$
+\frac{1}{2^{k/2}\Gamma (k/2)} x^{k/2-1} e^{-x/2},\,\,\,\, \text{$x\in (0,+\infty )$ if $k = 1$, otherwise $x\in [0,+\infty )$}
+$$
+
+which is the probability density function of a chi-square random variable with $k$ degrees of freedom, shown as $\chi_{k}^{2}$.
 
 
 #### What is the central limit theorem?
