@@ -2370,9 +2370,7 @@ Differentiating the log of $L(p;x)$ with respect to $p$ and setting the derivati
 
 #### What is Binomial distribution?
 
-A Binomial distribution can be thought of as simply the probability of success or failure outcome in an experiment or a survey that is repeated multiple times. The Binomial distribution is a type of distribution that has two possible outcomes (the prefix 'bi' means two or twice). For example, a coin toss has only two possible outcomes: heads or tails.
-
-Note that, each trial is independent. In other words, none of the trials (experiments) have an effect on the probability of the next trials.
+A Binomial distribution can be thought of as simply the probability of success or failure outcome in an experiment or a survey that is repeated multiple times. The Binomial distribution is a type of distribution that has two possible outcomes (the prefix 'bi' means two or twice). For example, a coin toss has only two possible outcomes: heads or tails. It deals with the number of successes in a fixed number of independent trials. In other words, none of the trials (experiments) have an effect on the probability of the next trials.
 
 Binomial distribution is probably the most commonly used discrete distribution. 
 
