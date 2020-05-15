@@ -108,10 +108,12 @@ permalink: /faq/
 25. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
+27. What are the shape, scale and rate parameters?
 27. [How to compute the median of a probability distribution?](#how-to-compute-the-median-of-a-probability-distribution)
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
-29. [Explain Method Of Moment (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).](#explain-method-of-moments-mom-maximum-a-posteriori-map-and-maximum-likelihood-estimation-mle)
+29. [Explain Method Of Moments (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).](#explain-method-of-moments-mom-maximum-a-posteriori-map-and-maximum-likelihood-estimation-mle)
+30. What is score function and Fisher Information Matrix?
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
@@ -2001,6 +2003,13 @@ Note that covariance and correlation are the same if the features are standardiz
   
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/pearson-mode-skewness.jpg?raw=true)
 
+
+#### What are the shape, scale and rate parameters of a distribution?
+
+
+
+
+
 #### What are the measures of Central Tendency: Mean, Median, and Mode?
 
 The central tendency of a distribution represents one characteristic of a distribution. In statistics, the three most common measures of central tendency are the mean, median, and mode. Each of these measures calculates the location of the central point using a different method. The median and mean can only have one value for a given data set. The mode can have more than one value.
@@ -2305,6 +2314,51 @@ Use Bayesian estimations when you have a domain expert; otherwise, use MLE. Use 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MAP_ex1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MAP_ex2.png?raw=true)
+
+#### What is score function and Fisher Information Matrix?
+
+Suppose we have a model parameterized by parameter vector $p(x \mid \theta)$ that models a distribution. For
+simplicity, we assume that $\theta$ is a scalar. The MLE of $\theta$ is obtained by maximising the log-likelihood function:
+
+$$
+l(\theta) = log\left( L(\theta) \right) =  \sum\limits_{i=1}^n log(p(x_i;\theta))
+$$
+
+The first and second derivatives of log-likelihood with respect to $\theta$ are important and have their own names.
+
+The first derivative of the log-likelihood function at $\theta$:
+
+$$
+S(\theta) = \frac{d l(\theta)}{d \theta} 
+$$
+
+is called the score function (sometimes also called the informant or the score). Computation of the MLE is typically done by solving the score equation $S(\theta) = 0$. Expected value of score function is zero, i.e., $E(S) = 0$.  
+
+$$
+\begin{split}
+    \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ s(\theta) \right] &= \mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ \nabla \log p(x \vert \theta) \right] \\[5pt]
+    &= \int \nabla \log p(x \vert \theta) \, p(x \vert \theta) \, \text{d}x \\[5pt]
+    &= \int \frac{\nabla p(x \vert \theta)}{p(x \vert \theta)} p(x \vert \theta) \, \text{d}x \\[5pt]
+    &= \int \nabla p(x \vert \theta) \, \text{d}x \\[5pt]
+    &= \nabla \int p(x \vert \theta) \, \text{d}x \\[5pt]
+    &= \nabla 1 \\[5pt]
+    &= 0
+\end{split}
+$$
+
+The second derivative, the curvature, of the log-likelihood function is also of central importance and has its own name.
+
+The negative second derivative of the loglikelihood function:
+
+$$
+I(\theta) = - \frac{d^{2} l(\theta)}{d \theta^{2}} = - \frac{d S(\theta)}{d \theta}
+$$
+
+is called the Fisher information. Strictly, this definition corresponds to the expected Fisher information. However, in practice, the true value of $\theta$ is not known and has to be inferred from the observed data. The value of the Fisher information at the MLE $\hat{\theta_{MLE}}$, i.e. $I\left(\hat{\theta_{MLE}} \right$, is the *observed* Fisher information. Note that the MLE $\hat{\theta_{MLE}}$ is a function of the observed data, which explains the terminology “observed” Fisher information for $I\left(\hat{\theta_{MLE}} \right$.
+
+Fisher information is a key concept in the theory of statistical inference and essentially describes the amount of information data provide about an unknown parameter. It has applications in finding the variance of an estimator, as well as in the asymptotic behavior of maximum likelihood estimates, and in Bayesian inference (for example, a default prior by Jeffreys’s rule). 
+
+Explicit formulas for the MLE and the observed Fisher information can typically only be derived in simple models. In more complex models, numerical techniques have to be applied to compute maximum and curvature of the log-likelihood function. 
 
 #### What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?
 
