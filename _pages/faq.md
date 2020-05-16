@@ -5676,9 +5676,11 @@ The statistical component of your exercise ends when you output a probability fo
 
 However, one basic idea is to plot ROC curve. It is a plot of the false positive rate (x-axis) versus the true positive rate (y-axis) for a number of different candidate threshold values between 0.0 and 1.0. Put another way, it plots the false alarm rate versus the hit rate. From that plot you can choose thresh hold, based on where you get much better results, which mean high True Positive Rate (TPR) but low False Positive Rate (FPR). Larger values on the y-axis of the plot indicate higher true positives and lower false negatives.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/roc_curve_faq.png?raw=true)
+
 Another idea is to use Precision-Recall curves, that focus on the positive class. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model using different probability thresholds.
 
-Using a ROC curve with an imbalanced dataset might be deceptive and lead to incorrect interpretations of the model skill. 
+Note that using a ROC curve with an imbalanced dataset might be deceptive and lead to incorrect interpretations of the model skill. 
 
 Therefore generally, the use of ROC curves and precision-recall curves are as follows:
 
