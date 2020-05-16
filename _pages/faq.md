@@ -2989,6 +2989,7 @@ $$
 
 which is the probability density function of a chi-square random variable with $k$ degrees of freedom, shown as $\chi_{k}^{2}$. The mean of this distribution is $k$, i.e., $E(x) = k$ and its variance is $2k$.
 
+There are couple of transformations to and from Chi-square distribution. Let's look at them now. 
 
 #### What is the central limit theorem?
 
