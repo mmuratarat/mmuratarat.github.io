@@ -3366,6 +3366,12 @@ Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimato
 
 #### What is the unbiased estimator and its proof?
 
+In daily life, we use the word “bias” to mean that there is "...a tendency to believe that some people, ideas, etc., are better than others that usually results in treating some people unfairly" (Merriam Webster). In statistics, the word bias — and its opposite, unbiased — means the same thing, but the definition is a little more precise: If your statistic is not an underestimate or overestimate of a population parameter, then that statistic is said to be unbiased.
+
+In everyday life, people who are working with the same information arrive at different ideas/decisions based on the same information. Given the same sample measurements/data, people may derive different estimators for the population parameter (mean, variance, etc.). For this reason, we need to evaluate the estimators on some criteria (bias, etc.) to determine which is best.
+
+If you use an estimator once, and it works well, is that enough proof for you that you should always use that estimator for that parameter? Visualize calculating an estimator over and over with different samples from the same population, i.e. take a sample, calculate an estimate using that rule, then repeat. This process yields sampling distribution for the estimator. We look at the mean of this sampling distribution to see what value our estimates are centered around. We look at the spread of this sampling distribution to see how much our estimates vary. 
+
 Unbiasness is one of the properties of an estimator in Statistics. If the following holds, where $\hat{\theta}$ is the estimate of the true population parameter $\theta$:
 
 $$
@@ -4050,9 +4056,11 @@ Non-probability sampling is not random. To build a sample, it follows a fixed de
   
 #### When is a biased estimator preferable to unbiased one?
 
+Although a biased estimator does not have a good alignment of its expected value with its true value, there are many practical instances when a biased estimator can be useful.
+
 Often it is the case that we are interested in minimizing the mean squared error, which can be decomposed into variance + bias squared. This is an extremely fundamental idea in machine learning, and statistics in general. Frequently we see that a small increase in bias can come with a large enough reduction in variance that the overall MSE decreases.
 
-A standard example is ridge regression. We have $\hat{\theta}_{ridge} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y$ which is biased; but if $\mathbf{X}$ is ill conditioned, we will have singular $\mathbf{X}^{T} \cdot \mathbf{X}$, then $Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$ may be huge whereas $Var (\hat{\theta}_{ridge})$ can be much more modest.
+A standard example is ridge regression. We have $\hat{\theta}_{ridge} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y$ which is biased; but if $\mathbf{X}$ is ill conditioned, we will have singular $\mathbf{X}^{T} \cdot \mathbf{X}$, then $Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$ may be huge whereas $Var (\hat{\theta}_{ridge})$ can be much more modest. In these cases, variance of biased estimator will be smaller than the unbiased one.
 
 Another example is the kNN classifier. Think about $k = 1$: we assign a new point to its nearest neighbor. If we have a ton of data and only a few variables we can probably recover the true decision boundary and our classifier is unbiased; but for any realistic case, it is likely that $k = 1$ will be far too flexible (i.e. have too much variance) and so the small bias is not worth it (i.e. the MSE is larger than more biased but less variable classifiers).
 
