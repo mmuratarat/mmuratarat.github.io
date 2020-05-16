@@ -2286,7 +2286,7 @@ We can find the MLEs graphically, analytically (We use calculus to find it by ta
 
 #### Maximum A Posteriori (MAP) Estimation
 
-MAP usually comes up in Bayesian setting. Because, as the name suggests, it works on a posterior distribution, not only the likelihood.
+Rather than simply returning maximum likelihood estimate, we can still gain some of the benefit of Bayesian approach by allowing the prior influence the choice of the point estimate. Because, as the name suggests, MAP estimation works on a posterior distribution, not only the likelihood.
 
 Recall, with Bayes' rule, we could get the posterior as a product of likelihood and prior:
 
