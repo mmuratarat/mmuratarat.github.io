@@ -2208,6 +2208,8 @@ Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of 
 
 MAP (maximum a priori estimate), MLE (maximum likelihood estimate) and MoM (method of moments) in this context refer to point estimation problems and are among many other estimation methods in statistics.
 
+Let $x_{1}, x_{2}, \dots , x_{n}$ be a set of $n$ independent and identically distributed data points. A point estimator or statistic is any function of data $\hat{\theta} = g(x_{1}, x_{2}, \dots , x_{n})$. The definition does not require that $g$ return a value that is close to the true $\theta$ or even that the range of $g$ be the same as the set of allowable values of $theta$. This definition of point estimator is very general and would enable the designer of an estimator great flexibility. 
+
 ##### Method of Moments Estimation (MoM)
 
 In short, the method of moments involves equating sample moments with theoretical moments. So, let's start by making sure we recall the definitions of theoretical moments, as well as learn the definitions of sample moments.
@@ -3446,7 +3448,7 @@ $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that
 
 #### What is the standard error of the estimate? 
 
-The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. For a given sample size, the standard error equals the standard deviation divided by the square root of the sample size. The SEM is always smaller than the SD. SEM is the SD of the theoretical distribution of the sample means (the sampling distribution).
+The variance, or the standard error, of an estimator provides a measure of how we would expect the esimate we compute from the data to vary as we independently resample the dataset from the underlying data-generating process. For a given sample size, the standard error equals the standard deviation divided by the square root of the sample size. 
 
 standard deviation: $s = \sqrt{\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}}$
 
