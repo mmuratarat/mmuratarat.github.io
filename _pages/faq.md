@@ -3946,6 +3946,16 @@ $$
 \frac{p(1-p)z^{2}}{ME^{2}}
 $$
 
+#### What are the sampling strategies?
+
+A sample is a subset of your population by which you select to be participants in your study. Sampling is simply stated as selecting a portion of the population, in your research area, which will be a representation of the whole population. The sampling strategy is the plan you set forth to be sure that the sample you use in your research study represents the population from which you drew your sample. The major groups of sample designs are probability sampling and non-probability sampling. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sampling_strategies.png?raw=true)
+
+In probability sampling, all examples have a chance to be selected to be included in a sample. These techniques involve randomness. There are four main methods include: 1) simple random, 2) stratified random, 3) cluster, and 4) systematic. 
+
+Non-probability sampling is not random. To build a sample, it follows a fixed deterministic sequence of heuristic actions. This means that some examples don’t have a chance of being selected, no matter how many samples you build. Nonprobability methods are easier for a human to execute manually, though. However, this advantage is not significant for a data analyst working on a computer and using a software or programming code that greatly simplifies sampling of examples even from a very large data asset. The main drawback of nonprobability sampling techniques is that they provide non-representative samples and might systematically exclude important examples from consideration. This drawback outweighs the possible advantages of nonprobability sampling methods.
+
 
 ## General Machine Learning
 
@@ -7290,7 +7300,7 @@ Batch norm can also be considered of the regularization methods. During training
  
 **Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
 
-**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training set. 
+**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training s
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
