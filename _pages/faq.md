@@ -3381,7 +3381,7 @@ MSE(\hat{\theta}) &= E \left[(\hat{\theta} - \theta)^{2} \right]\\
 &= E \left[(\hat{\theta} - E(\hat{\theta}) + E(\hat{\theta}) - \theta)^{2} \right]\\
 &= E \left[ (\hat{\theta} - E(\hat{\theta}))^{2} + 2((\hat{\theta} - E(\hat{\theta}))(E(\hat{\theta}) - \theta)) + (E(\hat{\theta}) - \theta)^{2}\right]\\
 &= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] + 2E\left[2((\hat{\theta} - E(\hat{\theta}))(E(\hat{\theta}) - \theta)) \right] + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
-&= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] +  2 \left(E(\hat{\theta}) - \theta \right) \underbrace{E\left[\hat{\theta} - E(\hat{\theta} \right]}_{E(\hat{\theta}) - E(\hat{\theta}) = 0} + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
+&= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] +  2 \left(E(\hat{\theta}) - \theta \right) \underbrace{E\left[\hat{\theta} - E(\hat{\theta}) \right]}_{E(\hat{\theta}) - E(\hat{\theta}) = 0} + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
 &= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
 &= Var(\hat{\theta}) + \left[Bias(\hat{\theta}, \theta) \right]^{2}
 \end{split}
