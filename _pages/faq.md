@@ -128,6 +128,7 @@ permalink: /faq/
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
 48. What is the trading-off between bias and variance to minimize mean squared error of an estimator?
 48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
+48. What is the consistency of an estimator?
 48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
@@ -3468,6 +3469,18 @@ $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator2.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator3.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator4.png?raw=true)
+
+#### What is the consistency of an estimator?
+
+Let $x_{1}, x_{2}, \dots , x_{n}$ be a set of $n$ independent and identically distributed data points. An estimator $\theta$ which is any function of data $\hat{\theta} = g(x_{1}, x_{2}, \dots , x_{n})$, can also be shown as $\hat{\theta_{n}}$. So far, we considered the properties of estimators for a training set of fixed size. However, we are also concerned with the behavior of an estimator as the amount of training data grows. In particular, we usually wish that, as the number of data points $n$ in our dataset increases, out point estimates converge to the true value of the corresponding paramters. More formally, we would like to have:
+
+$$
+\lim\limits_{n \to \infty} \hat{\theta_{n}} = \theta
+$$
+
+Be careful, this limit yindicates convergence in probability, meaning that for any $\epsilon > 0$, $P\left(\mid \hat{\theta_{n}} - \theta \mid > \epsilon \right) \to 0. This condition is known as consistency. It is sometimes referred to as weak consistency, with strong consistency referring to the almost sure convergence of $\hat{\theta_{n}}$ to $\theta$.
+
+Consistency ensures that the bias induced by the estimator diminishes as thenumber of data examples grows. However, the reverse is not true —asymptotic unbiasedness does not imply consistency. 
 
 #### What is the standard error of the estimate? 
 
