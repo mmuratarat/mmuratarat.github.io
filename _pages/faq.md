@@ -3387,7 +3387,7 @@ MSE(\hat{\theta}) &= E \left[(\hat{\theta} - \theta)^{2} \right]\\
 \end{split}
 $$
 
-
+The MSE measures the overall expected deviation -in a squared error sense - between the estimator and the true value of the parameter $\theta$. Evaluation the MSE incorporates both the bias and the variance. Desirable estimators are those with small MSE and these are estimators that manage to keep both their bias and variance somewhat in check. 
 
 #### What is the unbiased estimator and its proof?
 
