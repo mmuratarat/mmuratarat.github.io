@@ -7304,6 +7304,14 @@ Batch norm can also be considered of the regularization methods. During training
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
+#### What are the data augmentation techniques for images?
+
+There are operations that can be easily applied to a given image to obtain one or more new images: flip, rotation, crop, color shift, noise addition, perspective change, contrast change, and information loss (for example, by randomly removing parts of image we can simulate situations when an object is recognizable but not entirely visible because of some visual obstacle.)
+
+In addition to these techniques, if you expect that the input images in your production system can come overcompressed, you can simulate the effect of overcompression by using some frequently used lossy compression methods and file formats, such as JPEG or GIF.
+
+Only training data undergoes augmentation. Of course, it’s impractical to generate all these additional examples in advance and store them. In practice, the data augmentation techniques are applied to the original data on-the-fly during training
+
 #### What are the data augmentation techniques for text?
 
 One technique consists of replacing random words in a sentence with their exact or very close synonyms. For example, we can obtain several equivalent sentences from the following one:
