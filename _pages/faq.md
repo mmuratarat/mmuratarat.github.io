@@ -3480,9 +3480,11 @@ $$
 \lim\limits_{n \to \infty} \hat{\theta_{n}} = \theta
 $$
 
-Be careful, this limit yindicates convergence in probability, meaning that for any $\epsilon > 0$, $P\left(\mid \hat{\theta_{n}} - \theta \mid > \epsilon \right) \to 0$. This condition is known as consistency. It is sometimes referred to as weak consistency, with strong consistency referring to the almost sure convergence of $\hat{\theta_{n}}$ to $\theta$.
+Be careful, this limit indicates convergence in probability, meaning that for any $\epsilon > 0$, $P\left(\mid \hat{\theta_{n}} - \theta \mid > \epsilon \right) \to 0$. This condition is known as consistency. It is sometimes referred to as weak consistency, with strong consistency referring to the almost sure convergence of $\hat{\theta_{n}}$ to $\theta$.
 
-Consistency ensures that the bias induced by the estimator diminishes as thenumber of data examples grows. However, the reverse is not true —asymptotic unbiasedness does not imply consistency. 
+The term consistent estimator is short for "consistent sequence of estimators", an idea found in convergence in probability. The basic idea is that you repeat the estimator’s results over and over again, with steadily increasing sample sizes. Eventually — assuming that your estimator is consistent — the sequence will converge on the true population parameter. This convergence is called a limit, which is a fundamental building block of calculus.
+
+Consistency ensures that the bias induced by the estimator diminishes as th enumber of data examples grows. However, the reverse is not true - asymptotic unbiasedness does not imply consistency. 
 
 #### What is the standard error of the estimate? 
 
