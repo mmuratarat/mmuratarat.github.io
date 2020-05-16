@@ -132,7 +132,8 @@ permalink: /faq/
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
-49. [What is the sampling distribution of the sample mean??](#what-is-the-sampling-distribution-of-the-sample-mean)
+48. What is the unbiased estimator and its proof?
+49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
@@ -3341,7 +3342,81 @@ When we calculate the sample standard deviation from a sample of $n$ values, we 
 
 Another way to look at degrees of freedom is that they are the number of values that are free to vary in a data set. What does “free to vary” mean? Here’s an example using the mean (average): Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what $9$ of the $10$ sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary. Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
-Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. For more details, look at [here](https://mmuratarat.github.io/2019-09-27/unbiased-estimator-proof){:target="_blank"}.
+Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. 
+
+#### What is the unbiased estimator and its proof?
+
+Unbiasness is one of the properties of an estimator in Statistics. If the following holds, where $\hat{\theta}$ is the estimate of the true population parameter $\theta$:
+
+$$
+E(\hat{\theta}) = \theta
+$$
+
+then the statistic $\hat{\theta}$ is unbiased estimator of the parameter $\theta$. Otherwise, $\hat{\theta}$ is the biased estimator.
+
+In essence, we take the expected value of $\hat{\theta}$, we take multiple samples from the true population and compute the average of all possible sample statistics.
+
+For exampke, if $X_{i}$ is a Bernoulli random variable with a parameter $p$, then, finding maximum likelihood estimation of the parameter $p$ of Bernoulli distribution is trivial. 
+
+$$
+L(p;X) = \prod\limits_{i=1}^n p(X_i;p) = \prod\limits_{i=1}^n p^{X_{i}}(1-p)^{1-X_{i}}
+$$
+
+Differentiating the log of $L(p;X)$ with respect to $p$ and setting the derivative to zero shows that this function achieves a maximum at $\hat{p} = \frac{\sum_{i=1}^{n} X_{i}}{n}$.
+
+Let's find out the maximum likelihood estimator of $p$ is an unbiased estimator of $p$ or not. 
+
+Since $X_{i} \sim Bernoulli(p)$, we know that $E(X_{i}) = p,\,\, i=1,2, \ldots , n$. Therefore,
+
+$$
+E(\hat{p}) =  E \left(\frac{\sum_{i=1}^{n} X_{i}}{n} \right) = \frac{1}{n} \sum_{i=1}^{n} E(X_{i}) = \frac{1}{n}\sum_{i=1}^{n}p = \frac{1}{n} np = p
+$$
+
+Therefore, we can safely say that the maximum likelihood estimator is an unbiased estimator of $p$.
+
+However, this is not always the true for some other estimates of population parameters. In statistics, Bessel's correction is the use of $n-1$ instead of $n$ in the formula for the sample variance where $n$ is the number of observations in a sample. 
+
+This method corrects the bias in the estimation of the population variance. It also partially corrects the bias in the estimation of the population standard deviation. However, the correction often increases the mean squared error in these estimations.
+
+In the estimating population variance from a sample where population mean is unknown, the uncorrected sample variance is the mean of the squares of the deviations of sample values from the sample mean (i.e., using a multiplicative factor $\frac{1}{n}$). In this case, the sample variance is a biased estimator of the population variance.
+
+Multiplying the uncorrected sample variance by the factor $\frac{n}{n-1}$ gives the unbiased estimator of the population variance. In some literature, the above factor is called Bessel's correction.
+
+Let $X_{1}, X_{2}, \ldots, X_{n}$ be an i.i.d. random variables, each with the expected value $\mu$ and variance $\sigma^{2}$. For the entire population, $\sigma^{2} = E\left[\left(X_{i} -\mu \right)^{2}\right]$.
+
+When we sample from this population, we want a statistic such that $E(s^{2}) = \sigma^{2}$. Intuitively, we would guess $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}$ where $\bar{X}$ is the mean of the sample, $\bar{X} = \frac{\sum_{i=1}^{n} X_{i}}{n}$.
+
+$$
+\begin{split}
+E(s^{2}) = E\left(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n} \right) &= \frac{1}{n}  E\left(\sum_{i=1}^{n} (X_{i} - \bar{X})^{2} \right)\\
+&= \frac{1}{n}  E\left[ \sum_{i=1}^{n} \left((X_{i} - \mu)^{2} - (\bar{X} - \mu) \right)^{2} \right]\\
+&=\frac{1}{n}  E\left[ \sum_{i=1}^{n} (X_{i} - \mu)^{2} - 2 \sum_{i=1}^{n} (X_{i} - \mu)(\bar{X} - \mu) + \sum_{i=1}^{n}(\bar{X} - \mu)^{2}  \right]\\
+&= \frac{1}{n} \left[ \sum_{i=1}^{n} E (X_{i} - \mu)^{2} - n E (\bar{X} - \mu)^{2}  \right]\\
+\end{split}
+$$
+
+Substituting $\sigma^{2} = E(X_{i} - \mu)^{2}$ and $Var(\bar{X}) = E (\bar{X} - \mu)^{2} = \frac{\sigma^{2}}{n}$ (from central limit theorem) results in the following:
+
+$$
+\begin{split}
+E(s^{2}) &= \frac{1}{n} \left(\sum_{i=1}^{n} \sigma^{2} - n \frac{\sigma^{2}}{n} \right)\\
+&= \frac{1}{n} \left(n \sigma^{2} - \sigma^{2} \right) \\
+&=\frac{n-1}{n} \sigma^{2}
+\end{split}
+$$
+
+Thus, sample variance $s^{2}$ is a biased estimate of $\sigma^{2}$ because $E(\hat{\theta}) \neq \theta$. Therefore, if we multiple both sides of the equation with $\frac{n}{n-1}$ will do the job.
+
+$$
+\frac{n}{n-1} E\left(s^{2}\right) = E\left(\frac{n}{n-1} s^{2}\right) = E\left(\frac{n}{n-1} \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n}\right) = E\left(\frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}\right) = \sigma^{2}
+$$
+
+$s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that is always an unbiased estimator of the desired population parameter $\sigma^{2}$. However note that $s$ is not an unbiased estimator of $\sigma$.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/unbiased_estimator4.png?raw=true)
 
 #### What is the standard error of the estimate? 
 
@@ -3418,7 +3493,6 @@ $$
 #### What is the sampling distribution of sample proportion, p-hat?
 
 The Central Limit Theorem has an analogue for the population proportion $\hat{p}$. it is also called Central Limit Theorem with a dichotomous outcome. For large samples, the sample proportion, $\hat{p}$, is approximately normally distributed, with mean $\mu_{\hat{p}} = p$ and standard deviation $\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$, which is also called standard error of $p$. Let's see how this is possible...
-
 
 Often sampling is done in order to estimate the proportion of a population that has a specific characteristic, such as the proportion of all items coming off an assembly line that are defective or the proportion of all people entering a retail store who make a purchase before leaving. The population proportion is denoted $p$ and the sample proportion is denoted $\hat{p}$. Thus if in reality $43\%$ of people entering a store make a purchase before leaving, $p = 0.43$; if in a sample of $200$ people entering the store, $78$ make a purchase, $\hat{p} = 78/200=0.39$.The sample proportion is a random variable: it varies from sample to sample in a way that cannot be predicted with certainty. Viewed as a random variable it will be written $\hat{p}$. 
 
