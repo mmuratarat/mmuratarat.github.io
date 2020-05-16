@@ -7301,6 +7301,8 @@ Batch norm can also be considered of the regularization methods. During training
 
 There are operations that can be easily applied to a given image to obtain one or more new images: flip, rotation, crop, color shift, noise addition, perspective change, contrast change, and information loss (for example, by randomly removing parts of image we can simulate situations when an object is recognizable but not entirely visible because of some visual obstacle.)
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/data_augmentation_for_images.png?raw=true)
+
 In addition to these techniques, if you expect that the input images in your production system can come overcompressed, you can simulate the effect of overcompression by using some frequently used lossy compression methods and file formats, such as JPEG or GIF.
 
 Only training data undergoes augmentation. Of course, it’s impractical to generate all these additional examples in advance and store them. In practice, the data augmentation techniques are applied to the original data on-the-fly during training
