@@ -136,7 +136,6 @@ permalink: /faq/
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
-52. [What is Poisson approximation to Binomial distribution?](#what-is-poisson-approximation-to-binomial-distribution)
 52. [What is a p-value?](#what-is-a-p-value)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 53. [What is the power of a statistical test?](#what-is-the-power-of-a-statistical-test)
@@ -2995,6 +2994,44 @@ Suppose that the time that elapses between two successive events follows the exp
 
 #### What is Poisson distribution?
 
+A Poisson process is a model for a series of discrete event where the average time between events is known but exact timing of events is random. The arrival of an event if independent of the event before (waiting time between events is memoryless). A Poisson process meets the following criteria (however, in reality, many phenomena modeled as Poisson processes do not meet these exactly):
+
+1. Events are independent of each other. The occurance of one event does not affect the probability of another event will occur.
+2. The averag rate (events per time period) is constant.
+3. Two events cannot occur at the same time. 
+
+Poisson distribution represents the distribution of Poisson processes and it is discrete distribution that measures the probability of a given number of events that occur randomly in a specified interval time (space). Poisson distribution is in fact a limited case of binomial distribution. 
+
+Let the discrete random variable $X$ denote the number of times an event occurs in an interval of time (or space). An event can occur $0, 1, 2, \dots$ times in an interval. The average number of events in an interval is designated as $\mu$. $\mu$ is the event rate$, also called the *rate paraneter*.
+
+The Poisson distribution has a single parameter, $\mu$. The PDF of a Poisson distribution is defined as:
+
+$$
+f(X = x; \mu) = \frac{\mu^{x} e^{-\mu}}{x!},\,\,\,\, x = 0,1,2,...\text{ and } \mu > 0
+$$
+
+which gives the probability of X events occur in an interval. Expected value of this distribution, $E(X) = \mu$ and the variance, $Var(X) = \mu$. 
+
+We can find an estimator of $\mu$ using MLE approach. Let's write down the log-likelihood function of Poisson distribution:
+
+$$
+\begin{split}
+l(\mu) = log \prod_{i=1}^{n} P(X= x_{i}) &= \sum_{i=1}^{n} log \left( \frac{\mu^{x_{i}} e^{-\mu}}{x_{i}!} \right)\\
+&= \sum_{i=1}^{n} - \mu + x_{i} log(\mu) - log(x_{i}!)\\
+&= -n \mu + log(\mu) \sum_{i=1}^{n} x_{i} - \sum_{i=1}^{n} log(x_{i}!)
+$$
+
+Thenm we take the derivative of $l(\mu)$ with respect to $\mu$ and equate it to zero. Solving for $\mu$ will yield the MLE of $\mu$:
+
+$$
+\hat{\mu_{MLE}} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
+$$
+
+The Poisson distribution can be understood as a special case of the binominal distribution when studying large numbers with a rare (not zero) but constant occurrence of "successes". This is called Poisson approximation to Binomial distribution. The Poisson distribution approximates the binomial distribution closely when $n$ is very large ($n \geq 20$) and $p$ is very small ($p \leq 0.05$). It is the limiting form of the binomial distribution when $n \to \infty$, $p \to 0$, and $np = \mu$ is a positive constant. So, we can say that the PMF of $X$, when $X \sim Binomial(n, p)$ can be approximated by the PMF of a $Poisson(\mu)$ random variable. The importance of this is that Poisson PMF is much easier to compute than the binomial.
+
+Its proof can be seen below:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/poisson_approx_to_binom.png?raw=true)
 
 #### What is Chi-square distribution?
 
@@ -3668,10 +3705,6 @@ import numpy as np
 binom.pmf(k=8, n=25, p=0.4, loc=0)
 #0.1199797153886391
 {% endhighlight %}
-
-#### What is Poisson approximation to Binomial distribution?
-
-The Poisson distribution can be viewed as the limit of binomial distribution. Suppose $X \sim Binomial(n,p)$ where $n$ is very large ($n \geq 20$) and $p$ is very small ($p \leq 0.05$). In particular, assume that $\lambda = np$ is a positive constant. We can say that the PMF of $X$ can be approximated by the PMF of a $Poisson(\lambda)$ random variable. The importance of this is that Poisson PMF is much easier to compute than the binomial. 
 
 #### What is a p-value?
 Before we talk about what p-value means, let’s begin by understanding hypothesis testing where p-value is used to determine the statistical significance of our results, which is our ultimate goal. 
