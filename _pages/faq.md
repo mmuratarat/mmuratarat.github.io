@@ -2004,13 +2004,6 @@ Note that covariance and correlation are the same if the features are standardiz
   
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/pearson-mode-skewness.jpg?raw=true)
 
-
-#### What are the shape, scale and rate parameters of a distribution?
-
-
-
-
-
 #### What are the measures of Central Tendency: Mean, Median, and Mode?
 
 The central tendency of a distribution represents one characteristic of a distribution. In statistics, the three most common measures of central tendency are the mean, median, and mode. Each of these measures calculates the location of the central point using a different method. The median and mean can only have one value for a given data set. The mode can have more than one value.
