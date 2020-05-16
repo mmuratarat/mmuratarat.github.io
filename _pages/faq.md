@@ -126,9 +126,9 @@ permalink: /faq/
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
-48. What is the trading-off between bias and variance to minimize mean squared error of an estimator?
+48. [What is the trading-off between bias and variance to minimize mean squared error of an estimator?](#what-is-the-trading-off-between-bias-and-variance-to-minimize-mean-squared-error-of-an-estimator)
 48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
-48. What is the consistency of an estimator?
+48. [What is the consistency of an estimator?](#what-is-the-consistency-of-an-estimator)
 48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
@@ -187,7 +187,7 @@ permalink: /faq/
 17. [What is instance-based and model-based learning?](#what-is-instance-based-and-model-based-learning)
 18. [What are the main challenges of machine learning algorithms?](#what-are-the-main-challenges-of-machine-learning-algorithms)
 19. [What are the most important unsupervised learning algorithms?](#what-are-the-most-important-unsupervised-learning-algorithms)
-19. What is a Machine Learning pipeline?
+19. [What is a Machine Learning pipeline?](#what-is-a-machine-learning-pipeline)
 20. [What is Tensorflow?](#what-is-tensorflow)
 21. [Why Deep Learning is important?](#why-deep-learning-is-important)
 22. [What are the three respects of an learning algorithm to be efficient?](#what-are-the-three-respects-of-an-learning-algorithm-to-be-efficient)
