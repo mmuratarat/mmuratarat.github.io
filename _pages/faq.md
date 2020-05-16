@@ -3398,7 +3398,9 @@ In everyday life, people who are working with the same information arrive at dif
 
 If you use an estimator once, and it works well, is that enough proof for you that you should always use that estimator for that parameter? Visualize calculating an estimator over and over with different samples from the same population, i.e. take a sample, calculate an estimate using that rule, then repeat. This process yields sampling distribution for the estimator. We look at the mean of this sampling distribution to see what value our estimates are centered around. We look at the spread of this sampling distribution to see how much our estimates vary. 
 
-Unbiasness is one of the properties of an estimator in Statistics. If the following holds, where $\hat{\theta}$ is the estimate of the true population parameter $\theta$:
+Unbiasness is one of the properties of an estimator in Statistics. An estimator is unbiased if, on average, it hits the true parameter value. That is, the mean of the sampling distribution of the estimator is equal to the true parameter value.
+
+If the following holds, where $\hat{\theta}$ is the estimate of the true population parameter $\theta$:
 
 $$
 E(\hat{\theta}) = \theta
