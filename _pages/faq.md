@@ -58,13 +58,8 @@ permalink: /faq/
 
 1. [What is underflow and overflow?](#what-is-underflow-and-overflow)
 2. [How to tackle the problem of underflow or overflow for softmax function or log softmax function?](#how-to-tackle-the-problem-of-underflow-or-overflow-for-softmax-function-or-log-softmax-function)
-3. What is poor conditioning?
-4. What is the condition number?
-5. What are grad, div and curl?
-6. What are critical or stationary points in multi-dimensions?
-7. Why should you do gradient descent when you want to minimize a function?
+3. What is poor conditioning and the condition number?
 8. What is line search?
-9. What is hill climbing?
 10. What is curvature?
 11. [Describe convex function.](#describe-convex-function)
 12. [What is Lagrangian function?](#what-is-lagrangian-function)
@@ -430,6 +425,14 @@ presents a function whose input is a scalar $t$ and whose output is a vector in 
 
 #### What is the gradient?
 
+Suppose we have a function $y = f(x)$ where both $x$ and $y$ are real numbers. The derivative of this function is denoted as $f^{\prime} (x)$ or as $\frac{dy}{dx}$. The derivative $f^{\prime} (x)$ gives the flope of $f(x)$ at the point $x$. In other words, it specifies how to scale a small change in the input to obtain the corresponding change in the output. The derivative is therefore useful for minimizing a function because it tells us how to change in $x$ in order to make a small improvement in $y$We can thus reduce $f(x)$ by moving $x$ in small steps with the opposite sign of the derivative. This technique is called gradient descent.
+
+When $f^{\prime} (x) = 0$, the derivatives provides no information about which direction to move. Points where $f^{\prime} (x) = 0$ are known as **critical points**, or **stationary points**. A **local minimum** is a point where $f(x)$ is lower than at all neighboring points, so it is no longer possible to decrease $f(x)$ by making steps. A **local maximum** is a point where $f(x)$ is higher than at all neighboring points, so it is not possible to increase $f(x)$ by making steps. Some critical points are neither maxima nor minima. These points are known as saddle points. 
+
+A point that obtains the absolute lowest value of $f(x)$ is a **global minimum**. There can be only one global minimum or multiple global minima of the function. It is also possible for there to be a local minima that are not globally optimum. In the context of deep learning, we optimize functions that may have many local minima that are not optimal and many saddle points surrounded by flat regions. All of this makes optimization difficult, especially when the input to the function is multi-dimensional. We therefore usually settle for finding the value of $f$ that is very low but not necessarily minimal in any formal sense.
+
+Gradient generalizes the notion of derivative to the case where the derivative is with respect to a vector: the gradient of f is the vector containing all the partial derivatives.
+
 The gradient of a function $f$, denoted as $\nabla f$ is the collection of all its first-order partial derivatives into a vector. Here, $f$ is a scalar-valued (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
 
 $$
@@ -440,7 +443,17 @@ In particular, $\nabla f(x_{1}, x_{2}, x_{3}, ...)$ is a vector-valued function,
 
 It is very important to remember that the gradient of a function is only defined if the function is real-valued, that is, if it returns a scalar value. 
 
-The most important thing to remember about the gradient is that the gradient of $f$, if evaluated at an input $(x_{0},y_{0})$, points in the direction of the steepest ascent. So, if you walk in that direction of the gradient, you will be going straight up the hill. Similarly, the magnitude of the vector $\nabla f(x_{0},y_{0})$ tells you what the slope of the hill is in that direction, meaning that if you walk in that direction, you will increase the value of $f$ at most rapidly.  
+The most important thing to remember about the gradient is that the gradient of $f$, if evaluated at an input $(x_{0},y_{0})$, points in the direction of the steepest ascent. So, if you walk in that direction of the gradient, you will be going straight up the hill. Similarly, the magnitude of the vector $\nabla f(x_{0},y_{0})$ tells you what the slope of the hill is in that direction, meaning that if you walk in that direction, you will increase the value of $f$ at most rapidly. Therefore, for numerical methods being used in Deep Learning, such as gradient descent algorithm, we go in the negative direction of the gradient because we want to minimize the loss function. In this case, $f$ is a loss function which we decrease by moving in the direction of the negative gradient.
+
+Gradient descent proposes a new point:
+
+$$
+x^{\prime} = x - \epsilon \nabla_{x} f(x)
+$$
+
+where $\epsilon$ is learning rate, a positive scalar determining the size of the step. We can choose $\epsilon$ in several different ways. A popular approach is to set $\epsilon$ to a small constant. Another approach is to evaluate $f(x - \epsilon \nabla_{x} f(x))$ for several values of $\epsilon$ and choose the one that results in the smallest objective value. This last strategy is called a **line search**. Gradient descent converges when every element of the gradient is zero (or, in practice, close to zero). In some cases, we may be able to avoid running this iterative algorithm and just jump directly to the critical point by solving the equation $\nabla_{x} f(x) = 0$ for $x$ and get analytical (closed-form) results. 
+
+Although the gradient descent is limited to optimization in continuous spaces, the general concept of repeatedly making a small move (that is approximately the best small move) toward better configurations can be generalized to discrete spaces. Ascending an objective function of discrete parameters is called **hill climbing**.
 
 Note that the symbol $\nabla$ is referred to either as nabla or del. 
 
@@ -466,6 +479,8 @@ Note that when $m=1$, the Jacobian is the same as gradient because it is a gener
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/jacobian_example1.png?raw=true)
 
 #### What is a Hessian matrix?
+
+When out function has multiple input dimensions, there are many second derivatives. These derivatives can be collected together into a matrix called **Hessian matrix**. 
 
 The hessian matrix is a square matrix of the second-order partial derivatives of a scalar-valued (real-valued) multi-variable function $f:\mathbb{R}^{n}\to \mathbb{R}$.
 
