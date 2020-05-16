@@ -1342,7 +1342,7 @@ and
 f[\lambda x_{1} + (1 - \lambda) x_{2}] \leq \lambda f(x_{1}) + (1 - \lambda) f(x_{2}) 
 $$
 
-If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true. (i.e., take the first derivative of the function and set it to zero. You will obtain the critical value. It could be either a minimum or a maximum point. Or a point where the derivative changes the sign. So to know whether the point is min or max we will have to take the second derivative in order to be 100% sure. When the second derivative is positive we have a local minimum point. When the second derivative is negative we have a local maximum point).
+If $f(x)$ has a second derivative in $[a,b]$, then a necessary and sufficient condition for it to be convex on on the interval $[a,b]$ is that the second derivative $f^{''}(x) \geq 0$ for all $x$ in $[a,b]$. However, the converse need not be true. (i.e., take the first derivative of the function and set it to zero. You will obtain the critical value. It could be either a minimum or a maximum point or a point where the derivative changes the sign. So to know whether the point is local minimum or local maximum, we will have to take the second derivative in order to be 100% sure. When the second derivative is positive we have a local minimum point. When the second derivative is negative we have a local maximum point).
 
 The prototypical convex function is shaped something like the letter U.
 
