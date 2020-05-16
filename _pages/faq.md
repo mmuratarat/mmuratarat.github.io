@@ -162,6 +162,7 @@ permalink: /faq/
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
 71. [How to determine sample size?](#how-to-determine-sample-size)
+72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
 
 
 [General Machine Learning](#general-machine-learning)
