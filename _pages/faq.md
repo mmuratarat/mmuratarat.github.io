@@ -126,6 +126,7 @@ permalink: /faq/
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
+48. What is the trading-off between bias and variance to minimize mean squared error of an estimator?
 48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
 48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
@@ -3365,6 +3366,28 @@ When we calculate the sample standard deviation from a sample of $n$ values, we 
 Another way to look at degrees of freedom is that they are the number of values that are free to vary in a data set. What does “free to vary” mean? Here’s an example using the mean (average): Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what $9$ of the $10$ sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary. Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
 Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. 
+
+#### What is the trading-off between bias and variance to minimize mean squared error of an estimator?
+
+Bias and variance measure two different sources of error in an estimator. Bias measures the expected deviation from the true value of the function or parameter. Variance on the other hand provides a measure of the deviation from the expected estimator value that any particular sampling of the data is likely to cause.
+
+What happens when we are given a choice between two estimators, one with more bias and one with more variance? How do we choose between them? 
+
+The most common way to negotiate this trade-off is to compare the mean squared error of the estimates. Let's say we try to estimate $\theta$, named $\hat{\theta}$.
+
+$$
+\begin{split}
+MSE(\hat{\theta}) &= E \left[(\hat{\theta} - \theta)^{2} \right]\\
+&= E \left[(\hat{\theta} - E(\hat{\theta}) + E(\hat{\theta}) - \theta)^{2} \right]\\
+&= E \left[ (\hat{\theta} - E(\hat{\theta}))^{2} + 2((\hat{\theta} - E(\hat{\theta}))(E(\hat{\theta}) - \theta)) + (E(\hat{\theta}) - \theta)^{2}\right]\\
+&= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] + 2E\left[2((\hat{\theta} - E(\hat{\theta}))(E(\hat{\theta}) - \theta)) \right] + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
+&= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] +  2 \left(E(\hat{\theta}) - \theta \right) \underbrace{E\left[\hat{\theta} - E(\hat{\theta} \right]}_{E(\hat{\theta}) - E(\hat{\theta}) = 0} + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
+&= E\left[(\hat{\theta} - E(\hat{\theta}))^{2} \right] + E\left[(E(\hat{\theta}) - \theta)^{2} \right]\\
+&= Var(\hat{\theta}) + \left[Bias(\hat{\theta}, \theta) \right]^{2}
+\end{split}
+$$
+
+
 
 #### What is the unbiased estimator and its proof?
 
