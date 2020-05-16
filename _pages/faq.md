@@ -3478,7 +3478,7 @@ $$
 \lim\limits_{n \to \infty} \hat{\theta_{n}} = \theta
 $$
 
-Be careful, this limit yindicates convergence in probability, meaning that for any $\epsilon > 0$, $P\left(\mid \hat{\theta_{n}} - \theta \mid > \epsilon \right) \to 0. This condition is known as consistency. It is sometimes referred to as weak consistency, with strong consistency referring to the almost sure convergence of $\hat{\theta_{n}}$ to $\theta$.
+Be careful, this limit yindicates convergence in probability, meaning that for any $\epsilon > 0$, $P\left(\mid \hat{\theta_{n}} - \theta \mid > \epsilon \right) \to 0$. This condition is known as consistency. It is sometimes referred to as weak consistency, with strong consistency referring to the almost sure convergence of $\hat{\theta_{n}}$ to $\theta$.
 
 Consistency ensures that the bias induced by the estimator diminishes as thenumber of data examples grows. However, the reverse is not true —asymptotic unbiasedness does not imply consistency. 
 
