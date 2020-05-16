@@ -59,7 +59,7 @@ permalink: /faq/
 1. [What is underflow and overflow?](#what-is-underflow-and-overflow)
 2. [How to tackle the problem of underflow or overflow for softmax function or log softmax function?](#how-to-tackle-the-problem-of-underflow-or-overflow-for-softmax-function-or-log-softmax-function)
 3. What is poor conditioning and the condition number?
-4. What is second derivative test?
+4. [What is second derivative test?](#what-is-second-derivative-test)
 5. [Describe convex function.](#describe-convex-function)
 6. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
 7. [What is Lagrangian function?](#what-is-lagrangian-function)
