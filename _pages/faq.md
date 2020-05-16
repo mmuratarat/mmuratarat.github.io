@@ -62,9 +62,10 @@ permalink: /faq/
 8. What is line search?
 10. What is curvature?
 11. [Describe convex function.](#describe-convex-function)
+11. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
 12. [What is Lagrangian function?](#what-is-lagrangian-function)
 13. [What is Jensen's inequality?](#what-is-jensens-inequality)
-14. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
+
 
 
 [Set Theory](#set-theory)
@@ -1376,13 +1377,27 @@ The introduced concept of convexity has a simple geometric interpretation. Geome
 
 If a function has the opposite property, namely that every chord lies on or below the function, it is called concave, with a corresponding definition for strictly concave. If a function $f(x)$ is convex, then $−f(x)$ will be concave.
 
+#### What are the Karush-Kuhn-Tucker conditions?
+
+The SVM problem can be expressed as a so-called "convex quadratic" optimization problem, meaning the objective is a quadratic function and the constraints form a convex set (are linear inequalities and equalities). There is a neat theorem that addresses such, and it’s the "convex quadratic" generalization of the Lagrangian method. The result is due to Karush, Kuhn, and Tucker conditions.
+
+The "original" optimization problem is often called the "primal" problem. While a "primal problem" can be either a minimization or a maximization (and there is a corresponding KKT theorem for each) we'll use the minimization form here. Next we define a corresponding "dual" optimization problem, which is a maximization problem whose objective and constraints are related to the primal in a standard way.
+
+Duality is an optimization problem that allows us to transform one problem into another equivalent problem. In SVM case, we have convex minimization problem. Its dual problem will be concave over a convex set and a maximization problem because minimizing a convex function and maximizing a concave function over a convex set are both convex problems. Therefore, minimizing a convex f is maximizing −f, which is concave. 
+
+Slater's condition holds for the primal convex problem of SVM, therefore, the duality gap is 0, meaning that strong duality holds, so that the optimal solutions for the primal and dual problems have equal objective value.
+
+The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima), which is why the Karush–Kuhn–Tucker theorem is sometimes referred to as the saddle-point theorem. To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/kkt_conditions.png?raw=true)
+
 #### What is Lagrangian function?
 
 The notation
 
 $$
 \begin{split}
-\text{minimize } &f_{0}(x) ]]\\
+\text{minimize } &f_{0}(x) \\
 \text{subject to } &f_{i}(x) \leq 0, 1 \leq i \leq m \\
 &h_{j} (x) = 0, 1 \leq j \leq k
 \end{split}
@@ -1394,7 +1409,7 @@ $$
 L(x, \lambda, \nu) = f_{0}(x) + \sum_{i=1}^{m} \lambda_{i}f_{i}(x) + \sum_{j=1}^{k} \nu_{j} h_{j}(x)
 $$
 
-The idea of the Lagrangian duality is to take the constrains into account by augmenting the objective function with a weighted sum of the constraint functions.
+The idea of the Lagrangian duality is to take the constrains into account by augmenting the objective function with a weighted sum of the constraint functions. So, we can now solve a constrained minimization problem using unconstrained optimization of generalized Lagrangian. 
 
 #### What is Jensen's inequality?
 
@@ -1419,20 +1434,6 @@ Jensen's inequality also holds for concave functions $f$ but with the direction 
 $$
 E[f(x)] \leq f[E(x)]
 $$
-
-#### What are the Karush-Kuhn-Tucker conditions?
-
-The SVM problem can be expressed as a so-called "convex quadratic" optimization problem, meaning the objective is a quadratic function and the constraints form a convex set (are linear inequalities and equalities). There is a neat theorem that addresses such, and it’s the "convex quadratic" generalization of the Lagrangian method. The result is due to Karush, Kuhn, and Tucker conditions.
-
-The "original" optimization problem is often called the "primal" problem. While a "primal problem" can be either a minimization or a maximization (and there is a corresponding KKT theorem for each) we'll use the minimization form here. Next we define a corresponding "dual" optimization problem, which is a maximization problem whose objective and constraints are related to the primal in a standard way.
-
-Duality is an optimization problem that allows us to transform one problem into another equivalent problem. In SVM case, we have convex minimization problem. Its dual problem will be concave over a convex set and a maximization problem because minimizing a convex function and maximizing a concave function over a convex set are both convex problems. Therefore, minimizing a convex f is maximizing −f, which is concave. 
-
-Slater's condition holds for the primal convex problem of SVM, therefore, the duality gap is 0, meaning that strong duality holds, so that the optimal solutions for the primal and dual problems have equal objective value.
-
-The critical point of Lagrangian occurs at saddle points rather than local minima (or maxima), which is why the Karush–Kuhn–Tucker theorem is sometimes referred to as the saddle-point theorem. To utilize numerical optimization techniques, we must first transform the problem such that the critical points lie at local minima. This is done by calculating the magnitude of the gradient of Lagrangian. Next we turn to the conditions that must necessarily hold at the saddle point and thus the solution of the problem. These are called the KKT conditions (which stands for Karush-Kuhn-Tucker).
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/kkt_conditions.png?raw=true)
 
 
 ## Set Theory
