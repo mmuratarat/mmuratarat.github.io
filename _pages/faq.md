@@ -7290,7 +7290,7 @@ Batch norm can also be considered of the regularization methods. During training
  
 **Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
 
-**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training s
+**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training set. 
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
