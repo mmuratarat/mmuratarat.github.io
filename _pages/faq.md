@@ -3303,7 +3303,7 @@ p(\theta|x) &\propto p(x|\theta) \cdot p(\theta)\\
 \end{split}
 $$
 
-Thus, $\theta|x \ sim Beta(x + 1/2, n - x + 1/2)$.
+Thus, $\theta \mid x \sim Beta(x + 1/2, n - x + 1/2)$.
 
 #### What is population mean and sample mean?
 
