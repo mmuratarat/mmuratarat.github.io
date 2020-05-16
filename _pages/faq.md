@@ -126,7 +126,8 @@ permalink: /faq/
 46. [What is population mean and sample mean?](#what-is-population-mean-and-sample-mean)
 47. [What is population standard deviation and sample standard deviation?](#what-is-population-standard-deviation-and-sample-standard-deviation)
 48. [Why population standard deviation has N degrees of freedom while sample standard deviation has N-1 degrees of freedom? In other words, why 1/N inside root for population and 1/(N-1) inside root for sample standard deviation?](#why-population-standard-deviation-has-n-degrees-of-freedom-while-sample-standard-deviation-has-n-1-degrees-of-freedom-in-other-words-why-1n-inside-root-for-population-and-1n-1-inside-root-for-sample-standard-deviation)
-48. What is the unbiased estimator and its proof?
+48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
+48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
@@ -4046,6 +4047,18 @@ Non-probability sampling is not random. To build a sample, it follows a fixed de
 4. **Judgment Sampling**: 
 
   Judgment sampling, also referred to as judgmental sampling or authoritative sampling, is a non-probability sampling technique where the researcher selects units to be sampled based on his own existing knowledge, or his professional judgment. It can also be referred to as purposive sampling. Results obtained from a judgment sample are subject to some degree of bias, due to the frame and population not being identical. The frame is a list of all the units, items, people, etc., that define the population to be studied.
+  
+#### When is a biased estimator preferable to unbiased one?
+
+Often it is the case that we are interested in minimizing the mean squared error, which can be decomposed into variance + bias squared. This is an extremely fundamental idea in machine learning, and statistics in general. Frequently we see that a small increase in bias can come with a large enough reduction in variance that the overall MSE decreases.
+
+A standard example is ridge regression. We have $\hat{\theta}_{ridge} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y$ which is biased; but if $\mathbf{X}$ is ill conditioned, we will have singular $\mathbf{X}^{T} \cdot \mathbf{X}$, then $Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$ may be huge whereas $Var (\hat{\theta}_{ridge})$ can be much more modest.
+
+Another example is the kNN classifier. Think about $k = 1$: we assign a new point to its nearest neighbor. If we have a ton of data and only a few variables we can probably recover the true decision boundary and our classifier is unbiased; but for any realistic case, it is likely that $k = 1$ will be far too flexible (i.e. have too much variance) and so the small bias is not worth it (i.e. the MSE is larger than more biased but less variable classifiers).
+
+Finally, here's a picture. Suppose that these are the sampling distributions of two estimators and we are trying to estimate 0. The flatter one is unbiased, but also much more variable. Overall I think I'd prefer to use the biased one, because even though on average we won't be correct, for any single instance of that estimator we'll be closer.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/BigyK.png?raw=true)
 
 
 ## General Machine Learning
