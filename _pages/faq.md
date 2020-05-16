@@ -113,7 +113,7 @@ permalink: /faq/
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
 29. [Explain Method Of Moments (MOM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).](#explain-method-of-moments-mom-maximum-a-posteriori-map-and-maximum-likelihood-estimation-mle)
-30. What is score function and Fisher Information Matrix?
+30. [What is score function and Fisher Information Matrix?](#what-is-score-function-and-fisher-information-matrix)
 25. [What is a Bernoulli distribution? Calculate the expectation and variance of a random variable that follows Bernoulli distribution?](#what-is-a-bernoulli-distribution-calculate-the-expectation-and-variance-of-a-random-variable-that-follows-bernoulli-distribution)
 26. [What is Binomial distribution?](#what-is-binomial-distribution)
 26. [What is a multinoulli distribution?](#what-is-a-multinoulli-distribution)
@@ -2349,7 +2349,7 @@ $$
 
 is called the Fisher information. Strictly, this definition corresponds to the expected Fisher information. For one parameter, Fisher Information is just the variance of score function, $Var(S) = I(\theta)$. Fisher Information Matrix is defined as the covariance of score function for multiple parameters.
 
-However, in practice, the true value of $\theta$ is not known and has to be inferred from the observed data. The value of the Fisher information at the MLE $\hat{\theta_{MLE}}$, i.e. $I\left(\hat{\theta_{MLE}} \right$, is the *observed* Fisher information. Note that the MLE $\hat{\theta_{MLE}}$ is a function of the observed data, which explains the terminology “observed” Fisher information for $I\left(\hat{\theta_{MLE}} \right$.
+However, in practice, the true value of $\theta$ is not known and has to be inferred from the observed data. The value of the Fisher information at the MLE $\hat{\theta_{MLE}}$, i.e. $I\left(\hat{\theta_{MLE}} \right)$, is the *observed* Fisher information. Note that the MLE $\hat{\theta_{MLE}}$ is a function of the observed data, which explains the terminology “observed” Fisher information for $I\left(\hat{\theta_{MLE}} \right)$.
 
 Fisher information is a key concept in the theory of statistical inference and essentially describes the amount of information data provide about an unknown parameter. More formally, it measures the expected amount of information given by a random variable ($X$) for a parameter($\theta$) of interest. The concept is related to the law of entropy, as both are ways to measure disorder in a system
 
