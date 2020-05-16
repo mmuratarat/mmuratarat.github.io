@@ -7335,10 +7335,13 @@ One way to obtain useful features from the autoencoder is to constrain laten spa
 
 They are rarely used in practical applications. In 2012 they briefly found an application in greedy layer-wise pretraining for deep convolutional neural networks, but this quickly fell out of fashion as we started realizing that better random weight initialization schemes were sufficient for training deep networks from scratch. In 2014, batch normalization started allowing for even deeper networks, and from late 2015 we could train arbitrarily deep networks from scratch using residual learning
 
-
-Today two interesting practical applications of autoencoders are data denoising (which we feature later in this post), and dimensionality reduction for data visualization. With appropriate dimensionality and sparsity constraints, autoencoders can learn data projections that are more interesting than PCA or other basic techniques.
+Today two interesting practical applications of autoencoders are data denoising, and dimensionality reduction for data visualization. With appropriate dimensionality and sparsity constraints, autoencoders can learn data projections that are more interesting than PCA or other basic techniques.
 
 For 2D visualization specifically, t-SNE (pronounced "tee-snee") is probably the best algorithm around, but it typically requires relatively low-dimensional data. So a good strategy for visualizing similarity relationships in high-dimensional data is to start by using an autoencoder to compress your data into a low-dimensional space (e.g. 32 dimensional), then use t-SNE for mapping the compressed data to a 2D plane. 
+
+#### What is denoising?
+
+In this type of task, the machine learning algorithm is given a *corrupted example* $\widetilde{\boldsymbol{x}} \in R^{n}$ obtained by unknown corruption process from a *clean example* $\boldsymbol{x} \in R^{n}$. The learner must predict the clean example $\boldsymbol{x}$ from its corrupted version $\widetilde{\boldsymbol{x}}$, or more generally predict the conditional probability distribution $p(\boldsymbol{x} \mid \widetilde{\boldsymbol{x}})$.
 
 #### Why to denoise autoencoder procedure?
 
