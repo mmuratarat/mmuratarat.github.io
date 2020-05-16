@@ -222,7 +222,7 @@ permalink: /faq/
 49. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 50. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
 51. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
-51. What does the parameter C do in SVM?
+51. [What does the parameter C do in SVM?](#what-does-the-parameter-c-do-in-svm)
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
@@ -244,20 +244,27 @@ permalink: /faq/
 69. [What's the difference between convex and non-convex cost function? what does it mean when a cost function is non-convex?](#whats-the-difference-between-convex-and-non-convex-cost-function-what-does-it-mean-when-a-cost-function-is-non-convex)
 69. [How do you deal with missing value in a data set?](#how-do-you-deal-with-missing-value-in-a-data-set)
 70. [How to find a confidence interval for accuracy of a model?](#how-to-find-a-confidence-interval-for-accuracy-of-a-model)
-71. Does tree-based methods such as Decision Tree handle multicollinearity by itself?
-72. How to model count data?
-73. Why should weights of Neural Networks be initialized to random numbers?
-74. Why is loss function in Neural Networks not convex?
-74. Is it possible to train a neural network without backpropagation?
-74. In neural networks, why do we use gradient methods rather than other metaheuristics?
-75. What is the difference between a loss function and decision function?
-76. What is the difference between SVM and Random Forest?
-77. What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?
-78. What are some of the issues with K-means?
-76. How do you deal with high cardinality? 
-77. What is a machine learning project lifecycle?
-78. What are the unknowns of a machine learning project?
-79. What are the properties of a successful model?
+71. [Does tree-based methods such as Decision Tree handle multicollinearity by itself?](#does-tree-based-methods-such-as-decision-tree-handle-multicollinearity-by-itself)
+72. [How to model count data?](#how-to-model-count-data)
+73. [Why should weights of Neural Networks be initialized to random numbers?](#why-should-weights-of-neural-networks-be-initialized-to-random-numbers)
+74. [Why is loss function in Neural Networks not convex?](#why-is-loss-function-in-neural-networks-not-convex)
+74. [Is it possible to train a neural network without backpropagation?](#is-it-possible-to-train-a-neural-network-without-backpropagation)
+74. [In neural networks, why do we use gradient methods rather than other metaheuristics?](#in-neural-networks-why-do-we-use-gradient-methods-rather-than-other-metaheuristics)
+75. [What is the difference between a loss function and decision function?](#what-is-the-difference-between-a-loss-function-and-decision-function)
+76. [What is the difference between SVM and Random Forest?](#what-is-the-difference-between-svm-and-random-forest)
+76. [What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?](#what-is-the-difference-between-fitting-a-model-via-closed-form-equations-vs-gradient-descent-and-its-variants)
+76 [What are some of the issues with K-means?](#what-are-some-of-the-issues-with-k-means)
+76. [Why multicollinearity does not affect the predictive performance?](#why-multicollinearity-does-not-affect-the-predictive-performance)
+76. [How does multicollinearity affect feature importances in random forest classifier?](#how-does-multicollinearity-affect-feature-importances-in-random-forest-classifier)
+76. [How come do the loss functions have 1/m and 2 from the square cancels out?](#how-come-do-the-loss-functions-have-1m-and-2-from-the-square-cancels-out)
+76. [What is Feature Engineering?](#what-is-feature-engineering-1)
+76. [When to choose Decision Tree over Random Forest?](#when-to-choose-decision-tree-over-random-forest)
+77. [What is a machine learning project lifecycle?](#what-is-a-machine-learning-project-lifecycle)
+78. [What are the unknowns of a machine learning project?](#what-are-the-unknowns-of-a-machine-learning-project)
+79. [What are the properties of a successful model?](#what-are-the-properties-of-a-successful-model)
+80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
+81. How do you deal with high cardinality? 
+
 
 [SQL](#SQL)
 
@@ -5850,7 +5857,7 @@ Any loss function takes two parameters, the predicted label $\hat{y}$  and the t
 
 However, when people say that the loss function of neural networks is not convex, it is not the function above that they are referring to. Note that you do not control $\hat{y}$  directly. You control some weight parameters (called model parameters), which in turn change $\hat{y}$ . So you’re interested in convexity of the loss function with respect to these weight parameters. Let’s say $\hat{y} = f(w, x)$, where $w$ is the vector of all weights, $x$ is the input example and $f$ is a function mapping those to a label $\hat{y}$ . You are interested in the function $g(x, y, w) = L(\hat{y}, y) = L(f(w, x),y)$.
 
-Even though MSE is index convex in $\hat{y_{i}}$. But if $\hat{y_{i}} = f(w, x_{i})$, it might not be convex in model parameters $w$, which is the situation with most non-linear models, and we actually care about convexity in $w$ because that's what we're optimizing the cost function over.
+Even though MSE is indeed convex in $\hat{y_{i}}$. But if $\hat{y_{i}} = f(w, x_{i})$, it might not be convex in model parameters $w$, which is the situation with most non-linear models, and we actually care about convexity in $w$ because that's what we're optimizing the cost function over.
 
 It turns out that, in general, $f(\cdot)$ is not convex, and so $g(\cdot)$ is also not convex. Thus, you can say that MSE loss is non-convex for neural networks, which is implicitly referring to $g(\cdot)$ and not $L(\cdot)$.
 
