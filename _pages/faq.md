@@ -3474,7 +3474,7 @@ $s^{2} = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}$ is the statistic that
 
 #### What is the consistency of an estimator?
 
-Let $x_{1}, x_{2}, \dots , x_{n}$ be a set of $n$ independent and identically distributed data points. An estimator $\theta$ which is any function of data $\hat{\theta} = g(x_{1}, x_{2}, \dots , x_{n})$, can also be shown as $\hat{\theta_{n}}$. So far, we considered the properties of estimators for a training set of fixed size. However, we are also concerned with the behavior of an estimator as the amount of training data grows. In particular, we usually wish that, as the number of data points $n$ in our dataset increases, out point estimates converge to the true value of the corresponding paramters. More formally, we would like to have:
+Let $x_{1}, x_{2}, \dots , x_{n}$ be a set of $n$ independent and identically distributed data points. An estimator $\hat{\theta}$, which is any function of data $\hat{\theta} = g(x_{1}, x_{2}, \dots , x_{n})$, of a parameters $\theta$, can also be shown as $\hat{\theta_{n}}$. So far, we considered the properties of estimators for a training set of fixed size. However, we are also concerned with the behavior of an estimator as the amount of training data grows. In particular, we usually wish that, as the number of data points $n$ in our dataset increases, out point estimates converge to the true value of the corresponding paramters. More formally, we would like to have:
 
 $$
 \lim\limits_{n \to \infty} \hat{\theta_{n}} = \theta
