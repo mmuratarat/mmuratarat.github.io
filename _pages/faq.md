@@ -115,7 +115,8 @@ permalink: /faq/
 27. [What is a normal distribution?](#what-is-a-normal-distribution)
 28. [What is a continuous uniform distribution?](#what-is-a-uniform-distribution)
 28. [What is exponential distribution?](#what-is-exponential-distribution)
-28. What is Poisson distribution?
+28. [What is Poisson distribution?](#what-is-poisson-distribution)
+28. [What is Chi-square distribution?](#what-is-chi-square-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 31. What is discrete Uniform distribution?
 32. What is mixture of distributions? Name a common example of mixture of distributions? 
