@@ -59,13 +59,11 @@ permalink: /faq/
 1. [What is underflow and overflow?](#what-is-underflow-and-overflow)
 2. [How to tackle the problem of underflow or overflow for softmax function or log softmax function?](#how-to-tackle-the-problem-of-underflow-or-overflow-for-softmax-function-or-log-softmax-function)
 3. What is poor conditioning and the condition number?
-8. What is line search?
-10. What is curvature?
-11. [Describe convex function.](#describe-convex-function)
-11. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
-12. [What is Lagrangian function?](#what-is-lagrangian-function)
-13. [What is Jensen's inequality?](#what-is-jensens-inequality)
-
+4. What is second derivative test?
+5. [Describe convex function.](#describe-convex-function)
+6. [What are the Karush-Kuhn-Tucker conditions?](#what-are-the-karush-kuhn-tucker-conditions)
+7. [What is Lagrangian function?](#what-is-lagrangian-function)
+8. [What is Jensen's inequality?](#what-is-jensens-inequality)
 
 
 [Set Theory](#set-theory)
@@ -501,6 +499,8 @@ Similar to the gradient, the Hessian is defined only when $f(x)$ is real-valued.
 Hessian is NOT the gradient of the gradient!
 
 Note that Hessian of a function $f:\mathbb{R}^{n}\to \mathbb{R}$ is the Jacobian of its gradient, i.e., $H(f(x)) = J(\nabla f(x))^{T}$.
+
+The second derivatives tells. us how the first derivative will change as we vary the input. We can think of the second derivative as measuring the curvature. 
 
 #### What is an identity matrix?
 
@@ -1331,7 +1331,16 @@ $$
 
 There is still one small problem. Underﬂow in the numerator can still cause the expression as a whole to evaluate to zero. This means that if we implement log softmax(x) by ﬁrst running the softmax subroutine then passing the result to the log function (`log( exp(x_i) / exp(x).sum() )`), we could erroneously obtain $- \infty$. Instead, we must implementa separate function that calculates log softmax in a numerically stable way. The log softmax function can be stabilized using the same trick as we used to stabilize the softmax function.
 
-#### Describe convex function
+#### What is second derivative test?
+
+The second derivative test can be used to determine whether a critical point is a local maximum, local minimum, or a saddle point. Suppose $f(x)$ is a function of $x$ that is twice differentiable at a stationary point $x_0$. Recall that on a critical point $f^{\prime} (x_0) = 0$.
+
+1. If $f^(\prime \prime)(x_0) > 0$, then $f$ has a local minimum at $x_0$.
+2. If $f^(\prime \prime)(x_0)<0$, then f has a local maximum at $x_0$.
+
+Unfortunately, when $f^(\prime \prime)(x_0) = 0$, the test is inconclusive.
+
+#### Describe convex function.
 
 A function $f(x): M \rightarrow \mathbb{R}$, defined on a nonempty subset $M$ of $\mathbb{R}^{n}$ and taking real values, is convex on an interval $[a,b]$ if for any two points $x_1$ and $x_2$ in $[a,b]$ and any $\lambda$ where $0< \lambda < 1$,
 
