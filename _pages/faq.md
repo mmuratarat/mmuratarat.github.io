@@ -3129,6 +3129,11 @@ There are couple of transformations to and from Chi-square distribution. Let's l
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_2.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_3.jpeg?raw=true)
 
+Another important result also arises from Chi-square. The ratio of two independent chi-square variables $\chi_{\nu_{1}}^{2}$ and $\chi_{\nu_{2}}^{2}$, each divided by their respective degrees of freedom, is said to have an F distribution with $\nu_{1}$ and $\nu_{2}$ degrees of freedom, denoted by $F_{\nu_{1}, \nu_{2}}$ , and refer to $\nu_{1}$ and $\nu_{2}$ as the "numerator and denominator degrees of freedom", respectively. The expected value and variance of an $F_{\nu_{1}, \nu_{2}}$ random variable, $X$, are $E(X) = \frac{\nu_{2}}{\nu_{2} - 2}$ (assuming $\nu_{2} > 2$ and $Var(X) = \frac{2 \nu_{2}^{2} (\nu_{1}+ \nu_{2} - 2)}{\nu_{1}(\nu_{2} - 2)^{2}(\nu_{2} - 4)}$ (assuming $\nu_{2} > 4$), respectively.
+
+F distribution is used to compare the variances of two populations on the basis of two independent samples of sizes $n_{1}$ and $n_{2}$ taken at random from these populations. Under the assumption of a normal distribution, we can see that the ratio of the two sample variances will have an F distribution multiplied by the ratio of the two population variances. So, if the two population variances are equal, the ratio of the two sample variances will have an F distribution.
+
+
 #### What is the central limit theorem?
 
 The gist of Central Limit Theorem is that if we take a sufficient number of random samples from any type of distribution with some variance, the distribution of the sample means will be a normal distribution. This new distribution is called a sampling distribution. The mean of the sampling distribution should be approximately equal to the population mean.
