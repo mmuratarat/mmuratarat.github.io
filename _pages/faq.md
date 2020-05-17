@@ -6234,7 +6234,9 @@ As you can see here, that the image has now been properly converted to grayscale
 
 Goodness-of-fit tests are used to assess the performance of a model with respect to how well it explains the data. However, suppose we want to select from among several candidate models. What criterion can be used to select the best model?
 
-Model selection is the process of fitting multiple models on a given dataset and choosing one over all others. Given a set of data, the objective is to determine which of the candidate models best approximates the data. This involves trying to minimize the loss of information. Because the field of information theory is used to quantify or measure the expected value of information, the information-theoretic approach is used to derive the two most commonly used criteria in model selection — the Akaike information criterion and the Bayesian information criterion. These criterion are probabilistic measures which involve analytically scoring a candidate model using both its performance on the training dataset (goodness of fit) and the complexity of the model. Very simple models are high-bias, low-variance while with increasing model complexity they become low-bias, high-variance.The concept of model complexity can be used to create measures aiding in model selection. The Akaike information criterion and the Bayesian information criterion are a few measures which explicitly deal with this trade-off between goodness of fit and model simplicity. Both penalize the number of model parameters but reward goodness of fit on the training set, hence the best model is the one with lowest AIC/BIC. However, these probabilistic measures are appropriate when using simpler linear models like linear regression or logistic regression where the calculating of model complexity penalty (e.g. in sample bias) is known and tractable.
+Model selection is the process of fitting multiple models on a given dataset and choosing one over all others. Given a set of data, the objective is to determine which of the candidate models best approximates the data. This involves trying to minimize the loss of information. Because the field of information theory is used to quantify or measure the expected value of information, the information-theoretic approach is used to derive the two most commonly used criteria in model selection — the Akaike information criterion and the Bayesian information criterion. These criterion are probabilistic measures which involve analytically scoring a candidate model using both model performance on the training dataset (goodness of fit) and the complexity of the model. Model performance may be evaluated using a probabilistic framework, such as log-likelihood under the framework of maximum likelihood estimation. Model complexity may be evaluated as the number of degrees of freedom or parameters in the model.
+
+Very simple models are high-bias, low-variance while with increasing model complexity they become low-bias, high-variance. The concept of model complexity can be used to create measures aiding in model selection. The Akaike information criterion and the Bayesian information criterion are a few measures which explicitly deal with this trade-off between goodness of fit and model simplicity. Both penalize the number of model parameters but reward goodness of fit on the training set, hence the best model is the one with lowest AIC/BIC. However, these probabilistic measures are appropriate when using simpler linear models like linear regression or logistic regression where the calculating of model complexity penalty (e.g. in sample bias) is known and tractable.
 
 **AKAIKE INFORMATION CRITERION**
 
@@ -6250,13 +6252,67 @@ where $\theta$ is the set (vector) of model parameters, $L(\hat{\theta})$ is the
 
 **BAYESIAN INFORMATION CRITERION**
 
-The Bayesian information criterion (BIC), proposed by Schwarz and hence also referred to as the Schwarz information criterion and Schwarz Bayesian information criterion, is another model selection criterion based on information theory but set within a Bayesian context. The difference between the BIC and the AIC is the greater penalty imposed for the number of parameters by the former than the latter (because second component of BIC is bigger than the second component of AIC). BIC penalizes model complexity stronger and hence favors models which are "more wrong" but simpler. The BIC is computed as follows:
+The Bayesian information criterion (BIC), proposed by Schwarz and hence also referred to as the Schwarz information criterion and Schwarz Bayesian information criterion, is another model selection criterion based on information theory but set within a Bayesian context. The difference between the BIC and the AIC is the greater penalty imposed for the number of parameters by the former than the latter (because second component of BIC is bigger than the second component of AIC). BIC penalizes model complexity stronger and hence favors models which are "more wrong" but simpler. AIC statistic penalizes complex models less, meaning that it may put more emphasis on model performance on the training dataset, and, in turn, select more complex models.
+
+The BIC is computed as follows:
 
 $$
 BIC = - 2 L(\hat{\theta}) + k log(n)
 $$
 
 The best model is the one that provides the minimum BIC.
+
+For an example of linear regression:
+
+```python
+# generate a test dataset and fit a linear regression model
+from sklearn.datasets import make_regression
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from math import log
+
+
+# calculate aic for regression
+def calculate_aic(n, mse, num_params):
+    aic = n * log(mse) + 2 * num_params
+    return aic
+
+# calculate bic for regression
+def calculate_bic(n, mse, num_params):
+    bic = n * log(mse) + num_params * log(n)
+    return bic
+
+
+# generate dataset
+X, y = make_regression(n_samples=100, n_features=5, noise=0.1)
+
+# define and fit the model on all data
+model = LinearRegression()
+model.fit(X, y)
+
+# number of parameters
+num_params = len(model.coef_) + 1
+print('Number of parameters: %d' % (num_params))
+# Number of parameters: 6
+    
+# predict the training set
+yhat = model.predict(X)
+
+# calculate the error
+mse = mean_squared_error(y, yhat)
+print('MSE: %.3f' % mse)
+# MSE: 0.014
+
+# calculate the aic
+aic = calculate_aic(len(y), mse, num_params)
+print('AIC: %.3f' % aic)
+# AIC: -418.317
+
+# calculate the bic
+bic = calculate_bic(len(y), mse, num_params)
+print('BIC: %.3f' % bic)
+#BIC: -402.686
+```
 
 
 ## Deep Learning
