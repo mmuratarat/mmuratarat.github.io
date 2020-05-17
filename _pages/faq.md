@@ -3107,7 +3107,7 @@ Its proof can be seen below:
 
 #### What is Chi-square distribution?
 
-A chi-square distribution is a continuous distribution with $k$ degrees of freedom. This distribution is used for multiple purposes. A chi-square goodness of fit test determines if a sample data matches a population. It is also used for Test of Independence, to compare two variables in a contingency table in order to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. It is also used to determine if the standard deviation of a population is equal to a pre-specified value (one-sample hypothesis testing for variance). 
+A chi-square distribution is a continuous distribution with $k$ degrees of freedom. This distribution is used for multiple purposes. A chi-square goodness of fit test determines if a sample data matches a population. It is also used to test the independence of two categorical variables, to compare two variables in a contingency table in order to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each another. It is also used to determine if the standard deviation of a population is equal to a pre-specified value (one-sample hypothesis testing for variance). 
 
 Chi-square distribution is a special case of Gamma distribution when $k = 2 \beta$ and $\alpha = 2$. The gamma distribution has probability density function with $\alpha$ shape parameter and $\beta$ scale parameter:
 
@@ -3124,6 +3124,10 @@ $$
 which is the probability density function of a chi-square random variable with $k$ degrees of freedom, shown as $\chi_{k}^{2}$. The mean of this distribution is $k$, i.e., $E(x) = k$ and its variance is $2k$.
 
 There are couple of transformations to and from Chi-square distribution. Let's look at them now. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_1.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_2.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_3.jpeg?raw=true)
 
 #### What is the central limit theorem?
 
@@ -3805,10 +3809,31 @@ Confidence intervals are constructed at a confidence level, such as $95\%$, sele
 For example, when we try to construct confidence interval for the true mean of heights of men, the "$95\%$" says that $95$ of $100$ experiments will include the true mean, but $5$ won't. So there is a 1-in-20 chance ($5\%$) that our confidence interval does NOT include the true mean. 
 
 In the same way that statistical tests can be one or two-sided, confidence intervals can be one or two-sided. A two-sided confidence interval brackets the population parameter from above and below. A one-sided confidence interval brackets the population parameter either from above or below and furnishes an upper or lower bound to its magnitude.
+
 Confidence intervals only assess sampling error in relation to the parameter of interest. (Sampling error is simply the error inherent when trying to estimate the characteristic of an entire population from a sample.) Consequently, you should be aware of these important considerations:
 
-* As you increase the sample size, the sampling error decreases and the intervals become narrower. If you could increase the sample size to equal the population, there would be no sampling error. In this case, the confidence interval would have a width of zero and be equal to the true population parameter.
+* As you increase the sample size, the sampling error decreases and the intervals become narrower (the only limitations are time and financial constraints). If you could increase the sample size to equal the population, there would be no sampling error. In this case, the confidence interval would have a width of zero and be equal to the true population parameter. In general, the narrower the confidence interval, the more information we have about the value of the unknown population parameter. Therefore, we want all of our confidence intervals to be as narrow as possible.
 * Confidence intervals only tell you about the parameter of interest and nothing about the distribution of individual values.
+
+General form of (most) confidence intervals is:
+
+$$
+\text{Sample estimate} \pm \text{margin of error}
+$$
+
+The lower limit is obtained by:
+
+$$
+\text{the lower limit L of the interval} = \text{estimate} - \text{margin of error}
+$$
+
+The upper limit is obtained by:
+
+$$
+\text{the upper limit U of the interval} = \text{estimate} + \text{margin of error}
+$$
+
+Once we've obtained the interval, we can claim that we are really confident that the value of the population parameter is somewhere between the value of L and the value of U.
 
 #### What do Type I and Type II errors mean?
 
