@@ -5742,6 +5742,8 @@ Based on the origin of the missing data, the following terminology is used to de
 
   This simple imputation method is based on treating every variable (column) individually, ignoring any inter-relationships with other variables.
   Mean is suitable for continuous data without outliers. Median is suitable for continuous data with outliers.
+  This imputation technique ignores patterns of missing data (MAR, MNAR, MCAR).
+  Mean imputation assumes the data comes from the normal distribution (which, especially in bioscience, is rare and not very realistic.)
   For categorical feature, you can select to fill in the missing values with the most common value (mode).
   Note that the mean, median and mode imputation diminishes any correlations involving the variable (s) that are imputed. This is because we assume that there is no relationship between imputed variable and any other measured variables. Thus, those imputations have some attractive properties for univariate analysis but become problematic for multivariate analysis.
   
