@@ -99,8 +99,8 @@ permalink: /faq/
 25. [What is cross-covariance?](#what-is-cross-covariance)
 26. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [Explain some Discrete and Continuous Distributions.](#explain-some-discrete-and-continuous-distributions)
-26. What is a moment?
-26. What is moment generating function? What is characteristic function? How to compute them?
+26. [What is a moment?](#what-is-a-moment)
+26. What is moment generating function? 
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
 27. What are the shape, scale and rate parameters?
@@ -2022,14 +2022,14 @@ Note that covariance and correlation are the same if the features are standardiz
 
 #### What is a moment?
 
-In mathematics, a moment is a specific quantitative measure of the shape of a function. The concept is used in both mechanics and statistics a lot. There are two different moments, (1) Uncentered (moment about the origin, also called as raw moments) and (2) Centered (moment about the mean). $E(X^{k})$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $ and $E\left[(X-\mu)^{k}\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $. If the function is a probability distribution, then the zeroth moment is the total probability (i.e. one), the first moment is the expected value, the second central moment is the variance, the third standardized moment is the skewness, and the fourth standardized moment is the kurtosis.
+In mathematics, a moment is a specific quantitative measure of the shape of a function. The concept is used in both mechanics and statistics a lot. There are two different moments, (1) Uncentered (moment about the origin, also called as raw moments) and (2) Centered (moment about the mean). If the function is a probability distribution, then, $E(X^{k})$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $ and $E\left[(X-\mu)^{k}\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $. For example, the zeroth moment is the total probability (i.e. one), the first moment is the expected value, the second central moment is the variance, the third standardized moment is the skewness, and the fourth standardized moment is the kurtosis.
 
 * Expected Value: $E(X) = \mu$
 * Variance: $Var\left[(X - \mu)^{2} \right] = \sigma^{2}$
 * Skewness: $E\left[(X - \mu)^{2} \right]/\sigma^{3}$
 * Kurtosis: $E\left[(X - \mu)^{4} \right]/\sigma^{4}$
 
-#### What is moment generating function? What is characteristic function? How to compute them?
+#### What is moment generating function?
 
 Moment generating function is literally the function that generates the moments. The moment generating function (MGF) of a random variable $X$ is a function $M_{X}(s)$ defined as:
 
