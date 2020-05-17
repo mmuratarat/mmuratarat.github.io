@@ -3143,7 +3143,13 @@ $$
 \end{split}
 $$
 
-The preceding result gives rise to an extremely simple test for comparing two variances. The null hypothesis is $H_{0}: \sigma_{1}^{2} = \sigma_{2}^{2}$, and so the test as traditionally performed is two-sided, comparing the test statistics with the $\alpha/2$ and $1 − \alpha/2$ quantiles of the F distribution with $n_{1} − 1$ and $n_{2} − 1$ degrees of freedom.
+which can also be written as:
+
+$$
+\frac{s_{1}^{2}/\sigma_{1}^{2}}{s_{2}^{2}/\sigma_{2}^{2}} \sim F_{n_{1}-1, n_{2}-1}
+$$
+
+The preceding result gives rise to an extremely simple test for comparing two variances. The null hypothesis is $H_{0}: \sigma_{1}^{2} = \sigma_{2}^{2}$ (In this case, $\sigma_{1}^{2}/\sigma_{2}^{2} will be $1$), and so the test as traditionally performed is two-sided, comparing the test statistics with the $\alpha/2$ and $1 − \alpha/2$ quantiles of the F distribution with $n_{1} − 1$ and $n_{2} − 1$ degrees of freedom. We can even build a confidence interval for the ratio of two population variances.
 
 #### What is the central limit theorem?
 
