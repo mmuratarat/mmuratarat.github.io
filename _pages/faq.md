@@ -136,9 +136,10 @@ permalink: /faq/
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
-51. [What is confidence interval?](#what-is-confidence-interval)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
+52. What does statistically significant mean?
 52. [What is a p-value?](#what-is-a-p-value)
+52. [What is confidence interval?](#what-is-confidence-interval)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 53. [What is the power of a statistical test?](#what-is-the-power-of-a-statistical-test)
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
@@ -3702,20 +3703,6 @@ The standard error is an excellent approximation for the standard deviation. We 
 
 In general, if $np \geq 10$ and $n(1- p) \geq 10$ (SPECIAL NOTE: Some textbooks use 15 instead of 10 believing that 10 is to liberal), the sampling distribution of $\hat{p}$ is about normal with mean of $p$ and standard error $s.e.(p) = \sqrt{\frac{p(1-p)}{n}}$.
 
-#### What is confidence interval?
-
-The purpose of taking a random sample from a population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
-
-Confidence intervals are constructed at a confidence level, such as $95\%$, selected by the user. What does this mean? It means that if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately $95\%$ of the cases.
-
-For example, when we try to construct confidence interval for the true mean of heights of men, the "$95\%$" says that $95$ of $100$ experiments will include the true mean, but $5$ won't. So there is a 1-in-20 chance ($5\%$) that our confidence interval does NOT include the true mean. 
-
-In the same way that statistical tests can be one or two-sided, confidence intervals can be one or two-sided. A two-sided confidence interval brackets the population parameter from above and below. A one-sided confidence interval brackets the population parameter either from above or below and furnishes an upper or lower bound to its magnitude.
-Confidence intervals only assess sampling error in relation to the parameter of interest. (Sampling error is simply the error inherent when trying to estimate the characteristic of an entire population from a sample.) Consequently, you should be aware of these important considerations:
-
-* As you increase the sample size, the sampling error decreases and the intervals become narrower. If you could increase the sample size to equal the population, there would be no sampling error. In this case, the confidence interval would have a width of zero and be equal to the true population parameter.
-* Confidence intervals only tell you about the parameter of interest and nothing about the distribution of individual values.
-
 #### What is Normal approximation to the Binomial and Continuity Correction?
 
 If $X \sim B(n, p)$ and if $n$ is large and/or $p$ is close to $\frac{1}{2}$, then $X$ is approximately $N(np, np(1-p))$. The binomial distribution is for discrete random variables, whereas the normal distribution is continuous distribution.  The basic difference here is that with discrete values, we are talking about heights but no widths, and with the continuous distribution we are talking about both heights and widths. We need to take this into account when we are using the normal distribution to approximate a binomial using a continuity correction. The correction is to either add or subtract 0.5 of a unit from each discrete x-value. This fills in the gaps to make it continuous.
@@ -3777,6 +3764,12 @@ binom.pmf(k=8, n=25, p=0.4, loc=0)
 #0.1199797153886391
 {% endhighlight %}
 
+#### What does statistically significant mean?
+
+In principle, statistical significance helps quantify whether a result is likely due to chance or to some factor of interest. More technically, it means that if the Null Hypothesis is true (which means there really is no difference), there’s a low probability of getting a result that is different. To determine whether the observed difference is statistically significant, we look at two outputs of a statistical test: (1) p-value (a conventional threshold for declaring statistical significance is a p-value of less than 0.05), and (2) Confidence interval (a confidence interval around a difference that does not cross zero also indicates statistical significance).
+
+Statistical significance does not mean practical significance (business relevance). Only by considering context can we determine whether a difference is practically significant; that is, whether it requires action.
+
 #### What is a p-value?
 Before we talk about what p-value means, let’s begin by understanding hypothesis testing where p-value is used to determine the statistical significance of our results, which is our ultimate goal. 
 
@@ -3802,6 +3795,20 @@ The confidence level, which is the probability that the value of a parameter fal
 * If the P value is less than your significance (alpha) level, the hypothesis test is statistically significant.
 * If the confidence interval does not contain the null hypothesis value, the results are statistically significant.
 * If the P value is less than alpha, the confidence interval will not contain the null hypothesis value.
+
+#### What is confidence interval?
+
+The purpose of taking a random sample from a population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
+
+Confidence intervals are constructed at a confidence level, such as $95\%$, selected by the user. What does this mean? It means that if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately $95\%$ of the cases.
+
+For example, when we try to construct confidence interval for the true mean of heights of men, the "$95\%$" says that $95$ of $100$ experiments will include the true mean, but $5$ won't. So there is a 1-in-20 chance ($5\%$) that our confidence interval does NOT include the true mean. 
+
+In the same way that statistical tests can be one or two-sided, confidence intervals can be one or two-sided. A two-sided confidence interval brackets the population parameter from above and below. A one-sided confidence interval brackets the population parameter either from above or below and furnishes an upper or lower bound to its magnitude.
+Confidence intervals only assess sampling error in relation to the parameter of interest. (Sampling error is simply the error inherent when trying to estimate the characteristic of an entire population from a sample.) Consequently, you should be aware of these important considerations:
+
+* As you increase the sample size, the sampling error decreases and the intervals become narrower. If you could increase the sample size to equal the population, there would be no sampling error. In this case, the confidence interval would have a width of zero and be equal to the true population parameter.
+* Confidence intervals only tell you about the parameter of interest and nothing about the distribution of individual values.
 
 #### What do Type I and Type II errors mean?
 
