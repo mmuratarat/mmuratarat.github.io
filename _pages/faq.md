@@ -264,8 +264,8 @@ permalink: /faq/
 78. [What are the unknowns of a machine learning project?](#what-are-the-unknowns-of-a-machine-learning-project)
 79. [What are the properties of a successful model?](#what-are-the-properties-of-a-successful-model)
 80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
-81. What are the Model Selection Criterion, i.e., AIC and BIC?
-82. How to encode cyclical continuous features?
+81. [What are the Model Selection Criterion, i.e., AIC and BIC?](#what-are-the-model-selection-criterion-ie-aic-and-bic)
+82. [How to encode cyclical continuous features?](#how-to-encode-cyclical-continuous-features)
 
 [SQL](#SQL)
 
