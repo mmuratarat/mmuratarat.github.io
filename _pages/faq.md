@@ -264,7 +264,7 @@ permalink: /faq/
 78. [What are the unknowns of a machine learning project?](#what-are-the-unknowns-of-a-machine-learning-project)
 79. [What are the properties of a successful model?](#what-are-the-properties-of-a-successful-model)
 80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
-81. How do you deal with high cardinality? 
+81. What are the Model Selection Criterion, i.e., AIC and BIC?
 
 
 [SQL](#SQL)
@@ -6229,6 +6229,34 @@ plt.savefig('image_luminosity_method.png')
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/image_luminosity_method.png?raw=true)
 
 As you can see here, that the image has now been properly converted to grayscale using weighted method. As compare to the result of average method, this image is more brighter thank average method.
+
+#### What are the Model Selection Criterion, i.e., AIC and BIC?
+
+Goodness-of-fit tests are used to assess the performance of a model with respect to how well it explains the data. However, suppose we want to select from among several candidate models. What criterion can be used to select the best model?
+
+Model selection is the process of fitting multiple models on a given dataset and choosing one over all others. Given a set of data, the objective is to determine which of the candidate models best approximates the data. This involves trying to minimize the loss of information. Because the field of information theory is used to quantify or measure the expected value of information, the information-theoretic approach is used to derive the two most commonly used criteria in model selection — the Akaike information criterion and the Bayesian information criterion. These criterion are probabilistic measures which involve analytically scoring a candidate model using both its performance on the training dataset (goodness of fit) and the complexity of the model. Very simple models are high-bias, low-variance while with increasing model complexity they become low-bias, high-variance.The concept of model complexity can be used to create measures aiding in model selection. the Akaike information criterion and the Bayesian information criterion are a few measures which explicitly deal with this trade-off between goodness of fit and model simplicity. Both penalize the number of model parameters but reward goodness of fit on the training set, hence the best model is the one with lowest AIC/BIC. However, these probabilistic measures are appropriate when using simpler linear models like linear regression or logistic regression where the calculating of model complexity penalty (e.g. in sample bias) is known and tractable.
+
+**AKAIKE INFORMATION CRITERION**
+
+Kullback and Leibler developed a measure to capture the information that is lost when approximating reality; that is, the Kullback and Leibler measure is a criterion for a good model that minimizes the loss of information. Akaike established a relationship between the Kullback-Leibler measure and maximum likelihood estimation method —an estimation method used in many statistical analyses- to derive a criterion (i.e., formula) for model selection. This criterion, referred to as the Akaike information criterion (AIC), is generally considered the first model selection criterion that should be used in practice.
+
+The AIC is formulated as:
+
+$$
+AIC = 2 L(\hat{\theta}) + 2k
+$$
+
+where $\theta$ is the set (vector) of model parameters, $L(\hat{\theta})$ is the likelihood of the candidate model given the data when evaluated at the maximum likelihood estimate of $\theta$, and k is the number of estimated parameters in the candidate model. The AIC in isolation is meaningless. Rather, this value is calculated for every candidate model and the "best" model is the candidate model with the smallest AIC. 
+
+**BAYESIAN INFORMATION CRITERION**
+
+The Bayesian information criterion (BIC), proposed by Schwarz and hence also referred to as the Schwarz information criterion and Schwarz Bayesian information criterion, is another model selection criterion based on information theory but set within a Bayesian context. The difference between the BIC and the AIC is the greater penalty imposed for the number of parameters by the former than the latter. BIC penalizes model complexity stronger and hence favors models which are "more wrong" but simpler. The BIC is computed as follows:
+
+$$
+AIC = 2 L(\hat{\theta}) + k log(n)
+$$
+
+The best model is the one that provides the minimum BIC.
 
 
 ## Deep Learning
