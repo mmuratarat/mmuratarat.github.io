@@ -4186,6 +4186,8 @@ $$
 \frac{p(1-p)z^{2}}{ME^{2}}
 $$
 
+Note that the point estimate becomes more precise as sample size increases.
+
 An example:
 
 The standard deviation of systolic blood pressure in US is about 25 mmHg. How large a sample is necessary to estimate the average systolic blood pressure with a margin of error of 4 mmHg at 95% confidence level. 
