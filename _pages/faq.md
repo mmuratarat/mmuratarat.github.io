@@ -3129,10 +3129,21 @@ There are couple of transformations to and from Chi-square distribution. Let's l
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_2.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_transformations_3.jpeg?raw=true)
 
-Another important result also arises from Chi-square. The ratio of two independent chi-square variables $\chi_{\nu_{1}}^{2}$ and $\chi_{\nu_{2}}^{2}$, each divided by their respective degrees of freedom, is said to have an F distribution with $\nu_{1}$ and $\nu_{2}$ degrees of freedom, denoted by $F_{\nu_{1}, \nu_{2}}$ , and refer to $\nu_{1}$ and $\nu_{2}$ as the "numerator and denominator degrees of freedom", respectively. The expected value and variance of an $F_{\nu_{1}, \nu_{2}}$ random variable, $X$, are $E(X) = \frac{\nu_{2}}{\nu_{2} - 2}$ (assuming $\nu_{2} > 2$ and $Var(X) = \frac{2 \nu_{2}^{2} (\nu_{1}+ \nu_{2} - 2)}{\nu_{1}(\nu_{2} - 2)^{2}(\nu_{2} - 4)}$ (assuming $\nu_{2} > 4$), respectively.
+F distribution can be approximated by using Chi-square distribution. The ratio of two independent chi-square variables $\chi_{\nu_{1}}^{2}$ and $\chi_{\nu_{2}}^{2}$, each divided by their respective degrees of freedom, is said to have an F distribution with $\nu_{1}$ and $\nu_{2}$ degrees of freedom, denoted by $F_{\nu_{1}, \nu_{2}}$ , and refer to $\nu_{1}$ and $\nu_{2}$ as the "numerator and denominator degrees of freedom", respectively. The expected value and variance of an $F_{\nu_{1}, \nu_{2}}$ random variable, $X$, are $E(X) = \frac{\nu_{2}}{\nu_{2} - 2}$ (assuming $\nu_{2} > 2$ and $Var(X) = \frac{2 \nu_{2}^{2} (\nu_{1}+ \nu_{2} - 2)}{\nu_{1}(\nu_{2} - 2)^{2}(\nu_{2} - 4)}$ (assuming $\nu_{2} > 4$), respectively.
 
 F distribution is used to compare the variances of two populations on the basis of two independent samples of sizes $n_{1}$ and $n_{2}$ taken at random from these populations. Under the assumption of a normal distribution, we can see that the ratio of the two sample variances will have an F distribution multiplied by the ratio of the two population variances. So, if the two population variances are equal, the ratio of the two sample variances will have an F distribution.
 
+Remember that if we take a sample of size $n$ from $X \sim N(0, \sigma^{2}$, we will have $\frac{(n-1)s^{2}}{\sigma^{2}} \sim \chi_{n-1}^{2}$. We can apply the same idea here, We have two samples: one with standard deviation $s_{1}^{2}$ of size $n_{1}$ and one with standard deviation $s_{2}^{2}$ of size $n_{2}$. Therefore:
+
+$$
+\begin{split}
+\frac{s_{1}^{2}}{s_{2}^{2}} &\sim \frac{\frac{\sigma_{1}^{2} \chi_{n_{1}-1}^{2}}{n_{1}-1}}{\frac{\sigma_{2}^{2} \chi_{n_{2}-1}^{2}}{n_{2}-1}}\\
+&\sim \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} \frac{\chi_{n_{1}-1}^{2}/n_{1}-1}{\chi_{n_{2}-1}^{2}/n_{2}-1}\\
+&\sim \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} F_{n_{1}-1, n_{2}-1}
+\end{split}
+$$
+
+The preceding result gives rise to an extremely simple test for comparing two variances. The null hypothesis is $H_{0}: \sigma_{1}^{2} = \sigma_{2}^{2}$, and so the test as traditionally performed is two-sided, comparing the test statistics with the $\alpha/2$ and $1 − \alpha/2$ quantiles of the F distribution with $n_{1} − 1$ and $n_{2} − 1$ degrees of freedom.
 
 #### What is the central limit theorem?
 
