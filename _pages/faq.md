@@ -196,7 +196,6 @@ permalink: /faq/
 25. [What are the goals to build a learning machine?](#what-are-the-goals-to-build-a-learning-machine)
 26. [What are the solutions of overfitting?](#what-are-the-solutions-of-overfitting)
 27. [Is it better to design robust or accurate algorithms?](#is-it-better-to-design-robust-or-accurate-algorithms)
-28. [What is feature engineering?](#what-is-feature-engineering)
 29. [What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?](#what-are-some-feature-scaling-aka-data-normalization-techniques-when-should-you-scale-your-data-why)
 30. [What are the types of feature selection methods?](#what-are-the-types-of-feature-selection-methods)
 31. [When should you reduce the number of features?](#when-should-you-reduce-the-number-of-features)
@@ -257,7 +256,7 @@ permalink: /faq/
 76. [Why multicollinearity does not affect the predictive performance?](#why-multicollinearity-does-not-affect-the-predictive-performance)
 76. [How does multicollinearity affect feature importances in random forest classifier?](#how-does-multicollinearity-affect-feature-importances-in-random-forest-classifier)
 76. [How come do the loss functions have 1/m and 2 from the square cancels out?](#how-come-do-the-loss-functions-have-1m-and-2-from-the-square-cancels-out)
-76. [What is Feature Engineering?](#what-is-feature-engineering-1)
+76. [What is feature engineering?](#what-is-feature-engineering)
 76. [When to choose Decision Tree over Random Forest?](#when-to-choose-decision-tree-over-random-forest)
 77. [What is a machine learning project lifecycle?](#what-is-a-machine-learning-project-lifecycle)
 78. [What are the unknowns of a machine learning project?](#what-are-the-unknowns-of-a-machine-learning-project)
@@ -4778,12 +4777,6 @@ There are several solutions to the problem of overfitting:
 * Quick response: Occam’s Razor. It depends on the learning task. Choose the right balance
 * Ensemble learning can help balancing bias/variance (several weak learners together = strong learner)
 
-#### What is feature engineering?
-
-Feature engineering is the process of taking a dataset and constructing explanatory variables (features) that can be used to train a machine learning model for a prediction problem. Often, data is spread across multiple tables and must be gathered into a single table with rows containing the observations and features in the columns.
-
-Traditional approach to feature engineering is to build features one at a time using domain knowledge, a tedious, time-consuming and error-prone process known as manual engineering. The code for manual feature engineering is a problem-dependent and must be written for each new dataset.
-
 #### What are some feature scaling (a.k.a data normalization) techniques? When should you scale your data? Why?
 
 Feature scaling is the method used to standardize the range of features of data. Since the range of values of data may vary widely, it becomes a necessary step in data processing while using ML algorithms. 
@@ -5961,9 +5954,13 @@ The $\frac{1}{m}$ is to "average" the squared error over the number of observati
 
 So now the question is why there is an extra $\frac{1}{2}$. In short, it is merely for convenience, and actually, so is the $m$ - they're both constants. The expression for the gradient becomes prettier with the $\frac{1}{2}$, because the $2$ from the square term cancels out. However, the $m$ is useful if you solve this problem with gradient descent because it will take out the dependency on the number of observations. Then your gradient becomes the average of $m$ terms instead of a sum, so it's scale does not change when you add more data points.
 
-#### What is Feature Engineering?
+#### What is feature engineering?
 
-In a nutshell, feature engineering is to creat new features from your existing ones to improve model performance.
+Feature engineering is the process of taking a dataset and constructing explanatory variables (features) that can be used to train a machine learning model for a prediction problem. Often, data is spread across multiple tables and must be gathered into a single table with rows containing the observations and features in the columns.
+
+Traditional approach to feature engineering is to build features one at a time using domain knowledge, a tedious, time-consuming and error-prone process known as manual engineering. The code for manual feature engineering is a problem-dependent and must be written for each new dataset.
+
+In a nutshell, feature engineering is to create new features from your existing ones to improve model performance.
 
 * **Creating Indicator Variables**: Indicator variable from thresholds (Let’s say you’re studying alcohol preferences by U.S. consumers and your dataset has an `age` feature. You can create an indicator variable for `age >= 21` to distinguish subjects who were over the legal drinking age), indicator variable from multiple features (You’re predicting real-estate prices and you have the features n_bedrooms and n_bathrooms. If houses with 2 beds and 2 baths command a premium as rental properties, you can create an indicator variable to flag them), indicator variable for special events (You’re modeling weekly sales for an e-commerce site. You can create two indicator variables for the weeks of Black Friday and Christmas), and indicator variable for groups of classes (You’re analyzing website conversions and your dataset has the categorical feature traffic_source. You could create an indicator variable for paid_traffic by flagging observations with traffic source values of  "Facebook Ads" or "Google Adwords"). 
 
