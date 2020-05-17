@@ -151,6 +151,7 @@ permalink: /faq/
 63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
+65. What is Chi-square Test for Test of Independence?
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 66. #### What does link function do?
@@ -4056,6 +4057,25 @@ print('P(roll 3 sixes) = P(X = 3) = {:.2f}'.format(b.pmf(3)))
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof3.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof4.jpeg?raw=true)
+
+#### What is Chi-square Test for Test of Independence?
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_test_of_independence_1.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_test_of_independence_2.jpeg?raw=true)
+
+```python
+import scipy
+from scipy.stats import chi2
+
+value = chi2.ppf(q = 0.95, df= 3)
+print(value)
+#7.814727903251179
+
+# confirm with cdf
+p = chi2.cdf(value, df = 3)
+print(p)
+#0.95
+```
 
 #### What does statistical interaction mean?
 
