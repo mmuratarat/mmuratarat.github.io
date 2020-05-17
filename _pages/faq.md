@@ -2022,7 +2022,7 @@ Note that covariance and correlation are the same if the features are standardiz
 
 #### What is a moment?
 
-In mathematics, a moment is a specific quantitative measure of the shape of a function. The concept is used in both mechanics and statistics a lot. There are two different moments, (1) Uncentered (moment about the origin, also called as raw moments) and (2) Centered (moment about the mean). $E(X^k)$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $ and $E\left[(X-\mu)^k\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $. If the function is a probability distribution, then the zeroth moment is the total probability (i.e. one), the first moment is the expected value, the second central moment is the variance, the third standardized moment is the skewness, and the fourth standardized moment is the kurtosis.
+In mathematics, a moment is a specific quantitative measure of the shape of a function. The concept is used in both mechanics and statistics a lot. There are two different moments, (1) Uncentered (moment about the origin, also called as raw moments) and (2) Centered (moment about the mean). $E(X^{k})$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $ and $E\left[(X-\mu)^{k}\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $. If the function is a probability distribution, then the zeroth moment is the total probability (i.e. one), the first moment is the expected value, the second central moment is the variance, the third standardized moment is the skewness, and the fourth standardized moment is the kurtosis.
 
 * Expected Value: $E(X) = \mu$
 * Variance: $Var\left[(X - \mu)^{2} \right] = \sigma^{2}$
@@ -2065,6 +2065,11 @@ $$
 M_{X_1+X_2+\cdots +X_n}(s)=M_{X_1}(s)M_{X_2}(s) \cdots M_{X_n}(s)
 $$
 
+Note that if you take a derivative of MGF $k$ times with respect to $s$ and plug $s = 0$ in. Then, you will get $E(X^{k})$:
+
+$$
+E(X^{k}) = \frac{d^{k}}{d s^{k}} M_{X}(s) \Big|_{s = 0}
+$$
 
 #### What are the properties of Distributions?
 
