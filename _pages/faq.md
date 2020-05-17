@@ -6714,7 +6714,7 @@ That is why it is important that you really evaluate your model training methodo
 3. **Good fit** – Validation error low, slightly higher than the training error
 4. **Unknown fit** - Validation error low, training error 'high'
 
-It is said 'unknown' fit because the result is counter intuitive to how machine learning works. The essence of ML is to predict the unknown. If you are better at predicting the unknown than what you have 'learned', the data between training and validation must be different in some way. This could mean you either need to re-evaluate your data splitting method, adding more data, or possibly changing your performance metric (i.e., are you actually measuring the performance you want?).
+It is said 'unknown' fit because the result is counter intuitive to how machine learning works. The essence of ML is to predict the unknown. If you are better at predicting the unknown than what you have 'learned', the data between training and validation must be different in some way. Either your training set had many 'hard' cases to learn, or your validation set had mostly 'easy' cases to predict. This could mean you either need to re-evaluate your data splitting method, adding more data, or possibly changing your performance metric (i.e., are you actually measuring the performance you want?).
 
 #### What will happen if the learning rate is set too low or too high?
 
@@ -7495,9 +7495,9 @@ Batch norm can also be considered of the regularization methods. During training
  
 **Reason 3**: Training loss is measured during each epoch while validation loss is measured after each epoch. The training loss is continually reported over the course of an entire epoch; however, validation metrics are computed over the validation set only once the current training epoch is completed. This implies, that on average, training losses are measured half an epoch earlier. If you shift the training losses half an epoch to the left you’ll see that the gaps between the training and losses values are much smaller.
  
-**Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is too small or it was not properly sampled (e.g., too many easy classes) or  there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
+**Reason 4**: The validation set may be easier than the training set. This can happen by chance that if the validation set is smaller, but very much like it with less noise, or it was not properly sampled (e.g., too many easy classes) or there may be data leakage, i.e., training samples getting accidentally mixed in with validation/testing samples.
 
-**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training s
+**Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training set.
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
