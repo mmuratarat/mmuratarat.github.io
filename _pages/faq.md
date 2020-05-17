@@ -154,6 +154,7 @@ permalink: /faq/
 65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
+66. #### What does link function do?
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
@@ -3971,6 +3972,14 @@ $$
   $$
 g(\mu) = logit(\mu) = ln\left(\frac{\mu}{1-\mu}\right) = \mathbf{X}\beta \Rightarrow \mu =  \frac{exp(\mathbf{X}\beta)}{1+exp(\mathbf{X}\beta)} = \frac{1}{1+exp(-\mathbf{X}\beta)}
 $$
+
+#### What does link function do?
+
+Linear regression assumes that the response variable is normally distributed. Generalized linear models can have response variables with distributions other than the Normal distribution– they may even be categorical rather than continuous. Thus they may not range from  $- \infty$ to $+ \infty$. Besides, relationship between the response and explanatory variables need not be of the simple linear form.
+
+Generalized linear models include a link function that relates the expected value of the response to the linear predictors in the model. A link function transforms the probabilities of the levels of a categorical response variable to a continuous scale that is unbounded. Once the transformation is complete, the relationship between the predictors and the response can be modeled with linear regression. For example, a binary response variable can have two unique values. Conversion of these values to probabilities makes the response variable range from $0$ to $1$. When you apply an appropriate link function to the probabilities, the numbers that result range from $- \infty$ to $+ \infty$. The general form of the link function follows:
+
+It links the mean of the dependent variable $Y_{i}$, which is $𝐸(Y_{i})=\mu_{i} to the linear term $X_{i}^{T} \beta$ in such a way that the range of the non-linearly transformed mean g(\mu_{i}) ranges from $- \infty$ to $+ \infty$. Thus you can actually form a linear equation $g(\mu_{i}) = X_{i}^{T} \beta$ where $g(\cdot)$ is the link function, $\mu_{i}$ is the mean response of the $i$th row, $X_{i}$ is the vector of predictor variables for the $i$th row and use an iteratively reweighted least squares method for maximum likelihood estimation of the model parameters.
 
 #### Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?
 
