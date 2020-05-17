@@ -3832,7 +3832,7 @@ The confidence level, which is the probability that the value of a parameter fal
 
 The purpose of taking a random sample from a population and computing a statistic, such as the mean from the data, is to approximate the mean of the population. How well the sample statistic estimates the underlying population value is always an issue. In statistical inference, one wishes to estimate population parameters using observed sample data. A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data
 
-Confidence intervals are constructed at a confidence level, such as $95\%$, selected by the user. What does this mean? It means that if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately $95\%$ of the cases.
+Confidence intervals are constructed at a confidence level, such as $95\%$, selected by the user. The confidence level refers to the long-term success rate of the method, that is, how often this type of interval will capture the parameter of interest. In other words, if the same population is sampled on numerous occasions and interval estimates are made on each occasion, the resulting intervals would bracket the true population parameter in approximately $95\%$ of the cases.
 
 For example, when we try to construct confidence interval for the true mean of heights of men, the "$95\%$" says that $95$ of $100$ experiments will include the true mean, but $5$ won't. So there is a 1-in-20 chance ($5\%$) that our confidence interval does NOT include the true mean. 
 
