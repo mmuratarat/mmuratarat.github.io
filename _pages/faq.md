@@ -100,7 +100,7 @@ permalink: /faq/
 26. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [Explain some Discrete and Continuous Distributions.](#explain-some-discrete-and-continuous-distributions)
 26. [What is a moment?](#what-is-a-moment)
-26. What is moment generating function? 
+26. [What is moment generating function?](#what-is-moment-generating-function)
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
 27. What are the shape, scale and rate parameters?
