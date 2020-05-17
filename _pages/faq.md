@@ -2034,14 +2034,24 @@ In mathematics, a moment is a specific quantitative measure of the shape of a fu
 Moment generating function is literally the function that generates the moments. The moment generating function (MGF) of a random variable $X$ is a function $M_{X}(s)$ defined as:
 
 $$
-M_{X}(s)=E\left[e^{sX}\right]
+M_{X}(t)=E\left[e^{tX}\right]
 $$
 
 We say that MGF of $X$ exists, if there exists a positive constant a such that $M_{X}(s)$ is finite for all $s \in [−a,a]$.
 
-Why is the MGF useful? There are basically two reasons for this. First, the MGF of X gives us all moments of X. That is why it is called the moment generating function. Second, the MGF (if it exists) uniquely determines the distribution. That is, if two random variables have the same MGF, then they must have the same distribution. Thus, if you find the MGF of a random variable, you have indeed determined its distribution. This method is very useful when we work on sums of several independent random variables. For example:
+For continuous distributions, it is given by:
 
-Suppose $X_{1}, X_{2}, \dots , X_{n}$ are $n$ independent random variables, and the random variable $Y$ is defined as:
+$$
+M_X(t) = E(e^{tX}) = \sum\limits_{\text{all }x} e^{tx} P(x)
+$$
+
+and for discrete distributions:
+
+$$
+M_X(t) = E(e^{tX}) = \int_x e^{tx} f(x) \, \mathrm{d}x
+$$
+
+Why is the MGF useful? There are basically two reasons for this. First, the MGF of X gives us all moments of X. That is why it is called the moment generating function. Second, the MGF (if it exists) uniquely determines the distribution. That is, if two random variables have the same MGF, then they must have the same distribution. That comes from the fact that moment generating functions are unique. Thus, if you find the MGF of a random variable, you have indeed determined its distribution. This method is very useful when we work on sums of several independent random variables. For example, suppose $X_{1}, X_{2}, \dots , X_{n}$ are $n$ independent random variables, and the random variable $Y$ is defined as:
 
 $$
 Y=X_1 + X_2 + \cdots + X_n
@@ -2051,24 +2061,24 @@ Then,
 
 $$
 \begin{split}
-M_Y(s)&=E[e^{sY}] \\
-&=E[e^{s(X_1+X_2+ \cdots +X_n)}]\\
-&=E[e^{sX_1} e^{sX_2} \cdots e^{sX_n}] \\
-&=E[e^{sX_1}] E[e^{sX_2}] \cdots E[e^{sX_n}]  \hspace{10pt} \textrm{(since the $X_i$'s are independent)}\\
-&=M_{X_1}(s)M_{X_2}(s) \cdots M_{X_n}(s)
+M_Y(t)&=E[e^{tY}] \\
+&=E[e^{t(X_1+X_2+ \cdots +X_n)}]\\
+&=E[e^{tX_{1}} e^{tX_{2}} \cdots e^{tX_{n}}] \\
+&=E[e^{tX_1}] E[e^{tX_2}] \cdots E[e^{tX_n}]  \hspace{10pt} \textrm{(since the $X_i$'s are independent)}\\
+&=M_{X_1}(t) M_{X_2}(t) \cdots M_{X_n}(t)
 \end{split}
 $$
 
 If $X_{1}, X_{2}, \dots , X_{n}$ are $n$ *independent* random variables, then, we can write:
 
 $$
-M_{X_1+X_2+\cdots +X_n}(s)=M_{X_1}(s)M_{X_2}(s) \cdots M_{X_n}(s)
+M_{X_1+X_2+\cdots +X_n}(t)=M_{X_1}(s)M_{X_2}(t) \cdots M_{X_n}(t)
 $$
 
-Note that if you take a derivative of MGF $k$ times with respect to $s$ and plug $s = 0$ in. Then, you will get $E(X^{k})$:
+Note that if you take a derivative of MGF $k$ times with respect to $t$ and plug $t = 0$ in. Then, you will get the $k$th moment of the random variable $X$ about zero, i.e., $E(X^{k})$:
 
 $$
-E(X^{k}) = \frac{d^{k}}{d s^{k}} M_{X}(s) \Big|_{s = 0}
+E(X^{k}) = \frac{d^{k}}{d t^{k}} M_{X}(t) \Big|_{t = 0}
 $$
 
 #### What are the properties of Distributions?
