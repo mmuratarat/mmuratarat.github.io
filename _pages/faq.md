@@ -99,7 +99,8 @@ permalink: /faq/
 25. [What is cross-covariance?](#what-is-cross-covariance)
 26. [What is the correlation for a vector of random variables? How is it related to covariance matrix?](#what-is-the-correlation-for-a-vector-of-random-variables-how-is-it-related-to-covariance-matrix)
 26. [Explain some Discrete and Continuous Distributions.](#explain-some-discrete-and-continuous-distributions)
-25. What is moment generating function? What is characteristic function? How to compute them?
+26. What is a moment?
+26. What is moment generating function? What is characteristic function? How to compute them?
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
 27. What are the shape, scale and rate parameters?
@@ -2017,6 +2018,53 @@ Note that covariance and correlation are the same if the features are standardiz
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/discrete_distributions_table.png?raw=true)
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/continuous_distributions_table.png?raw=true)
+
+
+#### What is a moment?
+
+In mathematics, a moment is a specific quantitative measure of the shape of a function. The concept is used in both mechanics and statistics a lot. There are two different moments, (1) Uncentered (moment about the origin, also called as raw moments) and (2) Centered (moment about the mean). $E(X^k)$ is the $k$th (theoretical) moment of the distribution (about the origin), for $k = 1, 2, \dots $ and $E\left[(X-\mu)^k\right]$ is the $k$th (theoretical) moment of the distribution (about the mean), for $k = 1, 2, \dots $. If the function is a probability distribution, then the zeroth moment is the total probability (i.e. one), the first moment is the expected value, the second central moment is the variance, the third standardized moment is the skewness, and the fourth standardized moment is the kurtosis.
+
+* Expected Value: $E(X) = \mu$
+* Variance: $Var\left[(X - \mu)^{2} \right] = \sigma^{2}$
+* Skewness: $E\left[(X - \mu)^{2} \right]/\sigma^{3}$
+* Kurtosis: $E\left[(X - \mu)^{4} \right]/\sigma^{4}$
+
+#### What is moment generating function? What is characteristic function? How to compute them?
+
+Moment generating function is literally the function that generates the moments. The moment generating function (MGF) of a random variable $X$ is a function $M_{X}(s)$ defined as:
+
+$$
+M_{X}(s)=E\left[e^{sX}\right]
+$$
+
+We say that MGF of $X$ exists, if there exists a positive constant a such that $M_{X}(s)$ is finite for all $s \in [−a,a]$.
+
+Why is the MGF useful? There are basically two reasons for this. First, the MGF of X gives us all moments of X. That is why it is called the moment generating function. Second, the MGF (if it exists) uniquely determines the distribution. That is, if two random variables have the same MGF, then they must have the same distribution. Thus, if you find the MGF of a random variable, you have indeed determined its distribution. This method is very useful when we work on sums of several independent random variables. For example:
+
+Suppose $X_{1}, X_{2}, \dots , X_{n}$ are $n$ independent random variables, and the random variable $Y$ is defined as:
+
+$$
+Y=X_1 + X_2 + \cdots + X_n
+$$
+
+Then,
+
+$$
+\begin{split}
+M_Y(s)&=E[e^{sY}] \\
+&=E[e^{s(X_1+X_2+ \cdots +X_n)}]\\
+&=E[e^{sX_1} e^{sX_2} \cdots e^{sX_n}] \\
+&=E[e^{sX_1}] E[e^{sX_2}] \cdots E[e^{sX_n}]  \hspace{10pt} \textrm{(since the $X_i$'s are independent)}\\
+&=M_{X_1}(s)M_{X_2}(s) \cdots M_{X_n}(s)
+\end{split}
+$$
+
+If $X_{1}, X_{2}, \dots , X_{n}$ are $n$ *independent* random variables, then, we can write:
+
+$$
+M_{X_1+X_2+\cdots +X_n}(s)=M_{X_1}(s)M_{X_2}(s) \cdots M_{X_n}(s)
+$$
+
 
 #### What are the properties of Distributions?
 
