@@ -103,7 +103,6 @@ permalink: /faq/
 26. [What is moment generating function?](#what-is-moment-generating-function)
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
-27. What are the shape, scale and rate parameters?
 27. [How to compute the median of a probability distribution?](#how-to-compute-the-median-of-a-probability-distribution)
 27. [How to find the distribution of Order Statistics?](#how-to-find-the-distribution-of-order-statistics)
 28. [What are the properties of an estimator?](#what-are-the-properties-of-an-estimator)
@@ -119,8 +118,6 @@ permalink: /faq/
 28. [What is Poisson distribution?](#what-is-poisson-distribution)
 28. [What is Chi-square distribution?](#what-is-chi-square-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
-31. What is discrete Uniform distribution?
-32. What is mixture of distributions? Name a common example of mixture of distributions? 
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
 38. [How does the denominator in Bayes rule act as normalizing constant?](#how-does-the-denominator-in-bayes-rule-act-as-normalizing-constant)
@@ -137,7 +134,7 @@ permalink: /faq/
 50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
 50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
-52. What does statistically significant mean?
+52. [What does statistically significant mean?](#what-does-statistically-significant-mean)
 52. [What is a p-value?](#what-is-a-p-value)
 52. [What is confidence interval?](#what-is-confidence-interval)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
