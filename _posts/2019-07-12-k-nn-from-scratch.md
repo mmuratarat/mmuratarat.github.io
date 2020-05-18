@@ -58,6 +58,8 @@ The number of neighbors (K) in K-NN is a hyperparameter that you need choose at 
 
 Cross-validation is another way to retrospectively determine a good K value by using an independent dataset to validate the K value. Historically, the optimal K for most datasets has been between 3-10. That produces much better results than 1NN.
 
+Important thing to note in K-NN algorithm is the that the number of features and the number of classes both do not play a part in determining the value of K in K-NN algorithm. K-NN algorithm is an ad-hoc classifier used to classify test data based on distance metric. However, the value of K is non-parametric and a general rule of thumb in choosing the value of K is $K = \sqrt{n}$, where $n$ stands for the number of samples in the training dataset. Another tip is to try and keep the value of K odd, so that there is no tie between choosing a class .
+
 ## Pros and Cons of this algorithm
 
 ### Pros
