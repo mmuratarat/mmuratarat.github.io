@@ -268,6 +268,7 @@ permalink: /faq/
 80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
 81. [What are the Model Selection Criterion, i.e., AIC and BIC?](#what-are-the-model-selection-criterion-ie-aic-and-bic)
 82. [How to encode cyclical continuous features?](#how-to-encode-cyclical-continuous-features)
+83. Why using probability estimates and non-thresholded decision values give different AUC values?
 
 [SQL](#SQL)
 
@@ -8031,6 +8032,121 @@ Since long sentences have more words than short ones, they can absorb more noise
 (they use $p = \alpha$ for RD). Furthermore, for each original sentence, we generate naug augmented sentences. Examples of augmented sentences are shown in
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-04-28%20at%2009.45.53.png?raw=true)
+
+#### Why using probability estimates and non-thresholded decision values give different AUC values?
+
+The Receiver Operating Characteristic (ROC) Curve is computed by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at uniformly distributed threshold values from 0 to 1. The Area Under the Curve (AUC) is then calculated to turn this into a numerical score. AUC is a ranking metric, meaning that it cares only about the order of predictions. Having probabilities instead of two-class predictions (0/1 for binary classification which are scores) gives it more granularity to rank the predictions. Different thresholds are calculated inside `roc_auc_score()` on the basis of this prediction probabilities. 
+
+Scikit-Learn's `predict` returns only one class or the other. Then you compute a ROC with the results of predict on a classifier, there are only three thresholds (0, 1 and 2, see below to find where 2 comes from!). Your ROC curve looks like this:
+
+```
+      ..............................
+      |
+      |
+      |
+......|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+```
+
+Meanwhile, `predict_proba()` method returns an entire range of probabilities, so now you can put more than three thresholds on your data.
+
+```
+             .......................
+             |
+             |
+             |
+          ...|
+          |
+          |
+     .....|
+     |
+     |
+ ....|
+.|
+|
+|
+|
+|
+```
+Hence different area. See a basic example below:
+
+```python
+X = df.iloc[:,2:4].values
+y = df.iloc[:,-1].values
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42)
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+
+from sklearn.ensemble import RandomForestClassifier
+params = {'n_estimators': 100, 'criterion': 'entropy', 'oob_score': True, 'random_state': 42}
+classifier = RandomForestClassifier(**params)
+classifier.fit(X_train, y_train)
+
+print(classifier.oob_score_)
+# 0.8833333333333333
+
+y_pred = classifier.predict(X_test)
+y_pred_prob = classifier.predict_proba(X_test)
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+# [[57  6]
+#  [ 4 33]]
+
+test_acc = accuracy_score(y_test, y_pred)
+print(test_acc)
+#0.9
+
+from sklearn.metrics import roc_curve, roc_auc_score
+_, _, threshold1 = roc_curve(y_test, y_pred)
+print(threshold1)
+#array([2, 1, 0])
+
+_, _, threshold2 = roc_curve(y_test, y_pred_prob[:,1])
+print(threshold2)
+# array([2.  , 1.  , 0.99, 0.98, 0.97, 0.94, 0.93, 0.89, 0.88, 0.86, 0.73,
+#        0.71, 0.62, 0.56, 0.53, 0.48, 0.36, 0.11, 0.1 , 0.05, 0.04, 0.02,
+#        0.01, 0.  ])
+
+print(roc_auc_score(y_test, y_pred))
+#0.8983268983268984
+
+print(roc_auc_score(y_test, y_pred_prob[:,1]))
+#0.9586014586014586
+
+# Different AUC values!
+```
+
+The question is now, sometimes you can get a scalar "2" as a threshold. The documentation explains this as `thresholds : array, shape = [n_thresholds] Decreasing thresholds on the decision function used to compute fpr and tpr. thresholds[0] represents no instances being predicted and is arbitrarily set to max(y_score) + 1.`
+
+Ok, so, how does number of thresholds get chosen in `roc_curve` function in scikit-learn?
+
+By definition, a ROC curve represent all possible thresholds in the interval $(− \infty, + \infty)$.
+
+This number is infinite and of course cannot be represented with a computer. Fortunately when you have some data you can simplify this and only visit a limited number of thresholds. This number corresponds to the number of unique values in the data + 1, or something like:
+
+```
+n_thresholds = len(np.unique(x)) + 1
+```
+
+where `x` is the array holding your target scores (`y_score`).
 
 
 ## SQL
