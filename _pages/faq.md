@@ -2138,6 +2138,25 @@ $$
 \phi_{X_1+X_2+\cdots +X_n}(\omega)=\phi_{X_1}(\omega) \phi_{X_2}(\omega) \cdots \phi_{X_n}(\omega)
 $$
 
+For example, let's find the characteristic function of an exponential distributed random variable, i.e., $X \sim Exponential (\lambda)$. Recall that the PDF of $X$ is:
+
+$$
+f_X(x)=\lambda e^{-\lambda x},\,\,\,\, x \geq 0, \lambda > 0
+$$
+
+We conclude that:
+
+$$
+\begin{split}
+\phi_{X}(\omega)&=E[e^{j \omega X}]  \\
+&=\int_{0}^{\infty}\lambda e^{-\lambda x} e^{j \omega x}dx\\
+&=\left[\frac{\lambda}{j \omega-\lambda} e^{(j \omega-\lambda) x}\right]_{0}^{\infty}\\
+&=\frac{\lambda}{\lambda-j \omega}.
+\end{split}
+$$
+
+Note that since $\lambda > 0$, the value of $e^{(j \omega-\lambda) x}$, when evaluated at $x = + \infty$, is zero.
+
 * Let $X$ and $Y$ be two random variables. Denote by $F_{X}(x)$ and $F_{Y}(y)$ their distribution functions and by $\phi_{X}(\omega)$ and $\phi_{Y}(\omega)$ their characteristic functions. Then, $X$ and $Y$ have the same distribution, i.e., $F_{X}(x) = F_{Y}(y) for any x, if and only if they have the same characteristic function, i.e., $\phi_{X}(\omega) = \phi_{Y}(\omega)$ for any $\omega$. In applications, this proposition is often used to prove that two distributions are equal, especially when it is too difficult to directly prove the equality of the two distribution functions. 
 
 * Like the moment generating function of a random variable, the characteristic function can be used to derive the moments of $X$ by differentiation of characteristic function.
