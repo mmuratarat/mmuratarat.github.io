@@ -2084,7 +2084,7 @@ $$
 
 #### What is characteristic function?
 
-A characteristic function completely defines a probability distribution. Completely defining a probability distribution involves defining a complex function (a mix of real numbers and imaginary numbers). It is very similar to moment generating function. The characteristic function has one big advantage, is that it always exists — even when there is no moment generating function.
+A characteristic function completely defines a probability distribution. Completely defining a probability distribution involves defining a complex function (a mix of real numbers and imaginary numbers). It is very similar to moment generating function. **The characteristic function has one big advantage, that it always exists — even when there is no moment generating function**.
 
 There are random variables for which the moment generating function does not exist on any real interval with positive length. For example, consider the random variable $X$ that has a *Cauchy distribution*:
 
@@ -2136,6 +2136,12 @@ More generally, if $X_{1}, X_{2}, \dots, X_{n}$ are $n$ independent random varia
 $$
 \phi_{X_1+X_2+\cdots +X_n}(\omega)=\phi_{X_1}(\omega) \phi_{X_2}(\omega) \cdots \phi_{X_n}(\omega)
 $$
+
+* Let $X$ and $Y$ be two random variables. Denote by $F_{X}(x)$ and $F_{Y}(y)$ their distribution functions and by $\phi_{X}(\omega)$ and $\phi_{Y}(\omega)$ their characteristic functions. Then, $X$ and $Y$ have the same distribution, i.e., $F_{X}(x) = F_{Y}(y) for any x, if and only if they have the same characteristic function, i.e., $\phi_{X}(\omega) = \phi_{Y}(\omega)$ for any $\omega$. In applications, this proposition is often used to prove that two distributions are equal, especially when it is too difficult to directly prove the equality of the two distribution functions. 
+
+* Like the moment generating function of a random variable, the characteristic function can be used to derive the moments of $X$ by differentiation of characteristic function.
+
+* Many widely known distributions have known characteristic functions but they do not have known expressions for their respective density functions (e.g., Levy stable distributions).
 
 #### What are the properties of Distributions?
 
