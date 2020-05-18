@@ -35,11 +35,16 @@ p_i = [0.25, 0.75]
 n = 10000
 
 x = []
+z = []
 for i in range(n):
+    #We first choose which distribution to use, from these two Gaussians 
+    #so we have two options: 0 means the first Gaussian (N(5, 1.5)) and 1 means the second Gaussian (N(10, 2))
     z_i = np.random.binomial(1, 0.75)
+    z.append(z_i)
+    #[1, 0, 1, 1, 1, 0 ,0 ,1 ,0, ....., 1, 0] #Bernoulli
     x_i = np.random.normal(mu[z_i], sigma[z_i])
     x.append(x_i)
-
+    
 def univariate_normal(x, mean, variance):
     """pdf of the univariate normal distribution."""
     return ((1. / np.sqrt(2 * np.pi * variance)) * 
@@ -70,6 +75,8 @@ n = 10000
 
 x = []
 for i in range(n):
+    #When k is bigger than 2 and n is 1, Multinomial distribution is 
+    #the categorical distribution (multinoulli distribution).
     z_i = np.argmax(np.random.multinomial(1, p_i))
     x_i = np.random.normal(mu[z_i], sigma[z_i])
     x.append(x_i)
