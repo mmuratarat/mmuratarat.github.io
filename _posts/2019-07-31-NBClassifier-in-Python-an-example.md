@@ -245,23 +245,23 @@ df[df['class'] == '-']
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/naive_bayes_NLP_example_-_class.png?raw=true)
 
-Let's do positive classified documents, first. Since we have 5 documents and 3 of them are classified positive (`+`):
+Let's do positively-classified documents, first. Since we have 5 documents and 3 of them are classified positive (`+`):
 
 $$
 P(+) = \frac{3}{5} = 0.6
 $$
 
-Then we need to computer some conditional probabilities, $P( I \mid + ), P( loved \mid + ), P( the \mid + ), P( movie \mid + ), P( a \mid + ), P( great \mid + ), P( acting \mid + ), P( good \mid + ), P( poor \mid + ), P( hated \mid + )$.
+Then we need to computer some conditional probabilities, $P( I \mid + )$, $P( loved \mid + )$, $P( the \mid + )$, $P( movie \mid + )$, $P( a \mid + )$, $P( great \mid + )$, $P( acting \mid + )$, $P( good \mid + )$, $P( poor \mid + )$, $P( hated \mid + )$.
 
 Let $n$ be the number of total words in `+` case, which is 14. $n_{k}$ is the number of times that the word $k$ occurs in these `+` cases. Then, we can compute the probability of each word given it is classified as positive, as in the following:
 
 $$
-P( w_{k} \mid +) = \frac{n_{k} + 1}{n + \mid  \text{vocabulari} \mid}
+P( w_{k} \mid +) = \frac{n_{k} + 1}{n + \mid  \text{vocabulary} \mid}
 $$
 
-where $\mid  \text{vocabulari} \mid$ is the size of the vocabulary.
+where $\mid  \text{vocabulary} \mid$ is the size of the vocabulary.
 
-**NOTE**: Actually, the main formular is:
+**NOTE**: Actually, the main formula is:
 
 $$
 P( w_{k} \mid +) = \frac{n_{k}}{n}
@@ -366,7 +366,7 @@ $$
 Now that we have trained our classifier, let's classify a new sentence according to:
 
 $$
-V_{NB} = \underset{v_{j} \in V}{\arg\max} P(v_{j}) \sum_{w \in word} P( w \mid v_{j})
+V_{NB} = \underset{v_{j} \in V}{\arg\max} \,\,\,P(v_{j}) \sum_{w \in word} P( w \mid v_{j})
 $$
 
 where $v$ stands for value or class!
