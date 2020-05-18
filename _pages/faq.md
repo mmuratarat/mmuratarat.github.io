@@ -2082,6 +2082,61 @@ $$
 E(X^{k}) = \frac{d^{k}}{d t^{k}} M_{X}(t) \Big|_{t = 0}
 $$
 
+#### What is characteristic function?
+
+A characteristic function completely defines a probability distribution. Completely defining a probability distribution involves defining a complex function (a mix of real numbers and imaginary numbers). It is very similar to moment generating function. The characteristic function has one big advantage, is that it always exists — even when there is no moment generating function.
+
+There are random variables for which the moment generating function does not exist on any real interval with positive length. For example, consider the random variable $X$ that has a *Cauchy distribution*:
+
+$$
+f_X(x)=\frac{\frac{1}{\pi}}{1+x^2}, \hspace{10pt} \textrm{for all }x \in \mathbb{R}
+$$
+
+You can show that for any nonzero real number
+
+$$
+M_{X}(t)=\int_{-\infty}^{\infty} e^{tx}\frac{\frac{1}{\pi}}{1+x^2} dx=\infty
+$$
+
+Therefore, the moment generating function does not exist for this random variable on any real interval with positive length. If a random variable does not have a well-defined MGF, we can use the characteristic function defined as
+
+$$
+\phi_{X}(\omega)&=E[e^{j \omega X}]
+$$
+
+where $j = $\sqrt{-1}$ and $\omega$ is a real number. It is worth noting that $e^{j \omega X}$ is a complex-valued random variable. You can imagine that a complex random variable can be written as $X=Y + j Z$, where $Y$ and $Z$ are ordinary real-valued random variables. Thus, working with a complex random variable is like working with two real-valued random variables. The advantage of the characteristic function is that it is defined for all real-valued random variables. Specifically, if $X$ is a real-valued random variable, we can write
+
+$$
+|e^{j \omega X}|=1
+$$
+
+Therefore, we conclude
+
+$$
+\begin{split}
+|\phi_{X}(\omega)|&=|E[e^{j \omega X}]| \\
+&\leq E[|e^{j \omega X}|]\\
+&\leq 1
+\end{split}
+$$
+
+The characteristic function has similar properties to the moment generating function. For example, if $X$ and $Y$ are independent
+
+$$
+\begin{split}
+\phi_{X+Y}(\omega)&=E[e^{j \omega (X+Y)}]\\
+&=E[e^{j \omega X} e^{j \omega Y}]\\
+&=E[e^{j \omega X}]E[e^{j \omega Y}] \hspace{10pt} \textrm{(since $X$ and $Y$ are independent)}\\
+&=\phi_{X}(\omega) \phi_{Y}(\omega)
+\end{split}
+$$
+
+More generally, if $X_{1}, X_{2}, \dots, X_{n}$ are $n$ independent random variables, then
+
+$$
+\phi_{X_1+X_2+\cdots +X_n}(\omega)=\phi_{X_1}(\omega) \phi_{X_2}(\omega) \cdots \phi_{X_n}(\omega)
+$$
+
 #### What are the properties of Distributions?
 
 * **Measures of Central Tendancy**
