@@ -6090,11 +6090,15 @@ The number of clusters is (typically) not known a priori (that’s basically the
 
 There is no underlying probability model in K-means. The goal is to group data into K clusters.
 
+The use of Euclidean distance as the measure of dissimilarity can also make the determination of the cluster means non-robust to outliers and noise in the data.
+
+Categorical data (i.e., category labels such as gender, country, browser type) needs to be encoded (e.g., one-hot encoding for nominal categorical variable or label encoding for ordinal categorical variable) or separated in a way that can still work with the algorithm, which is still not perfectly right. There's a variation of K-means known as K-modes, which is suitable for categorical data. 
+
 K-means have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries (soft clustering), where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$. Additionally, in probabilistic clustering, clusters can overlap (k-means doesn’t allow this).
 
-K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes. In that case, one can use Mixture models using EM algorithm or Fuzzy K-means. As a matter of fact, K-means is special variant of the EM algorithm with the assumption that the clusters are spherical.
+K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes. In that case, one can use Mixture models using EM algorithm or Fuzzy K-means. which both allow soft assignments. As a matter of fact, K-means is special variant of the EM algorithm with the assumption that the clusters are spherical. EM algorithm also starts with random initializations, it is an iterative algorithm, it has strong assumptions that the data points must fulfill, it is sensitive to outliers, it requires prior knowledge of the number of desired clusters. The results produced by EM are also non-reproducible.
 
-K-means is sensitive to outliers and noise.
+K-Means clustering just cannot deal with missing values. Any observation even with one missing dimension must be specially handled. If there are only few observations with missing values then these observations can be excluded from clustering. However, this must have equivalent rule during scoring about how to deal with missing values. Since in practice one cannot just refuse to exclude missing observations from segmentation, often better practice is to impute missing observations. There are various methods available for missing value imputation but care must be taken to ensure that missing imputation doesn’t distort distance calculation implicit in k-Means algorithm. For example, replacing missing age with -1 or missing income with 999999 can be misleading!
 
 Clustering analysis is not negatively affected by heteroscedasticity but the results are negatively impacted by multicollinearity of features/ variables used in clustering as the correlated feature/ variable will carry extra weight on the distance calculation than desired.
 
