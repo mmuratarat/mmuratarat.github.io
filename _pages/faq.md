@@ -6092,9 +6092,20 @@ There is no underlying probability model in K-means. The goal is to group data i
 
 K-means have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries (soft clustering), where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$. Additionally, in probabilistic clustering, clusters can overlap (k-means doesn’t allow this).
 
-K-means lack of flexibility in cluster shape. K-means is that the cluster models must be circular. . K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
+K-means lack of flexibility in cluster shape. K-means is that the cluster models must be circular. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
 
 K-means is sensitive to outliers and noise.
+
+Clustering analysis is not negatively affected by heteroscedasticity but the results are negatively impacted by multicollinearity of features/ variables used in clustering as the correlated feature/ variable will carry extra weight on the distance calculation than desired.
+
+K-Means clustering algorithm instead converses on local minima which might also correspond to the global minima in some cases but not always. Therefore, it’s advised to run the K-Means algorithm multiple times before drawing inferences about the clusters. However, note that it’s possible to receive same clustering results from K-means by setting the same seed value for each run. But that is done by simply making the algorithm choose the set of same random number for each run.
+
+#### What are the possible termination conditions in K-Means?
+
+1. For a fixed number of iterations.
+2. Assignment of observations to clusters does not change between iterations. Except for cases with a bad local minimum.
+3. Centroids do not change between successive iterations.
+4. Terminate when RSS falls below a threshold.
 
 #### Why multicollinearity does not affect the predictive performance?
 
