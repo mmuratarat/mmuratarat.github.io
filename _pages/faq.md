@@ -5605,7 +5605,7 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 2. SVM is more effective in high dimensional spaces.
 
-3. SVM can efficiently handle non-linear data using Kernel trick. The feature mapping is implicitly carried out via simple dot products.
+3. SVM can efficiently handle non-linear data using Kernel trick. The feature mapping is implicitly carried out via simple dot products. It is also possible to specify custom kernels, instead of using common kernels in the literature.
 
 4. SVM is effective in cases where number of dimensions is greater than the number of samples (high dimensional data).
 
@@ -5639,7 +5639,7 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 7. SVMs are difficult to interpret: SVM model is difficult to understand and interpret by human beings unlike Decision Trees.
 
-8. They require feature scaling. One must do feature scaling of variables before applying SVM. Because SVM constructs a hyperplane such that it has the largest distance to the nearest data points (called support vectors). If the dimensions have different ranges, the dimension with much bigger range of values influences the distance more than other dimensions. So its necessary to scale the features such that all the features have similar influence when calculating the distance to construct a hyperplane. Another advantage is to avoid the numerical difficulties during the calculation. Because kernel values usually depend on inner products of features vectors, large attribute values might cause numerical problems.
+8. Support Vector Machine algorithms are not scale invariant, so it is highly recommended to scale your data. One must do feature scaling of variables before applying SVM. Because SVM constructs a hyperplane such that it has the largest distance to the nearest data points (called support vectors). If the dimensions have different ranges, the dimension with much bigger range of values influences the distance more than other dimensions. So its necessary to scale the features such that all the features have similar influence when calculating the distance to construct a hyperplane. Another advantage is to avoid the numerical difficulties during the calculation. Because kernel values usually depend on inner products of features vectors, large attribute values might cause numerical problems. Note that the same scaling must be applied to the test vector to obtain meaningful results.
 
 9. SVM algorithm is not suitable for large data sets.
 
