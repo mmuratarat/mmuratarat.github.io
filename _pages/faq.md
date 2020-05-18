@@ -5485,11 +5485,15 @@ LR can be (straightforwardly) used within Bayesian models.
 
 SVMs have a nice dual form, giving sparse solutions when using the kernel trick (better scalability). 
 
+#### What is the best separating hyperplane?
+
+In general, we can find multiple separating hyperplane between two classes. However, The best separating hyperplan is  the one that maximizes the distance to the closest data points from both classes. We say it is the hyperplane with maximum margin.
+
 #### What is the optimization problem for Support Vector Machines?
 
 __Hard-Margin Classifier__
 
-In an a training set where the data is linearly separable, and you are using a hard margin (no slack allowed), the support vectors are the points which lie along the supporting hyperplanes (the hyperplanes parallel to the dividing hyperplane at the edges of the margin)
+In an a training set where the data is linearly separable, and we use a hard margin (no slack allowed) classifier. The support vectors are the points which lie along the supporting hyperplanes (the hyperplanes parallel to the dividing hyperplane at the edges of the margin). This type of SVM is also called maximal margin classifier.
 
 **Primal Problem**:
 
@@ -5505,7 +5509,9 @@ $$
 
 __Soft-Margin Classifier__
 
-But what if our dataset isn't linearly separable? We introduce soft margin SVM. We no longer require that our datapoints lie outside the margin, we allow some amount of them to stray over the line into the margin. We use the slack parameter C to control this. This gives us a wider margin and greater error on the training dataset, but improves generalization and/or allows us to find a linear separation of data that is not linearly separable.
+The maximal margin classifier is a very natural way to perform classification, is a separating hyperplane exists. However the existence of such a hyperplane may not be guaranteed, or even if it exists, the data is noisy so that maximal margin classifier provides a poor solution. In such cases, the concept can be extended where a hyperplane exists which almost separates the classes, using what is known as a soft margin. The generalization of the maximal margin classifier to the non-separable case is known as the support vector classifier, where a small proportion of the training sample is allowed to cross the margins or even the separating hyperplane. Rather than looking for the largest possible margin so that every observation is on the correct side of the margin, thereby making the margins very narrow or non-existent, some observations are allowed to be on the incorrect side of the margins.
+
+In soft-margin SVM, We use the slack parameter C to control this. This gives us a wider margin and greater error on the training dataset, but improves generalization and/or allows us to find a linear separation of data that is not linearly separable.
 
 **Primal Problem**:
 
