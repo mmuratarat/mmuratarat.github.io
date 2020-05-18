@@ -228,6 +228,7 @@ permalink: /faq/
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
 55. [What is the Kernel Trick?](#what-is-the-kernel-trick)
+55. How does SVM work in multiclass classification?
 56. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 57. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 58. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
@@ -5577,6 +5578,16 @@ The Kernel Trick is a mathematical technique that implicitly maps instances into
 For example, let's say we have two data points: $\mathbf x = (x_1, x_2)$ and $\mathbf y = (y_1, y_2)$. Let's move from 2-dimensional space to 6-dimensional space. So we have to compute $(1, x_1^2, x_2^2, \sqrt{2} x_1, \sqrt{2} x_2, \sqrt{2} x_1 x_2)$ and $(1, y_1^2, y_2^2, \sqrt{2} y_1, \sqrt{2} y_2, \sqrt{2} y_1 y_2)$. The dot product between these two vectors will be $1 + x_1^2 y_1^2 + x_2^2 y_2^2 + 2 x_1 y_1 + 2 x_2 y_2 + 2 x_1 x_2 y_1 y_2$. This is nothing but $(1 + x_1 \, y_1  + x_2 \, y_2)^2$. So, $k(\mathbf x, \mathbf y) = (1 + \mathbf x^T \mathbf y)^2 = \varphi(\mathbf x)^T \varphi(\mathbf y)$ computes a dot product in 6-dimensional space without explicitly visiting this space.
 
 The kernel is effectively a distance and if different features vary on different scales then it is often recommended to do feature scaling (e.g. by normalization) when using a Support Vector Machines. 
+
+#### How does SVM work in multiclass classification?
+
+The SVM as defined so far works for binary classification. What happens if the number of classes is more than two?
+
+* **One-versus-All**: If the number of classes is $K > 2$ then $K$ different 2-class SVM classifiers are fitted where one class is compared with the rest of the classes combined. A new observation is classified according to where the classifier value is the largest.
+
+* **One-versus-One**: All ${K\choose 2}$ pairwise classifiers are fitted and a test observation is classified in the class which wins in the majority of the cases.
+
+The latter method is preferable but if $K$ is too large, the former is to be used.
 
 #### What is the output of Logistic Regression?
 
