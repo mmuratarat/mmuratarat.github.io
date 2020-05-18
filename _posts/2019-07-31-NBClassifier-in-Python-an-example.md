@@ -160,6 +160,238 @@ $$
 
 Since $P(X \mid Evade = No) \times P(Evade = No) > P(X \mid Evade = Yes) \times P(Evade = Yes)$, therefore, $P(No \mid X) > P(Yes \mid X)$, the class of this instance is then **No**.
 
+# NB Classifier for Text Classification
+
+Let's now give an example of text classification using Naive Bayes method. Although this method is a two-class problem, the same approaches are applicable ot multi-class setting.
+
+Let'ssay we have a set of reviews (document) and its classes:
+
+| Document 	|             Text            	| Class 	|
+|:--------:	|:---------------------------:	|:-----:	|
+|     1    	|      I loved the movie      	|   +   	|
+|     2    	|      I hated the movie      	|   -   	|
+|     3    	|  a great movie. good movie  	|   +   	|
+|     4    	|         poor acting         	|   -   	|
+|     5    	| great acting. a good movie  	|   +   	|
+
+Prior to fitting the model and using machine learning algorithm for training, we need to think about how to best represent a text document as a feature vector. A commonly used model in Natural Language Processing (NLP) is so-called bag of words model.
+
+The idea behind this model is really simple. First step is the creating of the vocabulary - the collection of all different words that occur in the training set. For our example, vocabulari, which consists of 10 unique words could be written as:
+
+```
+< I, loved, the, movie, hated, a, great, poor, acting, good >
+```
+
+Using tokenization which is general process of breaking down a text corpus into individual elements that serve as input for various NLP methods, Usually, tokenization is accompanied by other optional processing steps such as removal of stop words and punctuation characters, stemming or lemmetizing and construction of n-grams.
+
+Using Python, let's convert the documents into feature sets, where the attributes are possible words and the values are number of times a word occurs in the given document.
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+corpus = ['I loved the movie', 'I hated the movie', 'a great movie. good movie', 'poor acting', 'great acting. a good movie']
+vectorizer = CountVectorizer(analyzer = "word", 
+                             lowercase=True, 
+                             tokenizer = None, 
+                             preprocessor = None, 
+                             stop_words = None, 
+                             max_features = 5000,
+                             token_pattern='[a-zA-Z0-9$&+,:;=?@#|<>^*()%!-]+')
+#you can change the pattern for tokens. Here, I accepted "I" and "a" as tokens too!
+
+# convert the documents into a document-term matrix
+wm = vectorizer.fit_transform(corpus)
+print(wm.todense())
+# [[0 0 0 0 0 1 1 1 0 1]
+#  [0 0 0 0 1 1 0 1 0 1]
+#  [1 0 1 1 0 0 0 2 0 0]
+#  [0 1 0 0 0 0 0 0 1 0]
+#  [1 1 1 1 0 0 0 1 0 0]]
+
+#shape of count vector: 5 documents and 10 unique words (columns)!
+print(wm.shape)
+#(5, 10)
+
+# show resulting vocabulary; the numbers are not counts, they are the position in the sparse vector
+vocabulary = vectorizer.vocabulary_
+print(vocabulary)
+#{'i': 5, 'loved': 6, 'the': 9, 'movie': 7, 'hated': 4, 'a': 0, 'great': 3, 'good': 2, 'poor': 8, 'acting': 1}
+
+tokens = vectorizer.get_feature_names()
+print(tokens)
+#['a', 'acting', 'good', 'great', 'hated', 'i', 'loved', 'movie', 'poor', 'the']
+
+# create an index for each row
+doc_names = ['Doc{:d}'.format(idx) for idx, _ in enumerate(wm)]
+df = pd.DataFrame(data=wm.toarray(), index=doc_names,
+                  columns=tokens)
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/naive_bayes_NLP_example.png?raw=true)
+
+Let's look at the probabilities per outcome (class, `+` or `-`):
+
+```python
+df['class'] = ['+', '-', '+', '-','+']
+df[df['class'] == '+']
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/naive_bayes_NLP_example_+_class.png?raw=true)
+
+```python
+df[df['class'] == '-']
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/naive_bayes_NLP_example_-_class.png?raw=true)
+
+Let's do positive classified documents, first. Since we have 5 documents and 3 of them are classified positive (`+`):
+
+$$
+P(+) = \frac{3}{5} = 0.6
+$$
+
+Then we need to computer some conditional probabilities, $P( I \mid + ), P( loved \mid + ), P( the \mid + ), P( movie \mid + ), P( a \mid + ), P( great \mid + ), P( acting \mid + ), P( good \mid + ), P( poor \mid + ), P( hated \mid + )$.
+
+Let $n$ be the number of total words in `+` case, which is 14. $n_{k}$ is the number of times that the word $k$ occurs in these `+` cases. Then, we can compute the probability of each word given it is classified as positive, as in the following:
+
+$$
+P( w_{k} \mid +) = \frac{n_{k} + 1}{n + \mid  \text{vocabulari} \mid}
+$$
+
+where $\mid  \text{vocabulari} \mid$ is the size of the vocabulary.
+
+**NOTE**: Actually, the main formular is:
+
+$$
+P( w_{k} \mid +) = \frac{n_{k}}{n}
+$$
+
+since each word has two outcomes, either 0 or 1 (Bernoulli). However, the first formula we talked about is called Laplace smoothing (add-1 - also called as additive smoothing) for Naive bayes algorithm (not to be confused with Laplacian smoothing), for words that do not appear in the training set while we do the training and inference. For example, after training, when we try to predict the class of a new review which contains the word "terrible", the probability would be:
+
+$$
+P (w_{\text{terrible}} \mid +) = \frac{0}{14} = 0
+$$
+
+for positive case. This is often known as Zero frequency and we use this smoothing technique to fix the problem.
+
+Let's now calculate the probabilities we gave above:
+
+$$
+P( I \mid + ) = \frac{1 + 1}{14 + 10} = 0.0833
+$$
+
+$$
+P( loved \mid + ) = \frac{1 + 1}{14 + 10} = 0.0833
+$$
+
+$$
+P( the \mid + ) = \frac{1 + 1}{14 + 10} = 0.0833
+$$
+
+$$
+P( movie \mid + ) = \frac{4 + 1}{14 + 10} = 0.20833
+$$
+
+$$
+P( a \mid + ) = \frac{2 + 1}{14 + 10} = 0.125
+$$
+
+$$
+P( great \mid + ) = \frac{2 + 1}{14 + 10} = 0.125
+$$
+
+$$
+P( acting \mid + ) = \frac{1 + 1}{14 + 10} = 0.0833
+$$
+
+$$
+P( good \mid + ) = \frac{2 + 1}{14 + 10} = 0.125
+$$
+
+$$
+P( poor \mid + ) = \frac{0 + 1}{14 + 10} = 0.0417
+$$
+
+$$
+P( hated \mid + )= \frac{0 + 1}{14 + 10} = 0.0417
+$$
+
+We can repeat the same step for negative (`-`) examples:
+
+$$
+P(-) = \frac{2}{5} = 0.4
+$$
+
+$$
+P( I \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+$$
+P( loved \mid - ) = \frac{0 + 1}{6 + 10} = 0.0625
+$$
+
+$$
+P( the \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+$$
+P( movie \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+$$
+P( a \mid - ) = \frac{0 + 1}{6 + 10} = 0.0625
+$$
+
+$$
+P( great \mid - ) = \frac{0 + 1}{6 + 10} = 0.0625
+$$
+
+$$
+P( acting \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+$$
+P( good \mid - ) = \frac{0 + 1}{6 + 10} = 0.0625
+$$
+
+$$
+P( poor \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+$$
+P( hated \mid - ) = \frac{1 + 1}{6 + 10} = 0.125
+$$
+
+Now that we have trained our classifier, let's classify a new sentence according to:
+
+$$
+V_{NB} = \underset{v_{j} \in V}{\arg\max} P(v_{j}) \sum_{w \in word} P( w \mid v_{j})
+$$
+
+where $v$ stands for value or class!
+
+This is a new sentence: "I hated the poor acting":
+
+* if $v_{j} = + $, we will have:
+  $$
+  P(+)P( I \mid + )P( hated \mid + )P( the \mid + )P( poor \mid + )P( acting \mid + ) = 6.03 \times 10^{-7}
+  $$
+* if $v_{j} = - $, we will have:
+  $$
+  P(-)P( I \mid - )P( hated \mid - )P( the \mid - )P( poor \mid - )P( acting \mid - ) = 1.22 \times 10^{-5}
+  $$
+
+Clearly, this review is a negative (`-`) review which has the bigger probability. 
+
+Additional note about Laplace smoothing technique. In some documents, its formula is given by:
+
+$$
+\hat{\phi_{i}} = \frac{x_{i} + \alpha}{N + \alpha d},\,\,\,\, i = 1, 2, \dots , d
+$$
+
+where the pseudocount $\alpha > 0$ is the smoothing parameter ($\alpha = 0$ corresponds to no smoothing). Additive smoothing is a type of shrinkage estimator as the resulting estimate will be between the empirical estimate $\frac{x_{i}}{N}$ and the uniform probability $\frac{1}{d}$. Some people argued that $\alpha$ should be 1 (in which case the term add-one smoothing is also used), though in practice smaller values is typically chosen.
+
 # DATA: Iris Flower Dataset
 
 {% highlight python %}
