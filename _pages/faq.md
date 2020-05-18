@@ -5419,6 +5419,9 @@ $$
 
 which can be shown that is translation invariant but not homogenous, e.g. for $\alpha =2$.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/metrics_1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/metrics_2.png?raw=true)
+
 #### What is Hamming Distance?
 
 It is a distance measure and is used for categorical variables. If the value (x) and the value (y) are the same, the distance will be equal to 0, otherwise it is 1.
