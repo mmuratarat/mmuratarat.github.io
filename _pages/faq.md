@@ -5631,9 +5631,9 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 3. The optimal design for multiclass SVM classifiers is a further area for research.
 
-4. SVM does not perform very well, when the data set has more noise i.e. target classes are overlapping.
+4. SVM does not perform very well, when the data set has more noise, i.e. target classes are overlapping.
 
-5. As the support vector classifier works by putting data points, above and below the classifying hyper plane there is no probabilistic explanation for the classification.
+5. SVMs do not directly provide probability estimates.
 
 6. It is not that easy to fine-tune the hyper-parameters of SVM, such as the selection of the kernel function parameters - for Gaussian kernels the width parameter [sigma] - and the value of [epsilon] in the [epsilon]-insensitive loss function, that will allow for sufficient generalization performance. It is hard to visualize their impact.
 
