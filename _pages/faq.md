@@ -6092,7 +6092,7 @@ There is no underlying probability model in K-means. The goal is to group data i
 
 K-means have hard boundaries, meaning a data point either belongs to that cluster or it does not. On the other hand, clustering methods such as Gaussian Mixture Models (GMM) have soft boundaries (soft clustering), where data points can belong to multiple cluster at the same time but with different degrees of belief. e.g. a data point can have a $60\%$ of belonging to cluster $1$, $40\%$ of belonging to cluster $2$. Additionally, in probabilistic clustering, clusters can overlap (k-means doesn’t allow this).
 
-K-means lack of flexibility in cluster shape. K-means is that the cluster models must be circular. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
+K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes. In that case, one can use Mixture models using EM algorithm or Fuzzy K-means. As a matter of fact, K-means is special variant of the EM algorithm with the assumption that the clusters are spherical.
 
 K-means is sensitive to outliers and noise.
 
