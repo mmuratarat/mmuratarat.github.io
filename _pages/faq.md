@@ -221,6 +221,7 @@ permalink: /faq/
 48. [How to find distance between mixed categorical and numeric data points?](#how-to-find-distance-between-mixed-categorical-and-numeric-data-points)
 49. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 50. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
+50. What is the best separating hyperplane?
 51. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
 51. [What does the parameter C do in SVM?](#what-does-the-parameter-c-do-in-svm)
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
@@ -5487,7 +5488,7 @@ SVMs have a nice dual form, giving sparse solutions when using the kernel trick 
 
 #### What is the best separating hyperplane?
 
-In general, we can find multiple separating hyperplane between two classes. However, The best separating hyperplan is  the one that maximizes the distance to the closest data points from both classes. We say it is the hyperplane with maximum margin.
+Some methods find a separating hyperplane, but not the optimal one (e.g., neural net). Besides, we can find multiple separating hyperplane between two classes. However, the best separating hyperplan is  the one that maximizes the distance to the closest data points from both classes. We say it is the hyperplane with maximum margin.
 
 #### What is the optimization problem for Support Vector Machines?
 
