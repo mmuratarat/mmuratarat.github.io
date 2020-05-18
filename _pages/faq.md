@@ -82,6 +82,7 @@ permalink: /faq/
 
 [Probability and Statistics](#probability-and-statistics)
 
+9. Explain about statistics branches?
 9. [What is the permutation and combination?](#what-is-the-permutation-and-combination)
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
@@ -1571,7 +1572,15 @@ P\left(\cup_{i=1}^{n} A_{i}\right) =\sum_{i=1}^{n} P(A_{i}) &- \sum_{1 \leq i \l
 \end{split}
 $$
 
+
 ## Probability and Statistics 
+
+#### Explain about statistics branches?
+
+The two main branches of statistics are descriptive statistics and inferential statistics.
+
+* **Descriptive statistics**: It summarizes the data from a sample using indexes such as mean or standard deviation. Descriptive Statistics methods include displaying, organizing and describing the data.
+* **Inferential Statistics**: It draws the conclusions from data that are subject to random variation such as observation errors and sample variation.
 
 #### What is the permutation and combination?
 
