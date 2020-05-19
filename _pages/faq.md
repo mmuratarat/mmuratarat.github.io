@@ -11,6 +11,7 @@ permalink: /faq/
 
 1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
 2. [How do you normalize a vector?](#how-do-you-normalize-a-vector)
+2. What is a dot-product?
 2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
 3. [What is a scalar valued function?](#what-is-a-scalar-valued-function)
 4. [What is a vector valued function?](#what-is-a-vector-valued-function)
@@ -452,6 +453,7 @@ print("The dot product of x and y is", np.dot(x, y))
 ```
 
 #### What is Hadamard product of two matrices?
+
 Hadamard product is also known as Element-wise Multiplication. It is named after French Mathematician, Jacques Hadamard. Elements corresponding to same row and columns of given vectors/matrices are multiplied together to form a new vector/matrix.
 
 $$
