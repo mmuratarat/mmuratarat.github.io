@@ -245,7 +245,7 @@ $$
 Var(\hat{\theta}_{ridge}) &= Var\left[\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y\right]\\
 &= \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} Var(y) \mathbf{X}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
 &=  \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \sigma^{2} \mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
-&= \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}\mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}
+&= \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \mathbf{X}^{T}\mathbf{X}\left(\mathbf{X}^{T} \mathbf{X} +\lambda I\right)^{-1}
 \end{split}
 $$
 
