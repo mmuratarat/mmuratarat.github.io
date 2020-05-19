@@ -6885,6 +6885,22 @@ Bootstrap aggregating, also called bagging, is one of the first ensemble algorit
 Normal equations produce the estimates for the coefficient of a linear regression using ordinary least squares (OLS) method. Gauss-Markov Theorem states that these estimates are already BLUE which  is an acronym for best linear unbiased estimator.
 In other words, the sampling distributions of regression coefficients are centered on the actual population value and are the tightest possible distributions. Therefore, the estimates, if the assumptions of the linear model are satisfied (homoskedasticity of the error term, no serial correlation of the errors, no exact multicollinearity, etc.) are already minimum variance and unbiased (in fact they are the maximum likelihood estimates.) Bagging is a procedure used to "balance out" the bias-variance tradeoff, but if OLS is BLUE, there is no need to employ a method like bagging.
 
+#### Is decision tree a linear model?
+
+Decision trees is a non-linear classifier like the neural networks, etc. It is generally used for classifying non-linearly separable data. Note however that it is a piecewise linear model: in each neighborhood (defined in a non-linear way), it is linear. In fact, the model is just a local constant. To see this in the simplest case, with one variable, $x$ and with one node $\theta$, the tree can be written as a linear regression:
+
+$$
+y_i = \alpha_1 1(x_i < \theta) + \alpha_2 1(x_i \geq \theta) + \epsilon_i
+$$
+
+Where $1(A)$ is the indicator function, taking value of $1$ if the event $A$ is true, and 0 otherwise.
+
+#### In machine learning, how can we determine whether a problem is linear/nonlinear?
+
+Most of the data in real world is not 2D and it is difficult to visualize more than 3D data easily, unless you use some methods to reduce the high dimensional data. Principal Component Analysis can do that for you but bringing it down to 2 dimensions will not be helpful.
+
+So, one must start using some classification techniques. The thumb-rule is use the simple methods first (in accordance to Occam's razor) for e.g. a linear regression, perceptron (perceptron is mathematically proven method which is able to divide data correctly unless it is nonlinear) and SVM with linear kernel or you can choose some simple non-linear classifiers such as logistic regression, decision trees and naive Bayes. If your results are not good (high error, low accuracy), then, either your problem cannot be solved by linear classification methods or you may have to move to more complex non-linear classifiers, such as SVM with Kernels, Random Forest, Neural Network and so on.
+
 
 ## Deep Learning
 
