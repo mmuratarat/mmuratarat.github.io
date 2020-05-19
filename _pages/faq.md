@@ -4454,6 +4454,98 @@ The meaning of the betas would differ here, though. In this case, $\beta_{0}$ wo
 There is again one special case where adding a control variable to a regression model has an equivalent (direct) t-test:
 say you have $n$ subjects, the response is is measured from each before some treatment, and then it is measured again after the treatment. Here you have two factors: time (before/after) and subject ($1, 2, 3, \dots, n$). The test of the time-slope in a two-factorial regression model (including dummy-coded time and dummy-coded subject ID) is identical to the test of the (within-subject) pairwise differences (a paired t-test).
 
+Let's see an example in Python:
+
+```python
+## Import the packages
+import numpy as np
+from scipy import stats
+import statsmodels.api as sm
+
+## Define 2 random distributions
+#Sample Size
+N = 10
+#Gaussian distributed data with mean = 2 and var = 1
+a = np.random.randn(N) + 2
+# array([1.54521498, 0.07929609, 1.50214032, 0.93720253, 1.21987251,
+#        3.39567805, 2.3685942 , 3.62647803, 2.03051962, 1.61038559])
+
+#Gaussian distributed data with with mean = 0 and var = 1
+b = np.random.randn(N)
+# array([ 0.33036931,  0.66242071, -1.63292861,  0.43102331, -1.05377199,
+#         0.24495993,  0.21372323,  0.96371525,  0.67941075,  1.72399428])
+
+## Calculate the Standard Deviation
+#Calculate the variance to get the standard deviation
+
+#For unbiased max likelihood estimate we have to divide the var by N-1, 
+#and therefore the parameter ddof = 1
+var_a = a.var(ddof=1)
+var_b = b.var(ddof=1)
+
+#std deviation
+s = np.sqrt((var_a + var_b)/2)
+#1.022035824071384
+
+## Calculate the t-statistics
+t = (a.mean() - b.mean())/(s*np.sqrt(2/N))
+
+## Compare with the critical t-value
+#Degrees of freedom
+df = 2*N - 2
+#18
+
+#p-value after comparison with the t 
+p = 1 - stats.t.cdf(t,df=df)
+
+print("t = " + str(t)) #t = 3.446413857090997
+print("p = " + str(2*p)) #p = 0.0028795519402942116
+#You can see that after comparing the t statistic with the critical t value (computed internally) 
+#we get a good p value of 0.0028795519402942116 and thus we reject the null hypothesis
+#and thus it proves that the mean of the two distributions are different and statistically significant.
+
+## Cross Checking with the internal scipy function
+t2, p2 = stats.ttest_ind(a,b)
+print("t = " + str(t2))
+print("p = " + str(p2))
+# t = 3.446413857090997
+# p = 0.002879551940294324
+
+# Linear Regression
+
+X = np.concatenate((np.zeros(shape = a.shape), np.ones(shape = b.shape)), axis = 0).reshape(-1,1)
+Y = np.concatenate((a, b), axis = 0).reshape(-1,1)
+
+X = sm.add_constant(X) # adding a constant
+
+model = sm.OLS(Y, X).fit()
+predictions = model.predict(X) 
+
+print_model = model.summary()
+print(print_model)
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-05-19%20at%2008.31.32.png?raw=true)
+
+```python
+#So we used dummy encoding, 0s represents sample a and 1s represent sample b.
+#so const (B0) in regression represents mean of the sample a (or rather the mean of the group being compared to), 
+#while B1 represents the difference between the means of sample a and sample b
+#In the t-test above we do (a.mean() - b.mean()), comparing sample a's mean with sample b's mean,
+# in other words, we are comparing, sample a to sample b.
+#but in regression, we compare sample b to sample a.
+#This is the reason we have negative coef and t-value for coef.
+
+print(a.mean())
+#1.8315381920347527
+
+print(a.mean()- b.mean())
+#1.5752465765649406
+
+#Confidence interval for x1 is [ -2.536, -0.615]. So, it does not contain 0.
+#So, we can say that there is a statistically significant difference between means of sample a and sample b.
+```
+
 
 ## General Machine Learning
 
