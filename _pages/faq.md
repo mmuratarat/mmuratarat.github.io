@@ -4130,6 +4130,8 @@ Alternatives to Chi-Square Test for Normality include:
 
 All of these tests have different strength and weaknesses, but the Shapiro Wilk test may have the best power for any given significance.
 
+#### What is Chi-square Test for Test of Independence?
+
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof1.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof2.jpeg?raw=true)
 
