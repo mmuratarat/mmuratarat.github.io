@@ -400,6 +400,57 @@ $$
 
 A Unit Vector has a magnitude of 1. The term normalized vector is sometimes used as a synonym for unit vector.
 
+#### What is a dot-product?
+
+The dot product is an algebraic operation which takes two equal-sized vectors and returns a single scalar (which is why it is sometimes referred to as the scalar product). In Euclidean geometry, the dot product between the Cartesian components of two vectors is often referred to as the inner product.
+
+The dot product is represented by a dot operator:
+
+$$
+s = \mathbf{x} \cdot \mathbf{y}
+$$
+
+It is defined as:
+
+$$
+s = \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^{n}x_iy_i = x_1y_1 + x_2y_2 + \dots + x_ny_n
+$$
+
+```python
+# Define x and y
+x = np.array([1, 3, -5])
+y = np.array([4, -2, -1])
+
+x @ y
+#3
+
+np.dot(x,y) # Alternatively, we can use the np.dot() function
+#3
+```
+
+Keeping to the convention of having $\mathbf{x}$ and $\mathbf{y}$ as column vectors, the dot product is equal to the matrix multiplication $\mathbf{x}^{T}\mathbf{y}$:
+
+```python
+np.matmul(x.T, y)
+```
+
+In Euclidean space, a Euclidean vector has both magnitude and direction. The magnitude of a vector $\mathbf{x}$ is denoted by $\mid \mathbf{x} \mid$. The dot product of two Euclidean vectors $\mathbf{x}$ and $\mathbf{y}$ is defined by:
+
+$$
+\mathbf{x} \cdot \mathbf{y} =|\mathbf {x} |\ |\mathbf {y} |\cos(\theta)
+$$
+
+where $\theta$ is the angle between the two vectors.
+
+This gives us an easy way to test for orthogonality between vectors. If $\mathbf{x}$ and $\mathbf{y}$ are orthogonal (the angle between vectors is ($90$ degrees) then since $cos(90) = 0$, it implies that the dot product of any two orthogonal vectors must be $0$.
+
+```python
+# Let's test this by defining two vectors we know are orthogonal
+x = [1, 0, 0]
+y = [0, 1, 0]
+print("The dot product of x and y is", np.dot(x, y))
+```
+
 #### What is Hadamard product of two matrices?
 Hadamard product is also known as Element-wise Multiplication. It is named after French Mathematician, Jacques Hadamard. Elements corresponding to same row and columns of given vectors/matrices are multiplied together to form a new vector/matrix.
 
