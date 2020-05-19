@@ -246,6 +246,7 @@ Var(\hat{\theta}_{ridge}) &= Var\left[\left(\mathbf{X}^{T} \cdot \mathbf{X} +\la
 &= \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} Var(y) \mathbf{X}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
 &=  \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \sigma^{2} \mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
 &= \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}\mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}
+\end{split}
 $$
 
 Notice how both of these expressions smoothly approach the corresponding formulas ones for ordinary least squares as $\lambda \to 0$. Indeed, under the Gaussian noise assumption, $\hat{\theta}_{ridge} $ actually has a Gaussian distribution with the given expectation and variance.
