@@ -4447,7 +4447,9 @@ Although these methods have, historically, developed along separate tracks, most
   \text{where }\varepsilon\sim\mathcal N(0, \sigma^2)
   $$
 
-The prototypical regression is conceptualized with $x$ as a continuous variable. However, the only assumption that is actually made about $x$ is that it is a vector of known constants. However, the only assumption that is actually made about $X$ is that it is a vector of known constants. It could be a continuous variable, but it could also be a dummy code (i.e., a vector of $0$'s and $1$'s that indicates whether an observation is a member of an indicated group--e.g., a treatment group). Thus, in the second equation, $X$ could be such a dummy code (or contrast coding (where one group is coded as -1 and other one is coded), and the p-value would be the same as that from a t-test in its more traditional form.
+The prototypical regression is conceptualized with $x$ as a continuous variable. However, the only assumption that is actually made about $x$ is that it is a vector of known constants. However, the only assumption that is actually made about $X$ is that it is a vector of known constants. It could be a continuous variable, but it could also be a dummy code (i.e., a vector of $0$'s and $1$'s that indicates whether an observation is a member of an indicated group--e.g., a treatment group). Thus, in the second equation, $X$ could be such a dummy code (or contrast coding where one group is coded as -1 and other one is coded), and the p-value would be the same as that from a t-test in its more traditional form. For example:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_21VcolLbpikvFuMvZyjSOQ.png?raw=true)
 
 The meaning of the betas would differ here, though. In this case, $\beta_{0}$ would be the mean of the control group (for which the entries in the dummy variable would be $0$'s), and $\beta_{1}$ would be the difference between the mean of the treatment group and the mean of the control group.
 
@@ -4512,11 +4514,56 @@ print("p = " + str(p2))
 # p = 0.002879551940294324
 
 # Linear Regression
+#So we used dummy encoding, 0s represents sample a and 1s represent sample b.
 
 X = np.concatenate((np.zeros(shape = a.shape), np.ones(shape = b.shape)), axis = 0).reshape(-1,1)
 Y = np.concatenate((a, b), axis = 0).reshape(-1,1)
 
-X = sm.add_constant(X) # adding a constant
+X = sm.add_constant(X) # adding a constant B0
+
+X
+# array([[1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 0.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.],
+#        [1., 1.]])
+
+Y
+# array([[ 1.54521498],
+#        [ 0.07929609],
+#        [ 1.50214032],
+#        [ 0.93720253],
+#        [ 1.21987251],
+#        [ 3.39567805],
+#        [ 2.3685942 ],
+#        [ 3.62647803],
+#        [ 2.03051962],
+#        [ 1.61038559],
+#        [ 0.33036931],
+#        [ 0.66242071],
+#        [-1.63292861],
+#        [ 0.43102331],
+#        [-1.05377199],
+#        [ 0.24495993],
+#        [ 0.21372323],
+#        [ 0.96371525],
+#        [ 0.67941075],
+#        [ 1.72399428]])
 
 model = sm.OLS(Y, X).fit()
 predictions = model.predict(X) 
@@ -4528,7 +4575,6 @@ print(print_model)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-05-19%20at%2008.31.32.png?raw=true)
 
 ```python
-#So we used dummy encoding, 0s represents sample a and 1s represent sample b.
 #so const (B0) in regression represents mean of the sample a (or rather the mean of the group being compared to), 
 #while B1 represents the difference between the means of sample a and sample b
 #In the t-test above we do (a.mean() - b.mean()), comparing sample a's mean with sample b's mean,
