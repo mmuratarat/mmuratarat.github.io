@@ -166,6 +166,11 @@ permalink: /faq/
 72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
 73. When is a biased estimator preferable to unbiased one?
 74. What is the difference between t-test and linear regression?
+75. Why does bagging work so well for decision trees, but not for linear classifiers?
+76. Is decision tree a linear model?
+77. In machine learning, how can we determine whether a problem is linear/nonlinear?
+78. What are the data augmentation techniques for images?
+79. Why using probability estimates and non-thresholded decision values give different AUC values?
 
 
 [General Machine Learning](#general-machine-learning)
@@ -6901,6 +6906,172 @@ Most of the data in real world is not 2D and it is difficult to visualize more t
 
 So, one must start using some classification techniques. The thumb-rule is use the simple methods first (in accordance to Occam's razor) for e.g. a linear regression, perceptron (perceptron is mathematically proven method which is able to divide data correctly unless it is nonlinear) and SVM with linear kernel or you can choose some simple non-linear classifiers such as logistic regression, decision trees and naive Bayes. If your results are not good (high error, low accuracy), then, either your problem cannot be solved by linear classification methods or you may have to move to more complex non-linear classifiers, such as SVM with Kernels, Random Forest, Neural Network and so on.
 
+#### What are the data augmentation techniques for images?
+
+There are operations that can be easily applied to a given image to obtain one or more new images: flip, rotation, crop, color shift, noise addition, perspective change, contrast change, and information loss (for example, by randomly removing parts of image we can simulate situations when an object is recognizable but not entirely visible because of some visual obstacle.)
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/data_augmentation_for_images.png?raw=true)
+
+In addition to these techniques, if you expect that the input images in your production system can come overcompressed, you can simulate the effect of overcompression by using some frequently used lossy compression methods and file formats, such as JPEG or GIF.
+
+Only training data undergoes augmentation. Of course, it’s impractical to generate all these additional examples in advance and store them. In practice, the data augmentation techniques are applied to the original data on-the-fly during training
+
+#### What are the data augmentation techniques for text?
+
+One technique consists of replacing random words in a sentence with their exact or very close synonyms. For example, we can obtain several equivalent sentences from the following one:
+
+The car stopped near a shopping mall. Some examples are:
+
+* The automobile stopped near a shopping mall.
+* The car stopped near a shopping center.
+* The auto stopped near a mall.
+
+A similar technique consists of using hypernyms instead of synonyms. A hypernym is a word that has more general meaning. For example, "mammal" is a hypernym for "whale" and "cat"; "vehicle" is a hypernym for "car" and "bus". From our example sentence above, by using hypernyms, we could obtain the following sentences:
+
+* The vehicle stopped near a shopping mall.
+* The car stopped near a building.
+
+Another text data augmentation technique that works well is back translation. To obtain a new example from sentence text *t*
+in English (it can be a sentence or a document), you translate it into language *l* using a machine translation system and then translate it back from *l* into English. If the text obtained by back translation is different from the original
+text, you add it to the dataset by assigning the same label as the label of the original text.
+
+A simple baseline for data augmentation is shuffling the text elements to create new text. For example, if we have labeled sentences and we want to get more, we can shuffle each sentence words to create a new sentence. This option is only valid for classification algorithms that don’t take into account the words order within a sentence. So in practice, we should tokenize each sentence into words. Then we shuffle those words and rejoin them to create new sentences.
+
+If you represent words or documents in your dataset using word or document embeddings, you can apply slight Gaussian noise to randomly chosen features of an embedding to hopefully obtain a variation of the same word or document. You can tune the number of features to modify and the intensity of noise as hyperparameters by using the validation data.
+
+Alternatively, to replace a given word *w* in the sentence, you can find *k* nearest neighbors to the word *w* in the word embedding space and generate *k* new sentences by replacing the word *w* by its respective neighbor. The nearest neighbors can be found using a metric such as **cosine similarity** or **Euclidean distance**. The choice of the metric, as well as the value of *k*, can be tuned as hyperparameters.
+
+Similarly, if your problem is document classification and you have a large corpus of unlabeled documents and only a small corpus of labeled documents, you can do as follows. First, build document embeddings for all documents in your corpus. To do that you can use **doc2vec** or any other technique of document embedding. Then, for each labeled document d in your dataset, find k closest unlabeled documents in the document embedding space and label them with the same label as d. Again, tune k on the validation data.
+
+The paper "EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks" by Jason Wei and Kai Zou (https://www.aclweb.org/anthology/D19-1670.pdf) also mentions some basic methods:
+
+For a given sentence in the training set, we randomly choose and perform one of the following operations:
+
+1. **Synonym Replacement (SR)**: Randomly choose n words from the sentence that are not stop words. Replace each of these words with one of its synonyms chosen at random.
+2. **Random Insertion (RI)**: Find a random synonym of a random word in the sentence that is not a stop word. Insert that synonym into a random position in the sentence. Do this n times.
+3. **Random Swap (RS)**: Randomly choose two words in the sentence and swap their positions. Do this n times.
+4. **Random Deletion (RD)**: Randomly remove each word in the sentence with probability p
+
+Since long sentences have more words than short ones, they can absorb more noise while maintaining their original class label. To compensate, the authors vary the number of words changed, n, for SR, RI, and RS based on the sentence length l with the formula $n = \alpha l$, where $\alpha$ is a parameter that indicates the percent of the words in a sentence are changed
+(they use $p = \alpha$ for RD). Furthermore, for each original sentence, we generate naug augmented sentences. Examples of augmented sentences are shown in
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-04-28%20at%2009.45.53.png?raw=true)
+
+#### Why using probability estimates and non-thresholded decision values give different AUC values?
+
+The Receiver Operating Characteristic (ROC) Curve is computed by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at uniformly distributed threshold values from 0 to 1. The Area Under the Curve (AUC) is then calculated to turn this into a numerical score. AUC is a ranking metric, meaning that it cares only about the order of predictions. Having probabilities instead of two-class predictions (0/1 for binary classification which are scores) gives it more granularity to rank the predictions. Different thresholds are calculated inside `roc_auc_score()` on the basis of this prediction probabilities. 
+
+Scikit-Learn's `predict` returns only one class or the other. Then you compute a ROC with the results of predict on a classifier, there are only three thresholds (0, 1 and 2, see below to find where 2 comes from!). Your ROC curve looks like this:
+
+```
+      ..............................
+      |
+      |
+      |
+......|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+```
+
+Meanwhile, `predict_proba()` method returns an entire range of probabilities, so now you can put more than three thresholds on your data.
+
+```
+             .......................
+             |
+             |
+             |
+          ...|
+          |
+          |
+     .....|
+     |
+     |
+ ....|
+.|
+|
+|
+|
+|
+```
+Hence different area. See a basic example below:
+
+```python
+X = df.iloc[:,2:4].values
+y = df.iloc[:,-1].values
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42)
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
+
+from sklearn.ensemble import RandomForestClassifier
+params = {'n_estimators': 100, 'criterion': 'entropy', 'oob_score': True, 'random_state': 42}
+classifier = RandomForestClassifier(**params)
+classifier.fit(X_train, y_train)
+
+print(classifier.oob_score_)
+# 0.8833333333333333
+
+y_pred = classifier.predict(X_test)
+y_pred_prob = classifier.predict_proba(X_test)
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+# [[57  6]
+#  [ 4 33]]
+
+test_acc = accuracy_score(y_test, y_pred)
+print(test_acc)
+#0.9
+
+from sklearn.metrics import roc_curve, roc_auc_score
+_, _, threshold1 = roc_curve(y_test, y_pred)
+print(threshold1)
+#array([2, 1, 0])
+
+_, _, threshold2 = roc_curve(y_test, y_pred_prob[:,1])
+print(threshold2)
+# array([2.  , 1.  , 0.99, 0.98, 0.97, 0.94, 0.93, 0.89, 0.88, 0.86, 0.73,
+#        0.71, 0.62, 0.56, 0.53, 0.48, 0.36, 0.11, 0.1 , 0.05, 0.04, 0.02,
+#        0.01, 0.  ])
+
+print(roc_auc_score(y_test, y_pred))
+#0.8983268983268984
+
+print(roc_auc_score(y_test, y_pred_prob[:,1]))
+#0.9586014586014586
+
+# Different AUC values!
+```
+
+The question is now, sometimes you can get a scalar "2" as a threshold. The documentation explains this as `thresholds : array, shape = [n_thresholds] Decreasing thresholds on the decision function used to compute fpr and tpr. thresholds[0] represents no instances being predicted and is arbitrarily set to max(y_score) + 1.`
+
+Ok, so, how does number of thresholds get chosen in `roc_curve` function in scikit-learn?
+
+By definition, a ROC curve represent all possible thresholds in the interval $(− \infty, + \infty)$.
+
+This number is infinite and of course cannot be represented with a computer. Fortunately when you have some data you can simplify this and only visit a limited number of thresholds. This number corresponds to the number of unique values in the data + 1, or something like:
+
+```
+n_thresholds = len(np.unique(x)) + 1
+```
+
+where `x` is the array holding your target scores (`y_score`).
+
 
 ## Deep Learning
 
@@ -8245,172 +8416,6 @@ Batch norm can also be considered of the regularization methods. During training
 **Reason 5**: Data augmentation mechanism. Data augmentation is usually done only on training set and not on validation set (as for the dropout regularization), and this may lead to a validation set containing "easier" cases to predict than those in the training set.
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
-
-#### What are the data augmentation techniques for images?
-
-There are operations that can be easily applied to a given image to obtain one or more new images: flip, rotation, crop, color shift, noise addition, perspective change, contrast change, and information loss (for example, by randomly removing parts of image we can simulate situations when an object is recognizable but not entirely visible because of some visual obstacle.)
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/data_augmentation_for_images.png?raw=true)
-
-In addition to these techniques, if you expect that the input images in your production system can come overcompressed, you can simulate the effect of overcompression by using some frequently used lossy compression methods and file formats, such as JPEG or GIF.
-
-Only training data undergoes augmentation. Of course, it’s impractical to generate all these additional examples in advance and store them. In practice, the data augmentation techniques are applied to the original data on-the-fly during training
-
-#### What are the data augmentation techniques for text?
-
-One technique consists of replacing random words in a sentence with their exact or very close synonyms. For example, we can obtain several equivalent sentences from the following one:
-
-The car stopped near a shopping mall. Some examples are:
-
-* The automobile stopped near a shopping mall.
-* The car stopped near a shopping center.
-* The auto stopped near a mall.
-
-A similar technique consists of using hypernyms instead of synonyms. A hypernym is a word that has more general meaning. For example, "mammal" is a hypernym for "whale" and "cat"; "vehicle" is a hypernym for "car" and "bus". From our example sentence above, by using hypernyms, we could obtain the following sentences:
-
-* The vehicle stopped near a shopping mall.
-* The car stopped near a building.
-
-Another text data augmentation technique that works well is back translation. To obtain a new example from sentence text *t*
-in English (it can be a sentence or a document), you translate it into language *l* using a machine translation system and then translate it back from *l* into English. If the text obtained by back translation is different from the original
-text, you add it to the dataset by assigning the same label as the label of the original text.
-
-A simple baseline for data augmentation is shuffling the text elements to create new text. For example, if we have labeled sentences and we want to get more, we can shuffle each sentence words to create a new sentence. This option is only valid for classification algorithms that don’t take into account the words order within a sentence. So in practice, we should tokenize each sentence into words. Then we shuffle those words and rejoin them to create new sentences.
-
-If you represent words or documents in your dataset using word or document embeddings, you can apply slight Gaussian noise to randomly chosen features of an embedding to hopefully obtain a variation of the same word or document. You can tune the number of features to modify and the intensity of noise as hyperparameters by using the validation data.
-
-Alternatively, to replace a given word *w* in the sentence, you can find *k* nearest neighbors to the word *w* in the word embedding space and generate *k* new sentences by replacing the word *w* by its respective neighbor. The nearest neighbors can be found using a metric such as **cosine similarity** or **Euclidean distance**. The choice of the metric, as well as the value of *k*, can be tuned as hyperparameters.
-
-Similarly, if your problem is document classification and you have a large corpus of unlabeled documents and only a small corpus of labeled documents, you can do as follows. First, build document embeddings for all documents in your corpus. To do that you can use **doc2vec** or any other technique of document embedding. Then, for each labeled document d in your dataset, find k closest unlabeled documents in the document embedding space and label them with the same label as d. Again, tune k on the validation data.
-
-The paper "EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks" by Jason Wei and Kai Zou (https://www.aclweb.org/anthology/D19-1670.pdf) also mentions some basic methods:
-
-For a given sentence in the training set, we randomly choose and perform one of the following operations:
-
-1. **Synonym Replacement (SR)**: Randomly choose n words from the sentence that are not stop words. Replace each of these words with one of its synonyms chosen at random.
-2. **Random Insertion (RI)**: Find a random synonym of a random word in the sentence that is not a stop word. Insert that synonym into a random position in the sentence. Do this n times.
-3. **Random Swap (RS)**: Randomly choose two words in the sentence and swap their positions. Do this n times.
-4. **Random Deletion (RD)**: Randomly remove each word in the sentence with probability p
-
-Since long sentences have more words than short ones, they can absorb more noise while maintaining their original class label. To compensate, the authors vary the number of words changed, n, for SR, RI, and RS based on the sentence length l with the formula $n = \alpha l$, where $\alpha$ is a parameter that indicates the percent of the words in a sentence are changed
-(they use $p = \alpha$ for RD). Furthermore, for each original sentence, we generate naug augmented sentences. Examples of augmented sentences are shown in
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-04-28%20at%2009.45.53.png?raw=true)
-
-#### Why using probability estimates and non-thresholded decision values give different AUC values?
-
-The Receiver Operating Characteristic (ROC) Curve is computed by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at uniformly distributed threshold values from 0 to 1. The Area Under the Curve (AUC) is then calculated to turn this into a numerical score. AUC is a ranking metric, meaning that it cares only about the order of predictions. Having probabilities instead of two-class predictions (0/1 for binary classification which are scores) gives it more granularity to rank the predictions. Different thresholds are calculated inside `roc_auc_score()` on the basis of this prediction probabilities. 
-
-Scikit-Learn's `predict` returns only one class or the other. Then you compute a ROC with the results of predict on a classifier, there are only three thresholds (0, 1 and 2, see below to find where 2 comes from!). Your ROC curve looks like this:
-
-```
-      ..............................
-      |
-      |
-      |
-......|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-```
-
-Meanwhile, `predict_proba()` method returns an entire range of probabilities, so now you can put more than three thresholds on your data.
-
-```
-             .......................
-             |
-             |
-             |
-          ...|
-          |
-          |
-     .....|
-     |
-     |
- ....|
-.|
-|
-|
-|
-|
-```
-Hence different area. See a basic example below:
-
-```python
-X = df.iloc[:,2:4].values
-y = df.iloc[:,-1].values
-
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42)
-
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
-from sklearn.ensemble import RandomForestClassifier
-params = {'n_estimators': 100, 'criterion': 'entropy', 'oob_score': True, 'random_state': 42}
-classifier = RandomForestClassifier(**params)
-classifier.fit(X_train, y_train)
-
-print(classifier.oob_score_)
-# 0.8833333333333333
-
-y_pred = classifier.predict(X_test)
-y_pred_prob = classifier.predict_proba(X_test)
-
-from sklearn.metrics import confusion_matrix, accuracy_score
-
-cm = confusion_matrix(y_test, y_pred)
-print(cm)
-# [[57  6]
-#  [ 4 33]]
-
-test_acc = accuracy_score(y_test, y_pred)
-print(test_acc)
-#0.9
-
-from sklearn.metrics import roc_curve, roc_auc_score
-_, _, threshold1 = roc_curve(y_test, y_pred)
-print(threshold1)
-#array([2, 1, 0])
-
-_, _, threshold2 = roc_curve(y_test, y_pred_prob[:,1])
-print(threshold2)
-# array([2.  , 1.  , 0.99, 0.98, 0.97, 0.94, 0.93, 0.89, 0.88, 0.86, 0.73,
-#        0.71, 0.62, 0.56, 0.53, 0.48, 0.36, 0.11, 0.1 , 0.05, 0.04, 0.02,
-#        0.01, 0.  ])
-
-print(roc_auc_score(y_test, y_pred))
-#0.8983268983268984
-
-print(roc_auc_score(y_test, y_pred_prob[:,1]))
-#0.9586014586014586
-
-# Different AUC values!
-```
-
-The question is now, sometimes you can get a scalar "2" as a threshold. The documentation explains this as `thresholds : array, shape = [n_thresholds] Decreasing thresholds on the decision function used to compute fpr and tpr. thresholds[0] represents no instances being predicted and is arbitrarily set to max(y_score) + 1.`
-
-Ok, so, how does number of thresholds get chosen in `roc_curve` function in scikit-learn?
-
-By definition, a ROC curve represent all possible thresholds in the interval $(− \infty, + \infty)$.
-
-This number is infinite and of course cannot be represented with a computer. Fortunately when you have some data you can simplify this and only visit a limited number of thresholds. This number corresponds to the number of unique values in the data + 1, or something like:
-
-```
-n_thresholds = len(np.unique(x)) + 1
-```
-
-where `x` is the array holding your target scores (`y_score`).
 
 
 ## SQL
