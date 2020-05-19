@@ -257,7 +257,7 @@ permalink: /faq/
 75. [What is the difference between a loss function and decision function?](#what-is-the-difference-between-a-loss-function-and-decision-function)
 76. [What is the difference between SVM and Random Forest?](#what-is-the-difference-between-svm-and-random-forest)
 76. [What is the difference between fitting a model via closed-form equations vs. Gradient Descent and its variants?](#what-is-the-difference-between-fitting-a-model-via-closed-form-equations-vs-gradient-descent-and-its-variants)
-76 [What are some of the issues with K-means?](#what-are-some-of-the-issues-with-k-means)
+76. [What are some of the issues with K-means?](#what-are-some-of-the-issues-with-k-means)
 76. [Why multicollinearity does not affect the predictive performance?](#why-multicollinearity-does-not-affect-the-predictive-performance)
 76. [How does multicollinearity affect feature importances in random forest classifier?](#how-does-multicollinearity-affect-feature-importances-in-random-forest-classifier)
 76. [How come do the loss functions have 1/m and 2 from the square cancels out?](#how-come-do-the-loss-functions-have-1m-and-2-from-the-square-cancels-out)
@@ -4412,6 +4412,48 @@ Another example is the kNN classifier. Think about $k = 1$: we assign a new poin
 Finally, here's a picture. Suppose that these are the sampling distributions of two estimators and we are trying to estimate 0. The flatter one is unbiased, but also much more variable. Overall I think I'd prefer to use the biased one, because even though on average we won't be correct, for any single instance of that estimator we'll be closer.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/BigyK.png?raw=true)
+
+#### What is the difference between t-test and linear regression?
+
+The t-test and the test of the slope coefficient are exactly the same. The t-test does not allow to include other variables, but the regression does.
+
+Although these methods have, historically, developed along separate tracks, most statisticians would nowadays consider them as special cases of the General Linear Model (GLM). The GLM-framework incorporates regression analyses, ANOVAs, and t-tests, but also many other techniques, such as ANCOVA, MANOVA, and MANCOVA. The key part to understand is that the aforementioned models can all be written as special cases of GLM, as a regression equation (perhaps with slightly differing interpretations than their traditional forms):
+
+* **Regression**:
+
+  $$
+  \begin{split}
+  Y=\beta_0 + \beta_1X_{\text{(continuous)}} + \varepsilon  \\
+  \text{where }\varepsilon\sim\mathcal N(0, \sigma^2)
+  \end{split}
+  $$
+ 
+* **t-test**:
+
+  $$
+  Y=\beta_0 + \beta_1X_{\text{(dummy code)}} + \varepsilon  \\
+  \text{where }\varepsilon\sim\mathcal N(0, \sigma^2)
+  $$
+  
+* **ANOVA**:
+
+  $$
+  Y=\beta_0 + \beta_1X_{\text{(dummy code)}} + \varepsilon  \\
+  \text{where }\varepsilon\sim\mathcal N(0, \sigma^2)
+  $$
+
+The prototypical regression is conceptualized with $x$ as a continuous variable. However, the only assumption that is actually made about $x$ is that it is a vector of known constants. However, the only assumption that is actually made about 𝑋 is that it is a vector of known constants. It could be a continuous variable, but it could also be a dummy code (i.e., a vector of $0$'s and $1$'s that indicates whether an observation is a member of an indicated group--e.g., a treatment group). Thus, in the second equation, $X$ could be such a dummy code (or contrast coding (where one group is coded as -1 and other one is coded), and the p-value would be the same as that from a t-test in its more traditional form.
+
+The meaning of the betas would differ here, though. In this case, $\beta_{0}$ would be the mean of the control group (for which the entries in the dummy variable would be $0$'s), and $\beta_{1}$ would be the difference between the mean of the treatment group and the mean of the control group.
+
+There is again one special case where adding a control variable to a regression model has an equivalent (direct) t-test:
+say you have $n$ subjects, the response is is measured from each before some treatment, and then it is measured again after the treatment. Here you have two factors: time (before/after) and subject ($1, 2, 3, \dots, n$). The test of the time-slope in a two-factorial regression model (including dummy-coded time and dummy-coded subject ID) is identical to the test of the (within-subject) pairwise differences (a paired t-test).
+
+
+
+
+
+
 
 
 ## General Machine Learning
