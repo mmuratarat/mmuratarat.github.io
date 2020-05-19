@@ -4418,7 +4418,7 @@ Finally, here's a picture. Suppose that these are the sampling distributions of 
 
 #### What is the difference between t-test and linear regression?
 
-The t-test and the test of the slope coefficient are exactly the same. The t-test does not allow to include other variables, but the regression does.
+The t-test and the test of the regression coefficient (the slope) are exactly the same. The t-test does not allow to include other variables, but the regression does.
 
 Although these methods have, historically, developed along separate tracks, most statisticians would nowadays consider them as special cases of the General Linear Model (GLM). The GLM-framework incorporates regression analyses, ANOVAs, and t-tests, but also many other techniques, such as ANCOVA, MANOVA, and MANCOVA. The key part to understand is that the aforementioned models can all be written as special cases of GLM, as a regression equation (perhaps with slightly differing interpretations than their traditional forms):
 
