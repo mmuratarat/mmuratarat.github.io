@@ -163,6 +163,8 @@ permalink: /faq/
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
 71. [How to determine sample size?](#how-to-determine-sample-size)
 72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
+73. When is a biased estimator preferable to unbiased one?
+74. What is the difference between t-test and linear regression?
 
 
 [General Machine Learning](#general-machine-learning)
@@ -4445,18 +4447,12 @@ Although these methods have, historically, developed along separate tracks, most
   \text{where }\varepsilon\sim\mathcal N(0, \sigma^2)
   $$
 
-The prototypical regression is conceptualized with $x$ as a continuous variable. However, the only assumption that is actually made about $x$ is that it is a vector of known constants. However, the only assumption that is actually made about 𝑋 is that it is a vector of known constants. It could be a continuous variable, but it could also be a dummy code (i.e., a vector of $0$'s and $1$'s that indicates whether an observation is a member of an indicated group--e.g., a treatment group). Thus, in the second equation, $X$ could be such a dummy code (or contrast coding (where one group is coded as -1 and other one is coded), and the p-value would be the same as that from a t-test in its more traditional form.
+The prototypical regression is conceptualized with $x$ as a continuous variable. However, the only assumption that is actually made about $x$ is that it is a vector of known constants. However, the only assumption that is actually made about $X$ is that it is a vector of known constants. It could be a continuous variable, but it could also be a dummy code (i.e., a vector of $0$'s and $1$'s that indicates whether an observation is a member of an indicated group--e.g., a treatment group). Thus, in the second equation, $X$ could be such a dummy code (or contrast coding (where one group is coded as -1 and other one is coded), and the p-value would be the same as that from a t-test in its more traditional form.
 
 The meaning of the betas would differ here, though. In this case, $\beta_{0}$ would be the mean of the control group (for which the entries in the dummy variable would be $0$'s), and $\beta_{1}$ would be the difference between the mean of the treatment group and the mean of the control group.
 
 There is again one special case where adding a control variable to a regression model has an equivalent (direct) t-test:
 say you have $n$ subjects, the response is is measured from each before some treatment, and then it is measured again after the treatment. Here you have two factors: time (before/after) and subject ($1, 2, 3, \dots, n$). The test of the time-slope in a two-factorial regression model (including dummy-coded time and dummy-coded subject ID) is identical to the test of the (within-subject) pairwise differences (a paired t-test).
-
-
-
-
-
-
 
 
 ## General Machine Learning
