@@ -6878,6 +6878,13 @@ df.plot.scatter('sin_time','cos_time').set_aspect('equal');
 #and the cyclical nature of 24-hour time will carry over.
 ```
 
+#### Why does bagging work so well for decision trees, but not for linear classifiers?
+
+Bootstrap aggregating, also called bagging, is one of the first ensemble algorithms machine learning practitioners learn and is designed to improve the stability and accuracy of regression and classification algorithms. By model averaging, bagging helps to reduce variance and minimize overfitting. Although it is usually applied to decision tree methods, it can be used with any type of method. Some models have larger variance than others. Bagging works especially well for unstable, high variance base learners—algorithms whose predicted output undergoes major changes in response to small changes in the training data. This includes algorithms such as decision trees and KNN (when k is sufficiently small). However, for algorithms that are more stable or have high bias, bagging offers less improvement on predicted outputs since there is less variability (e.g., bagging a linear regression model will effectively just return the original predictions for large enough ensemble). 
+
+Normal equations produce the estimates for the coefficient of a linear regression using ordinary least squares (OLS) method. Gauss-Markov Theorem states that these estimates are already BLUE which  is an acronym for best linear unbiased estimator.
+In other words, the sampling distributions of regression coefficients are centered on the actual population value and are the tightest possible distributions. Therefore, the estimates, if the assumptions of the linear model are satisfied (homoskedasticity of the error term, no serial correlation of the errors, no exact multicollinearity, etc.) are already minimum variance and unbiased (in fact they are the maximum likelihood estimates.) Bagging is a procedure used to "balance out" the bias-variance tradeoff, but if OLS is BLUE, there is no need to employ a method like bagging.
+
 
 ## Deep Learning
 
