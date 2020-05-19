@@ -228,6 +228,27 @@ $$
 \end{split}
 $$
 
+Let’s compute the mean and variance:
+
+$$
+\begin{split}
+E(\hat{\theta}_{ridge}) &= E\left[\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y\right]\\
+&= \end{split}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} E(y)\\
+&= \end{split}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \mathbf{X}\theta\\
+$$
+
+and
+
+$$
+\begin{split}
+Var(\hat{\theta}_{ridge}) &= Var\left[\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y\right]\\
+&= \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} Var(y) \mathbf{X}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
+&=  \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \sigma^{2} \mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}\\
+&= \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T}\mathbf{X} \mathbf{I}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1}
+$$
+
+Notice how both of these expressions smoothly approach the corresponding formulas ones for ordinary least squares as $\lambda \to 0$. Indeed, under the Gaussian noise assumption, $\hat{\theta}_{ridge} $ actually has a Gaussian distribution with the given expectation and variance.
+
 Additionally, when $X$ is composed of orthonormal variables, such that $\mathbf{X}^{T} \cdot \mathbf{X} = I_{n}$, it then follows that
 
 $$
