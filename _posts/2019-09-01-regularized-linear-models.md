@@ -233,8 +233,9 @@ Let’s compute the mean and variance:
 $$
 \begin{split}
 E(\hat{\theta}_{ridge}) &= E\left[\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y\right]\\
-&= \end{split}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} E(y)\\
-&= \end{split}\left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \mathbf{X}\theta\\
+&= \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} E(y)\\
+&= \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} \mathbf{X}\theta
+\end{split}
 $$
 
 and
