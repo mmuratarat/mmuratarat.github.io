@@ -4166,6 +4166,7 @@ print('P(roll 3 sixes) = P(X = 3) = {:.2f}'.format(b.pmf(3)))
 import scipy
 from scipy.stats import chi2
 
+#Percent point function (inverse of cdf — percentiles)
 value = chi2.ppf(q = 0.95, df= 3)
 print(value)
 #7.814727903251179
