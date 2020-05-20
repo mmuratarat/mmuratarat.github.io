@@ -88,7 +88,7 @@ permalink: /faq/
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
-12. Compare "Frequentist probability" vs. "Bayesian probability"?
+12. Compare "Frequentist statistics" vs. "Bayesian statistics"?
 13. [What is a probability distribution?](#what-is-a-probability-distribution)
 17. [What is a probability mass function? What are the conditions for a function to be a probability mass function?](#what-is-a-probability-mass-function-what-are-the-conditions-for-a-function-to-be-a-probability-mass-function)
 18. [What is a probability density function? What are the conditions for a function to be a probability density function?](#what-is-a-probability-density-function-what-are-the-conditions-for-a-function-to-be-a-probability-density-function)
@@ -1669,6 +1669,7 @@ All we do here is multiply each element in the last equation by the number of di
 Perhaps an easier way to think about the ordered case it we're just summing permutations of each possible length: $^n P_0 + ^n P_1 + ^n P_2 + \dots + ^n P_n = \frac{n!}{n!} +  \frac{n!}{(n-1)!} + \frac{n!}{(n-2)!} + \cdots + \frac{n!}{0!}$.
 
 #### What is a probability?
+
 We assign a probability measure $P(A)$ to an event $A$. This is a value between $0$ and $1$ that shows how likely the event is. If $P(A)$ is close to $0$, it is very unlikely that the event $A$ occurs. On the other hand, if $P(A)$ is close to $1$, $A$ is very likely to occur. 
 
 #### What are the probability axioms?
@@ -1678,11 +1679,16 @@ We assign a probability measure $P(A)$ to an event $A$. This is a value between 
 * **Axiom 3** If $A_{1}, A_{2}, A_{3}, \ldots$ are disjoint (mutually exclusive) (even countably infinite) events, meaning that they have an empty intersection, the probability of the union of the events is the same as the sum of the probabilities: $P(A_{1} \cup A_{2} \cup A_{3} \cup \ldots) = P(A_{1}) + P(A_{2}) + P(A_{3}) + \dots$.
 
 #### What is a random variable?
+
 A random variable is a variable whose values depend on all the possible outcomes of a natural phenomenon. In short, a random variable is a quantity produced by a random process. Each numerical outcome of a random variable can be assigned a probability. There are two types of random variables, discrete and continuous. 
 
 A discrete random variable is one which may take on either a finite number of values, or an infinite, but countable number of values, such as 0,1,2,3,4,.... Discrete random variables are usually (but not necessarily) counts. If a random variable can take only a finite number of distinct values, then it must be discrete. Examples of discrete random variables include the number of children in a family, the Friday night attendance at a cinema, the number of patients in a doctor's surgery, the number of defective light bulbs in a box of ten.
 
 A continuous random variable is one which takes on an uncountably infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
+
+#### Compare "Frequentist statistics" vs. "Bayesian statistics"?
+
+In a short way, statistics is the science of changing your mind. There are two schools of thoughts. The more popular one - Frequentist statistics - is all about checking whether you should leave your default action. Bayesian statistics is all about having a prior opinion and updating that opinion with data. If your mind is truly blank before you begin, look at your data and just go with it.
 
 #### What is a probability distribution?
 
