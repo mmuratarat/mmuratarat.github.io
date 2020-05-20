@@ -4385,7 +4385,7 @@ An example:
 
 The standard deviation of systolic blood pressure in US is about 25 mmHg. How large a sample is necessary to estimate the average systolic blood pressure with a margin of error of 4 mmHg at 95% confidence level. 
 
-We know that margin of error at 95% is $ME_{95\%} = 1.96 \times S.E. = 1.96 \time \frac{sigma}{\sqrt{n}}$. We are given that $\sigma = 4$ and $ME_{95\%} = 4$. Therefore,
+We know that margin of error at 95% is $ME_{95\%} = 1.96 \times S.E. = 1.96 \times \frac{sigma}{\sqrt{n}}$. We are given that $\sigma = 5$ and $ME_{95\%} = 4$. Therefore,
 
 $$
 4 = 1.96 \times \frac{25}{\sqrt{n}} \Rightarrow n =150.06$
