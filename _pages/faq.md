@@ -4333,15 +4333,15 @@ The results from a Two-Way ANOVA will calculate a main effect and an interaction
 
 $$
 \begin{split}
-H_{01} &: The mean of the test scores is the same for all the educational levels.\\
-H_{02} &: The mean of the test scores is the same for all the zodiac signs.
+H_{01} &: \text{The mean of the test scores is the same for all the educational levels.}\\
+H_{02} &: \text{The mean of the test scores is the same for all the zodiac signs.}
 \end{split}
 $$
 
 For multiple observations in cells, you would also be testing a third hypothesis:
 
 $$
-H_{03}: The factors are independent or the interaction effect between education levels and zodiac signs does not exist.
+H_{03}: \text{The factors, education levels and zodiac signs, are independent or the interaction effect between education levels and zodiac signs does not exist.}
 $$
 
 An F-statistic is computed for each hypothesis you are testing.
