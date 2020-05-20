@@ -103,7 +103,7 @@ permalink: /faq/
 26. [Explain some Discrete and Continuous Distributions.](#explain-some-discrete-and-continuous-distributions)
 26. [What is a moment?](#what-is-a-moment)
 26. [What is moment generating function?](#what-is-moment-generating-function)
-26. What is characteristic function?
+26. [What is characteristic function?](#what-is-characteristic-function)
 26. [What are the properties of Distributions?](#what-are-the-properties-of-distributions)
 27. [What are the measures of Central Tendency: Mean, Median, and Mode?](#what-are-the-measures-of-central-tendency-mean-median-and-mode)
 27. [How to compute the median of a probability distribution?](#how-to-compute-the-median-of-a-probability-distribution)
@@ -2179,13 +2179,13 @@ $$
 M_{X}(t)=\int_{-\infty}^{\infty} e^{tx}\frac{\frac{1}{\pi}}{1+x^2} dx=\infty
 $$
 
-Therefore, the moment generating function does not exist for this random variable on any real interval with positive length. If a random variable does not have a well-defined MGF, we can use the characteristic function defined as
+Therefore, the moment generating function does not exist for this random variable on any real interval with positive length. If a random variable does not have a well-defined MGF, we can use the characteristic function defined as:
 
 $$
-\phi_{X}(\omega)&=E[e^{j \omega X}]
+\phi_{X}(\omega) = E[e^{j \omega X}]
 $$
 
-where $j = $\sqrt{-1}$ and $\omega$ is a real number. It is worth noting that $e^{j \omega X}$ is a complex-valued random variable. You can imagine that a complex random variable can be written as $X=Y + j Z$, where $Y$ and $Z$ are ordinary real-valued random variables. Thus, working with a complex random variable is like working with two real-valued random variables. The advantage of the characteristic function is that it is defined for all real-valued random variables. Specifically, if $X$ is a real-valued random variable, we can write
+where $j = $\sqrt{-1}$ and $\omega$ is a real number. It is worth noting that $e^{j \omega X}$ is a complex-valued random variable. You can imagine that a complex random variable can be written as $X = Y + j Z$, where $Y$ and $Z$ are ordinary real-valued random variables. Thus, working with a complex random variable is like working with two real-valued random variables. The advantage of the characteristic function is that it is defined for all real-valued random variables. Specifically, if $X$ is a real-valued random variable, we can write
 
 $$
 |e^{j \omega X}|=1
