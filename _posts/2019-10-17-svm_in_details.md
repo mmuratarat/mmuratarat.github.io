@@ -48,6 +48,8 @@ NOTE: This blog post consists of images. It might take a while to load in your b
 
 A kernelized SVM is equivalent to a linear SVM that operates in feature space rather than input space. Conceptually, you can think of this as mapping the data (possibly nonlinearly) into feature space, then using a linear SVM. However, the actual steps taken when using a kernelized SVM don't look like this because the kernel trick is used. Rather than explicitly mapping the data into feature space, the mapping is defined implicitly by the kernel function, which returns the dot product between feature space representations of two data points. 
 
+Given two objects, the kernel outputs some similarity score. The objects can be anything starting from two integers, two real valued vectors, trees whatever provided that the kernel function knows how to compare them. The arguably simplest example is the linear kernel, also called dot-product. Given two vectors, the similarity is the length of the projection of one vector on another.
+
 An intuitive view of Kernels would be that they correspond to functions that measure how closely related vectors $x$ and $z$ are. So when $x$ and $z$ are similar the Kernel will output a large value, and when they are dissimilar $K$ will be small. Knowing this justifies the use of the Gaussian Kernel as a measure of similarity
 
 $$
