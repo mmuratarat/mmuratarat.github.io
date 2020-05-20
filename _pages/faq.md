@@ -6018,12 +6018,11 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 #### What is a parsimonious model?
 
-Parsimonious models are simple models with great explanatory predictive power. They explain data with a minimum number of parameters, or predictor variables.
+Parsimonious models are simple models with the least assumptions but with the greatest explanatory predictive power. They explain data with a minimum number of parameters, or predictor variables.
 
 The idea behind parsimonious models stems from Occam’s razor (law of parsimony - Entities should not be multiplied unnecessarily). The most useful statement of the principle for scientists is "when you have two competing theories that make exactly the same predictions, the simpler one is the better". The law states that you should use no more "things" than necessary; In the case of parsimonious models, those "things" are parameters. Parsimonious models have optimal parsimony, or just the right amount of predictors needed to explain the model well.
 
-There is generally a tradeoff between goodness of fit and parsimony: low parsimony models (i.e. models with many parameters) tend to have a better fit than high parsimony models. This is not usually a good thing; adding more parameters usually results in a good model fit for the data at hand, but that same model will likely be useless for predicting other data sets.
-Finding the right balance between parsimony and goodness of fit can be challenging. Popular methods include Akaike’s Information Criterion (AIC), Bayesian Information Criterion (BIC),  Mallow's Cp criteria, Bozdogan’s index of informational complexity (ICOMP), Bayes Factors and Minimum Description Length. The best model minimizes those critera.
+There is generally a tradeoff between goodness of fit and parsimony: low parsimony models (i.e. models with many parameters) tend to have a better fit than high parsimony models. This is not usually a good thing; adding more parameters usually results in a good model fit for the data at hand, but that same model will likely be useless for predicting other data sets (generalization). Finding the right balance between parsimony and goodness of fit can be challenging. Popular methods include Akaike’s Information Criterion (AIC), Bayesian Information Criterion (BIC),  Mallow's Cp criteria, Bozdogan’s index of informational complexity (ICOMP), Bayes Factors and Minimum Description Length. The best model minimizes those critera.
 
 #### How do you deal with imbalanced data?
 
