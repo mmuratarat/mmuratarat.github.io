@@ -4316,22 +4316,33 @@ Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way
 
 1. **One-Way ANOVA**
 
-One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, difference in IQ can be assessed by Country, and County can have 2, 5, 10, 20, or more different categories (groups/levels) to compare.
+One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, One-way ANOVA has one continuous response variable (e.g. Test Score) compared by three or more levels of a factor variable (e.g. Level of Education).
 
 A one way ANOVA will tell you that at least two groups were different from each other. But it won’t tell you which groups were different. If your test returns a significant f-statistic, you may need to run an ad hoc test to tell you exactly which groups had a difference in means.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/one-way.ANOVA.png?raw=true)
+
 2. **Two-Way ANOVA**
 
-A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, a 2-way ANOVA can examine differences in IQ scores (the dependent variable) by Country (independent variable 1) and Gender (independent variable 2).  Two-way ANOVA can be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables.  For example, females may have higher IQ scores overall compared to males, but this difference could be greater (or less) in European countries compared to North American countries. Two-way ANOVAs are also called factorial ANOVAs.
+A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, Two-way ANOVA has one continuous response variable (e.g. Test Score) compared by more than one factor variable (e.g. Level of Education and Zodiac Sign). Two-way ANOVA can also be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables. Two-way ANOVAs are also called factorial ANOVAs.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+anova.png?raw=true)
 
 The results from a Two-Way ANOVA will calculate a main effect and an interaction effect. The main effect is similar to a One Way ANOVA: each factor’s effect is considered separately. With the interaction effect, all factors are considered at the same time. Thus, there are three different hypotheses to be tested in two-way ANOVA:
 
-H01: All the country groups have equal IQ scores.
 
-H02: All the gender groups have equal IQ scores.
+$$
+\begin{split}
+H_{01} &: The mean of the test scores is the same for all the educational levels.\\
+H_{02} &: The mean of the test scores is the same for all the zodiac signs.
+\end{split}
+$$
 
 For multiple observations in cells, you would also be testing a third hypothesis:
-H03: The factors are independent or the interaction effect does not exist.
+
+$$
+H_{03}: The factors are independent or the interaction effect between education levels and zodiac signs does not exist.
+$$
 
 An F-statistic is computed for each hypothesis you are testing.
 
@@ -4341,7 +4352,14 @@ A researcher can also use more than two independent variables, and this is an n-
 
 4. **Multivariate ANOVA (MANOVA)**
 
-Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. If there is two or more dependent variables as well as two or more independent variables, it is called factorial MANOVA.  
+Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. For example, One-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by a single factor variable (e.g. Level of Education).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ONE-WAY+MANOVA+figure.001.png?raw=true)
+
+
+If there is two or more dependent variables as well as two or more independent variables, it is called factorial MANOVA. For example, Two-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by two or more factor variables (e.g. Level of Education and Zodiac Sign).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+manova.png?raw=true)
 
 **Assumptions for ANOVA** 
 
@@ -4358,9 +4376,13 @@ When you conduct an ANOVA, you are attempting to determine if there is a statist
 
 ANCOVA is an extension of the ANOVA, the researcher can still can assess main effects and interactions to answer their research hypotheses.  The difference between an ANCOVA and an ANOVA is that an ANCOVA model includes a “covariate” that is correlated with the dependent variable and means on the dependent variable are adjusted due to the effects the covariate has on it. This technique answers the question: Are mean differences or interactive effects likely to have occurred by chance after scores have been adjusted on the dependent variable because of the effect of the covariate?
 
-The task  is to remove the extraneous variation from the dependent variable.
+The task  is to remove the extraneous variation from the dependent variable. For example, ANCOVA compares a continuous response variable (e.g. Test Score) by levels of a factor variable (e.g. Level of Education), controlling for a continuous covariate (e.g. Number of Hours Spent Studying). 
 
-MANCOVA is a statistical technique that is the extension of ANCOVA. MANCOVA feature two or more dependent variables and one or more more covariates are added to the mix. MANCOVA removes the effects of one or more covariates from your model
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ancova.png?raw=true)
+
+MANCOVA is a statistical technique that is the extension of ANCOVA. MANCOVA feature two or more dependent variables and one or more more covariates are added to the mix. MANCOVA removes the effects of one or more covariates from your model. For example, MANCOVA compares two or more continuous response variables (e.g. Test Scores and Annual Income) by levels of a factor variable (e.g. Level of Education), controlling for a covariate (e.g. Number of Hours Spent Studying).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/mancova.png?raw=true)
 
 
 MANCOVA, MANOVA, ANOVA, ANCOVA: it can all get a little confusing to remember which is which. However, all of the tests can be thought of as variants of the MANCOVA, if you remember that the “M” in MANCOVA stands for Multiple and the “C” stands for Covariates.
