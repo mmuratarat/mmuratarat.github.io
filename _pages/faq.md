@@ -2185,7 +2185,7 @@ $$
 \phi_{X}(\omega) = E[e^{j \omega X}]
 $$
 
-where $j = $\sqrt{-1}$ and $\omega$ is a real number. It is worth noting that $e^{j \omega X}$ is a complex-valued random variable. You can imagine that a complex random variable can be written as $X = Y + j Z$, where $Y$ and $Z$ are ordinary real-valued random variables. Thus, working with a complex random variable is like working with two real-valued random variables. The advantage of the characteristic function is that it is defined for all real-valued random variables. Specifically, if $X$ is a real-valued random variable, we can write
+where $j = \sqrt{-1}$ and $\omega$ is a real number. It is worth noting that $e^{j \omega X}$ is a complex-valued random variable. You can imagine that a complex random variable can be written as $X = Y + j Z$, where $Y$ and $Z$ are ordinary real-valued random variables. Thus, working with a complex random variable is like working with two real-valued random variables. The advantage of the characteristic function is that it is defined for all real-valued random variables. Specifically, if $X$ is a real-valued random variable, we can write
 
 $$
 |e^{j \omega X}|=1
