@@ -23,7 +23,7 @@ In K-means, each cluster is described by a single mean, or centroid (hard cluste
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-05%20at%2016.22.34.png?raw=true)
 
-An important observation for k-means is that the cluster models must be circular. In other words, K-means requires that each blob be a fixed size and completely symmetrical. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
+An important observation for k-means is that the cluster models must be circular (or spherical in high dimensions, i.i.d. Gaussian). In other words, K-means requires that each blob be a fixed size and completely symmetrical. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/circular_clusters.png?raw=true)
 
@@ -99,11 +99,13 @@ The standard K-means algorithm isn't directly applicable to categorical data, fo
 
 The use of Euclidean distance as the measure of dissimilarity can also make the determination of the cluster means non-robust to outliers and noise in the data.
 
-Categorical data (i.e., category labels such as gender, country, browser type) needs to be encoded (e.g., one-hot encoding for nominal categorical variable or label encoding for ordinal categorical variable) or separated in a way that can still work with the algorithm, which is still not perfectly right. 
-
-There's a variation of K-means known as K-modes, introduced in [this paper](http://www.cs.ust.hk/~qyang/Teaching/537/Papers/huang98extensions.pdf) by Zhexue Huang, which is suitable for categorical data. 
+Categorical data (i.e., category labels such as gender, country, browser type) needs to be encoded (e.g., one-hot encoding for nominal categorical variable or label encoding for ordinal categorical variable) or separated in a way that can still work with the algorithm, which is still not perfectly right. There's a variation of K-means known as K-modes, introduced in [this paper](http://www.cs.ust.hk/~qyang/Teaching/537/Papers/huang98extensions.pdf) by Zhexue Huang, which is suitable for categorical data. 
 
 K-Means does not behave very well when the clusters have varying sizes, different densities, or non-spherical shapes. In that case, one can use Mixture models using EM algorithm or Fuzzy K-means (every object belongs to every cluster with a membershio weight that is between 0 (absolutely does not belong) and 1 (absolutely belongs)). which both allow soft assignments. As a matter of fact, K-means is special variant of the EM algorithm with the assumption that the clusters are spherical. EM algorithm also starts with random initializations, it is an iterative algorithm, it has strong assumptions that the data points must fulfill, it is sensitive to outliers, it requires prior knowledge of the number of desired clusters. The results produced by EM are also non-reproducible.
+
+The above paragraph shows the drawbacks of this algorithm. K-means assumes the variance of the distribution of each attribute (variable) is spherical; all variables have the same variance; the prior probability for all K clusters is the same, i.e., each cluster has roughly equal number of observations. If any one of these 3 assumptions are violated, then K-means will fail. [https://stats.stackexchange.com/a/249288/16534](This Stackoverflow answer) explains perfectly!
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-05-20%20at%2019.08.40.png?raw=true)
 
 It is important to scale the input features before you run K-Means, or else the clusters may be very stretched, and K-Means will perform poorly. Scaling the features does not guarantee that all the clusters will be nice and spherical, but it generally improves things.
 
