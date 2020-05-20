@@ -281,8 +281,11 @@ permalink: /faq/
 
 [SQL](#SQL)
 
-What is SQL?
-What is Database?
+1. What is SQL?
+2. What is Database?
+3. What are the different subsets of SQL?
+4. What is a query?
+5. What is subquery?
 1. [What is a primary key and a foreign key?](#what-is-a-primary-key-and-a-foreign-key)
 2. [In which order do SQL queries happen?](#in-which-order-do-sql-queries-happen)
 4. [What is the difference between UNION and UNION ALL?](#what-is-the-difference-between-union-and-union-all)
