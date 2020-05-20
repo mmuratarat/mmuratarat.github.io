@@ -4345,9 +4345,9 @@ Multivariate analysis of variance (MANOVA) is simply an ANOVA with several depen
 
 **Assumptions for ANOVA** 
 
-* The population from which samples are drawn should be normally distributed (can be tested using histograms, the values of skewness and kurtosis, or using tests such as Shapiro-Wilk or Kolmogorov-Smirnov).
-* Observation must be independent (can be determined from the design of the study).
-* Population variances must be equal. (The assumption of homogeneity of variance must be tested before ANOVA, such as Hartley’s $F_{max}$, Cochran’s, Levene’s, Brown-Forsythe and Barlett’s test.)
+* The population from which samples are drawn should be normally distributed (can be tested using histograms, the values of skewness and kurtosis, or using tests such as Shapiro-Wilk or Kolmogorov-Smirnov). If it is violated: you can (1) transform your data using various algorithms so that the shape of your distributions become normally distributed or (2) choose the nonparametric Kruskal-Wallis H Test which does not require the assumption of normality.
+* Observation must be independent (can be determined from the design of the study). A lack of independence of cases has been stated as the most serious assumption to fail. Often, there is little you can do that offers a good solution to this problem.
+* Population variances must be equal. (The assumption of homogeneity of variance must be tested before ANOVA, such as Hartley’s $F_{max}$, Cochran’s, Levene’s, Brown-Forsythe and Barlett’s test). There are two tests that you can run that are applicable when the assumption of homogeneity of variances has been violated: (1) Welch or (2) Brown and Forsythe test. Alternatively, you could run a Kruskal-Wallis H Test. For most situations it has been shown that the Welch test is best. 
 * Groups must have equal sample sizes.
 
 **So what if you find statistical significance?  Multiple comparison tests**
