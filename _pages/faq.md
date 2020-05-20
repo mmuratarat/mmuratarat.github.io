@@ -4242,6 +4242,12 @@ print(value)
 p = chi2.cdf(value, df = 3)
 print(p)
 #0.95
+
+#OR
+
+p_value = chi2.sf(8.006, df= 3)
+#0.04588786639310048
+#p < alpha so we reject the null hypothesis
 ```
 
 #### What does statistical interaction mean?
