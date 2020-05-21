@@ -9474,6 +9474,7 @@ SELECT '15 minute'::interval,
 SELECT
    CAST ('2015-01-01' AS DATE),
    CAST ('01-OCT-2015' AS DATE);
+```
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-24%20at%2008.21.30.png?raw=true)
 
