@@ -239,6 +239,7 @@ permalink: /faq/
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
 55. [What is the Kernel Trick?](#what-is-the-kernel-trick)
 55. How does SVM work in multiclass classification?
+55. What is the bias-variance tradeoff for sigma parameter in RBF kernel?
 56. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 57. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 58. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
@@ -5921,9 +5922,9 @@ $$
 
 C parameter in soft-margin SVM is essentially NOT a regularisation parameter, but it controls the trade-off between classifying the training data well (minimizing the training error) and classifying the future examples (minimizing the testing error, in other words, to generalize your classifier to unseen data). If we have a large C, we prefer small number of misclassified examples because the term in the objective function of SVM, $C\sum_{i=1}^{n} \varepsilon_{i}$, will dominate, so, we will have a smaller margin. This is basically trying to fit the model exactly to training data, which can have tendency to overfit. Conversely, if we have a small $C$, the regularization term in the objective function of SVM, $\frac{||w||^{2}}{2}$, will dominate. So, we will have a larger margin but will allow potentially larger number of misclassified example (ignore errors/underfit the data). 
 
-Tuning C correctly is a vital step in best practice in the use of SVMs. 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/0_z00-0ici9ikQLBug.jpg?raw=true)
 
-This can be related to the "regular" regularization tradeoff in the following way. SVMs are usually formulated like
+Therefore tuning C correctly is a vital step in best practice in the use of SVMs. $C$ parameter can be related to the "regular" regularization tradeoff in the following way. SVMs are usually formulated like
 
 $$
 \min_{w} \mathrm{regularization}(w) + C \, \mathrm{loss}(w; X, y)
@@ -5939,7 +5940,7 @@ The two are of course equivalent with $C= \frac{1}{\lambda}$. As we increase $\l
 
 Nonetheless, if you set $C=0$, then SVM will ignore the errors, and just try to minimise the sum of squares of the weights($w$), perhaps you may get different results on the test set.
 
-The theory for determining how to set $C$ is not very well developed at the moment, so we tend to use cross-validation.
+The theory for determining how to set $C$ is not very well developed at the moment, so it is recommended that a "grid-search" on $C$ and also $\gamma$ (if an RBF kernel is used) using cross-validation. Various pairs of $(C,\gamma)$ values are tried and the one with the best cross-validation accuracy is picked. We found that trying exponentially growing sequences of $C$ and $\gamma$ is a practical method to identify good parameters (for example, $C = 2^{-5},2^{-3},\ldots,2^{15};\gamma = 2^{-15},2^{-13},\ldots,2^{3}$).
 
 #### Why do we find the dual problem when fitting SVM?
 
@@ -6002,6 +6003,28 @@ The SVM as defined so far works for binary classification. What happens if the n
 * **One-versus-One**: All ${K\choose 2}$ pairwise classifiers are fitted and a test observation is classified in the class which wins in the majority of the cases.
 
 The latter method is preferable but if $K$ is too large, the former is to be used.
+
+#### What is the bias-variance tradeoff for sigma parameter in RBF kernel?
+
+The RBF kernel on two samples $x$ and $x^{\prime}$, represented as feature vectors in some input space, is defined as:
+
+$$
+K(\mathbf {x} ,\mathbf {x^{\prime} )=\exp \left( -{\frac {\|\mathbf {x} -\mathbf {x^{\prime}} \|^{2}}{2\sigma ^{2}}} \right)
+$$
+
+$||\mathbf {x} - \mathbf {x^{\prime}} ||^{2}$ may be recognized as the squared Euclidean distance between the two feature vectors. $\sigma$  is a free parameter. An equivalent definition involves a parameter $\gamma = \dfrac {1}{2\sigma ^{2}}$:
+
+$$
+K(\mathbf {x} ,\mathbf {x^{\prime}} )=\exp(- \gamma ||\mathbf {x} - \mathbf {x^{\prime}} ||^{2})
+$$
+
+Since the value of the RBF kernel decreases with distance and ranges between zero (in the limit) and one (when $x = x^{\prime}$), it has a ready interpretation as a similarity measure.
+
+
+If the distance between $x$ and $x^{\prime}$ is much larger than sigma, the kernel function tends to be zero. Thus, if the sigma is very small, only the x within the certain distance can affect the predicting point. In other words, smaller sigma tends to make a local classifier, larger sigma tends to make a much more general classifier. 
+
+As for the variance and bias explanation, smaller sigma tends to be less bias and more variance while larger sigma tends to be less variance and more bias.
+
 
 #### What is the output of Logistic Regression?
 
