@@ -97,7 +97,7 @@ A number of other techniques exist for validating K, including cross-validation,
 
 ## Constraints of the algorithm
 
-Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. However, we must be careful about curse of dimensionality. any more than few tens of dimensions mean that distance interpretation isn’t obvious and must be guarded against. Appropriate dimensionality reduction techniques and distance measure must be used.
+Only numerical data can be used. Generally K-means works best for 2 dimensional numerical data. Visualization is possible in 2D or 3D data. But in reality there are always multiple features to be considered at a time. However, we must be careful about curse of dimensionality. Any more than few tens of dimensions mean that distance interpretation is not obvious and must be guarded against. Appropriate dimensionality reduction techniques and distance measures must be used.
 
 K-Means clustering is prone to initial seeding i.e. random initialization of centroids which is required to kick-off iterative clustering process. Bad initialization may end up getting bad clusters. Leader Algorithm can be used.
  
