@@ -9017,14 +9017,11 @@ An index refers to a performance tuning method of allowing faster retrieval of r
 There are three types of index namely:
 
 1. **Unique Index**: This index does not allow the field to have duplicate values if the column is unique indexed. If a primary key is defined, a unique index can be applied automatically.
-
-```sql
-CREATE UNIQUE INDEX myIndex
-ON students (enroll_no);
-```
-
+  ```sql
+  CREATE UNIQUE INDEX myIndex
+  ON students (enroll_no);
+  ```
 2. **Clustered Index**: This index reorders the physical order of the table and searches based on the basis of key values. Each table can only have one clustered index. Note that PostgreSQL does not have a clustered index
-
 3. **Non-Clustered Index**: Non-Clustered Index does not alter the physical order of the table and maintains a logical order of the data. Each table can have many nonclustered indexes.
 
 #### What are the different types of relationships in SQL?
