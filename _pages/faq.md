@@ -5919,7 +5919,27 @@ $$
 
 #### What does the parameter C do in SVM?
 
-C is not regularization parameter actually but it can be thought of a tradeoff between preferring large margin and preferring small number of misclassified data points. A small C prefers large margins but allow potentially large number of misclassified points (ignore errors/underfit the data). A large C prefers small number of misclassified examples at the expense of smaller margin (high tendency to overfit). Therefore, it is basically deciding between classifying the training data well (minimizing the empirical risk) and classifying the future examples well (generalization).
+C parameter in soft-margin SVM is essentially NOT a regularisation parameter, but it controls the trade-off between classifying the training data well (minimizing the training error) and classifying the future examples (minimizing the testing error, in other words, to generalize your classifier to unseen data). If we have a large C, we prefer small number of misclassified example because the term in the objective function of SVM, $C\sum_{i=1}^{n} \varepsilon_{i}$, will dominate, so, we will have a smaller margin. This is basically trying to fit the model exactly to training data, which can have tendency to overfit. Conversely, if we have a small C, the regularization term in the objective function of SVM, $\frac{||w||^{2}}{2}$, will dominate. So, we will have a larger margin but will allow potentially larger number of misclassified example (ignore errors/underfit the data). 
+
+Tuning C correctly is a vital step in best practice in the use of SVMs. 
+
+This can be related to the "regular" regularization tradeoff in the following way. SVMs are usually formulated like
+
+$$
+\min_{w} \mathrm{regularization}(w) + C \, \mathrm{loss}(w; X, y)
+$$
+
+whereas ridge regression / LASSO / etc are formulated like:
+
+$$
+\min_{w} \mathrm{loss}(w; X, y) + \lambda \, \mathrm{regularization}(w)
+$$
+
+The two are of course equivalent with $C= \frac{1}{\lambda}$. As we increase $\lambda \to \infty$ we introduce more bias into regression model, therefore, a small $C$ will have a high bias, low variance, underfitting the data. As we decrease $\lambda$, we increase the variance in the model and lowering the bias, therefore, $C$ will go larger, so we will have a high variance, low bias SVM, which can overfit the data. 
+
+Nonetheless, if you set $C=0$, then SVM will ignore the errors, and just try to minimise the sum of squares of the weights($w$), perhaps you may get different results on the test set.
+
+The theory for determining how to set $C$ is not very well developed at the moment, so we tend to use cross-validation.
 
 #### Why do we find the dual problem when fitting SVM?
 
