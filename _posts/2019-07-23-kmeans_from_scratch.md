@@ -29,6 +29,8 @@ An important observation for k-means is that the cluster models must be circular
 
 These two disadvantages of K-means—its lack of flexibility in cluster shape and lack of probabilistic cluster assignment—mean that for many datasets (especially low-dimensional datasets) it may not perform as well as you might hope. K-means is also very sensitive to outliers and noise in the dataset.
 
+K-means is a widely used method in cluster analysis. One might easily think that this method does NOT require ANY assumptions, i.e., give me a data set and a pre-specified number of clusters, K, then I just apply this algorithm which minimize the total within-cluster square error (intra-cluster variance). See "Constraints of the algorithm" section for more details!
+
 # When to use?
 This is a versatile algorithm that can be used for any type of grouping. Some examples of use cases are:
 1. Image Segmentation
@@ -80,7 +82,7 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 **NOTE**: Unfortunately, although the algorithm is guaranteed to converge, it may not converge to the right solution (i.e., it may converge to a local optimum, not necessarily the best possible outcome). This highly depends on the centroid initialization. As a result, the computation is often done several times, with different initializations of the centroids. One method to help address this issue is the K-means++ initialization scheme, which has been implemented in scikit-learn (use the `init='k-means++'` parameter). This initializes the centroids to be (generally) distant from each other, leading to probably better results than random initialization. One idea for initializing K-means is to use a farthest-first traversal on the data set, to pick K points that are far away from each other. However, this is too sensitive to outliers. But, K-means++ procedure picks the K centers one at a time, but instead of always choosing the point farthest from those picked so far, choose each point at random, with probability proportional to its squared distance from the centers chosen already. 
 
-**NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances, the number of clusters and the number of dimensions. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-Means is generally one of the fastest clustering algorithms.
+**NOTE**: The computational complexity of the algorithm is generally linear with regards to the number of instances, the number of clusters and the number of dimensions. However, this is only true when the data has a clustering structure. If it does not, then in the worst case scenario the complexity can increase exponentially with the number of instances. In practice, however, this rarely happens, and K-means is generally one of the fastest clustering algorithms.
 
 # Choosing the Value of K
 We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K, but an accurate estimate can be obtained using the Elbow Method. We run the algorithm for different values of K (say K = 1 to 10) and plot the K values against WCSSE (Within Cluster Sum of Squared Errors). WCSS is also called "inertia". Then, select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
