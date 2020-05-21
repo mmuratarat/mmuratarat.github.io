@@ -23,9 +23,13 @@ In K-means, each cluster is described by a single mean, or centroid (hard cluste
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-10-05%20at%2016.22.34.png?raw=true)
 
-An important observation for k-means is that the cluster models must be circular (or spherical in high dimensions, i.i.d. Gaussian). In other words, K-means requires that each blob be a fixed size and completely symmetrical. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
+An important observation for K-means is that the cluster models must be circular in 2D (or spherical in 3D or higher, i.i.d. Gaussian). In other words, K-means requires that each blob be a fixed size and completely symmetrical. K-means has no built-in way of accounting for oblong or elliptical clusters. When clusters are non-circular, trying to fit circular clusters would be a poor fit. This results in a mixing of cluster assignments where the resulting circles overlap.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/circular_clusters.png?raw=true)
+
+Unfortunately, K-means will not work for non-spherical clusters like these:
+
+![](http://varianceexplained.org/figs/2015-01-16-kmeans-free-lunch/non_spherical-1.png)
 
 These two disadvantages of K-means—its lack of flexibility in cluster shape and lack of probabilistic cluster assignment—mean that for many datasets (especially low-dimensional datasets) it may not perform as well as you might hope. K-means is also very sensitive to outliers and noise in the dataset.
 
