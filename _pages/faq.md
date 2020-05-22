@@ -6095,7 +6095,7 @@ $$
 d(\vec{x}, \vec{y}) = \sqrt{(\vec{x} - \vec{y})^T S^{-1} (\vec{x} - \vec{y})}
 $$
 
-If the covariance matrix is the identity matrix, the Mahalanobis distance reduces to the Euclidean distance. If the covariance matrix is diagonal, then the resulting distance measure is called a standardized Euclidean distance:
+If the covariance matrix is the identity matrix, the Mahalanobis distance reduces to the Euclidean distance. If the covariance matrix is diagonal, then the resulting distance measure is called a standardized Euclidean distance.
 
 Unlike the Euclidean Distance though, the Mahalanobis distance accounts for how correlated the variables are to one another. When two variables are correlated, there is a lot of redundant information in Euclidean distance calculation. By considering the covariance between points in the distance calculation, we remove the redundancy.
 
