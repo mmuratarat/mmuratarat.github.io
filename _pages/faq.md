@@ -169,7 +169,7 @@ permalink: /faq/
 74. What is the difference between t-test and linear regression?
 74. What are qq-plots and pp-plots?
 75. What to do when normality assumption is violated?
-
+76. How to see non-Spherical disturbances?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -4755,6 +4755,213 @@ There are three other major ways to approach violations of normality.
 * Bootstrapping. This is a non-parametric technique involving resampling in order to obtain statistics about one’s data and construct confidence intervals.
 * Use a generalized linear model. Generalized linear models (GLMs) generalize linear regression to the setting of non-Gaussian errors. Thus if you think that your responses still come from some exponential family distribution, you can look into GLMs.
 
+#### How to see non-Spherical disturbances?
+
+Our basic linear regression model is:
+
+$$
+\mathbf{Y} = \mathbf{X}\beta + \mathbf{\varepsilon},\,\,\,\,\, \mathbf{\varepsilon} \sim N\left(\mathbf{0}, \sigma^{2}I_{n}\right)
+$$
+
+Let's generalize the specification of the error term in the model:
+
+$$
+E(\mathbf{\varepsilon} ) = 0, \,\,\,\, E\left(\mathbf{\varepsilon} \mathbf{\varepsilon} ^{\prime} \right) = \sum = \sigma^{2}\omega, \,\,\,\, (and Normal)
+$$
+
+This allows for the possibility of one or both of
+
+* Heteroskedasticity
+* Autocorrelation (Cross-sectional data, Time-series, Panel data)
+
+##### Spherical Disturbances – Homoskedasticity and Non-Autocorrelation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,20))
+from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline 
+#Parameters to set
+
+mu_x = 0
+variance_x = 1
+mu_y = 0
+variance_y = 1
+ro = 0 #correlation between X and Y
+
+#Create grid and multivariate normal
+x = np.linspace(-3,3,500)
+y = np.linspace(-3,3,500)
+X, Y = np.meshgrid(x,y)
+position = np.empty(X.shape + (2,))
+position[:, :, 0] = X; 
+position[:, :, 1] = Y
+rv = multivariate_normal(mean = [mu_x, mu_y] , cov = [[variance_x, ro], [ro, variance_y]])
+props = rv.pdf(position)
+
+#Make a 3D plot
+fig1 = plt.figure(num = 1, figsize=(20,10))
+ax = fig1.gca(projection='3d')
+ax.plot_surface(X, Y, props, cmap='viridis',linewidth=0)
+ax.set_xlabel('X axis')
+ax.set_ylabel('Y axis')
+ax.set_zlabel('Z axis')
+
+fig2 = plt.figure(num = 2, figsize=(10,10))
+plt.contour(props.reshape(500,500))
+plt.title('$\mu_{1} = 0, \sigma_{1} = 1, \mu_{2} = 0, \sigma_{2} = 1, \\rho = 0$')
+
+fig1.savefig(fname = 'Homoskedasticity_Nonautocorrelation1.png')
+fig2.savefig(fname = 'Homoskedasticity_Nonautocorrelation2.png')
+
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Homoskedasticity_Nonautocorrelation2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Homoskedasticity_Nonautocorrelation1.png?raw=true)
+
+##### Non-Spherical Disturbances – Heteroskedasticity and Non-Autocorrelation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,10))
+from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline 
+#Parameters to set
+
+mu_x = 0
+variance_x = 0.5
+mu_y = 0
+variance_y = 1
+ro = 0 #correlation between X and Y
+
+#Create grid and multivariate normal
+x = np.linspace(-3,3,500)
+y = np.linspace(-3,3,500)
+X, Y = np.meshgrid(x,y)
+position = np.empty(X.shape + (2,))
+position[:, :, 0] = X; 
+position[:, :, 1] = Y
+rv = multivariate_normal(mean = [mu_x, mu_y] , cov = [[variance_x, ro], [ro, variance_y]])
+props = rv.pdf(position)
+
+#Make a 3D plot
+fig = plt.figure(num = 1, figsize=(20,10))
+ax = fig.gca(projection='3d')
+ax.plot_surface(X, Y, props,cmap='viridis',linewidth=0)
+ax.set_xlabel('X axis')
+ax.set_ylabel('Y axis')
+ax.set_zlabel('Z axis')
+
+fig2 = plt.figure(num = 2, figsize=(10,10))
+plt.contour(props.reshape(500,500))
+plt.title('$\mu_{1} = 0, \sigma_{1} = 0.5, \mu_{2} = 0, \sigma_{2} = 1, \\rho = 0$')
+fig.savefig(fname = 'Heteroskedasticity_Nonautocorrelation1.png')
+fig2.savefig(fname = 'Heteroskedasticity_Nonautocorrelation2.png')
+
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_Nonautocorrelation2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_Nonautocorrelation1.png?raw=true)
+
+##### Non-Spherical Disturbances – Homoskedasticity and Autocorrelation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,10))
+from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline 
+#Parameters to set
+
+mu_x = 0
+variance_x = 1
+mu_y = 0
+variance_y = 1
+ro = 0.5 #correlation between X and Y
+
+#Create grid and multivariate normal
+x = np.linspace(-3,3,500)
+y = np.linspace(-3,3,500)
+X, Y = np.meshgrid(x,y)
+position = np.empty(X.shape + (2,))
+position[:, :, 0] = X; 
+position[:, :, 1] = Y
+rv = multivariate_normal(mean = [mu_x, mu_y] , cov = [[variance_x, ro], [ro, variance_y]])
+props = rv.pdf(position)
+
+#Make a 3D plot
+fig = plt.figure(num = 1, figsize=(20,10))
+ax = fig.gca(projection='3d')
+ax.plot_surface(X, Y, props,cmap='viridis',linewidth=0)
+ax.set_xlabel('X axis')
+ax.set_ylabel('Y axis')
+ax.set_zlabel('Z axis')
+
+fig2 = plt.figure(num = 2, figsize=(10,10))
+plt.contour(props.reshape(500,500))
+plt.title('$\mu_{1} = 0, \sigma_{1} = 1, \mu_{2} = 0, \sigma_{2} = 1, \\rho = 0.5$')
+fig.savefig(fname = 'Homoskedasticity_autocorrelation1.png')
+fig2.savefig(fname = 'Homoskedasticity_autocorrelation2.png')
+
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Homoskedasticity_autocorrelation2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Homoskedasticity_autocorrelation1.png?raw=true)
+
+##### Non-Spherical Disturbances – Heteroskedasticity and Autocorrelation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,10))
+from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline 
+#Parameters to set
+
+mu_x = 0
+variance_x = 0.5
+mu_y = 0
+variance_y = 1
+ro = 0.5 #correlation between X and Y
+
+#Create grid and multivariate normal
+x = np.linspace(-3,3,500)
+y = np.linspace(-3,3,500)
+X, Y = np.meshgrid(x,y)
+position = np.empty(X.shape + (2,))
+position[:, :, 0] = X; 
+position[:, :, 1] = Y
+rv = multivariate_normal(mean = [mu_x, mu_y] , cov = [[variance_x, ro], [ro, variance_y]])
+props = rv.pdf(position)
+
+#Make a 3D plot
+fig = plt.figure(num = 1, figsize=(20,10))
+ax = fig.gca(projection='3d')
+ax.plot_surface(X, Y, props,cmap='viridis',linewidth=0)
+ax.set_xlabel('X axis')
+ax.set_ylabel('Y axis')
+ax.set_zlabel('Z axis')
+
+fig2 = plt.figure(num = 2, figsize=(10,10))
+plt.contour(props.reshape(500,500))
+plt.title('$\mu_{1} = 0, \sigma_{1} = 0.5, \mu_{2} = 0, \sigma_{2} = 1, \\rho = 0.5$')
+fig.savefig(fname = 'Heteroskedasticity_autocorrelation1.png')
+fig2.savefig(fname = 'Heteroskedasticity_autocorrelation2.png')
+
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_autocorrelation2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_autocorrelation1.png?raw=true)
 
 
 ## General Machine Learning
