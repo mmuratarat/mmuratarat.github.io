@@ -7978,7 +7978,7 @@ Mini-batch requires the configuration of an additional "mini-batch size" hyperpa
 
 Not all cost functions are convex (i.e., bowl shaped). There may be local minimas, plateaus, and other irregular terrain of the loss function that makes finding the global minimum difficult. Stochastic gradient descent can help us address this problem by processing 1 training example per iteration. Hence, the parameters are being updated even after one iteration in which only a single example has been processed. It is "stochastic" because it involves randomly shuffling the training dataset before each iteration that causes different orders of updates to the model parameters.
 
-Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. It adds even more noise to the learning process than mini-batch that helps improving generalization error. However, this would increase the run time.
+Hence this is quite faster than batch gradient descent. But again, when the number of training examples is large, even then it processes only one example which can be additional overhead for the system as the number of iterations will be quite large. Because it’s using only one example at a time, it adds even more noise to the learning process than mini-batch, however, that helps improving generalization error. However, this would increase the run time.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1_tUqDJ5IYOhegTourdKqL0w.png?raw=true)
 
