@@ -450,6 +450,13 @@ In the context of a ordinary linear regression, we have MSE that we try to minim
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0003-1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0004-1.png?raw=true)
 
+Many of the penalized maximum likelihood techniques we used for regularization are equivalent to MAP with certain parameter priors:
+
+* Quadratic weight decay (shrinkage) $\Rightarrow$ Gaussian prior
+* Absolute weight decay (lasso) $\Rightarrow$ Laplace prior
+* Smoothing on multinomial parameters $\Rightarrow$ Dirichlet prior
+* Smoothing on covariance matrices $\Rightarrow$ Wishart prior 
+
 # REFERENCES
 
 1. [https://web.stanford.edu/~hastie/Papers/ESLII.pdf](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){:target="_blank"}
