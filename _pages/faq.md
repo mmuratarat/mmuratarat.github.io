@@ -5498,7 +5498,7 @@ In supervised learning, the training data is unlabeled. The system tries to lear
 
 #### What is a Machine Learning pipeline?
 
-A machine learning pipeline is a sequence of operations on the dataset that does from its itial state to the mode. A pipeline can include, among others, such stages as data partitioning, missing data imputations, feature extraction, data augmentation, class imbalance reduction, dimensionality reduction and model building. In practice, when we deploy a model in production, we usually deploy an entire pipeline, Furthermore, an entire pipeline is usually optimized when hyperparameters are tuned. 
+A machine learning pipeline is a sequence of operations on the dataset. A pipeline can include, among others, such stages as data partitioning, missing data imputations, feature extraction, data augmentation, class imbalance reduction, dimensionality reduction and model building. In practice, when we deploy a model in production, we usually deploy an entire pipeline, Furthermore, an entire pipeline is usually optimized when hyperparameters are tuned. 
 
 #### What is Tensorflow?
 
