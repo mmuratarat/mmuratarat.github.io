@@ -162,14 +162,14 @@ permalink: /faq/
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
-70. What is Homogeneity of Variances? When and how should we check it?
+70. [What is Homogeneity of Variances? When and how should we check it?](#what-is-homogeneity-of-variances-when-and-how-should-we-check-it)
 71. [How to determine sample size?](#how-to-determine-sample-size)
 72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
-73. When is a biased estimator preferable to unbiased one?
-74. What is the difference between t-test and linear regression?
-74. What are qq-plots and pp-plots?
-75. What to do when normality assumption is violated?
-76. How to see non-Spherical disturbances?
+73. [When is a biased estimator preferable to unbiased one?](#when-is-a-biased-estimator-preferable-to-unbiased-one)
+74. [What is the difference between t-test and linear regression?](#what-is-the-difference-between-t-test-and-linear-regression)
+74. [What are qq-plots and pp-plots?](#what-are-qq-plots-and-pp-plots)
+75. [What to do when normality assumption is violated?](#what-to-do-when-normality-assumption-is-violated)
+76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
 
 [General Machine Learning](#general-machine-learning)
 
@@ -4410,8 +4410,9 @@ The following null and alternative hypotheses are used for all of these tests:
 
 $$
 \begin{split}
-H_{0}&: \sigma_1^2 = \sigma_2^2 = \dots = \sigma_k^2\\
-H1&:\text{ Not all variances are equal (i.e. $\sigma_i^2 \neq \sigma_j^2$ for some $i, j$)}
+H_{0} &: \sigma_1^2 = \sigma_2^2 = \dots = \sigma_k^2\\
+H1 &:\text{ Not all variances are equal (i.e. $\sigma_i^2 \neq \sigma_j^2$ for some $i, j$)}
+\end{split}
 $$
 
 If these tests result in a small P value, you have evidence that the variance (and thus standard deviations) of the groups differ significantly.
@@ -4443,7 +4444,7 @@ The standard deviation of systolic blood pressure in US is about 25 mmHg. How la
 We know that margin of error at 95% is $ME_{95\%} = 1.96 \times S.E. = 1.96 \times \frac{sigma}{\sqrt{n}}$. We are given that $\sigma = 5$ and $ME_{95\%} = 4$. Therefore,
 
 $$
-4 = 1.96 \times \frac{25}{\sqrt{n}} \Rightarrow n =150.06$
+4 = 1.96 \times \frac{25}{\sqrt{n}} \Rightarrow n =150.06
 $$
 
 We should choose a sample size of at least 151 people. 
@@ -4538,7 +4539,7 @@ Although a biased estimator does not have a good alignment of its expected value
 
 Often it is the case that we are interested in minimizing the mean squared error, which can be decomposed into variance + bias squared. This is an extremely fundamental idea in machine learning, and statistics in general. Frequently we see that a small increase in bias can come with a large enough reduction in variance that the overall MSE decreases.
 
-A standard example is ridge regression. We have $\hat{\theta}_{ridge} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y$ which is biased; but if $\mathbf{X}$ is ill conditioned, we will have singular $\mathbf{X}^{T} \cdot \mathbf{X}$, then $Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$ may be huge whereas $Var (\hat{\theta}_{ridge})$ can be much more modest. In these cases, variance of biased estimator will be smaller than the unbiased one.
+A standard example is ridge regression. We have $\hat{\theta_{ridge}} = \left(\mathbf{X}^{T} \cdot \mathbf{X} +\lambda I\right)^{-1} \cdot \mathbf{X}^{T} y$ which is biased; but if $\mathbf{X}$ is ill conditioned, we will have singular $\mathbf{X}^{T} \cdot \mathbf{X}$, then $Var(\hat{\theta_{OLS}}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$ may be huge whereas $Var (\hat{\theta_{ridge}})$ can be much more modest. In these cases, variance of biased estimator will be smaller than the unbiased one.
 
 Another example is the kNN classifier. Think about $k = 1$: we assign a new point to its nearest neighbor. If we have a ton of data and only a few variables we can probably recover the true decision boundary and our classifier is unbiased; but for any realistic case, it is likely that $k = 1$ will be far too flexible (i.e. have too much variance) and so the small bias is not worth it (i.e. the MSE is larger than more biased but less variable classifiers).
 
@@ -4766,7 +4767,7 @@ $$
 Let's generalize the specification of the error term in the model:
 
 $$
-E(\mathbf{\varepsilon} ) = 0, \,\,\,\, E\left(\mathbf{\varepsilon} \mathbf{\varepsilon} ^{\prime} \right) = \sum = \sigma^{2}\omega, \,\,\,\, (and Normal)
+E(\mathbf{\varepsilon} ) = 0, \,\,\,\, E\left(\mathbf{\varepsilon} \mathbf{\varepsilon} ^{\prime} \right) = \Sigma = \sigma^{2}\Omega, \,\,\,\, (\text{and Normal})
 $$
 
 This allows for the possibility of one or both of
