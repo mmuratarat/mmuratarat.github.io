@@ -280,6 +280,8 @@ permalink: /faq/
 84. Is decision tree a linear model?
 85. In machine learning, how can we determine whether a problem is linear/nonlinear?
 86. What are the data augmentation techniques for images?
+86. What are the data augmentation techniques for text?
+86. Why is data augmentation classified as a type of regularization?
 87. Why using probability estimates and non-thresholded decision values give different AUC values?
 
 
@@ -7331,6 +7333,10 @@ Since long sentences have more words than short ones, they can absorb more noise
 (they use $p = \alpha$ for RD). Furthermore, for each original sentence, we generate naug augmented sentences. Examples of augmented sentences are shown in
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-04-28%20at%2009.45.53.png?raw=true)
+
+#### Why is data augmentation classified as a type of regularization?
+
+Regularization (traditionally in the context of shrinkage) adds prior knowledge to a model; a prior, literally, is specified for the parameters. Augmentation is also a form of adding prior knowledge to a model; e.g. images are rotated, which you know does not change the class label. Increasing training data (as with augmentation) decreases a model's variance. Regularization also decreases a model's variance. They do so in different ways, but ultimately both decrease rgeneralization error (also known as the out-of-sample error)  but not the training error.
 
 #### Why using probability estimates and non-thresholded decision values give different AUC values?
 
