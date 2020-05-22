@@ -167,11 +167,8 @@ permalink: /faq/
 72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
 73. When is a biased estimator preferable to unbiased one?
 74. What is the difference between t-test and linear regression?
-75. Why does bagging work so well for decision trees, but not for linear classifiers?
-76. Is decision tree a linear model?
-77. In machine learning, how can we determine whether a problem is linear/nonlinear?
-78. What are the data augmentation techniques for images?
-79. Why using probability estimates and non-thresholded decision values give different AUC values?
+74. What are qq-plots and pp-plots?
+75. What to do when normality assumption is violated?
 
 
 [General Machine Learning](#general-machine-learning)
@@ -279,7 +276,12 @@ permalink: /faq/
 80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
 81. [What are the Model Selection Criterion, i.e., AIC and BIC?](#what-are-the-model-selection-criterion-ie-aic-and-bic)
 82. [How to encode cyclical continuous features?](#how-to-encode-cyclical-continuous-features)
-83. Why using probability estimates and non-thresholded decision values give different AUC values?
+83. Why does bagging work so well for decision trees, but not for linear classifiers?
+84. Is decision tree a linear model?
+85. In machine learning, how can we determine whether a problem is linear/nonlinear?
+86. What are the data augmentation techniques for images?
+87. Why using probability estimates and non-thresholded decision values give different AUC values?
+
 
 [SQL](#SQL)
 
@@ -4717,6 +4719,42 @@ print(a.mean()- b.mean())
 #Confidence interval for x1 is [ -2.536, -0.615]. So, it does not contain 0.
 #So, we can say that there is a statistically significant difference between means of sample a and sample b.
 ```
+
+#### What are qq-plots and pp-plots?
+
+We use these plots to visually compare data coming from different datasets (distributions). The possible scenarios involve comparing:
+
+* two empirical sets
+* one empirical and one theoretical set
+* two theoretical sets (exponential, normal, etc.)
+
+These plots can be used to determine how well a theoretical distribution models a data distribution. But they are mostly used to figure out whether normality assumptions for some statistical tests are satisfied. Therefore, we compare one empirical and one theoretical sets (for the case of test of normality, it is Gaussian distribution).
+
+A pp-plot compares the empirical cumulative distribution function of a data set with a specified theoretical cumulative distribution function $F(\cdot)$. pp-plots require fully specified distributions, which requires the location and scale parameters of $F(\cdot)$ (CDF) to evaluate the cdf at the ordered data values. For example, if we are using Gaussian as the theoretical distribution we should specify the location and scale parameters.
+
+To construct a pp-plot, the $n$ non-missing values are first sorted in increasing order:
+
+$$
+x_{1} \leq x_{2} \leq x_{3} \leq \cdots \leq x_{n}
+$$
+
+Then, the empirical cumulative distribution function, denoted by $F_{n}(x)$, is defined as the proportion of non-missing observations less than or equal to $x$, so that $F_{n}(x_{i}) = \frac{i}{n}$. Then the $i$th ordered value $x_{i}$ is represented on the plot by the point whose x-coordinate is $F(x_{i})$ and whose y-coordinate is $\frac{i}{n}$.
+
+A qq-plot compares the quantiles of a data distribution with the quantiles of a standardized theoretical distribution from a specified family of distributions. The construction of a qq-plot does not require that the location or scale parameters of $F(\cdot)$ (CDF) be specified. The theoretical quantiles are computed from a standard distribution within the specified family. A linear point pattern indicates that the specified family reasonably describes the data distribution, and the location and scale parameters can be estimated visually as the intercept and slope of the linear pattern. 
+
+Plotting the first data set's quantiles along the x-axis and plotting the second data set's quantiles along the y-axis is how the plot is constructed. In practice, many data sets are compared to the normal distribution. The normal distribution is the base distribution and its quantiles are plotted along the x-axis as the "Theoretical Quantiles" while the sample quantiles are plotted along the y-axis as the "Sample Quantiles". Here's what QQ-plots look like (for particular choices of distribution) on average:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/qq_plot_examples.png?raw=true)
+
+#### What to do when normality assumption is violated?
+
+There are three other major ways to approach violations of normality.
+
+* You can still try to transforma your data using Box-cox transformation.
+* Have enough data and invoke the central limit theorem. This is the simplest. If you have sufficient data and you expect that the variance of your errors (you can use residuals as a proxy) is finite, then you invoke the central limit theorem and do nothing. Your $\hat{\beta}$ will be approximately normally distributed, which is all you need to construct confidence intervals and do hypothesis tests.
+* Bootstrapping. This is a non-parametric technique involving resampling in order to obtain statistics about one’s data and construct confidence intervals.
+* Use a generalized linear model. Generalized linear models (GLMs) generalize linear regression to the setting of non-Gaussian errors. Thus if you think that your responses still come from some exponential family distribution, you can look into GLMs.
+
 
 
 ## General Machine Learning
