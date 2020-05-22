@@ -4367,7 +4367,7 @@ If there is two or more dependent variables as well as two or more independent v
 
 * The population from which samples are drawn should be normally distributed (can be tested using histograms, the values of skewness and kurtosis, or using tests such as Shapiro-Wilk or Kolmogorov-Smirnov). If it is violated: you can (1) transform your data using various algorithms so that the shape of your distributions become normally distributed or (2) choose the nonparametric Kruskal-Wallis H Test which does not require the assumption of normality.
 * Observation must be independent (can be determined from the design of the study). A lack of independence of cases has been stated as the most serious assumption to fail. Often, there is little you can do that offers a good solution to this problem.
-* Population variances must be equal. (The assumption of homogeneity of variance must be tested before ANOVA, such as Levene’s, Fligner Killeen test and Barlett’s test). There are two tests that you can run that are applicable when the assumption of homogeneity of variances has been violated: (1) Welch or (2) Brown and Forsythe test. Alternatively, you could run a Kruskal-Wallis H Test. For most situations it has been shown that the Welch test is best. 
+* Population variances must be equal. (The assumption of homogeneity of variance must be tested before ANOVA, such as Hartley's Fmax Test, Cochran's Test, Levene's Test, Fligner Killeen Test and Barlett's test). There are two tests that you can run that are applicable when the assumption of homogeneity of variances has been violated: (1) Welch or (2) Brown and Forsythe test. Alternatively, you could run a Kruskal-Wallis H Test. For most situations it has been shown that the Welch test is best. 
 * Groups must have equal sample sizes.
 * Factor effects are additive
 
@@ -4400,7 +4400,7 @@ One-way ANOVA assumes that the data come from populations that are Gaussian and 
 
 So, it is an assumption underlying both t tests and F tests (analyses of variance, ANOVAs). In correlations and regressions, the term “homogeneity of variance in arrays,” also called “homoskedasticity,” refers to the assumption that, within the population, the variance of Y for each value of X is constant.
 
-The F test presented in Two Sample Hypothesis Testing of Variances can be used to determine whether the variances of two populations are equal. For three or more variables the following statistical tests for homogeneity of variances are commonly used: (1) Levene’s test, (2) Fligner Killeen test and (3) Bartlett’s test. 
+The F test presented in Two Sample Hypothesis Testing of Variances can be used to determine whether the variances of two populations are equal. For three or more variables the following statistical tests for homogeneity of variances are commonly used: Hartley's Fmax Test, Cochran's Test, Levene's Test, Fligner Killeen Test and Barlett's test. Several of these assessments have been found to be too sensitive to non-normality and are not frequently used.  Of these tests, the most common assessment for homogeneity of variance is Levene’s test.  The Levene’s test uses an F-test to test the null hypothesis that the variance is equal across groups. 
 
 The following null and alternative hypotheses are used for all of these tests:
 
