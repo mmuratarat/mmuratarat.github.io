@@ -5228,9 +5228,9 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 **Collinearity/Multicollinearity:**
 * In multiple regression: when two or more variables are highly correlated or improper use of dummy variables (e.g. failure to exclude one category).
 * They provide redundant information
-* In case of perfect multicollinearity: $\beta = (X^{T}X)^{-1}X^{T}y $ does not exist, the design matrix is not invertible
+* In case of perfect multicollinearity: $\hat{\beta_{OLS}} = (X^{T}X)^{-1}X^{T}y $ does not exist, the design matrix is not invertible
 * It doesn't affect the model as a whole, doesn't bias results
-* The standard errors of the regression coefficients of the affected variables tend to be large
+* The standard errors of the regression coefficients of the affected variables tend to be large because $Var(\hat{\beta_{OLS}}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$
 * The test of hypothesis that the coefficient is equal to zero may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
 * Leads to overfitting
 
