@@ -5308,7 +5308,7 @@ where $p$ is the total number of explanatory variables in the model (not includi
 
 #### You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?
 
-Yes, it is possible. We need to understand the significance of intercept term in a regression model. The intercept term shows model prediction without any independent variable i.e. mean prediction ($\hat{\bar{y}}$). The denominator of the formula of $R^{2}$ contains $\bar{y}$.
+Yes, it is possible. We need to understand the significance of intercept term in a regression model. The intercept (often labeled the constant) is the expected mean value of $y$ when all $X = 0$. In other words, it gives model predictions without any independent variable i.e. mean prediction ($\hat{\bar{y}}$). The denominator of the formula of $R^{2}$ contains $\bar{y}$.
 
 When intercept term is present, $R^{2}$ value evaluates your model with respect to to the mean model. In absence of intercept term, the model can make no such evaluation, with large denominator,
 
