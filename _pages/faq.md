@@ -5275,7 +5275,7 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 
 #### What is R squared?
 
-R-squared ($R^{2}$) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. Whereas correlation explains the strength of the relationship between an independent and dependent variable, R-squared explains to what extent the variance of one variable explains the variance of the second variable. So, if the $R^{2}$ of a model is $0.50$, then approximately half of the observed variation can be explained by the model's inputs. It may also be known as the coefficient of determination.
+R-squared ($R^{2}$) is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model. Whereas correlation explains the strength of the relationship between an independent and dependent variable, R-squared explains to what extent the variance of one variable explains the variance of the second variable. So, if the $R^{2}$ of a model is $0.50$, then approximately half of the observed variation can be explained by the model's inputs. It may also be known as the coefficient of determination. It is nothing but is a ratio of the explained sum of squares to the total sum of squares:
 
 $$
 \begin{split}
@@ -5288,7 +5288,9 @@ where
 $$
 \bar{y} = \frac{1}{n_{samples}}\sum {y_{true}}$$
 
-The denominator is the variance in $y$ values. Higher the MSE, smaller the $R^{2}$ and poorer is the model.
+The denominator is the variance in $y$ values. It is the total sum of squares which tells you how much variation there is in the dependent variable.
+
+Higher the MSE (the nominator), smaller the $R^{2}$ and poorer is the model.
 
 On the web, one can see that the range of $R^{2}$ lies between 0 and 1 which is not actually true. The maximum value of $R^{2}$ is 1 but minimum can be negative infinity
 
@@ -5304,15 +5306,15 @@ where $p$ is the total number of explanatory variables in the model (not includi
 
 #### You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?
 
-Yes, it is possible. We need to understand the significance of intercept term in a regression model. The intercept term shows model prediction without any independent variable i.e. mean prediction ($\hat{y}$). The denominator of the formula of $R^{2}$ contains $\hat{y}$.
+Yes, it is possible. We need to understand the significance of intercept term in a regression model. The intercept term shows model prediction without any independent variable i.e. mean prediction ($\hat{\bar{y}}$). The denominator of the formula of $R^{2}$ contains $\bar{y}$.
 
-When intercept term is present, $R^{2}$ value evaluates your model with respect to to the mean model. In absence of intercept term $\hat{y}$, the model can make no such evaluation, with large denominator,
+When intercept term is present, $R^{2}$ value evaluates your model with respect to to the mean model. In absence of intercept term, the model can make no such evaluation, with large denominator,
 
 $$
 R^2 =1 - \frac{\sum \left(y_{true} - y_{pred} \right)^2}{\sum \left(y_{true} \right)^2}
 $$
 
-Equation's value becomes smaller than actual, resulting in higher $R^{2}$.
+The value of the second component becomes smaller than actual because the denominator of the second component is bigger now and therefore it yields a higher $R^{2}$.
 
 #### How do you validate a machine learning model?
 
