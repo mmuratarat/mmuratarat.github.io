@@ -5090,7 +5090,7 @@ Linear regression is perhaps one of the most well known and well understood algo
       
 * No autocorrelation of residuals (Independence of errors $E(\varepsilon_{i} \varepsilon_{j}] = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy, meaning that there is still room to improve the model.  We need to find a way to incorporate that information into the regression model itself. This assumption violation usually occurs in time series models where the next instant is dependent on previous instant. Autocorrelation can be tested with the help of Durbin-Watson test. The null hypothesis of the test is that there is no serial correlation. Durbin-Watson statistic must lie between 0 and 4. If DW = 2, implies no autocorrelation, 0 < DW < 2 implies positive autocorrelation while 2 < DW < 4 indicates negative autocorrelation.
 
-If the assumptions are not violated, then the Gauss-Markov theorem indicates that the usual OLS estimates are optimal in the sense of being unbiased and having minimum variance (Best Linear Unbiased Estimator (BLUE)). If one or more of the assumptions are violated, then estimated regression coefficients may be biased (i.e. systematically wrong), and not minimum variance i.e. their uncertainty increases).
+If the assumptions are not violated, then the Gauss-Markov theorem indicates that the usual OLS estimates are optimal in the sense of being unbiased and having minimum variance (Best Linear Unbiased Estimator (BLUE)). If one or more of the assumptions are violated, then estimated regression coefficients may be biased (i.e. systematically wrong), and not minimum variance (i.e. their uncertainty increases).
 
 #### What is the standard error of the coefficient?
 
@@ -5108,9 +5108,9 @@ However, some other assumptions still apply.
 
 * __ASSUMPTION OF OBSERVATION INDEPENDENCE:__ Logistic regression requires the observations to be independent of each other.  In other words, the observations should not come from repeated measurements or matched data.
 
-* __ASSUMPTION OF THE ABSENCE OF MULTICOLLINEARITY:__ Logistic regression requires there to be little or no multicollinearity among the independent variables.  This means that the independent variables should not be too highly correlated with each other.
+* __ASSUMPTION OF THE ABSENCE OF MULTICOLLINEARITY:__ Logistic regression requires there to be little or no multicollinearity among the independent variables. This means that the independent variables should not be too highly correlated with each other.
 
-* __ASSUMPTION OF LINEARITY OF INDEPENDENT VARIABLES AND LOG ODDS:__ Logistic regression assumes linearity of independent variables and log odds.  although this analysis does not require the dependent and independent variables to be related linearly, it requires that the independent variables are linearly related to the log odds.
+* __ASSUMPTION OF LINEARITY OF INDEPENDENT VARIABLES AND LOG ODDS:__ Logistic regression assumes linearity of independent variables and log odds. Although this analysis does not require the dependent and independent variables to be related linearly, it requires that the independent variables are linearly related to the log odds.
 
 * __ASSUMPTION OF A LARGE SAMPLE SIZE:__ Logistic regression typically requires a large sample size.
 
