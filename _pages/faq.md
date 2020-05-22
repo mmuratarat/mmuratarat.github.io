@@ -4363,6 +4363,8 @@ If there is two or more dependent variables as well as two or more independent v
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+manova.png?raw=true)
 
+**NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures .No normality assumption is required. 
+
 **Assumptions for ANOVA** 
 
 * The population from which samples are drawn should be normally distributed (can be tested using histograms, the values of skewness and kurtosis, or using tests such as Shapiro-Wilk or Kolmogorov-Smirnov). If it is violated: you can (1) transform your data using various algorithms so that the shape of your distributions become normally distributed or (2) choose the nonparametric Kruskal-Wallis H Test which does not require the assumption of normality.
