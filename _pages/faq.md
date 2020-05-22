@@ -5245,7 +5245,7 @@ Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or 
 
 **Detection of multicollinearity:**
 * Large changes in the individual coefficients when a predictor variable is added or deleted
-* Insignificant regression coefficients for the affected predictors but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
+* Insignificant regression coefficients for the affected predictors (due to the t-test computation which uses $Var(\hat{\beta_{OLS}})$), but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
 * The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation factor (VIF) for variable $i$ is then computed as:
     
     \begin{equation}
