@@ -120,7 +120,7 @@ permalink: /faq/
 28. [What is exponential distribution?](#what-is-exponential-distribution)
 28. [What is Poisson distribution?](#what-is-poisson-distribution)
 28. [What is Chi-square distribution?](#what-is-chi-square-distribution)
-28. What is Student's t-distribution?
+28. [What is Student's t-distribution?](#what-is-students-t-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
