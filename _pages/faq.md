@@ -9,7 +9,7 @@ permalink: /faq/
 
 [Mathematics and Linear Algebra](#mathematics-and-linear-algebra)
 
-1. [What are scalars, vectors, matrices, and tensors?](#what-are-scalars-vectors-matrices-and-tensors)
+1. [What are scalars, vectors, matrices, and tensors?](#{what-are-scalars-vectors-matrices-and-tensors)
 2. [How do you normalize a vector?](#how-do-you-normalize-a-vector)
 2. [What is a dot-product?](#what-is-a-dot-product)
 2. [What is Hadamard product of two matrices?](#what-is-hadamard-product-of-two-matrices)
@@ -4338,7 +4338,7 @@ Fisher's exact test is based on the hypergeometric distribution. For example, gi
 We compute the p-value as:
 
 $$
-p= \frac {{{a+b} \choose {a}}{{c+d} \choose {c}}}{{{n} \choose {a+c}}} = \frac{{{a+b} \choose {b}}}{{c+d} \choose {d}}}{{{n} \choose {b+d}}} = \frac{(a+b)!(c+d)!(a+c)!(b+d)!}{a!b!c!d!n!}
+p= \frac{{a+b} \choose {a} {c+d} \choose {c}}{{n} \choose {a+c}} = \frac{{a+b} \choose {b}{c+d} \choose {d}}{{n} \choose {b+d}} = \frac{(a+b)!(c+d)!(a+c)!(b+d)!}{a!b!c!d!n!}
 $$
 
 #### What does statistical interaction mean?
