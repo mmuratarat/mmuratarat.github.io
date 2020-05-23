@@ -120,7 +120,7 @@ permalink: /faq/
 28. [What is exponential distribution?](#what-is-exponential-distribution)
 28. [What is Poisson distribution?](#what-is-poisson-distribution)
 28. [What is Chi-square distribution?](#what-is-chi-square-distribution)
-28. [What is Student's t-distribution?](#what-is-students-t-distribution)
+28. [What is Student’s t-distribution?](#what-is-students-t-distribution)
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
@@ -3334,7 +3334,7 @@ $$
 
 The preceding result gives rise to an extremely simple test for comparing two variances. The null hypothesis is $H_{0}: \sigma_{1}^{2} = \sigma_{2}^{2}$ (In this case, $\sigma_{1}^{2}/\sigma_{2}^{2}$ will be $1$), and so the test as traditionally performed is two-sided, comparing the test statistics with the $\alpha/2$ and $1 − \alpha/2$ quantiles of the F distribution with $n_{1} − 1$ and $n_{2} − 1$ degrees of freedom. We can even build a confidence interval for the ratio of two population variances.
 
-#### What is Student's t-distribution?
+#### What is Student’s t-distribution?
 
 The t distribution (also called Student’s t Distribution) is a family of distributions that look almost identical to the normal distribution curve, only a bit shorter and fatter. The t distribution is used instead of the normal distribution when you have small samples. The larger the sample size, the more the t distribution looks like the normal distribution. In fact, for sample sizes larger than 20 (e.g. more degrees of freedom), the distribution is almost exactly like the normal distribution.
 
@@ -3352,7 +3352,7 @@ $$
 t = \left(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \right) \left(\frac{1}{\sqrt{s^{2}/\sigma^{2}}} \right) = \frac{u}{\sqrt{\frac{\chi_{n-1}^{2}}{n-1}}}
 $$
 
-where $u$ is the standard normal variable and $\chi^{2}$ is a chi-square random variable with $n-1$ degrees of freedom. Therefore, Student's t is the distribution with $n-1$ degrees of freedom
+where $u$ is the standard normal variable, $u \sim N(0,1)$, and $\chi^{2}$ is a chi-square random variable with $n-1$ degrees of freedom. Therefore, Student's t is the distribution with $n-1$ degrees of freedom
 
 This distribution has mean zero and variance:
 
