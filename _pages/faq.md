@@ -175,6 +175,7 @@ permalink: /faq/
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
 77. [What is the sum of the independent normal distributed random variables?](#what-is-the-sum-of-the-independent-normal-distributed-random-variables)
 78. [Why do we use t-distribution for the significance test of linear regression coefficients?](#why-do-we-use-t-distribution-for-the-significance-test-of-linear-regression-coefficients)
+79. What are the non-parametric equivalent of some parametric tests?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -5107,6 +5108,14 @@ $$
 $$
 
 where $s \sqrt{ \left(X^{T}X \right)_{ii}^{-1}}$ is standard error of $\widehat{\beta_{i}}$.
+
+#### What are the non-parametric equivalent of some parametric tests?
+
+Mann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney test)  is the nonparametric equivalent of the two sample t-test and is used to test whether two samples are likely to derive from the same population (i.e., that the two populations have the same shape). Some investigators interpret this test as comparing the medians between the two populations. Recall that the parametric test compares the means (H0: μ1=μ2) between independent groups.
+
+The Wilcoxon signed-rank test is a non-parametric statistical hypothesis test used to compare two related samples, matched samples, or repeated measurements on a single sample to assess whether their population mean ranks differ (i.e. it is a paired difference test). It can be used as an alternative to the paired Student's t-test (also known as "t-test for matched pairs" or "t-test for dependent samples")
+
+The Kruskal–Wallis test by ranks, Kruskal–Wallis H test, or one-way ANOVA on ranks is a non-parametric method for testing whether samples originate from the same distribution. It is used for comparing two or more independent samples of equal or different sample sizes. It extends the Mann–Whitney U test, which is used for comparing only two groups. The parametric equivalent of the Kruskal–Wallis test is the one-way analysis of variance (ANOVA).
 
 
 ## General Machine Learning
