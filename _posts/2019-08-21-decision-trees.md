@@ -422,7 +422,7 @@ So, the entropy criterion favors B.
 
 # How to split with different variable?
 
-The set of split points considered for any variable depends upon whether the variable is numeric or categorical. The values of the variable taken by the cases at that node also play a role.
+The set of split points considered for any variable depends upon whether the variable is numeric or categorical (nominal/ordinal). Splits can be multi-way (for example, for the variable "size" - Small/Medium/Large) or binary (for example, for the variable "Taxable Income > 80K?" - Yes/No). Binary split can also divide values into two subsets, for example, for the variable "size, we can consider {Small, Medium}/Large OR {Medium, Large}/Small, OR {Small, Large}/Medium
 
 When a predictor is numerical, we can use a brute-force method to split this variable to use a Decision Tree algorithm. If all values are unique, there are $n - 1$ split points for $n$ data points. Suppose we have a training set with an attribute “age” which contains following values: 10, 11, 16, 18, 20, 35. Now at a node, the algorithm will consider following possible splitting:
 
@@ -447,9 +447,9 @@ Alternatively, we can split nodes based on thresholds ($A < c$) such that the da
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-02%20at%2018.17.44.png?raw=true)
 
-Using the above, we would check thresholds $L < 12.5$, $L < 24.5$, $L < 45$, and could then use the standard decision tree algorithms. It is important to note, though, that domain knowledge may influence how we choose these splits; the midpoint may not always be appropriate (for example for the variable 'age'. We won’t consider $Age \leq 10.5$ as 10.5 never appears in the training set)
+Using the above, we would check thresholds $L < 12.5$, $L < 24.5$, $L < 45$, and could then use the standard decision tree algorithms. It is important to note, though, that domain knowledge may influence how we choose these splits; the midpoint may not always be appropriate (for example for the variable 'age'. We won't consider $Age \leq 10.5$ as 10.5 never appears in the training set)
 
-When a predictor is categorical we can decide to split it to create either one child node per class (multiway splits) or only two child nodes (binary split). It is usual to make only binary splits because multiway splits break the data into small subsets too quickly. This causes a bias towards splitting predictors with many classes since they are more likely to produce relatively pure child nodes, which results in overfitting.
+When a predictor is categorical we can decide to split it to create either one child node per class (multi-way splits) or only two child nodes (binary split). It is usual to make only binary splits because multiway splits break the data into small subsets too quickly. This causes a bias towards splitting predictors with many classes since they are more likely to produce relatively pure child nodes, which results in overfitting.
 
 If a categorical predictor has only two classes, there is only one possible split. However, if a categorical predictor has more than two classes, various conditions can apply.
 
@@ -459,7 +459,7 @@ If there is a small number of classes, all possible splits into two child nodes 
 
 For k classes there are $2^{k-1} – 1$ splits, which is computationally prohibitive if $k$ is a large number.
 
-Ordinal attributes can also produce binary or multiway splits. Ordinal attrbute values can be grouped as long as the grouping does not violate the order proprty of the attribute values.
+Ordinal attributes can also produce binary or multi-way splits. Ordinal attribute values can be grouped as long as the grouping does not violate the order property of the attribute values.
 
 If there are many classes, they may be ordered according to their average output value. We can the make a binary split into two groups of the ordered classes. This means there are $k – 1$ possible splits for $k$ classes.
 
@@ -548,8 +548,7 @@ Just like for classification tasks, Decision Trees are prone to overfitting when
 
 # How should the splitting procedure stop?
 
-The basic version of the decision tree algorithm keeps subdividing treenodes until every leaf is pure. We
-don’t have to do that. A stopping condition is needed to terminate the tree growing process. A possible strategy is to continue expanding a node until either all the reconds belong to the same class or all the records have identical attribute values. Although both conditions are sufficient to stop any decision tree induction algorithm, other criteria can be imposed to allow the tree-growing procedure to terminate earlier. 
+A stopping condition is needed to terminate the tree growing process. The basic version of the decision tree algorithm keeps subdividing tree nodes until every leaf is pure (when all the records belong to the same class). Another strategy is to continue expanding a node until all the records have identical attribute values. Although both conditions are sufficient to stop any decision tree induction algorithm, other early termination criteria can be imposed to allow the tree-growing procedure to terminate earlier. 
 
 # Pruning Trees
 
