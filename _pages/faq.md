@@ -120,6 +120,7 @@ permalink: /faq/
 28. [What is exponential distribution?](#what-is-exponential-distribution)
 28. [What is Poisson distribution?](#what-is-poisson-distribution)
 28. [What is Chi-square distribution?](#what-is-chi-square-distribution)
+28. What is Student's t-distribution?
 29. [What is the central limit theorem?](#what-is-the-central-limit-theorem)
 36. [Write the formulae for Bayes rule.](#write-the-formulae-for-bayes-rule)
 37. [What is conjugate prior?](#what-is-conjugate-prior)
@@ -3330,6 +3331,48 @@ $$
 $$
 
 The preceding result gives rise to an extremely simple test for comparing two variances. The null hypothesis is $H_{0}: \sigma_{1}^{2} = \sigma_{2}^{2}$ (In this case, $\sigma_{1}^{2}/\sigma_{2}^{2}$ will be $1$), and so the test as traditionally performed is two-sided, comparing the test statistics with the $\alpha/2$ and $1 − \alpha/2$ quantiles of the F distribution with $n_{1} − 1$ and $n_{2} − 1$ degrees of freedom. We can even build a confidence interval for the ratio of two population variances.
+
+#### What is Student's t-distribution?
+
+The t distribution (also called Student’s t Distribution) is a family of distributions that look almost identical to the normal distribution curve, only a bit shorter and fatter. The t distribution is used instead of the normal distribution when you have small samples. The larger the sample size, the more the t distribution looks like the normal distribution. In fact, for sample sizes larger than 20 (e.g. more degrees of freedom), the distribution is almost exactly like the normal distribution.
+
+When you look at the t-distribution tables, you will see that you need to know the "degrees of freedom" and is just the sample size minus one. 
+
+If $X \sim N(\mu, \sigma^{2})$, then we know $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$ (from the sampling distribution of sample mean, which allows for both hypothesis testing and constructing of confidence intervals, when $\sigma^{2}$ is known. When it is unknown, the above test statistics replaces the true (but unknown) variance $\sigma^{2}$ with (Bessel-corrected) sample variance $s^{2}$:
+
+$$
+t = \frac{\bar{X} - \mu}{s/\sqrt{n}}, \,\,\,\,\text{ where } s = \frac{\sum_{i=1}^{n} (X_{i} - \bar{X})^{2}}{n-1}
+$$
+
+Notice that 
+
+$$
+t = \left(\frac{\bar{X} - \mu}{s/\sqrt{n}} \right) \left(\frac{1}{\sqrt{s^{2}/\sigma^{2}}} \right) = \frac{u}{\sqrt{\chi_{n-1}^{2}/n-1}}
+$$
+
+where $u$ is the standard normal variable and $\chi^{2}$ is a chi-square random variable with $n-1$ degrees of freedom. Therefore, Student's t is the distribution with $n-1$ degrees of freedom
+
+This distribution has mean zero and variance:
+
+$$
+\sigma^{2} = \frac{\nu}{\nu -2} (\vu > 2)
+$$
+
+The shape of the t-distribution is influenced by its degrees of freedom. Student's t-distribution has the probability density function given by
+
+$$
+f(t) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1+\frac{t^2}{\nu} \right)^{\!-\frac{\nu+1}{2}}
+$$
+
+where $\nu$  is the number of degrees of freedom and $\Gamma$  is the gamma function. 
+
+This may also be written as
+
+$$
+f(t) = \frac{1}{\sqrt{\nu}\,\mathrm{B} (\frac{1}{2}, \frac{\nu}{2})} \left(1+\frac{t^2}{\nu} \right)^{\!-\frac{\nu+1}{2}}
+$$
+
+where $B$ is the Beta function.
 
 #### What is the central limit theorem?
 
