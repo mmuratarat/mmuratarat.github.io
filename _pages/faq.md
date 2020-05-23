@@ -155,6 +155,7 @@ permalink: /faq/
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
 65. What is Chi-square Test for Test of Independence?
+65. What is the post-hoc pairwise comparison of chi-squared test?
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 66. [What does link function do?](#what-does-link-function-do)
@@ -4139,6 +4140,10 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-10.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-11.png?raw=true)
 
+In order to compare multiple proportions, the Marascuillo Procedure can be used. It is a procedure to simultaneously test the differences of all pairs of proportions when there are several populations under investigation:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Marascuillo_Procedure.png?raw=true)
+
 #### How to do chi-square test for variance?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-12.png?raw=true)
@@ -4260,6 +4265,10 @@ p_value = chi2.sf(8.006, df= 3)
 #0.04588786639310048
 #p < alpha so we reject the null hypothesis
 ```
+
+#### What is the post-hoc pairwise comparison of chi-squared test?
+
+The chi-squared test assesses a global question whether relation between two variables is independent or associated. If there are three or more levels in either variable, a post-hoc pairwise comparison is required to compare the levels of each other. Let's say that there are three comparative groups like control, experiment 1, and experiment 2 and we try to compare the prevalence of a certain disease. If the chi-squared test concludes that there is significant association, we may want to know if there is any significant difference in three compared pairs, between control and experiment 1, between control and experiment 2, and between experiment 1 and experiment 2. We can reduce the table into multiple $2 \times 2$ contingency tables and perform the chi-squared test with applying the Bonferroni corrected alpha level
 
 #### What does statistical interaction mean?
 
