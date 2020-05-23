@@ -172,6 +172,7 @@ permalink: /faq/
 74. [What are qq-plots and pp-plots?](#what-are-qq-plots-and-pp-plots)
 75. [What to do when normality assumption is violated?](#what-to-do-when-normality-assumption-is-violated)
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
+77. What is the sum of the independent normal distributed random variables?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -5018,6 +5019,34 @@ plt.show()
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_autocorrelation2.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Heteroskedasticity_autocorrelation1.png?raw=true)
+
+#### What is the sum of the independent normal distributed random variables?
+
+If $x_{1}, x_{2}, \dots , x_{n}$ are mutually independent Gaussian distributed random variables with means $\mu_{1}, \mu_{2}, \dots , \mu_{n}$ and variances $\sigma_{1}^{2}, \sigma_{2}^{2}, \dots , \sigma_{n}^{2}$ then linear combination $y = \sum_{i=1}^{n} c_{i} x_{i}$ follows normal distribution with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance \sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. 
+
+We can prove this using momement generating function (MGF). If $x \sim N(\mu, \sigma^{2})$, its moment generating functon is given by 
+
+$$
+M_{x}(t) = E\left(e^{tx} \right) = \exp \left(\mu t + \frac{\sigma^{2} t^{2}}{2} \right)
+$$
+
+We know that $y = \sum_{i=1}^{n} c_{i} x_{i}$, so we can write $y$'s MGF as follows:
+
+$$
+\begin{split}
+M_{y} (t) &= E\left(e^{ty} \right)\\
+&= E\left(e^{t \left(c_{1}x_{1} + c_{2}x_{2} + \dots + c_{n}x_{n} \right)} \right)\\
+&= E\left(e^{t c_{1}x_{1} + t c_{2}x_{2} + \dots + t c_{n}x_{n} } \right)\\
+&= E\left(e^{t c_{1}x_{1}} e^{t c_{2}x_{2}} \dots e^{t c_{n}x_{n}}\right)\\
+&= E\left(e^{t c_{1}x_{1}}\right) E\left(e^{t c_{2}x_{2}}\right) \dots E\left(e^{t c_{n}x_{n}}\right) \,\,\,\,\text{since $x_{i}$s are independent}\\
+&= \prod_{i=1}^{n} E\left(e^{t c_{i}x_{i}}\right) \\
+&= \prod_{i=1}^{n} M_{x}(c_{i} t) \\
+&= \prod_{i=1}^{n} \exp \left(\mu_{i} c_{i} t_{i} + \frac{\sigma_{i}^{2} (c_{i}t)^{2}}{2} \right)\\
+&= \exp \left[t \left(\sum_{i=1}^{n} c_{i} \mu_{i} \right) + \frac{t^{2}}{2} \left(c_{i}^{2} \sigma_{i}^{2} \right) \right]
+\end{split}
+$$
+
+We have just shown that moment generating function of $y$ is the same as the moment generating function of a normal random variable with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance \sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. Therefore, by uniquess property of moment generating functions, we can say that $y$ also follows a normal distribution with said mean and said variance.
 
 
 ## General Machine Learning
