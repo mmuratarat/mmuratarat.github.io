@@ -185,6 +185,7 @@ permalink: /faq/
 7. [What is the loss function for Logistic Regression?](#what-is-the-loss-function-for-logistic-regression)
 7. [How do you find the parameters in logistic regression?](#how-do-you-find-the-parameters-in-logistic-regression)
 8. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
+8. What is odds ratio? How to interpret it? How to compute confidence interval for it?
 9. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 10. [What is R squared?](#what-is-r-squared)
 11. [You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?](#you-have-built-a-multiple-regression-model-your-model-r2-isnt-as-good-as-you-wanted-for-improvement-your-remove-the-intercept-term-your-model-r2-becomes-08-from-03-is-it-possible-how)
@@ -4234,7 +4235,7 @@ print('P(roll 3 sixes) = P(X = 3) = {:.2f}'.format(b.pmf(3)))
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof3.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_gof4.jpeg?raw=true)
 
-#### What is Chi-square Test for Test of Independence?
+#### What is Chi-square Test for Test of Association?
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_test_of_independence_1.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/chi_square_test_of_independence_2.jpeg?raw=true)
@@ -5224,6 +5225,20 @@ There is no closed form solution for estimating the parameters of a logistic reg
 #### What is Softmax regression and how is it related to Logistic regression?
 
 Softmax Regression (a.k.a. Multinomial Logistic, Maximum Entropy Classifier, or just Multi-class Logistic Regression) is a generalization of logistic regression that we can use for multi-class classification (under the assumption that the classes are mutually exclusive). In contrast, we use the (standard) Logistic Regression model in binary classification tasks.
+
+#### What is odds ratio? How to interpret it? How to compute confidence interval for it?
+
+An odds ratio (OR) is a measure of association between an exposure and an outcome. The OR represents the odds that an outcome will occur given a particular exposure, compared to the odds of the outcome occurring in the absence of that exposure. Odds ratios are most commonly used in case-control studies, however they can also be used in cross-sectional and cohort study designs as well (with some modifications and/or assumptions).
+
+When a logistic regression is calculated, the regression coefficient ($\beta_{1}$) is the estimated increase in the log odds of the outcome per unit increase in the value of the exposure. In other words, the exponential function of the regression coefficient ($e^{\beta_{1}}$) is the odds ratio associated with a one-unit increase in the exposure.
+
+The 95% confidence interval (CI) is used to estimate the precision of the OR. A large CI indicates a low level of precision of the OR, whereas a small CI indicates a higher precision of the OR. It is important to note however, that unlike the p value, the 95% CI does not report a measure’s statistical significance. In practice, the 95% CI is often used as a proxy for the presence of statistical significance if it does not overlap the null value (e.g. $OR=1$ because we are taking the exponential of log odds, that means log odds equals to 0). Nevertheless, it would be inappropriate to interpret an OR with 95% CI that spans the null value as indicating evidence for lack of association between the exposure and outcome.
+
+There are three ways to determine if an odds ratio is statistically significant:
+
+1. Fisher's Exact Test
+2. Chi-square Test (It compares the observed values to expected values to determine whether there is no relationship between two variabkes)
+3. Wald Test (This is used for logistic regression)
 
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
