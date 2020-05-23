@@ -174,6 +174,7 @@ permalink: /faq/
 75. [What to do when normality assumption is violated?](#what-to-do-when-normality-assumption-is-violated)
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
 77. What is the sum of the independent normal distributed random variables?
+78. Why do we use t-distribution for the significance test of linear regression coefficients?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -5074,6 +5075,34 @@ M_{y} (t) &= E\left(e^{ty} \right)\\
 $$
 
 We have just shown that moment generating function of $y$ is the same as the moment generating function of a normal random variable with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance $\sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. Therefore, by uniquess property of moment generating functions, we can say that $y$ also follows a normal distribution with said mean and said variance.
+
+#### Why do we use t-distribution for the significance test of linear regression coefficients?
+
+We know that $\hat{\beta} = (X^{T}X)^{-1}X^{T}Y$ so it is a linear function of $Y$, where $Y\sim N(X\beta, \sigma^{2}I_{n})$. As a result, it is normally distributed, that is $\widehat{\beta} \sim N(\beta, \sigma^{2}(X^{T}X)^{-1})$. 
+
+We also know that residual sum of squares (RSS) follows $\sigma^{2}\chi_{n-p}^{2}$.
+
+For the sake of simplicity, let's use one single regression coefficient $\hat{\beta_{i}}$. So we know:
+
+$$
+\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}} \sim N(0,1)
+$$
+
+Additionally from the chi-square distribution of RSS, we have that:
+
+$$
+\frac{(n-p)s^{2}}{\sigma^{2}} \sim \chi_{n-p}^{2}
+$$
+
+This is a simple rearrangement of the first chi-square expression and is independent of the $N(0,1)$. Additionally, we define $s^{2} = \frac{RSS}{n-p}$ which is an unbiased estimator for $\sigma^{2}$. By the definition of $t_{n-1}$, that is dividing a standard normal distribution by an independent chi-square (over its degrees of freedom) gives you a t-distribution.
+
+So,
+
+$$
+\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
+$$
+
+where $s\sqrt{(X^{T}X)^{-1}_{ii}}$ is standard error of $\widehat{\beta}_{i}$.
 
 
 ## General Machine Learning
