@@ -355,7 +355,6 @@ Hence, on average, OOB score is showing less generalization than the validation 
 
 OOB particularly helps when we can't afford to hold out a validation set. 
 
-
 # Random patches and Random Subspaces
 
 The `BaggingClassifier` class supports sampling the features as well. This is controlled by two hyperparameters: `max_features` and `bootstrap_features`. They work the same way as `max_samples` and `bootstrap` arguments of the class but for feature sampling instead of instance sampling. Thus each predictor will be trained on a random subset of input features. 
@@ -387,6 +386,8 @@ Each tree is grown as follows:
 So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name 'random forest'. Random forests have two tuning parameters: the number of predictors considered at each split and the number of trees (number of bootstrapped samples). 
 
 For classification, the default value for $m$ is $\lfloor \sqrt{M} \rfloor$, and, for regression, the default value for m is $\lfloor M/3 \rfloor$. In practice the best values for these parameters will depend on the problem. Cross-validation can also be used across a grid of values of these two hyperparameters to find the choice that gives the lowest CV estimate of test error. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-05-23%20at%2017.24.59.png?raw=true)
 
 ## Predictions in Random Forest
 
