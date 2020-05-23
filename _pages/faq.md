@@ -157,6 +157,7 @@ permalink: /faq/
 65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
 65. What is Chi-square Test for Test of Independence?
 65. What is the post-hoc pairwise comparison of chi-squared test?
+65. What is Fisher's Exact test?
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 66. [What does link function do?](#what-does-link-function-do)
@@ -4312,7 +4313,33 @@ p_value = chi2.sf(8.006, df= 3)
 
 #### What is the post-hoc pairwise comparison of chi-squared test?
 
-The chi-squared test assesses a global question whether relation between two variables is independent or associated. If there are three or more levels in either variable, a post-hoc pairwise comparison is required to compare the levels of each other. Let's say that there are three comparative groups like control, experiment 1, and experiment 2 and we try to compare the prevalence of a certain disease. If the chi-squared test concludes that there is significant association, we may want to know if there is any significant difference in three compared pairs, between control and experiment 1, between control and experiment 2, and between experiment 1 and experiment 2. We can reduce the table into multiple $2 \times 2$ contingency tables and perform the chi-squared test with applying the Bonferroni corrected alpha level
+The chi-squared test assesses a global question whether relation between two variables is independent or associated. If there are three or more levels in either variable, a post-hoc pairwise comparison is required to compare the levels of each other. 
+
+If this omnibus null hypothesis is rejected about whether relation between two variables is independent or associated, it may be desirable to perform post-hoc analyses to determine which groups differ. This can be accomplished by testing for differences in $2 \times 2$ subtables created by considering only two columns at a time. The only form of multiple-comparisons adjustment available for this analysis is the Bonferroni method, in which a total of $C[(C – 1)12]$ possible groupwise comparisons can be made. Most statistical software packages will not do this analysis automatically; the user must manually construct $2 \times 2$ tables for each of the various pairwise comparisons and adjust the $a\lpa$ level of each test to control the overall type I error rate.
+
+#### What is Fisher's Exact test?
+
+z- and t-tests concern quantitative data (or proportions in the case of z), chi-squared tests are appropriate for qualitative data. Again, the assumption is that observations are independent of one another. In this case, you are not seeking a particular relationship. Your null hypothesis is that no relationship (or the association) exists between variable one and variable two. Your alternative hypothesis is that a relationship does exist. This doesn't give you specifics as to how this relationship exists (i.e. In which direction does the relationship go) but it will provide evidence that a relationship does (or does not) exist between your independent variable and your groups.
+
+However, one drawback to the chi-squared test is that it is asymptotic. This means that the p-value is accurate for very large sample sizes. However, if your sample sizes are small (some people argue total observations in a contingency table is less than 1,000), then the p-value may not be quite accurate. As such, Fisher's exact test allows you to exactly calculate the p-value of your data and not rely on approximations that will be poor if your sample sizes are small because the usual rule of thumb for deciding whether the chi-squared approximation is good enough is that the chi-squared test is not suitable when the expected values in any of the cells of a contingency table are below 5, or below 10 when there is only one degree of freedom (this rule is now known to be overly conservative). In fact, for small, sparse, or unbalanced data, the exact and asymptotic p-values can be quite different and may lead to opposite conclusions concerning the hypothesis of interest.
+
+Fisher's exact test is a statistical significance test used in the analysis of contingency tables. Although in practice it is employed when sample sizes are small, it is valid for all sample sizes. 
+
+For hand calculations, the test is only feasible in the case of a $2 \times 2$ contingency table. However the principle of the test can be extended to the general case of an $m \times n$ table. However, the only problem with applying Fisher's exact test to tables larger than $2 \times 2$ is that the calculations become much more difficult to do. Therefore, some statistical packages provide a calculation (sometimes using a Monte Carlo method to obtain an approximation) for the more general case.
+
+Fisher's exact test is based on the hypergeometric distribution. For example, given a $2 \times 2$ cross-table:
+
+|                  	|  Men  	| Women 	|      Row Total     	|
+|:----------------:	|:-----:	|:-----:	|:------------------:	|
+|     Studying     	|   a   	|   b   	|        a + b       	|
+|   Non-studying   	|   c   	|   d   	|        c + d       	|
+|   Column Total   	| a + c 	| b + d 	| a + b + c + d (=n) 	|
+
+We compute the p-value as:
+
+$$
+p= \frac { {{a+b} \choose {a}} {{c+d} \choose {c}} } { { {n} \choose {a+c} } } = \frac{{{a+b} \choose {b}}{{c+d} \choose {d}}}{{{n} \choose {b+d}}} = \frac {(a+b)!(c+d)!(a+c)!(b+d)!}{a!b!c!d!n!}
+$$
 
 #### What does statistical interaction mean?
 
