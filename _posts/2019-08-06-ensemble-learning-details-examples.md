@@ -611,6 +611,10 @@ Here, $I(\cdot)$ is the indicator function, where $I(y_{i} \neq G_{m}(x_{i})) = 
 
 As can be seen from Step 2.d, observations misclassified by $G_{m}(x)$ have their weights scaled by a factor $exp(\alpha_{m})$, increasing their relative influence for inducing the next classifier $G_{m+1}(x)$ in the sequence.
 
+NOTE that sometimes, in order avoid numerical instability, after step 2d, we can normalize the weights at each step, $w_i \leftarrow \frac{w_i}{\sum_{i=1}^N w_i}$
+
+The original implementation does not use a learning rate parameter. In some implementation, at the step 2c, we multiply estimator weight ($\alpha_{m}$) with learning rate, i.e. $\alpha_m = \text{learning_rate} \times \log \left( \frac{1 - err_m}{err_m}\right)$.
+
 The algorithm defined above is known as "Discrete AdaBoost" because the base classifier $G_{m}(x)$ returns a discrete class
 label. If the base classifier instead returns a real-valued prediction (e.g., a probability mapped to the interval $[−1, 1]$), AdaBoost can be modified appropriately.
 
@@ -643,13 +647,13 @@ Details can be seen here [here](http://www.cs.toronto.edu/~mbrubake/teaching/C11
 
 Predictions are made by calculating the weighted average of the weak classifiers.
 
-For a new input instance, each weak learner calculates a predicted value as either +1.0 or -1.0. The predicted values are weighted by each weak learners stage value. The prediction for the ensemble model is taken as a the sum of the weighted predictions. If the sum is positive, then the first class is predicted, if negative the second class is predicted.
+For a new input instance, each weak learner calculates a predicted value as either +1.0 or -1.0. The predicted values are weighted by each weak learners stage value. The prediction for the ensemble model is taken as a the sum of the weighted predictions. If the sum is positive, then the first class is predicted, if it is negative, the second class is predicted.
 
 $$
-P(x) = \hat{y} = sign(\sum_{m=1}^{M} \alpha_{m} P_{m}(x))
+G(x) = \hat{y} = \text{sign} \left( \alpha_1 G_1(x) + \alpha_2 G_2(x) + ... \alpha_M G_M(x)\right) = sign\left(\sum_{m=1}^{M} \alpha_{m} G_{m}(x)\right)
 $$
 
-where $M$ the number of models (i.e., ensemble size) and $P_{m}(x) \in [-1,1]$ and $\alpha_{m}$'s are stage values for the model $m$. 
+where $M$ the number of models (i.e., ensemble size) and $G_{m}(x) \in [-1,1]$ and $\alpha_{m}$'s are stage values for the model $m$. Note that at the first step $m = 1$ the weights are initialized uniformly $w_{i} = 1/N$ where $N$ is the sample size.
 
 For example, 5 weak classifiers may predict the values 1.0, 1.0, -1.0, 1.0, -1.0. From a majority vote, it looks like the model will predict a value of 1.0 or the first class. These same 5 weak classifiers may have the stage values 0.2, 0.5, 0.8, 0.2 and 0.9 respectively. Calculating the weighted sum of these predictions results in an output of -0.8, which would be an ensemble prediction of -1.0 or the second class.
 
