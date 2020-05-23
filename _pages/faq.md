@@ -4835,7 +4835,7 @@ Plotting the first data set's quantiles along the x-axis and plotting the second
 
 There are three other major ways to approach violations of normality.
 
-* You can still try to transforma your data using Box-cox transformation.
+* You can still try to transform your data using Box-cox transformation.
 * Have enough data and invoke the central limit theorem. This is the simplest. If you have sufficient data and you expect that the variance of your errors (you can use residuals as a proxy) is finite, then you invoke the central limit theorem and do nothing. Your $\hat{\beta}$ will be approximately normally distributed, which is all you need to construct confidence intervals and do hypothesis tests.
 * Bootstrapping. This is a non-parametric technique involving resampling in order to obtain statistics about one’s data and construct confidence intervals.
 * Use a generalized linear model. Generalized linear models (GLMs) generalize linear regression to the setting of non-Gaussian errors. Thus if you think that your responses still come from some exponential family distribution, you can look into GLMs.
