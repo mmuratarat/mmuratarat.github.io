@@ -5049,9 +5049,9 @@ plt.show()
 
 #### What is the sum of the independent normal distributed random variables?
 
-If $x_{1}, x_{2}, \dots , x_{n}$ are mutually independent Gaussian distributed random variables with means $\mu_{1}, \mu_{2}, \dots , \mu_{n}$ and variances $\sigma_{1}^{2}, \sigma_{2}^{2}, \dots , \sigma_{n}^{2}$ then linear combination $y = \sum_{i=1}^{n} c_{i} x_{i}$ follows normal distribution with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance \sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. 
+If $x_{1}, x_{2}, \dots , x_{n}$ are mutually independent Gaussian distributed random variables with means $\mu_{1}, \mu_{2}, \dots , \mu_{n}$ and variances $\sigma_{1}^{2}, \sigma_{2}^{2}, \dots , \sigma_{n}^{2}$ then linear combination $y = \sum_{i=1}^{n} c_{i} x_{i}$ follows normal distribution with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance $\sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. 
 
-We can prove this using momement generating function (MGF). If $x \sim N(\mu, \sigma^{2})$, its moment generating functon is given by 
+We can prove this using moment generating function (MGF). If $x \sim N(\mu, \sigma^{2})$, its moment generating functon is given by 
 
 $$
 M_{x}(t) = E\left(e^{tx} \right) = \exp \left(\mu t + \frac{\sigma^{2} t^{2}}{2} \right)
@@ -5073,7 +5073,7 @@ M_{y} (t) &= E\left(e^{ty} \right)\\
 \end{split}
 $$
 
-We have just shown that moment generating function of $y$ is the same as the moment generating function of a normal random variable with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance \sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. Therefore, by uniquess property of moment generating functions, we can say that $y$ also follows a normal distribution with said mean and said variance.
+We have just shown that moment generating function of $y$ is the same as the moment generating function of a normal random variable with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance $\sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. Therefore, by uniquess property of moment generating functions, we can say that $y$ also follows a normal distribution with said mean and said variance.
 
 
 ## General Machine Learning
