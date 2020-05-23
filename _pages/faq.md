@@ -83,7 +83,7 @@ permalink: /faq/
 
 [Probability and Statistics](#probability-and-statistics)
 
-9. Explain about statistics branches?
+9. [Explain about statistics branches?](#explain-about-statistics-branches)
 9. [What is the permutation and combination?](#what-is-the-permutation-and-combination)
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
