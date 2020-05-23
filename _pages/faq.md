@@ -173,8 +173,8 @@ permalink: /faq/
 74. [What are qq-plots and pp-plots?](#what-are-qq-plots-and-pp-plots)
 75. [What to do when normality assumption is violated?](#what-to-do-when-normality-assumption-is-violated)
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
-77. What is the sum of the independent normal distributed random variables?
-78. Why do we use t-distribution for the significance test of linear regression coefficients?
+77. [What is the sum of the independent normal distributed random variables?](#what-is-the-sum-of-the-independent-normal-distributed-random-variables)
+78. [Why do we use t-distribution for the significance test of linear regression coefficients?](#why-do-we-use-t-distribution-for-the-significance-test-of-linear-regression-coefficients)
 
 [General Machine Learning](#general-machine-learning)
 
