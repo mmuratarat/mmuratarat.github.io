@@ -3347,7 +3347,7 @@ $$
 Notice that 
 
 $$
-t = \left(\frac{\bar{X} - \mu}{s/\sqrt{n}} \right) \left(\frac{1}{\sqrt{s^{2}/\sigma^{2}}} \right) = \frac{u}{\sqrt{\chi_{n-1}^{2}/n-1}}
+t = \left(\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \right) \left(\frac{1}{\sqrt{s^{2}/\sigma^{2}}} \right) = \frac{u}{\sqrt{\frac{\chi_{n-1}^{2}}{n-1}}}
 $$
 
 where $u$ is the standard normal variable and $\chi^{2}$ is a chi-square random variable with $n-1$ degrees of freedom. Therefore, Student's t is the distribution with $n-1$ degrees of freedom
@@ -3355,7 +3355,7 @@ where $u$ is the standard normal variable and $\chi^{2}$ is a chi-square random 
 This distribution has mean zero and variance:
 
 $$
-\sigma^{2} = \frac{\nu}{\nu -2} (\vu > 2)
+\sigma^{2} = \frac{\nu}{\nu -2} (\nu > 2)
 $$
 
 The shape of the t-distribution is influenced by its degrees of freedom. Student's t-distribution has the probability density function given by
