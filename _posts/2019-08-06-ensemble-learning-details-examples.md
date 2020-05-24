@@ -383,11 +383,13 @@ Each tree is grown as follows:
 2. If there are $M$ input variables, a number $m < M$ is specified such that at each node, $m$ variables are selected at random out of the $M$ and the best split on these $m$ is used to split the node. The value of $m$ is held constant during the forest growing (a subset of all the features are considered for splitting each node in each decision tree).
 3. Each tree is grown to the largest extent possible. There is no pruning.
 
-So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name 'random forest'. Random forests have two tuning parameters: the number of predictors considered at each split and the number of trees (number of bootstrapped samples). 
+So in our random forest, we have two key concepts, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions. This increases diversity in the forest leading to more robust overall predictions and the name 'random forest'. Random forests have two tuning parameters: the number of predictors considered at each split and the number of trees (number of bootstrapped samples).
 
 For classification, the default value for $m$ is $\lfloor \sqrt{M} \rfloor$, and, for regression, the default value for m is $\lfloor M/3 \rfloor$. In practice the best values for these parameters will depend on the problem. Cross-validation can also be used across a grid of values of these two hyperparameters to find the choice that gives the lowest CV estimate of test error. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-05-23%20at%2017.24.59.png?raw=true)
+
+Note that in Random Forest algorithm, each time you make a tree, you make a full sized tree. Some trees might be bigger than others bu there is no predetermined maximum depth.
 
 ## Predictions in Random Forest
 
