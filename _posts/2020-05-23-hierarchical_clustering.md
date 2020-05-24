@@ -161,13 +161,13 @@ We choose whether to use K-means algorithm or Hierarchical Clustering depending 
 
   You will not be able to clearly visualize the final output. You can still use this to check at which point the item was split into different categories. K-means produces centroids which are easy to understand and use. Hierarchical clustering, on the other hand, produces a dendrogram. A dendrogram can also be very very useful in understanding your data set.
 
-* In K Means clustering, since we start with random choice of clusters, the results produced by running the algorithm multiple times might differ. While results are reproducible in Hierarchical clustering.
+* In K Means clustering, since we start with random choice of clusters, the results produced by running the algorithm multiple times might differ, while results are reproducible in Hierarchical clustering.
 
 * Hierarchical clustering is used when the variance of distribution of variables is non-spherical (one of the assumption of K means is that the distribution of variables should be spherical), it performs relatively better.
 
-* Hierarchical clustering can never undo any previous steps (no backtracking). Once the instances have been assigned to a cluster, they can no longer be moved around
+* Hierarchical clustering can never undo any previous steps (no backtracking). Once the instances have been assigned to a cluster, they can no longer be moved around.
 
-* Hierarchical clustering is also sensitive to noise and outliers
+* Hierarchical clustering is also sensitive to noise and outliers.
 
 * Agglomerative cluster has a “rich get richer” behavior that leads to uneven cluster sizes. In this regard, single linkage is the worst strategy, and Ward gives the most regular sizes. However, the distance metrics used in clustering cannot be varied with Ward, thus for non Euclidean metrics, average linkage is a good alternative. Single linkage, while not robust to noisy data, can be computed very efficiently and can therefore be useful to provide hierarchical clustering of larger datasets. Single linkage can also perform well on non-globular data.
 
