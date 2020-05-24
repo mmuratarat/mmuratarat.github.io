@@ -4119,7 +4119,7 @@ Type II error occurs when we classify a value as negative (0) when it is actuall
 When you make a decision in a hypothesis test, there’s never a 100 percent guarantee you’re right. You must be cautious of Type I errors (rejecting a true claim) and Type II errors (failing to reject a false claim). Instead, you hope that your procedures and data are good enough to properly reject a false claim. Mathematically, power is defined to be 1 - Type II error (it is the probability of avoiding a Type II error). Just as the significance level (alpha) of a test gives the probability that the null hypothesis will be rejected when it is actually true (a wrong decision), power quantifies the chance that the null hypothesis will be rejected when it is actually false (a correct decision). In other words, Power is the probability of making a correct decision (to reject the null hypothesis) when the null hypothesis is false. 
 
 $$
-\text{power} = Pr \left( \text{reject } H_{0} \mid H_{1}{\text{ is true} \right)
+\text{power} = Pr \left( \text{reject } H_{0} \mid H_{1} \text{ is true} \right)
 $$
 
 Although you can conduct a hypothesis test without it, power must be calculated prior to starting the study so it will help you ensure that the sample size is large enough for the purpose of the test. Otherwise, the test may be inconclusive, leading to wasted resources. On rare occasions the power may be calculated after the test is performed, but this is not recommended except to determine an adequate sample size for a follow-up study (if a test failed to detect an effect, it was obviously underpowered – nothing new can be learned by calculating the power at this stage). 
