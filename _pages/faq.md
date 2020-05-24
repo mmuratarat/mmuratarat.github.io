@@ -4195,7 +4195,7 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-10.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-11.png?raw=true)
 
-NOTE that the reason why we use z-test depends on the assumption of Normal approximation to the Binomial distribution. Given that $n_1 p_1 \ge 10$, $n_1(1-p_1) \ge 10$, $n_2 p_2 \ge 10$, and $n_2(1-p_2) \ge 10$, where the subscript 1 represents the first group and the subscript 2 represents the second group. When this assumption is not met, Pearson chi-square test for large samples, the Yates chi-square for intermediate sample sizes, and the Fisher Exact test for small samples. 
+NOTE that the reason why we use z-test depends on the assumption of Normal approximation to the Binomial distribution, which requires therefore sufficiently large sample sizes ($n \geq 30$). Given that $n_1 p_1 \ge 10$, $n_1(1-p_1) \ge 10$, $n_2 p_2 \ge 10$, and $n_2(1-p_2) \ge 10$, where the subscript 1 represents the first group and the subscript 2 represents the second group. When this assumption is not met, Pearson chi-square test for large samples (comparing it with $chi_{1}^{2}$ distribution), the Yates chi-square for intermediate sample sizes, and the Fisher Exact test for small samples. 
 
 In order to compare multiple proportions, the Marascuillo Procedure can be used. It is a procedure to simultaneously test the differences of all pairs of proportions when there are several populations under investigation:
 
