@@ -694,7 +694,7 @@ print('Accuracy of AdaBoost algorithm: {}'.format(accuracy_score(y_test, y_pred_
 {% endhighlight %}
 
 # Gradient Boosting
-Another very popular Boosting algorithm is Gradient Boosting. It gets its name from the combination of Gradient Descent and boosting.
+Another very popular Boosting algorithm is Gradient Boosting. It gets its name from the combination of Gradient Descent algorithm and Boosting.
 
 Just like AdaBoost, Gradient Boosting adds predictors to an ensemble in a gradual, additive and sequential manner, each one correcting its predecessor. However, instead of tweaking the instance weights at every iteration like AdaBoost does, this method tries to fit the new predictor to the residual errors made by the previous predictor because errors of early predictions indicate the "hard" examples. Like AdaBoost, gradient boosting scales the trees but unlike AdaBoost, it scales all trees by the same amount.  
 
