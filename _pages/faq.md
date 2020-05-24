@@ -4023,8 +4023,7 @@ In principle, statistical significance helps quantify whether a result is likely
 
 Statistical significance does not mean practical significance (business relevance). Only by considering context can we determine whether a difference is practically significant; that is, whether it requires action.
 
-A statistically significant result isn’t attributed to chance and depends on two key variables: sample size and effect size.
-Sample size refers to how large the sample for your experiment is. The larger your sample size, the more confident you can be in the result of the experiment (assuming that it is a randomized sample). You will run into sampling errors if your sample size is too low. There is a small effect size (say a 0.1% increase in conversion rate) you will need a very large sample size to determine whether that difference is significant or just due to chance. 
+A statistically significant result is not attributed to chance and depends on two key variables: sample size and effect size. Sample size refers to how large the sample for your experiment is. The larger your sample size, the more confident you can be in the result of the experiment (assuming that it is a randomized sample). You will run into sampling errors if your sample size is too low. There is a small effect size (say a 0.1% increase in conversion rate) you will need a very large sample size to determine whether that difference is significant or just due to chance. 
 
 #### What is a p-value?
 
@@ -4527,7 +4526,7 @@ $$
 \frac{p(1-p)z^{2}}{ME^{2}}
 $$
 
-Note that the point estimate becomes more precise as sample size increases.
+Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome, and the effect size. The effect size is the difference in the parameter of interest that represents a meaningful difference. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria.  
 
 An example:
 
