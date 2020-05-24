@@ -4021,7 +4021,7 @@ binom.pmf(k=8, n=25, p=0.4, loc=0)
 
 In principle, statistical significance helps quantify whether a result is likely due to chance or to some factor of interest. More technically, it means that if the Null Hypothesis is true (which means there really is no difference), there’s a low probability of getting a result that is different. To determine whether the observed difference is statistically significant, we look at two outputs of a statistical test: (1) p-value (a conventional threshold for declaring statistical significance is a p-value of less than 0.05), and (2) Confidence interval (a confidence interval around a difference that does not cross zero also indicates statistical significance).
 
-Statistical significance does not mean practical significance (business relevance). Only by considering context can we determine whether a difference is practically significant; that is, whether it requires action.
+Statistical significance does not mean practical significance. Practical significance refers to the magnitude of the difference, which is known as the effect size. Results are practically significant when the difference is large enough to be meaningful in real life. What is meaningful may be subjective and may depend on the context.
 
 A statistically significant result is not attributed to chance and depends on two key variables: sample size and effect size. Sample size refers to how large the sample for your experiment is. The larger your sample size, the more confident you can be in the result of the experiment (assuming that it is a randomized sample). You will run into sampling errors if your sample size is too low. There is a small effect size (say a 0.1% increase in conversion rate) you will need a very large sample size to determine whether that difference is significant or just due to chance. 
 
@@ -4132,7 +4132,9 @@ To increase the power of your test, you may do any of the following:
 1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected
 2. Increase the sample size(s)
 3. Decrease the variability in the sample(s)
-4. Increase the significance level (alpha) of the test 
+4. Increase the significance level (alpha) of the test (When we increase the alpha level, there is a larger range of p values for which we would reject the null hypothesis)
+
+Using a directional test (i.e., left- or right-tailed) as opposed to a two-tailed test would also increase power, because going from a two-tailed to a one-tailed test cuts the p value in half. In all of these cases, we say that statistically power is increased. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex2.png?raw=true)
@@ -4192,6 +4194,8 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-10.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-11.png?raw=true)
+
+NOTE that the reason why we use z-test depends on the assumption of Normal approximation to the Binomial distribution. Given that $n_1 p_1 \ge 10$, $n_1(1-p_1) \ge 10$, $n_2 p_2 \ge 10$, and $n_2(1-p_2) \ge 10, where the subscript 1 represents the first group and the subscript 2 represents the second group.
 
 In order to compare multiple proportions, the Marascuillo Procedure can be used. It is a procedure to simultaneously test the differences of all pairs of proportions when there are several populations under investigation:
 
