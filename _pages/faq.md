@@ -4460,7 +4460,7 @@ If there is two or more dependent variables as well as two or more independent v
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+manova.png?raw=true)
 
-**NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures .No normality assumption is required. 
+**NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures. No normality assumption is required. 
 
 **Assumptions for ANOVA** 
 
@@ -4472,7 +4472,7 @@ If there is two or more dependent variables as well as two or more independent v
 
 **So what if you find statistical significance?  Multiple comparison tests**
 
-When you conduct an ANOVA, you are attempting to determine if there is a statistically significant difference among the groups.  If you find that there is a difference, you will then need to examine where the group differences lay. At this point you could run post-hoc tests for double comparisons, which are t-tests examining mean differences between the groups. There are several multiple comparison tests that can be conducted that will control for Type I error rate (adjusting $\alpha$'s), including the LSD, Bonferroni, Sidak's, Student-Newman-Keuls test (or short S-N-K), Scheffé's method (uses F-test), Dunnet, and Tukey tests.
+When you conduct an ANOVA, you are attempting to determine if there is a statistically significant difference among the groups.  If you find that there is a difference, you will then need to examine where the group differences lay. At this point you could run post-hoc tests for double comparisons, which are t-tests examining mean differences between the groups. There are several multiple comparison tests that can be conducted that will control for Type I error rate (adjusting $\alpha$'s). The Tukey post hoc test is generally the preferred test for conducting post hoc tests on a one-way ANOVA, but there are many others including the LSD, Bonferroni, Sidak's, Student-Newman-Keuls test (or short S-N-K), Scheffé's method (uses F-test), and Dunnet test.
 
 #### What is analysis of covariance (ANCOVA)?
 
