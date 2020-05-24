@@ -4135,12 +4135,14 @@ The power of a hypothesis test is between 0 and 1; if the power is close to 1, t
 
 To increase the power of your test, you may do any of the following:
 
-1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected
-2. Increase the sample size(s)
-3. Decrease the variability in the sample(s)
-4. Increase the significance level (alpha) of the test (When we increase the alpha level, there is a larger range of p values for which we would reject the null hypothesis)
+1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected (The larger the effect, the more powerful the test is. This is because when the effect is large, the true distribution of the test statistic is far from its hypothesized distribution, so the two distributions are distinct, and it’s easy to tell which one an observation came from.)
+2. Increase the sample size(s) (As n increases, so does the power of the significance test. This is because a larger sample size narrows the distribution of the test statistic. The hypothesized distribution of the test statistic and the true distribution of the test statistic (should the null hypothesis in fact be false) become more distinct from one another as they become narrower, so it becomes easier to tell whether the observed statistic comes from one distribution or the other.)
+3. Decrease the variability in the sample(s) (As the variability increases, the power of the test of significance decreases)
+4. Increase the significance level (alpha) of the test (If all other things are held constant, then as alpha increases, so does the power of the test. This is because a larger alpha means a larger rejection region for the test and thus a greater probability of rejecting the null hypothesis. That translates to a more powerful test.)
 
-Using a directional test (i.e., left- or right-tailed) as opposed to a two-tailed test would also increase power, because going from a two-tailed to a one-tailed test cuts the p value in half. In all of these cases, we say that statistically power is increased. 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/power_of_test_graphical.jpeg?raw=true)
+
+Using a directional test (i.e., left- or right-tailed) as opposed to a two-tailed test would also increase power, because going from a two-tailed to a one-tailed test cuts the p-value in half. In all of these cases, we say that statistically power is increased. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex2.png?raw=true)
