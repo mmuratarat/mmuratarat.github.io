@@ -9,7 +9,7 @@ Hierarchical clustering, also known as hierarchical cluster analysis, is an algo
 
 Hierarchical clustering involves creating clusters that have a predetermined ordering from top to bottom. For example, all files and folders on the hard disk are organized in a hierarchy. There are two types of hierarchical clustering, Divisive and Agglomerative.
 
-![](Clustering_h1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Clustering_h1.png?raw=true)
 
 1. **Agglomerative clustering**
   It’s also known as AGNES (Agglomerative Nesting). It works in a bottom-up manner. That is, each object is initially considered as a single-element cluster (leaf). At each step of the algorithm, the two clusters that are the most similar are combined into a new bigger cluster (nodes). This procedure is iterated until all points are member of just one single big cluster (root). The result is a tree which can be plotted as a dendrogram. 
@@ -19,12 +19,11 @@ Hierarchical clustering involves creating clusters that have a predetermined ord
 
 In summary, agglomerative hierarchical clustering typically works by sequentially merging similar clusters. Divisive hierarchical clustering is done by initially grouping all the observations into one cluster, and then successively splitting these clusters. 
 
-
 ## Measures of distance (similarity)
 
 As we learned in the K-means tutorial, we measure the (dis)similarity of observations using distance metric (i.e. Euclidean distance, Manhattan distance, etc.). However, The choice of an appropriate metric will influence the shape of the clusters, as some elements may be close to one another according to one distance and farther away according to another. For example, in a 2-dimensional space, the distance between the point $(1,0)$ and the origin $(0,0)$ is always $1$ according $1$ under maximum distance. Therefore, the choice of distance metric should be made based on theoretical concerns from the domain of study. 
 
-![](some_distance_metrics.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/some_distance_metrics.png?raw=true)
 
 For text or other non-numeric data, metrics such as the Hamming distance or Levenshtein distance are often used.
 
@@ -42,7 +41,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   \min \,\{\,d(a,b):a\in A,\,b\in B\,\}
   $$
   
-  ![](single_linkage.png)
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/single_linkage.png?raw=true)
   
 2. **MAX (complete-farthest distance/ complete link) Proximity**
 
@@ -52,7 +51,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
  \max \,\{\,d(a,b):a\in A,\,b\in B\,\}
  $$
  
- ![](complete_linkage.png)
+ ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/complete_linkage.png?raw=true)
  
 3. **Mean or average linkage clustering**
 
@@ -62,11 +61,11 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   d(A, B) = \frac{1}{n_{A}n_{B}}\sum_{a\in A} \sum_{b\in B} d(a, b)
   $$
   
-  ![](average_linkage.png)
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/average_linkage.png?raw=true)
   
 4. **Centroid linkage clustering**
 
-  It computes the dissimilarity between the centroid for cluster A and the centroid for cluster B.
+  It computes the dissimilarity between the centroid for cluster A and the centroid for cluster B. The distance between two clusters is the distance between the two mean vectors of the clusters. At each stage of the process we combine the two clusters that have the smallest centroid distance.
   
   $$
   \|c_{A}-c_{B}\|\text{ where $c_{A}$ and $c_{B}$ are the centroids of clusters $A$ and $B$, respectively}
@@ -98,45 +97,45 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
 
 Let's have one example using three different linkage method. Here, we have 6 data points with 2 variables.
 
-![](example1_1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/example1_1.png?raw=true)
 
-![](Page0001-1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0001-1.png?raw=true)
 
-![](nested_cluster1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster1.png?raw=true)
 
-![](Page0002-1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0002-1.png?raw=true)
 
-![](nested_cluster2.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster2.png?raw=true)
 
-![](Page0003-1.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0003-1.png?raw=true)
 
-![](nested_cluster3.png)
-
-And iterate...
-
-![](nested_cluster4.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster3.png?raw=true)
 
 And iterate...
 
-![](nested_cluster5.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster4.png?raw=true)
+
+And iterate...
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster5.png?raw=true)
 
 And iterate until there is one all-inclusive cluster
 
-![](nested_cluster6.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/nested_cluster6.png?raw=true)
 
 Let's do the same example using complete linkage:
 
-![](HC_1.png)
-![](HC_2.png)
-![](HC_3.png)
-![](HC_4.png)
-![](HC_5.png)
-![](HC_6.png)
-![](HC_7.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_5.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_6.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_7.png?raw=true)
 
 and let's show the end result for average linkage:
 
-![](HC_8.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/HC_8.png?raw=true)
 
 ## Discussion of Proximity Methods
 
@@ -158,7 +157,7 @@ We choose whether to use K-means algorithm or Hierarchical Clustering depending 
 
 * In Hierarchical Clustering, we can stop at whatever number of clusters you find appropriate in hierarchical clustering by interpreting the dendrogram. But, if we have a large dataset, it can become difficult to determine the correct number of clusters by the dendrogram because you might get something like this:
 
-  ![](large_dataset_dendogram.png)
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/large_dataset_dendogram.png?raw=true)
 
   You will not be able to clearly visualize the final output. You can still use this to check at which point the item was split into different categories. K-means produces centroids which are easy to understand and use. Hierarchical clustering, on the other hand, produces a dendrogram. A dendrogram can also be very very useful in understanding your data set.
 
