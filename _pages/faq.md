@@ -5996,7 +5996,7 @@ In most applications, and if you regularize your model, this is not an issue.
 
 Algorithms that do not require an encoding are algorithms that can directly deal with joint discrete distributions such as Markov chain / Naive Bayes / Bayesian network, Tree-based methods, etc.
 
-Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance or Levenshtein Distance.
+Even without encoding, distance between data points with discrete variables can be defined, such as Hamming Distance (for categorical variables) or Levenshtein Distance (for strings).
 
 #### What is out-of-core learning?
 
