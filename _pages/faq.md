@@ -4468,7 +4468,7 @@ If there is two or more dependent variables as well as two or more independent v
 
 **So what if you find statistical significance?  Multiple comparison tests**
 
-When you conduct an ANOVA, you are attempting to determine if there is a statistically significant difference among the groups.  If you find that there is a difference, you will then need to examine where the group differences lay. At this point you could run post-hoc tests for double comparisons, which are t-tests examining mean differences between the groups. There are several multiple comparison tests that can be conducted that will control for Type I error rate, including the LSD, Bonferroni, Sidak's, Student-Newman-Keuls test (or short S-N-K), Scheffe, Dunnet, and Tukey tests.
+When you conduct an ANOVA, you are attempting to determine if there is a statistically significant difference among the groups.  If you find that there is a difference, you will then need to examine where the group differences lay. At this point you could run post-hoc tests for double comparisons, which are t-tests examining mean differences between the groups. There are several multiple comparison tests that can be conducted that will control for Type I error rate (adjusting $\alpha$'s), including the LSD, Bonferroni, Sidak's, Student-Newman-Keuls test (or short S-N-K), Scheffé's method (uses F-test), Dunnet, and Tukey tests.
 
 #### What is analysis of covariance (ANCOVA)?
 
