@@ -4453,7 +4453,10 @@ $$
 For multiple observations in cells, you would also be testing a third hypothesis:
 
 $$
-H_{03}: \text{The factors, education levels and zodiac signs, are independent or the interaction effect between education levels and zodiac signs does not exist.}
+\begin{split}
+H_{03}&: \text{The factors, education levels and zodiac signs, are independent}\\ 
+& (the interaction effect between education levels and zodiac signs does not exist)
+\end{split}
 $$
 
 An F-statistic is computed for each hypothesis you are testing.
