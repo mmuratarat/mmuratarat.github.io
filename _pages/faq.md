@@ -4021,7 +4021,7 @@ binom.pmf(k=8, n=25, p=0.4, loc=0)
 
 In principle, statistical significance helps quantify whether a result is likely due to chance or to some factor of interest. More technically, it means that if the Null Hypothesis is true (which means there really is no difference), there’s a low probability of getting a result that is different. To determine whether the observed difference is statistically significant, we look at two outputs of a statistical test: (1) p-value (a conventional threshold for declaring statistical significance is a p-value of less than 0.05), and (2) Confidence interval (a confidence interval around a difference that does not cross zero also indicates statistical significance).
 
-Statistical significance does not mean practical significance. Practical significance refers to the magnitude of the difference, which is known as the effect size. Cohen's D is one of the most common ways to measure effect size. However, when computing the observed effect size, the sample size is not included in the calculation.  For example, Cohen’s d is calculated as the difference between the 2 sample means divided by the pooled standard deviation (SD) for all the data in the 2 independent samples. It is thus the difference in means in SD units, which allows for comparisons of results across studies. The following guidelines or cut-points are conventionally applied in interpreting Cohen’s d:
+Statistical significance does not mean practical significance. Practical significance refers to the magnitude of the difference, which is known as the effect size. Cohen's D is one of the most common ways to measure effect size. However, when computing the observed effect size, the sample size is not included in the calculation.  For example, Cohen’s d is calculated as the difference between the 2 sample means divided by the pooled standard deviation (SD) for all the data in the 2 independent samples. It is thus the difference in means in standard deviation units, which allows for comparisons of results across studies. The following guidelines or cut-points are conventionally applied in interpreting Cohen’s d:
 
 * A small effect size with a Cohen’s d < 0.2
 * A medium effect size with a Cohen’s d of 0.2–0.8
@@ -4540,7 +4540,22 @@ $$
 \frac{p(1-p)z^{2}}{ME^{2}}
 $$
 
-Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome (standard deviation), and the effect size. The effect size is the difference in the parameter of interest that represents a meaningful difference. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria. The standard deviation and effect size can be either determined from previous studies from literature or from pilot studies. The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes. Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
+Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome (standard deviation), and the effect size. 
+
+The effect size is the difference in the parameter of interest that represents a meaningful difference. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria. Generally, effect size is calculated by taking the difference between the two groups (e.g., the mean of treatment group minus the mean of the control group) and dividing it by the standard deviation of one of the groups. 
+
+To interpret the resulting number, most social scientists use this general guide developed by Cohen:
+
+* `< 0.1` = trivial effect
+* `0.1 - 0.3` = small effect
+* `0.3 - 0.5` = moderate effect
+* `> 0.5` = large difference effect
+
+The standard deviation and effect size can be either determined from previous studies from literature or from pilot studies. 
+
+The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes. Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
+
+Before starting to calculate the sample size, you also need to know what type of test you plan to use (e.g., independent t-test, paired t-test, ANOVA, regression, etc.)
 
 An example:
 
