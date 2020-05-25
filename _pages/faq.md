@@ -6505,7 +6505,7 @@ With [this online demo](https://cs.stanford.edu/people/karpathy/svmjs/demo/), we
 
 ![$\sigma = 0.25$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma025_RBF.png?raw=true)
 
-for SVM decision boundary showed by sigma=5/2/0.25, we can see that, for a larger sigma, the decision tends to be flexible and smooth, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. For a smaller sigma, the decision boundary tends to be strict and sharp, in contrast to the former situation, it tends to overfit (cannot be generalizable).
+for SVM decision boundary showed by $\sigma = 0.25$, we can see that, for a larger sigma, the decision tends to be flexible and smooth, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. For a smaller sigma, the decision boundary tends to be strict and sharp, in contrast to the former situation, it tends to overfit (cannot be generalizable).
 
 If the distance between $x$ and $x^{\prime}$ is much larger than sigma, the kernel function tends to be zero. Thus, if the sigma is very small, only the $x$ within the certain distance can affect the predicting point. In other words, smaller sigma tends to make a local classifier, larger sigma tends to make a much more general classifier. 
 
