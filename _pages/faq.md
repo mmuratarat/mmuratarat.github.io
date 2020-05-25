@@ -6486,7 +6486,7 @@ The latter method is preferable but if $K$ is too large, the former is to be use
 The RBF kernel on two samples $x$ and $x^{\prime}$, represented as feature vectors in some input space, is defined as:
 
 $$
-K(\mathbf {x} ,\mathbf {x^{\prime} )=\exp \left( -{\frac {\|\mathbf {x} -\mathbf {x^{\prime}} \|^{2}}{2\sigma ^{2}}} \right)
+K(\mathbf {x} ,\mathbf{x^{\prime}} )=\exp \left( -{\frac{ \|\mathbf {x} -\mathbf {x^{\prime}} \|^{2}}{2\sigma ^{2}} \right)
 $$
 
 $||\mathbf {x} - \mathbf {x^{\prime}} ||^{2}$ may be recognized as the squared Euclidean distance between the two feature vectors. $\sigma$  is a free parameter. An equivalent definition involves a parameter $\gamma = \dfrac {1}{2\sigma ^{2}}$:
@@ -6510,7 +6510,6 @@ for SVM decision boundary showed by sigma=5/2/0.25, we can see that, for a large
 If the distance between $x$ and $x^{\prime}$ is much larger than sigma, the kernel function tends to be zero. Thus, if the sigma is very small, only the $x$ within the certain distance can affect the predicting point. In other words, smaller sigma tends to make a local classifier, larger sigma tends to make a much more general classifier. 
 
 As for the variance and bias explanation, smaller sigma tends to be less bias and more variance while larger sigma tends to be less variance and more bias.
-
 
 #### What is the output of Logistic Regression?
 
