@@ -6483,6 +6483,8 @@ The latter method is preferable but if $K$ is too large, the former is to be use
 
 Kernel is a way of computing the dot product of two vectors $\mathbf{x}$ and $\mathbf{y}$ in some (possibly very high dimensional) feature space, which is why kernel functions are sometimes called *generalized dot product*. Suppose we have a mapping $\varphi \, : \, \mathbb R^n \to \mathbb R^m$ that brings our vectors in $R^n$ to some feature space $R^m$. Then the dot product of $\mathbf{x}$ and $\mathbf{y}$ in this space is $\varphi(\mathbf x)^T \varphi(\mathbf y)$. A kernel is a function $k$ that corresponds to this dot product, i.e. $k(\mathbf x, \mathbf y) = \varphi(\mathbf x)^T \varphi(\mathbf y)$. A very simple and intuitive way of thinking about kernels (at least for SVMs) is a similarity function. The arguably simplest example is the linear kernel, also called dot-product. Given two vectors, the similarity is the length of the projection of one vector on another. Another interesting kernel examples is Gaussian kernel. Given two vectors, the similarity will diminish with the radius of $\sigma$. The distance between two objects is "reweighted" by this radius parameter. Note that In general, kernels are not interpretable in the original input space. 
 
+Choosing the proper kernel is still an open research area. You have to examine different kernel functions and find the best one which produce less error.
+
 #### What is the bias-variance tradeoff for sigma parameter in RBF kernel?
 
 The RBF kernel on two samples $x$ and $x^{\prime}$, represented as feature vectors in some input space, is defined as:
