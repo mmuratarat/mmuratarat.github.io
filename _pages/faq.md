@@ -136,7 +136,6 @@ permalink: /faq/
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
 50. [What is the sampling distribution of sample proportion, p-hat?](#what-is-the-sampling-distribution-of-sample-proportion-p-hat)
-50. [What is standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 52. [What is Normal approximation to the Binomial and Continuity Correction?](#what-is-normal-approximation-to-the-binomial-and-continuity-correction)
 52. [What does statistically significant mean?](#what-does-statistically-significant-mean)
 52. [What is a p-value?](#what-is-a-p-value)
