@@ -4133,6 +4133,8 @@ In reality, a researcher wants both Type I and Type II errors to be small. In te
 
 The power of a hypothesis test is between 0 and 1; if the power is close to 1, the hypothesis test is very good at detecting a false null hypothesis Type II error ($\beta$) of 0.2 was chosen by Cohen, who postulated that an $\alpha$ error was more serious than a $\beta$ error. Therefore, the estimated the $\beta$ error at 4 times the $\alpha: 4 \times 0.05  =  0.20$. In other words, Type II error is commonly set at 0.2, but may be set by the researchers to be smaller. Consequently, power may be as low as 0.8, but may be higher. Powers lower than 0.8, while not impossible, would typically be considered too low for most areas of research.
 
+For example, if experiment E has a statistical power of 0.7, and experiment F has a statistical power of 0.95, then there is a stronger probability that experiment E had a type II error than experiment F. This reduces experiment E's sensitivity to detect significant effects. However, experiment E is consequently more reliable than experiment F due to its lower probability of a type I error.
+
 To increase the power of your test, you may do any of the following:
 
 1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected (The larger the effect, the more powerful the test is. This is because when the effect is large, the true distribution of the test statistic is far from its hypothesized distribution, so the two distributions are distinct, and it’s easy to tell which one an observation came from.)
@@ -5118,7 +5120,7 @@ This is a simple rearrangement of the first chi-square expression and is indepen
 So,
 
 $$
-\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
+\frac{\frac{\widehat{\beta_{i}}-\beta_{i}}{\sigma\sqrt{(X^{T}X)_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
 $$
 
 where $s \sqrt{ \left(X^{T}X \right)_{ii}^{-1}}$ is standard error of $\widehat{\beta_{i}}$.
