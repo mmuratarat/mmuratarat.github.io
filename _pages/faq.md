@@ -462,9 +462,7 @@ $$
 \mathbf{x} \cdot \mathbf{y} =|\mathbf {x} |\ |\mathbf {y} |\cos(\theta)
 $$
 
-where $\theta$ is the angle between the two vectors. In general $cos \theta$ tells you the similarity in terms of the direction of the vectors (it is $−1$ when they point in opposite directions). 
-
-$cos \theta$ also gives us an easy way to test for orthogonality between vectors. If $\mathbf{x}$ and $\mathbf{y}$ are orthogonal (the angle between vectors is ($90$ degrees) then since $cos(90) = 0$, it implies that the dot product of any two orthogonal vectors must be $0$.
+where $\theta$ is the angle between the two vectors. In general $cos \theta$ tells you the similarity in terms of the direction of the vectors (it is $−1$ when they point in opposite directions). If the angel between vectors is 0, i.e., $\theta = 0$, $cos (\theta) = cos (0) = 1$, the vectors are colinear, the dot product is the product of the magnitudes of the vectors. $cos \theta$ also gives us an easy way to test for orthogonality between vectors. If $\mathbf{x}$ and $\mathbf{y}$ are orthogonal (the angle between vectors is ($90$ degrees) then since $cos(90) = 0$, it implies that the dot product of any two orthogonal vectors must be $0$.
 
 ```python
 # Let's test this by defining two vectors we know are orthogonal
@@ -472,7 +470,6 @@ x = [1, 0, 0]
 y = [0, 1, 0]
 print("The dot product of x and y is", np.dot(x, y))
 ```
-
 
 #### What is Hadamard product of two matrices?
 
