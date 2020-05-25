@@ -4538,7 +4538,7 @@ $$
 \frac{p(1-p)z^{2}}{ME^{2}}
 $$
 
-Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome, and the effect size. The effect size is the difference in the parameter of interest that represents a meaningful difference. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria.  
+Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome (standard deviation), and the effect size. The effect size is the difference in the parameter of interest that represents a meaningful difference. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria. The standard deviation and effect size can be either determined from previous studies from literature or from pilot studies.  
 
 An example:
 
