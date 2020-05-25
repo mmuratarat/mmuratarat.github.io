@@ -4139,7 +4139,7 @@ To increase the power of your test, you may do any of the following:
 3. Decrease the variability in the sample(s) (As the variability increases, the power of the test of significance decreases)
 4. Increase the significance level (alpha) of the test (If all other things are held constant, then as alpha increases, so does the power of the test. This is because a larger alpha means a larger rejection region for the test and thus a greater probability of rejecting the null hypothesis. That translates to a more powerful test.)
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/power_of_test_graphical.jpeg?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/power_of_test_graphical.jpg?raw=true)
 
 Using a directional test (i.e., left- or right-tailed) as opposed to a two-tailed test would also increase power, because going from a two-tailed to a one-tailed test cuts the p-value in half. In all of these cases, we say that statistically power is increased. 
 
