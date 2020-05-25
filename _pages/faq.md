@@ -243,8 +243,8 @@ permalink: /faq/
 53. [What is the output of Support Vector Machines?](#what-is-the-output-of-support-vector-machines)
 54. [What are the support vectors in Support Vector Machines?](#what-are-the-support-vectors-in-support-vector-machines)
 55. [What is the Kernel Trick?](#what-is-the-kernel-trick)
-55. How does SVM work in multiclass classification?
-55. What is the bias-variance tradeoff for sigma parameter in RBF kernel?
+55. [How does SVM work in multiclass classification?](#how-does-svm-work-in-multiclass-classification)
+55. [What is the bias-variance tradeoff for sigma parameter in RBF kernel?](#what-is-the-bias-variance-tradeoff-for-sigma-parameter-in-rbf-kernel)
 56. [What is the output of Logistic Regression?](#what-is-the-output-of-logistic-regression)
 57. [Can you interpret probabilistically the output of a Support Vector Machine?](#can-you-interpret-probabilistically-the-output-of-a-support-vector-machine)
 58. [What are the advantages and disadvantages of Support Vector Machines?](#what-are-the-advantages-and-disadvantages-of-support-vector-machines)
