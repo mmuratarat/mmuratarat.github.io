@@ -4132,6 +4132,8 @@ The power of a hypothesis test is between 0 and 1; if the power is close to 1, t
 
 For example, if experiment E has a statistical power of 0.7, and experiment F has a statistical power of 0.95, then there is a stronger probability that experiment E had a type II error than experiment F. This reduces experiment E's sensitivity to detect significant effects. However, experiment E is consequently more reliable than experiment F due to its lower probability of a type I error.
 
+Before moving on, let's explain some terms that you can see below. Hypothesized distribution of the test statistic is the one under alternative hypothesis and the true distribution of the test statistic is the one under the null hypothesis.
+
 To increase the power of your test, you may do any of the following:
 
 1. Increase the effect size (Magnitude of the effect of the variable - the difference between the null and alternative values) to be detected (The larger the effect, the more powerful the test is, because smaller differences are more difficult to detect which requires larger sample size. When the effect is large, the true distribution of the test statistic is far from its hypothesized distribution, so the two distributions are distinct, and it’s easy to tell which one an observation came from.)
@@ -4559,7 +4561,7 @@ To interpret the resulting number, most social scientists use this general guide
 
 The standard deviation and effect size can be either determined from previous studies from literature or from pilot studies. Larger the effect size, less sample size we need because the overlap between true distribution anf hypothesized distribution will be less. 
 
-The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes. Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
+The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes (because larger sample size will narrow the distribution, increasing the power of the test, so overlapping between true distribution and hypothesized distribution will be less and so will alpha value). Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
 
 Before starting to calculate the sample size, you also need to know what type of test you plan to use (e.g., independent t-test, paired t-test, ANOVA, regression, etc.)
 
