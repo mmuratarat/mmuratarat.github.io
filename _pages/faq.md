@@ -4146,6 +4146,12 @@ Using a directional test (i.e., left- or right-tailed) as opposed to a two-taile
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex2.png?raw=true)
+```python
+from scipy.stats import norm
+1 - norm.cdf(-0.355, loc=0, scale=1)
+#0.6387052043836872
+```
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/power_calculation_example1.jpeg?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex3.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex4.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex5.png?raw=true)
