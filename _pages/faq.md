@@ -6486,10 +6486,10 @@ The latter method is preferable but if $K$ is too large, the former is to be use
 The RBF kernel on two samples $x$ and $x^{\prime}$, represented as feature vectors in some input space, is defined as:
 
 $$
-K(\mathbf {x} ,\mathbf{x^{\prime}} )=\exp \left( -{\frac{ \|\mathbf {x} -\mathbf {x^{\prime}} \|^{2}}{2\sigma ^{2}} \right)
+K(\mathbf {x} ,\mathbf{x^{\prime}} )=\exp \left(- \frac{\left\Vert \mathbf{x} -\mathbf{x^{\prime}} \right\Vert^{2}}{2\sigma ^{2}} \right)
 $$
 
-$||\mathbf {x} - \mathbf {x^{\prime}} ||^{2}$ may be recognized as the squared Euclidean distance between the two feature vectors. $\sigma$  is a free parameter. An equivalent definition involves a parameter $\gamma = \dfrac {1}{2\sigma ^{2}}$:
+$\left\Vert \mathbf{x} - \mathbf{x^{\prime}} \right\Vert^{2}$ may be recognized as the squared Euclidean distance between the two feature vectors. $\sigma$  is a free parameter. An equivalent definition involves a parameter $\gamma = \dfrac {1}{2\sigma ^{2}}$:
 
 $$
 K(\mathbf {x} ,\mathbf {x^{\prime}} )=\exp(- \gamma ||\mathbf {x} - \mathbf {x^{\prime}} ||^{2})
