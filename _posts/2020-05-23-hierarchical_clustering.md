@@ -151,12 +151,12 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 import numpy as np
 from sklearn.datasets import make_blobs
-
+import pandas as pd
 import scipy.cluster.hierarchy as sch
 from sklearn.cluster import AgglomerativeClustering
 
 #Let's create some data
-X, y_true = make_blobs(n_samples=500, n_features=2, centers=3, cluster_std=1.5, random_state=42)
+X, y_true = make_blobs(n_samples=200, n_features=2, centers=4, cluster_std=1.6, random_state=42)
 #Generate isotropic Gaussian blobs for clustering
 plt.scatter(X[:, 0], X[:, 1], s=10)
 
@@ -169,41 +169,27 @@ In scikit-learn, `AgglomerativeClustering` uses the `linkage` parameter to deter
 Two other parameters are useful to know. First, the `affinity` parameter determines the distance metric used for `linkage` ("euclidean", "l1", "l2", "manhattan", "cosine", or "precomputed". Note that when you use ward linkage, the distance metric should be euclidean). Second, `n_clusters` sets the number of clusters the clustering algorithm will attempt to find. That is, clusters are successively merged until there are only `n_clusters` remaining.
 
 ```python
-model = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
+model = AgglomerativeClustering(n_clusters=4, affinity='euclidean', linkage='ward')
 model.fit(X)
-y_pred = model.labels_
+# AgglomerativeClustering(affinity='euclidean', compute_full_tree='auto',
+#                         connectivity=None, distance_threshold=None,
+#                         linkage='ward', memory=None, n_clusters=4)
+y_pred = model.fit_predict(X)
 
-y_pred
+plt.scatter(X[y_pred==0, 0], X[y_pred==0, 1], s=50, marker='o', color='red')
+plt.scatter(X[y_pred==1, 0], X[y_pred==1, 1], s=50, marker='o', color='blue')
+plt.scatter(X[y_pred==2, 0], X[y_pred==2, 1], s=50, marker='o', color='green')
+plt.scatter(X[y_pred==3, 0], X[y_pred==3, 1], s=50, marker='o', color='green')
 
-y_pred
-# array([1, 2, 2, 0, 2, 2, 1, 2, 2, 1, 2, 0, 0, 0, 2, 2, 0, 1, 1, 0, 2, 0,
-#        2, 1, 1, 2, 2, 1, 1, 0, 2, 0, 0, 0, 2, 2, 2, 2, 1, 1, 2, 0, 0, 0,
-#        0, 2, 2, 2, 2, 1, 1, 0, 1, 1, 2, 0, 0, 1, 2, 1, 1, 0, 2, 1, 2, 1,
-#        2, 1, 0, 2, 2, 2, 2, 1, 0, 1, 0, 2, 0, 0, 1, 0, 2, 0, 1, 1, 1, 1,
-#        2, 0, 1, 2, 0, 2, 2, 1, 0, 0, 0, 1, 2, 0, 0, 1, 1, 0, 0, 1, 0, 1,
-#        1, 1, 1, 1, 1, 2, 0, 1, 2, 1, 0, 0, 2, 2, 1, 2, 0, 2, 1, 1, 1, 2,
-#        2, 1, 2, 1, 1, 1, 2, 0, 1, 1, 2, 2, 1, 1, 1, 0, 0, 0, 2, 1, 2, 2,
-#        0, 1, 0, 1, 2, 2, 1, 1, 0, 0, 1, 0, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0,
-#        0, 2, 2, 2, 0, 1, 0, 0, 1, 1, 0, 2, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0,
-#        1, 2, 0, 0, 1, 1, 2, 1, 2, 0, 0, 1, 1, 2, 1, 0, 0, 1, 0, 1, 0, 2,
-#        2, 0, 1, 0, 2, 0, 0, 1, 2, 2, 2, 2, 0, 1, 1, 1, 0, 2, 0, 2, 2, 2,
-#        0, 0, 1, 1, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 1, 0,
-#        2, 2, 2, 0, 2, 2, 0, 0, 2, 1, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, 1, 0,
-#        2, 1, 2, 2, 1, 0, 0, 0, 1, 0, 1, 2, 2, 0, 2, 1, 2, 2, 0, 2, 2, 2,
-#        2, 0, 2, 1, 2, 2, 2, 1, 1, 2, 2, 0, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1,
-#        1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 2, 2, 0, 0, 2, 0, 2, 0, 2, 2, 2, 0,
-#        2, 1, 1, 2, 1, 0, 2, 0, 2, 0, 2, 2, 1, 0, 2, 2, 0, 1, 0, 1, 0, 2,
-#        1, 0, 1, 2, 1, 1, 2, 1, 0, 2, 1, 1, 0, 2, 1, 2, 1, 2, 0, 0, 2, 1,
-#        2, 0, 0, 0, 2, 1, 2, 0, 2, 2, 1, 1, 2, 2, 1, 0, 2, 1, 0, 2, 0, 0,
-#        2, 0, 0, 0, 1, 1, 2, 0, 2, 1, 0, 0, 2, 1, 2, 2, 1, 1, 2, 1, 0, 0,
-#        1, 2, 1, 0, 0, 1, 2, 1, 0, 0, 2, 1, 0, 2, 2, 2, 2, 2, 0, 2, 1, 2,
-#        1, 2, 0, 0, 0, 2, 2, 0, 1, 1, 0, 0, 1, 1, 0, 1, 2, 2, 0, 0, 1, 1,
-#        0, 2, 1, 1, 2, 1, 1, 0, 1, 2, 0, 1, 0, 2, 1, 2])
-
-plt.scatter(X[labels==0, 0], X[labels==0, 1], s=50, marker='o', color='red')
-plt.scatter(X[labels==1, 0], X[labels==1, 1], s=50, marker='o', color='blue')
-plt.scatter(X[labels==2, 0], X[labels==2, 1], s=50, marker='o', color='green')
 plt.show()
+
+# Create a DataFrame with labels and varieties as columns: df
+df = pd.DataFrame({'Labels': y_true, 'Clusters': y_pred})
+# Create crosstab: ct
+ct = pd.crosstab(df['Labels'], df['Clusters'])
+
+# Display ct
+print(ct)
 ```
 
 # Advantages and Disadvantages of Hierarchical Clustering
@@ -233,6 +219,50 @@ We choose whether to use K-means algorithm or Hierarchical Clustering depending 
 * Hierarchical clustering is also sensitive to noise and outliers.
 
 * Agglomerative cluster has a “rich get richer” behavior that leads to uneven cluster sizes. In this regard, single linkage is the worst strategy, and Ward gives the most regular sizes. However, the distance metrics used in clustering cannot be varied with Ward, thus for non Euclidean metrics, average linkage is a good alternative. Single linkage, while not robust to noisy data, can be computed very efficiently and can therefore be useful to provide hierarchical clustering of larger datasets. Single linkage can also perform well on non-globular data.
+
+# Two-phase solution for clustering large datasets
+
+When working with a large number of observations, the computations for a hierarchical cluster solution may take hours to complete, making this solution less feasible. You can get around the time issue by using two-phase clustering, which is faster and provides you with a hierarchical solution even when you are working with large datasets.
+
+To implement the two-phase clustering solution, you process the original observations using K-means with a large number of clusters. A good rule of thumb is to take the square root of the number of observations and use that figure, but you always have to keep the number of clusters in the range of 100–200 for the second phase, based on hierarchical clustering, to work well. 
+
+```
+from sklearn.cluster import KMeans
+clustering = KMeans(n_clusters=100, n_init=10, random_state=1)
+clustering.fit(Cx)
+```
+
+At this point, the tricky part is to keep track of what case has been assigned to what cluster derived from K-means. You can use a dictionary for such a purpose. 
+
+```
+Kx = clustering.cluster_centers_
+Kx_mapping = {case:cluster for case, cluster in enumerate(clustering.labels_)}
+```
+
+The new dataset is Kx (`clustering.cluster_centers_`), which is made up of the cluster centroids that the K-means algorithm has discovered. You can think of each cluster as a well-represented summary of the original data. If you cluster the summary now, it will be almost the same as clustering the original data.
+
+```
+from sklearn.cluster import AgglomerativeClustering
+Hclustering = AgglomerativeClustering(n_clusters=10, affinity=‘cosine’, linkage=‘complete’)
+Hclustering.fit(Kx)
+```
+
+You now map the results to the centroids you originally used so that you can easily determine whether a hierarchical cluster is made of certain K-means centroids. The result consists of the observations making up the K-means clusters having those centroids.
+
+```
+H_mapping = {case:cluster for case, cluster in enumerate(Hclustering.labels_)}
+final_mapping = {case:H_mapping[Kx_mapping[case]] for case in Kx_mapping}
+```
+
+Now you can evaluate the solution you obtained using a similar confusion matrix as you did before for both K-means and hierarchical clustering.
+
+```
+ms = np.column_stack((ground_truth, [final_mapping[n] for n in range(max(final_mapping)+1)]))
+df = pd.DataFrame(ms, columns = [‘Ground truth’,’Clusters’])
+pd.crosstab(df[‘Ground truth’], df[‘Clusters’], margins=True)
+```
+
+The result proves that this approach is a viable method for handling large datasets or even big data datasets, reducing them to a smaller representations and then operating with less scalable clustering, but more varied and precise techniques.
 
 # REFERENCES
 
