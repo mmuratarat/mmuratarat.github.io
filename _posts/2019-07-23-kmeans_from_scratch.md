@@ -263,7 +263,7 @@ The Mini-batch K-Means is a variant of the K-Means algorithm which uses mini-bat
 
 The algorithm iterates between two major steps, similar to vanilla K-means. In the first step,  samples are drawn randomly from the dataset, to form a mini-batch. These are then assigned to the nearest centroid. In the second step, the centroids are updated. In contrast to k-means, this is done on a per-sample basis. For each sample in the mini-batch, the assigned centroid is updated by taking the streaming average of the sample and all previous samples assigned to that centroid. This has the effect of decreasing the rate of change for a centroid over time. These steps are performed until convergence or a predetermined number of iterations is reached.
 
-Mini-batch K-Means converges faster than K-Means, but the quality of the results is reduced. In practice this difference in quality can be quite small, as shown in the example and cited reference.
+Mini-batch K-Means converges faster than K-Means, but the quality of the results is reduced. In practice this difference in quality can be quite small.
 
 For details, look [here](https://scikit-learn.org/stable/modules/clustering.html#mini-batch-k-means){:target="_blank"}
 
