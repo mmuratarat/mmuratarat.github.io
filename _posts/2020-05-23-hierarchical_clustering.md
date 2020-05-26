@@ -33,7 +33,7 @@ After selecting a distance metric, it is necessary to determine from where dista
 
 Some commonly used linkage criteria for Agglomerative clustering is described below. Do remember that in Agglomerative clustering, each data point is initially considered as a single-element cluster, meaning that when we say clusters A and B in the first step, we mean clusters with one observation in each.
 
-1. **MIN (Single Link) Proximity**
+1. **Minimum (Single Link) Proximity**
 
   It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the smallest of these dissimilarities as a linkage criterion.
   
@@ -43,7 +43,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/single_linkage.png?raw=true)
   
-2. **MAX (complete-farthest distance/ complete link) Proximity**
+2. **Maximum (complete-farthest distance/ complete link) Proximity**
 
   It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the largest value (i.e., maximum value) of these dissimilarities as the distance between the two clusters. 
  
@@ -73,7 +73,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   
 5. **Ward’s minimum variance method**
 
-  It minimizes the total within-cluster variance. At each, step the pair of clusters with minimum between-cluster distance are merged.
+  It minimizes the total within-cluster variance. At each step, the pair of clusters with minimum between-cluster distance are merged.
   
   Ward’s method says that the distance between two clusters, A and B, is how much the sum of squares will increase when we merge them. With this method, the sum of squares starts out at zero (because every point is in its own cluster) and then grows as we merge clusters. Ward’s method keeps this growth as small as possible.
   
@@ -89,7 +89,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   
   In order to select a new cluster at each step, every possible combination of clusters must be considered. This entire cumbersome procedure makes it practically impossible to perform by hand, making a computer a necessity for most data sets containing more than a handful of data points. 
   
-  When spherical multivariate normal distributions are used, Ward’s method is excellent, which is only natural because this method is based on a sum of squares criterion. However, it must be noted that Ward’s method only performs well if an equal number of objects is drawn from each population and that it has difficulties with clusters of unequal diameters. Moreover, Ward’s method often leads to misclassifications when the clusters are distinctly ellipsoidal rather than spherical, that is, when the variables are correlated within a cluster.
+  When spherical multivariate normal distributions are used, Ward’s method is excellent, which is only natural because this method is based on a sum of squares criterion. However, it must be noted that Ward’s method only performs well if an equal number of objects is drawn from each population and it looks for spherical clusters. In other words, it has difficulties with clusters of unequal diameters. Moreover, Ward’s method often leads to misclassifications when the clusters are distinctly ellipsoidal rather than spherical, that is, when the variables are correlated within a cluster.
   
   The distance metrics used in clustering cannot be varied with Ward, thus for non Euclidean metrics, you need to use other linkage techniques. 
   
@@ -142,6 +142,69 @@ and let's show the end result for average linkage:
 * Single link is “chain-like” and good at handling nonelliptical shapes, but is sensitive to outliers.
 * Complete link is less susceptible to noise and outliers, but can break large clusters and favors globular shapes.
 * Group average is an intermediate approach between the single and complete link approaches.
+
+
+#### Agglomerative Clustering In Scikit-Learn
+
+```python
+import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
+from sklearn.datasets import make_blobs
+
+import scipy.cluster.hierarchy as sch
+from sklearn.cluster import AgglomerativeClustering
+
+#Let's create some data
+X, y_true = make_blobs(n_samples=500, n_features=2, centers=3, cluster_std=1.5, random_state=42)
+#Generate isotropic Gaussian blobs for clustering
+plt.scatter(X[:, 0], X[:, 1], s=10)
+
+#Plot the dendogram
+dendrogram = sch.dendrogram(sch.linkage(X, method='ward'))
+```
+
+In scikit-learn, `AgglomerativeClustering` uses the `linkage` parameter to determine the merging strategy to minimize the 1) variance of merged clusters (`ward`), 2) average of distance between observations from pairs of clusters (`average`), (3) minimum distance between observations from pairs of cluster (`single`) or 4) maximum distance between observations from pairs of clusters (`complete`).
+
+Two other parameters are useful to know. First, the `affinity` parameter determines the distance metric used for `linkage` ("euclidean", "l1", "l2", "manhattan", "cosine", or "precomputed". Note that when you use ward linkage, the distance metric should be euclidean). Second, `n_clusters` sets the number of clusters the clustering algorithm will attempt to find. That is, clusters are successively merged until there are only `n_clusters` remaining.
+
+```python
+model = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
+model.fit(X)
+y_pred = model.labels_
+
+y_pred
+
+y_pred
+# array([1, 2, 2, 0, 2, 2, 1, 2, 2, 1, 2, 0, 0, 0, 2, 2, 0, 1, 1, 0, 2, 0,
+#        2, 1, 1, 2, 2, 1, 1, 0, 2, 0, 0, 0, 2, 2, 2, 2, 1, 1, 2, 0, 0, 0,
+#        0, 2, 2, 2, 2, 1, 1, 0, 1, 1, 2, 0, 0, 1, 2, 1, 1, 0, 2, 1, 2, 1,
+#        2, 1, 0, 2, 2, 2, 2, 1, 0, 1, 0, 2, 0, 0, 1, 0, 2, 0, 1, 1, 1, 1,
+#        2, 0, 1, 2, 0, 2, 2, 1, 0, 0, 0, 1, 2, 0, 0, 1, 1, 0, 0, 1, 0, 1,
+#        1, 1, 1, 1, 1, 2, 0, 1, 2, 1, 0, 0, 2, 2, 1, 2, 0, 2, 1, 1, 1, 2,
+#        2, 1, 2, 1, 1, 1, 2, 0, 1, 1, 2, 2, 1, 1, 1, 0, 0, 0, 2, 1, 2, 2,
+#        0, 1, 0, 1, 2, 2, 1, 1, 0, 0, 1, 0, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0,
+#        0, 2, 2, 2, 0, 1, 0, 0, 1, 1, 0, 2, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0,
+#        1, 2, 0, 0, 1, 1, 2, 1, 2, 0, 0, 1, 1, 2, 1, 0, 0, 1, 0, 1, 0, 2,
+#        2, 0, 1, 0, 2, 0, 0, 1, 2, 2, 2, 2, 0, 1, 1, 1, 0, 2, 0, 2, 2, 2,
+#        0, 0, 1, 1, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0, 1, 0,
+#        2, 2, 2, 0, 2, 2, 0, 0, 2, 1, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, 1, 0,
+#        2, 1, 2, 2, 1, 0, 0, 0, 1, 0, 1, 2, 2, 0, 2, 1, 2, 2, 0, 2, 2, 2,
+#        2, 0, 2, 1, 2, 2, 2, 1, 1, 2, 2, 0, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1,
+#        1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 2, 2, 0, 0, 2, 0, 2, 0, 2, 2, 2, 0,
+#        2, 1, 1, 2, 1, 0, 2, 0, 2, 0, 2, 2, 1, 0, 2, 2, 0, 1, 0, 1, 0, 2,
+#        1, 0, 1, 2, 1, 1, 2, 1, 0, 2, 1, 1, 0, 2, 1, 2, 1, 2, 0, 0, 2, 1,
+#        2, 0, 0, 0, 2, 1, 2, 0, 2, 2, 1, 1, 2, 2, 1, 0, 2, 1, 0, 2, 0, 0,
+#        2, 0, 0, 0, 1, 1, 2, 0, 2, 1, 0, 0, 2, 1, 2, 2, 1, 1, 2, 1, 0, 0,
+#        1, 2, 1, 0, 0, 1, 2, 1, 0, 0, 2, 1, 0, 2, 2, 2, 2, 2, 0, 2, 1, 2,
+#        1, 2, 0, 0, 0, 2, 2, 0, 1, 1, 0, 0, 1, 1, 0, 1, 2, 2, 0, 0, 1, 1,
+#        0, 2, 1, 1, 2, 1, 1, 0, 1, 2, 0, 1, 0, 2, 1, 2])
+
+plt.scatter(X[labels==0, 0], X[labels==0, 1], s=50, marker='o', color='red')
+plt.scatter(X[labels==1, 0], X[labels==1, 1], s=50, marker='o', color='blue')
+plt.scatter(X[labels==2, 0], X[labels==2, 1], s=50, marker='o', color='green')
+plt.show()
+```
 
 # Advantages and Disadvantages of Hierarchical Clustering
 
