@@ -776,6 +776,7 @@ Just like AdaBoost, Gradient Boosting adds predictors to an ensemble in a gradua
 Let's go through a simple regression example using Decision Trees as the base predictors (of course Gradient Boosting works great with regression tasks) This is called Gradient Tree Boosting or Gradient Boosted Regression Trees (GBRT). First let's fit `DecisionTreeRegressor` to the training set (for example, a noist quadratic training set):
 
 {% highlight python %}
+#Let's create some data
 import numpy as np
 np.random.seed(42)
 X = np.random.rand(100, 1) - 0.5
