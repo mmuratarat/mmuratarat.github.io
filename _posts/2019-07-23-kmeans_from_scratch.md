@@ -93,6 +93,8 @@ We often know the value of K. In that case we use the value of K. In general, th
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/elbow_method_kmeans.png?raw=true)
 
+HOWEVER, it is important to note that inertia heavily relies on the assumption that the clusters are convex (of spherical shape).
+
 A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method (we want to have high silhouette coefficient for the number of clusters we want to use), and the G-means algorithm. In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K. Some researchers also use Hierarchical clustering first to create dendrograms and identify the distinct groups from there.
 
 ## Constraints of the algorithm
