@@ -82,7 +82,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
 = \frac{n_An_B}{n_A+n_B} ||\overrightarrow{m}_A- \overrightarrow{m}_B||^2
 $$
 
-where $\overrightarrow{m}_j$ is the center of cluster $j$, and $n_{j}$ is the number of points in it. $\Delta$ is called the merging cost of combining the clusters A and B.
+where $\overrightarrow{m_{j}}$ is the center of cluster $j$, and $n_{j}$ is the number of points in it. $\Delta$ is called the merging cost of combining the clusters A and B.
 
 The distance metrics used in clustering cannot be varied with Ward, thus for non-Euclidean metrics, you need to use other linkage techniques. The Euclidean distance is the "ordinary" straight-line distance between two points in Euclidean space.
 
