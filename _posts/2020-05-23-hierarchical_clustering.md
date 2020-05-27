@@ -201,7 +201,7 @@ print(ct)
 
 We choose whether to use K-means algorithm or Hierarchical Clustering depending on our problem statement and requirement. However, there are still some pros and cons to compare for both methods.
 
-* In Hierarchical Clustering, we do not need to specify the number of clusters required for the algorithm, unlike K-means (if we do not have domain knowledge).
+* In Hierarchical Clustering, we do not need to specify the number of clusters required for the algorithm, unlike K-means (if we do not have domain knowledge) because we can stop at whatever number of clusters we find appropriate in hierarchical clustering by interpreting the dendrogram.
 
 * Hierarchical clustering is easy to implement.
 
