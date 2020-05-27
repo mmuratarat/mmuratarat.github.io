@@ -55,7 +55,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
  
 3. **Mean or average linkage clustering**
 
-  It computes all pairwise dissimilarities between the elements in cluster a and the elements in cluster b, and considers the average of these dissimilarities as the distance between the two clusters. (number of points in cluster $j$ is $n_{j}$):
+  It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the average of these dissimilarities as the distance between the two clusters. (number of points in cluster $j$ is $n_{j}$):
 
   $$
   d(A, B) = \frac{1}{n_{A}n_{B}}\sum_{a\in A} \sum_{b\in B} d(a, b)
