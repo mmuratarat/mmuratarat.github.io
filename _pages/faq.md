@@ -7749,6 +7749,26 @@ Another solution lies in the K-modes algorithm. K-modes is an extension of K-mea
 
 Various clustering algorithms have been developed to group data into clusters in diverse domains. However, these clustering algorithms work effectively either on pure numeric data or on pure categorical data, most of them perform poorly on mixed categorical and numeric data types. For numerical and categorical data, another extension of these algorithms exists, basically combining K-means and K-modes. It is called k-prototypes.
 
+#### What is K-medoids algorithm?
+
+K-medoids is another partitioning algorithm. Both K-means and K-medoids algorithms are breaking the dataset up into K groups. Also, they are both trying to minimize the distance between points of the same cluster and a particular point which is the center of that cluster.
+
+K-medoid is based on medoids (which is a point that belongs to the dataset) calculating by minimizing the absolute distance between the points and the selected centroid, rather than minimizing the square distance. As a result, it's more robust to noise and outliers than k-means since an object with an extremely large value may substantially distort the distribution of the data.
+
+Note that a medoid is not equivalent to a median, a geometric median, or centroid. 
+
+Consider this 1-dimensional example:
+
+```
+[1, 2, 3, 4, 100000]
+```
+
+Both the median and medoid of this set are 3. The mean is 20002.
+
+In contrast to the K-means algorithm, K-medoids algorithm chooses points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not.
+
+The most common implementation of K-medoids clustering algorithm is the Partitioning Around Medoids (PAM) algorithm. PAM algorithm uses a greedy search which may not find the global optimum solution. The main drawback of K-medoids is that it is much more expensive because PAM usually takes much longer to run than K-means. As it involves computing all pairwise distances to find the medoids.
+
 #### How to select a clustering method? 
 
 One of the biggest issue with cluster analysis is that we may happen to have to derive different conclusion when base on different clustering methods used (including different linkage methods in hierarchical clustering).You cannot know in advance which clustering algorithm would be better. There are many clustering algorithms in the literature because the notion of the notion "cluster" cannot be defined precisely. Clustering is in the eye of beholder. It totally depends on domain specific knowledge. 
