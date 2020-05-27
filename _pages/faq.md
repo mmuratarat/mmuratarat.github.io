@@ -9075,6 +9075,44 @@ Batch norm can also be considered of the regularization methods. During training
 
 **Reason 6**: There is also the possibility that there is a bug in the code which makes it possible that training has not converged to the optimal soluion on the training set. 
 
+#### What are some tips and tricks to train a deep neural network?
+
+*  Use standard architectures and transfer learning if your problem allows you to, such as ResNet-50 pre-trained on ImageNet.
+
+* The learning rate might be the most important hyperparameter. There is no fixed learning rate for a neural network. It depends on the kind of problem you are working on, the dataset you are feeding to your network, and most importantly the structure of the network which varies from problem to problem because topology of loss landscape changes. You can use cyclical learning rates which allows learning rate to cyclically oscillate between the two bounds. Training with cyclical learning rates instead of fixed values achieves improved classification accuracy without a need to tune and often in fewer iterations (https://arxiv.org/pdf/1506.01186.pdf).
+  
+  ```
+  local cycle = math.floor(1 + epochCounter / ( 2 ∗ stepsize))
+  local x = math.abs(epochCounter / stepsize − 2∗ cycle + 1 )
+  local lr = opt.LR + (maxLR − opt.LR) ∗ math.max(0 , (1−x ))
+  ```
+  
+  where
+  
+  * `opt.LR` is the specified lower (i.e., base) learning rate.
+  * `epochCounter` is the number of epochs of training.
+  * `lr` is the computed learning rate.
+  * `stepsize` is half the period or cycle length.
+  * `max_lr` is the maximum learning rate boundary (upper bound).
+ 
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cyclical_learning_rate.png?raw=true)
+  
+  You can also use learning rate finder and Learning Rate Scheduler from this blogpost https://www.jeremyjordan.me/nn-learning-rate/
+ 
+* Instead of using a fixed number of epochs, stop the training when validation accuracy stops improving (early stopping).
+
+* Use the ReLU activation function with Kaiming (He) initialization.
+
+* Use Adam as your default optimizer. 
+
+* Do not use minibatches of size greater than 32.
+
+* Try Dropout and Batch Normalization to regularize the model.
+
+* Use data augmentation to increase the diversity of the data, which may act as a regularizer to avoid overfitting.
+
+* Get more data if you can, which can lead to a performance improvement.
+
 
 ## SQL
 
