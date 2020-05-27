@@ -45,7 +45,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   
 2. **Maximum (complete-farthest distance/ complete link) Proximity**
 
-  It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the largest value (i.e., maximum value) of these dissimilarities as the distance between the two clusters. 
+  It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the largest value (i.e., maximum value) of these dissimilarities as the distance between the two clusters.
  
  $$
  \max \,\{\,d(a,b):a\in A,\,b\in B\,\}
@@ -55,7 +55,7 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
  
 3. **Mean or average linkage clustering**
 
-  It computes all pairwise dissimilarities between the elements in cluster A and the elements in cluster B, and considers the average of these dissimilarities as the distance between the two clusters (number of points in cluster $j$ is $n_{j}$):
+  It computes all pairwise dissimilarities between the elements in cluster a and the elements in cluster b, and considers the average of these dissimilarities as the distance between the two clusters. (number of points in cluster $j$ is $n_{j}$):
 
   $$
   d(A, B) = \frac{1}{n_{A}n_{B}}\sum_{a\in A} \sum_{b\in B} d(a, b)
@@ -73,25 +73,30 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   
 5. **Ward’s minimum variance method**
 
-  It minimizes the total within-cluster variance. At each step, the pair of clusters with minimum between-cluster distance are merged.
+  It minimizes the total **within-cluster** variance. At each step, the pair of clusters with minimum **between-cluster** distance are merged.
   
   Ward’s method says that the distance between two clusters, A and B, is how much the sum of squares will increase when we merge them. With this method, the sum of squares starts out at zero (because every point is in its own cluster) and then grows as we merge clusters. Ward’s method keeps this growth as small as possible.
   
+  $$
+  \Delta(A,B) = \sum_{i\in A \bigcup B} ||\overrightarrow{x_i} - \overrightarrow{m}_{A \bigcup B}||^2 - \sum_{i \in A}||\overrightarrow{x_i} - \overrightarrow{m}_A||^2 -\sum_{i \in B}||\overrightarrow{x_i}- \overrightarrow{m}_B||^2 
+= \frac{n_An_B}{n_A+n_B} ||\overrightarrow{m}_A- \overrightarrow{m}_B||^2
+$$
+
+where $\overrightarrow{m}_j$ is the center of cluster $j$, and $n_{j}$ is the number of points in it. $\Delta$ is called the merging cost of combining the clusters A and B.
+
+The distance metrics used in clustering cannot be varied with Ward, thus for non-Euclidean metrics, you need to use other linkage techniques. The Euclidean distance is the "ordinary" straight-line distance between two points in Euclidean space.
+
+$$
+d(p,q) = d(q,p) = \sqrt{(q_1 -p_1)^2 + (q_2 - p_2)^2 + \cdots + (q_n -p_n)^2} = \sqrt{\sum_{i=1} (q_i-p_i)^2}
+$$
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/wards_metho.png?raw=true)
+  
   Like other clustering methods, when we have $n$ data points, Ward’s method starts with $n$ clusters, each containing a single object. These $n$ clusters are combined to make one cluster containing all objects. At each step, the process makes a new cluster that minimizes variance.
 
-  At each step, the following calculations are made:
-
-  1. Find the mean of each cluster.
-  2. Calculate the distance between each object in a particular cluster, and that cluster's mean.
-  3. Square the differences from Step 2.
-  4. Sum (add up) the squared values from Step 3.
-  5. Add up all the sums of squares from Step 4.
-  
   In order to select a new cluster at each step, every possible combination of clusters must be considered. This entire cumbersome procedure makes it practically impossible to perform by hand, making a computer a necessity for most data sets containing more than a handful of data points. 
   
   When spherical multivariate normal distributions are used, Ward’s method is excellent, which is only natural because this method is based on a sum of squares criterion. However, it must be noted that Ward's method only performs well if an equal number of objects is drawn from each population and it looks for spherical clusters. In other words, it has difficulties with clusters of unequal diameters. Moreover, Ward’s method often leads to misclassifications when the clusters are distinctly ellipsoidal rather than spherical, that is, when the variables are correlated within a cluster.
-  
-  The distance metrics used in clustering cannot be varied with Ward, thus for non-Euclidean metrics, you need to use other linkage techniques. 
   
 # Example Data for Clustering
 
@@ -269,3 +274,5 @@ The result proves that this approach is a viable method for handling large datas
 1. [https://www3.nd.edu/~rjohns15/cse40647.sp14/www/content/lectures/13%20-%20Hierarchical%20Clustering.pdf](https://www3.nd.edu/~rjohns15/cse40647.sp14/www/content/lectures/13%20-%20Hierarchical%20Clustering.pdf){:target="_blank"}
 2. [https://en.wikipedia.org/wiki/Hierarchical_clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering){:target="_blank"}
 3. [https://www.saedsayad.com/clustering_hierarchical.htm](https://www.saedsayad.com/clustering_hierarchical.htm){:target="_blank"}
+4. [https://jbhender.github.io/Stats506/F18/GP/Group10.html](https://jbhender.github.io/Stats506/F18/GP/Group10.html){:target="_blank"}
+5. [https://www.stat.cmu.edu/~cshalizi/350/lectures/08/lecture-08.pdf](https://www.stat.cmu.edu/~cshalizi/350/lectures/08/lecture-08.pdf){:target="_blank"}
