@@ -292,6 +292,7 @@ permalink: /faq/
 86. Why is data augmentation classified as a type of regularization?
 87. Why using probability estimates and non-thresholded decision values give different AUC values?
 88. What is Minkowski distance? How is it related to Manhattan distance and Euclidean distance
+88. What to do before clustering?
 89. How to cluster only categorical data with K-means?
 90. What is K-medoids algorithm?
 91. How to choose number of clusters in clustering analysis?
@@ -7736,12 +7737,30 @@ The Minkowski distance is a metric in a normed vector space which can be conside
 The Minkowski distance of order $p$ (where $p$ is an integer) between two points, $X=(x_{1},x_{2},\ldots ,x_{n})$ and $Y=(y_{1},y_{2},\ldots ,y_{n})\in {\mathbb  {R}}^{n}$ is defined as:
 
 $$
-D\left(X,Y\right) = \left(\sum _{i=1}^{n} \mid x_{i}-y_{i}\mid^{p}\right)^{\frac {1}{p}}
+D\left(X,Y\right) = \left(\sum_{i=1}^{n} \mid x_{i} - y_{i}\mid^{p}\right)^{\frac {1}{p}}
 $$
 
 Minkowski distance is typically used with {\displaystyle p}p being 1 or 2, which correspond to the Manhattan distance and the Euclidean distance, respectively. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2880px-2D_unit_balls.svg.png?raw=true)
+
+#### What to do before clustering?
+
+You can't just run clustering on data and expect to get anything meaningful. Clustering quality depends heavily on the quality of your distance function, so this needs to be very carefully chosen first, taking into account what kind of data you have available. Many clustering algorithms (like DBSCAN or K-Means) use a distance measurement to calculate the similarity between observations. Because of this, certain clustering algorithms will perform better with continuous attributes. However, if you have categorical data, you can one-hot encode the attributes or use a clustering algorithm built for categorical data, such as K-Modes.
+
+If you have outliers in the data, either you could exclude them or use another method that is less senitive because for example, K-means clustering algorithm is based on centroids for each cluster, so the mean could be sensitive to outliers.
+
+If you have a lot of features, curse of dimensionality might be an issue. Therefore, an appropriate dimensionality reduction techniques must be used.
+
+You could decide the number of the clusters or for which values of k you are going to perform the clustering algorithm.
+
+Most of the clustering methods is prone to initial seeding i.e. random initialization of centroids which is required to kick-off iterative clustering process. Bad initialization may end up getting bad clusters.
+
+Distance computation in many methods weights each dimension equally and hence care must be taken to ensure that unit of dimension should not distort relative near-ness of observations. Normalization for Gaussian distribution, log-transform for power-law distribution that clumps data at the low end, or transform the data into quantiles if data does not conform to a Gaussian or power-law distribution.
+
+If your dataset has examples with missing values for a certain feature but such examples occur rarely, then you can remove these examples. If such examples occur frequently, we have the option to either remove this feature altogether, or to predict the missing values from other examples by using a machine learning model. For example, you can infer missing numerical data by using a regression model trained on existing feature data.
+
+In order to trust the clustering algorithm results, you must have a method for measuring the algorithm's performance. Clustering algorithm performance can be validated with either internal or external validation metrics. There are multiple metrics in the literature. You need to find which one is suitable for you. 
 
 #### How to cluster only categorical data with K-means?
 
