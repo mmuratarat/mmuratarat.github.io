@@ -291,7 +291,11 @@ permalink: /faq/
 86. What are the data augmentation techniques for text?
 86. Why is data augmentation classified as a type of regularization?
 87. Why using probability estimates and non-thresholded decision values give different AUC values?
-
+88. What is Minkowski distance? How is it related to Manhattan distance and Euclidean distance
+89. How to cluster only categorical data with K-means?
+90. What is K-medoids algorithm?
+91. How to choose number of clusters in clustering analysis?
+92. How to select a clustering method? 
 
 [SQL](#SQL)
 
@@ -7768,6 +7772,20 @@ Both the median and medoid of this set are 3. The mean is 20002.
 In contrast to the K-means algorithm, K-medoids algorithm chooses points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not.
 
 The most common implementation of K-medoids clustering algorithm is the Partitioning Around Medoids (PAM) algorithm. PAM algorithm uses a greedy search which may not find the global optimum solution. The main drawback of K-medoids is that it is much more expensive because PAM usually takes much longer to run than K-means. As it involves computing all pairwise distances to find the medoids.
+
+#### How to choose number of clusters in clustering analysis?
+
+Determining the right number of clusters in a data set is important, not only because some clustering algorithms like k-means requires such a parameter, but also because the appropriate number of clusters controls the proper granularity of cluster analysis. determining the number of clusters is far from easy, often because the right number is ambiguous. The interpretations of the number of clusters often depend on the shape and scale of the distribution in a data set, as well as the clustering resolution required by a user. There are many possible ways to estimate the number of clusters. Here, we briefly introduce some simple yet popularly used and effective methods.
+
+We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K.
+
+A simple experienced method is to set the number of clusters to about $\sqrt{n/2}$ for a data set of $n$ points. In expectation, each cluster has $\sqrt{2n}$ points. Another approach is the Elbow Method. We run the algorithm for different values of K (say K = 1 to 10) and plot the K values against WCSSE (Within Cluster Sum of Squared Errors). WCSS is also called "inertia". Then, select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/elbow_method_kmeans.png?raw=true)
+
+HOWEVER, it is important to note that inertia heavily relies on the assumption that the clusters are convex (of spherical shape).
+
+A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method (we want to have high silhouette coefficient for the number of clusters we want to use), and the G-means algorithm. In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K. Some researchers also use Hierarchical clustering first to create dendrograms and identify the distinct groups from there.
 
 #### How to select a clustering method? 
 
