@@ -7750,9 +7750,9 @@ You can't just run clustering on data and expect to get anything meaningful. Clu
 
 If you have outliers in the data, either you could exclude them or use another method that is less senitive because for example, K-means clustering algorithm is based on centroids for each cluster, so the mean could be sensitive to outliers.
 
-If you have a lot of features, curse of dimensionality might be an issue. Therefore, an appropriate dimensionality reduction techniques must be used.
+If you have a lot of features, curse of dimensionality might be an issue. Therefore, an appropriate dimensionality reduction techniques must be used. The real problem with doing this is that it becomes more difficult to interpret since you are looking at clusters in terms of transformed and factorized, as opposed to the original variables themselves.
 
-You could decide the number of the clusters or for which values of k you are going to perform the clustering algorithm.
+You could decide the number of the clusters or for which values of $K$ you are going to perform the clustering algorithm.
 
 Most of the clustering methods is prone to initial seeding i.e. random initialization of centroids which is required to kick-off iterative clustering process. Bad initialization may end up getting bad clusters.
 
