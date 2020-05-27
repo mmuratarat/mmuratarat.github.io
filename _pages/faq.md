@@ -7780,9 +7780,9 @@ If the computational costs of hierarchical clustering are too large, you can con
 
 #### What is K-medoids algorithm?
 
-K-medoids is another partitioning algorithm. Both K-means and K-medoids algorithms are breaking the dataset up into K groups. Also, they are both trying to minimize the distance between points of the same cluster and a particular point which is the center of that cluster.
+K-medoids is another partitioning algorithm. Both K-means and K-medoids algorithms are breaking the dataset up into $K$ groups. Also, they are both trying to minimize the distance between points of the same cluster and a particular point which is the center of that cluster.
 
-K-medoid is based on medoids (which is a point that belongs to the dataset) calculating by minimizing the absolute distance between the points and the selected centroid, rather than minimizing the square distance. As a result, it's more robust to noise and outliers than k-means since an object with an extremely large value may substantially distort the distribution of the data.
+K-medoid is based on medoids (which is a point that belongs to the dataset) calculating by minimizing the absolute distance between the points and the selected centroid, rather than minimizing the square distance. As a result, it is more robust to noise and outliers than k-means since an object with an extremely large value may substantially distort the distribution of the data.
 
 Note that a medoid is not equivalent to a median, a geometric median, or centroid. 
 
@@ -7794,7 +7794,9 @@ Consider this 1-dimensional example:
 
 Both the median and medoid of this set are 3. The mean is 20002.
 
-In contrast to the K-means algorithm, K-medoids algorithm chooses points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not.
+In contrast to the K-means algorithm, K-medoids algorithm chooses data points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not. Thisis true because most of the time, a centroid does not correspond to a data point. A medoid, by definition, must be a data point.
+
+The real problem with doing this is that it becomes more difficult to interpret since you are looking at clusters in terms of transformed and factorized, as opposed to the original variables themselves
 
 The most common implementation of K-medoids clustering algorithm is the Partitioning Around Medoids (PAM) algorithm. PAM algorithm uses a greedy search which may not find the global optimum solution. The main drawback of K-medoids is that it is much more expensive because PAM usually takes much longer to run than K-means. As it involves computing all pairwise distances to find the medoids. Thus, it's time consuming and computer intensive.
 
