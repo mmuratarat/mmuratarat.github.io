@@ -4437,6 +4437,14 @@ A one way ANOVA will tell you that at least two groups were different from each 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/one-way.ANOVA.png?raw=true)
 
+Let's give an example how to do one-way ANOVA by hand:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example5.png?raw=true)
+
 2. **Two-Way ANOVA**
 
 A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, Two-way ANOVA has one continuous response variable (e.g. Test Score) compared by more than one factor variable (e.g. Level of Education and Zodiac Sign). Two-way ANOVA can also be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables. Two-way ANOVAs are also called factorial ANOVAs.
@@ -7716,6 +7724,20 @@ n_thresholds = len(np.unique(x)) + 1
 ```
 
 where `x` is the array holding your target scores (`y_score`).
+
+#### What is Minkowski distance? How is it related to Manhattan distance and Euclidean distance
+
+The Minkowski distance is a metric in a normed vector space which can be considered as a generalization of both the Euclidean distance and the Manhattan distance. 
+
+The Minkowski distance of order $p$ (where $p$ is an integer) between two points, $X=(x_{1},x_{2},\ldots ,x_{n})$ and $Y=(y_{1},y_{2},\ldots ,y_{n})\in {\mathbb  {R}}^{n}$ is defined as:
+
+$$
+D\left(X,Y\right) = \left(\sum _{i=1}^{n} \mid x_{i}-y_{i}\mid^{p}\right)^{\frac {1}{p}}
+$$
+
+Minkowski distance is typically used with {\displaystyle p}p being 1 or 2, which correspond to the Manhattan distance and the Euclidean distance, respectively. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2880px-2D_unit_balls.svg.png?raw=true)
 
 #### How to cluster only categorical data with K-means?
 
