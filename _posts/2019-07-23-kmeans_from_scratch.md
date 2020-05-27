@@ -89,7 +89,11 @@ The best number of clusters K leading to the greatest separation (distance) is n
 
 # Choosing the Value of K
 
-We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K, but an accurate estimate can be obtained using the Elbow Method. We run the algorithm for different values of K (say K = 1 to 10) and plot the K values against WCSSE (Within Cluster Sum of Squared Errors). WCSS is also called "inertia". Then, select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
+Determining the right number of clusters in a data set is important, not only because some clustering algorithms like k-means requires such a parameter, but also because the appropriate number of clusters controls the proper granularity of cluster analysis. determining the number of clusters is far from easy, often because the right number is ambiguous. The interpretations of the number of clusters often depend on the shape and scale of the distribution in a data set, as well as the clustering resolution required by a user. There are many possible ways to estimate the number of clusters. Here, we briefly introduce some simple yet popularly used and effective methods.
+
+We often know the value of K. In that case we use the value of K. In general, there is no method for determining exact value of K.
+
+A simple experienced method is to set the number of clusters to about $\sqrt{n/2}$ for a data set of $n$ points. In expectation, each cluster has $\sqrt{2n}$ points. Another approach is the Elbow Method. We run the algorithm for different values of K (say K = 1 to 10) and plot the K values against WCSSE (Within Cluster Sum of Squared Errors). WCSS is also called "inertia". Then, select the value of K that causes sudden drop in the sum of squared distances, i.e., for the elbow point as shown in the figure.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/elbow_method_kmeans.png?raw=true)
 
