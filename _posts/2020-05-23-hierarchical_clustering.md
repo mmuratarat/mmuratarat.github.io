@@ -82,16 +82,16 @@ Some commonly used linkage criteria for Agglomerative clustering is described be
   At each step, the following calculations are made:
 
   1. Find the mean of each cluster.
-  2. Calculate the distance between each object in a particular cluster, and that cluster’s mean.
+  2. Calculate the distance between each object in a particular cluster, and that cluster's mean.
   3. Square the differences from Step 2.
   4. Sum (add up) the squared values from Step 3.
   5. Add up all the sums of squares from Step 4.
   
   In order to select a new cluster at each step, every possible combination of clusters must be considered. This entire cumbersome procedure makes it practically impossible to perform by hand, making a computer a necessity for most data sets containing more than a handful of data points. 
   
-  When spherical multivariate normal distributions are used, Ward’s method is excellent, which is only natural because this method is based on a sum of squares criterion. However, it must be noted that Ward’s method only performs well if an equal number of objects is drawn from each population and it looks for spherical clusters. In other words, it has difficulties with clusters of unequal diameters. Moreover, Ward’s method often leads to misclassifications when the clusters are distinctly ellipsoidal rather than spherical, that is, when the variables are correlated within a cluster.
+  When spherical multivariate normal distributions are used, Ward’s method is excellent, which is only natural because this method is based on a sum of squares criterion. However, it must be noted that Ward's method only performs well if an equal number of objects is drawn from each population and it looks for spherical clusters. In other words, it has difficulties with clusters of unequal diameters. Moreover, Ward’s method often leads to misclassifications when the clusters are distinctly ellipsoidal rather than spherical, that is, when the variables are correlated within a cluster.
   
-  The distance metrics used in clustering cannot be varied with Ward, thus for non Euclidean metrics, you need to use other linkage techniques. 
+  The distance metrics used in clustering cannot be varied with Ward, thus for non-Euclidean metrics, you need to use other linkage techniques. 
   
 # Example Data for Clustering
 
