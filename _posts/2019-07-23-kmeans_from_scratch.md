@@ -238,12 +238,12 @@ plt.scatter(centers_new[:,0], centers_new[:,1], marker='*', c='g', s=150)
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/iris_scratch_kmeans_clusters.png?raw=true)
 
-## k-median
+## K-median
 
-A clustering algorithm closely related to k-means. The practical difference between the two is as follows:
+K-median is another clustering algorithm closely related to K-means. The practical difference between the two is as follows:
 
-* In k-means, centroids are determined by minimizing the sum of the squares of the distance between a centroid candidate and each of its examples.
-* In k-median, centroids are determined by minimizing the sum of the distance between a centroid candidate and each of its examples.
+* In K-means, centroids are determined by minimizing the sum of the squares of the distance between a centroid candidate and each of its examples.
+* In K-median, centroids are determined by minimizing the sum of the distance between a centroid candidate and each of its examples.
 
 K-medians owes its use to robustness of the median as a statistic. The mean is a measurement that is highly vulnerable to outliers. Even just one drastic outlier can pull the value of the mean away from the majority of the data set, which can be a high concern when operating on very large data sets. The median, on the other hand, is a statistic incredibly resistant to outliers, for in order to deter the median away from the bulk of the information, it requires at least 50% of the data to be contaminated
 
@@ -251,19 +251,19 @@ K-medians uses the median as the statistic to determine the center of each clust
 
 Note that the definitions of distance are also different:
 
-* k-means relies on the Euclidean distance from the centroid to an example. (In two dimensions, the Euclidean distance means using the Pythagorean theorem to calculate the hypotenuse.) For example, the k-means distance between $(2,2)$ and $(5,-2)$ would be:
+* K-means relies on the Euclidean distance from the centroid to an example. (In two dimensions, the Euclidean distance means using the Pythagorean theorem to calculate the hypotenuse.) For example, the K-means distance between $(2,2)$ and $(5,-2)$ would be:
   
   $$
 \text{Euclidean Distance} = \sqrt{(2-5)^{2} + (2 - -2)^{2}} =5
 $$
 
-* k-median relies on the Manhattan distance from the centroid to an example. This distance is the sum of the absolute deltas in each dimension. For example, the k-median distance between $(2,2)$ and $(5,-2)$ would be:
+* K-median relies on the Manhattan distance from the centroid to an example. This distance is the sum of the absolute deltas in each dimension. For example, the K-median distance between $(2,2)$ and $(5,-2)$ would be:
 
   $$
 \text{Manhattan Distance} = \lvert 2-5 \rvert + \lvert 2 - -2 \rvert = 7
 $$
 
-Note that k-medians is also very sensitive to the initialization points of its k centers, each center having the tendency to remain roughly in the same cluster in which it is first placed.
+Note that K-medians is also very sensitive to the initialization points of its K centers, each center having the tendency to remain roughly in the same cluster in which it is first placed.
 
 ## Mini Batch K-Means
 
