@@ -7745,13 +7745,19 @@ Minkowski distance is typically used with {\displaystyle p}p being 1 or 2, which
 
 #### How to cluster only categorical data with K-means?
 
-The basic concept of K-means stands on mathematical calculations (means, Euclidean distances). K-means explicitly minimizes within-cluster variance (squared distances from the mean) as defined in Euclidean space. IBut what if our data is non-numerical or, in other words, categorical? 
+The basic concept of K-means stands on mathematical calculations (means, Euclidean distances). K-means explicitly minimizes within-cluster variance (squared distances from the mean) as defined in Euclidean space. But what if our data is non-numerical or, in other words, categorical? 
 
-We could think of transforming our categorical values in numerical values and eventually apply K-means using cosine similarity.
+Euclidean distance is not defined for categorical data; therefore, K-means cannot be used directly.
+
+We could think of transforming our categorical values in numerical values and eventually apply K-means using cosine similarity. However, you may run into curse of dimensionality issues due to the fact that you are increasing dimensionality. 
 
 Another solution lies in the K-modes algorithm. K-modes is an extension of K-means. The distance metric used for K-modes is the Hamming distance (there are some other distance metrics proposed in the literature). The K-modes algorithm tries to minimize the sum of within-cluster Hamming distance from the mode of that cluster (The mode of a set of data values is the value that appears most often), summed over all clusters. The procedure is similar to K-means. First, we choose a number of clusters (K), and K cluster-mode vectors are chosen at random (or according to accepted heuristics). Step 1: Observations are assigned to the closest cluster mode by Hamming distance. Step 2: New cluster modes are calculated, each from the observations associated with an previous cluster mode. Steps 1 and 2 are repeated until the cluster modes stabilize. As with K-means, this stable condition could be due to a local minimum in the cost function.
 
-Various clustering algorithms have been developed to group data into clusters in diverse domains. However, these clustering algorithms work effectively either on pure numeric data or on pure categorical data, most of them perform poorly on mixed categorical and numeric data types. For numerical and categorical data, another extension of these algorithms exists, basically combining K-means and K-modes. It is called k-prototypes.
+Various clustering algorithms have been developed to group data into clusters in diverse domains. However, these clustering algorithms work effectively either on pure numeric data or on pure categorical data, most of them perform poorly on mixed categorical and numeric data types. For numerical and categorical data, another extension of these algorithms exists, basically combining K-means and K-modes. It is called K-prototypes, which mixes the Hamming distance for categorical features and the Euclidean distance for numeric features.
+
+If you have a data which consists of both categorical and continuous variables, you can use Gower distance, which is a composite measure and apply hierarchical clustering (because it allows to select from a great many distance functions). Gower distance takes quantitative, ordinal, binary and nominal variables. However, be careful! Some methods of agglomeration (Ward's method) will call for (squared) Euclidean distance only.
+
+If the computational costs of hierarchical clustering are too large, you can consider an alternative clustering method such as K-prototypes.
 
 #### What is K-medoids algorithm?
 
@@ -7771,7 +7777,7 @@ Both the median and medoid of this set are 3. The mean is 20002.
 
 In contrast to the K-means algorithm, K-medoids algorithm chooses points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not.
 
-The most common implementation of K-medoids clustering algorithm is the Partitioning Around Medoids (PAM) algorithm. PAM algorithm uses a greedy search which may not find the global optimum solution. The main drawback of K-medoids is that it is much more expensive because PAM usually takes much longer to run than K-means. As it involves computing all pairwise distances to find the medoids.
+The most common implementation of K-medoids clustering algorithm is the Partitioning Around Medoids (PAM) algorithm. PAM algorithm uses a greedy search which may not find the global optimum solution. The main drawback of K-medoids is that it is much more expensive because PAM usually takes much longer to run than K-means. As it involves computing all pairwise distances to find the medoids. Thus, it's time consuming and computer intensive.
 
 #### How to choose number of clusters in clustering analysis?
 
