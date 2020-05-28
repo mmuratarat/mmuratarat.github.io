@@ -5,7 +5,9 @@ author: "MMA"
 comments: true
 ---
 
-Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. They have a natural "if ... then ... else ..." construction. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. Decision Tree process starts at the root and is repeated recursively until a leaf node is hit, at which point the value written in the leaf constitutes the output.
+Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. They have a natural "if ... then ... else ..." construction. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. Decision Tree process starts at the root and is repeated recursively until a leaf node is hit (which are are more "pure" (i.e., homogeneous) in terms of the outcome variable), at which point the value written in the leaf constitutes the output.
+
+. The data is repeatedly split according to predictor variables so that child nodes 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-04%20at%2013.05.25.png?raw=true)
 
