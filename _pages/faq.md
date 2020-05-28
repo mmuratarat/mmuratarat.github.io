@@ -132,6 +132,7 @@ permalink: /faq/
 48. [What is the trading-off between bias and variance to minimize mean squared error of an estimator?](#what-is-the-trading-off-between-bias-and-variance-to-minimize-mean-squared-error-of-an-estimator)
 48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
 48. [What is the consistency of an estimator?](#what-is-the-consistency-of-an-estimator)
+48. What is the sufficiency of an estimator?
 48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
@@ -3850,6 +3851,53 @@ Be careful, this limit indicates convergence in probability, meaning that for an
 The term consistent estimator is short for "consistent sequence of estimators", an idea found in convergence in probability. The basic idea is that you repeat the estimator’s results over and over again, with steadily increasing sample sizes. Eventually — assuming that your estimator is consistent — the sequence will converge on the true population parameter. This convergence is called a limit, which is a fundamental building block of calculus.
 
 Consistency ensures that the bias induced by the estimator diminishes as th enumber of data examples grows. However, the reverse is not true - asymptotic unbiasedness does not imply consistency. 
+
+#### What is the sufficiency of an estimator?
+
+Suppose we have a random sample $X_{1}, X_{2}, \dots , X_{n}$ be a set of $n$ independent and identically distributed data points, taken from a distribution $f(X \mid \theta)$ which relies on an unknown parameter $\theta$ in a parameter space $\Theta$. The purpose of parameter estimation is to estimate the parameter $\theta$ from the random sample. We have already studied three parameter estimation methods: method of moment, maximum likelihood, and Bayes estimation. We can see from the previous examples that the estimators can be expressed as a function of the random sample $X_{1}, X_{2}, \dots , X_{n}$. Such a function is called a statistic (estimator).
+
+Formally, any real-valued function $T = g\left(X_{1}, X_{2}, \dots , X_{n}\right)$ of the observations in the sample is called a statistic. For example, 
+
+$$
+\begin{split}
+\bar{x} &= \frac{1}{n} \sum_{i=1}^{n} X_{i},\,\,\,\,\, (the sample mean)\\
+s^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_{i} - \bar{x}\right)^{2} ,\,\,\,\,\, (the sample variance)\\
+T_{1} &= max \{X_{1}, X_{2}, \dots , X_{n}\}\\
+T_{2} &= 5
+\end{split}
+$$
+
+The last statistic is a bit strange (it completely igonores the random sample), but it is still a statistic. We say a statistic T is an estimator of a population parameter if $T$ is usually close to $\theta$. The sample mean is an estimator for the population mean; the sample variance is an estimator for the population variation.
+
+Obviously, there are lots of functions of $X_{1}, X_{2}, \dots , X_{n}$ and so lots of statistics. When we look for a good estimator, do we really need to consider all of them, or is there a much smaller set of statistics we could consider? Another way to ask the question is if there are a few key functions of the random sample which will by themselves contain all the information the
+sample does.
+
+The concept of sufficiency arises as an attempt to answer the following question: Is there a statistic, i.e. a function $T\left(X_{1}, X_{2}, \dots , X_{n}\right)$, that contains all the information in the sample about $\theta$?
+
+We know that the estimators we obtained are always functions of the observations, i.e., the estimators are statistics, e.g. sample mean, sample standard deviations, etc. In some sense, this process can be thought of as "compress" the original observation data: initially we have $n$ numbers, but after this "compression", we only have 1 numbers. This "compression" always makes us lose information about the parameter, can never makes us obtain more information. The best case is that this "compression" result contains the same amount of information as the information contained in the $n$ observations. We call such a statistic as sufficient statistic.
+
+The mathematical definition is as follows. A statistic $T = g\left(X_{1}, X_{2}, \dots , X_{n}\right)$ is a sufficient statistic for $\theta$ if for each $t$, the conditional distribution of $X_{1}, X_{2}, \dots , X_{n}$ given $T = t$ and $\theta$ does not depend on $\theta$.
+
+$$
+\begin{split}
+p(X \mid \theta, T = t) = P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid \theta, T = t)\\
+&= P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid T = t) \\
+&= \frac{P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n})}{P(T = t}
+\end{split}
+$$
+
+To motivate the mathematical definition, we consider the following "experiment". Let $T = g\left(X_{1}, X_{2}, \dots , X_{n}\right)$ be a sufficient statistic. There are two statisticians; we will call them A and B. Statistician A knows the entire random sample $X_{1}, X_{2}, \dots , X_{n}$, but statistician B only knows the value of $T$, call it $t$. Since the conditional distribution of $X_{1}, X_{2}, \dots , X_{n}$ given $\theta$ and $T$ does not depend on $\theta$, statistician B knows this conditional distribution. So he can
+use his computer to generate a random sample $X_{1}^{\prime}, X_{2}^{\prime}, \dots , X_{n}^{\prime}$ which has this conditional distribution. But then his random sample has the same distribution as a random sample drawn from the population (with its unknown value of $\theta$). So statistician B can use his random sample $X_{1}^{\prime}, X_{2}^{\prime}, \dots , X_{n}^{\prime}$ to compute whatever statistician A computes using his random sample $X_{1}, X_{2}, \dots , X_{n}$, and he will (on average) do as well as statistician A. Thus the mathematical definition of sufficient statistic implies the heuristic definition.
+
+It is difficult to use the definition because you need to evaluate a conditional distribution to check if a statistic is sufficient or to find a sufficient statistic. Luckily, there is a theorem that makes it easy to find sufficient statistics.
+
+**Factorization Theorem**: Let $X_{1}, X_{2}, \dots , X_{n}$ form a random sample from either a continuous distribution or a discrete distribution for which the pdf or the pmf is $f(x \mid \theta)$, where the value of $\theta$ is unknown and belongs to a given parameter space $\Theta$. A statistic $T\left(X_{1}, X_{2}, \dots , X_{n}\right)$ is a sufficient statistic for $\theta$ if and only if the joint pdf or the joint pmf $f_{n}( X \mid \theta)$ of $X_{1}, X_{2}, \dots , X_{n}$ can be factorized as follows for all values of $X = \left(X_{1}, X_{2}, \dots , X_{n} \right) \in  R^{n}$ and all values of $\theta \in \Theta$:
+
+$$
+f_{n}( X \mid \theta) = u(X) v[T(X), \theta]
+$$
+
+Here, the function $u$ and $v$ are nonnegative, the function $u$ may depend on $X$ but does not depend on $\theta$, and the function $v$ depends on $\theta$ but will depend on the observed value $X$ only through the value of the statistic $T(X)$.
 
 #### What is the standard error of the estimate? 
 
