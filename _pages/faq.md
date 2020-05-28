@@ -132,7 +132,7 @@ permalink: /faq/
 48. [What is the trading-off between bias and variance to minimize mean squared error of an estimator?](#what-is-the-trading-off-between-bias-and-variance-to-minimize-mean-squared-error-of-an-estimator)
 48. [What is the unbiased estimator and its proof?](#what-is-the-unbiased-estimator-and-its-proof)
 48. [What is the consistency of an estimator?](#what-is-the-consistency-of-an-estimator)
-48. What is the sufficiency of an estimator?
+48. [What is the sufficiency of an estimator?](#what-is-the-sufficiency-of-an-estimator)
 48. [What is the standard error of the estimate?](#what-is-the-standard-error-of-the-estimate)
 49. [What is the sampling distribution of the sample mean?](#what-is-the-sampling-distribution-of-the-sample-mean)
 50. [What is the sampling distribution of the sample variance?](#what-is-the-sampling-distribution-of-the-sample-variance)
@@ -155,9 +155,9 @@ permalink: /faq/
 63. [How to do chi-square test for variance?](#how-to-do-chi-square-test-for-variance)
 64. [How to do F-test for equality of two variances?](#how-to-do-f-test-for-equality-of-two-variances)
 65. [What is Chi-square Test for Goodness-of-fit Test?](#what-is-chi-square-test-for-goodness-of-fit-test)
-65. What is Chi-square Test for Test of Independence?
-65. What is the post-hoc pairwise comparison of chi-squared test?
-65. What is Fisher's Exact test?
+65. [What is Chi-square Test for Test of Independence?](#what-is-chi-square-test-for-test-of-independence)
+65. [What is the post-hoc pairwise comparison of chi-squared test?](#what-is-the-post-hoc-pairwise-comparison-of-chi-squared-test)
+65. [What is Fisher's Exact test?](#what-is-fishers-exact-test)
 65. [What does statistical interaction mean?](#what-does-statistical-interaction-mean)
 66. [Explain generalized linear model](#explain-generalized-linear-model).
 66. [What does link function do?](#what-does-link-function-do)
@@ -237,7 +237,7 @@ permalink: /faq/
 48. [How to find distance between mixed categorical and numeric data points?](#how-to-find-distance-between-mixed-categorical-and-numeric-data-points)
 49. [What is the difference between Mahalanobis distance and Euclidean distance?](#what-is-the-difference-between-mahalanobis-distance-and-euclidean-distance)
 50. [What is the difference between Support Vector Machines and Logistic Regression?](#what-is-the-difference-between-support-vector-machines-and-logistic-regression)
-50. What is the best separating hyperplane?
+50. [What is the best separating hyperplane?](#what-is-the-best-separating-hyperplane)
 51. [What is the optimization problem for Support Vector Machines?](#what-is-the-optimization-problem-for-support-vector-machines)
 51. [What does the parameter C do in SVM?](#what-does-the-parameter-c-do-in-svm)
 52. [Why do we find the dual problem when fitting SVM?](#why-do-we-find-the-dual-problem-when-fitting-svm)
@@ -285,11 +285,11 @@ permalink: /faq/
 80. [How to convert an RGB image to grayscale?](#how-to-convert-an-rgb-image-to-grayscale)
 81. [What are the Model Selection Criterion, i.e., AIC and BIC?](#what-are-the-model-selection-criterion-ie-aic-and-bic)
 82. [How to encode cyclical continuous features?](#how-to-encode-cyclical-continuous-features)
-83. Why does bagging work so well for decision trees, but not for linear classifiers?
-84. Is decision tree a linear model?
-85. In machine learning, how can we determine whether a problem is linear/nonlinear?
-86. What are the data augmentation techniques for images?
-86. What are the data augmentation techniques for text?
+83. [Why does bagging work so well for decision trees, but not for linear classifiers?](#why-does-bagging-work-so-well-for-decision-trees-but-not-for-linear-classifiers)
+84. [Is decision tree a linear model?](#is-decision-tree-a-linear-model)
+85. [In machine learning, how can we determine whether a problem is linear/nonlinear?](#in-machine-learning-how-can-we-determine-whether-a-problem-is-linearnonlinear)
+86. [What are the data augmentation techniques for images?](#what-are-the-data-augmentation-techniques-for-images)
+86. [What are the data augmentation techniques for text?](#what-are-the-data-augmentation-techniques-for-text)
 86. Why is data augmentation classified as a type of regularization?
 87. Why using probability estimates and non-thresholded decision values give different AUC values?
 88. What is Minkowski distance? How is it related to Manhattan distance and Euclidean distance
@@ -4528,7 +4528,7 @@ p_value = chi2.sf(8.006, df= 3)
 
 The chi-squared test assesses a global question whether relation between two variables is independent or associated. If there are three or more levels in either variable, a post-hoc pairwise comparison is required to compare the levels of each other. 
 
-If this omnibus null hypothesis is rejected about whether relation between two variables is independent or associated, it may be desirable to perform post-hoc analyses to determine which groups differ. This can be accomplished by testing for differences in $2 \times 2$ subtables created by considering only two columns at a time. The only form of multiple-comparisons adjustment available for this analysis is the Bonferroni method, in which a total of $C[(C – 1)12]$ possible groupwise comparisons can be made. Most statistical software packages will not do this analysis automatically; the user must manually construct $2 \times 2$ tables for each of the various pairwise comparisons and adjust the $\alpha$ level of each test to control the overall type I error rate.
+If this omnibus null hypothesis is rejected about whether relation between two variables is independent or associated, it may be desirable to perform post-hoc analyses to determine which groups differ. This can be accomplished by testing for differences in $2 \times 2$ subtables created by considering only two columns at a time. The only form of multiple-comparisons adjustment available for this analysis is the Bonferroni method, in which a total of $\frac{C(C-1)}{2}$ possible groupwise comparisons can be made. Most statistical software packages will not do this analysis automatically; the user must manually construct $2 \times 2$ tables for each of the various pairwise comparisons and adjust the $\alpha$ level of each test to control the overall type I error rate.
 
 #### What is Fisher's Exact test?
 
