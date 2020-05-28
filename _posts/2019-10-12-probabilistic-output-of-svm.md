@@ -36,7 +36,7 @@ a Relevance Vector Machine (RVM) can also be used instead of a plain SVM for pro
 
 However, keep in mind that the probability estimates obtained with Platt scaling may be inconsistent with the prediction (look [here](https://scikit-learn.org/dev/modules/svm.html#scores-and-probabilities)).
 
-Effectively, Platt scaling trains a probability model on top of the SVM's outputs under a cross-entropy loss function. To prevent this model from overfitting, It uses an internal five-fold cross validation. Needless to say, the cross-validation involved in Platt scaling is an expensive operation for large datasets. 
+Effectively, Platt scaling trains a probability model on top of the SVM's outputs under a cross-entropy loss function. To prevent this model from overfitting, it uses an internal five-fold cross validation. Needless to say, the cross-validation involved in Platt scaling is an expensive operation for large datasets. 
 
 Additionally, the probability estimates may be inconsistent with the scores, in the sense that the "argmax" of the scores may not be the argmax of the probabilities. (E.g., in binary classification, a sample may be labeled by `predict` as belonging to a class that has probability $< \frac{1}{2}$ according to `predict_proba`.) 
 
