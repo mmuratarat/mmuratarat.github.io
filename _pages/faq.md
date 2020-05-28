@@ -3271,6 +3271,7 @@ $$
 l(\mu) = log \prod_{i=1}^{n} P(X= x_{i}) &= \sum_{i=1}^{n} log \left( \frac{\mu^{x_{i}} e^{-\mu}}{x_{i}!} \right)\\
 &= \sum_{i=1}^{n} - \mu + x_{i} log(\mu) - log(x_{i}!)\\
 &= -n \mu + log(\mu) \sum_{i=1}^{n} x_{i} - \sum_{i=1}^{n} log(x_{i}!)
+\end{split}
 $$
 
 Thenm we take the derivative of $l(\mu)$ with respect to $\mu$ and equate it to zero. Solving for $\mu$ will yield the MLE of $\mu$:
