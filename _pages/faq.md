@@ -4758,7 +4758,9 @@ To interpret the resulting number, most social scientists use this general guide
 * `0.3 - 0.5` = moderate effect
 * `> 0.5` = large difference effect
 
-The standard deviation and effect size can be either determined from previous studies from literature or from pilot studies. Larger the effect size, less sample size we need because the overlap between true distribution anf hypothesized distribution will be less. 
+Your estimate of the standard deviation can come from pilot experiments or from similar experiments in the published literature. 
+
+The standard deviation and effect size can be either determined from previous studies from published literature or from pilot studies. Your standard deviation once you do the experiment is unlikely to be exactly the same, so your experiment will actually be somewhat more or less powerful than you had predicted. Larger the effect size, less sample size we need because the overlap between true distribution anf hypothesized distribution will be less. As standard deviation gets bigger, it gets harder to detect a significant difference, so you'll need a bigger sample size. 
 
 The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes (because larger sample size will narrow the distribution, increasing the power of the test, so overlapping between true distribution and hypothesized distribution will be less and so will alpha value). Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
 
