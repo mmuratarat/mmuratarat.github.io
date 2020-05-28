@@ -7,8 +7,6 @@ comments: true
 
 Decision tree is a hierarchical data structure that represents data through a divide and conquer strategy. They have a natural "if ... then ... else ..." construction. It is a supervised learning algorithm (having a pre-defined target variable) that is used in classification and regression problems. It works for both categorical and continuous input and output variables. Decision Tree process starts at the root and is repeated recursively until a leaf node is hit (which are are more "pure" (i.e., homogeneous) in terms of the outcome variable), at which point the value written in the leaf constitutes the output.
 
-. The data is repeatedly split according to predictor variables so that child nodes 
-
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-04%20at%2013.05.25.png?raw=true)
 
 A decision tree always considers all features and values for every feature. This means we could call it a greedy algorithm. The way a decision tree decides on which question, i.e. which feature, to ask, is by which question will have the highest information gain. In other words, it chooses the local optimal next feature. This process can be explained with three bullet points:
@@ -424,7 +422,7 @@ So, the entropy criterion favors B.
 
 # How to split with different variable?
 
-The set of split points considered for any variable depends upon whether the variable is numeric or categorical (nominal/ordinal). Splits can be multi-way (for example, for the variable "size" - Small/Medium/Large) or binary (for example, for the variable "Taxable Income > 80K?" - Yes/No). Binary split can also divide values into two subsets, for example, for the variable "size, we can consider {Small, Medium}/Large OR {Medium, Large}/Small, OR {Small, Large}/Medium
+The set of split points considered for any variable depends upon whether the variable is numeric or categorical (nominal/ordinal). Splits can be multi-way (for example, for the variable "size" - Small/Medium/Large) or binary (for example, for the variable "Taxable Income > 80K?" - Yes/No). Binary split can also divide values into two subsets, for example, for the variable "size", we can consider {Small, Medium}/Large OR {Medium, Large}/Small, OR {Small, Large}/Medium
 
 When a predictor is numerical, we can use a brute-force method to split this variable to use a Decision Tree algorithm. If all values are unique, there are $n - 1$ split points for $n$ data points. Suppose we have a training set with an attribute “age” which contains following values: 10, 11, 16, 18, 20, 35. Now at a node, the algorithm will consider following possible splitting:
 
