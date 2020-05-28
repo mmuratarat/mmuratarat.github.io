@@ -3867,10 +3867,9 @@ T_{2} &= 5
 \end{split}
 $$
 
-The last statistic is a bit strange (it completely igonores the random sample), but it is still a statistic. We say a statistic T is an estimator of a population parameter if $T$ is usually close to $\theta$. The sample mean is an estimator for the population mean; the sample variance is an estimator for the population variation.
+The last statistic is a bit strange (it completely igonores the random sample), but it is still a statistic. We say a statistic $T$ is an estimator of a population parameter if $T$ is usually close to $\theta$. The sample mean is an estimator for the population mean; the sample variance is an estimator for the population variation. 
 
-Obviously, there are lots of functions of $X_{1}, X_{2}, \dots , X_{n}$ and so lots of statistics. When we look for a good estimator, do we really need to consider all of them, or is there a much smaller set of statistics we could consider? Another way to ask the question is if there are a few key functions of the random sample which will by themselves contain all the information the
-sample does.
+Obviously, there are lots of functions of $X_{1}, X_{2}, \dots , X_{n}$ and so lots of statistics. When we look for a good estimator, do we really need to consider all of them, or is there a much smaller set of statistics we could consider? Another way to ask the question is if there are a few key functions of the random sample which will by themselves contain all the information the sample does.
 
 The concept of sufficiency arises as an attempt to answer the following question: Is there a statistic, i.e. a function $T\left(X_{1}, X_{2}, \dots , X_{n}\right)$, that contains all the information in the sample about $\theta$?
 
@@ -3889,9 +3888,11 @@ $$
 To motivate the mathematical definition, we consider the following "experiment". Let $T = g\left(X_{1}, X_{2}, \dots , X_{n}\right)$ be a sufficient statistic. There are two statisticians; we will call them A and B. Statistician A knows the entire random sample $X_{1}, X_{2}, \dots , X_{n}$, but statistician B only knows the value of $T$, call it $t$. Since the conditional distribution of $X_{1}, X_{2}, \dots , X_{n}$ given $\theta$ and $T$ does not depend on $\theta$, statistician B knows this conditional distribution. So he can
 use his computer to generate a random sample $X_{1}^{\prime}, X_{2}^{\prime}, \dots , X_{n}^{\prime}$ which has this conditional distribution. But then his random sample has the same distribution as a random sample drawn from the population (with its unknown value of $\theta$). So statistician B can use his random sample $X_{1}^{\prime}, X_{2}^{\prime}, \dots , X_{n}^{\prime}$ to compute whatever statistician A computes using his random sample $X_{1}, X_{2}, \dots , X_{n}$, and he will (on average) do as well as statistician A. Thus the mathematical definition of sufficient statistic implies the heuristic definition.
 
+Based on this information, we can give some examples. The median, because it considers only rank, is not sufficient. The sample mean considers each member of the sample as well as its size, so is a sufficient statistic. Or, given the sample mean, the distribution of no other statistic can contribute more information about the population mean.
+
 It is difficult to use the definition because you need to evaluate a conditional distribution to check if a statistic is sufficient or to find a sufficient statistic. Luckily, there is a theorem that makes it easy to find sufficient statistics.
 
-**Factorization Theorem**: Let $X_{1}, X_{2}, \dots , X_{n}$ form a random sample from either a continuous distribution or a discrete distribution for which the pdf or the pmf is $f(x \mid \theta)$, where the value of $\theta$ is unknown and belongs to a given parameter space $\Theta$. A statistic $T\left(X_{1}, X_{2}, \dots , X_{n}\right)$ is a sufficient statistic for $\theta$ if and only if the joint pdf or the joint pmf $f_{n}( X \mid \theta)$ of $X_{1}, X_{2}, \dots , X_{n}$ can be factorized as follows for all values of $X = \left(X_{1}, X_{2}, \dots , X_{n} \right) \in  R^{n}$ and all values of $\theta \in \Theta$:
+**Factorization Theorem**: Let $X_{1}, X_{2}, \dots , X_{n}$ form a random sample from either a continuous distribution or a discrete distribution for which the pdf or the pmf is $f(x \mid \theta)$, where the value of $\theta$ is unknown and belongs to a given parameter space $\Theta$. A statistic $T\left(X_{1}, X_{2}, \dots , X_{n}\right)$ is a sufficient statistic for $\theta$ if and only if the joint pdf or the joint pmf $f_{n}( X \mid \theta)$ of $X_{1}, X_{2}, \dots , X_{n}$ (the likelihood function of a random variable) can be factorized as follows for all values of $X = \left(X_{1}, X_{2}, \dots , X_{n} \right) \in  R^{n}$ and all values of $\theta \in \Theta$:
 
 $$
 f_{n}( X \mid \theta) = u(X) v[T(X), \theta]
