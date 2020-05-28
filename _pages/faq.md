@@ -4104,13 +4104,83 @@ Some tests do not return a p-value. A fixed level alpha test can be calculated w
 * If test statistic < critical value: Fail to reject the null hypothesis.
 * If test statistic >= critical value: Reject the null hypothesis.
 
-You can use either P values or confidence intervals to determine whether your results are statistically significant. If a hypothesis test produces both, these results will agree.
+You can use either p-values or confidence intervals to determine whether your results are statistically significant. If a hypothesis test produces both, these results will agree.
 
 The confidence level, which is the probability that the value of a parameter falls within a specified range of values, is equivalent to 1 – the alpha level. So, if your significance level is $0.05$, the corresponding confidence level is $95\%$.
 
-* If the P value is less than your significance (alpha) level, the hypothesis test is statistically significant.
+* If the p-value is less than your significance (alpha) level, the hypothesis test is statistically significant.
 * If the confidence interval does not contain the null hypothesis value, the results are statistically significant.
-* If the P value is less than alpha, the confidence interval will not contain the null hypothesis value.
+* If the p-value is less than alpha, the confidence interval will not contain the null hypothesis value.
+
+```python
+# Gaussian Critical Values
+# The example below calculates the percent point function 
+#for 95% on the standard Gaussian distribution.
+
+# Gaussian Percent Point Function
+from scipy.stats import norm
+# define probability
+p = 0.95
+# retrieve value <= probability
+value = norm.ppf(p)
+print(value)
+#1.6448536269514722
+
+# confirm with cdf
+p = norm.cdf(value)
+print(p)
+#0.95
+
+#Running the example first prints the value that marks 95% or less of the observations 
+#from the distribution of about 1.65. This value is then confirmed by retrieving the 
+#probability of the observation from the CDF, which returns 95%, as expected.
+
+# Student’s t Critical Values
+#The example below calculates the percentage point function 
+#for 95% on the standard Student’s t-distribution with 10 degrees of freedom.
+
+# Student t-distribution Percent Point Function
+from scipy.stats import t
+# define probability
+p = 0.95
+df = 10
+# retrieve value <= probability
+value = t.ppf(p, df)
+print(value)
+#1.8124611228107335
+
+# confirm with cdf
+p = t.cdf(value, df)
+print(p)
+#0.949999999999923
+
+#Running the example returns the value of about 1.812 or less that covers 95% 
+#of the observations from the chosen distribution. The probability of the value 
+#is then confirmed (with minor rounding error) via the CDF.
+
+#Chi-squared Critical Values
+#The example below calculates the percentage point function for 95% 
+#on the standard Chi-Squared distribution with 10 degrees of freedom.
+
+# Chi-Squared Percent Point Function
+from scipy.stats import chi2
+# define probability
+p = 0.95
+df = 10
+# retrieve value <= probability
+value = chi2.ppf(p, df)
+print(value)
+#18.307038053275146
+
+# confirm with cdf
+p = chi2.cdf(value, df)
+print(p)
+#0.95
+
+Running the example first calculates the value of 18.3 or less that covers 95% 
+#of the observations from the distribution. The probability of this observation 
+#is confirmed by using it as input to the CDF.
+```
 
 #### What is confidence interval?
 
@@ -4652,7 +4722,7 @@ H1 &:\text{ Not all variances are equal (i.e. $\sigma_i^2 \neq \sigma_j^2$ for s
 \end{split}
 $$
 
-If these tests result in a small P value, you have evidence that the variance (and thus standard deviations) of the groups differ significantly.
+If these tests result in a small p-value, you have evidence that the variance (and thus standard deviations) of the groups differ significantly.
 
 This gives you strong evidence that the groups are not selected from identical populations. You haven't yet tested whether the means are distinct, but you already know that the variances are different. This may be a good stopping point. You have strong evidence that the populations the data are sampled from are not identical. Often the best approach is to transform the data. Often transforming to logarithms or reciprocals does the trick, restoring equal variance. If you want one-way ANOVA, the standard methods for dealing with heterogeneity of variance are the Welch or Brown-Forsythe F-tests. Since nonparametric tests do not assume Gaussian distributions, you can also switch to using the nonparametric Kruskal-Wallis ANOVA  when comparing multiple groups or the Mann-Whitney test when comparing two groups. 
 
