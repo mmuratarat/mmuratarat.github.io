@@ -6757,7 +6757,7 @@ $$
 
 Since the value of the RBF kernel decreases with distance and ranges between zero (in the limit) and one (when $x = x^{\prime}$), it has a ready interpretation as a similarity measure.
 
-With [this online demo](https://cs.stanford.edu/people/karpathy/svmjs/demo/), we can show how sigma affects the decision boundary qualitatively.
+With [this online demo](https://cs.stanford.edu/people/karpathy/svmjs/demo/), we can show how $\sigma$ affects the decision boundary qualitatively.
 
 ![$\sigma = 5$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma5_RBF.png?raw=true)
 
@@ -6765,7 +6765,11 @@ With [this online demo](https://cs.stanford.edu/people/karpathy/svmjs/demo/), we
 
 ![$\sigma = 0.25$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma025_RBF.png?raw=true)
 
-for SVM decision boundary showed by $\sigma = 0.25$, we can see that, for a larger sigma, the decision tends to be flexible and smooth, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. For a smaller sigma, the decision boundary tends to be strict and sharp, in contrast to the former situation, it tends to overfit (cannot be generalizable).
+Here, we show how decision boundaries changes when $\sigma = 5 / 2 / 0.25$. 
+
+We can see that for a large sigma, the decision tends to be flexible and smooth, that is too simple to separate the two classes. In other words, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. 
+
+For a smaller sigma, the decision boundary tends to be strict and sharp (fairly complex decision boundar), in contrast to the former situation, it tends to overfit (cannot be generalizable).
 
 If the distance between $x$ and $x^{\prime}$ is much larger than sigma, the kernel function tends to be zero. Thus, if the sigma is very small, only the $x$ within the certain distance can affect the predicting point. In other words, smaller sigma tends to make a local classifier, larger sigma tends to make a much more general classifier. 
 
