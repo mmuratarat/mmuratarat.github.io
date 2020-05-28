@@ -558,7 +558,7 @@ Frequently, a node is not split further if the number of training instances reac
 
 Another possibility to get simpler trees is *postpruning*, which in practice works better than preprunning. Tree growing is greedy and at each step, we can a decision, namely to generate a decision node and continue to further on, never backtracking, and trying out an altervative. The only exception is postprunning where we try to find and prune unnecessary subtrees.
 
-Any runing should reduce the size of a learning tree without reducing predictive accuracy as measured by a cross-validation set.
+Any pruning should reduce the size of a learning tree without reducing predictive accuracy as measured by a cross-validation set.
 
 Comparing preprunning and postprunning, we can say that preprunning is faster but postprunning generally leads to more accurate trees.
 
