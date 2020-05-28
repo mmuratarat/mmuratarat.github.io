@@ -3882,7 +3882,7 @@ $$
 \begin{split}
 p(X \mid \theta, T = t) &= P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid \theta, T = t)\\
 &= P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid T = t) \\
-&= \frac{P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n})}{P(T = t}
+&= \frac{P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n})}{P(T = t)}
 \end{split}
 $$
 
