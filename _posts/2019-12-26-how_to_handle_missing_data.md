@@ -70,3 +70,5 @@ Based on the origin of the missing data, the following terminology is used to de
   
 9. **Assigning a unique category:**
   This approach is valid only for a categorical feature. We assign another class for the missing value. This strategy will add more information into dataset which will result in the change of variance. Since they are categorical, we need to use one-hot encoding to convert it to a numeric form for the algorithm to understand it.
+  
+Also note that you should first split your data and then apply the imputation technique in order to prevent data leakage.
