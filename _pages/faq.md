@@ -4314,14 +4314,8 @@ to find the chi-square statistic where $O_{i}$ is the observed value and $E_{i}$
 
 Compare this test statistic to the critical chi-square value from a chi-square table, given your degrees of freedom and desired alpha level. 
 
-Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. The following table shows the distribution and an associated degree of freedom:
-
-|  Type of distribution  | No of constraints | Degree of freedom |
-|:----------------------:|:-----------------:|:-----------------:|
-| Binominal distribution |         1         |        k - 1        |
-|  Poisson distribution  |         2         |        k - 2        |
-|   Normal distribution  |         3         |        k - 3        |
-
+Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. 
+For instance, when checkinga binomial distribution, $p=1$, and when checking a three-co-variate Weibull distribution, $p=4$, and when checking a normal distribution (where the parameters are mean and standard deviation), $p=3$, and when checking a Poisson distribution (where the parameter is the expected value), $p=2$. Thus, there will be $n-p$ degrees of freedom, where $n$ is the number of categories.
 
 If your chi-square statistic is larger than the table value, you may conclude your data is not following the given distribution.
 
@@ -4405,9 +4399,6 @@ for i in range(len(result.critical_values)):
 # Probably Gaussian at the 5.0% level
 # Probably Gaussian at the 2.5% level
 # Probably Gaussian at the 1.0% level
-
-
-
 ```
 
 #### What is Chi-square Test for Test of Independence?
