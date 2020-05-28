@@ -457,7 +457,7 @@ If there is a small number of classes, all possible splits into two child nodes 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/decision_tree_split_variables.png?raw=true)
 
-For k classes there are $2^{k-1} – 1$ splits, which is computationally prohibitive if $k$ is a large number.
+For $k$ classes there are $2^{k-1} – 1$ splits, which is computationally prohibitive if $k$ is a large number.
 
 Ordinal attributes can also produce binary or multi-way splits. Ordinal attribute values can be grouped as long as the grouping does not violate the order property of the attribute values.
 
