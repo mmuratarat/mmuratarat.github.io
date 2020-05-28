@@ -21,7 +21,7 @@ Lazy learners do less work in the training phase and more work in the testing ph
 
 ## How does the K-NN algorithm work?
 
-In K-NN, K is the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When $K = 1$, then the algorithm is known as the nearest neighbor algorithm. This is the simplest case
+In K-NN, K is the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number in order to prevent a tie. When $K = 1$, then the algorithm is known as the nearest neighbor algorithm. This is the simplest case
 
 In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances (K-nearest neighbors) to a given “unseen” observation. Similarity is defined according to a distance metric between two data points. A case is classified by a majority vote of its neighbors, with the case being assigned to the class most common amongst its K nearest neighbors measured by a distance function. 
 
