@@ -4265,7 +4265,7 @@ The purpose of hypothesis testing is to determine which of the two hypotheses is
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-10.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/DOC110619-11062019161955-11.png?raw=true)
 
-NOTE that the reason why we use z-test depends on the assumption of Normal approximation to the Binomial distribution, which requires therefore sufficiently large sample sizes ($n \geq 30$). Given that $n_1 p_1 \ge 10$, $n_1(1-p_1) \ge 10$, $n_2 p_2 \ge 10$, and $n_2(1-p_2) \ge 10$, where the subscript 1 represents the first group and the subscript 2 represents the second group. When this assumption is not met, Pearson chi-square test for large samples (comparing it with $chi_{1}^{2}$ distribution), the Yates chi-square for intermediate sample sizes, and the Fisher Exact test (using $2 \times 2$ contingency tables) for small samples. 
+NOTE that the reason why we use z-test depends on the assumption of Normal approximation to the Binomial distribution, which requires therefore sufficiently large sample sizes ($n \geq 30$). Given that $n_1 p_1 \ge 10$, $n_1(1-p_1) \ge 10$, $n_2 p_2 \ge 10$, and $n_2(1-p_2) \ge 10$, where the subscript 1 represents the first group and the subscript 2 represents the second group. When this assumption is not met, Pearson chi-square test for large samples (comparing it with $chi_{1}^{2}$ distribution), Yates's corrected version of Pearson's chi-squared statistics (or Yates's chi-squared test) for intermediate sample sizes, and the Fisher Exact test (using $2 \times 2$ contingency tables) for small samples. 
 
 In order to compare multiple proportions, the Marascuillo Procedure can be used. It is a procedure to simultaneously test the differences of all pairs of proportions when there are several populations under investigation:
 
@@ -4339,6 +4339,76 @@ Alternatives to Chi-Square Test for Normality include:
 * The Jarque-Bera test
 
 All of these tests have different strength and weaknesses, but the Shapiro Wilk test may have the best power for any given significance.
+
+```python
+# Assumptions: Observations in each sample are independent and identically distributed (iid).
+
+# Interpretation
+# H0: the sample has a Gaussian distribution.
+# H1: the sample does not have a Gaussian distribution
+    
+# Example of the Kolmogorov-Smirnov Normality Test
+from scipy.stats import kstest 
+data = [0.873, 2.817, 0.121, -0.945, -0.055, -1.436, 0.360, -1.478, -1.637, -1.869]
+
+stat, p = kstest(data, 'norm')
+print('stat=%.3f, p=%.3f' % (stat, p))
+if p > 0.05:
+    print('Probably Gaussian')
+else:
+    print('Probably not Gaussian')
+    
+# stat=0.328, p=0.186
+# Probably Gaussian
+
+# Example of the Shapiro-Wilk Normality Test
+from scipy.stats import shapiro
+data = [0.873, 2.817, 0.121, -0.945, -0.055, -1.436, 0.360, -1.478, -1.637, -1.869]
+
+stat, p = shapiro(data)
+print('stat=%.3f, p=%.3f' % (stat, p))
+if p > 0.05:
+    print('Probably Gaussian')
+else:
+    print('Probably not Gaussian')
+#stat=0.895, p=0.193
+#Probably Gaussian
+
+# Example of the D'Agostino's K^2 Normality Test
+from scipy.stats import normaltest
+data = [0.873, 2.817, 0.121, -0.945, -0.055, -1.436, 0.360, -1.478, -1.637, -1.869]
+stat, p = normaltest(data)
+print('stat=%.3f, p=%.3f' % (stat, p))
+if p > 0.05:
+    print('Probably Gaussian')
+else:
+    print('Probably not Gaussian')
+    
+# stat=3.392, p=0.183
+# Probably Gaussian
+
+# Example of the Anderson-Darling Normality Test
+from scipy.stats import anderson
+data = [0.873, 2.817, 0.121, -0.945, -0.055, -1.436, 0.360, -1.478, -1.637, -1.869]
+result = anderson(data)
+print('stat=%.3f' % (result.statistic))
+for i in range(len(result.critical_values)):
+    sl, cv = result.significance_level[i], result.critical_values[i]
+    if result.statistic < cv:
+        print('Probably Gaussian at the %.1f%% level' % (sl))
+    else:
+        print('Probably not Gaussian at the %.1f%% level' % (sl))
+        
+# stat=0.424
+# Probably Gaussian at the 15.0% level
+# Probably Gaussian at the 10.0% level
+# Probably Gaussian at the 5.0% level
+# Probably Gaussian at the 2.5% level
+# Probably Gaussian at the 1.0% level
+
+
+
+```
 
 #### What is Chi-square Test for Test of Independence?
 
