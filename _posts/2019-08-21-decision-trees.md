@@ -517,7 +517,7 @@ tree_reg.fit(X, y)
 
 This tree looks very similar to the classification tree you built earlier. The main difference is that instead of predicting a class in each node, it predicts a value. For example, suppose you want to make a prediction for a new instance with $x1 = 0.6$. You traverse the tree starting at the root, and you eventually reach the leaf node that predicts $value=0.111$. This prediction is simply the average target value of the 110 training instances associated to this leaf node. This prediction results in a Mean Squared Error (MSE) equal to $0.0151$ over these 110 instances.
 
-The CART algorithm works mostly the same way as earlier, except that instead of try‐ ing to split the training set in a way that minimizes impurity, it now tries to split the training set in a way that minimizes the MSE. Equation shows the cost function that the algorithm tries to minimize.
+The CART algorithm works mostly the same way as earlier, except that instead of trying to split the training set in a way that minimizes impurity, it now tries to split the training set in a way that minimizes the MSE. Equation shows the cost function that the algorithm tries to minimize.
 
 \begin{equation}
 J(k, t_{k}) = \frac{n_{left}}{n} MSE_{left} + \frac{n_{right}}{n} MSE_{right}
