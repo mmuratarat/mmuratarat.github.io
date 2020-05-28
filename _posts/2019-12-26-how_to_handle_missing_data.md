@@ -36,7 +36,6 @@ Based on the origin of the missing data, the following terminology is used to de
 
 1. **Ignore the data row or a whole column:**
   If you dataset is big enough, you can sacrifice some training examples. This is a quick solution and typically is preferred in cases where the percentage of missing values is relatively low (< 5%). It is a dirty approach as you loose the data.
-  
   However dropping one whole observation (row) just because one of the features had a missing value, even if the rest of features are perfectly filled and informative can be a no-no in some cases. Therefore, you can also select to drop the rows only if all the values in the row are missing.
   Sometimes you may want to keep only the rows with at least 4 non-na values (4 is an arbitrary number here).
   Sometimes you may just want to drop a column (variable) that has some missing values. But this approach is valid only if data is missing far more than 60% observations and that variable is insignificant. 
