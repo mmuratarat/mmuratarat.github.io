@@ -6757,23 +6757,80 @@ $$
 
 Since the value of the RBF kernel decreases with distance and ranges between zero (in the limit) and one (when $x = x^{\prime}$), it has a ready interpretation as a similarity measure.
 
-With [this online demo](https://cs.stanford.edu/people/karpathy/svmjs/demo/), we can show how $\sigma$ affects the decision boundary qualitatively.
+We can see the effect of $\sigma$ with a small example. Here, though, we will be using reciprocal of $\sigma$, which is $\gamma$ because Scikit-learn SVM function uses scale parameter. Let's simulate some example and see the original data:
 
-![$\sigma = 5$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma5_RBF.png?raw=true)
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from sklearn.datasets import make_circles
+from sklearn.svm import SVC
+from mlxtend.plotting import plot_decision_regions
 
-![$\sigma = 1$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma1_RBF.png?raw=true)
+X_train, y_train = make_circles(n_samples=300,
+    shuffle=True,
+    noise=0.3,
+    random_state=42,
+    factor=0.2)
 
-![$\sigma = 0.25$](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sigma025_RBF.png?raw=true)
+plt.figure(figsize = (20, 10))
+plt.scatter(X_train[y_train==0, 0], X_train[y_train==0, 1], marker='s', color='red', edgecolor='k', alpha=0.6, s=25)
+plt.scatter(X_train[y_train==1, 0], X_train[y_train==1, 1], marker='^', color='blue', edgecolor='k', alpha=0.6, s=25)
+plt.xlabel('X1', fontsize=14.5)
+plt.ylabel('X2', fontsize=14.5)
+plt.tight_layout()
+plt.savefig('original_dataset')
+plt.show()
+```
 
-Here, we show how decision boundaries changes when $\sigma = 5 / 2 / 0.25$. 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/original_dataset.png?raw=true)
 
-We can see that for a large sigma, the decision tends to be flexible and smooth, that is too simple to separate the two classes. In other words, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. 
+```python
+param_C = 1.0
+gammas = [0.001, 0.1, 10]
 
-For a smaller sigma, the decision boundary tends to be strict and sharp (fairly complex decision boundar), in contrast to the former situation, it tends to overfit (cannot be generalizable).
+for i in gammas:
+    classifier = SVC(C=param_C,
+    kernel='rbf',
+    gamma=i,
+    coef0=0.0,
+    shrinking=True,
+    probability=False,
+    tol=0.001,
+    cache_size=200,
+    class_weight=None,
+    verbose=False,
+    max_iter=-1,
+    decision_function_shape=None,
+    break_ties=False,
+    random_state=None)
+
+    classifier.fit(X_train, y_train)
+    
+    plt.figure(figsize = (20, 10))
+    plot_decision_regions(X= X_train, 
+                          y = y_train,
+                          clf=classifier,
+                          res=0.02,
+                          legend=None)
+    plt.title('$\gamma = $' + str(i))
+    plt.xlabel('X1')
+    plt.ylabel('X2')
+    plt.savefig('gamma_' + str(i) + '.png')
+    plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gamma_0.001.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gamma_0.1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/gamma_10.png?raw=true)
+
+We can see that for a small $\gamma$ (large $\sigma$), the decision tends to be flexible and smooth, that is too simple to separate the two classes. In other words, it tends to make wrong classification while predicting, but avoids the hazard of overfitting. 
+
+For a larger $\gamma$ (smaller $\sigma$), the decision boundary tends to be strict and sharp (fairly complex decision boundary), in contrast to the former situation, it tends to overfit (memorizing the training set, cannot be generalizable).
 
 If the distance between $x$ and $x^{\prime}$ is much larger than sigma, the kernel function tends to be zero. Thus, if the sigma is very small, only the $x$ within the certain distance can affect the predicting point. In other words, smaller sigma tends to make a local classifier, larger sigma tends to make a much more general classifier. 
 
-As for the variance and bias explanation, smaller sigma tends to be less bias and more variance while larger sigma tends to be less variance and more bias.
+As for the variance and bias explanation, smaller sigma (larger gamma) tends to be less bias and more variance while larger sigma (smaller gamma) tends to be less variance and more bias.
 
 #### What is the output of Logistic Regression?
 
