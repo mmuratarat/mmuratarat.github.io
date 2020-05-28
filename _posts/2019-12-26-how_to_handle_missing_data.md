@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-In some cases, the data comes in the form of a dataset with features already fdefined. In some cases, values of some features can be missing. That often happens when the dataset was handcrafted and the person working on it forgot to fill some values or did not get them measured at all.
+In some cases, the data comes in the form of a dataset with features already defined. In some cases, values of some features can be missing. That often happens when the dataset was handcrafted and the person working on it forgot to fill some values or did not get them measured at all.
 
 The typical approaches of dealing with missing values depend on the kind of the problem. Thus, we can safely say that there is no good way to deal with missing data. Trying several techniques, building several models and selecting the one that works might be the best.
 
