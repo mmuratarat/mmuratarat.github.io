@@ -2453,7 +2453,7 @@ Let $\theta$ be a population parameter. Let $\hat{\theta}$ a sample estimate of 
 
 * **Sufficiency**: An estimator is said to be sufficient if it uses all the information about the population parameter that the sample can provide. The sample median is not sufficient, because it only uses information about the ranking of observations. The sample mean is sufficient. 
 
-* **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$. For example, as $N$ goess to infinity, $V(\bar{X}) = \frac{\sigma^{2}}{N} = 0$. 
+* **Consistency**: An estimator is said to be consistent if it yields estimates that converge in probability to the population parameter being estimated as $N$ becomes larger. That is, as $N$ tends to infinity, $E(\hat{\theta}) = \theta$ , $V(\hat{\theta}) = 0$. For example, as $N$ goes to infinity, $V(\bar{X}) = \frac{\sigma^{2}}{N} = 0$. 
 
 #### Explain Method Of Moments (MoM), Maximum A Posteriori (MAP), and Maximum Likelihood Estimation (MLE).
 
@@ -3880,7 +3880,7 @@ The mathematical definition is as follows. A statistic $T = g\left(X_{1}, X_{2},
 
 $$
 \begin{split}
-p(X \mid \theta, T = t) = P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid \theta, T = t)\\
+p(X \mid \theta, T = t) &= P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid \theta, T = t)\\
 &= P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n} \mid T = t) \\
 &= \frac{P(X_{1} = x_{1}, X_{2} = x_{2}, \dots, X_{n} = x_{n})}{P(T = t}
 \end{split}
