@@ -2719,6 +2719,8 @@ $$
 Binomial(x; n,p) = ^nC_{x} p^{x} (1-p)^{n-x} =  {n \choose x} p^{x} (1-p)^{n-x} = \frac{n!}{x!(n-x)!} p^{x} (1-p)^{n-x}
 $$
 
+where $n$ is the number of trials ($n \in \{0,1,2,\ldots \}$, $x$ is the number of successes ($k \in \{0,1,\ldots ,n\}$) and $p$ is the success probability for each trial ($p\in [0,1]$).
+
 __Binomial coefficient__, $^nC_{x}$, stated as "n choose k", is also known as "the number of possible ways to choose $k$ successes from $n$ observations.
 
 The formula for the Binomial cumulative probability function is:
