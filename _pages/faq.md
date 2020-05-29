@@ -3865,8 +3865,8 @@ Formally, any real-valued function $T = g\left(X_{1}, X_{2}, \dots , X_{n}\right
 
 $$
 \begin{split}
-\bar{x} &= \frac{1}{n} \sum_{i=1}^{n} X_{i},\,\,\,\,\, (the sample mean)\\
-s^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_{i} - \bar{x}\right)^{2} ,\,\,\,\,\, (the sample variance)\\
+\bar{x} &= \frac{1}{n} \sum_{i=1}^{n} X_{i},\,\,\,\,\, (\text{the sample mean})\\
+s^{2} &= \frac{1}{n-1} \sum_{i=1}^{n} \left( X_{i} - \bar{x}\right)^{2} ,\,\,\,\,\, (\text{the sample variance})\\
 T_{1} &= max \{X_{1}, X_{2}, \dots , X_{n}\}\\
 T_{2} &= 5
 \end{split}
