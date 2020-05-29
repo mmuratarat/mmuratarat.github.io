@@ -2125,7 +2125,7 @@ In mathematics, a moment is a specific quantitative measure of the shape of a fu
 
 * Expected Value: $E(X) = \mu$
 * Variance: $Var\left[(X - \mu)^{2} \right] = \sigma^{2}$
-* Skewness: $E\left[(X - \mu)^{2} \right]/\sigma^{3}$
+* Skewness: $E\left[(X - \mu)^{3} \right]/\sigma^{3}$
 * Kurtosis: $E\left[(X - \mu)^{4} \right]/\sigma^{4}$
 
 #### What is moment generating function?
