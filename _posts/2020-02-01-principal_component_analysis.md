@@ -453,17 +453,22 @@ $$
 {% highlight python %} 
 # eigenvectors and eigenvalues for the from the covariance matrix
 # (X.T * X)/(n−1) is equal to the empirical covariance if the columns of X are mean-centered.
+#(1)
 eig_val_cov, eig_vec_cov = np.linalg.eig(cov_mat*4)
 #the column ``eig_vec_cov[:,i]`` is the eigenvector corresponding to the eigenvalue ``eig_val_cov[i]``.
     
 ######################################################################
 #You can also get eigenvalues by SVD composition of X_centered
+#(2)
 U, s, Vt = np.linalg.svd(X_centered, full_matrices=True)
 print(s)
 #[67.4562804  56.08522028 14.96991321]
 
 print(np.square(s))
 #array([4550.34976521, 3145.55193338,  224.09830141])
+
+#(1) AND (2) ARE THE SAME!
+# This comes from the fact that calculating the SVD of X consists of finding the eigenvalues and eigenvectors of XTX and XXT.
 ######################################################################  
     
 # eig_val_cov
