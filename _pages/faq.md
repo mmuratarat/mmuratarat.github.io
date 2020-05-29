@@ -3256,7 +3256,7 @@ A Poisson process is a model for a series of discrete event where the average ti
 
 Poisson distribution represents the distribution of Poisson processes and it is discrete distribution that measures the probability of a given number of events that occur randomly in a specified interval time (space). Poisson distribution is in fact a limited case of binomial distribution. 
 
-Let the discrete random variable $X$ denote the number of times an event occurs in an interval of time (or space). An event can occur $0, 1, 2, \dots$ times in an interval. The average number of events in an interval is designated as $\mu$. $\mu$ is the event rate$, also called the *rate paraneter*.
+Let the discrete random variable $X$ denote the number of times an event occurs in an interval of time (or space). An event can occur $0, 1, 2, \dots$ times in an interval. The average number of events in an interval is designated as $\mu$. $\mu$ is the event rate, also called the *rate paraneter*.
 
 The Poisson distribution has a single parameter, $\mu$. The PDF of a Poisson distribution is defined as:
 
