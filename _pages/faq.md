@@ -3737,7 +3737,7 @@ When we calculate the sample standard deviation from a sample of $n$ values, we 
 
 Another way to look at degrees of freedom is that they are the number of values that are free to vary in a data set. What does “free to vary” mean? Here’s an example using the mean (average): Suppose someone else draws a random sample of, say, $10$ values from a population. They tell you what $9$ of the $10$ sample values are, and they also tell you the sample mean of the $10$ values. From this information, even though they haven't told you the tenth value, you can now calculate it for yourself. Given the nine sample values and the sample mean, the tenth sample value cannot vary:  it is totally predetermined. The tenth value is not free to vary. Essentially, only nine of the ten values are useful for determining the variability of the sample.  In other words, we would need to use $n-1$ as the degrees of freedom for the variability in the sample.
 
-Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. in statistics using an unbiased estimator is preferred. 
+Statistically, it also comes from the fact that $s^{2}$ is the unbiased estimator of $\sigma^{2}$. In statistics, using an unbiased estimator is preferred. 
 
 #### What is the trading-off between bias and variance to minimize mean squared error of an estimator?
 
