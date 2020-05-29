@@ -143,6 +143,8 @@ permalink: /faq/
 52. [What is confidence interval?](#what-is-confidence-interval)
 53. [What do Type I and Type II errors mean?](#what-do-type-i-and-type-ii-errors-mean)
 53. [What is the power of a statistical test?](#what-is-the-power-of-a-statistical-test)
+71. [How to determine sample size?](#how-to-determine-sample-size)
+72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
 54. [What is the difference between ordinal, interval and ratio variables?](#what-is-the-difference-between-ordinal-interval-and-ratio-variables)
 55. [What is the general approach to hypothesis testing?](#what-is-the-general-approach-to-hypothesis-testing)
 56. [What are the types of hypothesis tests?](#what-are-the-types-of-hypothesis-tests)
@@ -166,8 +168,6 @@ permalink: /faq/
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
 70. [What is Homogeneity of Variances? When and how should we check it?](#what-is-homogeneity-of-variances-when-and-how-should-we-check-it)
-71. [How to determine sample size?](#how-to-determine-sample-size)
-72. [What are the sampling strategies?](#what-are-the-sampling-strategies)
 73. [When is a biased estimator preferable to unbiased one?](#when-is-a-biased-estimator-preferable-to-unbiased-one)
 74. [What is the difference between t-test and linear regression?](#what-is-the-difference-between-t-test-and-linear-regression)
 74. [What are qq-plots and pp-plots?](#what-are-qq-plots-and-pp-plots)
@@ -4289,6 +4289,137 @@ from scipy.stats import norm
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex4.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/StatsPower_ex5.png?raw=true)
 
+#### How to determine sample size?
+
+When you are designing an experiment, it is a good idea to estimate the sample size you'll need. This is especially true if you're proposing to do something painful to humans or other vertebrates, where it is particularly important to minimize the number of individuals (without making the sample size so small that the whole experiment is a waste of time and suffering), or if you're planning a very time-consuming or expensive experiment. Methods have been developed for many statistical tests to estimate the sample size needed to detect a particular effect, or to estimate the size of the effect that can be detected with a particular sample size.
+
+Given magnitude of desired margin of error, confidence level and variability, it is computed for mean:
+
+$$
+\frac{\sigma^{2}z^{2}}{ME^{2}}
+$$
+
+and for proportion:
+
+$$
+\frac{p(1-p)z^{2}}{ME^{2}}
+$$
+
+Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome (standard deviation), and the effect size. 
+
+The effect size is the difference in the parameter of interest that represents a meaningful difference. This is the size of the difference between your null hypothesis and the alternative hypothesis that you hope to detect. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria. Generally, effect size is calculated by taking the difference between the two groups (e.g., the mean of treatment group minus the mean of the control group) and dividing it by the standard deviation of one of the groups. 
+
+To interpret the resulting number, most social scientists use this general guide developed by Cohen:
+
+* `< 0.1` = trivial effect
+* `0.1 - 0.3` = small effect
+* `0.3 - 0.5` = moderate effect
+* `> 0.5` = large difference effect
+
+Your estimate of the standard deviation can come from pilot experiments or from similar experiments in the published literature. 
+
+The standard deviation and effect size can be either determined from previous studies from published literature or from pilot studies. Your standard deviation once you do the experiment is unlikely to be exactly the same, so your experiment will actually be somewhat more or less powerful than you had predicted. Larger the effect size, less sample size we need because the overlap between true distribution and hypothesized distribution will be less. As standard deviation gets bigger, it gets harder to detect a significant difference, so you'll need a bigger sample size. 
+
+The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes (because larger sample size will narrow the distribution, increasing the power of the test, so overlapping between true distribution and hypothesized distribution will be less and so will alpha value). Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
+
+Before starting to calculate the sample size, you also need to know what type of test you plan to use (e.g., independent t-test, paired t-test, ANOVA, regression, etc.)
+
+An example:
+
+The standard deviation of systolic blood pressure in US is about 25 mmHg. How large a sample is necessary to estimate the average systolic blood pressure with a margin of error of 4 mmHg at 95% confidence level. 
+
+We know that margin of error at 95% is $ME_{95\%} = 1.96 \times S.E. = 1.96 \times \frac{sigma}{\sqrt{n}}$. We are given that $\sigma = 5$ and $ME_{95\%} = 4$. Therefore,
+
+$$
+4 = 1.96 \times \frac{25}{\sqrt{n}} \Rightarrow n =150.06
+$$
+
+We should choose a sample size of at least 151 people. 
+
+#### What are the sampling strategies?
+
+A sample is a subset of your population by which you select to be participants in your study. 
+
+Sampling is simply stated as selecting a portion of the population, in your research area, which will be a representation of the whole population. The idea is that when we have huge population, we do not need to investigate every individual in the population. However, we need to use proper techniques while picking a sample, in order to find the best representation of the whole population. Sampling is done to draw conclusions about populations from samples, and it enables us to determine a population’s characteristics by directly observing only a portion (or sample) of the population. Therefore, it is a cost-efficient method
+
+The sampling strategy is the plan you set forth to be sure that the sample you use in your research study represents the population from which you drew your sample. Reducing sampling error is the major goal of any selection techniques. The major groups of sample designs are probability sampling and non-probability sampling. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sampling_strategies.png?raw=true)
+
+Some sampling strategies can also be multi-stage. Multi-stage sampling divides large population into stages to make the sampling process more practical. Multi-stage sampling is also a probability sampling, each stage must involve a probability sampling method. For example, Australian Bureau of Statistics divides cities into "collection districts", then blocks, then households. Each stage uses random sampling, creating a need to list specific households only after the final stage of sampling. 
+
+**Probability sampling**
+
+In probability sampling, all examples have a chance to be selected to be included in a sample. These techniques involve randomness. There are four main methods include: 1) simple random, 2) stratified random, 3) cluster, and 4) systematic. 
+
+1. **Random Sampling**: 
+
+  It is the simplest strategy. Samples are drawn with a uniform probability from the domain (each example has an equal chance, or probability, of being selected - $1/n$ with $n$ being the number of examples in the population). Simplicity is the great advantage of this sampling method, and it can be easily implemented as any programming language can serve as a random number generator. A disadvantage of simple random sampling is that you may not select enough examples that would have a certain property of interest. Consider the situation where you extract a sample from a large imbalanced dataset, and in doing so, you accidentally fail to capture a sufficient number of examples from the minority class - or you may not select any from minority class, at all!
+
+  Also note that random sampling can be done with or without replacement. When we sample with replacement, the two sample values are independent. Practically, this means that what we get on the first one doesn’t affect what we get on the second. Mathematically, this means that the covariance between the two is zero. In sampling without replacement, the two sample values aren’t independent. Practically, this means that what we got on the first one affects what we can get for the second one. Mathematically, this means that the covariance between the two isn’t zero. That complicates the computations.
+
+2. **Systematic Sampling**: 
+
+  In this scheme, samples are drawn using a pre-specified pattern, such as at intervals. The first individual is selected randomly and others are selected using a fixed 'sampling interval'. This is similar to lining everyone up and numbering off "1,2,3,4; 1,2,3,4; etc". When done numbering, all people numbered 4 would be used. First, we create a list containing all example. From that list, we randomly select the first example from the first $k$ elements on the list. Then, we select every $k$th (i.e., 5th) element on the list. We choose such a value of $k$ that will give you a sample of the desired size. For example, if the population size is N=1,000 and a sample size of $n = 100$ is desired, then the sampling interval is $1000/100 = 10$, so every tenth person is selected into the sample. The selection process begins by selecting the first person at random from the first ten subjects in the sampling frame using a random number table; then $10$th subject is selected.
+
+  One advantage of the systematic sampling over the simple random sampling is that random sampling can be inefficient and time-consuming. It also draws examples from the whole range of values, while the simple random sampling may result in examples with some specific properties under-represented in the sample. However, systematic sampling is inappropriate if the list of examples has periodicity or some kind of repetitive pattern. In that latter case, the obtained sample can exhibit a bias. However, if the list of examples is randomized, then systematic sampling often results in a better sample compared to simple random sampling.
+
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/systematic_sampling.jpg?raw=true)
+
+3. **Stratified Sampling**: 
+
+  An important objective in any estimation problem is to obtain an estimator of a population parameter which can take care of the salient features of the population. If the population is homogeneous with respect to the characteristic under study, then the method of simple random sampling will yield a homogeneous sample, and in turn, the sample mean will serve as a good estimator of the population mean. Thus, if the population is homogeneous with respect to the characteristic under study, then the sample drawn through simple random sampling is expected to provide a representative sample. Moreover, the variance of the sample mean not only depends on the sample size and sampling fraction but also on the population variance. In order to increase the precision of an estimator, we need to use a sampling scheme which can reduce the heterogeneity in the population. If the population is heterogeneous or dissimilar with respect to the characteristic under study, stratified sampling techniques are generally used where certain homogeneous, or similar, sub-populations can be isolated (strata).
+
+  Stratified random sampling is a better method than simple random sampling. Stratified random sampling divides a population into non-overlapping groups, i.e., subgroups or strata (depending characteristics of your population, such as gender, age range, race, country of nationality, and career background), and random samples are taken (using a random sampling method like simple random sampling or systematic sampling), in proportion to the population, from each of the strata created. The members in each of the stratum formed have similar attributes and characteristics. This method of sampling is widely used and very useful when the target population is heterogeneous. A simple random sample should be taken from each stratum. ("Stratum" is singular and "strata" is plural)
+
+  If our objective is to use an allocation that gives us a specified amount of information at minimum cost, then the best allocation scheme is affected by the following three factors: (1) the total number of elements in each stratum, (2) the variability of the measurements within each stratum, and (3) the cost associated with obtaining an observation from each stratum. For example, if a population contains 70% men and 30% women, and we want to ensure the same representation in the sample, we can stratify and sample the numbers of men and women to ensure the same representation. For example, if the desired sample size is $n = 200$, then $n = 140$ men and $n = 60$ women could be sampled either by simple random sampling or by systematic sampling.
+
+  Stratified sampling is the slowest of the sampling methods due to the additional overhead of working with several independent strata.  Sometimes, we can not confidently classify every member of the population into a subgroup because the strata must be mutually exclusive and collectively exclusive. Besides, a stratified random sample can only be carried out if a complete list of the population is available. However, its potential benefit of producing a less biased sample typically outweighs its drawbacks.
+
+4. **Cluster Sampling**: 
+
+  Cluster sampling is typically used in market research. In this sampling method, the whole dataset is first partitioned into distinct clusters. Then a number of clusters are randomly selected and all examples from the selected clusters are then added to the sample. This is different from the stratified sampling where examples are selected from each stratum; in cluster sampling, if a cluster was not selected, none of the examples from this cluster will get to the sample. One drawback of this method, which is similar to that of the stratified sampling, is that the analyst has to have a good understanding of the properties of the dataset.
+
+  At first glance, cluster sampling and stratified sampling seem very similar. For a stratified random sample, a population is divided into stratum, or sub-populations. However, in cluster sampling the actual cluster is the sampling unit; in stratified sampling, analysis is done on elements within each strata. In cluster sampling, a researcher will only study selected clusters; with stratified sampling, a random sample is drawn from each strata. Therefore, cluster sampling is often more economical or more practical than stratified sampling or simple random sampling. However, from all the different type of probability sampling, this technique is the least representative of the population because researcher needs to maintain homogenity between clusters (unlike stratified sampling where we need to maintain homogenity within strata). The tendency of individuals within a cluster is to have similar characteristics and with a cluster sample, there is a chance that the researcher can have an overrepresented or underrepresented cluster which can skew the results of the study. This is also a probability sampling technique with a possibility of high sampling error. This is brought by the limited clusters included in the sample leaving off a significant proportion of the population unsampled.
+
+  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cluster-sampling.png?raw=true)
+
+  There are two types of cluster sampling. In single-stage cluster sampling, a simple random sample of clusters is selected, and data are collected from every unit in the sampled clusters. For instance, let examples in your dataset come from a variety of time periods. You can put in one cluster examples from the same time period. In this case, by applying cluster sampling you include all examples from selected time periods into the sample. In two-stage cluster sampling, a simple random sample of clusters is selected and then a simple random sample is selected from the units in each sampled cluster. For example, an airline company can decide to first randomly choose planes, and then add all passengers from the selected planes to the sample.
+
+**Non-probability sampling**
+
+Non-probability sampling is not random. To build a sample, it follows a fixed deterministic sequence of heuristic actions. This means that some examples don’t have a chance of being selected, no matter how many samples you build. Nonprobability methods are easier for a human to execute manually, though. However, this advantage is not significant for a data analyst working on a computer and using a software or programming code that greatly simplifies sampling of examples even from a very large data asset. The main drawback of nonprobability sampling techniques is that they provide non-representative samples and might systematically exclude important examples from consideration. This drawback outweighs the possible advantages of nonprobability sampling methods.
+
+1. **Convenience Sampling**: 
+
+  This sampling strategy is a type of non-probability sampling, which doesn’t include random selection of participants. Convenience sampling (also called accidental sampling or grab sampling) is where you include people who are easy to reach, rather than selecting subjects at random from the entire population. Although convenience sampling is, like the name suggests -convenient— it runs a high risk that your sample will not represent the population (possibility of under- or over-representation of the population). However, sometimes a convenience sample is the only way you can drum up participants. 
+
+  Convenience sampling does have its uses, especially when you need to conduct a study quickly or you are on a shoestring budget. It is also one of the only methods you can use when you can’t get a list of all the members of a population. For example, let’s say you were conducting a survey for a company who wanted to know what Walmart employees think of their wages. It’s unlikely you’ll be able to get a list of employees, so you may have to resort to standing outside of Walmart and grabbing whichever employees come out of the door (hence the name "grab sampling").
+
+  Results from this sampling method are easy to analyze but hard to replicate. The results are prone to bias due to the reasons why some people choose to take part and some do not. Perhaps the biggest problem with convenience sampling is dependence. Dependent means that the sample items are all connected to each other in some way. This dependency interferes with statistical analysis. Most hypothesis tests (e.g. the t-test or chi-square test) and statistics (e.g. the standard error of measurement), have an underlying assumption of random selection, which you do not have. Perhaps most problematic is the fact that p-values produced for convenience samples can be very misleading.
+
+2. **Quota Sampling**: 
+
+  In quota sampling, we determine a specific number of individuals to select into our sample in each of several specific groups. This is similar to stratified sampling in that we develop non-overlapping groups and sample a predetermined number of individuals within each. For example, suppose our desired sample size is n=300, and we wish to ensure that the distribution of subjects' ages in the sample is similar to that in the population. We know from census data that approximately 30% of the population are under age 20; 40% are between 20 and 49; and 30% are 50 years of age and older. We would then sample n=90 persons under age 20, n=120 between the ages of 20 and 49 and n=90 who are 50 years of age and older.
+
+  | Age Group 	| Distribution in Population 	| Quota to Achieve n=300 	|
+|:---------:	|:--------------------------:	|:----------------------:	|
+|    <20    	|             30%            	|          n=90          	|
+|   20-49   	|             40%            	|          n=120         	|
+|    50+    	|             30%            	|          n=90          	|
+
+  Sampling proceeds until these totals, or quotas, are reached. Quota sampling is different from stratified sampling, because in a stratified sample individuals within each stratum are selected at random. Quota sampling achieves a representative age distribution, but it isn't a random sample, because the sampling frame is unknown. Therefore, the sample may not be representative of the population.
+
+3. **Snowball Sampling**: 
+
+  This sampling method is also called chain sampling, chain-referral sampling, referral sampling.  This sampling technique is often used in hidden populations, for studies about casual illegal downloading, cheating on exams, shoplifting, drug use, prostitution, or any other "unacceptable" societal behavior, which researchers might have difficulties to access to samples.  It’s called snowball sampling because (in theory) once you have the ball rolling, it picks up more "snow" along the way and becomes larger and larger.
+
+  Snowball sampling consists of two steps: (1) Identify potential subjects in the population. Often, only one or two subjects can be found initially and (2) Ask those subjects to recruit other people (and then ask those people to recruit. Participants should be made aware that they do not have to provide any other names. These steps are repeated until the needed sample size is found. Ethically, the study participants should not be asked to identify other potential participants. Rather, they should be asked to encourage others to come forward. When individuals are named, it’s sometimes called “cold-calling”, as you are calling out of the blue. Cold-calling is usually reserved for snowball sampling where there’s no risk of potential embarrassment or other ethical dilemmas. Snowball sampling can be a tricky ethical path to navigate. Therefore, you’ll probably be in contact with an institutional review board or another department similarly involved in ethics.
+
+4. **Judgment Sampling**: 
+
+  Judgment sampling, also referred to as judgmental sampling or authoritative sampling, is a non-probability sampling technique where the researcher selects units to be sampled based on his own existing knowledge, or his professional judgment. It can also be referred to as purposive sampling. Results obtained from a judgment sample are subject to some degree of bias, due to the frame and population not being identical. The frame is a list of all the units, items, people, etc., that define the population to be studied.
+
 #### What is the difference between ordinal, interval and ratio variables?
 
 In the 1940s, Stanley Smith Stevens introduced four scales of measurement: nominal, ordinal, interval, and ratio. These are still widely used today as a way to describe the characteristics of a variable. Knowing the scale of measurement for a variable is an important aspect in choosing the right statistical analysis
@@ -4734,137 +4865,6 @@ If these tests result in a small p-value, you have evidence that the variance (a
 This gives you strong evidence that the groups are not selected from identical populations. You haven't yet tested whether the means are distinct, but you already know that the variances are different. This may be a good stopping point. You have strong evidence that the populations the data are sampled from are not identical. Often the best approach is to transform the data. Often transforming to logarithms or reciprocals does the trick, restoring equal variance. If you want one-way ANOVA, the standard methods for dealing with heterogeneity of variance are the Welch or Brown-Forsythe F-tests. Since nonparametric tests do not assume Gaussian distributions, you can also switch to using the nonparametric Kruskal-Wallis ANOVA  when comparing multiple groups or the Mann-Whitney test when comparing two groups. 
 
 Similar to the assumption of normality, when we test for violations of constant variance we should not rely on only one approach to assess our data. Rather, we should understand the variance visually and by using multiple testing procedures to come to our conclusion of whether or not homogeneity of variance holds for our data.
-
-#### How to determine sample size?
-
-When you are designing an experiment, it is a good idea to estimate the sample size you'll need. This is especially true if you're proposing to do something painful to humans or other vertebrates, where it is particularly important to minimize the number of individuals (without making the sample size so small that the whole experiment is a waste of time and suffering), or if you're planning a very time-consuming or expensive experiment. Methods have been developed for many statistical tests to estimate the sample size needed to detect a particular effect, or to estimate the size of the effect that can be detected with a particular sample size.
-
-Given magnitude of desired margin of error, confidence level and variability, it is computed for mean:
-
-$$
-\frac{\sigma^{2}z^{2}}{ME^{2}}
-$$
-
-and for proportion:
-
-$$
-\frac{p(1-p)z^{2}}{ME^{2}}
-$$
-
-Note that the point estimate becomes more precise as sample size increases. Sample size required to ensure that a test has high power. The sample size computations depend on the level of significance, $\alpha$, the desired power of the test (equivalent to $1 - \beta$), the variability of the outcome (standard deviation), and the effect size. 
-
-The effect size is the difference in the parameter of interest that represents a meaningful difference. This is the size of the difference between your null hypothesis and the alternative hypothesis that you hope to detect. Similar to the margin of error in confidence interval applications, the effect size is determined based on practical criteria and not statistical criteria. Generally, effect size is calculated by taking the difference between the two groups (e.g., the mean of treatment group minus the mean of the control group) and dividing it by the standard deviation of one of the groups. 
-
-To interpret the resulting number, most social scientists use this general guide developed by Cohen:
-
-* `< 0.1` = trivial effect
-* `0.1 - 0.3` = small effect
-* `0.3 - 0.5` = moderate effect
-* `> 0.5` = large difference effect
-
-Your estimate of the standard deviation can come from pilot experiments or from similar experiments in the published literature. 
-
-The standard deviation and effect size can be either determined from previous studies from published literature or from pilot studies. Your standard deviation once you do the experiment is unlikely to be exactly the same, so your experiment will actually be somewhat more or less powerful than you had predicted. Larger the effect size, less sample size we need because the overlap between true distribution and hypothesized distribution will be less. As standard deviation gets bigger, it gets harder to detect a significant difference, so you'll need a bigger sample size. 
-
-The significance level (type 1 error) and the power of the study are fixed before the study. The significance level is normally set at 0.05 or 0.01. For more accuracy, the significance level should be set at lower levels which increase the sample sizes (because larger sample size will narrow the distribution, increasing the power of the test, so overlapping between true distribution and hypothesized distribution will be less and so will alpha value). Anything more than these two levels can affect the study impact and should be done with caution unless it is essential for the study design. For appreciable inference, the power is normally set at 20% chance of missing difference or 80% chance of detecting a difference as statistically significant. This shall provide appreciable study impact.   
-
-Before starting to calculate the sample size, you also need to know what type of test you plan to use (e.g., independent t-test, paired t-test, ANOVA, regression, etc.)
-
-An example:
-
-The standard deviation of systolic blood pressure in US is about 25 mmHg. How large a sample is necessary to estimate the average systolic blood pressure with a margin of error of 4 mmHg at 95% confidence level. 
-
-We know that margin of error at 95% is $ME_{95\%} = 1.96 \times S.E. = 1.96 \times \frac{sigma}{\sqrt{n}}$. We are given that $\sigma = 5$ and $ME_{95\%} = 4$. Therefore,
-
-$$
-4 = 1.96 \times \frac{25}{\sqrt{n}} \Rightarrow n =150.06
-$$
-
-We should choose a sample size of at least 151 people. 
-
-#### What are the sampling strategies?
-
-A sample is a subset of your population by which you select to be participants in your study. 
-
-Sampling is simply stated as selecting a portion of the population, in your research area, which will be a representation of the whole population. The idea is that when we have huge population, we do not need to investigate every individual in the population. However, we need to use proper techniques while picking a sample, in order to find the best representation of the whole population. Sampling is done to draw conclusions about populations from samples, and it enables us to determine a population’s characteristics by directly observing only a portion (or sample) of the population. Therefore, it is a cost-efficient method
-
-The sampling strategy is the plan you set forth to be sure that the sample you use in your research study represents the population from which you drew your sample. Reducing sampling error is the major goal of any selection techniques. The major groups of sample designs are probability sampling and non-probability sampling. 
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/sampling_strategies.png?raw=true)
-
-Some sampling strategies can also be multi-stage. Multi-stage sampling divides large population into stages to make the sampling process more practical. Multi-stage sampling is also a probability sampling, each stage must involve a probability sampling method. For example, Australian Bureau of Statistics divides cities into "collection districts", then blocks, then households. Each stage uses random sampling, creating a need to list specific households only after the final stage of sampling. 
-
-**Probability sampling**
-
-In probability sampling, all examples have a chance to be selected to be included in a sample. These techniques involve randomness. There are four main methods include: 1) simple random, 2) stratified random, 3) cluster, and 4) systematic. 
-
-1. **Random Sampling**: 
-
-  It is the simplest strategy. Samples are drawn with a uniform probability from the domain (each example has an equal chance, or probability, of being selected - $1/n$ with $n$ being the number of examples in the population). Simplicity is the great advantage of this sampling method, and it can be easily implemented as any programming language can serve as a random number generator. A disadvantage of simple random sampling is that you may not select enough examples that would have a certain property of interest. Consider the situation where you extract a sample from a large imbalanced dataset, and in doing so, you accidentally fail to capture a sufficient number of examples from the minority class - or you may not select any from minority class, at all!
-
-  Also note that random sampling can be done with or without replacement. When we sample with replacement, the two sample values are independent. Practically, this means that what we get on the first one doesn’t affect what we get on the second. Mathematically, this means that the covariance between the two is zero. In sampling without replacement, the two sample values aren’t independent. Practically, this means that what we got on the first one affects what we can get for the second one. Mathematically, this means that the covariance between the two isn’t zero. That complicates the computations.
-
-2. **Systematic Sampling**: 
-
-  In this scheme, samples are drawn using a pre-specified pattern, such as at intervals. The first individual is selected randomly and others are selected using a fixed 'sampling interval'. This is similar to lining everyone up and numbering off "1,2,3,4; 1,2,3,4; etc". When done numbering, all people numbered 4 would be used. First, we create a list containing all example. From that list, we randomly select the first example from the first $k$ elements on the list. Then, we select every $k$th (i.e., 5th) element on the list. We choose such a value of $k$ that will give you a sample of the desired size. For example, if the population size is N=1,000 and a sample size of $n = 100$ is desired, then the sampling interval is $1000/100 = 10$, so every tenth person is selected into the sample. The selection process begins by selecting the first person at random from the first ten subjects in the sampling frame using a random number table; then $10$th subject is selected.
-
-  One advantage of the systematic sampling over the simple random sampling is that random sampling can be inefficient and time-consuming. It also draws examples from the whole range of values, while the simple random sampling may result in examples with some specific properties under-represented in the sample. However, systematic sampling is inappropriate if the list of examples has periodicity or some kind of repetitive pattern. In that latter case, the obtained sample can exhibit a bias. However, if the list of examples is randomized, then systematic sampling often results in a better sample compared to simple random sampling.
-
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/systematic_sampling.jpg?raw=true)
-
-3. **Stratified Sampling**: 
-
-  An important objective in any estimation problem is to obtain an estimator of a population parameter which can take care of the salient features of the population. If the population is homogeneous with respect to the characteristic under study, then the method of simple random sampling will yield a homogeneous sample, and in turn, the sample mean will serve as a good estimator of the population mean. Thus, if the population is homogeneous with respect to the characteristic under study, then the sample drawn through simple random sampling is expected to provide a representative sample. Moreover, the variance of the sample mean not only depends on the sample size and sampling fraction but also on the population variance. In order to increase the precision of an estimator, we need to use a sampling scheme which can reduce the heterogeneity in the population. If the population is heterogeneous or dissimilar with respect to the characteristic under study, stratified sampling techniques are generally used where certain homogeneous, or similar, sub-populations can be isolated (strata).
-
-  Stratified random sampling is a better method than simple random sampling. Stratified random sampling divides a population into non-overlapping groups, i.e., subgroups or strata (depending characteristics of your population, such as gender, age range, race, country of nationality, and career background), and random samples are taken (using a random sampling method like simple random sampling or systematic sampling), in proportion to the population, from each of the strata created. The members in each of the stratum formed have similar attributes and characteristics. This method of sampling is widely used and very useful when the target population is heterogeneous. A simple random sample should be taken from each stratum. ("Stratum" is singular and "strata" is plural)
-
-  If our objective is to use an allocation that gives us a specified amount of information at minimum cost, then the best allocation scheme is affected by the following three factors: (1) the total number of elements in each stratum, (2) the variability of the measurements within each stratum, and (3) the cost associated with obtaining an observation from each stratum. For example, if a population contains 70% men and 30% women, and we want to ensure the same representation in the sample, we can stratify and sample the numbers of men and women to ensure the same representation. For example, if the desired sample size is $n = 200$, then $n = 140$ men and $n = 60$ women could be sampled either by simple random sampling or by systematic sampling.
-
-  Stratified sampling is the slowest of the sampling methods due to the additional overhead of working with several independent strata.  Sometimes, we can not confidently classify every member of the population into a subgroup because the strata must be mutually exclusive and collectively exclusive. Besides, a stratified random sample can only be carried out if a complete list of the population is available. However, its potential benefit of producing a less biased sample typically outweighs its drawbacks.
-
-4. **Cluster Sampling**: 
-
-  Cluster sampling is typically used in market research. In this sampling method, the whole dataset is first partitioned into distinct clusters. Then a number of clusters are randomly selected and all examples from the selected clusters are then added to the sample. This is different from the stratified sampling where examples are selected from each stratum; in cluster sampling, if a cluster was not selected, none of the examples from this cluster will get to the sample. One drawback of this method, which is similar to that of the stratified sampling, is that the analyst has to have a good understanding of the properties of the dataset.
-
-  At first glance, cluster sampling and stratified sampling seem very similar. For a stratified random sample, a population is divided into stratum, or sub-populations. However, in cluster sampling the actual cluster is the sampling unit; in stratified sampling, analysis is done on elements within each strata. In cluster sampling, a researcher will only study selected clusters; with stratified sampling, a random sample is drawn from each strata. Therefore, cluster sampling is often more economical or more practical than stratified sampling or simple random sampling. However, from all the different type of probability sampling, this technique is the least representative of the population because researcher needs to maintain homogenity between clusters (unlike stratified sampling where we need to maintain homogenity within strata). The tendency of individuals within a cluster is to have similar characteristics and with a cluster sample, there is a chance that the researcher can have an overrepresented or underrepresented cluster which can skew the results of the study. This is also a probability sampling technique with a possibility of high sampling error. This is brought by the limited clusters included in the sample leaving off a significant proportion of the population unsampled.
-
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cluster-sampling.png?raw=true)
-
-  There are two types of cluster sampling. In single-stage cluster sampling, a simple random sample of clusters is selected, and data are collected from every unit in the sampled clusters. For instance, let examples in your dataset come from a variety of time periods. You can put in one cluster examples from the same time period. In this case, by applying cluster sampling you include all examples from selected time periods into the sample. In two-stage cluster sampling, a simple random sample of clusters is selected and then a simple random sample is selected from the units in each sampled cluster. For example, an airline company can decide to first randomly choose planes, and then add all passengers from the selected planes to the sample.
-
-**Non-probability sampling**
-
-Non-probability sampling is not random. To build a sample, it follows a fixed deterministic sequence of heuristic actions. This means that some examples don’t have a chance of being selected, no matter how many samples you build. Nonprobability methods are easier for a human to execute manually, though. However, this advantage is not significant for a data analyst working on a computer and using a software or programming code that greatly simplifies sampling of examples even from a very large data asset. The main drawback of nonprobability sampling techniques is that they provide non-representative samples and might systematically exclude important examples from consideration. This drawback outweighs the possible advantages of nonprobability sampling methods.
-
-1. **Convenience Sampling**: 
-
-  This sampling strategy is a type of non-probability sampling, which doesn’t include random selection of participants. Convenience sampling (also called accidental sampling or grab sampling) is where you include people who are easy to reach, rather than selecting subjects at random from the entire population. Although convenience sampling is, like the name suggests -convenient— it runs a high risk that your sample will not represent the population (possibility of under- or over-representation of the population). However, sometimes a convenience sample is the only way you can drum up participants. 
-
-  Convenience sampling does have its uses, especially when you need to conduct a study quickly or you are on a shoestring budget. It is also one of the only methods you can use when you can’t get a list of all the members of a population. For example, let’s say you were conducting a survey for a company who wanted to know what Walmart employees think of their wages. It’s unlikely you’ll be able to get a list of employees, so you may have to resort to standing outside of Walmart and grabbing whichever employees come out of the door (hence the name "grab sampling").
-
-  Results from this sampling method are easy to analyze but hard to replicate. The results are prone to bias due to the reasons why some people choose to take part and some do not. Perhaps the biggest problem with convenience sampling is dependence. Dependent means that the sample items are all connected to each other in some way. This dependency interferes with statistical analysis. Most hypothesis tests (e.g. the t-test or chi-square test) and statistics (e.g. the standard error of measurement), have an underlying assumption of random selection, which you do not have. Perhaps most problematic is the fact that p-values produced for convenience samples can be very misleading.
-
-2. **Quota Sampling**: 
-
-  In quota sampling, we determine a specific number of individuals to select into our sample in each of several specific groups. This is similar to stratified sampling in that we develop non-overlapping groups and sample a predetermined number of individuals within each. For example, suppose our desired sample size is n=300, and we wish to ensure that the distribution of subjects' ages in the sample is similar to that in the population. We know from census data that approximately 30% of the population are under age 20; 40% are between 20 and 49; and 30% are 50 years of age and older. We would then sample n=90 persons under age 20, n=120 between the ages of 20 and 49 and n=90 who are 50 years of age and older.
-
-  | Age Group 	| Distribution in Population 	| Quota to Achieve n=300 	|
-|:---------:	|:--------------------------:	|:----------------------:	|
-|    <20    	|             30%            	|          n=90          	|
-|   20-49   	|             40%            	|          n=120         	|
-|    50+    	|             30%            	|          n=90          	|
-
-  Sampling proceeds until these totals, or quotas, are reached. Quota sampling is different from stratified sampling, because in a stratified sample individuals within each stratum are selected at random. Quota sampling achieves a representative age distribution, but it isn't a random sample, because the sampling frame is unknown. Therefore, the sample may not be representative of the population.
-
-3. **Snowball Sampling**: 
-
-  This sampling method is also called chain sampling, chain-referral sampling, referral sampling.  This sampling technique is often used in hidden populations, for studies about casual illegal downloading, cheating on exams, shoplifting, drug use, prostitution, or any other "unacceptable" societal behavior, which researchers might have difficulties to access to samples.  It’s called snowball sampling because (in theory) once you have the ball rolling, it picks up more "snow" along the way and becomes larger and larger.
-
-  Snowball sampling consists of two steps: (1) Identify potential subjects in the population. Often, only one or two subjects can be found initially and (2) Ask those subjects to recruit other people (and then ask those people to recruit. Participants should be made aware that they do not have to provide any other names. These steps are repeated until the needed sample size is found. Ethically, the study participants should not be asked to identify other potential participants. Rather, they should be asked to encourage others to come forward. When individuals are named, it’s sometimes called “cold-calling”, as you are calling out of the blue. Cold-calling is usually reserved for snowball sampling where there’s no risk of potential embarrassment or other ethical dilemmas. Snowball sampling can be a tricky ethical path to navigate. Therefore, you’ll probably be in contact with an institutional review board or another department similarly involved in ethics.
-
-4. **Judgment Sampling**: 
-
-  Judgment sampling, also referred to as judgmental sampling or authoritative sampling, is a non-probability sampling technique where the researcher selects units to be sampled based on his own existing knowledge, or his professional judgment. It can also be referred to as purposive sampling. Results obtained from a judgment sample are subject to some degree of bias, due to the frame and population not being identical. The frame is a list of all the units, items, people, etc., that define the population to be studied.
   
 #### When is a biased estimator preferable to unbiased one?
 
