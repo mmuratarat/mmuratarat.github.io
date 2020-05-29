@@ -6855,8 +6855,6 @@ SVMs don’t output probabilities natively, but probability calibration methods 
 
 1. SVM works relatively well when there is clear margin of separation between classes.
 
-2. SVM is more effective in high dimensional spaces.
-
 3. SVM can efficiently handle non-linear data using Kernel trick. The feature mapping is implicitly carried out via simple dot products. It is also possible to specify custom kernels, instead of using common kernels in the literature.
 
 4. SVM is effective in cases where number of dimensions is greater than the number of samples (high dimensional data).
