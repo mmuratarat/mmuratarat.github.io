@@ -4658,7 +4658,7 @@ For multiple observations in cells, you would also be testing a third hypothesis
 $$
 \begin{split}
 H_{03}&: \text{The factors, education levels and zodiac signs, are independent}\\ 
-& (the interaction effect between education levels and zodiac signs does not exist)
+& (\text{the interaction effect between education levels and zodiac signs does not exist})
 \end{split}
 $$
 
