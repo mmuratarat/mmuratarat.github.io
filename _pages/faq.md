@@ -3251,7 +3251,7 @@ Suppose that the time that elapses between two successive events follows the exp
 A Poisson process is a model for a series of discrete event where the average time between events is known but exact timing of events is random. The arrival of an event if independent of the event before (waiting time between events is memoryless). A Poisson process meets the following criteria (however, in reality, many phenomena modeled as Poisson processes do not meet these exactly):
 
 1. Events are independent of each other. The occurance of one event does not affect the probability of another event will occur.
-2. The averag rate (events per time period) is constant.
+2. The average rate (events per time period) is constant.
 3. Two events cannot occur at the same time. 
 
 Poisson distribution represents the distribution of Poisson processes and it is discrete distribution that measures the probability of a given number of events that occur randomly in a specified interval time (space). Poisson distribution is in fact a limited case of binomial distribution. 
