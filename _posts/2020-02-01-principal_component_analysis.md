@@ -447,7 +447,7 @@ Let $A$ be a square matrix, $v$ a vector and $u$ a scalar that satisfies $Av = u
 The eigenvalues of $A$ are roots of the characteristic equation
 
 $$
-det (X - uI) = 0
+det (A - uI) = 0
 $$
 
 {% highlight python %} 
