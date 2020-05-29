@@ -2254,7 +2254,7 @@ $$
 
 Note that since $\lambda > 0$, the value of $e^{(j \omega-\lambda) x}$, when evaluated at $x = + \infty$, is zero.
 
-* Let $X$ and $Y$ be two random variables. Denote by $F_{X}(x)$ and $F_{Y}(y)$ their distribution functions and by $\phi_{X}(\omega)$ and $\phi_{Y}(\omega)$ their characteristic functions. Then, $X$ and $Y$ have the same distribution, i.e., $F_{X}(x) = F_{Y}(y) for any x, if and only if they have the same characteristic function, i.e., $\phi_{X}(\omega) = \phi_{Y}(\omega)$ for any $\omega$. In applications, this proposition is often used to prove that two distributions are equal, especially when it is too difficult to directly prove the equality of the two distribution functions. 
+* Let $X$ and $Y$ be two random variables. Denote by $F_{X}(x)$ and $F_{Y}(y)$ their distribution functions and by $\phi_{X}(\omega)$ and $\phi_{Y}(\omega)$ their characteristic functions. Then, $X$ and $Y$ have the same distribution, i.e., $F_{X}(x) = F_{Y}(y)$ for any x, if and only if they have the same characteristic function, i.e., $\phi_{X}(\omega) = \phi_{Y}(\omega)$ for any $\omega$. In applications, this proposition is often used to prove that two distributions are equal, especially when it is too difficult to directly prove the equality of the two distribution functions. 
 
 * Like the moment generating function of a random variable, the characteristic function can be used to derive the moments of $X$ by differentiation of characteristic function.
 
