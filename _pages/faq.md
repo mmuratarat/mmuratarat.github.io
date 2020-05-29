@@ -2530,6 +2530,8 @@ $$
 l(\theta_1,\theta_2,\ldots,\theta_m) = log\left( L(\theta_1,\theta_2,\ldots,\theta_m) \right) =  \sum\limits_{i=1}^n log(f(x_i;\theta_1,\theta_2,\ldots,\theta_m))
 $$
 
+In order to use MLE, we have to make two important assumptions, which are typically referred to together as the i.i.d. assumption. These assumptions state that: Data must be independently distributed. Data must be identically distributed.
+
 We can find the MLEs graphically, analytically (We use calculus to find it by taking the derivative of the likelihood function and setting it to 0) or numerically (using Grid Search or gradient descent algorithm or Newton-Raphson algorithm). 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/MLE_ex1.png?raw=true)
