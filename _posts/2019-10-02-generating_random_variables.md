@@ -279,6 +279,8 @@ plt.show()
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/box_muller.png?raw=true)
 
+The Box-Muller method is not the fastest way to generate $N(0, 1)$ random variables, and numerical computing environments don't always use it. There is some cost in computing cos, sin, log and sqrt that, with clever programming can be avoided. Box-Muller remains very popular because it is simple to use.
+
 There is also The Marsaglia polar method which is a modification of the Box–Muller method which does not require computation of the sine and cosine functions
 
 However, in this computer age, most statistical software would provide you with quantile function for normal distribution already implemented. The inverse of the normal CDF is know and given by:
@@ -363,11 +365,13 @@ Rejection Sampling is one of the simplest sampling algorithm.
 
 We start by assuming that the $F$ we wish to simulate from has a probability density function $f(x)$ (we cannot easily sample from); that can be either continuous or discrete distribution. 
 
-The basic idea is to find an alternative probability distribution $G$, with density function $g(x)$ (like a Normal distribution or perhaps a  t-distribution), from which we already have an efficient algorithm for generating from (because there’s a built in function or someone else wrote a nice function), but also such that the function $g(x)$ is "close" to $f(x)$. Then we can sample from $g$ directly and then "reject" the samples in a strategic way to make the resulting "non-rejected" samples look like they came from $f$. The density $g$ will be referred to as the "candidate density" and $f$ will be the "target density".
+The basic idea is to find an alternative probability distribution $G$, with density function $g(x)$ (like a Normal distribution or perhaps a  t-distribution), from which we already have an efficient algorithm for generating from (because there’s a built in function or someone else wrote a nice function), but also such that the function $g(x)$ is "close" to $f(x)$. In other words, we assume there is another density $g(x)$ and a constant $c$ such that $f(x) \leq cg(x)$. Then we can sample from $g$ directly and then "reject" the samples in a strategic way to make the resulting "non-rejected" samples look like they came from $f$. The density $g$ will be referred to as the "candidate density" and $f$ will be the "target density".
 
 In particular, we assume that the ratio $f(x)/g(x)$ is bounded by a constant $c > 0$; $sup_{x}\{f(x)/g(x)\} \leq c$. (And
 in practice we would want $c$ as close to 1 as possible). The easiest way to satisfy this assumption is to make sure that  
 $g$ has heavier tails than $f$. We cannot have that $g$ decreases at a faster rate than $f$ in the tails or else rejection sampling will not work.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/acception_rejection_algorithm.png?raw=true)
 
 Here is the rejection sampling algorithm for drawing a sample from the target density $f$ is then:
 
@@ -384,6 +388,9 @@ Some notes:
 * $f(Y)$ and $g(Y)$ are random variables, hence, so is the ratio $\frac{f(Y)}{c\,g(Y)}$ and this ratio is independent of $U$ in Step (2).
 * The ratio is bounded between 0 and 1; $0 < \frac{f(Y)}{c\,g(Y)} \leq 1$.
 * The number of times $N$ that steps 1 and 2 need to be called (e.g., the number of iterations needed to successfully generate X ) is itself a random variable and has a geometric distribution with "success" probability $p = P(U\leq\frac{f(Y)}{c\,g(Y)})$. $P(N = n) = (1−p)^{n−1} p, \,\,\, n \geq 1$. Thus on average the number of iterations required is given by $E(N) = \frac{1}{p}$.
+* In the end we obtain our $X$ as having the conditional distribution of a $Y$ given that the event $\{U\leq\frac{f(Y)}{c\,g(Y)}\} occurs.
+
+There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ isn’t remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
 
 #### REFERENCES
 
