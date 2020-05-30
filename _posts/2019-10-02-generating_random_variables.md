@@ -346,7 +346,7 @@ Equivalently, we can decompose the density function $f(x)$ or mass function $p(x
 For fixed $x$:
 $$
 \begin{split}
-P(\text{returned } X \leq x) &= \sum_{j} P(X \leq x \mid J = j)P(J = j) \text{ (condition on } J=j\text{)}\\
+P(X \leq x) &= \sum_{j} P(X \leq x \mid J = j)P(J = j) \text{ (condition on } J=j\text{)}\\
 &= \sum_{j} P(X \leq x \mid J = j)p_{j}\text{ (distribution of J)}\\
 &= \sum_{j} F_{j}(x)p_{j} \text{ (given } J = j, X \sim F_{j}\text{)}\\
 &=F_{X}(x) \text{ (decomposition of F)}
