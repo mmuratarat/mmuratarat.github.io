@@ -309,17 +309,23 @@ called n-fold convolution of distribution $Y_{j}$. Here, $Y_{j}$'s are generated
 * Generate independent $Y_{1}, Y_{2}, \ldots , Y_{n}$ each with distribution function $F_{Y}(y)$ using the inverse transform method.
 * Return $X = Y_{1} + Y_{2} + \ldots + Y_{n}$.
 
-For example, an Erland random variable $X$ with parameters $(n, \lambda)$ can be shown to be the sum of $n$ independent exponential random variables $Y_{i}, i=1,2, \ldots ,n$, each having a mean of $\frac{1}{\lambda}$.
+For example, an Erlang random variable $X$ with parameters $(n, \lambda)$ can be shown to be the sum of $n$ independent exponential random variables $Y_{i}, i=1,2, \ldots ,n$, each having a mean of $\frac{1}{\lambda}$.
 
 $$
 X = \sum_{i=1}^{n} Y_{i}
 $$
 
-Using convolution method that can generate an exponential variable, an Erlang variate can be generated:
+Using inverse CDF method that can generate an exponential variable, an Erlang variate can be generated:
 
 $$
 X = \sum_{i=1}^{n}  \frac{-1}{\lambda}ln(u_{i}) = \frac{-1}{\lambda} ln \left(\prod_{i=1}^{n} u_{i} \right)
 $$
+
+Other examples:
+
+* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Geometric(p), then $\sum_{i=1}^{n} X_{i} \sim NegBin(n, p)$
+* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Normal(0,1), then $\sum_{i=1}^{n} X_{i} \sim \chi_{n}^{2}$
+* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Bernoulli(p), then $\sum_{i=1}^{n} X_{i} \sim Binomial(n, p)$
 
 # Composition Method
 
