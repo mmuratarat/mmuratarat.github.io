@@ -390,7 +390,8 @@ Some notes:
 * The number of times $N$ that steps 1 and 2 need to be called (e.g., the number of iterations needed to successfully generate X ) is itself a random variable and has a geometric distribution with "success" probability $p = P(U\leq\frac{f(Y)}{c\,g(Y)})$. $P(N = n) = (1−p)^{n−1} p, \,\,\, n \geq 1$. Thus on average the number of iterations required is given by $E(N) = \frac{1}{p}$.
 * In the end we obtain our $X$ as having the conditional distribution of a $Y$ given that the event $\{U\leq\frac{f(Y)}{c\,g(Y)}\} occurs.
 
-There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ isn’t remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
+
+There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ is not remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. The choices of $c$ and $g$ affect the computational efficiency of the algorithm.  In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
 
 #### REFERENCES
 
