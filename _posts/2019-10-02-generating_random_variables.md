@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Inverse Transform Method for Continuous Distributions and Sampling from Normal Distribution"
+title: "Generating random variables"
 author: "MMA"
 comments: true
 ---
@@ -243,6 +243,41 @@ Z_2 = \sqrt{-2 \ln U_1} \sin (2\pi U_2)
 $$
 
 where $U_1$ and $U_2$ are uniformly distributed over $(0,1)$ and they will be independent. In order to obtain normal variates $X_i$ with mean $\mu$ and variance $\sigma^2$, transform $X_i = \mu + \sigma Z_i$.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+
+# uniformly distributed values between 0 and 1
+u1 = np.random.rand(1000)
+u2 = np.random.rand(1000)
+
+# transformation function
+def box_muller(u1,u2):
+    z1 = np.sqrt(-2*np.log(u1))*np.cos(2*np.pi*u2)
+    z2 = np.sqrt(-2*np.log(u1))*np.sin(2*np.pi*u2)
+    return z1,z2
+
+# Run the transformation
+z1 = box_muller(u1, u2)
+z2 = box_muller(u1, u2)
+
+# plotting the values before and after the transformation
+plt.figure(figsize = (20, 10))
+plt.subplot(221) # the first row of graphs
+plt.hist(u1)     # contains the histograms of u1 and u2 
+plt.subplot(222)
+plt.hist(u2)
+plt.subplot(223) # the second contains
+plt.hist(z1)     # the histograms of z1 and z2
+plt.subplot(224)
+plt.hist(z2)
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/box_muller.png?raw=true)
 
 There is also The Marsaglia polar method which is a modification of the Box–Muller method which does not require computation of the sine and cosine functions
 
