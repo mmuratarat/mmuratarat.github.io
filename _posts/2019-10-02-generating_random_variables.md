@@ -355,6 +355,36 @@ $$
 
 The trick is to find $F_{j}$’s from which generation is easy and fast.
 
+# Acceptance-Rejection Method
+
+The majority of CDFs cannot be inverted efficiently. In other words, finding an explicit formula for $F^{−1}(y)$ for the cdf of a random variable $X$ we wish to generate, $F(x) = P(X \leq x)$, is not always possible. Moreover, even if it is, there may be alternative methods for generating a random variable, distributed as $F$ that is more efficient than the inverse transform method or other methods we have come across.
+
+Rejection Sampling is one of the simplest sampling algorithm.
+
+We start by assuming that the $F$ we wish to simulate from has a probability density function $f(x)$ (we cannot easily sample from); that can be either continuous or discrete distribution. 
+
+The basic idea is to find an alternative probability distribution $G$, with density function $g(x)$ (like a Normal distribution or perhaps a  t-distribution), from which we already have an efficient algorithm for generating from (because there’s a built in function or someone else wrote a nice function), but also such that the function $g(x)$ is "close" to $f(x)$. Then we can sample from $g$ directly and then "reject" the samples in a strategic way to make the resulting "non-rejected" samples look like they came from $f$. The density $g$ will be referred to as the "candidate density" and $f$ will be the "target density".
+
+In particular, we assume that the ratio $f(x)/g(x)$ is bounded by a constant $c > 0$; $sup_{x}\{f(x)/g(x)\} \leq c$. (And
+in practice we would want $c$ as close to 1 as possible). The easiest way to satisfy this assumption is to make sure that  
+$g$ has heavier tails than $f$. We cannot have that $g$ decreases at a faster rate than $f$ in the tails or else rejection sampling will not work.
+
+Here is the rejection sampling algorithm for drawing a sample from the target density $f$ is then:
+
+1. Generate a random variable $Y$, distributed as $G$.
+2. Generate $U \sim Uniform(0, 1)$ (independent from $Y$).
+3. If
+  $$
+  U\leq\frac{f(Y)}{c\,g(Y)}
+  $$
+  then set $X = Y$ (*accept*) ; otherwise go back to 1 (*reject*).
+The algorithm can be repeated until the desired number of samples from the target density $f$ has been accepted.
+
+Some notes:
+* $f(Y)$ and $g(Y)$ are random variables, hence, so is the ratio $\frac{f(Y)}{c\,g(Y)}$ and this ratio is independent of $U$ in Step (2).
+* The ratio is bounded between 0 and 1; $0 < \frac{f(Y)}{c\,g(Y)} \leq 1$.
+* The number of times $N$ that steps 1 and 2 need to be called (e.g., the number of iterations needed to successfully generate X ) is itself a random variable and has a geometric distribution with "success" probability $p = P(U\leq\frac{f(Y)}{c\,g(Y)})$. $P(N = n) = (1−p)^{n−1} p, \,\,\, n \geq 1$. Thus on average the number of iterations required is given by $E(N) = \frac{1}{p}$.
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
