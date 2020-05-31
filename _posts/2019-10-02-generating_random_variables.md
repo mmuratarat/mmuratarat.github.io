@@ -603,7 +603,7 @@ $$
 and the mixing distribution of $\lambda$, with parameters $\alpha$ and $\beta$ as
 
 $$
-f(\lambda \mid \alpha, \beta) \frac{\beta^{\alpha}}{\Gamma (\alpha)} \lambda^{\alpha -1} \lambda^{\alpha - 1} e^{-\beta \lambda}, \,\,\,\, \lambda > 0
+f(\lambda \mid \alpha, \beta) \frac{\beta^{\alpha}}{\Gamma (\alpha)} \lambda^{\alpha - 1} e^{-\beta \lambda}, \,\,\,\, \lambda > 0
 $$
 
 Now, the joint distribution of $X$ and $\lambda$ can be obtained.
