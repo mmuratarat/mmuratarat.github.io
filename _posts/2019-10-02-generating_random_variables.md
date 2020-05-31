@@ -485,3 +485,4 @@ print(np.std(accept))
 11. [https://web.ics.purdue.edu/~hwan/IE680/Lectures/Chap08Slides.pdf](https://web.ics.purdue.edu/~hwan/IE680/Lectures/Chap08Slides.pdf){:target="_blank"}
 12. [https://www.win.tue.nl/~marko/2WB05/lecture8.pdf](https://www.win.tue.nl/~marko/2WB05/lecture8.pdf){:target="_blank"}
 13. [http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf](http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf){:target="_blank"}
+14. [http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf](http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf){:target="_blank"}
