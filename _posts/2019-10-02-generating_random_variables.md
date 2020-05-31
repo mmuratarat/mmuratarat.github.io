@@ -516,7 +516,7 @@ $$
 \begin{pmatrix} \theta_1\\ \theta_2 \end{pmatrix} \sim N\left[\left(\begin{array}{c} 0\\ 0 \end{array}\right),\left(\begin{array}{ccc} 1 & \rho\\ \rho & 1 \end{array}\right)\right]
 $$
 
-where $\theta_{1}$ and $\theta_{2}$ are unknown parameters of the model, while $\rho$ is the known posterior correlation between $\theta_{1}$ and $\theta_{2}$. Using the properties of the multivariate normal distribution
+where $\theta_{1}$ and $\theta_{2}$ are unknown parameters of the model, while $\rho$ is the known posterior correlation between $\theta_{1}$ and $\theta_{2}$. Gibbs sampling requires conditional distributions for each variable. In the case of Gaussians, there’s a closed-form for the conditional. Using the properties of the multivariate normal distribution
 
 $$
 \theta_1 \mid \theta_2,\: y \sim N(\rho\theta_2,\: 1-\rho^2) \sim \rho\theta_2 + \sqrt{1-\rho^2}N(0,\:1)
