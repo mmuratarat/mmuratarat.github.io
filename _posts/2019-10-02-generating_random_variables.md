@@ -491,7 +491,7 @@ Gibbs sampling is attractive because it can sample from high-dimensional posteri
 The algorithm begins by setting initial values for all parameters, $\mathbf{\theta}^{(0)} = (\theta_{1}^{(0)}, \theta_{2}^{(0)}, \ldots, \theta_{p}^{(0)})$. The initial values of the variables can be determined randomly or by some other algorithm such as expectation-maximization. Variables are then sampled one at a time from their full conditional distribution
 
 $$
-p\left( \theta_{j}  \mid \theta_{1}, ..., \theta_{j-1}, \theta_{j+1}, ..., \theta_{p}, \mathbf{y} \right)
+P\left( \theta_{j}  \mid \theta_{1}, ..., \theta_{j-1}, \theta_{j+1}, ..., \theta_{p}, \mathbf{y} \right)
 $$
 
 Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period). Formally, the algorithm is:
