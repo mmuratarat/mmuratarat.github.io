@@ -753,7 +753,7 @@ pareto.mean(b=alpha, loc=-beta, scale=beta)
 A similar calculation can be done for $\lambda$.
 
 $$
-f(\hat{\lambda}) = \frac{1}{99,500} \sum_{i=500}^{100,000} f(\lambda \mid x_{i}
+f(\hat{\lambda}) = \frac{1}{99,500} \sum_{i=500}^{100,000} f(\lambda \mid x_{i})
 $$
 
 ```python
