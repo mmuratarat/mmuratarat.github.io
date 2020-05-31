@@ -484,7 +484,7 @@ print(np.std(accept))
 
 # Gibbs Sampling
 
-Gibbs sampling, proposed in the early 1990s, is commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions that are difficult to simulate from directly.
+Gibbs sampling, proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions that are difficult to simulate from directly.
 
 Gibbs sampling is attractive because it can sample from high-dimensional posteriors. The main idea is to break the problem of sampling from the high-dimensional joint distribution into a series of samples from low-dimensional conditional distributions. Because the low-dimensional updates are done in a loop, samples are not independent as in rejection sampling. The dependence of the samples turns out to follow a Markov distribution, leading to the name Markov chain Monte Carlo (MCMC).
 
@@ -494,7 +494,7 @@ $$
 P\left( \theta_{j}  \mid \theta_{1}, ..., \theta_{j-1}, \theta_{j+1}, ..., \theta_{p}, \mathbf{y} \right)
 $$
 
-Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period). Formally, the algorithm is:
+Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period). Thinning can also be used — i.e. keeping every kth sample of the Markov Chain. Formally, the algorithm is:
 
 1. Initialize $\mathbf{\theta}^{(0)} = (\theta_{1}^{(0)}, \theta_{2}^{(0)}, \ldots, \theta_{p}^{(0)})$
 2. for $j = 1, 2, \ldots$ do:<br/>
@@ -588,6 +588,8 @@ print(np.cov(params, rowvar=False, bias=False))
 # [[1.00003663 0.5958002 ]
 #  [0.5958002  0.99836987]]
 ```
+
+Some drawbacks of Gibbs sampling are: (1) long convergence time especially with the dimensionality of the data growingbecause Convergence time also depends on the shape of the distribution and (2) difficulty in finding the posterior for each variable.
 
 #### REFERENCES
 
