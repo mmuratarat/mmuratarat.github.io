@@ -494,10 +494,21 @@ $$
 p\left( \theta_{j}  \mid \theta_{1}, ..., \theta_{j-1}, \theta_{j+1}, ..., \theta_{p}, \mathbf{y} \right)
 $$
 
-Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period).
+Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period). Formally, the algorithm is:
 
+1. Initialize $\mathbf{\theta}^{(0)} = (\theta_{1}^{(0)}, \theta_{2}^{(0)}, \ldots, \theta_{p}^{(0)})$
+2. for $j = 1, 2, \ldots$ do:
+  $$
+  \begin{split}
+  \theta_{1}^{(j)} &\sim P(\theta_{1}^{(j)} \mid \theta_{2}^{(j - 1)}, \theta_{3}^{(j - 1)}, \ldots , \theta_{p}^{(j - 1)})\\
+  \theta_{2}^{(j)} &\sim P(\theta_{2}^{(j)} \mid \theta_{1}^{(j - 1)}, \theta_{3}^{(j - 1)}, \ldots , \theta_{p}^{(j - 1)})\\
+  & \ldots \ldots \ldots \\
+  \theta_{p}^{(j)} &\sim P(\theta_{p}^{(j)} \mid \theta_{1}^{(j - 1)}, \theta_{2}^{(j - 1)}, \ldots , \theta_{p-1}^{(j - 1)})\\
+  \end{split}
+  $$
+3. end for
 
-
+In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an “iteration” of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
 
 
 #### REFERENCES
