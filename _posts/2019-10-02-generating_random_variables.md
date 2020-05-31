@@ -391,8 +391,84 @@ Some notes:
 * The number of times $N$ that steps 1 and 2 need to be called (e.g., the number of iterations needed to successfully generate X ) is itself a random variable and has a geometric distribution with "success" probability $p = P(U\leq\frac{f(Y)}{c\,g(Y)})$. $P(N = n) = (1−p)^{n−1} p, \,\,\, n \geq 1$. Thus on average the number of iterations required is given by $E(N) = \frac{1}{p}$.
 * In the end we obtain our $X$ as having the conditional distribution of a $Y$ given that the event $U \leq \frac{f(Y)}{cg(Y)}$ occurs.
 
-
 There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ is not remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. The choices of $c$ and $g$ affect the computational efficiency of the algorithm.  In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
+
+For example, let's try to simulate random normal variates using Gamma distribution. Let the target distribution, $f(x)$ be a normal distribution with a mean of 4.5 and a standard deviation of 1. Let's choose a candidate distribution as Gamma distribution with a mean of 4 and a standard deviation 2, which results in parameters shape = 4 and scale = 1 (There is no particular reason to use the gamma distribution here – it was chosen primarily to distinguish it from the normal target distribution). Though theoretically the normal distribution extends from $-\infty$ to $\infty$ and the gamma distribution
+extends from $0$ to $\infty$, it is reasonable here to only consider values of $x$ between $0$ and $13$. We choose $c = 3$ here to blanket over the target distribution. The target distribution, candidate distribution and blanket distribution were shown below:
+
+```python
+import numpy as np
+from scipy.stats import gamma, norm
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+import seaborn as sns
+
+mu = 4.5; # Mean for normal distribution
+sigma = 1; # standard deviation for normal distribution
+shape = 4 # Shape parameter for gamma distributiom
+scale = 1 # Rate parameter for gamma distribution
+
+# Choose value for c
+c = 3
+
+# Define x axis
+x = np.arange(start = 0, stop = 12, step = 0.01)
+plt.figure(num=1, figsize = (20, 10))
+# Plot target distribution
+plt.plot(x, norm.pdf(x, loc=mu, scale=sigma), lw=2, label=' Target Distribution - Normal Distribution')
+# Plot candidate distribution
+plt.plot(x, gamma.pdf(x, a = shape, loc=0, scale=scale), lw=2, label = 'Candidate Distribution - Gamma Distribution')
+# Plot the blanket function
+plt.plot(x, c * gamma.pdf(x, a = shape, loc=0, scale=scale), lw=2, label = 'Blanket function - c * Gamma Distribution')
+plt.xlabel("x")
+plt.ylabel("PDF")
+plt.legend(loc="upper right")
+plt.savefig('target_candidate_blanket_dists.png')
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/target_candidate_blanket_dists.png?raw=true)
+
+Having verified that the blanket function satisfies $f(x) \leq cg(x)$, the sampling process can begin.
+
+```python
+# Choose number of values desired (this many values will be accepted)
+N = 20000;
+
+accept = []
+reject = []
+i = 0
+j = 0
+while i < N:
+    Y = gamma.rvs(a =shape, loc=0, scale=scale, random_state=None)
+    U = np.random.rand(1)
+    if U * c * gamma.pdf(Y, a = shape, loc=0, scale=scale) <= norm.pdf(Y, loc=mu, scale=sigma):
+        accept.append(Y)
+        i += 1
+    else:
+        reject.append(Y)
+        j += 1
+    
+#PLOT RESULTS OF SAMPLING
+plt.figure(num = 2, figsize = (20, 10))
+plt.plot(x, norm.pdf(x, loc=mu, scale=sigma), lw=2, label=' Target Distribution - Normal Distribution')
+plt.hist(accept, bins = 40, density=True)
+plt.savefig('accept_reject_algo_example.png')
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/accept_reject_algo_example.png?raw=true)
+
+This sampling method is performed until 20,000 values of $x$ were accepted. By inspection, the histogram of values sampled
+from $f(x)$ reproduce $f(x)$ demonstrating that the rejection method successfully drew random samples from the target distribution $f$. The mean and standard deviation of sampled data points are given below:
+
+```python
+print(np.mean(accept))
+#4.50210853818239
+print(np.std(accept))
+#0.9957279285265107
+```
 
 #### REFERENCES
 
