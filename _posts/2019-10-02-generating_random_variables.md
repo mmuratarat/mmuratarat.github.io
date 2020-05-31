@@ -737,7 +737,7 @@ $$
 This states that the marginal distribution of $X$ can now be interpreted as the average of the conditional distribution of $X$ given $\lambda$ taken with respect to the marginal distribution of $\lambda$. This fact suggests that an estimate for the actual value of $f(x)$ at the point $x$ may be obtained by taking the simulated average of $f(x \mid \lambda)$ over the sampled values of $\lambda$ as shown below:
 
 $$
-f(\hat{x}) = \frac{1}{99,500} \sum_{i=500}^{100,000} f(x \mid \lambda_{i}
+f(\hat{x}) = \frac{1}{99,500} \sum_{i=500}^{100,000} f(x \mid \lambda_{i})
 $$
 
 We can do these calculations in Python and compare it theoretical mean of Pareto distribution with $\alpha = 5$ and $\beta = 100$:
