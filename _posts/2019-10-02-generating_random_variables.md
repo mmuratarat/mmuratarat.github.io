@@ -484,7 +484,7 @@ print(np.std(accept))
 
 # Gibbs Sampling
 
-Gibbs sampling, proposed in the early 1990s, is commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of simulating from distributions that are difficult to simulate from directly.
+Gibbs sampling, proposed in the early 1990s, is commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions that are difficult to simulate from directly.
 
 Gibbs sampling is attractive because it can sample from high-dimensional posteriors. The main idea is to break the problem of sampling from the high-dimensional joint distribution into a series of samples from low-dimensional conditional distributions. Because the low-dimensional updates are done in a loop, samples are not independent as in rejection sampling. The dependence of the samples turns out to follow a Markov distribution, leading to the name Markov chain Monte Carlo (MCMC).
 
@@ -510,6 +510,84 @@ Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional sampl
 
 In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an “iteration” of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
 
+For example, let's consider a bivariate normal posterior distribution such that:
+
+$$
+\begin{pmatrix} \theta_1\\ \theta_2 \end{pmatrix} \sim N\left[\left(\begin{array}{c} 0\\ 0 \end{array}\right),\left(\begin{array}{ccc} 1 & \rho\\ \rho & 1 \end{array}\right)\right]
+$$
+
+where $\theta_{1}$ and $\theta_{2}$ are unknown parameters of the model, while $\rho$ is the known posterior correlation between $\theta_{1}$ and $\theta_{2}$. Using the properties of the multivariate normal distribution
+
+$$
+\theta_1 \mid \theta_2,\: y \sim N(\rho\theta_2,\: 1-\rho^2) \sim \rho\theta_2 + \sqrt{1-\rho^2}N(0,\:1)
+$$
+
+and
+
+$$
+\theta_2 \mid \theta_1,\: y \sim N(\rho\theta_1,\: 1-\rho^2) \sim \rho\theta_1 + \sqrt{1-\rho^2}N(0,\:1)
+$$
+
+Our first step is to set the specifications of the Gibbs sampler such that:
+
+* We have 10,000 total draws.
+* We will make 1000 burn-in draws.
+* The known  is equal to 0.6.
+
+```python
+import numpy as np
+from scipy.stats import norm
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+
+# Known correlation parameter
+rho = 0.6;      
+ 
+# Burn-in for the Gibbs sampler
+burn_in = 1000     
+ 
+# Draws to keep from sampler
+keep_draws = 10000 
+
+# Initialize the variables from zero
+theta_1 = np.zeros(shape = (burn_in + keep_draws,))        
+theta_2 = np. zeros(shape = (burn_in + keep_draws,))
+
+for i in range(1,burn_in + keep_draws):
+    theta_2[i] = (np.sqrt(1 - rho**2) * norm.rvs(loc=0, scale=1, size=1, random_state=None)) + (rho * theta_1[i-1])
+    theta_1[i] = (np.sqrt(1 - rho**2) * norm.rvs(loc=0, scale=1, size=1, random_state=None)) + (rho * theta_2[i])
+
+print("The first 5 values of 'theta_1' and 'theta_2' are:")
+print(theta_1[1:5])
+# [1.7417311  1.33021091 0.25966946 1.77545821]
+print(theta_2[1:5])
+# [-0.05888882  1.32659969  0.79265393  1.1013163 ]
+
+# plotting the values before and after the transformation
+plt.figure(figsize = (20, 10))
+plt.subplot(211) # the first row of graphs
+plt.plot(theta_1)
+plt.ylabel("$\\theta_{1}$")
+plt.subplot(212)
+plt.plot(theta_2)
+plt.ylabel("$\\theta_{2}$")
+plt.savefig('theta1_theta2_gibbs_sampler.png')
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/theta1_theta2_gibbs_sampler.png?raw=true)
+
+Finally, we finish our Gibbs sampler by examining the mean and variance-covariance matrix of the Gibbs sampler distribution.
+
+```python
+params = np.append(arr= theta_1[burn_in:burn_in+keep_draws, ].reshape(-1,1), values = theta_2[burn_in:burn_in+keep_draws, ].reshape(-1,1), axis = 1)
+print(np.mean(params, axis = 0))
+# [-0.00467987 -0.01182868]
+print(np.cov(params, rowvar=False, bias=False))
+# [[1.00003663 0.5958002 ]
+#  [0.5958002  0.99836987]]
+```
 
 #### REFERENCES
 
