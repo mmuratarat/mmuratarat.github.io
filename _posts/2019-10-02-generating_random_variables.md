@@ -593,6 +593,150 @@ print(np.cov(params, rowvar=False, bias=False))
 
 Some drawbacks of Gibbs sampling are: (1) long convergence time especially with the dimensionality of the data growingbecause Convergence time also depends on the shape of the distribution and (2) difficulty in finding the posterior for each variable.
 
+Let's give another example. Here we are going to study the properties of Gibbs sampling through simulation. We start by assuming the size of a claim $X$ is exponentially distributed with parameter $\lambda$. Further, we treat the parameter $\lambda$ as a random variable that follows a gamma distribution with parameters $\alpha$ and $\beta$.
+$\alpha$ and $\beta$ are constants. Stemming from our Bayesian approach, we can write this information as follows: the conditional distribution of $X$ given $\lambda$ as
+
+$$
+f(x \mid \lambda) = \lambda e^{-\lambda x), \,\,\,\, x > 0
+$$
+
+and the mixing distribution of $\lambda$, with parameters $\alpha$ and $\beta$ as
+
+$$
+f(\lambda \mid \alpha, \beta) \frac{\beta^{\alpha}}{\Gamma (\alpha)} \lambda^{\alpha -1} \lambda^{\alpha - 1} e^{-\beta \lambda}, \,\,\,\, \lambda > 0
+$$
+
+Now, the joint distribution of $X$ and $\lambda$ can be obtained.
+
+$$
+\begin{split}
+f(x, \lambda) &= f(x \mid \lambda) f(\lambda)\\
+&= \frac{1}{\Gamma (\alpha)} \beta^{\alpha} \lambda^{\alpha} e^{-\lambda (x + \beta)}
+\end{split}
+$$
+
+By integrating the above joint density with respect to $\lambda$, we can obtain the marginal distribution of $X$.
+
+$$
+\begin{split}
+f(x) &= \int_{0}^{\infty} f(x, \lambda) d\lambda \\
+&= \frac{\alpha \beta^{\alpha}}{(\beta + x)^{\alpha + 1}}, \,\,\,\, x>0\\
+&\sim Pareto(\alpha, \beta)
+\end{split}
+$$
+
+Note that $f(x)$ simplifies to a Pareto distribution with parameters $\alpha$ and $\beta$. This density is the closed form solution; in most problems, this is not possible to
+obtain. However, we chose distributions such that there would be a closed form solution in order to compare our results to. Finally, we can solve for each conditional distribution. Having already been given f(x \mid \lambda), $f(\lambda \mid x)$ is derived as follows:
+
+$$
+\begin{split}
+f(\lambda \mid x) &= \frac{f(x, \lambda)}{f(x)}\\
+&= \frac{(x + \beta)^{alpha + 1} \lambda^{\alpha} e^{-\lambda (x + \beta)}}{\Gamma (\alpha + 1)}\\
+&\sim gamma (\alpha + 1, x + \beta)
+\end{split}
+$$
+
+Notice here that the conditional distribution of $f(\lambda \mid x)$ simplifies to a gamma d istribution. This is because of the use of a conjugate prior distribution. This simply means that the mixing distribution is from the same family as the variable of interest.
+
+The next step in Gibbs sampling is to run our two conditional distributions through the iterative algorithm defined below:
+
+1. Select arbitrary initial values $x^{(0)}$ and $\lambda^{(0)}$
+2. Set counter index i = 0
+3. Sample $x^{(i + 1)}$ from $f(x \mid \lambda^{i}) \sim exponential(\lambda^{i})$
+4. Sample $\lambda^{(i + 1)}$ from $f(\lambda \mid x^{(i + 1)}) \sim gamma(\alpha + 1, x^{(i + 1)} + \beta)$
+5.  Set $i = i + 1$ and return to step 3
+
+For illustrative purposes, assume $\alpha = 5$ and $\beta = 100$. This reduces the uncertainty to the random variables $X$ and $\lambda$. Using the principles of Gibbs sampling as shown above, $100,000$ random numbers are generated for $X$ and $\lambda$.
+
+```python
+import numpy as np
+from scipy.stats import expon, gamma, pareto
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+
+alpha = 5
+beta = 100
+
+# Burn-in for the Gibbs sampler
+burn_in = 500     
+ 
+# Draws to keep from sampler
+N = 100000
+
+# Initialize the variables from zero
+x = np.zeros(shape = (N,))        
+lambdas = np. zeros(shape = (N,))
+lambdas[0] = 0.5 
+
+i = 0
+for i in range(1,N):
+    x[i] = expon.rvs(loc=0, scale=(1/lambdas[i-1]), size=1, random_state=None)
+    lambdas[i] = gamma.rvs(a = alpha + 1, loc=0, scale=(1/(x[i] + beta)), size=1, random_state=None)
+```
+
+Let's show the last 100 sampled values for $X$ and the last 100 sampled values for $\lambda$:
+
+```python
+# plotting the values before and after the transformation
+plt.figure(num = 1, figsize = (20, 10))
+iteration_num = np.arange(start = N-100, stop = N, step = 1)
+plt.subplot(211) # the first row of graphs
+plt.scatter(iteration_num, x[-100:])
+plt.xlabel('Iterations')
+plt.ylabel("x")
+plt.subplot(212)
+plt.scatter(iteration_num, lambdas[-100:])
+plt.ylabel("$\\lambda$")
+plt.savefig('x_lambda_gibbs_sampler.png')
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/x_lambda_gibbs_sampler.png?raw=true)
+
+As one can see from the figures, there is no pattern among the generated random numbers. Therefore, they can be considered as independent random samples.
+
+Next, figures show the histograms of the last $99,500$ sampled values of $X$ and $\lambda$, respectively. These values are generated from dependent sampling schemes, which were based on the full conditional distributions of $f(x \mid \lambda)$ and $f(\lambda \mid x)$. The first $500$ values of each sequence are discarded as these are considered to be the burn-in iterations. Additionally, the respective marginal density curves of $X$ and $\lambda$ are overlaid on their corresponding histogram.
+
+```python
+plt.figure(num = 2, figsize = (20, 10))
+iteration_num = np.arange(start = N-100, stop = N, step = 1)
+plt.subplot(211) # the first row of graphs
+plt.hist(x[burn_in:N, ], bins = 1000, density = True)
+plt.xlim(0, 150)
+a=sorted(x[burn_in:N, ])
+plt.plot(a, pareto.pdf(a, b=alpha, loc=-beta, scale=beta)) #True distribution, f(x) follow Pareto (alpha, beta)
+plt.xlabel('x')
+plt.ylabel("Density")
+plt.title('Histogram of generated sample values of X')
+plt.subplot(212)
+z=sorted(lambdas[burn_in:N, ])
+plt.plot(z, gamma.pdf(z, a=alpha, loc = 0, scale = 1/beta)) # True distribution, f(lambda) follows gamma(alpha, beta)
+plt.hist(lambdas[burn_in:N, ], bins = 100, density = True)
+plt.xlabel('$\\lambda$')
+plt.ylabel("Density")
+plt.title(' Histogram of generated sample values of $\\lambda$')
+plt.savefig('generated_samples_x_lambda_gibbs_sampler.png')
+plt.show()
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/generated_samples_x_lambda_gibbs_sampler.png?raw=true)
+
+The marginal densities appear to line up very well with the sampled values, which indicates the implemented dependent sampling schemes have generated random samples from their respective marginal distributions.
+
+This is a property of Gibbs sampling. In effect, by taking very large random samples from the conditional posterior distributions, it appears as if the samples were taken from their respective marginal distributions. Thus, the generated random variates can be used to study the properties of the distribution of interest. With more complicated models, sampling from the marginal distributions directly would have been impossible; but with Gibbs sampling, it can be simulated. With these results in mind, we can formally state Gibbs sampling as:
+
+The realization that as the number of iterations approaches infinity, the samples from the conditional posterior distributions converge to what the actual target distribution is that could not be sampled from directly.
+
+Next, consider the following integral:
+
+$$
+f(x) \int f(x \mid \lambda) f(\lambda) d\lambda
+$$
+
+This states that the marginal distribution of $X$ can now be interpreted as the average of the conditional distribution of $X$ given $\lambda$ taken with respect to the marginal distribution of $\lambda$. This fact suggests that an estimate for the actual value of $f(x)$ at the point $x$ may be obtained by taking the simulated average of $f(x \mid \lambda)$ over the sampled values of $\lambda$ as shown below:
+
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
