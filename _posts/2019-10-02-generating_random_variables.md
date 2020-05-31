@@ -731,7 +731,7 @@ The realization that as the number of iterations approaches infinity, the sample
 Next, consider the following integral:
 
 $$
-f(x) \int f(x \mid \lambda) f(\lambda) d\lambda
+f(x) = \int f(x \mid \lambda) f(\lambda) d\lambda
 $$
 
 This states that the marginal distribution of $X$ can now be interpreted as the average of the conditional distribution of $X$ given $\lambda$ taken with respect to the marginal distribution of $\lambda$. This fact suggests that an estimate for the actual value of $f(x)$ at the point $x$ may be obtained by taking the simulated average of $f(x \mid \lambda)$ over the sampled values of $\lambda$ as shown below:
