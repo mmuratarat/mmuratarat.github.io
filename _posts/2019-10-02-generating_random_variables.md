@@ -508,6 +508,8 @@ Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional sampl
   $$
 3. end for
 
+This process continues until "convergence".
+
 In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an “iteration” of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
 
 For example, let's consider a bivariate normal posterior distribution such that:
