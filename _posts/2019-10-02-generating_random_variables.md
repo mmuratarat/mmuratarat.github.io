@@ -497,7 +497,7 @@ $$
 Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period). Formally, the algorithm is:
 
 1. Initialize $\mathbf{\theta}^{(0)} = (\theta_{1}^{(0)}, \theta_{2}^{(0)}, \ldots, \theta_{p}^{(0)})$
-2. for $j = 1, 2, \ldots$ do:
+2. for $j = 1, 2, \ldots$ do:\\
   $$
   \begin{split}
   \theta_{1}^{(j)} &\sim P(\theta_{1}^{(j)} \mid \theta_{2}^{(j - 1)}, \theta_{3}^{(j - 1)}, \ldots , \theta_{p}^{(j - 1)})\\
