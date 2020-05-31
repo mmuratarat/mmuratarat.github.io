@@ -391,6 +391,18 @@ Some notes:
 * The number of times $N$ that steps 1 and 2 need to be called (e.g., the number of iterations needed to successfully generate X ) is itself a random variable and has a geometric distribution with "success" probability $p = P(U\leq\frac{f(Y)}{c\,g(Y)})$. $P(N = n) = (1−p)^{n−1} p, \,\,\, n \geq 1$. Thus on average the number of iterations required is given by $E(N) = \frac{1}{p}$.
 * In the end we obtain our $X$ as having the conditional distribution of a $Y$ given that the event $U \leq \frac{f(Y)}{cg(Y)}$ occurs.
 
+A direct calculation yields that $p = \frac{1}{c}$, by first conditioning on Y, $P(U\leq\frac{f(Y)}{c\,g(Y)} \mid Y = y) = \frac{f(y)}{c\,g(y)}$, thus, unconditioning and recalling that $Y$ has density $g(y)$ yields
+
+$$
+\begin{split}
+p = \int_{- \infty}^{+ \infty} \frac{f(y)}{c\,g(y)} \times g(y) \times dy\\
+&= \frac{1}{c} \int_{- \infty}^{+ \infty} f(y)d(y)\\
+&= \frac{1}{c}
+\end{split}
+$$
+
+where the last equality follows since f is a density function (hence by definition integrates to 1).  Thus $E(N) = c$, the bounding constant, and we can now indeed see that it is desirable to choose our alternative density g so as to minimize this constant $c = sup_{x}\{f(x)/g(x)\}$. Of course the optimal function would be $g(x) = f(x)$ which is not what we have in mind since the whole point is to choose a different (easy to simulate) alternative from $f$. In short, it is a bit of an art to find an appropriate $g$.
+
 There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ is not remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. The choices of $c$ and $g$ affect the computational efficiency of the algorithm.  In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
 
 For example, let's try to simulate random normal variates using Gamma distribution. Let the target distribution, $f(x)$ be a normal distribution with a mean of 4.5 and a standard deviation of 1. Let's choose a candidate distribution as Gamma distribution with a mean of 4 and a standard deviation 2, which results in parameters shape = 4 and scale = 1 (There is no particular reason to use the gamma distribution here – it was chosen primarily to distinguish it from the normal target distribution). Though theoretically the normal distribution extends from $-\infty$ to $\infty$ and the gamma distribution
