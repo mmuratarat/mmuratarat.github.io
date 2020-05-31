@@ -597,7 +597,7 @@ Let's give another example. Here we are going to study the properties of Gibbs s
 $\alpha$ and $\beta$ are constants. Stemming from our Bayesian approach, we can write this information as follows: the conditional distribution of $X$ given $\lambda$ as
 
 $$
-f(x \mid \lambda) = \lambda e^{-\lambda x), \,\,\,\, x > 0
+f(x \mid \lambda) = \lambda e^{-\lambda x}, \,\,\,\, x > 0
 $$
 
 and the mixing distribution of $\lambda$, with parameters $\alpha$ and $\beta$ as
