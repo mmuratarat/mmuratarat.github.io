@@ -642,7 +642,7 @@ The next step in Gibbs sampling is to run our two conditional distributions thro
 
 1. Select arbitrary initial values $x^{(0)}$ and $\lambda^{(0)}$
 2. Set counter index i = 0
-3. Sample $x^{(i + 1)}$ from $f(x \mid \lambda^{i}) \sim exponential(\lambda^{i})$
+3. Sample $x^{(i + 1)}$ from $f(x \mid \lambda^{(i)}) \sim exponential(\lambda^{(i)})$
 4. Sample $\lambda^{(i + 1)}$ from $f(\lambda \mid x^{(i + 1)}) \sim gamma(\alpha + 1, x^{(i + 1)} + \beta)$
 5.  Set $i = i + 1$ and return to step 3
 
