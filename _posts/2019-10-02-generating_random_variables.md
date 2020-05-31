@@ -403,10 +403,10 @@ $$
 
 where the last equality follows since f is a density function (hence by definition integrates to 1).  Thus $E(N) = c$, the bounding constant, and we can now indeed see that it is desirable to choose our alternative density g so as to minimize this constant $c = sup_{x}\{f(x)/g(x)\}$. Of course the optimal function would be $g(x) = f(x)$ which is not what we have in mind since the whole point is to choose a different (easy to simulate) alternative from $f$. In short, it is a bit of an art to find an appropriate $g$.
 
-There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ is not remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles, or a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. The choices of $c$ and $g$ affect the computational efficiency of the algorithm.  In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
+There are two main problems with this method. The first major problem is that if distributions are chosen poorly, like if $f(x)$ is not remotely related to $g(x)$, a lot of samples may be generated and tossed away, wasting computation cycles (as an example, if the enveloping function $cg(x)$ is considerably higher than $f(x)$ at all points, the algorithm will reject most attempted draws, which implies that an incredible number of draws may need to be made before finding a single value from $f(x)$). It may also be difficult to find an envelope with values that are greater at all points of support for the density of interest. Consider trying to use a uniform density as an envelope for sampling from a normal density. The domain of $x$ for the normal density runs from $-\infty$ to $+ \infty$, but there is no corresponding uniform density. In the limit, a $U(-\infty, +\infty)$ density would have an infinitely low height, which would make $g(x)$ fall below $f(x)$ in the center of the distribution, regardless of the constant multiple $c$ chosen. Another trouble is that a lot of samples may be taken in a specific area, getting us a lot of unwanted samples. The choices of $c$ and $g$ affect the computational efficiency of the algorithm. In the case of multidimensional random vectors, we have high chance of running straight into the curse of dimensionality, where chances are corners and edges of our multidimensional density simply don't get the coverage we were hoping for.
 
 For example, let's try to simulate random normal variates using Gamma distribution. Let the target distribution, $f(x)$ be a normal distribution with a mean of 4.5 and a standard deviation of 1. Let's choose a candidate distribution as Gamma distribution with a mean of 4 and a standard deviation 2, which results in parameters shape = 4 and scale = 1 (There is no particular reason to use the gamma distribution here – it was chosen primarily to distinguish it from the normal target distribution). Though theoretically the normal distribution extends from $-\infty$ to $\infty$ and the gamma distribution
-extends from $0$ to $\infty$, it is reasonable here to only consider values of $x$ between $0$ and $13$. We choose $c = 3$ here to blanket over the target distribution. The target distribution, candidate distribution and blanket distribution were shown below:
+extends from $0$ to $\infty$, it is reasonable here to only consider values of $x$ between $0$ and $13$. We choose $c = 3$ here to blanket over the target distribution. The target distribution, candidate distribution and blanket distribution (also known as envelope function) were shown below:
 
 ```python
 import numpy as np
@@ -481,6 +481,24 @@ print(np.mean(accept))
 print(np.std(accept))
 #0.9957279285265107
 ```
+
+# Gibbs Sampling
+
+Gibbs sampling, proposed in the early 1990s, is commonly used as a means of statistical inference, especially Bayesian inference. It is a randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of simulating from distributions that are difficult to simulate from directly.
+
+Gibbs sampling is attractive because it can sample from high-dimensional posteriors. The main idea is to break the problem of sampling from the high-dimensional joint distribution into a series of samples from low-dimensional conditional distributions. Because the low-dimensional updates are done in a loop, samples are not independent as in rejection sampling. The dependence of the samples turns out to follow a Markov distribution, leading to the name Markov chain Monte Carlo (MCMC).
+
+The algorithm begins by setting initial values for all parameters, $\mathbf{\theta}^{(0)} = (\theta_{1}^(0), \theta_{2}^(0), \ldots, \theta_{p}^(0))$. The initial values of the variables can be determined randomly or by some other algorithm such as expectation-maximization. Variables are then sampled one at a time from their full conditional distribution
+
+$$
+p\left( \theta_{j}  \mid \theta_{1}, ..., \theta_{j-1}, \theta_{j+1}, ..., \theta_{p}, \mathbf{y} \right)
+$$
+
+Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional samples. The process is repeated until the required number of samples have been generated. It is common to ignore some number of samples at the beginning (the so-called burn-in period).
+
+
+
+
 
 #### REFERENCES
 
