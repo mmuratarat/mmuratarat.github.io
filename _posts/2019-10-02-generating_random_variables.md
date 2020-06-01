@@ -395,7 +395,7 @@ A direct calculation yields that $p = \frac{1}{c}$, by first conditioning on Y, 
 
 $$
 \begin{split}
-p = \int_{- \infty}^{+ \infty} \frac{f(y)}{c\,g(y)} \times g(y) \times dy\\
+p &= \int_{- \infty}^{+ \infty} \frac{f(y)}{c\,g(y)} \times g(y) \times dy\\
 &= \frac{1}{c} \int_{- \infty}^{+ \infty} f(y)d(y)\\
 &= \frac{1}{c}
 \end{split}
