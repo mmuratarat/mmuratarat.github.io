@@ -7689,6 +7689,15 @@ print('BIC: %.3f' % bic)
 #BIC: -402.686
 ```
 
+Some caution is warranted when using AIC and BIC to compare models. The same data should be fit by models that are being compared. This becomes relevant when some cases are excluded from a model due to missing values on some of the variables. Attention should also be paid to ensure that the correct or full. ln likelihood is used to compute AIC or BIC when comparing models with different distributions. For some distributions, the full logarithm of the likelihood has an additive constant that only depends on the data. Regardless of the link or what is included in the linear predictors, this additive constant is the same; therefore, some programs only use the *kernel* of the likelihood (i.e., the logarithm of the likelihood without the additive constant). As a example, consider the Poisson distribution. The full logarithm of the likelihood is
+
+$$
+\begin{split}
+ln(L(\mu; \mathbf{y}) = ln \left(\prod_{i=1}^{n} \frac{e^{-\mu} \mu^{y_{i}}}{y_{i}!} \right)\\
+&= \underbrace{\sum_{i=1}^{n} y_{i} ln(\mu) - n\mu}_{kernel} - \underbrace{\sum_{i=1}^{n} ln(y_{i}!)}_{\text{constant}}
+\end{split}
+$$
+
 #### How to encode cyclical continuous features?
 
 Some data is inherently cyclical. They have temporal structure. Time is a rich example of this: minutes, hours, seconds, day of week, week of month, month, season, and so on all follow cycles. Ecological features like tide, astrological features like position in orbit, spatial features like rotation or longitude, visual features like color wheels are all naturally cyclical.
