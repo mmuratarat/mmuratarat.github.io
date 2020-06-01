@@ -484,7 +484,7 @@ print(np.std(accept))
 
 # Gibbs Sampling
 
-Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions that are difficult to simulate from, directly.
+Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions) that are difficult to simulate from, directly.
 
 The primary reason why Gibbs sampling was introduced was to break the curse of dimensionality (which impacts both aceeption-rejection algorithm and importance sampling) by producing a sequence of low dimension simulations that still converge to the right target. Even though the dimension of the target impacts the speed of convergence.
 
