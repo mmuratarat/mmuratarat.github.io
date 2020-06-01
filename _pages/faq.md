@@ -7693,7 +7693,7 @@ Some caution is warranted when using AIC and BIC to compare models. The same dat
 
 $$
 \begin{split}
-ln(L(\mu; \mathbf{y}) = ln \left(\prod_{i=1}^{n} \frac{e^{-\mu} \mu^{y_{i}}}{y_{i}!} \right)\\
+ln\left(L(\mu; \mathbf{y})\right) &= ln \left(\prod_{i=1}^{n} \frac{e^{-\mu} \mu^{y_{i}}}{y_{i}!} \right)\\
 &= \underbrace{\sum_{i=1}^{n} y_{i} ln(\mu) - n\mu}_{kernel} - \underbrace{\sum_{i=1}^{n} ln(y_{i}!)}_{\text{constant}}
 \end{split}
 $$
