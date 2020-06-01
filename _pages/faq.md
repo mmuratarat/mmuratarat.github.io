@@ -5344,7 +5344,7 @@ We also know that residual sum of squares (RSS) follows $\sigma^{2}\chi_{n-p}^{2
 For the sake of simplicity, let's use one single regression coefficient $\hat{\beta_{i}}$. So we know:
 
 $$
-\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}} \sim N(0,1)
+\frac{\widehat{\beta}\__{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim N(0,1)
 $$
 
 Additionally from the chi-square distribution of RSS, we have that:
@@ -5358,10 +5358,10 @@ This is a simple rearrangement of the first chi-square expression and is indepen
 So,
 
 $$
-\frac{\frac{\widehat{\beta_{i}}-\beta_{i}}{\sigma\sqrt{(X^{T}X)_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
+\frac{\frac{\widehat{\beta_{i}}-\beta_{i}}{\sigma\sqrt{(X^{T}X)\_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}\_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}\_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim t_{n-1}
 $$
 
-where $s = \sqrt{ \left (X^{T} X \right)^{-1}_{ii}}$ is standard error of $\widehat{\beta_{i}}$.
+where $s = \sqrt{ \left (X^{T} X \right)^{-1}\_{ii}}$ is standard error of $\widehat{\beta_{i}}$.
 
 #### What are the non-parametric equivalent of some parametric tests?
 
