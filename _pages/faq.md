@@ -4753,8 +4753,11 @@ Let $P_{fail} = 0.1$ be the probability that the system fails in any given hour.
 Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way ANOVA (MANOVA).
 
 1. **One-Way ANOVA**
+  
   One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, One-way ANOVA has one continuous response variable (e.g. Test Score) compared by three or more levels of a factor variable (e.g. Level of Education).
+  
    A one way ANOVA will tell you that at least two groups were different from each other. But it won’t tell you which groups were different. If your test returns a significant f-statistic, you may need to run an ad hoc test to tell you exactly which groups had a difference in means.
+   
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/one-way.ANOVA.png?raw=true)
   Let's give an example how to do one-way ANOVA by hand:
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example1.png?raw=true)
@@ -4764,9 +4767,13 @@ Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example5.png?raw=true)
   
 2. **Two-Way ANOVA**
+
   A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, Two-way ANOVA has one continuous response variable (e.g. Test Score) compared by more than one factor variable (e.g. Level of Education and Zodiac Sign). Two-way ANOVA can also be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables. Two-way ANOVAs are also called factorial ANOVAs.
+  
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+anova.png?raw=true)
+  
   The results from a Two-Way ANOVA will calculate a main effect and an interaction effect. The main effect is similar to a One Way ANOVA: each factor’s effect is considered separately. With the interaction effect, all factors are considered at the same time. Thus, there are three different hypotheses to be tested in two-way ANOVA:
+  
   $$
   \begin{split}
   H_{01} &: \text{The mean of the test scores is the same for all the educational levels.}\\
@@ -4786,9 +4793,11 @@ Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way
   An F-statistic is computed for each hypothesis you are testing.
 
 3 **N-Way ANOVA**
+  
   A researcher can also use more than two independent variables, and this is an n-way ANOVA (with n being the number of independent variables you have).  For example, potential differences in IQ scores can be examined by Country, Gender, Age group, Ethnicity, etc, simultaneously.
 
 4. **Multivariate ANOVA (MANOVA)**
+
   Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. For example, One-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by a single factor variable (e.g. Level of Education).
 
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ONE-WAY+MANOVA+figure.001.png?raw=true)
@@ -4799,7 +4808,8 @@ Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way
   
   **NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures. No normality assumption is required. 
   
-  5. **Repeated measures ANOVA**:
+5. **Repeated measures ANOVA**:
+  
   It is the equivalent of the one-way ANOVA, but for related, not independent groups, and is the extension of the dependent t-test. A repeated measures ANOVA is also referred to as a within-subjects ANOVA or ANOVA for correlated samples.
 
 **Assumptions for ANOVA** 
