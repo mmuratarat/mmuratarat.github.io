@@ -486,6 +486,8 @@ print(np.std(accept))
 
 Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions that are difficult to simulate from, directly.
 
+The primary reason why Gibbs sampling was introduced was to break the curse of dimensionality (which impacts both aceeption-rejection algorithm and importance sampling) by producing a sequence of low dimension simulations that still converge to the right target. Even though the dimension of the target impacts the speed of convergence.
+
 Gibbs sampling is attractive because it can sample from high-dimensional posteriors. The main idea is to break the problem of sampling from the high-dimensional joint distribution into a series of samples from low-dimensional conditional distributions. Because the low-dimensional updates are done in a loop, samples are not independent as in rejection sampling. The dependence of the samples turns out to follow a Markov distribution, leading to the name Markov chain Monte Carlo (MCMC) because each sample is dependent on the previous sample.
 
 The algorithm begins by setting initial values for all parameters, $\mathbf{\theta}^{(0)} = (\theta_{1}^{(0)}, \theta_{2}^{(0)}, \ldots, \theta_{p}^{(0)})$. The initial values of the variables can be determined randomly or by some other algorithm such as expectation-maximization. Variables are then sampled one at a time from their full conditional distribution
@@ -508,9 +510,9 @@ Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional sampl
   $$
 3. end for
 
-This process continues until "convergence".
+This process continues until "convergence". 
 
-In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an “iteration” of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
+In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an "iteration" of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
 
 For example, let's consider a bivariate normal posterior distribution such that:
 
