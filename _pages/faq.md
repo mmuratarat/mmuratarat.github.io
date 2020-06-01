@@ -5344,7 +5344,7 @@ We also know that residual sum of squares (RSS) follows $\sigma^{2}\chi_{n-p}^{2
 For the sake of simplicity, let's use one single regression coefficient $\hat{\beta_{i}}$. So we know:
 
 $$
-\frac{\widehat{\beta}\__{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim N(0,1)
+\frac{\widehat{\beta}\_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim N(0,1)
 $$
 
 Additionally from the chi-square distribution of RSS, we have that:
