@@ -5329,6 +5329,16 @@ We have just shown that moment generating function of $y$ is the same as the mom
 
 We know that $\hat{\beta} = (X^{T}X)^{-1}X^{T}Y$ so it is a linear function of $Y$, where $Y\sim N(X\beta, \sigma^{2}I_{n})$. As a result, it is normally distributed, that is $\widehat{\beta} \sim N(\beta, \sigma^{2}(X^{T}X)^{-1})$. 
 
+$$
+E(\hat{\beta}) = E((X^{T} X)^{-1} X^{T} Y) =  E[(X^{T} X)^{-1}X^{T}(X \beta + \epsilon)] = \beta
+$$
+
+and 
+
+$$
+Var( \hat{\beta}) = Var((X^{T} X)^{-1} X^{T} Y) = (X^{T} X)^{-1} X^{T} Var(Y) X (X^{T} X)^{-1} = (X^{T} X)^{-1} X^{T}\sigma^2 I X(X^{T} X)^{-1} = \sigma^2(X^{T} X)^{-1}
+$$
+
 We also know that residual sum of squares (RSS) follows $\sigma^{2}\chi_{n-p}^{2}$.
 
 For the sake of simplicity, let's use one single regression coefficient $\hat{\beta_{i}}$. So we know:
