@@ -518,7 +518,7 @@ The main advantage of Gibbs sampling is that we do not need to tune the proposal
 
 Disadvantages of Gibbs Sampling:
 1. We need to be able to derive conditional probability distributions for each of the variables.
-2. We need to be able to draw random samples from contitional probability distributions. In other words, even if we can extract the conditional distributions they may not be known forms, so we could not draw from them. Where it is difficult to sample from a conditional distribution, we can sample using a Metropolis-Hastings algorithm instead - this is known as Metropolis within Gibbs.
+2. We need to be able to draw random samples from contitional probability distributions. In other words, even if we can extract the conditional distributions they may not be known forms  (no conjugacy), so we could not draw from them. Where it is difficult to sample from a conditional distribution, we can sample using a Metropolis-Hastings algorithm instead - this is known as Metropolis within Gibbs.
 3. As the correlation between variables increases, the performance of the Gibbs sampler decreases. This is because the sequence of draws from the Gibbs sampler becomes more correlated.
 4. Drawing from multiple conditional distributions may be slow and inefficient.
 
@@ -895,3 +895,4 @@ np.std(x)
 12. [https://www.win.tue.nl/~marko/2WB05/lecture8.pdf](https://www.win.tue.nl/~marko/2WB05/lecture8.pdf){:target="_blank"}
 13. [http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf](http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf){:target="_blank"}
 14. [http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf](http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf){:target="_blank"}
+15. [http://www.jarad.me/courses/stat544/slides/Ch11/Ch11a.pdf](http://www.jarad.me/courses/stat544/slides/Ch11/Ch11a.pdf){:target="_blank"}
