@@ -4752,65 +4752,85 @@ Let $P_{fail} = 0.1$ be the probability that the system fails in any given hour.
 
 Commonly, ANOVAs are used in three ways: one-way ANOVA, two-way ANOVA, and N-way ANOVA (MANOVA).
 
-1. **One-Way ANOVA**
+**One-Way ANOVA**
   
-  One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, One-way ANOVA has one continuous response variable (e.g. Test Score) compared by three or more levels of a factor variable (e.g. Level of Education).
-  
-   A one way ANOVA will tell you that at least two groups were different from each other. But it won’t tell you which groups were different. If your test returns a significant f-statistic, you may need to run an ad hoc test to tell you exactly which groups had a difference in means.
-   
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/one-way.ANOVA.png?raw=true)
-  Let's give an example how to do one-way ANOVA by hand:
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example1.png?raw=true)
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example2.png?raw=true)
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example3.png?raw=true)
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example4.png?raw=true)
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example5.png?raw=true)
-  
-2. **Two-Way ANOVA**
+One-Way ANOVA has only one independent variable (a factor). The main purpose of a one-way ANOVA is to test if two or more groups differ from each other significantly. For example, One-way ANOVA has one continuous response variable (e.g. Test Score) compared by three or more levels of a factor variable (e.g. Level of Education).
 
-  A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, Two-way ANOVA has one continuous response variable (e.g. Test Score) compared by more than one factor variable (e.g. Level of Education and Zodiac Sign). Two-way ANOVA can also be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables. Two-way ANOVAs are also called factorial ANOVAs.
-  
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+anova.png?raw=true)
-  
-  The results from a Two-Way ANOVA will calculate a main effect and an interaction effect. The main effect is similar to a One Way ANOVA: each factor’s effect is considered separately. With the interaction effect, all factors are considered at the same time. Thus, there are three different hypotheses to be tested in two-way ANOVA:
-  
-  $$
-  \begin{split}
-  H_{01} &: \text{The mean of the test scores is the same for all the educational levels.}\\
-  H_{02} &: \text{The mean of the test scores is the same for all the zodiac signs.}
-  \end{split}
-  $$
-    
-  For multiple observations in cells, you would also be testing a third hypothesis:
+ A one way ANOVA will tell you that at least two groups were different from each other. But it won’t tell you which groups were different. If your test returns a significant f-statistic, you may need to run an ad hoc test to tell you exactly which groups had a difference in means.
 
-  $$
-  \begin{split}
-  H_{03}&: \text{The factors, education levels and zodiac signs, are independent}\\ 
-  & (\text{the interaction effect between education levels and zodiac signs does not exist})
-  \end{split}
-  $$
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/one-way.ANOVA.png?raw=true)
+Let's give an example how to do one-way ANOVA by hand:
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example1.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example2.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example3.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example4.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ANOVA_example5.png?raw=true)
+  
+**Two-Way ANOVA**
 
-  An F-statistic is computed for each hypothesis you are testing.
+A Two Way ANOVA is an extension of the One Way ANOVA. With a One Way, you have one independent variable affecting a dependent variable. It refers to an ANOVA using two independent variables.  Expanding the example above, Two-way ANOVA has one continuous response variable (e.g. Test Score) compared by more than one factor variable (e.g. Level of Education and Zodiac Sign). Two-way ANOVA can also be used to examine the interaction between the two independent variables. Interactions indicate that differences are not uniform across all categories of the independent variables. Two-way ANOVAs are also called factorial ANOVAs.
 
-3 **N-Way ANOVA**
-  
-  A researcher can also use more than two independent variables, and this is an n-way ANOVA (with n being the number of independent variables you have).  For example, potential differences in IQ scores can be examined by Country, Gender, Age group, Ethnicity, etc, simultaneously.
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+anova.png?raw=true)
 
-4. **Multivariate ANOVA (MANOVA)**
+In two-way ANOVA, the factors can be crossed and nested.
 
-  Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. For example, One-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by a single factor variable (e.g. Level of Education).
+With Two-Way Crossed ANOVA, we can estimate the effect of each factor (Main Effects) as well as any interaction between the factors. The main effect is similar to a One Way ANOVA: each factor’s effect is considered separately. With the interaction effect, all factors are considered at the same time. 
 
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ONE-WAY+MANOVA+figure.001.png?raw=true)
+$$
+y_{ijk} = m + a_{i} + b_{j} + (ab)_{ij} + \epsilon_{ijk}
+$$
+
+This equation just says that the $k$th data value for the $j$th level of Factor B and the $i$th level of Factor A is the sum of five components: the common value (grand mean), the level effect for Factor A, the level effect for Factor B, the interaction effect, and the residual. Note that (ab) does not mean multiplication; rather that there is interaction between the two factors.
+
+Thus, there are three different hypotheses to be tested in two-way ANOVA:
+
+$$
+\begin{split}
+H_{01} &: \text{The mean of the test scores is the same for all the educational levels.}\\
+H_{02} &: \text{The mean of the test scores is the same for all the zodiac signs.}
+\end{split}
+$$
+
+For multiple observations in cells, you would also be testing a third hypothesis:
+
+$$
+\begin{split}
+H_{03}&: \text{The factors, education levels and zodiac signs, are independent}\\ 
+& (\text{the interaction effect between education levels and zodiac signs does not exist})
+\end{split}
+$$
+
+An F-statistic is computed for each hypothesis you are testing.
+
+Sometimes, constraints prevent us from crossing every level of one factor with every level of the other factor. In these cases we are forced into what is known as a nested layout. We say we have a nested layout when fewer than all levels of one factor occur within each level of the other factor. An example of this might be if we want to study the effects of different machines and different operators on some output characteristic, but we can't have the operators change the machines they run. In this case, each operator is not crossed with each machine but rather only runs one machine.
+
+If Factor B is nested within Factor A, then a level of Factor B can only occur within one level of Factor A and there can be no interaction. This gives the following model:
+
+$$
+y_{ijk} = m + a_{i} + b_{j(i)} + \epsilon_{ijk}
+$$
+
+This equation indicates that each data value is the sum of a common value (grand mean), the level effect for Factor A, the level effect of Factor B nested within Factor A, and the residual.
+
+**N-Way ANOVA**
   
-  If there is two or more dependent variables as well as two or more independent variables, it is called factorial MANOVA. For example, Two-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by two or more factor variables (e.g. Level of Education and Zodiac Sign).
+A researcher can also use more than two independent variables, and this is an n-way ANOVA (with n being the number of independent variables you have).  For example, potential differences in IQ scores can be examined by Country, Gender, Age group, Ethnicity, etc, simultaneously.
+
+**Multivariate ANOVA (MANOVA)**
+
+Multivariate analysis of variance (MANOVA) is simply an ANOVA with several dependent variables. If there is one independent variable and multiple dependent variables, it is called one-way MANOVA. For example, One-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by a single factor variable (e.g. Level of Education).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ONE-WAY+MANOVA+figure.001.png?raw=true)
+
+If there is two or more dependent variables as well as two or more independent variables, it is called factorial MANOVA. For example, Two-way MANOVA compares two or more continuous response variables (e.g. Test Score and Annual Income) by two or more factor variables (e.g. Level of Education and Zodiac Sign).
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+manova.png?raw=true)
+
+**NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures. No normality assumption is required. 
   
-  ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two-way+manova.png?raw=true)
+**Repeated measures ANOVA**:
   
-  **NOTE** The Kruskal-Wallis H test is a non-parametric test that is used in place of a one-way ANOVA. Besides, ANOVA can also be used for repeated measures. The Friedman test is a non-parametric alternative to ANOVA with repeated measures. No normality assumption is required. 
-  
-5. **Repeated measures ANOVA**:
-  
-  It is the equivalent of the one-way ANOVA, but for related, not independent groups, and is the extension of the dependent t-test. A repeated measures ANOVA is also referred to as a within-subjects ANOVA or ANOVA for correlated samples.
+It is the equivalent of the one-way ANOVA, but for related, not independent groups, and is the extension of the dependent t-test. A repeated measures ANOVA is also referred to as a within-subjects ANOVA or ANOVA for correlated samples.
 
 **Assumptions for ANOVA** 
 
