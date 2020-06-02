@@ -484,7 +484,7 @@ print(np.std(accept))
 
 # Gibbs Sampling
 
-Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions, i.e. $P(\theta)=P(\theta_{1}, \theta_{2}, \dots,\theta_{p})$) that are difficult to simulate from, directly but its conditional distributions are tractable to work with.
+Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions, i.e. $P(\theta)=P(\theta_{1}, \theta_{2}, \dots,\theta_{p})$) that are difficult to simulate from, directly but its conditional distributions, which are lower in dimension, are tractable to work with.
 
 The primary reason why Gibbs sampling was introduced was to break the curse of dimensionality (which impacts both acception-rejection algorithm and importance sampling) by producing a sequence of low dimension simulations that still converge to the right target. Even though the dimension of the target impacts the speed of convergence.
 
@@ -517,9 +517,10 @@ In other words, Gibbs sampling involves ordering the parameters and sampling fro
 The main advantage of Gibbs sampling is that we do not need to tune the proposal distribution (like we need with Accept-Reject algorithm and we will do with Metropolis-Hastings algorithm below). Most of the time, it is easy to evaluate the conditional distributions. Conditionals may be conjugate and we can sample from them exactly. 
 
 Disadvantages of Gibbs Sampling:
-1. We need to be able to derive conditional probability distributions.
-2. We need to be able to draw random samples from contitional probability distributions. Where it is difficult to sample from a conditional distribution, we can sample using a Metropolis-Hastings algorithm instead - this is known as Metropolis within Gibbs.
-3. It can be very slow if parameters are corelated because you cannot take "diagonal" steps.
+1. We need to be able to derive conditional probability distributions for each of the variables.
+2. We need to be able to draw random samples from contitional probability distributions. In other words, even if we can extract the conditional distributions they may not be known forms, so we could not draw from them. Where it is difficult to sample from a conditional distribution, we can sample using a Metropolis-Hastings algorithm instead - this is known as Metropolis within Gibbs.
+3. As the correlation between variables increases, the performance of the Gibbs sampler decreases. This is because the sequence of draws from the Gibbs sampler becomes more correlated.
+4. Drawing from multiple conditional distributions may be slow and inefficient.
 
 For example, let's consider a bivariate normal posterior distribution such that:
 
@@ -776,6 +777,8 @@ gamma.mean(a=alpha, loc = 0, scale = 1/beta)
 # Metropolis-Hastings Algorithm
 
 Metropolis-Hastings (MH) algorithm is a Markov chain method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g., generate a histogram) or to compute an integral (e.g., an expected value). MH algorithm and other MCMC methods are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high.
+
+While the Gibbs sampler relies on conditional distributions, the Metropolis-Hastings sampler uses a full joint density distribution to generate a candidate draws. The candidate draws are not automatically added to the chain but rather an acceptance probability distribution is used to accept or reject candidate draws.
 
 Let $q(Y \mid X)$ be a transition density (also called candidate generating density) for $p$-dimensional $X$ and $Y$ from which we can easily simulate and it is either expilicitly available (up to a multiplicative constant, independent of $X$) or symmetric. Let $\pi (X)$ be our target density (i.e., stationary distribution that Markov Chain will eventually converge to). MH procedure is an iterative algorithm where at each stage, there are three steps. Suppose we are currently in state $x$ and we want to know how to move to the next state in state space.
 
