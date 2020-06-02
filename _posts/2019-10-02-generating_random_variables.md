@@ -784,7 +784,6 @@ Let $q(Y \mid X)$ be a transition density (also called candidate generating dens
 
 1. Simulate a candidate value $y \sim q(Y \mid x)$. Note that the candidate value depends on our current state $x$.
 2. Let 
-
   $$
   \alpha (y \mid x) = \min \left\{\frac{\pi (y) q(x \mid y)}{\pi (x) q(y \mid x)} , 1 \right\}
   $$
