@@ -823,6 +823,61 @@ $$
 
 Given our current state $x$, the random walk Metropolis-Hastings algorithm proceeds as follows:
 
+1. Simulate $\varepsilon\sim g$ and let $y = x + \varepsilon$.
+2. Compute $\alpha(y\mid x) = \min\left\{\frac{\pi(y)}{\pi(x)}, 1\right\}$.
+3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
+
+It should be noted that this form of the Metropolis-Hastings algorithm was the original form of the *Metropolis algorithm*.
+
+Let's do a simple example. We can show how random walk Metropolis-Hastings can be used to sample from a standard Normal distribution. Let $g$ be a uniform distribution over the interval  $(- \delta, \delta)$, where $\delta$ is small and $>0$ (its exact value doesn’t matter). Then we can do:
+
+1. $\varepsilon \sim \text{Uniform}(- \delta, \delta)$ and let $y = x + \varepsilon$.
+2. Compute $\alpha(y \mid x) = \min \left\{\frac{\varphi(y)}{\varphi(x)}, 1 \right\}$ where $\varphi$ is the standard Normal density.
+3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha(y \mid x)$ then accept $y$ as the next state, otherwise stay at x!
+
+```python
+import numpy as np
+from scipy.stats import uniform, norm
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.style.use('ggplot')
+
+delta = 0.5
+N = 100000
+x = np.zeros(shape = (N,))
+
+for i in range(1, N):
+    eps = uniform.rvs(loc= -delta, scale= 2*delta, size=1, random_state=None)
+    y = x[i - 1] + eps
+    alpha = min((norm.pdf(y, loc=0, scale=1)/norm.pdf(x[i-1], loc=0, scale=1)), 1)
+    u = uniform.rvs(loc=0, scale=1, size=1, random_state=None)
+    if u <= alpha:
+        x[i] = y
+    else:
+        x[i] = x[i - 1]
+```
+
+We can take a look at a histogram of the samples to see if they look like a Normal distribution.
+
+```python
+plt.figure(num = 1, figsize = (20, 10))
+z = np.arange(start = -4, stop = 4, step = 0.01)
+plt.plot(z, norm.pdf(z, loc=0, scale=1), lw=2, label=' Target Distribution - Normal Distribution')
+plt.hist(x, bins = 50, density = True)
+plt.xlabel('x')
+plt.ylabel("Frequency")
+plt.title("Histogram of x")
+plt.savefig('random_walk_MH_example.png')
+plt.show()
+
+np.mean(x)
+#-0.023697071990286523
+
+np.std(x)
+#0.9966458012631055
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/random_walk_MH_example.png?raw=true)
 
 #### REFERENCES
 
