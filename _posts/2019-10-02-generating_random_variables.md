@@ -879,6 +879,18 @@ np.std(x)
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/random_walk_MH_example.png?raw=true)
 
+## Independent Metropolis-Hastings Algorithm
+
+This method appears a straightforward generalization of the Accept-Reject algorithm in a sense that instrumental distribution $q$ is independent of $x$, $q(y \mid x) = q(y)$. In other words, the candidate proposals do not depend on the current state of $x$. Otherwise, the algorithm works the same as MH algorithm, with a modified acceptance ratio:
+
+$$
+\alpha(y\mid x) = \min\left\{
+\frac{\pi(y)q(x)}{\pi(x)q(y)}, 1
+\right\}
+$$
+
+Since it is similar, this sampler works well in situations where accept-reject method might be reasonable, i.e., relatively low-dimensional problems.
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
@@ -896,3 +908,4 @@ np.std(x)
 13. [http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf](http://www.columbia.edu/~ks20/4703-Sigman/4703-07-Notes-ARM.pdf){:target="_blank"}
 14. [http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf](http://statweb.stanford.edu/~owen/mc/Ch-nonunifrng.pdf){:target="_blank"}
 15. [http://www.jarad.me/courses/stat544/slides/Ch11/Ch11a.pdf](http://www.jarad.me/courses/stat544/slides/Ch11/Ch11a.pdf){:target="_blank"}
+16. [http://patricklam.org/teaching/mcmc_print.pdf](http://patricklam.org/teaching/mcmc_print.pdf){:target="_blank"}
