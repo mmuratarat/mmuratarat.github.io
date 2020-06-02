@@ -787,7 +787,8 @@ Let $q(Y \mid X)$ be a transition density (also called candidate generating dens
 
   $$
   \alpha (y \mid x) = \min \left\{\frac{\pi (y) q(x \mid y)}{\pi (x) q(y \mid x)} , 1 \right\}
-  $$<br/>
+  $$
+  <br/>
   $\alpha (y \mid x)$ is referred as the acceptance ratio.
   
 3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
