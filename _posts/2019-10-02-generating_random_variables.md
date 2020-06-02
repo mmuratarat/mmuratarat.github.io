@@ -325,9 +325,9 @@ $$
 
 Other examples:
 
-* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Geometric(p), then $\sum_{i=1}^{n} X_{i} \sim NegBin(n, p)$
-* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Normal(0,1), then $\sum_{i=1}^{n} X_{i} \sim \chi_{n}^{2}$
-* If $X_{1}, \ldtos , X_{n}$ are i.i.d. Bernoulli(p), then $\sum_{i=1}^{n} X_{i} \sim Binomial(n, p)$
+* If $X_{1}, \ldots , X_{n}$ are i.i.d. Geometric(p), then $\sum_{i=1}^{n} X_{i} \sim NegBin(n, p)$
+* If $X_{1}, \ldots , X_{n}$ are i.i.d. Normal(0,1), then $\sum_{i=1}^{n} X_{i} \sim \chi_{n}^{2}$
+* If $X_{1}, \ldots , X_{n}$ are i.i.d. Bernoulli(p), then $\sum_{i=1}^{n} X_{i} \sim Binomial(n, p)$
 
 # Composition Method
 
