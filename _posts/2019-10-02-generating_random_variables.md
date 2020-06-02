@@ -824,7 +824,7 @@ $$
 Given our current state $x$, the random walk Metropolis-Hastings algorithm proceeds as follows:
 
 1. Simulate $\varepsilon\sim g$ and let $y = x + \varepsilon$.
-2. Compute $\alpha(y\mid x) = \min\left\{\frac{\pi(y)}{\pi(x)}, 1\right\}$.
+2. Compute $\alpha (y \mid x) = \min\left\{\frac{\pi (y)}{\pi (x)}, 1\right\}$.
 3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
 
 It should be noted that this form of the Metropolis-Hastings algorithm was the original form of the *Metropolis algorithm*.
@@ -832,7 +832,7 @@ It should be noted that this form of the Metropolis-Hastings algorithm was the o
 Let's do a simple example. We can show how random walk Metropolis-Hastings can be used to sample from a standard Normal distribution. Let $g$ be a uniform distribution over the interval  $(- \delta, \delta)$, where $\delta$ is small and $>0$ (its exact value doesn’t matter). Then we can do:
 
 1. $\varepsilon \sim \text{Uniform}(- \delta, \delta)$ and let $y = x + \varepsilon$.
-2. Compute $\alpha(y \mid x) = \min \left\{\frac{\varphi(y)}{\varphi(x)}, 1 \right\}$ where $\varphi$ is the standard Normal density.
+2. Compute $\alpha (y \mid x) = \min \left\{\frac{\varphi (y)}{\varphi (x)}, 1 \right\}$ where $\varphi$ is the standard Normal density.
 3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha(y \mid x)$ then accept $y$ as the next state, otherwise stay at x!
 
 ```python
