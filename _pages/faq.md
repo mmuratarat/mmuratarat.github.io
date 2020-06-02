@@ -6414,6 +6414,40 @@ You can even treat outliers as anomaly and use an Anomaly Detection algorithm. M
 
 One-class classification is another field of machine learning that provides techniques for outlier and anomaly detection.
 
+**Calculation of Cook’s distance**
+
+Cook’s distance is used to estimate the influence of a data point when performing least squares regression analysis. It is one of the standard plots for linear regression in R and provides another example of the applicationof leave-one-out resampling.
+
+$$
+D_i = \frac{\sum_{j=1}^n (\hat Y_j - \hat Y_{j(i)})^2}{p\  \text{MSE}}
+$$
+
+```python
+import numpy as np
+import statsmodels.api as sm
+from sklearn.linear_model import LinearRegression
+
+# create data set with outliers
+nobs = 100
+X = np.random.random((nobs, 2))
+X = sm.add_constant(X)
+beta = [1, .1, .5]
+e = np.random.random(nobs)
+y = np.dot(X, beta) + e
+y[[7, 29, 78]] *= 3
+
+n = len(X)
+model = LinearRegression(fit_intercept=False, normalize = True)
+fitted = model.fit(X, y)
+yhat = fitted.predict(X)
+p = len(fitted.coef_) #number of parameters
+mse = np.sum((yhat - y)**2.0)/n
+denom = p*mse
+idx = np.arange(n)
+d = np.array([np.sum((yhat - model.fit(X[idx!=i], y[idx!=i]).predict(X))**2.0) for i in range(n)])/denom
+```
+
+
 #### What is the difference between norm and distance?
 
 A norm is a distance from origin. A distance function (alsp known as a metric) is a distance between two points. 
