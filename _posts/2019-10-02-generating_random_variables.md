@@ -375,7 +375,7 @@ $g$ has heavier tails than $f$. We cannot have that $g$ decreases at a faster ra
 
 Here is the rejection sampling algorithm for drawing a sample from the target density $f$ is then:
 
-1. Generate a random variable $Y$, distributed as $G$.
+1. Generate a random variable $Y$, distributed as $g$.
 2. Generate $U \sim Uniform(0, 1)$ (independent from $Y$).
 3. If
   $$
