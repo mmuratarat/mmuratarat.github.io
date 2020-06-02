@@ -484,9 +484,9 @@ print(np.std(accept))
 
 # Gibbs Sampling
 
-Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions, i.e. $P(\theta)=P(\theta_{1}, \theta_{2}, \dots,\theta_{p})$) that are difficult to simulate from, directly.
+Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions, i.e. $P(\theta)=P(\theta_{1}, \theta_{2}, \dots,\theta_{p})$) that are difficult to simulate from, directly but its conditional distributions are tractable to work with.
 
-The primary reason why Gibbs sampling was introduced was to break the curse of dimensionality (which impacts both aceeption-rejection algorithm and importance sampling) by producing a sequence of low dimension simulations that still converge to the right target. Even though the dimension of the target impacts the speed of convergence.
+The primary reason why Gibbs sampling was introduced was to break the curse of dimensionality (which impacts both acception-rejection algorithm and importance sampling) by producing a sequence of low dimension simulations that still converge to the right target. Even though the dimension of the target impacts the speed of convergence.
 
 Gibbs sampling is attractive because it can sample from high-dimensional posteriors. The main idea is to break the problem of sampling from the high-dimensional joint distribution into a series of samples from low-dimensional conditional distributions. Because the low-dimensional updates are done in a loop, samples are not independent as in rejection sampling. The dependence of the samples turns out to follow a Markov distribution, leading to the name Markov chain Monte Carlo (MCMC) because each sample is dependent on the previous sample.
 
@@ -513,6 +513,13 @@ Rather than 1 sample from $p$-dimensional joint, we make $p$ 1-dimensional sampl
 This process continues until "convergence". 
 
 In other words, Gibbs sampling involves ordering the parameters and sampling from the conditional distribution for each parameter given the current value of all the other parameters and repeatedly cycling through this updating process. Each "loop" through these steps is called an "iteration" of the Gibbs sampler, and when a new sampled value of a parameter is obtained, it is called an "updated" value.
+
+The main advantage of Gibbs sampling is that we do not need to tune the proposal distribution (like we need with Accept-Reject algorithm and we will do with Metropolis-Hastings algorithm below). Most of the time, it is easy to evaluate the conditional distributions. Conditionals may be conjugate and we can sample from them exactly. 
+
+Disadvantages of Gibbs Sampling:
+1. We need to be able to derive conditional probability distributions.
+2. We need to be able to draw random samples from contitional probability distributions. Where it is difficult to sample from a conditional distribution, we can sample using a Metropolis-Hastings algorithm instead - this is known as Metropolis within Gibbs.
+3. It can be very slow if parameters are corelated because you cannot take "diagonal" steps.
 
 For example, let's consider a bivariate normal posterior distribution such that:
 
@@ -765,6 +772,24 @@ np.mean(lambdas[burn_in:N, ])
 gamma.mean(a=alpha, loc = 0, scale = 1/beta)
 #0.05
 ```
+
+# Metropolis-Hastings Algorithm
+
+Metropolist-Hastings (MH) algorithm is a Markov chain method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g., generate a histogram) or to compute an integral (e.g., an expected value). MH algorithm and other MCMC methods are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high.
+
+Let $q(Y \mid X)$ be a transition density (also called candidate generating density) for $p$-dimensional $X$ and $Y$ from which we can easily simulate and it is either expilicitly available (up to a multiplicative constant, independent of $X$) or symmetric. Let $\pi (X)$ be our target density (i.e., stationary distribution that Markov Chain will eventually converge to). MH procedure is an iterative algorithm where at each stage, there are three steps. Suppose we are currently in state $x$ and we want to know how to move to the next state in state space.
+
+1. Simulate a candidate value $y \sim q(Y \mid x)$. Note that the candidate value depends on our current state $x$.
+2. Let 
+  $$
+  \alpha (y \mid x) = \min \left\{\frac{\pi (y) q(x \mid y)}{\pi (x) q(y \mid x)} , 1 \right\}
+  $$
+  \alpha (y \mid x) is referred as the acceptance ratio.
+3. Simulate $u \sum \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
+
+This three step procedure represents the transition kernel for our Markov Chain which we are simulating. We hope that after many simulations, the Markov Chain will converge to the stationary distribution. Eventually, we can be reasonably sure that samples that we draw from this process are draws from the stationary distribution, i.e., $\pi (x)$. 
+  
+
 
 #### REFERENCES
 
