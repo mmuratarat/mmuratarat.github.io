@@ -472,8 +472,7 @@ plt.show()
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/accept_reject_algo_example.png?raw=true)
 
-This sampling method is performed until 20,000 values of $x$ were accepted. By inspection, the histogram of values sampled
-from $f(x)$ reproduce $f(x)$ demonstrating that the rejection method successfully drew random samples from the target distribution $f$. The mean and standard deviation of sampled data points are given below:
+This sampling method is performed until 20,000 values of $x$ were accepted (40295 generated values are rejected). By inspection, the histogram of values sampled from $f(x)$ reproduce $f(x)$ demonstrating that the rejection method successfully drew random samples from the target distribution $f$. The mean and standard deviation of sampled data points are given below:
 
 ```python
 print(np.mean(accept))
