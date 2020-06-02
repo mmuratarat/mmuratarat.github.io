@@ -794,6 +794,34 @@ Let $q(Y \mid X)$ be a transition density (also called candidate generating dens
 
 This three step procedure represents the transition kernel for our Markov Chain which we are simulating. We hope that after many simulations, the Markov Chain will converge to the stationary distribution. Eventually, we can be reasonably sure that samples that we draw from this process are draws from the stationary distribution, i.e., $\pi (x)$. 
   
+## Random Walk Metropolis-Hastings Algorithm
+
+A second natural approach for the practical construction of a MH algorithm is to take into account the value previously simulated to generate the following value. The idea is used in algorithms such as the simulated annealing algorithm and the stochastic gradient descent. 
+
+Let $q(y \mid x)$ be defined as $y = x + \varepsilon$ where $\varepsilon\sim g$ and and  $g$ is a probability density symmetric about $0$. The most common distributions in this setup are the uniform distributions on spheres centered of the origin or standard distributions like normal and the Student's t-distribution (Note that these distributions need to be scaled).
+
+Given this definition, we have 
+
+$$
+q(y\mid x) = g(\varepsilon)
+$$
+
+and 
+
+$$
+q(x\mid y) = g(-\varepsilon) = g(\varepsilon)
+$$
+
+Because $q(y\mid x)$ is symmetric in $x$ and $y$, the Metropolis-Hastings acceptance ratio $\alpha (y \mid x)$ simplifies to
+
+$$
+\begin{split}
+\alpha(y\mid x) & = \min\left\{ \frac{\pi(y)q(x\mid y)}{\pi(x)q(y\mid x)}, 1 \right\}\\
+& = \min\left\{\frac{\pi(y)}{\pi(x)}, 1 \right\}
+\end{split}
+$$
+
+Given our current state $x$, the random walk Metropolis-Hastings algorithm proceeds as follows:
 
 
 #### REFERENCES
