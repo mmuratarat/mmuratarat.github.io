@@ -891,6 +891,8 @@ $$
 
 Since it is similar, this sampler works well in situations where accept-reject method might be reasonable, i.e., relatively low-dimensional problems.
 
+Slice Sampler, Hit and Run Sampler and Single Component Metropolis-Hastings are other types of MH algorithm.
+
 #### REFERENCES
 
 1. [https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V](https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function/answer/Amit-Sharma-2?srid=X8V){:target="_blank"}
