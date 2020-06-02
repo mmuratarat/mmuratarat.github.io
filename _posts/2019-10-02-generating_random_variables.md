@@ -775,17 +775,20 @@ gamma.mean(a=alpha, loc = 0, scale = 1/beta)
 
 # Metropolis-Hastings Algorithm
 
-Metropolist-Hastings (MH) algorithm is a Markov chain method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g., generate a histogram) or to compute an integral (e.g., an expected value). MH algorithm and other MCMC methods are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high.
+Metropolis-Hastings (MH) algorithm is a Markov chain method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g., generate a histogram) or to compute an integral (e.g., an expected value). MH algorithm and other MCMC methods are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high.
 
 Let $q(Y \mid X)$ be a transition density (also called candidate generating density) for $p$-dimensional $X$ and $Y$ from which we can easily simulate and it is either expilicitly available (up to a multiplicative constant, independent of $X$) or symmetric. Let $\pi (X)$ be our target density (i.e., stationary distribution that Markov Chain will eventually converge to). MH procedure is an iterative algorithm where at each stage, there are three steps. Suppose we are currently in state $x$ and we want to know how to move to the next state in state space.
 
 1. Simulate a candidate value $y \sim q(Y \mid x)$. Note that the candidate value depends on our current state $x$.
 2. Let 
+
   $$
   \alpha (y \mid x) = \min \left\{\frac{\pi (y) q(x \mid y)}{\pi (x) q(y \mid x)} , 1 \right\}
   $$
-  \alpha (y \mid x) is referred as the acceptance ratio.
-3. Simulate $u \sum \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
+  
+  $\alpha (y \mid x)$ is referred as the acceptance ratio.
+  
+3. Simulate $u \sim \text{Uniform}(0, 1)$. If $u \leq \alpha (y \mid x) $ then next state is equal to $y$. Otherwise, the next state is still $x$ (we stay in the same place). 
 
 This three step procedure represents the transition kernel for our Markov Chain which we are simulating. We hope that after many simulations, the Markov Chain will converge to the stationary distribution. Eventually, we can be reasonably sure that samples that we draw from this process are draws from the stationary distribution, i.e., $\pi (x)$. 
   
