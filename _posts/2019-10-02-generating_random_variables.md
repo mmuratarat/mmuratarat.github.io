@@ -481,6 +481,49 @@ print(np.std(accept))
 #0.9957279285265107
 ```
 
+# Importance Sampling
+
+With accept-reject sampling, we ultimately obtain a sample from a target density $f$. With that sample, we can create any number of summaries, statistics or visualizations. However, what if we are interested in more narrow problem of computing a mean, such as $E_{f} \left[h(X)  \right]$ for some function $h: R^{k} \to R$. 
+
+Clearly this is a problem that can be solved with rejection sampling. First obtain a sample $x_{1}, x_{2}, \dots, x_{n} \sim f$ then compute:
+
+$$
+\hat{\mu_{n}}= \frac{1}{n} \sum_{i=1}^n h(x_i)
+$$
+
+with the obtained sample. As $n\rightarrow\infty$ we know by the Law of Large Numbers that $\hat{\mu_{n}} \rightarrow E_{f}[h(X)]$. Further, the Central Limit Theorem gives us $\sqrt{n}(\hat{\mu_{n}} - E_{f} [h(X)])\longrightarrow\mathcal{N}(0,\sigma^2)$.
+
+However, with rejection sampling, in order to obtain a sample of size $n$, we must generate, on average, $c \times n$ candidates from $g$ (the candidate density) and then reject about $(c-1) \times n$ of them. If  $c \approx 1$ then this will not be too inefficient. But in general, if $c$ is much larger than 1, then we will be generating a lot of candidates from $g$ and ultimately throwing most of them away.
+
+It’s worth noting that in most cases, the candidates generated from $g$ fall within the domain of $f$, so that they are in fact values that could plausibly come from $f$. They are simply over- or under-represented in the frequency with which they appear. For example, if $g$ has heavier tails than $f$, then there will be too many extreme values generated from $g$. Rejection sampling simply thins out those extreme values to obtain the right proportion. But what if we could take those rejected values and, instead of discarding them, simply downweight or upweight them in a specific way?
+
+We can rewrite the target estimation as follows,
+
+$$
+E_{f}[h(X)] =  E_{g}\left[\frac{f(X)}{g(X)}h(X)\right]
+$$
+
+Hence, if $x_{1}, x_{2}, \dots, x_{n} \sim g$ drawn from the candidate density, we can say
+
+$$
+\tilde{\mu_{n}} = \frac{1}{n}\sum_{i=1}^{n} \frac{f(x_{i})}{g(x_{i})}h(x_{i}) = \frac{1}{n}\sum_{i=1}^{n} w_{i} h(x_{i}) \approx E_{f} [h(X)]
+$$
+
+where $w_{i} = \frac{f(x_{i})}{g(x_{i})}$ are referred as the importance weights (or importance correction) because they take each of the candidates $x_{i}$ generated from $g$ and reweight them when taking the average.  Note that if $f = g$, so that we are simply sampling from the target density, then this estimator is just the sample mean of the $h(x_{i})$'s. The estimator $\tilde{\mu_{n}}$ is known as the importance sampling estimator.
+
+For estimating expectations, one might reasonably believe that the importance sampling approach is more efficient than the rejection sampling approach because it does not discard any data.
+
+Just like accept-reject algorithm, for importance sampling, it does make clear now that the choice of the distribution from which to draw random variables will affect the quality of Monte-Carlo estimator.
+
+In summary, a good importance sampling function, $g(x)$ should have the following properties:
+
+* $g(x) > 0$ whenever $f(x) \neq 0$.
+* $g(x)$ should be close to being proportional to $\mid f(x) \mid$.
+* $g(x)$ should be easy to simulate samples from.
+* It should be easy to compute the density $g(x)$ for any value $x$ you might realize.
+
+Additionally, the importance sampling does not work well in high dimensions, either.
+
 # Gibbs Sampling
 
 Gibbs sampling (also called alternating conditional sampling), proposed in the early 1990s, is a special case (simplified case) of a family of Metropolis-Hasting (MH) algorithms and commonly used as a means of statistical inference, especially Bayesian inference. It is a the most basic randomized algorithm (i.e. an algorithm that makes use of random numbers), and is an alternative to deterministic algorithms for statistical inference such as the expectation-maximization algorithm (EM). It is a very useful way of sampling observations from multivariate distributions (generally full posterior distributions, i.e. $P(\theta)=P(\theta_{1}, \theta_{2}, \dots,\theta_{p})$) that are difficult to simulate from, directly but its conditional distributions, which are lower in dimension, are tractable to work with.
