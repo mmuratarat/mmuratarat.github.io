@@ -10922,6 +10922,8 @@ Keep in mind that unless you're writing your own data structure (e.g. linked lis
 * Deletion: Linear array: O(n)
 * Insertion: Linear array: O(n) Dynamic array: O(n)
 
+There are two different types of access: *random access* and *sequential access*. Sequential access means reading the elements one by one, starting at the first element. Linked List can only do sequential access. If you want to read the 10th element of a linked list,  you have to read the first 9 elements and follow the links to the 10th element. Arrays can allow random access through indexing. This is the reason arrays are faster at reads. 
+
 It takes O(n) time to find the element you want to delete. Then in order to delete it, you must shift all elements to the right of it one space to the left. The same case is valid for insertion. For searching, you have to traverse all the nodes. Indexing is O(1) because when you know the index of the element, you can access it easily.
 
 **Linked List**
@@ -10943,6 +10945,8 @@ Keep in mind that unless you're writing your own data structure (e.g. linked lis
 * Insertion: Linked Lists: O(1), Doubly Linked Lists: O(1)
 * Deletion: Linked Lists: O(1), Doubly Linked Lists: O(1)
 
+There are two different types of access: *random access* and *sequential access*. Sequential access means reading the elements one by one, starting at the first element. Linked List can only do sequential access. If you want to read the 10th element of a linked list,  you have to read the first 9 elements and follow the links to the 10th element. Arrays can allow random access through indexing. This is the reason arrays are faster at reads. 
+
 A linked list can typically only be accessed via its head node. From there you can only traverse from node to node until you reach the node you seek. Thus access is O(n).
 
 Searching for a given value in a linked list similarly requires traversing all the elements until you find that value. Thus search is O(n).
@@ -10950,6 +10954,8 @@ Searching for a given value in a linked list similarly requires traversing all t
 Inserting into a linked list requires re-pointing the previous node (the node before the insertion point) to the inserted node, and pointing the newly-inserted node to the next node. Thus insertion is O(1).
 
 Deleting from a linked list requires re-pointing the previous node (the node before the deleted node) to the next node (the node after the deleted node). Thus deletion is O(1).
+
+It is worth mentioning that insertions and deletions are O(1) time only in Linked Lists, if you can instantly access the element to be deleted. It is common practice to keep track of the first and last items in a Linked List. 
 
 Sometimes, append and prepend can also be used. Append means appending a new element at the tail and prepend means adding a new head. Append is a O(1) operation because we have the tail and there is no need to traverse through the entire linked list. Similarly, prepend is a O(1) operation.
 
