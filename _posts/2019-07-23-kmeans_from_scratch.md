@@ -99,7 +99,160 @@ A simple experienced method is to set the number of clusters to about $\sqrt{n/2
 
 HOWEVER, it is important to note that inertia heavily relies on the assumption that the clusters are convex (of spherical shape).
 
-A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method (we want to have high silhouette coefficient for the number of clusters we want to use), and the G-means algorithm. In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K. Some researchers also use Hierarchical clustering first to create dendrograms and identify the distinct groups from there.
+A number of other techniques exist for validating K, including cross-validation, information criteria, the information theoretic jump method, the silhouette method (we want to have high silhouette coefficient for the number of clusters we want to use), and the G-means algorithm.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
+from sklearn.datasets import make_blobs
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, davies_bouldin_score,v_measure_score
+
+n_features = 4
+n_cluster = 5
+cluster_std = 1.2
+n_samples = 200
+
+data = make_blobs(n_samples=n_samples,n_features=n_features,centers=n_cluster,cluster_std=cluster_std)
+data[0].shape
+#(200, 4)
+
+scaler = MinMaxScaler()
+X_scaled=scaler.fit_transform(data[0])
+y = data[1]
+
+km_scores= []
+km_silhouette = []
+vmeasure_score =[]
+db_score = []
+
+for i in range(2,12):
+    km = KMeans(n_clusters=i, random_state=0).fit(X_scaled)
+    preds = km.predict(X_scaled)
+    
+    print("Score for number of cluster(s) {}: {}".format(i,km.score(X_scaled)))
+    km_scores.append(-km.score(X_scaled))
+    
+    silhouette = silhouette_score(X_scaled,preds)
+    km_silhouette.append(silhouette)
+    print("Silhouette score for number of cluster(s) {}: {}".format(i,silhouette))
+    
+    db = davies_bouldin_score(X_scaled,preds)
+    db_score.append(db)
+    print("Davies Bouldin score for number of cluster(s) {}: {}".format(i,db))
+    
+    v_measure = v_measure_score(y,preds)
+    vmeasure_score.append(v_measure)
+    print("V-measure score for number of cluster(s) {}: {}".format(i,v_measure))
+    print("-"*70)
+    
+# Score for number of cluster(s) 2: -31.3569004250751
+# Silhouette score for number of cluster(s) 2: 0.533748527011396
+# Davies Bouldin score for number of cluster(s) 2: 0.5383728596874554
+# V-measure score for number of cluster(s) 2: 0.47435098761403227
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 3: -14.975981331453639
+# Silhouette score for number of cluster(s) 3: 0.595652250150026
+# Davies Bouldin score for number of cluster(s) 3: 0.536655881702941
+# V-measure score for number of cluster(s) 3: 0.7424834172925047
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 4: -5.590224681322909
+# Silhouette score for number of cluster(s) 4: 0.6811747762083824
+# Davies Bouldin score for number of cluster(s) 4: 0.4571807219192957
+# V-measure score for number of cluster(s) 4: 0.9057460992755187
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 5: -2.6603963145009493
+# Silhouette score for number of cluster(s) 5: 0.7014652472967188
+# Davies Bouldin score for number of cluster(s) 5: 0.4361514672175016
+# V-measure score for number of cluster(s) 5: 1.0
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 6: -2.4881557936377554
+# Silhouette score for number of cluster(s) 6: 0.6325414350157488
+# Davies Bouldin score for number of cluster(s) 6: 0.7063862889372524
+# V-measure score for number of cluster(s) 6: 0.9634327805669886
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 7: -2.3316753100814296
+# Silhouette score for number of cluster(s) 7: 0.5322227493562578
+# Davies Bouldin score for number of cluster(s) 7: 1.0188824098593388
+# V-measure score for number of cluster(s) 7: 0.9218233659260291
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 8: -2.18382508736358
+# Silhouette score for number of cluster(s) 8: 0.42724909671055145
+# Davies Bouldin score for number of cluster(s) 8: 1.2282408117318253
+# V-measure score for number of cluster(s) 8: 0.8868684126315897
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 9: -2.0869677530855695
+# Silhouette score for number of cluster(s) 9: 0.3368676415036809
+# Davies Bouldin score for number of cluster(s) 9: 1.4026173756052418
+# V-measure score for number of cluster(s) 9: 0.8563175291018919
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 10: -1.9980361222182945
+# Silhouette score for number of cluster(s) 10: 0.21171522762641234
+# Davies Bouldin score for number of cluster(s) 10: 1.6059328832470423
+# V-measure score for number of cluster(s) 10: 0.8264924248537714
+# ----------------------------------------------------------------------
+# Score for number of cluster(s) 11: -1.8921797505850377
+# Silhouette score for number of cluster(s) 11: 0.29941004236481095
+# Davies Bouldin score for number of cluster(s) 11: 1.363170543240617
+# V-measure score for number of cluster(s) 11: 0.8213630277489044
+# ----------------------------------------------------------------------
+```
+
+```python
+plt.figure(figsize=(12,5))
+plt.title("The elbow method for determining number of clusters\n",fontsize=16)
+plt.plot([i for i in range(2,12)],km_scores, marker = 'o')
+plt.grid(True)
+plt.xlabel("Number of clusters",fontsize=14)
+plt.ylabel("K-means score",fontsize=15)
+plt.xticks([i for i in range(2,12)],fontsize=14)
+plt.yticks(fontsize=15)
+plt.savefig('the_elbow_method.png')
+plt.show()
+```
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/the_elbow_method.png?raw=true)
+
+```python
+plt.figure(figsize=(12,5))
+plt.plot([i for i in range(2,12)],vmeasure_score, marker = 'o')
+plt.grid(True)
+plt.xlabel('Number of Clusters',fontsize=14)
+plt.title("V-measure score")
+plt.savefig('v_measure_score.png')
+plt.show()
+```
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/v_measure_score.png?raw=true)
+
+```python
+plt.figure(figsize=(12,5))
+plt.title("The silhouette coefficient method \nfor determining number of clusters\n",fontsize=16)
+plt.plot([i for i in range(2,12)], km_silhouette, marker = 'o')
+plt.grid(True)
+plt.xlabel("Number of clusters",fontsize=14)
+plt.ylabel("Silhouette score",fontsize=15)
+plt.xticks([i for i in range(2,12)],fontsize=14)
+plt.yticks(fontsize=15)
+plt.savefig('the_silhouette_coefficient_method.png')
+plt.show()
+```
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/the_silhouette_coefficient_method.png?raw=true)
+
+```python
+plt.figure(figsize=(12,5))
+plt.plot([i for i in range(2,12)], db_score, marker = 'o')
+plt.grid(True)
+plt.xlabel('Number of Clusters',fontsize=14)
+plt.title("Davies-Bouldin score")
+plt.savefig('davies_bouldin_score.png')
+plt.show()
+```
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/davies_bouldin_score.png?raw=true)
+
+In addition, monitoring the distribution of data points across groups provides insight into how the algorithm is splitting the data for each K. Some researchers also use Hierarchical clustering first to create dendrograms and identify the distinct groups from there.
 
 ## Constraints of the algorithm
 
