@@ -523,7 +523,7 @@ The first plot is refered to as a Spherical Gaussian, since the probability dist
 
 In contrast, the middle plot's covariance matrix is also a diagonal one, but we can see that if we were to specify different variances along the diagonal, then the spread in each of these dimensions is different and so what we end up with are these axis-aligned ellipses. This is refered to as a Diagonal Gaussian.
 
-Finally, we have the Full Gaussian. A full covariance matrix allows for correlation between our two random variables (non zero off diagonal value) we can provide these non-axis aligned ellipses. So in this example that we're showing here, these two variables are negatively correlated, meaning if one variable is high, it's more likely that the other value is low.
+Finally, we have the full Gaussian distribution. A full covariance matrix allows for correlation between the two random variables (non-zero off-diagonal value) we can provide these non-axis aligned ellipses. So in this example that we're showing here, these two variables are negatively correlated, meaning if one variable is high, it's more likely that the other value is low.
 
 # Maximum Likelihood Estimation for Univariate Gaussian Distribution
 
