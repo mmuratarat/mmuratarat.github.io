@@ -5111,6 +5111,8 @@ There are three other major ways to approach violations of normality.
 
 #### How to see non-Spherical disturbances?
 
+A Gaussian distribution is completely determined by its covariance matrix and its mean (a location in space). The covariance matrix of a Gaussian distribution determines the directions and lengths of the axes of its density contours, all of which are ellipsoids.
+
 Our basic linear regression model is:
 
 $$
