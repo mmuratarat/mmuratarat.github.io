@@ -5694,7 +5694,7 @@ $$
 \left(\begin{array}{cccc} \sigma^{2}_{1} & 0 &   \ldots & 0 \\ 0 & \sigma^{2}_{2} & \ldots & 0 \\  \vdots  & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots  &  \sigma^{2}_{n} \\ \end{array} \right)
 $$
 
-If we define the reciprocal of each variance, $\sigma^{2_{i}}$, as the weight, $w_{i} = \frac{1}{\sigma_{i}^{2}}$ which are known positive constants, then let matrix $W$ be a diagonal matrix containing these weights:
+If we define the reciprocal of each variance, $\sigma_{i}^{2}$, as the weight, $w_{i} = \frac{1}{\sigma_{i}^{2}}$ which are known positive constants, then let matrix $W$ be a diagonal matrix containing these weights:
 
 $$
 \textbf{W} = \left(\begin{array}{cccc} w_{1} & 0 & \ldots & 0 \\ 0& w_{2} & \ldots & 0 \\ \vdots & \vdots & \ddots &   \vdots \\ 0& 0 & \ldots & w_{n} \\ \end{array}   \right)
