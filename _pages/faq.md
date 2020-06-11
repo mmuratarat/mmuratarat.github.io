@@ -186,6 +186,8 @@ permalink: /faq/
 4. [What is a linear regression model?](#what-is-a-linear-regression-model)
 4. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 4. What is the standard error of the coefficient?
+4. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
+5. What is Heteroskedasticity and weighted least squares?
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 7. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
@@ -193,7 +195,6 @@ permalink: /faq/
 7. [How do you find the parameters in logistic regression?](#how-do-you-find-the-parameters-in-logistic-regression)
 8. [What is Softmax regression and how is it related to Logistic regression?](#what-is-softmax-regression-and-how-is-it-related-to-logistic-regression)
 8. What is odds ratio? How to interpret it? How to compute confidence interval for it?
-9. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 10. [What is R squared?](#what-is-r-squared)
 11. [You have built a multiple regression model. Your model $R^{2}$ isn't as good as you wanted. For improvement, your remove the intercept term, your model $R^{2}$ becomes 0.8 from 0.3. Is it possible? How?](#you-have-built-a-multiple-regression-model-your-model-r2-isnt-as-good-as-you-wanted-for-improvement-your-remove-the-intercept-term-your-model-r2-becomes-08-from-03-is-it-possible-how)
 12. [How do you validate a machine learning model?](#how-do-you-validate-a-machine-learning-model)
@@ -5568,7 +5569,7 @@ Linear regression is perhaps one of the most well known and well understood algo
      
 * Normal distribution of error terms $\varepsilon \sim N(0, \sigma^{2})$: The fourth assumption is that the error(residuals) follow a normal distribution. However, a less widely known fact is that, as sample sizes increase, the normality assumption for the residuals is not needed. More precisely, if we consider repeated sampling from our population, for large sample sizes, the distribution (across repeated samples) of the ordinary least squares estimates of the regression coefficients follow a normal distribution. As a consequence, for moderate to large sample sizes, non-normality of residuals should not adversely affect the usual inferential procedures. This result is a consequence of an extremely important result in statistics, known as the central limit theorem. Since a number of the most common statistical tests rely on the normality of a sample or population, it is often useful to test whether the underlying distribution is normal, or at least symmetric. This can be done via the following approaches: (1) we can review the distribution graphically (via histograms, boxplots, QQ plots of residuals), (2) we can analyze the skewness and kurtosis and/or (3) we can employ statistical tests (esp. Chi-square, Kolmogorov-Smironov, Shapiro-Wilk, Jarque-Barre, D’Agostino-Pearson)
       
-* No autocorrelation of residuals (Independence of errors $Cov\left\varepsilon_{i} \varepsilon_{j} \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy, meaning that there is still room to improve the model.  We need to find a way to incorporate that information into the regression model itself. This assumption violation usually occurs in time series models where the next instant is dependent on previous instant. Autocorrelation can be tested with the help of Durbin-Watson test. The null hypothesis of the test is that there is no serial correlation. Durbin-Watson statistic must lie between 0 and 4. If DW = 2, implies no autocorrelation, 0 < DW < 2 implies positive autocorrelation while 2 < DW < 4 indicates negative autocorrelation. If this assumption is violated, residual variance is often (not always) under-estimated, thus, variances of the estimates of regression coefficients is (often) too low. That will make t-values (often) large, making us reject the too often. Hence, t and F tests are wrong, inference is misleading, we will get wrong conclusions.
+* No autocorrelation of residuals (Independence of errors $Cov \left( \varepsilon_{i} \varepsilon_{j} \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = 0, \,\,\, i \neq j$): Autocorrelation occurs when the residual errors are dependent on each other. The presence of correlation in error terms drastically reduces model's accuracy, meaning that there is still room to improve the model.  We need to find a way to incorporate that information into the regression model itself. This assumption violation usually occurs in time series models where the next instant is dependent on previous instant. Autocorrelation can be tested with the help of Durbin-Watson test. The null hypothesis of the test is that there is no serial correlation. Durbin-Watson statistic must lie between 0 and 4. If DW = 2, implies no autocorrelation, 0 < DW < 2 implies positive autocorrelation while 2 < DW < 4 indicates negative autocorrelation. If this assumption is violated, residual variance is often (not always) under-estimated, thus, variances of the estimates of regression coefficients is (often) too low. That will make t-values (often) large, making us reject the too often. Hence, t and F tests are wrong, inference is misleading, we will get wrong conclusions.
 
 If the assumptions are not violated, then the Gauss-Markov theorem indicates that the usual OLS estimates are optimal in the sense of being unbiased and having minimum variance (Best Linear Unbiased Estimator (BLUE)). If one or more of the assumptions are violated, then estimated regression coefficients may be biased (i.e. systematically wrong), and not minimum variance (i.e. their uncertainty increases).
 
@@ -5577,6 +5578,68 @@ If the assumptions are not violated, then the Gauss-Markov theorem indicates tha
 The standard deviation of an estimate is called the standard error. The standard error of the coefficient measures how precisely the model estimates the coefficient's unknown value. The standard error of the coefficient is always positive.
 
 Use the standard error of the coefficient to measure the precision of the estimate of the coefficient. The smaller the standard error, the more precise the estimate. Dividing the coefficient by its standard error calculates a t-value. If the p-value associated with this t-statistic is less than your alpha level, you conclude that the coefficient is significantly different from zero.
+
+#### What is collinearity and what to do with it? How to remove multicollinearity?
+
+**Collinearity/Multicollinearity:**
+* In multiple regression: when two or more variables are highly correlated or improper use of dummy variables (e.g. failure to exclude one category).
+* They provide redundant information
+* In case of perfect multicollinearity: $\hat{\beta_{OLS}} =\left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$ does not exist. When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since Gramian matrix $\mathbf{X}^{T} \cdot \mathbf{X}$ is not full rank (_rank deficiency_). This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible.
+* It doesn't affect the model as a whole, doesn't bias results
+* The standard errors of the regression coefficients of the affected variables tend to be large because $Var(\hat{\beta_{OLS}}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$
+* The test of hypothesis that the coefficient is equal to zero, may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
+* Leads to overfitting
+* The marginal contribution of any one predictor variable in reducing the error sum of squares depends on which other predictors are already in the model.
+
+There are two types of multicollinearity:
+
+1. **Structural multicollinearity** is a mathematical artifact caused by creating new predictors from other predictors — such as, creating the predictor x2 from the predictor x.
+2. **Data-based multicollinearity**, on the other hand, is a result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected.
+
+In the case of structural multicollinearity, the multicollinearity is induced by what you have done. Data-based multicollinearity is the more troublesome of the two types of multicollinearity. Unfortunately it is the type we encounter most often!
+
+**Remove multicollinearity:**
+* Make sure you have not fallen into the dummy variable trap
+* Obtain more data, if possible. 
+* Drop some of affected variables
+* Combine the affected variables
+* Standardize your independent variables. This may help reduce a false flagging of a condition index above 30.
+* Removing correlated variables might lead to loss of information. In order to retain those variables, we can use penalized regression models like ridge or lasso regression. 
+* Principal component regression or partial least squares regression can be used.
+
+**Detection of multicollinearity:**
+* Large changes in the individual coefficients when a predictor variable is added or deleted
+* Insignificant regression coefficients for the affected predictors (due to the t-test computation which uses $Var(\hat{\beta_{OLS}})$), but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
+* The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation factor (VIF) for variable $i$ is then computed as:
+    
+    \begin{equation}
+        VIF = \frac{1}{1-R_{i}^{2}}
+    \end{equation}
+    
+    A rule of thumb for interpreting the variance inflation factor: 
+    * 1 = not correlated.
+    * Between 1 and 10 = moderately correlated.
+    * Greater than 10 = highly correlated.
+    
+     The rule of thumb cut-off value for VIF is 10. Solving backwards, this translates into an R-squared value of 0.90. Hence, whenever the R-squared value between one independent variable and the rest is greater than or equal to 0.90, you will have to face multicollinearity.
+     
+     Tolerance (1/VIF) is another measure to detect multicollinearity.  A tolerance close to 1 means there is little multicollinearity, whereas a value close to 0 suggests that multicollinearity may be a threat. 
+
+* Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
+    
+* Eigenvalues of the correlation matrix of the independent variables near zero indicate multicollinearity. Instead of looking at the numerical size of the eigenvalue, we can use the condition number defined as the square root of the ratio of the largest and smallest eigenvalues in the predictor matrix. Large condition numbers indicate multicollinearity.
+
+  $$
+  CN = \sqrt{\frac{\lambda_{max}}{\lambda_{min}}}
+  $$
+  
+  $CN > 15$ indicates the possible presence of multicollinearity, while a $CN > 30$ indicates serious multicollinearity problems. One advantage of this method is that it also shows which variables are causing the problem
+  
+* Investigate the signs of the regression coefficients. Variables whose regression coefficients are opposite in sign from what you would expect may indicate multicollinearity
+
+#### What is Heteroskedasticity and weighted least squares?
+
+
 
 #### What are the assumptions required for logistic regression?
 
@@ -5716,64 +5779,6 @@ There are three ways to determine if an odds ratio is statistically significant:
 1. Fisher's Exact Test
 2. Chi-square Test (It compares the observed values to expected values to determine whether there is no relationship between two variabkes)
 3. Wald Test (This is used for logistic regression)
-
-#### What is collinearity and what to do with it? How to remove multicollinearity?
-
-**Collinearity/Multicollinearity:**
-* In multiple regression: when two or more variables are highly correlated or improper use of dummy variables (e.g. failure to exclude one category).
-* They provide redundant information
-* In case of perfect multicollinearity: $\hat{\beta_{OLS}} =\left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$ does not exist. When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since Gramian matrix $\mathbf{X}^{T} \cdot \mathbf{X}$ is not full rank (_rank deficiency_). This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible.
-* It doesn't affect the model as a whole, doesn't bias results
-* The standard errors of the regression coefficients of the affected variables tend to be large because $Var(\hat{\beta_{OLS}}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$
-* The test of hypothesis that the coefficient is equal to zero, may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
-* Leads to overfitting
-* The marginal contribution of any one predictor variable in reducing the error sum of squares depends on which other predictors are already in the model.
-
-There are two types of multicollinearity:
-
-1. **Structural multicollinearity** is a mathematical artifact caused by creating new predictors from other predictors — such as, creating the predictor x2 from the predictor x.
-2. **Data-based multicollinearity**, on the other hand, is a result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected.
-
-In the case of structural multicollinearity, the multicollinearity is induced by what you have done. Data-based multicollinearity is the more troublesome of the two types of multicollinearity. Unfortunately it is the type we encounter most often!
-
-**Remove multicollinearity:**
-* Make sure you have not fallen into the dummy variable trap
-* Obtain more data, if possible. 
-* Drop some of affected variables
-* Combine the affected variables
-* Standardize your independent variables. This may help reduce a false flagging of a condition index above 30.
-* Removing correlated variables might lead to loss of information. In order to retain those variables, we can use penalized regression models like ridge or lasso regression. 
-* Principal component regression or partial least squares regression can be used.
-
-**Detection of multicollinearity:**
-* Large changes in the individual coefficients when a predictor variable is added or deleted
-* Insignificant regression coefficients for the affected predictors (due to the t-test computation which uses $Var(\hat{\beta_{OLS}})$), but a rejection of the joint hypothesis that those coefficients are all zero (F-test)
-* The extent to which a predictor is correlated with the other predictor variables in a linear regression can be quantified as the R-squared statistic of the regression where the predictor of interest is predicted by all the other predictor variables. The variance inflation factor (VIF) for variable $i$ is then computed as:
-    
-    \begin{equation}
-        VIF = \frac{1}{1-R_{i}^{2}}
-    \end{equation}
-    
-    A rule of thumb for interpreting the variance inflation factor: 
-    * 1 = not correlated.
-    * Between 1 and 10 = moderately correlated.
-    * Greater than 10 = highly correlated.
-    
-     The rule of thumb cut-off value for VIF is 10. Solving backwards, this translates into an R-squared value of 0.90. Hence, whenever the R-squared value between one independent variable and the rest is greater than or equal to 0.90, you will have to face multicollinearity.
-     
-     Tolerance (1/VIF) is another measure to detect multicollinearity.  A tolerance close to 1 means there is little multicollinearity, whereas a value close to 0 suggests that multicollinearity may be a threat. 
-
-* Correlation matrix. However, unfortunately, multicollinearity does not always show up when considering the variables two at a time. Because correlation is a bivariate relationship whereas multicollinearity is multivariate.
-    
-* Eigenvalues of the correlation matrix of the independent variables near zero indicate multicollinearity. Instead of looking at the numerical size of the eigenvalue, we can use the condition number defined as the square root of the ratio of the largest and smallest eigenvalues in the predictor matrix. Large condition numbers indicate multicollinearity.
-
-  $$
-  CN = \sqrt{\frac{\lambda_{max}}{\lambda_{min}}}
-  $$
-  
-  $CN > 15$ indicates the possible presence of multicollinearity, while a $CN > 30$ indicates serious multicollinearity problems. One advantage of this method is that it also shows which variables are causing the problem
-  
-* Investigate the signs of the regression coefficients. Variables whose regression coefficients are opposite in sign from what you would expect may indicate multicollinearity
 
 #### What is R squared?
 
