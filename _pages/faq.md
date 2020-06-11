@@ -5725,8 +5725,16 @@ There are three ways to determine if an odds ratio is statistically significant:
 * In case of perfect multicollinearity: $\hat{\beta_{OLS}} =\left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1} \cdot \mathbf{X}^{T}y$ does not exist. When two (or multiple) features are fully linearly dependent, we have singular (noninvertible) $\mathbf{X}^{T} \cdot \mathbf{X}$ since Gramian matrix $\mathbf{X}^{T} \cdot \mathbf{X}$ is not full rank (_rank deficiency_). This is obviously going to lead to problems because since $\mathbf{X}^{T} \cdot \mathbf{X}$ is not invertible.
 * It doesn't affect the model as a whole, doesn't bias results
 * The standard errors of the regression coefficients of the affected variables tend to be large because $Var(\hat{\beta_{OLS}}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}$
-* The test of hypothesis that the coefficient is equal to zero may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
+* The test of hypothesis that the coefficient is equal to zero, may lead to a failure to reject a false null hypothesis of no effect of the explanatory (Type II error)
 * Leads to overfitting
+* The marginal contribution of any one predictor variable in reducing the error sum of squares depends on which other predictors are already in the model.
+
+There are two types of multicollinearity:
+
+1. **Structural multicollinearity** is a mathematical artifact caused by creating new predictors from other predictors — such as, creating the predictor x2 from the predictor x.
+2. **Data-based multicollinearity**, on the other hand, is a result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected.
+
+In the case of structural multicollinearity, the multicollinearity is induced by what you have done. Data-based multicollinearity is the more troublesome of the two types of multicollinearity. Unfortunately it is the type we encounter most often!
 
 **Remove multicollinearity:**
 * Make sure you have not fallen into the dummy variable trap
