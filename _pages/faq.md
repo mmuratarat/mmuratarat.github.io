@@ -5709,10 +5709,10 @@ $$
 \end{split}
 $$
 
-Notice that OLS is a special case of WLS, with $w = (1, 1, \dots,1)$. Just like OLS, WLS is unbiased and (under reasonable conditions) consistent, even if $W$ is misspecified. But if we have $W$ right—and only if we have $W$ right—then WLS is efficient in the class of linear unbiased estimators. In addition, our estimated variance matrix,
+Notice that OLS is a special case of WLS, with $w = (1, 1, \dots,1)$. Just like OLS, WLS is unbiased and (under reasonable conditions) consistent, even if $\textbf{W}$ is misspecified. But if we have $\textbf{W}$ right—and only if we have $\textbf{W}$ right—then WLS is efficient in the class of linear unbiased estimators. In addition, our estimated variance matrix,
 
 $$
-\hat{\Sigma}_{\text{WLS}} = \frac{\sum_{i=1}^N \hat{\epsilon}_{i}^{2} / w_i}{N - p} (\mathbf{X}^\top W^{-1} \mathbf{X})^{-1},
+\hat{\Sigma}_{\text{WLS}} = \frac{\sum_{i=1}^{n} \hat{\epsilon}_{i}^{2} / w_i}{n - p} (\mathbf{X}^\top W^{-1} \mathbf{X})^{-1},
 $$
 
 is unbiased and consistent.
