@@ -5683,6 +5683,34 @@ $$
 
 where $n$ is the number of observations, $p$ is the number of predictors and $\hat{e}_{i}$ is the residual of the $i$'th observation under the OLS estimate. Under homoskedasticity, this is an unbiased and consistent estimator of the true variance matrix. With heteroskedasticity, however, $\hat{\Sigma}_{\text{OLS}}$ is biased and inconsistent. If we go ahead and use it to calculate inferential statistics, our measures of uncertainty will be misleading. Typically, we will too readily reject the null hypothesis—our reported p-values will be understated. 
 
+To sum up, although heteroskedasticity doesn't cause much of a problem for the OLS estimate of $\beta$ itself, it does throw a wrench into our efforts to draw inferences about $\beta$ from the OLS estimate. We are left with two options:
+
+1. Use an estimator other than OLS.
+2. Make a correction to the estimated standard errors that accounts for the possibility of heteroskedasticity.
+
+These correspond, respectively, to the cases when the heteroskedasticity is of *known* and *unknown* form.
+
+There are a few such tests, such as the Breusch-Pagan test and the NCV test to detect whether there’s heteroskedasticity at all.
+
+The method of weighted least squares can be used when the ordinary least squares assumption of constant variance in the errors is violated (which is called heteroscedasticity). Non-constant variance-covariance matrix is given by 
+
+$$
+\left(\begin{array}{cccc} \sigma^{2}_{1} & 0 &   \ldots & 0 \\ 0 & \sigma^{2}_{2} & \ldots & 0 \\  \vdots  & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots  &  \sigma^{2}_{n} \\ \end{array} \right)
+$$
+
+If we define the reciprocal of each variance, $\sigma^{2}_{i}$, as the weight, $w_{i} = \frac{1}{\sigma^{2}_{i}}, then let matrix $W$ be a diagonal matrix containing these weights:
+
+$$
+\textbf{W} = \left(\begin{array}{cccc} w_{1} & 0 & \ldots & 0 \\ 0& w_{2} & \ldots & 0 \\ \vdots & \vdots & \ddots &   \vdots \\ 0& 0 & \ldots & w_{n} \\ \end{array}   \right)
+$$
+
+The weighted least squares estimate is then
+
+$$
+\begin{split}
+\hat{\beta}_{WLS} &= \arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}\\   &=(\textbf{X}^{T}\textbf{W}\textbf{X})^{-1}\textbf{X}^{T}\textbf{W}\textbf{Y}
+\end{split}
+$$
 
 
 #### What are the assumptions required for logistic regression?
