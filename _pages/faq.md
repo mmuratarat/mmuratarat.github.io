@@ -5672,7 +5672,7 @@ $$
 The typical estimate of this variance matrix is
 
 $$
-\hat{\Sigma}_{\text{OLS}} = \frac{\sum_{i=1}^{n} \hat{e}_i^2}{n - p} (\mathbf{X}^\top \mathbf{X})^{-1},
+\hat{\Sigma}_{\text{OLS}} = \frac{\sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}}{n - p} (\mathbf{X}^\top \mathbf{X})^{-1},
 $$
 
 where $n$ is the number of observations, $p$ is the number of predictors and $\hat{e_{i}}$ is the residual of the $i$-th observation under the OLS estimate. Under homoskedasticity, this is an unbiased and consistent estimator of the true variance matrix. With heteroskedasticity, however, $\hat{\Sigma_{\text{OLS}}}$ is biased and inconsistent. If we go ahead and use it to calculate inferential statistics, our measures of uncertainty will be misleading. Typically, we will too readily reject the null hypothesis—our reported p-values will be understated. 
@@ -5704,14 +5704,22 @@ The weighted least squares estimate is then
 
 $$
 \begin{split}
-\hat{\beta}_{WLS} &= \arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}\\
+\hat{\beta}_{WLS} (\textbf{Y}, \textbf{X}, w) &= \arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}\\
 &=(\textbf{X}^{T}\textbf{W}\textbf{X})^{-1}\textbf{X}^{T}\textbf{W}\textbf{Y}
 \end{split}
 $$
 
+Notice that OLS is a special case of WLS, with $w = (1, 1, \dots,1)$. Just like OLS, WLS is unbiased and (under reasonable conditions) consistent, even if $W$ is misspecified. But if we have $W$ right—and only if we have $W$ right—then WLS is efficient in the class of linear unbiased estimators. In addition, our estimated variance matrix,
+
+$$
+\hat{\Sigma}_{\text{WLS}} = \frac{\sum_{i=1}^N \hat{\epsilon}_{i}^{2} / w_i}{N - p} (\mathbf{X}^\top W^{-1} \mathbf{X})^{-1},
+$$
+
+is unbiased and consistent.
+
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
-To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $W$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $W$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares.
+To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares.
 
 #### What are the assumptions required for logistic regression?
 
