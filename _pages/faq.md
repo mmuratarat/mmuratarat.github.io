@@ -5648,22 +5648,16 @@ $$
 where now $\epsilon$ is assumed to be (multivariate) normally distributed with mean vector 0, i.e., $E[\epsilon_i \,|\, x_i] = 0$ and constant variance-covariance matrix $V[\epsilon_i \,|\, x_i] = \sigma^2$ for all $i = 1,2, \dots n$. Under heteroskedasticity, the last assumption no longer holds; we have $V[\epsilon_i \,|\, x_i] \neq V[\epsilon_j \,|\, x_j]$ for some $i, j$. If we continue to assume that there is no autocorrelation—that the covariance of each pair of distrinct $\epsilon_{i}$ and $\epsilon_{j}$ is 0 —then we can write the variance matrix of the vector $\epsilon$ as
 
 $$
-V[\epsilon \,|\, \mathbf{X}]
-=
-\begin{bmatrix}
+V[\epsilon \mid \mathbf{X}] = \begin{bmatrix}
 \sigma_1^2 & 0 & \cdots & 0 \\
 0 & \sigma_2^2 & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \sigma_N^2
-\end{bmatrix}
-=
+0 & 0 & \cdots & \sigma_n^2 \end{bmatrix} =
 \sigma^2 \begin{bmatrix}
 \omega_1 & 0 & \cdots & 0 \\
 0 & \omega_2 & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \omega_n
-\end{bmatrix}
-=
+0 & 0 & \cdots & \omega_n \end{bmatrix} =
 \sigma^2 \Omega
 $$
 
