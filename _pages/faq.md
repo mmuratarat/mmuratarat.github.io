@@ -2,7 +2,6 @@
 layout: post
 title: "Frequently Asked Questions (and Answers)"
 author: MMA
-social: true
 comments: false
 permalink: /faq/
 ---
@@ -5647,7 +5646,7 @@ $$
 \textbf{Y}=\textbf{X}\beta+\epsilon
 $$
 
-where now $\epsilon$ is assumed to be (multivariate) normally distributed with mean vector 0, i.e., $E[\epsilon_i \mid x_i] = 0$ and constant variance-covariance matrix $V[\epsilon_i \mid x_i] = \sigma^2$ for all $i = 1,2, \dots n$. Under heteroskedasticity, the last assumption no longer holds; we have $V[\epsilon_i \mid x_i] \neq V[\epsilon_j \mid x_j]$ for some $i, j$. If we continue to assume that there is no autocorrelation—that the covariance of each pair of distrinct $\epsilon_{i}$ and $\epsilon_{j}$ is 0 -then we can write the variance matrix of the vector $\epsilon$ as
+where now $\epsilon$ is assumed to be (multivariate) normally distributed, with mean vector 0, i.e., $E[\epsilon_i \mid x_i] = 0$ and constant variance-covariance matrix $V[\epsilon_i \mid x_i] = \sigma^2$ for all $i = 1,2, \dots n$, i.e., $\epsilon_i \sim N(0, \sigma^2)$. Under heteroskedasticity, the last assumption no longer holds; we have $V[\epsilon_i \mid x_i] \neq V[\epsilon_j \mid x_j]$ for some $i, j$. If we continue to assume that there is no autocorrelation—that the covariance of each pair of distrinct $\epsilon_{i}$ and $\epsilon_{j}$ is 0 -then we can write the variance matrix of the vector $\epsilon$ as
 
 $$
 V[\epsilon \mid \mathbf{X}] = \begin{bmatrix}
@@ -5656,11 +5655,10 @@ V[\epsilon \mid \mathbf{X}] = \begin{bmatrix}
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & \sigma_n^2 \end{bmatrix} =
 \sigma^2 \begin{bmatrix}
-\omega_1 & 0 & \cdots & 0 \\
-0 & \omega_2 & \cdots & 0 \\
+w_1 & 0 & \cdots & 0 \\
+0 & w_2 & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \omega_n \end{bmatrix} =
-\sigma^2 W
+0 & 0 & \cdots & w_n \end{bmatrix} = \sigma^2 W
 $$
 
 Under heteroskedasticity, the OLS estimator is unbiased, consistent, and asymptotically normal despite heteroskedasticity. However, due to the Gauss-Markov theorem, they are not efficient anymore. If the errors are heteroskedastic, then there is an unbiased linear estimator with a lower variance than OLS. The problem is, to use that estimator, we must know each individual error variance up to a multiplicative constant. In other words, we must know $W$. We usually don't. So there's a more efficient estimator out there, but we’re unlikely to know what it is.
@@ -5702,6 +5700,9 @@ $$
 \textbf{W} = \left(\begin{array}{cccc} w_{1} & 0 & \ldots & 0 \\ 0& w_{2} & \ldots & 0 \\ \vdots & \vdots & \ddots &   \vdots \\ 0& 0 & \ldots & w_{n} \\ \end{array}   \right)
 $$
 
+Weighted OLS regression assumes that the errors have the distribution $\epsilon_i \sim N(0, \sigma^2/w_{i})$, where the $w_{i}$ are known weights and $\sigma^{2}$ is an unknown parameter that is estimated in the regression.
+This is the difference from variance-weighted least squares: in weighted OLS, the magnitude of the error variance is estimated in the regression using all the data.
+
 The weighted least squares estimate is then
 
 $$
@@ -5722,12 +5723,13 @@ is unbiased and consistent.
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
 Apart from violation of the assumption of homoscedasticity, Weighted Least Squares can also be used when:
-1. you have any other situation where data points should not be treated equally
+
+1. you have any other situation where data points should not be treated equally. This method gives us an easy way to remove one observation from a model by setting its weight equal to 0.
 2. You want to concentrate on certain areas
 
-To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. This method is also sensitive to outliers. A rogue outlier given an inappropriate weight could dramatically skew the results.
+To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. This method is also sensitive to outliers. A rogue outlier given an inappropriate weight could dramatically skew the results. However, if we choose proper weights we can downweight outlier or influential points to reduce their impact on the overall model.
 
-WLS can only be used in the rare cases where you know what the weight estimates are for each data point. When heteroscedasticity is a problem, it’s far more common to run OLS instead, using a difference variance estimator, such as White’s heteroskedasticity-consistent estimator. While White’s consistent estimator doesn’t require heteroscedasticity, it isn’t a very efficient strategy. However, if you don’t know the weights for your data, it may be your best choice. 
+WLS can only be used in the rare cases where you know what the weight estimates are for each data point. When heteroscedasticity is a problem, it’s far more common to run OLS instead, using a difference variance estimator, such as White’s heteroskedasticity-consistent estimator. While White’s consistent estimator doesn’t require heteroscedasticity, it isn't a very efficient strategy. However, if you don’t know the weights for your data, it may be your best choice. 
 
 #### What are the assumptions required for logistic regression?
 
