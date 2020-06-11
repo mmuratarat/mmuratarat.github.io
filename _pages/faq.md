@@ -5639,7 +5639,9 @@ In the case of structural multicollinearity, the multicollinearity is induced by
 
 #### What is Heteroskedasticity and weighted least squares?
 
-The method of ordinary least squares assumes that there is constant variance in the errors (which is called homoscedasticity). The model under consideration is
+The method of ordinary least squares assumes that there is constant variance in the errors (which is called homoscedasticity). If this assumption is violated, we have heteroskedasticity problem. Coming from the ancient Greek, "hetero" means "different", and "skedasis", meaning "dispersion". 
+
+The model under consideration is
 
 $$
 \textbf{Y}=\textbf{X}\beta+\epsilon
@@ -5684,7 +5686,7 @@ To sum up, although heteroskedasticity doesn't cause much of a problem for the O
 
 These correspond, respectively, to the cases when the heteroskedasticity is of *known* and *unknown* form.
 
-There are a few such tests, such as the Breusch-Pagan test and the NCV test to detect whether there’s heteroskedasticity at all.
+ A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There are also a few tests, such as the Breusch-Pagan test and the NCV test to detect whether there’s heteroskedasticity at all.
 
 The method of weighted least squares can be used when the ordinary least squares assumption of constant variance in the errors is violated (which is called heteroscedasticity). It is is an estimation technique which weights the observations proportional to the reciprocal of the error variance for that observation and so overcomes the issue of non-constant variance.
 
@@ -5719,7 +5721,13 @@ is unbiased and consistent.
 
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
-To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares.
+Apart from violation of the assumption of homoscedasticity, Weighted Least Squares can also be used when:
+1. you have any other situation where data points should not be treated equally
+2. You want to concentrate on certain areas
+
+To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. This method is also sensitive to outliers. A rogue outlier given an inappropriate weight could dramatically skew the results.
+
+WLS can only be used in the rare cases where you know what the weight estimates are for each data point. When heteroscedasticity is a problem, it’s far more common to run OLS instead, using a difference variance estimator, such as White’s heteroskedasticity-consistent estimator. While White’s consistent estimator doesn’t require heteroscedasticity, it isn’t a very efficient strategy. However, if you don’t know the weights for your data, it may be your best choice. 
 
 #### What are the assumptions required for logistic regression?
 
