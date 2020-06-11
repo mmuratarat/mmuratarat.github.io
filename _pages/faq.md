@@ -5704,7 +5704,7 @@ The weighted least squares estimate is then
 
 $$
 \begin{split}
-\hat{\beta}_{WLS} (\textbf{Y}, \textbf{X}, w) &= \arg\min_{\beta}\sum_{i=1}^{n}\epsilon_{i}^{*2}\\
+\hat{\beta}_{WLS} (\textbf{Y}, \textbf{X}, w) &= \arg\min_{\beta}\sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}\\
 &=(\textbf{X}^{T}\textbf{W}\textbf{X})^{-1}\textbf{X}^{T}\textbf{W}\textbf{Y}
 \end{split}
 $$
