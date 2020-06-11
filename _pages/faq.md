@@ -5639,6 +5639,50 @@ In the case of structural multicollinearity, the multicollinearity is induced by
 
 #### What is Heteroskedasticity and weighted least squares?
 
+The method of ordinary least squares assumes that there is constant variance in the errors (which is called homoscedasticity). The model under consideration is
+
+$$
+\textbf{Y}=\textbf{X}\beta+\epsilon
+$$
+
+where now $\epsilon$ is assumed to be (multivariate) normally distributed with mean vector 0, i.e., $E[\epsilon_i \,|\, x_i] = 0$ and constant variance-covariance matrix $V[\epsilon_i \,|\, x_i] = \sigma^2$ for all $i = 1,2, \dots n$. Under heteroskedasticity, the last assumption no longer holds; we have $V[\epsilon_i \,|\, x_i] \neq V[\epsilon_j \,|\, x_j]$ for some $i, j$. If we continue to assume that there is no autocorrelation—that the covariance of each pair of distrinct $\epsilon_{i}$ and $\epsilon_{j}$ is 0 —then we can write the variance matrix of the vector $\epsilon$ as
+
+$$
+V[\epsilon \,|\, \mathbf{X}]
+=
+\begin{bmatrix}
+\sigma_1^2 & 0 & \cdots & 0 \\
+0 & \sigma_2^2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \sigma_N^2
+\end{bmatrix}
+=
+\sigma^2 \begin{bmatrix}
+\omega_1 & 0 & \cdots & 0 \\
+0 & \omega_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \omega_n
+\end{bmatrix}
+=
+\sigma^2 \Omega
+$$
+
+Under heteroskedasticity, the OLS estimator is unbiased, consistent, and asymptotically normal despite heteroskedasticity. However, due to the Gauss-Markov theorem, they are not efficient anymore. If the errors are heteroskedastic, then there is an unbiased linear estimator with a lower variance than OLS. The problem is, to use that estimator, we must know each individual error variance up to a multiplicative constant. In other words, we must know $\Omega$. We usually don't. So there's a more efficient estimator out there, but we’re unlikely to know what it is.
+
+Under homoskedasticity, the variance matrix of the OLS estimator is:
+
+$$
+\Sigma = \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1}
+$$
+
+The typical estimate of this variance matrix is
+
+$$
+\hat{\Sigma}_{\text{OLS}} = \frac{\sum_{i=1}^{n} \hat{e}_i^2}{n - p} (\mathbf{X}^\top \mathbf{X})^{-1},
+$$
+
+where $n$ is the number of observations, $p$ is the number of predictors and $\hat{e}_{i}$ is the residual of the $i$'th observation under the OLS estimate. Under homoskedasticity, this is an unbiased and consistent estimator of the true variance matrix. With heteroskedasticity, however, $\hat{\Sigma}_{\text{OLS}}$ is biased and inconsistent. If we go ahead and use it to calculate inferential statistics, our measures of uncertainty will be misleading. Typically, we will too readily reject the null hypothesis—our reported p-values will be understated. 
+
 
 
 #### What are the assumptions required for logistic regression?
