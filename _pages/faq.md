@@ -5658,10 +5658,10 @@ V[\epsilon \mid \mathbf{X}] = \begin{bmatrix}
 0 & \omega_2 & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & \omega_n \end{bmatrix} =
-\sigma^2 \Omega
+\sigma^2 W
 $$
 
-Under heteroskedasticity, the OLS estimator is unbiased, consistent, and asymptotically normal despite heteroskedasticity. However, due to the Gauss-Markov theorem, they are not efficient anymore. If the errors are heteroskedastic, then there is an unbiased linear estimator with a lower variance than OLS. The problem is, to use that estimator, we must know each individual error variance up to a multiplicative constant. In other words, we must know $\Omega$. We usually don't. So there's a more efficient estimator out there, but we’re unlikely to know what it is.
+Under heteroskedasticity, the OLS estimator is unbiased, consistent, and asymptotically normal despite heteroskedasticity. However, due to the Gauss-Markov theorem, they are not efficient anymore. If the errors are heteroskedastic, then there is an unbiased linear estimator with a lower variance than OLS. The problem is, to use that estimator, we must know each individual error variance up to a multiplicative constant. In other words, we must know $W$. We usually don't. So there's a more efficient estimator out there, but we’re unlikely to know what it is.
 
 Under homoskedasticity, the variance matrix of the OLS estimator is:
 
@@ -5711,7 +5711,7 @@ $$
 
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
-To apply weighted least squares, we need to know the weights, $w_{i}$'s.
+To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $W$). However, in many real-life situations, the weights are not known apriori. In such cases we need to estimate the weights in order to use weighted least squares.
 
 #### What are the assumptions required for logistic regression?
 
