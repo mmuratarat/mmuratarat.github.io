@@ -187,7 +187,7 @@ permalink: /faq/
 4. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
 4. What is the standard error of the coefficient?
 4. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
-5. What is Heteroskedasticity and weighted least squares?
+5. [What is Heteroskedasticity and weighted least squares?](#what-is-heteroskedasticity-and-weighted-least-squares)
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
 6. [Why is logistic regression considered to be linear model?](#why-is-logistic-regression-considered-to-be-linear-model)
 7. [Why sigmoid function in Logistic Regression?](#why-sigmoid-function-in-logistic-regression)
@@ -5711,7 +5711,7 @@ $$
 
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
-To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $W$). However, in many real-life situations, the weights are not known apriori. In such cases we need to estimate the weights in order to use weighted least squares.
+To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $W$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $W$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares.
 
 #### What are the assumptions required for logistic regression?
 
