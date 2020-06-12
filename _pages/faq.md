@@ -5694,7 +5694,7 @@ $$
 \left(\begin{array}{cccc} \sigma^{2}_{1} & 0 &   \ldots & 0 \\ 0 & \sigma^{2}_{2} & \ldots & 0 \\  \vdots  & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots  &  \sigma^{2}_{n} \\ \end{array} \right)
 $$
 
-If we define the reciprocal of each variance, $\sigma_{i}^{2}$, as the weight, $w_{i} = \frac{1}{\sigma_{i}^{2}}$ which are known positive constants, then let matrix $W$ be a diagonal matrix containing these weights:
+If we define the reciprocal of each estimated variance, $\sigma_{i}^{2}$, as the weight, $w_{i} = \frac{1}{\sigma_{i}^{2}}$ which are known positive constants, then let matrix $W$ be a diagonal matrix containing these weights:
 
 $$
 \textbf{W} = \left(\begin{array}{cccc} w_{1} & 0 & \ldots & 0 \\ 0& w_{2} & \ldots & 0 \\ \vdots & \vdots & \ddots &   \vdots \\ 0& 0 & \ldots & w_{n} \\ \end{array}   \right)
@@ -5712,7 +5712,7 @@ $$
 \end{split}
 $$
 
-Notice that OLS is a special case of WLS, with $w = (1, 1, \dots,1)$. Just like OLS, WLS is unbiased and (under reasonable conditions) consistent, even if $\textbf{W}$ is misspecified. But if we have $\textbf{W}$ right—and only if we have $\textbf{W}$ right—then WLS is efficient in the class of linear unbiased estimators. In addition, our estimated variance matrix,
+Notice that OLS is a special case of WLS, with $w = (1, 1, \dots , 1)$. Just like OLS, WLS is unbiased and (under reasonable conditions) consistent, even if $\textbf{W}$ is misspecified. But if we have $\textbf{W}$ right—and only if we have $\textbf{W}$ right—then WLS is efficient in the class of linear unbiased estimators. In addition, our estimated variance matrix,
 
 $$
 \hat{\Sigma}_{\text{WLS}} = \frac{\sum_{i=1}^{n} \hat{\epsilon}_{i}^{2} / w_i}{n - p} (\mathbf{X}^\top W^{-1} \mathbf{X})^{-1},
@@ -5722,12 +5722,26 @@ is unbiased and consistent.
 
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
-Apart from violation of the assumption of homoscedasticity, Weighted Least Squares can also be used when:
+Apart from the violation of the assumption of homoscedasticity, Weighted Least Squares can also be used when:
 
 1. you have any other situation where data points should not be treated equally. This method gives us an easy way to remove one observation from a model by setting its weight equal to 0.
 2. You want to concentrate on certain areas
 
-To apply weighted least squares, whe weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. This method is also sensitive to outliers. A rogue outlier given an inappropriate weight could dramatically skew the results. However, if we choose proper weights we can downweight outlier or influential points to reduce their impact on the overall model.
+To apply weighted least squares, the weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. In some cases, the values of the weights may be based on theory or prior research. There are other circumstances where the weights are known:
+
+1.If the $i$-th response is an average of $n_{i}$ equally variable observations, then $Var(y_{i}) = \sigma^{2}/n_{i}$ and $w_{i} = n_{i}$.
+2. If the $i$-th response is a total of ni observations, then $Var(y_{i}) = n_{i}\sigma^{2}$ and $w_{i}  = \frac{1}{n_{i}}$.
+3. If variance is proportional to some predictor $x_{i}$, then $Var(y_{i}) = x_{i}\sigma^{2}$ and $w_{i} = \frac{1}{x_{i}}$.
+
+Again... the trick with weighted least squares is the estimation of $W$. If the variances of the observations or their functional form are somehow known, you can use that. More likely, you need to estimate $W$ from residual plots. So, we have to perform an ordinary least squares (OLS) regression first. Provided the regression function is appropriate, the $i$-th squared residual from the OLS fit is an estimate of $\sigma_{i}^{2}$ and the $i$-th absolute residual is an estimate of $\sigma_{i}$ (which tends to be a more useful estimator in the presence of outliers). The residuals are much too variable to be used directly in estimating the weights, $w_{i}$, so instead we use either the squared residuals to estimate a variance function or the absolute residuals to estimate a standard deviation function. We then use this variance or standard deviation function to estimate the weights.
+
+Some possible variance and standard deviation function estimates include:
+1. If a residual plot against a predictor exhibits a megaphone shape, then regress the absolute values of the residuals against that predictor. The resulting fitted values of this regression are estimates of $\sigma_{i}$. (And remember $w_{i}= 1/\sigma_{i}^{2}$).
+2. If a residual plot against the fitted values exhibits a megaphone shape, then regress the absolute values of the residuals against the fitted values. The resulting fitted values of this regression are estimates of $\sigma_{i}$.
+3. If a residual plot of the squared residuals against a predictor exhibits an upward trend, then regress the squared residuals against that predictor. The resulting fitted values of this regression are estimates of $\sigma_{i}^{2}$.
+4. If a residual plot of the squared residuals against the fitted values exhibits an upward trend, then regress the squared residuals against the fitted values. The resulting fitted values of this regression are estimates of $\sigma_{i}^{2}$.
+
+This method is also sensitive to outliers. A rogue outlier given an inappropriate weight could dramatically skew the results. However, if we choose proper weights we can downweight outlier or influential points to reduce their impact on the overall model.
 
 WLS can only be used in the rare cases where you know what the weight estimates are for each data point. When heteroscedasticity is a problem, it’s far more common to run OLS instead, using a difference variance estimator, such as White’s heteroskedasticity-consistent estimator. While White’s consistent estimator doesn’t require heteroscedasticity, it isn't a very efficient strategy. However, if you don’t know the weights for your data, it may be your best choice. 
 
