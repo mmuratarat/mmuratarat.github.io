@@ -5592,8 +5592,8 @@ Use the standard error of the coefficient to measure the precision of the estima
 
 There are two types of multicollinearity:
 
-1. **Structural multicollinearity** is a mathematical artifact caused by creating new predictors from other predictors — such as, creating the predictor x2 from the predictor x.
-2. **Data-based multicollinearity**, on the other hand, is a result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected.
+1. **Structural multicollinearity** is a mathematical artifact caused by creating new predictors from other predictors — such as, creating the predictor $x_{2}$ from the predictor $x$.
+2. **Data-based multicollinearity**, on the other hand, is a result of a poorly designed experiment, reliance on purely observational data, or the inability to manipulate the system on which the data are collected. In this situation, we could opt to remove one of the two correlated predictors from the model. Alternatively, if we have a good scientific reason for needing both of the predictors to remain in the model, we could go out and collect more data. In order to reduce the multicollinearity that exists, it is not sufficient to go out and just collect any ol' data. The data have to be collected in such a way to ensure that the correlations among the violating predictors is actually reduced. That is, collecting more of the same kind of data won't help to reduce the multicollinearity. The data have to be collected to ensure that the "base" is sufficiently enlarged. Doing so, of course, changes the characteristics of the studied population, and therefore should be reported accordingly.
 
 In the case of structural multicollinearity, the multicollinearity is induced by what you have done. Data-based multicollinearity is the more troublesome of the two types of multicollinearity. Unfortunately it is the type we encounter most often!
 
