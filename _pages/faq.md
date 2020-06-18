@@ -4522,8 +4522,7 @@ to find the chi-square statistic where $O_{i}$ is the observed value and $E_{i}$
 
 Compare this test statistic to the critical chi-square value from a chi-square table, given your degrees of freedom and desired alpha level. 
 
-Degrees of freedom: In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. 
-For instance, when checkinga binomial distribution, $p=1$, and when checking a three-co-variate Weibull distribution, $p=4$, and when checking a normal distribution (where the parameters are mean and standard deviation), $p=3$, and when checking a Poisson distribution (where the parameter is the expected value), $p=2$. Thus, there will be $n-p$ degrees of freedom, where $n$ is the number of categories.
+In Chi-Square goodness of fit test, the degree of freedom depends on the distribution of the sample. It can be shown that, if the population follows the hypothesized distribution, test statistics $\chi^{2}$ has approximately a chi-square distribution with $k-p-1$ degrees of freedom, where $p$ represents the number of parameters of the hypothesized distribution estimated by sample statistics. This approximation improves as $n$ increases. For instance, when checking a binomial distribution, $p=1$, and when checking a three-co-variate Weibull distribution, $p=3$, and when checking a normal distribution (where the parameters are mean and standard deviation), $p=2$, and when checking a Poisson distribution (where the parameter is the expected value), $p=1$. Thus, there will be $k-p-1$ degrees of freedom, where $k$ is the number of categories.
 
 If your chi-square statistic is larger than the table value, you may conclude your data is not following the given distribution.
 
