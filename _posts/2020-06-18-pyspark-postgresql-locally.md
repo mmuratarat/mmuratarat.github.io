@@ -94,7 +94,7 @@ insert into Department (Id, Name) values ('1', 'IT');
 insert into Department (Id, Name) values ('2', 'Sales');
 ```
 
-Now, tables are created in our database, `database_example` in`murat_server` server. Let's connect a locally deployed PostgreSQL database to Spark on JupyterLab. Therefore, we need to download proper PostgreSQL JDBC Driver jar from [https://jdbc.postgresql.org/download.html](this link) depending on Java version installed in your system! Note that you need to enter the correct path to this jar file!
+Now, tables are created in our database, `database_example` in our server, `murat_server`. Let's connect a locally deployed PostgreSQL database to Spark on JupyterLab. Therefore, we need to download proper PostgreSQL JDBC Driver jar from [https://jdbc.postgresql.org/download.html](this link) depending on Java version installed in your system! Note that you need to enter the correct path to this jar file!
 
 If you want to read in one single table, you can do it multiple ways:
 
