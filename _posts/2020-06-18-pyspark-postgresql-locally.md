@@ -31,11 +31,11 @@ Installing Apache Spark on any operating system can be a bit cumbersome but ther
 
 # How to install PostgreSQL and pgAdmin4 on Linux
 
-PostgreSQL is a free and open source cross-platform Relational Database Management System (RDBMS). It is widely used by developers in the development environment and in production environments as well. Ubuntu’s default repositories contain Postgres packages, so you can install these using the `apt` packaging system. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04){:target="_blank"} explains it so well!.
+PostgreSQL is a free and open source cross-platform Relational Database Management System (RDBMS). It is widely used by developers in the development environment and in production environments as well. Ubuntu’s default repositories contain PostgreSQL packages, so you can install these using the `apt` packaging system. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04){:target="_blank"} explains it so well!.
 
 Now, let's deal with pgAdmin4...
 
-pgAdmin4 is free and open-source PostgreSQL graphical user interface for day to day operations with the database. It now comes as native linux package so it is easy to install. You can go to [Postgres site](https://www.postgresql.org/download/linux/ubuntu/){:target="_blank"} and select your Ubuntu version as "Ubuntu Bionic" and run the command below on shell:
+pgAdmin4 is free and open-source PostgreSQL graphical user interface for day to day operations with the database. It now comes as native linux package so it is easy to install. You can go to [PostgreSQL site](https://www.postgresql.org/download/linux/ubuntu/){:target="_blank"} and select your Ubuntu version as "Ubuntu Bionic" and run the command below on shell:
 
 ```bash
 sudo apt-get update && sudo apt-get install pgadmin4
@@ -57,7 +57,7 @@ In the General tab, enter the name for this server. This can be anything you’d
 
 Next, click on the Connection tab. In the Host name/address field, enter `localhost`. The Port should be set to `5432` by default, which will work for this setup, as that’s the default port used by PostgreSQL.
 
-In the Maintenance database field, enter the name of the database you’d like to connect to. Note that this database must already be created on your server. Then, enter the PostgreSQL username and password you configured while installing pgadmin4 (or you can create another user if you want). The empty fields in the other tabs are optional, and it’s only necessary that you fill them in if you have a specific setup in mind in which they’re required. Click the Save button, and the database will appear under the Servers in the Browser menu.
+In the Maintenance database field, enter the name of the database you’d like to connect to. Note that this database must already be created on your server. Then, enter the PostgreSQL username and password you configured while installing pgAdmin4 (or you can create another user if you want). The empty fields in the other tabs are optional, and it’s only necessary that you fill them in if you have a specific setup in mind in which they’re required. Click the Save button, and the database will appear under the Servers in the Browser menu.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/3_pgadmin4.png?raw=true)
 
