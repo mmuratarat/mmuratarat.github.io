@@ -5,7 +5,11 @@ author: "MMA"
 comments: true
 ---
 
-Apache Spark is a framework used in cluster computing environments for analyzing big data. This platform became widely popular due to its ease of use and the improved data processing speeds over Hadoop. his open-source engine supports a wide array of programming languages. This includes Java, Scala, Python, and R. For this tutorial, I am using PySpark on Ubuntu Virtual Machine installed on my MacOS and running it on Jupyterlab (in order to use Jupyterlab or Jupyter Notebook, you need `findspark` library. However, you can also use interactive Spark Shell where `SparkSession` has already been created for you). You can see my version of Linux below:
+Apache Spark is a framework used in cluster computing environments for analyzing big data. This platform became widely popular due to its ease of use and the improved data processing speeds over Hadoop. This open-source engine supports a wide array of programming languages. This includes Java, Scala, Python, and R. PySpark is simply the python API for Spark that allows you to use an easy programming language, like python, and leverage the power of Apache Spark.
+
+For this tutorial, I am using PySpark on Ubuntu Virtual Machine installed on my MacOS and running it on Jupyterlab (in order to use Jupyterlab or Jupyter Notebook, you need `findspark` library. However, you can also use interactive Spark Shell where `SparkSession` has already been created for you). 
+
+You can see my version of Linux below:
 
 ```bash
 murat@murat-VirtualBox:~$ cat /etc/os-release
