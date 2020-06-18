@@ -27,7 +27,7 @@ VERSION_CODENAME=bionic
 UBUNTU_CODENAME=bionic
 ```
 
-Installing Apache Spark is a bit cumbersome but there are a lot of tutorials online. If you follow the steps, you will be just fine.
+Installing Apache Spark on any operating system can be a bit cumbersome but there is a lot of tutorials online. If you follow the steps, you will be just fine.
 
 # How to install PostgreSQL and PgAdmin4 on Linux
 
