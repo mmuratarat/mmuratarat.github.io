@@ -5,7 +5,11 @@ author: "MMA"
 comments: true
 ---
 
-Apache Spark is a unified open-source analytics engine for large-scale data processing, which supports a wide array of programming languages, such as Java, Scala, Python, and R. [PySpark](https://spark.apache.org/docs/latest/api/python/index.html){:target="_blank"} is simply the python API for Spark that allows you to use an easy programming language, like Python, and leverage the power of Apache Spark.
+Apache Spark is a unified open-source analytics engine for large-scale data processing a distributed environment, which supports a wide array of programming languages, such as Java, Python, and R, eventhough it is built on Scala programming language. [PySpark](https://spark.apache.org/docs/latest/api/python/index.html){:target="_blank"} is simply the Python API for Spark that allows you to use an easy programming language, like Python, and leverage the power of Apache Spark.
+
+Spark should be running on a distributed computing system. However, one might not have access to any distributed system all the time. Specially, for learning purpose one might want tor run spark on his/her own computer. This is actually a very easy task to do. 
+
+While working on our local physical machine, we use the built-in standalone cluster scheduler in the local mode (Spark is also deployed through other cluster managers, such as Standalone Cluster Manager, Hadoop YARN, Apache Mesos and Kubernetes). This means that all the Spark processes are run within the same JVM (Java Virtual Machine) effectively. The entire processing is done on a single multithreaded server (technically your local machine is a server). The local mode is very used for prototyping, development, debugging, and testing. However, You can still benefit from parallelisation across all the cores in your server (for example, when you define `.master(local[4])` in your `SparkSession`, you run it locally with 4 cores), but not across several servers.
 
 For this tutorial, I am using PySpark on Ubuntu Virtual Machine installed on my MacOS and running it on Jupyterlab (in order to use Jupyterlab or Jupyter Notebook, you need `findspark` library. However, you can also use interactive Spark Shell where `SparkSession` has already been created for you). 
 
@@ -101,11 +105,17 @@ If you want to read in one single table, you can do it multiple ways:
 ```python
 from pyspark.sql import SparkSession
 
+# the Spark session should be instantiated as follows
 spark = SparkSession \
     .builder \
     .appName("Python Spark SQL basic example") \
     .config("spark.jars", "postgresql-42.2.14.jar") \
     .getOrCreate()
+    
+ # generally we also put `.master()` argument to define the cluster manager
+ # it sets the Spark master URL to connect to, such as “local” to run locally, “local[4]” to run locally with 4 cores, or
+ # “spark://master:7077” to run on a Spark standalone cluster.
+ # http://spark.apache.org/docs/latest/submitting-applications.html#master-urls
     
 # Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
 
