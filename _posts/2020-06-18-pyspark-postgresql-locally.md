@@ -31,7 +31,7 @@ Installing Apache Spark on any operating system can be a bit cumbersome but ther
 
 # How to install PostgreSQL and PgAdmin4 on Linux
 
-PostgreSQL is a free and open source cross-platform Relational Database Management System (RDBMS). It is widely used by developers in the development environment and in production environments as well. Ubuntu’s default repositories contain Postgres packages, so you can install these using the `apt` packaging system. You can easily install PostgreSQL easily by following [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04){:target="_blank"}.
+PostgreSQL is a free and open source cross-platform Relational Database Management System (RDBMS). It is widely used by developers in the development environment and in production environments as well. Ubuntu’s default repositories contain Postgres packages, so you can install these using the `apt` packaging system. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04){:target="_blank"} explains it so well!.
 
 Now, let's deal with pgAdmin4...
 
