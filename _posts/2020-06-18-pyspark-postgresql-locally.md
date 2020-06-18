@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-Apache Spark is a unified open-source analytics engine for large-scale data processing, which supports a wide array of programming languages, such as Java, Scala, Python, and R. [PySpark](https://spark.apache.org/docs/latest/api/python/index.html){:target="_blank"} is simply the python API for Spark that allows you to use an easy programming language, like python, and leverage the power of Apache Spark.
+Apache Spark is a unified open-source analytics engine for large-scale data processing, which supports a wide array of programming languages, such as Java, Scala, Python, and R. [PySpark](https://spark.apache.org/docs/latest/api/python/index.html){:target="_blank"} is simply the python API for Spark that allows you to use an easy programming language, like Python, and leverage the power of Apache Spark.
 
 For this tutorial, I am using PySpark on Ubuntu Virtual Machine installed on my MacOS and running it on Jupyterlab (in order to use Jupyterlab or Jupyter Notebook, you need `findspark` library. However, you can also use interactive Spark Shell where `SparkSession` has already been created for you). 
 
