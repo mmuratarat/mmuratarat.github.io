@@ -346,6 +346,9 @@ permalink: /faq/
 13. [What is the difference between stack and queue?](#what-is-the-difference-between-stack-and-queue)
 14. [Explain Class, Object (Instance), Instance Attribute, Class Attribute, Instance Method with an example.](#explain-class-object-instance-instance-attribute-class-attribute-instance-method-with-an-example)
 15. [How to create a JSON file? How to load a JSON file?](#how-to-create-a-json-file-how-to-load-a-json-file)
+16. What is the time complexity for Binary Search Tree?
+17. Where does the log of O(log n) come from?
+18. What is Big Data?
 
 ## Mathematics and Linear Algebra
 
@@ -11520,3 +11523,6 @@ You repeatedly divide n by two until you reach 1 or less. Therefore your stop co
 
 https://stackoverflow.com/questions/9152890/what-would-cause-an-algorithm-to-have-olog-n-complexity/9153420#9153420
 
+#### What is Big Data?
+
+Big data analytics can be time-consuming, complicated, and computationally demanding, without the proper tools, frameworks, and techniques. When the volume of data is too high to process and analyze on a single machine, Apache Spark and Apache Hadoop can simplify the task through parallel processing and distributed processing. To understand the need for parallel processing and distributed processing in big data analytics, it is important to first understand what “big data” is. The high-velocity at which big data is generated requires that the data also be processed very quickly and the variety of big data means it contains various types of data, including structured, semi-structured, and unstructured data. The volume, velocity, and variety of big data calls for new, innovative techniques and frameworks for collecting, storing, and processing the data, which is why Apache Hadoop and Apache Spark were created.
