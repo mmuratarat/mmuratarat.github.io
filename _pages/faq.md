@@ -164,6 +164,7 @@ permalink: /faq/
 66. [What does link function do?](#what-does-link-function-do)
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
+68. What is the relation between variance and sum of squares? 
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
 70. [What is Homogeneity of Variances? When and how should we check it?](#what-is-homogeneity-of-variances-when-and-how-should-we-check-it)
@@ -4746,6 +4747,30 @@ It links the mean of the dependent variable $Y_{i}$, which is $E(Y_{i}) = \mu_{i
 #### A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?
 
 Let $P_{fail} = 0.1$ be the probability that the system fails in any given hour. Let $P_{no fail} = 1 - P_{fail} = 0.9$, be the probability that the system does not fail in any given hour. The joint probability of two independent events is the product of the probability of each event (that is, $P(A \cap B) = P(A) \times P(B)$). Therefore, The chance of it failing in 2 hours is $P_{fail}^{2} = 0.1^{2}$. The chance of it NOT failing in $n$ hours is $P_{no fail}^{n} = 0.9^{n}$. The chance of it failing in $n$ hours is `1 - (chance of not failing in n hours)`, which is $ 1 - 0.9^{n}$.
+
+#### What is the relation between variance and sum of squares? 
+
+Before we talk above Analysis of Variance, let's see the relationship between variance and sum of squares.
+
+The unbiased estimator of variance of an observed data set can be estimated using the following relationship:
+
+$$
+s^{2} = \frac{\sum_{i=1}^{n} (y_{i} - \hat{y}}{n-1}
+$$
+
+where $s$ is the standard deviation, $y_{i}$ is the $i$th observation, $n$ is the number of observations and $\hat{y}$ is the mean of the $n$ observations. 
+
+The quantity in the numerator of the previous equation is called the sum of squares. It is the sum of the squares of the deviations of all the observations, $y_{i}$, from their mean, $\hat{y}$. In the context of ANOVA, this quantity is called the total sum of squares (abbreviated SST) because it relates to the total variance of the observations. Thus:
+
+$$
+\text{S.S.}_{T} = sum_{i=1}^{n} (y_{i} - \hat{y}
+$$
+
+The denominator in the relationship of the sample variance is the number of degrees of freedom associated with the sample variance. Therefore, the number of degrees of freedom associated with $\text{S.S.}_{T}$, dof(SST), is $(n-1)$. The sample variance is also referred to as a mean square because it is obtained by dividing the sum of squares by the respective degrees of freedom. Therefore, the total mean square (abbreviated MST) is:
+
+$$
+MST = \frac{\text{S.S.}_{T}}{\text{dof(\text{S.S.}_{T})}} = \frac{\text{S.S.}_{T}}{n-1}
+$$
 
 #### What is analysis of variance (ANOVA)?
 
