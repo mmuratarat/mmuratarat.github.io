@@ -9277,7 +9277,7 @@ Suppose that you have draw a figure with a very thick brush. Then draw the same 
 
 Pooling mainly helps in extracting sharp and smooth features. Max-pooling helps in extracting low-level extreme features like edges, points, etc. while average pooling goes for smooth features.
 
-It also makes the network robust and invarient to the small changes and disturbances. When you use avarage pooling on $2 \times 2$ pooling layer, small changes on four nodes makes a tiny effect on avarage of that four nodes. If you use max pooling instead of avarage, small changes on that small valued three nodes won’t affect the output. Because we get the biggest value of that four nodes.
+It also makes the network robust and invarient to the small changes and disturbances. When you use average pooling on $2 \times 2$ pooling layer, small changes on four nodes makes a tiny effect on average of that four nodes. If you use max pooling instead of average, small changes on that small valued four nodes won’t affect the output. Because we get the biggest value of that four nodes.
 
 #### What is the benefit of using average pooling rather than max pooling?
 
