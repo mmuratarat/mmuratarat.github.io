@@ -9267,13 +9267,11 @@ When the input dimension was 5, if we use zero padding of 1 with stride $S=1$, t
 
 Padding is used when you do not want to decrease the spatial resolution of the image when you use convolution. Besides avoiding shrinkage, with padding you benefit more from the information contained in pixels on the edges of the picture. Otherwise, pixels on the edges processed by fewer filters than the pixels on the inner side.
 
-#### What is Pooling in CNN and how does it work?
-
-#### Why does pooling work?
+#### What is Pooling in CNN and how does it work? Why does pooling work?
 
 After convolutional layers and activation functions, we introduce a pooling function to modify the output of the layer further by downsampling. Pooling extracts low level features from neighbourhood and helps to make the representation approximately invariant to small translations of the input. Invariance to translation means that if we translate the input by small amount, the values of the most of the pooled outputs do not change.
 
-Suppose that you have draw a figure with a very thick brush. Then draw the same figure with a thin brush. These two figures has same information but one of them has a lot of unneccesary painting. Pooling simplifies the image with hard coding. Not with the AI. If you built a pooling layer with $2 \times 2$  filter, you squeeze the information of four pixels into one pixel. Whether it is max pooling or avarage pooling it is squeezing and reduction. Reduction of the feature map does not only reduces computational cost (as $2\times 2$ max pooling/average pooling reduces 75% data) but also controls the overfitting by controling the number of features the CNN model is learning 
+Suppose that you have draw a figure with a very thick brush. Then draw the same figure with a thin brush. These two figures has same information but one of them has a lot of unneccesary painting. Pooling simplifies the image with hard coding. Not with the AI. If you built a pooling layer with $2 \times 2$  filter, you squeeze the information of four pixels into one pixel. Whether it is max pooling or avarage pooling it is squeezing and reduction. Reduction of the feature map does not only reduces computational cost (as $2\times 2$ max pooling/average pooling reduces $75\%$ data) but also controls the overfitting by controling the number of features the CNN model is learning 
 
 Pooling mainly helps in extracting sharp and smooth features. Max-pooling helps in extracting low-level extreme features like edges, points, etc. while average pooling goes for smooth features.
 
