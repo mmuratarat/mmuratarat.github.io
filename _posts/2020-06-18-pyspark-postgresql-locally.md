@@ -39,7 +39,7 @@ PostgreSQL is a free and open source cross-platform Relational Database Manageme
 
 Now, let's deal with pgAdmin4...
 
-pgAdmin4 is free and open-source PostgreSQL graphical user interface for day to day operations with the database. It now comes as native linux package so it is easy to install. You can go to [PostgreSQL site](https://www.postgresql.org/download/linux/ubuntu/){:target="_blank"} and select your Ubuntu version as "Ubuntu Bionic" and run the command below on shell:
+pgAdmin4 is free and open-source PostgreSQL graphical user interface for day to day operations with the database. It now comes as native linux package so it is easy to install. You just run the command below on shell:
 
 ```bash
 sudo apt-get update && sudo apt-get install pgadmin4
