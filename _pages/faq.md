@@ -5386,6 +5386,8 @@ where $s = \sqrt{ \left (X^{T} X \right)^{-1}\_{ii}}$ is standard error of $\wid
 
 #### What are the non-parametric equivalent of some parametric tests?
 
+Most of the hypothesis testing and confidence interval procedures are based on the assumption that we are working with random samples from normal population. Traditionally, we have called these procedures **parametric methods** because they are based on a particular family of distributions - in this case, the normal. Altenately, sometimes we say that these procedures are not *distribution-free* because they depend of the assumption of normality. Fortunately, most of these procedures are relatively insensitive to slight departures from normality. Still... there are nonparametric and distribution-free methods exist in the literature. 
+
 Mann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney test) is the nonparametric equivalent of the two sample t-test and is used to test whether two samples are likely to derive from the same population (i.e., that the two populations have the same shape). Some investigators interpret this test as comparing the medians between the two populations. Recall that the parametric test compares the means ($H_{0}: \mu_{1} = \mu_{2}$) between independent groups.
 
 The Wilcoxon signed-rank test is a non-parametric statistical hypothesis test used to compare two related samples, matched samples, or repeated measurements on a single sample to assess whether their population mean ranks differ (i.e. it is a paired difference test). It can be used as an alternative to the paired Student's t-test (also known as "t-test for matched pairs" or "t-test for dependent samples")
