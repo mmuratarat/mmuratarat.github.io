@@ -4801,6 +4801,8 @@ $$
 
 An F-statistic is computed for each hypothesis you are testing.
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/two_way_ANOVA_table.png?raw=true)
+
 Sometimes, constraints prevent us from crossing every level of one factor with every level of the other factor. In these cases we are forced into what is known as a nested layout. We say we have a nested layout when fewer than all levels of one factor occur within each level of the other factor. An example of this might be if we want to study the effects of different machines and different operators on some output characteristic, but we can't have the operators change the machines they run. In this case, each operator is not crossed with each machine but rather only runs one machine.
 
 If Factor B is nested within Factor A, then a level of Factor B can only occur within one level of Factor A and there can be no interaction. This gives the following model:
