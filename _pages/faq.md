@@ -5470,6 +5470,17 @@ Before you can test the results of A/B test, you have to be sure that the test h
 * Product thinking is critical in A/B test. Sometimes a chance is obviously better UX but the test would take months to be statistically significant. If you are confident that the change aligns with your product strategy and creates better experience for users, you may forgo an A/B test. In these cases, you can take qualitative approaches to validate ideas such as running usability tests or user interviews to get feedback from users. It is a judgement call. If A/B tests are not practical for a given situation, you need to use another tool in the toolbox to make progress in order to continue improvement of the product. In many cases, A/B testing is just one approach to validate a change. 
 * Sometimes, the results of an A/B tests can be inconclusive, with no measurable differences between the baseline and the new version, either positive or negative. In these situations, you can either stay with the original version or you can decide to make a change to a new version, depending on other product considerations. 
 
+#### What is the difference between a mixture model and a multimodal distribution?
+
+Mixture models simply assume that the dataset is a mixture in unknown proportions, which results from two or more different unknown populations. We don’t have to assume that the populations are normal distributions, but that assumption is usually plausible and useful. The computing task is then finding estimates of the means and standard deviations of the component distributions and the proportion in which they are present. A very efficient way to do that is to use the **EM algorithm**, which employs maximum likelihood estimation.
+
+Multimodal distribution is a continuous probability distribution with two or more modes and generally can arise when results from two or more different processes are combined. If there are two modes, the distribution is called bimodal.
+
+Imagine a scenario where two distributions (e.g., two univariate normals) have the same mean, but different variances. In this example, they together form a unimodal distribution from a mixture of two different populations.
+
+You can also consider the beta distribution with $\alpha =0.5$ and $\beta = 0.5$. It is illustrated by the red line in the figure below. As you can see, it is multimodal (viz., bimodal), but it isn't a mixture distribution:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bimodal_beta.png?raw=true)
 
 
 ## General Machine Learning
