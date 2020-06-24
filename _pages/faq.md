@@ -5620,12 +5620,11 @@ $$
 = \sigma^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
 $$
 
-so that we have $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1})$
+so that we have $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1})$. In other words, OLS estimator is also distributed multivariate normal.
 
 $$
 \widehat{\textrm{Var}}(\hat{\mathbf{\beta}}) = \hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
 $$
-
 
 What does the variance-covariance matrix of the OLS estimator, i.e., $Var(\hat{\beta})$ look like?
 
