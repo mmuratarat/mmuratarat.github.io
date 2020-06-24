@@ -5409,7 +5409,7 @@ This is a simple rearrangement of the first chi-square expression and is indepen
 So,
 
 $$
-\frac{\frac{\widehat{\beta_{i}} - \beta_{i}}{\sigma\sqrt{(X^{T}X)\_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}\_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}\_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim t_{n-1}
+\frac{\frac{\widehat{\beta_{i}} - \beta_{i}}{\sigma\sqrt{(X^{T}X)_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
 $$
 
 where $s = \sqrt{ \left (X^{T} X \right)^{-1}\_{ii}}$ is standard error of $\widehat{\beta_{i}}$.
