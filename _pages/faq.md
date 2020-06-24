@@ -5632,7 +5632,7 @@ $$
 Var( \hat{\beta}) = Var((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} Var(\mathbf{y}) \mathbf{X} (\mathbf{X}^{T} \mathbf{X})^{-1} = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T}\sigma^2 I \mathbf{X}(\mathbf{X}^{T} \mathbf{X})^{-1} = \sigma^2 (\mathbf{X}^{T} \mathbf{X})^{-1}
 $$
 
-The square root of diagonal elements of $\sigma^2 (X^T X)^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
+The square root of diagonal elements of $\sigma^2 (\mathbf{X}^T \mathbf{X})^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
 
 $$
 se(\hat{\beta_{j}}) = \sqrt{\widehat{\textrm{Var}}(\hat{\beta_{j}})} = \sqrt{[\hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1}]_{jj}}
