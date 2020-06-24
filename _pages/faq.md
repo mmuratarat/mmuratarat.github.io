@@ -5620,6 +5620,69 @@ The standard deviation of an estimate is called the standard error. The standard
 
 Use the standard error of the coefficient to measure the precision of the estimate of the coefficient. The smaller the standard error, the more precise the estimate. Dividing the coefficient by its standard error calculates a t-value. If the p-value associated with this t-statistic is less than your alpha level, you conclude that the coefficient is significantly different from zero.
 
+
+The linear model is written as
+
+$$
+\left|
+\begin{array}{l}
+\mathbf{y} = \mathbf{X} \mathbf{\beta} + \mathbf{\epsilon} \\
+ \mathbf{\epsilon} \sim N(0, \sigma^2 \mathbf{I}),
+\end{array}
+\right.
+$$
+
+where $\mathbf{y}$ denotes the vector of responses, $\mathbf{\beta}$ is the vector of fixed effects parameters, $\mathbf{X}$ is the corresponding design matrix whose columns are the values of the explanatory variables, and $\mathbf{\epsilon}$ is the vector of random errors.
+
+It is well known that an estimate of $\mathbf{\epsilon}$ is given by 
+
+$$
+\hat{\mathbf{\beta}} = (\mathbf{X}^{\prime} \mathbf{X})^{-1} \mathbf{X}^{\prime} \mathbf{y}.
+$$
+
+Hence
+
+$$
+\textrm{Var}(\hat{\mathbf{\beta}}) =
+ (\mathbf{X}^{\prime} \mathbf{X})^{-1} \mathbf{X}^{\prime}
+ \;\sigma^2 \mathbf{I} \; \mathbf{X}  (\mathbf{X}^{\prime} \mathbf{X})^{-1}
+= \sigma^2 (\mathbf{X}^{\prime} \mathbf{X})^{-1} (\mathbf{X}^{\prime}
+ \mathbf{X})  (\mathbf{X}^{\prime} \mathbf{X})^{-1}
+= \sigma^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
+$$
+
+so that
+
+$$
+\widehat{\textrm{Var}}(\hat{\mathbf{\beta}}) = \hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
+$$
+
+Let's say we have a multivariate regression model. We know that $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (X^T X)^{-1})$. The square root of diagonal elements of $\sigma^2 (X^T X)^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
+
+$$
+se(\hat{\beta_{j}}) = \sqrt{\widehat{\textrm{Var}}(\hat{\beta_{j}})} = \sqrt{[\hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1}]_{jj}}
+$$
+
+Let's say we want to test whether the coefficient of $j$-th variable is significant or not. The hypotheses we have:
+
+$$
+\begin{split}
+H_0 & : & \beta_{j} = \beta_{j,0} \\
+H_1 & : & \beta_{j} \neq \beta_{j,0}
+\end{split}
+$$
+
+where $\beta_{j,0}$ is generally 0. The test statistic used for this test is:
+
+$$
+T_{j}= \frac{\hat{\beta_{j}}- \beta_{j,0}}{se(\hat{\beta_{j}})}
+$$
+
+where $\hat{\beta_{j}}$ is the least square estimate of $\beta_{j}$, and $se(\hat{\beta_{j}})$ is its standard error. 
+
+t-test for an estimator has $n-p-1$ degrees of freedom where $p$ is number of explanatory parameters in the model and $n$ is number of training samples.
+
+
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
 **Collinearity/Multicollinearity:**
