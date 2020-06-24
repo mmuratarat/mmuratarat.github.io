@@ -5606,6 +5606,12 @@ $$
 Hence
 
 $$
+E(\hat{\beta}) = E((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) =  E[(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}(\mathbf{X} \beta + \epsilon)] = \beta
+$$
+
+and
+
+$$
 \textrm{Var}(\hat{\mathbf{\beta}}) =
  (\mathbf{X}^{\prime} \mathbf{X})^{-1} \mathbf{X}^{\prime}
  \;\sigma^2 \mathbf{I} \; \mathbf{X}  (\mathbf{X}^{\prime} \mathbf{X})^{-1}
@@ -5614,23 +5620,12 @@ $$
 = \sigma^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
 $$
 
-so that
+so that we have $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1})$
 
 $$
 \widehat{\textrm{Var}}(\hat{\mathbf{\beta}}) = \hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
 $$
 
-So we have a this multivariate regression model. We know that $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1})$. 
-
-$$
-E(\hat{\beta}) = E((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) =  E[(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}(\mathbf{X} \beta + \epsilon)] = \beta
-$$
-
-and 
-
-$$
-Var( \hat{\beta}) = Var((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} Var(\mathbf{y}) \mathbf{X} (\mathbf{X}^{T} \mathbf{X})^{-1} = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T}\sigma^2 I \mathbf{X}(\mathbf{X}^{T} \mathbf{X})^{-1} = \sigma^2 (\mathbf{X}^{T} \mathbf{X})^{-1}
-$$
 
 What does the variance-covariance matrix of the OLS estimator, i.e., $Var(\hat{\beta})$ look like?
 
