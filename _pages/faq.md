@@ -87,7 +87,7 @@ permalink: /faq/
 9. [What is a probability?](#what-is-a-probability)
 10. [What are the probability axioms?](#what-are-the-probability-axioms)
 11. [What is a random variable?](#what-is-a-random-variable)
-12. Compare "Frequentist statistics" vs. "Bayesian statistics"?
+12. [Compare "Frequentist statistics" vs. "Bayesian statistics"](#compare-frequentist-statistics-vs-bayesian-statistics)
 13. [What is a probability distribution?](#what-is-a-probability-distribution)
 17. [What is a probability mass function? What are the conditions for a function to be a probability mass function?](#what-is-a-probability-mass-function-what-are-the-conditions-for-a-function-to-be-a-probability-mass-function)
 18. [What is a probability density function? What are the conditions for a function to be a probability density function?](#what-is-a-probability-density-function-what-are-the-conditions-for-a-function-to-be-a-probability-density-function)
@@ -1711,7 +1711,7 @@ A discrete random variable is one which may take on either a finite number of va
 
 A continuous random variable is one which takes on an uncountably infinite number of possible values. Continuous random variables are usually measurements. Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 
-#### Compare "Frequentist statistics" vs. "Bayesian statistics"?
+#### Compare "Frequentist statistics" vs. "Bayesian statistics"
 
 In a short way, statistics is the science of changing your mind. There are two schools of thoughts. The more popular one - Frequentist statistics - is all about checking whether you should leave your default action. Bayesian statistics is all about having a prior opinion and updating that opinion with data. If your mind is truly blank before you begin, look at your data and just go with it.
 
