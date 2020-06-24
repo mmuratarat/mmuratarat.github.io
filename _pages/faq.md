@@ -5672,16 +5672,21 @@ H_1 & : & \beta_{j} \neq \beta_{j,0}
 \end{split}
 $$
 
-where $\beta_{j,0}$ is generally 0. The test statistic used for this test is:
+The test statistic used for this test is:
 
 $$
 T_{j}= \frac{\hat{\beta_{j}}- \beta_{j,0}}{se(\hat{\beta_{j}})}
 $$
 
+Because we test whether the parameter of interest is 0 or not (i.e. $\beta_{j} = 0$), the test statistic simplifies to
+
+$$
+T_{j}= \frac{\hat{\beta_{j}}}{se(\hat{\beta_{j}})}
+$$
+
 where $\hat{\beta_{j}}$ is the least square estimate of $\beta_{j}$, and $se(\hat{\beta_{j}})$ is its standard error. 
 
 t-test for an estimator has $n-p-1$ degrees of freedom where $p$ is number of explanatory parameters in the model and $n$ is number of training samples.
-
 
 #### What is collinearity and what to do with it? How to remove multicollinearity?
 
