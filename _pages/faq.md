@@ -174,10 +174,9 @@ permalink: /faq/
 75. [What to do when normality assumption is violated?](#what-to-do-when-normality-assumption-is-violated)
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
 77. [What is the sum of the independent normal distributed random variables?](#what-is-the-sum-of-the-independent-normal-distributed-random-variables)
-78. [Why do we use t-distribution for the significance test of linear regression coefficients?](#why-do-we-use-t-distribution-for-the-significance-test-of-linear-regression-coefficients)
-79. [What are the non-parametric equivalent of some parametric tests?](#what-are-the-non-parametric-equivalent-of-some-parametric-tests)
-80. [Explain A/B test and its variants.](#explain-ab-test-and-its-variants)
-81. [What is the difference between a mixture model and a multimodal distribution?](#what-is-the-difference-between-a-mixture-model-and-a-multimodal-distribution)
+78. [What are the non-parametric equivalent of some parametric tests?](#what-are-the-non-parametric-equivalent-of-some-parametric-tests)
+79. [Explain A/B test and its variants.](#explain-ab-test-and-its-variants)
+80. [What is the difference between a mixture model and a multimodal distribution?](#what-is-the-difference-between-a-mixture-model-and-a-multimodal-distribution)
 
 
 [General Machine Learning](#general-machine-learning)
@@ -5378,44 +5377,6 @@ $$
 
 We have just shown that moment generating function of $y$ is the same as the moment generating function of a normal random variable with mean $\sum_{i=1}^{n} c_{i} \mu_{i}$ and variance $\sum_{i=1}^{n} c_{i}^{2} \sigma_{i}^{2}$. Therefore, by uniquess property of moment generating functions, we can say that $y$ also follows a normal distribution with said mean and said variance.
 
-#### Why do we use t-distribution for the significance test of linear regression coefficients?
-
-We know that $\hat{\beta} = (X^{T}X)^{-1}X^{T}Y$ so it is a linear function of $Y$, where $Y\sim N(X\beta, \sigma^{2}I_{n})$. As a result, it is normally distributed, that is $\widehat{\beta} \sim N(\beta, \sigma^{2}(X^{T}X)^{-1})$. 
-
-$$
-E(\hat{\beta}) = E((X^{T} X)^{-1} X^{T} Y) =  E[(X^{T} X)^{-1}X^{T}(X \beta + \epsilon)] = \beta
-$$
-
-and 
-
-$$
-Var( \hat{\beta}) = Var((X^{T} X)^{-1} X^{T} Y) = (X^{T} X)^{-1} X^{T} Var(Y) X (X^{T} X)^{-1} = (X^{T} X)^{-1} X^{T}\sigma^2 I X(X^{T} X)^{-1} = \sigma^2(X^{T} X)^{-1}
-$$
-
-We also know that residual sum of squares (RSS) follows $\sigma^{2}\chi_{n-p}^{2}$.
-
-For the sake of simplicity, let's use one single regression coefficient $\hat{\beta_{i}}$. So we know:
-
-$$
-\frac{\widehat{\beta}\_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}\_{ii}}} \sim N(0,1)
-$$
-
-Additionally from the chi-square distribution of RSS, we have that:
-
-$$
-\frac{(n-p)s^{2}}{\sigma^{2}} \sim \chi_{n-p}^{2}
-$$
-
-This is a simple rearrangement of the first chi-square expression and is independent of the $N(0,1)$. Additionally, we define $s^{2} = \frac{RSS}{n-p}$ which is an unbiased estimator for $\sigma^{2}$. By the definition of $t_{n-1}$, that is dividing a standard normal distribution by an independent chi-square (over its degrees of freedom) gives you a t-distribution.
-
-So,
-
-$$
-\frac{\frac{\widehat{\beta_{i}} - \beta_{i}}{\sigma\sqrt{(X^{T}X)_{ii}^{-1}}}}{\sqrt{\frac{ \chi_{n-p}^{2}}{n-p}}} = \frac{\frac{\frac{\widehat{\beta}_{i}-\beta_{i}}{\sigma\sqrt{(X^{T}X)^{-1}_{ii}}}}}{\frac{s}{\sigma}} = \frac{\widehat{\beta}_{i}-\beta_{i}}{s\sqrt{(X^{T}X)^{-1}_{ii}}} \sim t_{n-1}
-$$
-
-where $s = \sqrt{ \left (X^{T} X \right)^{-1}\_{ii}}$ is standard error of $\widehat{\beta_{i}}$.
-
 #### What are the non-parametric equivalent of some parametric tests?
 
 Most of the hypothesis testing and confidence interval procedures are based on the assumption that we are working with random samples from normal population. Traditionally, we have called these procedures **parametric methods** because they are based on a particular family of distributions - in this case, the normal. Altenately, sometimes we say that these procedures are not *distribution-free* because they depend of the assumption of normality. Fortunately, most of these procedures are relatively insensitive to slight departures from normality. Still... there are nonparametric and distribution-free methods exist in the literature. 
@@ -5659,7 +5620,19 @@ $$
 \widehat{\textrm{Var}}(\hat{\mathbf{\beta}}) = \hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1},
 $$
 
-Let's say we have a multivariate regression model. We know that $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (X^T X)^{-1})$. The square root of diagonal elements of $\sigma^2 (X^T X)^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
+So we have a this multivariate regression model. We know that $\hat{\beta} \sim \mathcal N(\beta, \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1})$. 
+
+$$
+E(\hat{\beta}) = E((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) =  E[(\mathbf{X}^{T} \mathbf{X})^{-1}\mathbf{X}^{T}(\mathbf{X} \beta + \epsilon)] = \beta
+$$
+
+and 
+
+$$
+Var( \hat{\beta}) = Var((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} Var(\mathbf{y}) \mathbf{X} (\mathbf{X}^{T} \mathbf{X})^{-1} = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T}\sigma^2 I \mathbf{X}(\mathbf{X}^{T} \mathbf{X})^{-1} = \sigma^2 (\mathbf{X}^{T} \mathbf{X})^{-1}
+$$
+
+The square root of diagonal elements of $\sigma^2 (X^T X)^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
 
 $$
 se(\hat{\beta_{j}}) = \sqrt{\widehat{\textrm{Var}}(\hat{\beta_{j}})} = \sqrt{[\hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1}]_{jj}}
