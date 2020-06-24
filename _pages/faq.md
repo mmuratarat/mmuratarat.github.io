@@ -175,8 +175,10 @@ permalink: /faq/
 76. [How to see non-Spherical disturbances?](#how-to-see-non-spherical-disturbances)
 77. [What is the sum of the independent normal distributed random variables?](#what-is-the-sum-of-the-independent-normal-distributed-random-variables)
 78. [Why do we use t-distribution for the significance test of linear regression coefficients?](#why-do-we-use-t-distribution-for-the-significance-test-of-linear-regression-coefficients)
-79. What are the non-parametric equivalent of some parametric tests?
-80. Explain A/B test and its variants.
+79. [What are the non-parametric equivalent of some parametric tests?](#what-are-the-non-parametric-equivalent-of-some-parametric-tests)
+80. [Explain A/B test and its variants.](#explain-ab-test-and-its-variants)
+81. [What is the difference between a mixture model and a multimodal distribution?](#what-is-the-difference-between-a-mixture-model-and-a-multimodal-distribution)
+
 
 [General Machine Learning](#general-machine-learning)
 
