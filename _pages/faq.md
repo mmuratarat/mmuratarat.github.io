@@ -9349,6 +9349,63 @@ Let’s look at a simple example. Suppose our input is 1D data:
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1D_convolution_example1.png?raw=true)
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/1D_convolution_example2.png?raw=true)
 
+#### What is Depthwise Separable Convolutions?
+
+The purpose of doing convolution is to extract useful features from the input. In image processing, there is a wide range of different filters one could choose for convolution. Each type of filters helps to extract different aspects or features from the input image, e.g. horizontal / vertical / diagonal edges. Similarly, in Convolutional Neural Network, different features are extracted through convolution using filters whose weights are automatically learned during training. All these extracted features then are ‘combined’ to make decisions.
+
+There are a few advantages of doing convolution, such as weights sharing and translation invariant. Convolution also takes spatial relationship of pixels into considerations. These could be very helpful especially in many computer vision tasks, since those tasks often involve identifying objects where certain components have certain spatially relationship with other components (e.g. a dog’s body usually links to a head, four legs, and a tail).
+
+In the regular 2D convolution performed over multiple input channels, the filter is as deep as the input and lets us freely mix channels to generate each element in the output. Depthwise convolutions don't do that - each channel is kept separate - hence the name depthwise. Here's a diagram to help explain how that works:
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/deptwise_conv.png?raw=true)
+
+There are three conceptual stages here:
+
+* Split the input into channels, and split the filter into channels (the number of channels between input and filter must match).
+* For each of the channels, convolve the input with the corresponding filter, producing an output tensor (2D).
+* Stack the output tensors back together.
+
+In TensorFlow, the corresponding op is `tf.nn.depthwise_conv2d`; this operation has the notion of channel multiplier which lets us compute multiple outputs for each input channel (somewhat like the number of output channels argument `out_channels` in conv2d, which decides the number of feature maps after convolution).
+
+For example, let's say you have a coloured image with length $100$, width $100$. So the dimensions are $100 \times 100 \times 3$. Let's use the same filter of width and height $5$. Lets say we want the next layer to have a depth of $8$.
+
+In `tf.nn.conv2d` you define the kernel shape as `[width, height, in_channels, out_channels]`. In our case this means the kernel has shape `[5,5,3,out_channels]`. The weight-kernel that is strided over the image has a shape of $5 \times 5 \times 3$, and it is strided over the whole image 8 times to produce 8 different feature maps.
+
+In `tf.nn.depthwise_conv2d` you define the kernel shape as `[width, height, in_channels, channel_multiplier]`. Now the output is produced differently. Separate filters of $5 \times 5 \times 1$ are strided over each dimension of the input image, one filter per dimension, each producing one feature map per dimension. So here, a kernel size `[5,5,3,1]` would produce an output with depth 3. The `channel_multiplier` argument tells you how many different filters you want to apply per dimension. So the original desired output of depth 8 is not possible with 3 input dimensions. Only multiples of 3 are possible.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/conv_and_depthconv.png?raw=true)
+
+Output of Depthwise Convolution is fed to Pointwise Convolution, to get single pixel output similar to Normal Convolution, i.e. a $1 \times 1$ convolution, projecting the channels output by the depthwise convolution onto a new channel space.
+
+In depthwise operation, convolution is applied to a single channel at a time unlike standard CNN’s in which it is done for all the $M$ channels. So here the filters/kernels will be of size $D_{k} \times D_{k} \times 1$. Given there are $M$ channels in the input data, then $M$ such filters are required. Output will be of size $D_{p} \times D_{p} \times M$.
+
+In point-wise operation, a $1 \times 1$ convolution operation is applied on the $M$ channels together. So the filter size for this operation will be $1 \times 1 \times M$. Say we use $N$ such filters, the output size becomes $D_{p} \times D_{p} \times N$.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2-229.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/3-167.png?raw=true)
+
+After deptwise convolution, we move on pointwise convolution and this process is called depthwise seperable convolution. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/conv2d-depthwise-separable.png?raw=true)
+
+Depthwise separable convolutions have become popular in DNN models recently, for two reasons:
+
+* They have fewer parameters than "regular" convolutional layers, and thus are less prone to overfitting.
+* With fewer parameters, they also require less operations to compute, and thus are cheaper and faster
+
+In standard convolution 2D, when we have $N$ different $D_{k} \times D_{k} \times M$ filters where $M$ is the depth (it is 3 for the first layer of CNN), the number of parameters is $D_{k}^{2} \times M \times N$.
+
+In Depthwise Convolution, since we are dealing with one channel at a time, we have $M$ different $D_{k} \times D_{k} \times 1$ filter, the number of parameters is $M \times D_{k}^{2}$.
+
+Since output of depthwise convolution is fed to pointwise convolution, let's say that input to Pointwise Convolution has shape of $D_{p} \times D_{p} \times M$. So, we have N different $1 \times 1 \times M$ filters, the number of parameters is $N \times M$.
+
+So, depthwise separable convolution has $M \times (N + D_{k}^{2})$
+Ratio of number of parameters of standard convolution and depthwise separable convolution is then:
+
+$$
+\frac{\text{The number of parameters depthwise separable convolution}}{The number of parameters in standard convolution} = \frac{M \times (N + D_{k}^{2})}{D_{k}^{2} \times M \times N} = \frac{1}{N}\frac{1}{D_{k}^{2}}
+$$
+
 #### What is an RNN?
 
 #### What is the number of parameters in an RNN?
