@@ -185,7 +185,7 @@ permalink: /faq/
 3. [What is confusion matrix and its elements?](#what-is-confusion-matrix-and-its-elements)
 4. [What is a linear regression model?](#what-is-a-linear-regression-model)
 4. [What are the assumptions required for linear regression?](#what-are-the-assumptions-required-for-linear-regression)
-4. What is the standard error of the coefficient?
+4. [What is the standard error of the coefficient?](#what-is-the-standard-error-of-the-coefficient)
 4. [What is collinearity and what to do with it? How to remove multicollinearity?](#what-is-collinearity-and-what-to-do-with-it-how-to-remove-multicollinearity)
 5. [What is Heteroskedasticity and weighted least squares?](#what-is-heteroskedasticity-and-weighted-least-squares)
 5. [What are the assumptions required for logistic regression?](#what-are-the-assumptions-required-for-logistic-regression)
