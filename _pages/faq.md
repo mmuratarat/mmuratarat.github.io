@@ -9403,7 +9403,7 @@ So, depthwise separable convolution has $M \times (N + D_{k}^{2})$
 Ratio of number of parameters of standard convolution and depthwise separable convolution is then:
 
 $$
-\frac{\text{The number of parameters depthwise separable convolution}}{The number of parameters in standard convolution} = \frac{M \times (N + D_{k}^{2})}{D_{k}^{2} \times M \times N} = \frac{1}{N}\frac{1}{D_{k}^{2}}
+\frac{\text{The number of parameters depthwise separable convolution}}{\text{The number of parameters in standard convolution}} = \frac{M \times (N + D_{k}^{2})}{D_{k}^{2} \times M \times N} = \frac{1}{N} + \frac{1}{D_{k}^{2}}
 $$
 
 #### What is an RNN?
