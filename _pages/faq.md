@@ -164,7 +164,7 @@ permalink: /faq/
 66. [What does link function do?](#what-does-link-function-do)
 67. [Given X and Y are independent variables with normal distributions, what is the mean and variance of the distribution of 2X - Y when the corresponding distributions are X follows N (3, 4) and Y follows N(1, 4)?](#given-x-and-y-are-independent-variables-with-normal-distributions-what-is-the-mean-and-variance-of-the-distribution-of-2x---y-when-the-corresponding-distributions-are-x-follows-n-3-4-and-y-follows-n1-4)
 68. [A system is guaranteed to fail 10% of a time within any given hour, what's the failure rate after two hours ? after n-hours?](#a-system-is-guaranteed-to-fail-10-of-a-time-within-any-given-hour-whats-the-failure-rate-after-two-hours--after-n-hours)
-68. What is the relation between variance and sum of squares? 
+68. [What is the relation between variance and sum of squares?](#what-is-the-relation-between-variance-and-sum-of-squares)
 69. [What is analysis of variance (ANOVA)?](#what-is-analysis-of-variance-anova)
 70. [What is analysis of covariance (ANCOVA)?](#what-is-analysis-of-covariance-ancova)
 70. [What is Homogeneity of Variances? When and how should we check it?](#what-is-homogeneity-of-variances-when-and-how-should-we-check-it)
@@ -4758,7 +4758,7 @@ Before we talk above Analysis of Variance, let's see the relationship between va
 The unbiased estimator of variance of an observed data set can be estimated using the following relationship:
 
 $$
-s^{2} = \frac{\sum_{i=1}^{n} (y_{i} - \hat{y}}{n-1}
+s^{2} = \frac{\sum_{i=1}^{n} (y_{i} - \hat{y})^{2}}{n-1}
 $$
 
 where $s$ is the standard deviation, $y_{i}$ is the $i$th observation, $n$ is the number of observations and $\hat{y}$ is the mean of the $n$ observations. 
@@ -4766,13 +4766,13 @@ where $s$ is the standard deviation, $y_{i}$ is the $i$th observation, $n$ is th
 The quantity in the numerator of the previous equation is called the sum of squares. It is the sum of the squares of the deviations of all the observations, $y_{i}$, from their mean, $\hat{y}$. In the context of ANOVA, this quantity is called the total sum of squares (abbreviated SST) because it relates to the total variance of the observations. Thus:
 
 $$
-\text{S.S.}_{T} = sum_{i=1}^{n} (y_{i} - \hat{y}
+\text{S.S.}_{T} = \sum_{i=1}^{n} (y_{i} - \hat{y})^{2}
 $$
 
 The denominator in the relationship of the sample variance is the number of degrees of freedom associated with the sample variance. Therefore, the number of degrees of freedom associated with $\text{S.S.}_{T}$, dof(SST), is $(n-1)$. The sample variance is also referred to as a mean square because it is obtained by dividing the sum of squares by the respective degrees of freedom. Therefore, the total mean square (abbreviated MST) is:
 
 $$
-MST = \frac{\text{S.S.}_{T}}{\text{dof(\text{S.S.}_{T})}} = \frac{\text{S.S.}_{T}}{n-1}
+MST = \frac{\text{S.S.}_{T}}{\text{dof}(\text{S.S.}_{T})} = \frac{\text{S.S.}_{T}}{n-1}
 $$
 
 #### What is analysis of variance (ANOVA)?
