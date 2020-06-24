@@ -5632,7 +5632,18 @@ $$
 Var( \hat{\beta}) = Var((\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} \mathbf{y}) = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T} Var(\mathbf{y}) \mathbf{X} (\mathbf{X}^{T} \mathbf{X})^{-1} = (\mathbf{X}^{T} \mathbf{X})^{-1} \mathbf{X}^{T}\sigma^2 I \mathbf{X}(\mathbf{X}^{T} \mathbf{X})^{-1} = \sigma^2 (\mathbf{X}^{T} \mathbf{X})^{-1}
 $$
 
-The square root of diagonal elements of $\sigma^2 (\mathbf{X}^T \mathbf{X})^{-1}$ will give standard errors of the coefficients of estimators, i.e. $se(\hat{\beta_{j}})$.
+What does the variance-covariance matrix of the OLS estimator, i.e., $Var(\hat{\beta})$ look like?
+
+$$
+Var(\hat{\beta}) = E[(\hat{\beta} - \beta)(\hat{\beta} - \beta)^{\prime}] = \begin{bmatrix}
+Var(\hat{\beta_{1}}) & Cov(\hat{\beta_{1}}, \hat{\beta_{2}}) & \cdots & Cov(\hat{\beta_{1}}, \hat{\beta_{p}}) \\
+Cov(\hat{\beta_{2}}, \hat{\beta_{1}}) & Var(\hat{\beta_{2}}) & \cdots & Cov(\hat{\beta_{2}}, \hat{\beta_{p}}) \\
+\vdots & \vdots & \ddots & \vdots \\
+Cov(\hat{\beta_{p}}, \hat{\beta_{1}}) & Cov(\hat{\beta_{p}}, \hat{\beta_{2}}) & \cdots & Var(\hat{\beta_{p}})
+\end{bmatrix}
+$$
+
+As you can see, the standard errors of the $\hat{\beta}$ (the coefficients of estimators), i.e., $se(\hat{\beta_{j}})$., are given by the square root of the elements along the main diagonal of this variance-covariance matrix.
 
 $$
 se(\hat{\beta_{j}}) = \sqrt{\widehat{\textrm{Var}}(\hat{\beta_{j}})} = \sqrt{[\hat{\sigma}^2  (\mathbf{X}^{\prime} \mathbf{X})^{-1}]_{jj}}
