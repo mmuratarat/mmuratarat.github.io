@@ -6970,7 +6970,7 @@ $$
 w^{T}x + b = \left(\sum_{i=1}^{n}{\alpha_i y_i x_i} \right)^{T} x + b = \sum_{i=1}^{n}{\alpha_i y_i \langle x_i, x \rangle} + b
 $$
 
-This term is very efficiently calculated if there are only few support vectors (which there is often only a small number). Further, since we now have a scalar product only involving data vectors, we may apply the kernel trick.
+This term is very efficiently calculated if there are only few support vectors (which there is often only a small number due to the sparse solution of SVM). Further, since we now have a scalar product only involving data vectors, we may apply the kernel trick.
 
 There are some algorithms like SMO(Sequential Minimal Optimization) solves the dual problem efficiently.
 
