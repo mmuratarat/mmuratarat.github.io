@@ -441,15 +441,6 @@ Notice that you need at least two different training examples because with one e
 
 # A Probabilistic Interpretation of Regularization
 
-In this section, we will look at a probabilistic (Bayesian) interpretation of regularization. We'll take a look at both L1 and L2 regularization in the context of ordinary linear regression. Remember that in a Bayesian analysis we multiply the likelihood function by a prior probability for the parameter in order to obtain the posterior distribution.
-
-In the context of a ordinary linear regression, we have MSE that we try to minimize:
-
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0001-1.png?raw=true)
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0002-1.png?raw=true)
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0003-1.png?raw=true)
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Page0004-1.png?raw=true)
-
 Many of the penalized maximum likelihood techniques we used for regularization are equivalent to MAP with certain parameter priors:
 
 * Quadratic weight decay (shrinkage) $\Rightarrow$ Gaussian prior
