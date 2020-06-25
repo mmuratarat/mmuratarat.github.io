@@ -6870,7 +6870,7 @@ Logistic regression focuses on maximizing the probability of the data. The farth
 
 Support Vector Machine (SVM) is an algorithm used for classification problems similar to Logistic Regression (LR). LR and SVM with linear Kernel function generally perform comparably in practice.
 
-SVM minimizes hinge loss while logistic regression minimizes logistic loss. 
+SVM minimizes hinge loss while logistic regression minimizes logistic loss (also called log loss). 
 
 LR is more sensitive to outliers than SVM because the cost function of LR diverges faster than those of SVM.
 
