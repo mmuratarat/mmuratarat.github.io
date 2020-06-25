@@ -7239,7 +7239,7 @@ Instead of relying on random samples to cover the variety of the training sample
 
 You could even use a method like Naive Bayes that can sample each attribute independently when run in reverse.
 
-A recent study shows that the combination of undersampling / oversampling with ensemble learning can achieve better results. Although you are undersampling/oversampling the majority class for each individual model, as long as you build enough models, you'll be able to fully sample the training data.
+A recent study shows that the combination of undersampling / oversampling with ensemble learning can achieve better results. Although you are undersampling the majority class for each individual model, as long as you build enough models, you'll be able to fully sample the training data.
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/blagging.png?raw=true)
 
