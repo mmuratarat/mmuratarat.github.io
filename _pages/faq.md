@@ -6363,7 +6363,7 @@ Hyperparameters are not optimized by the learning algorithm itself. The research
 
 One typical way to do that, when you have enough data to have a decent validation set and the number of hyperparameters and their range is not too large is to use __grid search__.
 
-Grid search is the most simple hyperparameter tuning technique. It builds a model for every combination of hyperparameters specified and evaluates each model. Finally, you keep the model that performs the best according to the metric. Once the best pair of hyperparameters ois found, you can try to explore the values close to the best ones in some region around them. Sometimes, this can result in an even better model. Finally you assess the selected model using the test set.
+Grid search is the most simple hyperparameter tuning technique. It builds a model for every combination of hyperparameters specified and evaluates each model. Finally, you keep the model that performs the best according to the metric. Once the best pair of hyperparameters is found, you can try to explore the values close to the best ones in some region around them. Sometimes, this can result in an even better model. Finally you assess the selected model using the test set.
 
 However, trying all combinations of hyperparameters, especially if there are more than a couple of them, could be time-consuming, especially for large datasets. There are more efficient techniques seuch as __random search__ and __Bayesian hyperparameter optimization__. 
 
