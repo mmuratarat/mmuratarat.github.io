@@ -6901,7 +6901,7 @@ $$
 **Dual Problem**:
 
 $$
-\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.} \quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+\begin{array}{l} {\mathop{max}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.} \quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
 __Soft-Margin Classifier__
@@ -6919,7 +6919,7 @@ $$
 **Dual Problem**:
 
 $$
-\begin{array}{l} {\mathop{maks} \limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+\begin{array}{l} {\mathop{max} \limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \vec{x}_{i}^{T} \vec{x}_{j} } \\[10pt]  {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
 __Non-linear Classifiers__
@@ -6927,13 +6927,13 @@ __Non-linear Classifiers__
 **Hard-Margin Classifier**
 
 $$
-\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+\begin{array}{l} {\mathop{max}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\alpha )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {\alpha _{i} \ge 0,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
 **Soft-Margin Classifier**
 
 $$
-\begin{array}{l} {\mathop{maks}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad \; \; \; \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
+\begin{array}{l} {\mathop{max}\limits_{\alpha } \quad \quad \; L_{D} (\vec{w},b,\xi ,\alpha ,\mu )=\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} \varphi (\vec{x}_{i} )^{T} \varphi (\vec{x}_{j} )} \\ {\quad \quad \quad \quad \quad \quad \quad \quad \quad \; \; \; \quad =\sum \limits_{i=1}^{n}\alpha _{i}  -\frac{1}{2} \sum \limits_{i,j=1}^{n}\alpha _{i} \alpha _{j}  y_{i} y_{j} K(\vec{x}_{i} ,\vec{x}_{j} )} \\[7pt] {\text{s.t.}\quad \; \quad \quad \; \quad \quad \begin{array}{c} {0\le \alpha _{i} \le C,\quad i=1,...,n} \\ {\sum \limits_{i=1}^{n}\alpha _{i} y_{i}  =0} \end{array}} \\ {\quad \; \quad \quad \; \quad \quad \quad \quad \quad \quad } \end{array}
 $$
 
 #### What does the parameter C do in SVM?
