@@ -6884,7 +6884,7 @@ SVMs have a nice dual form, giving sparse solutions when using the kernel trick 
 
 #### What is the best separating hyperplane?
 
-Some methods find a separating hyperplane, but not the optimal one (e.g., neural net). Besides, we can find multiple separating hyperplane between two classes. However, the best separating hyperplan is  the one that maximizes the distance to the closest data points from both classes. We say it is the hyperplane with maximum margin.
+Some methods find a separating hyperplane, but not the optimal one (e.g., neural net). Besides, we can find multiple separating hyperplane between two classes. However, the best separating hyperplane is  the one that maximizes the distance to the closest data points from both classes. We say it is the hyperplane with maximum margin.
 
 #### What is the optimization problem for Support Vector Machines?
 
