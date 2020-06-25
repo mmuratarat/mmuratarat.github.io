@@ -5819,7 +5819,7 @@ Apart from the violation of the assumption of homoscedasticity, Weighted Least S
 
 To apply weighted least squares, the weights, $w_{i}$'s, have to be known up to a proportionality constant (in other words, we know the form of $\textbf{W}$). However, in many real-life situations, the weights are not known apriori (i.e., the structure of $\textbf{W}$ is usually unknown). In such cases we need to estimate the weights in order to use weighted least squares. In some cases, the values of the weights may be based on theory or prior research. There are other circumstances where the weights are known:
 
-1.If the $i$-th response is an average of $n_{i}$ equally variable observations, then $Var(y_{i}) = \sigma^{2}/n_{i}$ and $w_{i} = n_{i}$.
+1. If the $i$-th response is an average of $n_{i}$ equally variable observations, then $Var(y_{i}) = \sigma^{2}/n_{i}$ and $w_{i} = n_{i}$.
 2. If the $i$-th response is a total of ni observations, then $Var(y_{i}) = n_{i}\sigma^{2}$ and $w_{i}  = \frac{1}{n_{i}}$.
 3. If variance is proportional to some predictor $x_{i}$, then $Var(y_{i}) = x_{i}\sigma^{2}$ and $w_{i} = \frac{1}{x_{i}}$.
 
