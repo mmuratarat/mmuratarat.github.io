@@ -5837,7 +5837,7 @@ WLS can only be used in the rare cases where you know what the weight estimates 
 
 #### What are the assumptions required for logistic regression?
 
-First, logistic regression does not require a linear relationship between the dependent and independent variables.  Second, the error terms (residuals) do not need to be normally distributed.  Third, homoscedasticity is not required.  Finally, the dependent variable in logistic regression is not measured on an interval or ratio scale.
+First, logistic regression does not require a linear relationship between the dependent and independent variables. Actually, it is a linear model for the log odds.  Second, the error terms (residuals) do not need to be normally distributed.  Third, homoscedasticity is not required.  Finally, the dependent variable in logistic regression is not measured on an interval or ratio scale.
  
 However, some other assumptions still apply.
 
