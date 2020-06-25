@@ -5808,7 +5808,7 @@ $$
 \hat{\Sigma}_{\text{WLS}} = \frac{\sum_{i=1}^{n} \hat{\epsilon}_{i}^{2} / w_i}{n - p} (\mathbf{X}^\top W^{-1} \mathbf{X})^{-1},
 $$
 
-is unbiased and consistent.
+is unbiased and consistent. Note that here $n=p$ is the degrees of freedom for sum of squares of errors. 
 
 Since each weight is inversely proportional to the error variance, it reflects the information in that observation. So, an observation with small error variance has a large weight since it contains relatively more information than an observation with large error variance (small weight). 
 
