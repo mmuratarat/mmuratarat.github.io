@@ -6938,7 +6938,7 @@ $$
 
 #### What does the parameter C do in SVM?
 
-$C$ parameter in soft-margin SVM is essentially NOT a regularisation parameter, but it controls the trade-off between classifying the training data well (minimizing the training error) and classifying the future examples (minimizing the testing error, in other words, to generalize your classifier to unseen data). If we have a large $C$, we prefer small number of misclassified examples because the term in the objective function of SVM, $C\sum_{i=1}^{n} \varepsilon_{i}$, will dominate, so, we will have a smaller margin. This is basically trying to fit the model exactly to training data, which can have tendency to overfit. Conversely, if we have a small $C$, the regularization term in the objective function of SVM, $\frac{\lVert w \rVert^{2}}{2}$, will dominate. So, we will have a larger margin but will allow potentially larger number of misclassified example (ignore errors/underfit the data). 
+$C$ parameter in soft-margin SVM is essentially NOT a regularisation parameter, but it controls the trade-off between classifying the training data well (minimizing the training error) and classifying the future examples (minimizing the testing error, in other words, to generalize your classifier to unseen data). If we have a large $C$, we prefer small number of misclassified examples because the term in the objective function of SVM, $C\sum_{i=1}^{n} \varepsilon_{i}$, will dominate, so, we will have a smaller margin. This is basically trying to fit the model exactly to training data, which can have tendency to overfit. Conversely, if we have a small $C$, the regularization term in the objective function of SVM, $\frac{\lVert w \rVert^{2}}{2}$, will dominate. So, we will have a larger margin but will allow potentially larger number of misclassified example (ignore those data points/underfit the data/larger training error). 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/0_z00-0ici9ikQLBug.jpg?raw=true)
 
@@ -6956,7 +6956,7 @@ $$
 
 The two are of course equivalent with $C= \frac{1}{\lambda}$. As we increase $\lambda \to \infty$ we introduce more bias into regression model, therefore, a small $C$ will have a high bias, low variance, underfitting the data. As we decrease $\lambda$, we increase the variance in the model and lowering the bias, therefore, $C$ will go larger, so we will have a high variance, low bias SVM, which can overfit the data. 
 
-Nonetheless, if you set $C=0$, then SVM will ignore the errors, and just try to minimise the sum of squares of the weights($w$), perhaps you may get different results on the test set.
+Nonetheless, if you set $C=0$, then SVM will ignore the errors, and just try to minimise the sum of squares of the weights ($w$), perhaps you may get completely different results on the test set.
 
 The theory for determining how to set $C$ is not very well developed at the moment, so it is recommended that a "grid-search" on $C$ and also $\gamma$ (if an RBF kernel is used) using cross-validation. Various pairs of $(C,\gamma)$ values are tried and the one with the best cross-validation accuracy is picked. We found that trying exponentially growing sequences of $C$ and $\gamma$ is a practical method to identify good parameters (for example, $C = 2^{-5},2^{-3},\ldots,2^{15};\gamma = 2^{-15},2^{-13},\ldots,2^{3}$).
 
