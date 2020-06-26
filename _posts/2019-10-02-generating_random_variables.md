@@ -678,7 +678,7 @@ f(x) &= \int_{0}^{\infty} f(x, \lambda) d\lambda \\
 $$
 
 Note that $f(x)$ simplifies to a Pareto distribution with parameters $\alpha$ and $\beta$. This density is the closed form solution; in most problems, this is not possible to
-obtain. However, we chose distributions such that there would be a closed form solution in order to compare our results to. Finally, we can solve for each conditional distribution. Having already been given f(x \mid \lambda), $f(\lambda \mid x)$ is derived as follows:
+obtain. However, we chose distributions such that there would be a closed form solution in order to compare our results to. Finally, we can solve for each conditional distribution. Having already been given $f(x \mid \lambda)$, $f(\lambda \mid x)$ is derived as follows:
 
 $$
 \begin{split}
