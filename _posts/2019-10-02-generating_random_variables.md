@@ -643,7 +643,7 @@ print(np.cov(params, rowvar=False, bias=False))
 #  [0.5958002  0.99836987]]
 ```
 
-Some drawbacks of Gibbs sampling are: (1) long convergence time especially with the dimensionality of the data growingbecause Convergence time also depends on the shape of the distribution and (2) difficulty in finding the posterior for each variable.
+Some drawbacks of Gibbs sampling are: (1) long convergence time especially with the dimensionality of the data growing because Convergence time also depends on the shape of the distribution and (2) difficulty in finding the posterior for each variable.
 
 Let's give another example. Here we are going to study the properties of Gibbs sampling through simulation. We start by assuming the size of a claim $X$ is exponentially distributed with parameter $\lambda$. Further, we treat the parameter $\lambda$ as a random variable that follows a gamma distribution with parameters $\alpha$ and $\beta$.
 $\alpha$ and $\beta$ are constants. Stemming from our Bayesian approach, we can write this information as follows: the conditional distribution of $X$ given $\lambda$ as
