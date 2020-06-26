@@ -683,7 +683,7 @@ obtain. However, we chose distributions such that there would be a closed form s
 $$
 \begin{split}
 f(\lambda \mid x) &= \frac{f(x, \lambda)}{f(x)}\\
-&= \frac{(x + \beta)^{alpha + 1} \lambda^{\alpha} e^{-\lambda (x + \beta)}}{\Gamma (\alpha + 1)}\\
+&= \frac{(x + \beta)^{\alpha + 1} \lambda^{\alpha} e^{-\lambda (x + \beta)}}{\Gamma (\alpha + 1)}\\
 &\sim gamma (\alpha + 1, x + \beta)
 \end{split}
 $$
