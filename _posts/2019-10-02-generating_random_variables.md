@@ -40,7 +40,7 @@ Let $U \sim U(0, 1)$. Then $F(X) = U$ means that the random variable $F^{−1}(U
 
 # Inverse transform sampling
 
-It is a basic method for pseudo-random number sampling, i.e. for generating sample numbers at random from any probability distribution given its cumulative distribution function. The basic principle is to find the inverse function of F, $F^{-1}$ such that $F~ F^{-1} = F^{-1} ~ F = I$.
+It is a basic method for pseudo-random number sampling, i.e. for generating sample numbers at random from any probability distribution given its cumulative distribution function. The basic principle is to find the inverse function of $F$, $F^{-1}$ such that $F~ F^{-1} = F^{-1} ~ F = I$.
 
 The problem that the inverse transform sampling method solves is as follows:
 
