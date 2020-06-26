@@ -688,7 +688,7 @@ f(\lambda \mid x) &= \frac{f(x, \lambda)}{f(x)}\\
 \end{split}
 $$
 
-Notice here that the conditional distribution of $f(\lambda \mid x)$ simplifies to a gamma d istribution. This is because of the use of a conjugate prior distribution. This simply means that the mixing distribution is from the same family as the variable of interest.
+Notice here that the conditional distribution of $f(\lambda \mid x)$ simplifies to a gamma distribution. This is because of the use of a conjugate prior distribution. This simply means that the mixing distribution is from the same family as the variable of interest.
 
 The next step in Gibbs sampling is to run our two conditional distributions through the iterative algorithm defined below:
 
