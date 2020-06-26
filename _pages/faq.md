@@ -8318,7 +8318,7 @@ Consider this 1-dimensional example:
 
 Both the median and medoid of this set are 3. The mean is 20002.
 
-In contrast to the K-means algorithm, K-medoids algorithm chooses data points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not. Thisis true because most of the time, a centroid does not correspond to a data point. A medoid, by definition, must be a data point.
+In contrast to the K-means algorithm, K-medoids algorithm chooses data points as centers that belong to the dataset because a medoid has to be a member of the set, a centroid does not. This is true because most of the time, a centroid does not correspond to a data point. A medoid, by definition, must be a data point.
 
 The real problem with doing this is that it becomes more difficult to interpret since you are looking at clusters in terms of transformed and factorized, as opposed to the original variables themselves
 
