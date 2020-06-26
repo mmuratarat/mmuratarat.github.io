@@ -37,7 +37,7 @@ K-means is a widely used method in cluster analysis. One might easily think that
 # When to use?
 This is a versatile algorithm that can be used for any type of grouping. Some examples of use cases are:
 1. Image Segmentation
-2. Clustering Gene Segementation Data
+2. Clustering Gene Segmentation Data
 3. News Article Clustering
 4. Clustering Languages
 5. Species Clustering
