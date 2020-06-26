@@ -5542,6 +5542,12 @@ Let’s first understand the concepts of True Positive (TP), True Negative (TN),
 
 * **ROC curves and AUC**: ROC curves are two-dimensional graphs in which true positive rate (TPR) is plotted on the Y axis and false positive rate (FPR) is plotted on the X axis. An ROC graph depicts relative tradeoffs between benefits (true positives, sensitivity) and costs (false positives, 1-specificity) (any increase in sensitivity will be accompanied by a decrease in specificity). AUC is computed as area under this curve. It is a performance measurement (evaluation metric) for classification problems that consider all possible classification threshold settings. The probabilistic interpretation of ROC-AUC score is that if you randomly choose a positive case and a negative case, the probability that the positive case outranks the negative case according to the classifier is given by the AUC. Here, rank is determined according to order by predicted values.
 
+* **Matthews correlation coefficient**: It is used in machine learning as a measure of the quality of binary (two-class) classifications and is equivalent to Karl Pearson's phi coefficient, which is a measure of association for two binary variables. can be calculated directly from the confusion matrix using the formula:
+
+$$
+\text{MCC}=\frac{ TP \times TN - FP \times FN}{\sqrt { (TP + FP)(TP + FN)(TN + FP)(TN + FN)}}
+$$
+
 **Which one to choose?**
 
 Here is a set of questions you need to ask yourself, to decide the model selection metrics.
