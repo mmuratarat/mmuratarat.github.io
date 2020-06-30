@@ -7255,6 +7255,65 @@ Another similar approach might be applied as can be seen [here](http://francesco
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202019-11-01%20at%2011.26.02.png?raw=true)
 
+```python
+def train_ensemble(est_name, n_split, oversample=True):
+    """
+    train_ensemble splits the train set corresponding to the
+    majority class (0 in this case) in n_split random chunks.
+    It then builds n_split new train sets concatenating each chunk
+    with train set corresponding to the minority class (1 in this case).
+    It then applies a random sampling strategy, among 7 possible,
+    to each of the n_split new train sets and trains an est_name 
+    classifier on top of it.
+    It reurns a list of n_split classifiers.
+    """
+    pos = y_train[y_train.values == 0].index.values
+    neg = y_train[y_train.values == 1].index.values
+    np.random.shuffle(pos)
+    pos_splits = np.array_split(pos, n_split)
+
+    ensemble = []
+
+    for i, chunk in enumerate(pos_splits):
+        idx = np.hstack((neg, chunk))
+        X_t, y_t = X_train.loc[idx], y_train.loc[idx]
+    
+        if oversample:
+            ros = random.choice([SMOTE(), ADASYN(), RandomOverSampler(),
+                                SMOTEENN(), SMOTETomek(), RandomUnderSampler(), TomekLinks()])
+        
+            X_resampled, y_resampled = ros.fit_resample(X_t, y_t)
+            if i % 20 == 0: print(sorted(Counter(y_t).items()), sorted(Counter(y_resampled).items()))
+    
+        else:      
+            X_resampled, y_resampled = X_t, y_t
+        
+        if est_name == 'rf':
+            est = RandomForestClassifier(n_jobs=-1, class_weight='balanced',
+                                         n_estimators=100, min_samples_leaf=9)
+        elif isinstance(est_name, xgb.sklearn.XGBClassifier):
+            est = xgb.XGBClassifier(objective = 'binary:logistic', scale_pos_weight=1200)
+            est.set_params(n_estimators= est_name.get_params()['n_estimators'],
+                      learning_rate= est_name.get_params()['learning_rate'],
+                      subsample= est_name.get_params()['subsample'],
+                      max_depth= est_name.get_params()['max_depth'],
+                      colsample_bytree= est_name.get_params()['colsample_bytree'],
+                      min_child_weight= est_name.get_params()['min_child_weight']);
+    
+        est.fit(X_resampled, y_resampled)
+        ensemble.append(est)
+        
+    return ensemble
+
+ensemble_rf = train_ensemble('rf', 100)
+
+>>> [(0, 871), (1, 77)] [(0, 832), (1, 77)]
+[(0, 871), (1, 77)] [(0, 837), (1, 77)]
+[(0, 871), (1, 77)] [(0, 871), (1, 854)]
+[(0, 871), (1, 77)] [(0, 871), (1, 858)]
+[(0, 870), (1, 77)] [(0, 870), (1, 870)]
+```
+
 **Different algorithms**
 You can try different algorithms. Some algorithms are less sensitive to the problem of imbalanced dataset. Tree-based algorithms such as decision trees often perform well on imbalanced datasets because their hierarchical structure allows them to learn signals from both classes. In modern applied machine learning, tree ensembles (Random Forests, Gradient Boosted Trees, etc.) almost always outperform singular decision trees.
 
