@@ -94,7 +94,7 @@ Collecting MarkupSafe>=0.23
 Installing collected packages: pytz, aniso8601, MarkupSafe, Jinja2, click, itsdangerous, Werkzeug, Flask, six, Flask-RESTful
 ```
 
-Packages installed here will not affect the global Python installation. `Virtualenv` does not create every file needed to get a whole new python environment. It uses links to global environment files instead in order to save disk space end speed up your `virtualenv`. Therefore, there must already have an active python environment installed on your system.
+Packages installed here will not affect the global Python installation. `Virtualenv` does not create every file needed to get a whole new python environment. It uses links to global environment files instead in order to save disk space and therefore, speeds up your `virtualenv`. There must already have an active python environment installed on your system.
 
 To install packages/modules for your isolated environment, you can also create a text file which include all the packages/tools needed with their versions and do:
 
