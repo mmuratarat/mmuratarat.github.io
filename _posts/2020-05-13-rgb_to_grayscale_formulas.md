@@ -37,7 +37,7 @@ R, G, B = fix_img[:,:,0], fix_img[:,:,1],fix_img[:,:,2]
 
 # Weighted average
 
-This is the grayscale conversion algorithm that OpenCV `cvtColor()` use (see the [documentation](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#void%20cvtColor%28InputArray%20src,%20OutputArray%20dst,%20int%20code,%20int%20dstCn%29))
+This is the grayscale conversion algorithm that OpenCV's `cvtColor()` use (see the [documentation](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#void%20cvtColor%28InputArray%20src,%20OutputArray%20dst,%20int%20code,%20int%20dstCn%29))
 
 The formula used is:
 
