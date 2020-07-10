@@ -3283,7 +3283,7 @@ l(\mu) = log \prod_{i=1}^{n} P(X= x_{i}) &= \sum_{i=1}^{n} log \left( \frac{\mu^
 \end{split}
 $$
 
-Thenm we take the derivative of $l(\mu)$ with respect to $\mu$ and equate it to zero. Solving for $\mu$ will yield the MLE of $\mu$:
+Then, we take the derivative of $l(\mu)$ with respect to $\mu$ and equate it to zero. Solving for $\mu$ will yield the MLE of $\mu$:
 
 $$
 \hat{\mu_{MLE}} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
