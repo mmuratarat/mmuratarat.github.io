@@ -3265,7 +3265,7 @@ Poisson distribution represents the distribution of Poisson processes and it is 
 
 Let the discrete random variable $X$ denote the number of times an event occurs in an interval of time (or space). An event can occur $0, 1, 2, \dots$ times in an interval. The average number of events in an interval is designated as $\mu$. $\mu$ is the event rate, also called the *rate parameter*.
 
-The Poisson distribution has a single parameter, $\mu$. The probability distribution function of a Poisson distribution is defined as:
+The Poisson distribution has a single parameter, $\mu$. The probability mass function of a Poisson distribution is defined as:
 
 $$
 f(X = x; \mu) = \frac{\mu^{x} e^{-\mu}}{x!},\,\,\,\, x = 0,1,2,...\text{ and } \mu > 0
@@ -3289,7 +3289,7 @@ $$
 \hat{\mu_{MLE}} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
 $$
 
-The Poisson distribution can be understood as a special case of the binominal distribution when studying large numbers with a rare (not zero) but constant occurrence of "successes". This is called Poisson approximation to Binomial distribution. The Poisson distribution approximates the binomial distribution closely when $n$ is very large ($n \geq 20$) and $p$ is very small ($p \leq 0.05$). It is the limiting form of the binomial distribution when $n \to \infty$, $p \to 0$, and $np = \mu$ is a positive constant. So, we can say that the PMF of $X$, when $X \sim Binomial(n, p)$ can be approximated by the PMF of a $Poisson(\mu)$ random variable. The importance of this is that Poisson PMF is much easier to compute than the binomial.
+The Poisson distribution can be understood as a special case of the binominal distribution when studying large numbers with a rare (not zero) but constant occurrence of "successes". This is called Poisson approximation to Binomial distribution. The Poisson distribution approximates the binomial distribution closely when $n$ is very large ($n \geq 20$) and $p$ is very small ($p \leq 0.05$). It is the limiting form of the binomial distribution when $n \to \infty$, $p \to 0$, and $np = \mu$ is a positive constant. So, we can say that the probability mass function of $X$, when $X \sim Binomial(n, p)$ can be approximated by the probability mass function of a $Poisson(\mu)$ random variable. The importance of this is that Poisson PMF is much easier to compute than the binomial.
 
 Its proof can be seen below:
 
