@@ -3265,15 +3265,15 @@ Poisson distribution represents the distribution of Poisson processes and it is 
 
 Let the discrete random variable $X$ denote the number of times an event occurs in an interval of time (or space). An event can occur $0, 1, 2, \dots$ times in an interval. The average number of events in an interval is designated as $\mu$. $\mu$ is the event rate, also called the *rate parameter*.
 
-The Poisson distribution has a single parameter, $\mu$. The PDF of a Poisson distribution is defined as:
+The Poisson distribution has a single parameter, $\mu$. The probability distribution function of a Poisson distribution is defined as:
 
 $$
 f(X = x; \mu) = \frac{\mu^{x} e^{-\mu}}{x!},\,\,\,\, x = 0,1,2,...\text{ and } \mu > 0
 $$
 
-which gives the probability of X events occur in an interval. Expected value of this distribution, $E(X) = \mu$ and the variance, $Var(X) = \mu$. 
+which gives the probability of $X$ events occur in an interval. Expected value of this distribution, $E(X) = \mu$ and the variance, $Var(X) = \mu$. 
 
-We can find an estimator of $\mu$ using MLE approach. Let's write down the log-likelihood function of Poisson distribution:
+We can find an estimator of $\mu$ using Maximum Likelihood Estimation approach. Let's write down the log-likelihood function of Poisson distribution:
 
 $$
 \begin{split}
