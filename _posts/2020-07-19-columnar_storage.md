@@ -39,7 +39,9 @@ Let's get into the details...
 
 ## Row-Oriented Database
 
-Traditional databases store data by each row. The fields for each record are sequentially stored. Let’s say you have a table like this:
+Traditional databases store data by each row and the fields for each record are sequentially stored.
+
+Let’s say you have a table like this:
 
 ```
 +----+--------------+----------------------+----------+-------------+------------+-----------+-----+
