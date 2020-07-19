@@ -9,9 +9,9 @@ An important part of the Hadoop ecosystem is HDFS, Hadoop's distributed file sys
 
 * Plain text storage (eg, CSV, TSV files - row-based file format)
 * Sequence Files
-* Apache Avro (row-based format)
-* Apache Parquet (columnar storage formats)
-* Apache ORC (columnar storage formats)
+* Apache Avro (row-based file format)
+* Apache Parquet (column-based file format)
+* Apache ORC (column-based file format)
 
 The textbook definition is that columnar file formats store data by column, not by row. CSV, TSV, JSON, and Avro, are traditional row-based file formats. Parquet, and ORC file are columnar file formats.
 
