@@ -27,7 +27,7 @@ and the structure of ORC file format is shown below:
 
 In order to understand the difference between row-based and column based formats, these two illustrations might be helpful.
 
-Imagine the data values from the four columns of a table represented as colored boxes:
+Imagine the data values from the four columns of a table represented as different colored boxes:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/row_column_DBs1.png?raw=true)
 
