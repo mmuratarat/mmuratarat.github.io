@@ -5,7 +5,7 @@ author: "MMA"
 comments: true
 ---
 
-An important part of the Hadoop ecosystem is HDFS, Hadoop’s distributed file system.  Like other file systems the format of the files you can store on HDFS is entirely up to you. A storage format is just a way to define how information is stored in a file. When dealing with Hadoop’s filesystem not only do you have all of these traditional storage formats available to you (like you can store PNG and JPG images on HDFS if you like), but you also have some Hadoop-focused file formats to use for structured and unstructured data. Some common storage formats for Hadoop include:
+An important part of the Hadoop ecosystem is HDFS, Hadoop's distributed file system.  Like other file systems the format of the files you can store on HDFS is entirely up to you. A storage format is just a way to define how information is stored in a file. When dealing with Hadoop’s filesystem not only do you have all of these traditional storage formats available to you (like you can store PNG and JPG images on HDFS if you like), but you also have some Hadoop-focused file formats to use for structured and unstructured data. Some common storage formats for Hadoop include:
 
 * Plain text storage (eg, CSV, TSV files - row-based file format)
 * Sequence Files
@@ -96,6 +96,6 @@ In summary, the most important consideration when selecting a big data format is
 
 # References
 
-1. https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_248-1.pdf
-2. https://thinksis.com/wp-content/uploads/2018/10/Nexla_Whitepaper_Introduction-to-Big-Data-Formats-Saket-Saurabh.pdf
-3. https://github.com/awsdocs/amazon-redshift-developer-guide/blob/master/doc_source/c_columnar_storage_disk_mem_mgmnt.md
+1. [https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_248-1.pdf](https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_248-1.pdf){:target="_blank"}
+2. [https://thinksis.com/wp-content/uploads/2018/10/Nexla_Whitepaper_Introduction-to-Big-Data-Formats-Saket-Saurabh.pdf](https://thinksis.com/wp-content/uploads/2018/10/Nexla_Whitepaper_Introduction-to-Big-Data-Formats-Saket-Saurabh.pdf){:target="_blank"}
+3. [https://github.com/awsdocs/amazon-redshift-developer-guide/blob/master/doc_source/c_columnar_storage_disk_mem_mgmnt.md](https://github.com/awsdocs/amazon-redshift-developer-guide/blob/master/doc_source/c_columnar_storage_disk_mem_mgmnt.md){:target="_blank"}
