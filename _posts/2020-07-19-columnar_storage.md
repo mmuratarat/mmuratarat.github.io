@@ -31,7 +31,7 @@ Imagine the data values from the four columns of a table represented as differen
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/row_column_DBs1.png?raw=true)
 
-and 
+and another example when we have 5 different variables in the table:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/row_column_DBs2.png?raw=true)
 
