@@ -503,7 +503,7 @@ cumsum = np.cumsum(variances)
 # array([0.57453911, 0.97170476, 1.        ])
 {% endhighlight %}
 
-The first two components explains 97.17% of the variance
+The first two components explains $97.17\%$ of the variance.
 
 For our simple example, where we are reducing a 3-dimensional feature space to a 2-dimensional feature subspace, we are combining the two eigenvectors with the highest eigenvalues to construct our $d \times k$ dimensional eigenvector matrix $W$.
 
