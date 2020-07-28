@@ -396,15 +396,15 @@ X_centered = X - mean_X
 #        [ -18.,  -48.,   12.,   42.,   12.]])
 {% endhighlight %}
 
-Then, we ompute the unbiased covariance matrix (sometimes also called as the variance-covariance matrix) associated with the data.
+Then, we compute the unbiased covariance matrix (sometimes also called as the variance-covariance matrix) associated with the data.
 
 $$
-\Sigma_i = \Bigg[
+\Sigma_i = \left[
 \begin{array}{cc}
 \sigma_{11}^2 & \sigma_{12}^2 & \sigma_{13}^2\\
 \sigma_{21}^2 & \sigma_{22}^2 & \sigma_{23}^2\\
 \sigma_{31}^2 & \sigma_{32}^2 & \sigma_{33}^2\\
-\end{array} \Bigg] 
+\end{array} \right] 
 $$
 
 So, we can compute the covariance of two variables $X$ and $Y$ using the following formula
