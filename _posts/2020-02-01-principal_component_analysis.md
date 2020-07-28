@@ -45,7 +45,7 @@ Principal Component Analysis (PCA) is by far the most popular dimensionality red
 
 ## Preserving Variance
 
-Before you can project the training set onto a lower-dimensional hyperplane, you first need to choose the right hyperplane. For example, a simple 2D dataset is represented on the left along with three different axes (i.e., one-dimensional hyperplanes). On the right is the result of the projection of the dataset onto each of these axes. 
+Before you project the training set onto a lower-dimensional hyperplane, you first need to choose the right hyperplane. For example, a simple 2D dataset is represented on the left along with three different axes (i.e., one-dimensional hyperplanes). On the right is the result of the projection of the dataset onto each of these axes. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/projection_from_2d_into_line.png?raw=true)
 
