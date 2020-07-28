@@ -218,7 +218,7 @@ spark.sql('select * from tbl').show() #or use .collect() to get Rows
 
 # How to fetch multiple tables using spark sql
 
-In order to fetch multiple tables from PostgreSQL into Spark environment, you need somehow to acquire the list of the tables you have in postgreSQL, which is similarly to what's given below:
+In order to fetch multiple tables from PostgreSQL into Spark environment, you need somehow to acquire the list of the tables you have in PostgreSQL, which is similarly to what's given below:
 
 ```python
 #list of the tables in the server
