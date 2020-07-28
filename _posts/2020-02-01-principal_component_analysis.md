@@ -440,7 +440,7 @@ cov_mat = np.cov(X_centered, rowvar=False, bias=False)
 
 Intuitively, an eigenvector is a vector whose direction remains unchanged when a linear transformation is applied to it.
 
-Now, we can easily compute eigenvalue and eigenvectors from the covariance matrix that we have above.
+Now, we can easily compute eigenvalues and eigenvectors from the covariance matrix that we have above.
 
 Let $A$ be a square matrix, $v$ a vector and $u$ a scalar that satisfies $Av = uv$, then $u$ is called eigenvalue associated with eigenvector $v$ of $A$.
 
