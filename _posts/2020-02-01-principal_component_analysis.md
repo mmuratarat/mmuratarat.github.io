@@ -493,7 +493,7 @@ sorted_eigenvalues = np.sort(eig_val_cov)
 # array([ 224.09830141, 3145.55193338, 4550.34976521])
 {% endhighlight %}
 
-You can also compute the explained variance ratio using eigenvalues
+You can also find the explained variance ratio using eigenvalues:
 
 {% highlight python %} 
 variances = sorted_eigenvalues / sorted_eigenvalues.sum()
