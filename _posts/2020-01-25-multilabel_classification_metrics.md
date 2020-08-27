@@ -151,7 +151,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
     #0.41666666666666663
    {% endhighlight %}
   
-One can also use Scikit Learn's functions to compute accuracy and Hamming loss:
+One can also use Scikit Learn's functions to compute accuracy, Hamming loss and other metrics:
 
 {% highlight python %}
                    [0,0,0]])
