@@ -94,7 +94,7 @@ There are multiple example-based metrics to be used. We will look at couple of t
   
 * **Precision**
 
-  It is the propotion of predicted correct labels to the total number of actual labels, averaged over all instances.
+  It is the proportion of predicted correct labels to the total number of actual labels, averaged over all instances.
   
   \begin{equation}
   \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert y_{i}\rvert}
