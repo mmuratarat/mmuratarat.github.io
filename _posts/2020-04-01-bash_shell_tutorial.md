@@ -27,6 +27,26 @@ It stands for **Bourne Again Shell**, an enhanced version of the original Unix s
 
 Bash is one of the popular *command-line* shells, programs whose main job is to start other programs (in addition to some auxiliary functions). The *command-line* part means you control it by typing commands one line at a time. Properly speaking, a graphical user interface (GUI) you use to start programs by double-clicking on icons is also a shell, but in practice by "shell" people mostly mean command-line ones.
 
+# Windows Command Line (CMD) vs. Mac OS Terminal 
+
+Three big Operating Systems exist: (1) MacOS, (2) Windows, and (3) Linux
+
+Mac Terminal which runs UNIX commands whereas Windows Command Line is based on MS-DOS System commands.
+
+Every operating system has options for selecting the shell. Mac Terminal uses derivatives of `sh`. `bash` was default on MacOS until 10.15 (Catalina). `zsh` is default in 10.15. All `sh` programs have the same basic syntax. However, both are trying to solve the same problems.
+
+`bash` and `sh` (written by Steve Bourne) are two different shells. Basically `bash` is `sh`, with more features and better syntax.
+
+MacOS uses `bash` (Bourne Again SHell), while Windows uses `cmd.exe` and PowerShell. `bash`, `cmd.exe` and PowerShell all have their own unique syntax. PowerShell is only preinstalled on Windows 7 and onwards.
+
+You can replace `bash` with `zsh`, `ksh`, and a variety of other shells in MacOS and Linux. You can’t do this in Windows OS.
+
+Most Linux distributions also come with `bash` as the default shell. Besides `bash`, there are other shell programs that can be installed in a Linux system. These include: Korn shell (`ksh`), enhanced C shell (`tcsh`), friendly interactive shell (`fish`) and Z-shell (`zsh`).
+
+To access the Unix command prompt in Mac OS X, open the Terminal application. It is located by default inside the `Utilities` folder, which in turn is inside the `Applications` folder,  i.e., `/Applications/Utilities/` folder. To access the command prompt in Windows, in Windows 7, click the Start button and enter `cmd`. In other versions, from the Start menu, select Run... and then enter `cmd`.
+
+In order to see the differences between MacOS and Windows commands, see this PDF file: https://enexdi.sciencesconf.org/data/pages/windows_vs_mac_commands_1.pdf
+
 # What's a "Terminal?"
 
 Terminal is a program that provides a graphical interface between the shell and the user. It receives from the shell e.g. the characters "command not found" and figures out how to display them to you - with what font, where on the screen, in what colour, whether there should be a scrollbar. When you press some keys, it figures out whether to send them on to the shell as characters (e.g. `ls -l`), or to interpret them on its own (e.g. `⌘C`).
