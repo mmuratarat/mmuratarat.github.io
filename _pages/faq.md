@@ -9931,9 +9931,11 @@ In practice this order of execution is most likely unchanged from above. With th
 
 There are three operators available in SQL, namely:
 
-1. Arithmetic Operators such as `+`, `-`, `*`, `/`, `%` and `^`.
-2. Logical Operators such as `=`, `!=`, `>`, `<`, `>=`, `<=` and `<>`.
-3. Comparison Operators such as `AND`, `NOT` and `OR`.
+1. Arithmetic Operators such as `+`, `-`, `*`, `/`, and `%`.
+2. Bitwise Operators such as `&`, `|`, and `^`.
+3. Comparison Operators such as `=`, `!=`, `>`, `<`, `>=`, `<=` and `<>`.
+4. Logical Operators such as `AND`, `NOT`, `OR`, `ANY`, `BETWEEN`, `LIKE`, and `IN`.
+
 
 #### What is the difference between UNION and UNION ALL?
 
