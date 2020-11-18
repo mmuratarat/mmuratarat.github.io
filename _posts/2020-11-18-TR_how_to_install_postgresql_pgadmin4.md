@@ -9,7 +9,7 @@ comments: true
 
 [TR] Bir ogrenci ve bir egitimci olarak, her zaman, 'yaparak ogrenme' fikrini benimsemisimdir. SQL cok zor bir programlama dili degildir ancak cok fazla pratik yapmayi gerektirir. Pratik yaparken de, kimi zaman, uzerinde calisacak bir platform bulmakta zorlanilir cunku maalesef veri tabani sahibi olanlar cogunlukla buyuk sirketlerdir. Cogunlukla, beyaz tahta uzerinde bir SQL kodunu yazarsiniz ve kafanizda calistirmaya calisirsiniz. Bu durum biraz kaygi verici olabilir. Ben bu dili ogrenirken, kendi kisisel bilgisayarima bir PostgreSQL veri tabani kurmustum. Kodu yazip, calistirip, sonucu gormem, gorsellestirme acisindan ogrenmemi hizlandirdi. 
 
-PostgreSQL secmek benim kendi tercihim. Siz isterseniz, Oracle, MySQL vs kurabilirsiniz. Ancak, PostgreSQL veri yonetim sistemi, ANSI/ISO standartlarina cok uygundur. Sizin de kolay pratik yapabilmeniz icin, bugun, PostgreSQL veri tabani yonetim sistemi ve PostgreSQL grafik arayuzu pgAdmin4'un nasil kuruldugunu anlatan Turkce bir yonerge hazirladim. Bu dokuman tamamiyle Windows 10 bilgisayarlar icin hazirlandi. Sanirim Windows 7 kullananlar da faydalabilirler.
+PostgreSQL secmek benim kendi tercihim. Siz isterseniz, Oracle, MySQL vs kurabilirsiniz. Ancak, PostgreSQL veri yonetim sistemi, ANSI/ISO standartlarina cok uygundur. Sizin de kolay pratik yapabilmeniz icin, PostgreSQL veri tabani yonetim sistemi ve PostgreSQL grafik arayuzu pgAdmin4'un nasil kuruldugunu anlatan Turkce bir yonerge hazirladim. Bu dokuman tamamiyle Windows 10 bilgisayarlar icin hazirlandi. Sanirim Windows 7 kullananlar da faydalabilirler.
 
 <embed src="https://mmuratarat.github.io/files/PostgreSQL_pgAdmin4_Setup.pdf" width="800" height="700" frameborder="0" allowfullscreen>
 
