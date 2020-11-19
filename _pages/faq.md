@@ -5554,7 +5554,35 @@ Linear regression is perhaps one of the most well known and well understood algo
 
 * The number of observations must be greater than number of features.
 
-* No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables. It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features. If this assumption are violated, estimates of coefficients will be unrealistically large, untrustable / unstable, meaning that if you construct estimators from different data samples you will potentially get wildly different estimates of your coefficient values. Similarly, the variance of the estimates will also blow up. Large estimator variance also undermines the trustworthiness of hypothesis testing of the significance of coefficients, which will thus yield a lower t-value, which could lead to the false rejection of a significant predictor (ie. a type II error).
+* No Multicollinearity between the features: Multicollinearity is a state of very high inter-correlations or inter-associations among the independent variables. It is therefore a type of disturbance in the data if present weakens the statistical power of the regression model. Pair plots and heatmaps(correlation matrix) can be used for identifying highly correlated features. If this assumption are violated, estimates of coefficients will be unrealistically large, untrustable / unstable, meaning that if you construct estimators from different data samples you will potentially get wildly different estimates of your coefficient values. Similarly, the variance of the estimates will also blow up. Large estimator variance also undermines the trustworthiness of hypothesis testing of the significance of coefficients, which will thus yield a lower t-value, which could lead to the false rejection of a significant predictor (ie. a type II error). Let's see this mathematically. The variance of the estimates is given by
+
+$$
+Var(\hat{\theta}_{OLS}) = \sigma^{2} \left(\mathbf{X}^{T} \cdot \mathbf{X} \right)^{-1}
+$$
+
+If you dive into the matrix algebra, you will find that the term $\mathbf{X}^{T} \cdot \mathbf{X}$ is equal to a matrix with ones on the diagonals and the pairwise Pearson’s correlation coefficients ($\rho$) on the off-diagonals (this is the true when columns are standardized.):
+
+$$
+(\mathbf{X}^{T} \cdot \mathbf{X}) =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}
+$$
+
+As the correlation values increase, the values within $(\mathbf{X}^{T} \cdot \mathbf{X})^{-1}$ also increase. Even with a low residual variance, multicollinearity can cause large increases in estimator variance. Here are a few examples of the effect of multicollinearity using a hypothetical regression with two predictors:
+
+$$
+\begin{split}
+ \rho = .3 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 1.09 & -0.33 \\ -0.33 & 1.09 \end{bmatrix}\\
+ \rho = .9 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 5.26 & -4.73 \\ -5.26 & -4.73 \end{bmatrix}\\
+ \rho = .999 &\rightarrow (\mathbf{X}^{T} \cdot \mathbf{X})^{-1} =\begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix}^{-1} = \begin{bmatrix} 500.25 & -499.75 \\ -499.75 & 500.25\end{bmatrix}
+\end{split}
+$$
+
+Large estimator variance also undermines the trustworthiness of hypothesis testing of the significance of coefficients. Because, consequently, corresponding t-statistics are typically lower:
+
+$$
+t_{n-2} = \frac{\hat{\beta_{j}} - 0}{s_{\beta_{j}}}
+$$
+
+An estimator with an inflated standard deviation, $s_{\beta_{j}}$, will thus yield a lower t-value,  which could lead to the false rejection of a significant predictor (ie. a type II error).
 
 * Homoscedasticity of residuals or equal variance $Var \left(\varepsilon \mid X_{1} = x_{1}, \cdots, X_{p}=x_{p} \right) = \sigma^{2}$: Homoscedasticity describes a situation in which the error term (that is, the "noise" or random disturbance in the relationship between the features and the target) is the same across all values of the independent variables. More specifically, it is assumed that the error (a.k.a residual) of a regression model is homoscedastic across all values of the predicted value of the dependent variable. A scatter plot of residual values vs predicted values is a good way to check for homoscedasticity. There are a couple of tests that comes handy to establish the presence or absence of heteroscedasticity – The Breush-Pagan test and the NCV test. There should be no clear pattern in the distribution and if there is a specific pattern, the data is heteroscedastic. It means that the model has not perfectly captured the information in the data. Typically, transformed data will satisfy the assumption of homoscedasticity (for example, Box-cox transformation of dependent variable). Homoscedasticity is one of the Gauss Markov assumptions that are required for OLS to be the best linear unbiased estimator (BLUE). The Gauss-Markov Theorem is telling us that the least squares estimator for the coefficients is unbiased and has minimum variance among all unbiased linear estimators, given that we fulfill all Gauss-Markov assumptions. Absence of homoscedasticity may give unreliable standard error estimates of the parameters. Parameter estimates are still unbiased. But the estimates may not efficient(not BLUE). Given heteroscedasticity, you are not able to properly estimate the variance-covariance matrix. Hence, the standard errors of the coefficients are wrong. This means that one cannot compute any t-statistics and p-values and confidence intervals and consequently hypothesis testing is not possible. Also note that in case of heteroscedasticity, Weighted Least Squares Regression can be used.
   ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/heteroscedastic-relationships.png?raw=true)
