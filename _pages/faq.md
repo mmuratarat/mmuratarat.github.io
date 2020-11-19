@@ -4391,11 +4391,13 @@ Non-probability sampling is not random. To build a sample, it follows a fixed de
 
 2. **Quota Sampling**: 
   In quota sampling, we determine a specific number of individuals to select into our sample in each of several specific groups. This is similar to stratified sampling in that we develop non-overlapping groups and sample a predetermined number of individuals within each. For example, suppose our desired sample size is n=300, and we wish to ensure that the distribution of subjects' ages in the sample is similar to that in the population. We know from census data that approximately 30% of the population are under age 20; 40% are between 20 and 49; and 30% are 50 years of age and older. We would then sample n=90 persons under age 20, n=120 between the ages of 20 and 49 and n=90 who are 50 years of age and older.
+  
   | Age Group 	| Distribution in Population 	| Quota to Achieve n=300 	|
 |:---------:	|:--------------------------:	|:----------------------:	|
 |    <20    	|             30%            	|          n=90          	|
 |   20-49   	|             40%            	|          n=120         	|
 |    50+    	|             30%            	|          n=90          	|
+
   Sampling proceeds until these totals, or quotas, are reached. Quota sampling is different from stratified sampling, because in a stratified sample individuals within each stratum are selected at random. Quota sampling achieves a representative age distribution, but it isn't a random sample, because the sampling frame is unknown. Therefore, the sample may not be representative of the population.
 
 3. **Snowball Sampling**: 
