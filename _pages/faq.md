@@ -177,7 +177,7 @@ permalink: /faq/
 78. [What are the non-parametric equivalent of some parametric tests?](#what-are-the-non-parametric-equivalent-of-some-parametric-tests)
 79. [Explain A/B test and its variants.](#explain-ab-test-and-its-variants)
 80. [What is the difference between a mixture model and a multimodal distribution?](#what-is-the-difference-between-a-mixture-model-and-a-multimodal-distribution)
-
+81. What is a confounding variable?
 
 [General Machine Learning](#general-machine-learning)
 
@@ -5437,6 +5437,11 @@ Imagine a scenario where two distributions (e.g., two univariate normals) have t
 You can also consider the beta distribution with $\alpha =0.5$ and $\beta = 0.5$. It is illustrated by the red line in the figure below. As you can see, it is multimodal (viz., bimodal), but it isn't a mixture distribution:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/bimodal_beta.png?raw=true)
+
+
+#### What is a confounding variable?
+
+In statistics, a confounder is a variable that influences both the dependent variable and independent variable. For an example, if you are researching whether a lack of exercise leads to weight gain: lack of exercise is here independent variable and  weight gain is the dependent variable. A confounding variable here would be any other variable that affects both of these variables, such as the age of the subject.
 
 
 ## General Machine Learning
