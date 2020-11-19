@@ -2956,7 +2956,13 @@ rv.pmf([7, 2, 3])
 
 #### What is a normal distribution?
 
-The normal distribution, also known as Gaussian distribution, is defined by two parameters, mean $\mu$, which is expected value of the distribution and standard deviation $\sigma$ which corresponds to the expected squared deviation from the mean. Mean, $\mu$ controls the Gaussian's center position and the standard deviation controls the shape of the distribution. The square of standard deviation is typically referred to as the variance $\sigma^{2}$. We denote this distribution as $N(\mu, \sigma^{2})$.
+The normal distribution, also known as Gaussian distribution, is defined by two parameters, mean $\mu$, which is expected value of the distribution and standard deviation $\sigma$ which corresponds to the expected squared deviation from the mean. Mean, $\mu$ controls the Gaussian's center position and the standard deviation controls the shape of the distribution. The square of standard deviation is typically referred to as the variance $\sigma^{2}$. We denote this distribution as $N(\mu, \sigma^{2})$. Properties of Normal Distribution are as follows:
+
+1. Unimodal (Only one mode)
+2. Symmetrical (left and right halves are mirror images)
+3. Bell-shaped (maximum height (mode) at the mean)
+4. Mean, Mode, and Median are all located in the center
+5. Asymptotic
 
 Given the mean  and variance, one can calculate probability distribution function of normal distribution with a normalised Gaussian function for a value $x$, the density is:
 
