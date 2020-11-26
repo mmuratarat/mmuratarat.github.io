@@ -329,6 +329,38 @@ permalink: /faq/
 20. [What are the aggregate functions?](#what-are-the-aggregate-functions)
 21. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
 22. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
+23. What is Data Normalization?
+24. What is a View?
+25. How to drop a view?
+26. Which operator is used in query for pattern matching?
+27. What is an Index
+28. What are the different types of relationships in SQL?
+29. What is an Alias in SQL?
+30. How to get random records from a table?
+31. How to transfer Nulls into real values?
+32. How to concatenate two string columns?
+33. How to split a string?
+34. How to retrieve values from one table that do not exists in another table?
+35. How does EXTRACT and DATE_PART work in PostgreSQL?
+36. What is the difference between EXTRACT and DATE_PART in PostgreSQL?
+37. How to convert from  12 hours timestamp format to 24 hours timestamp or other way around?
+38. How does AGE function work in PostgreSQL?
+39. How to get yesterday's date?
+40. How to get current date, time, timestamp?
+41. How to use ROW_NUMBER(), RANK(), DENSE_RANK() window functions?
+42. How to find modulus?
+43. How to use DATE_TRUNC Function?
+44. How to use REPLACE and TRANSLATE functions? 
+45. How to pad a string on left or right?
+46. How to convert a value of one data type into another?
+47. How to find the position of a substring in a string?
+48. How to replace Null in PostgreSQL?
+49. How to find date differences?
+50. How to extract n number of characters specified in the argument from the left or right of a given string?
+51. How to extract a part of string?
+52. How to remove (trim) characters from the beginning, end or both sides of a string?
+53. How to randomly select a row?
+54. What is The Dual Table? How is Oracle to Postgres Conversion?
 
 [Miscellaneous](#miscellaneous)
 
@@ -11072,6 +11104,30 @@ select * from mytable offset floor(random() * (select count(*) from mytable)) li
 ```
 
 The reason why we use `FLOOR()` function is that `FLOOR(RANDOM()*N)` where N is the number of records in the table, is guaranteed to be $0 .. . N-1$ and never $N$. Because `RANDOM()` returns a completely random number >= 0 and <1 and we will have always have 1 observation left after `OFFSET`.
+
+#### What is The Dual Table? How is Oracle to Postgres Conversion?
+
+Oracle uses the table DUAL for selects where actually no table name would be necessary, since the FROM clause in Oracle is mandatory. In PostgreSQL we can omit the FROM clause at all (PostgreSQL has implicit DUAL table). This table can be created in postgres as a view to ease porting problems. This allows code to remain somewhat compatible with Oracle SQL without annoying the Postgres parser.
+
+In any case when migrating, if possible, just remove the "FROM DUAL" clause from the statement. Joins with dual are really rare - and peculiar.
+
+For example, in Oracle, 
+
+```sql
+SELECT UPPER('hello') FROM DUAL
+```
+
+But in PostgreSQL, what's given below is sufficient:
+
+```sql
+SELECT UPPER('hello')
+```
+
+You can just create one , if you really want to:
+
+```sql
+CREATE TABLE dual();
+```
 
 
 ## Miscellaneous
