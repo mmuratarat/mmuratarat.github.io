@@ -9951,6 +9951,35 @@ Note that the orders table contains two keys: one for the order and one for the 
 
 In our example, `order_id` is a primary key in the orders table, while `customer_id` is both a primary key in the customers table and a foreign key in the orders table. Primary and foreign keys are essential to describing relations between the tables, and in performing SQL joins.
 
+To add a primary key constraint into an existing table, we use the following syntax:
+
+```sql
+ALTER TABLE tablename
+ADD PRIMARY KEY (column_name);
+```
+
+or
+
+```sql
+ALTER TABLE table_name
+ADD CONSTRAINT MyPrimaryKey PRIMARY KEY (column1, column2...);
+```
+
+The basic syntax of ALTER TABLE to DROP PRIMARY KEY constraint from a table is as follows −
+
+```sql
+ALTER TABLE table_name
+DROP CONSTRAINT MyPrimaryKey;
+```
+
+Foreign keys are added into an existing table using the ALTER TABLE statement. The following syntax is used:
+
+```sql
+ALTER TABLE child_table
+ADD CONSTRAINT constraint_name FOREIGN KEY (c1) REFERENCES parent_table (p1);
+```
+In the above syntax, the child_table is the table that will contain the foreign key while the parent table shall have the primary keys. C1 and p1 are the columns from the child_table and the parent_table columns respectively.
+
 #### In which order do SQL queries happen?
 
 Consider the SQL SELECT statement syntax:
@@ -10166,6 +10195,19 @@ Note that multiple column constraints are separated by a space. For instance:
 CREATE TABLE mytable(name CHAR(10) NOT NULL,
         id INTEGER REFERENCES idtable(id),
         age INTEGER CHECK (age > 0));
+```
+
+The syntax to add constraints to an existing table column is as follows:
+
+```sql
+ALTER TABLE table_name
+ADD constaint_type (column_name);
+```
+
+To remove (drop) a constraint you need to know its name. If the name is known, it is easy to drop. Else, you need to find out the system-generated name.
+
+```sql
+ALTER TABLE table_name DROP CONSTRAINT constraint_name;
 ```
 
 #### What is CHECK constraint?
