@@ -317,8 +317,8 @@ permalink: /faq/
 8. [How to delete rows in a table?](#how-to-update-rows-in-a-table)
 9. [How to create a new database table?](#how-to-delete-rows-in-a-table)
 10. [How to drop a table?](#how-to-create-a-new-database-table)
-11. What are the data types in SQL?
-12. What are the Table Constaints?
+11. What are the data types in PostgreSQL?
+12. What are the table constraints?
 13. How to drop a table?
 14. How to add a new column to a table?
 15. How to remove a column from a table? 
@@ -10125,7 +10125,7 @@ CREATE TABLE IF NOT EXISTS mytable (
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202020-02-03%20at%2009.22.09.png?raw=true)
 
-#### What are the Table Constaints?
+#### What are the table constraints?
 
 SQL constraints are the set of rules that enforced some restriction while inserting, deleting or updating of data in the databases.
 
