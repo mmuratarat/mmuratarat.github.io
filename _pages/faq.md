@@ -360,7 +360,7 @@ permalink: /faq/
 51. How to extract a part of string?
 52. How to remove (trim) characters from the beginning, end or both sides of a string?
 53. How to randomly select a row?
-54. What is The Dual Table? How is Oracle to Postgres Conversion?
+54. What is the Dual Table? How is Oracle to PostgreSQL conversion?
 
 [Miscellaneous](#miscellaneous)
 
@@ -11197,7 +11197,7 @@ select * from mytable offset floor(random() * (select count(*) from mytable)) li
 
 The reason why we use `FLOOR()` function is that `FLOOR(RANDOM()*N)` where N is the number of records in the table, is guaranteed to be $0 .. . N-1$ and never $N$. Because `RANDOM()` returns a completely random number >= 0 and <1 and we will have always have 1 observation left after `OFFSET`.
 
-#### What is The Dual Table? How is Oracle to Postgres Conversion?
+#### What is the Dual Table? How is Oracle to PostgreSQL conversion?
 
 Oracle uses the table DUAL for selects where actually no table name would be necessary, since the FROM clause in Oracle is mandatory. In PostgreSQL we can omit the FROM clause at all (PostgreSQL has implicit DUAL table). This table can be created in postgres as a view to ease porting problems. This allows code to remain somewhat compatible with Oracle SQL without annoying the Postgres parser.
 
