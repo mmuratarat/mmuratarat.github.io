@@ -10233,7 +10233,20 @@ The `employees` table has three `CHECK` constraints:
 
 #### What is a DEFAULT constraint?
 
-A `DEFAULT` constraint is used to include a default value in a column when no value is supplied at the time of inserting a record.
+A `DEFAULT` constraint is used to include a default value in a column when no value is supplied at the time of inserting a record. For example;
+
+```sql
+CREATE TABLE Persons
+(
+P_Id int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255) DEFAULT 'Sandnes'
+)
+```
+
+The SQL code above will create `City` column whose default value is `Sandnes`.
 
 #### What is a UNIQUE constraint?
 
