@@ -10363,7 +10363,7 @@ The following statement is also equivalent to the CROSS JOIN above:
 
 ```sql
 SELECT * 
-FROM T1, T2;
+FROM table1, table2;
 ```
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/cross-join-round.png?raw=true)
