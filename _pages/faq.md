@@ -337,7 +337,6 @@ permalink: /faq/
 28. What are the different types of relationships in SQL?
 29. What is an Alias in SQL?
 30. How to get random records from a table?
-31. How to transfer Nulls into real values?
 32. How to concatenate two string columns?
 33. How to split a string?
 34. How to retrieve values from one table that do not exists in another table?
@@ -10582,20 +10581,6 @@ SELECT col1, col1 from table1 order by random() limit 5;
 ```
 
 This line of code will pick 5 records randomly every time you call.
-
-#### How to transfer Nulls into real values?
-
-If you would like to transform null values into non-null values in place of those nulls, you can use `COALESCE (argument_1, argument_2, ...)` function. The `COALESCE` function provides the same functionality as `NVL` or `IFNULL` function provided by SQL-standard. MySQL has `IFNULL` function, while Oracle provides `NVL` function.
-
-```sql
-select coalesce(comm, 0) from emp;
-```
-
-You can also use `CASE`:
-
-```sql
-select case when comm is not null then comm else 0 end from emp;
-```
 
 #### How to concatenate two string columns?
 
