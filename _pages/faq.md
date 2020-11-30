@@ -10352,6 +10352,37 @@ Some aggregate functions are given below:
 4. MAX – gets the maximum value in a set of values.
 5. SUM – calculates the sum of values.
 
+#### What Is an Equi and Non-equi Join in SQL?
+
+In SQL, a join doesn’t have to be based on identical matches. Here, non-equi join uses "non-equal" operators to match records. Like a self join, a SQL non equi join doesn’t have a specific keyword; you’ll never see the words NON EQUI JOIN in anyone’s SQL code. Instead, they are defined by the type of operator in the join condition: anything but an equals sign means a non-equi join. Below, we have some non equi join operators and their meanings:
+
+| Operator | Meaning |
+|-|-|
+| “>” | Greater than |
+| “>=” | Greater than or equal to |
+| “<” | Less than |
+| “<=” | Less than or equal to |
+| “!=” | Not equal to |
+| ”<>” | Not equal to (ANSI Standard) |
+| BETWEEN … AND | Values in a range between x and y |
+
+it’s good to know that a SQL non equi join can only be used with one or two tables. An example of non-equi join can be seen below:
+
+```sql
+SELECT first_name, last_name, min_price, max_price, price, city 
+FROM person JOIN apartment ON apartment.id != person.apartment_id
+    AND price BETWEEN min_price AND max_price
+ORDER BY last_name;
+```
+
+The majority of SQL joins are equi joins. An equi join is any JOIN operation that uses an equals sign and only an equals sign (`=`). Calling such “standard” joins an equi-joins is just a fancy way to name it. You will see queries that use more than one join condition; if one condition is an equals sign and the other isn’t, that’s a considered a non equi join in SQL. An example of equi join can be seen below:
+
+```sql
+SELECT first_name, last_name, price, city 
+FROM person 
+JOIN  apartment  ON   apartment.id = person.apartment_id ;
+```
+
 #### What is a join in SQL? What are the types of joins?
 
 A SQL Join is SQL way of linking data from two or more tables based on a column shared between tables. It allows you to gather data from multiple tables using one query because it is very unlikely that you will work exclusively with one table.
