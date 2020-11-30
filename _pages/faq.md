@@ -327,6 +327,7 @@ permalink: /faq/
 18. [What is the difference between primary key and unique constraints?](#what-is-the-difference-between-primary-key-and-unique-constraints)
 19. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-default-ordering-of-data-using-the-order-by-clause-how-could-it-be-changed)
 20. [What are the aggregate functions?](#what-are-the-aggregate-functions)
+21. What Is a Equi and Non-equi Join in SQL?
 21. [What is a join in SQL? What are the types of joins?](#what-is-a-join-in-sql-what-are-the-types-of-joins)
 22. [What is the difference between a Fact Table and a Dimension Table?](#what-is-the-difference-between-a-fact-table-and-a-dimension-table)
 23. What is Data Normalization?
