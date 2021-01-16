@@ -5,11 +5,15 @@ author: "MMA"
 comments: true
 ---
 
-Bir makine öğrenmesi modelini elde etmek çoğu zaman kolay olabilir. Ancak bu modelin gerçek hayatta kullanılabilirliği ve üretimde (prodüksiyonda) son kullanıcıya sunulması zahmetli bir süreçtir. Bu nedenle makine öğrenmesi ile ilgilenenler için MLOps isminde bir seri başlatıyorum. Her hafta makine öğrenmesi operasyonları ile ilgili İngilizce yazılmış çok başarılı bir internet günlüğünü Türkçe'ye çevirip paylaşacağım. 
+Bir makine öğrenmesi modelini elde etmek çoğu zaman kolay olabilir. Ancak bu modelin gerçek hayatta kullanılabilirliği ve üretimde (prodüksiyonda) son kullanıcıya sunulması zahmetli bir süreçtir. 
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202021-01-16%20at%2022.39.30.png?raw=true)
+
+Bu nedenle makine öğrenmesi ile ilgilenenler için MLOps isminde bir seri başlatıyorum. Her hafta makine öğrenmesi operasyonları ile ilgili İngilizce yazılmış çok başarılı bir internet günlüğünü Türkçe'ye çevirip paylaşacağım. 
 
 Serinin ilk çevirisi konuyla ilgili üst düzey bir tanıtım yapan Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından yazılmış "An Overview of the End-to-End Machine Learning Workflow" isimli yazı. https://ml-ops.org/content/end-to-end-ml-workflow
 
-MLOps sözcüğü makine öğrenmesi ve operasyon (İng. Operations) sözcüklerinin birleşimidir ve prodüksiyona (üretime, İng. production) sokulan bir Makine Öğrenmesi (veya Derin Öğrenme) modelinin yaşam döngüsünü yönetmeye yardımcı olmak için veri bilimcileri ve operasyon uzmanları arasında iletişim ve işbirliği sağlayan bir uygulamadır. DevOps (Developer Operations - Geliştirici Operasyonları) veta DataOps (Data Operations - Veri Operasyonları)'a çok benzer. Naif bir bakış açısıyla, MLOps sadece makine öğrenimi alanına uygulanan DevOps'tur.
+MLOps sözcüğü makine öğrenmesi ve operasyon (İng. Operations) sözcüklerinin birleşimidir ve üretime (İng. production) sokulan bir Makine Öğrenmesi (veya Derin Öğrenme) modelinin yaşam döngüsünü yönetmeye yardımcı olmak için veri bilimcileri ve operasyon uzmanları arasında iletişim ve işbirliği sağlayan bir uygulamadır. DevOps (Developer Operations - Geliştirici Operasyonları) veta DataOps (Data Operations - Veri Operasyonları)'a çok benzer. Naif bir bakış açısıyla, MLOps sadece makine öğrenimi alanına uygulanan DevOps'tur.
 
 Makine Öğrenmesi operasyonları, makine öğrenmesi modellerinin gelişimini daha güvenilir ve verimli yapmak için gerekli olan tüm süreçleri tanımlayarak makine öğrenmesi modellerinin geliştirilmesine ve dağıtımına (İng. deployment) yardımcı olmak için gerekli ilkelerin belirlenmesi üzerine odaklanır.
 
@@ -22,7 +26,8 @@ Bu bölümde, makine öğrenmesi tabanlı bir yazılım geliştirmek için gerç
 * **Kod Mühendisliği:** son ürüne elde edilen makine öğrenmesi modelinin entegre edilmesi.
 
 Aşağıdaki şekil tipik bir makine öğrenmesi iş akışında olan temel adımları göstermektedir.
-![](ml-engineering.jpg)
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml-engineering.jpg?raw=true)
 
 ## Veri Mühendisliği 
 
