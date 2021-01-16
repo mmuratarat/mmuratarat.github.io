@@ -5,11 +5,11 @@ author: "MMA"
 comments: true
 ---
 
-Bir makine öğrenmesi modelini elde etmek çoğu zaman kolay olabilir. Ancak bu modelin gerçek hayatta kullanılabilirliği ve üretimde (prodüksiyonda) son kullanıcıya sunulması zahmetli bir süreçtir. 
+ir makine öğrenmesi modelini elde etmek çoğu zaman kolay olabilir. Ancak bu modelin gerçek hayatta kullanılabilirliği ve üretimde (prodüksiyonda) son kullanıcıya sunulması zahmetli bir süreçtir. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202021-01-16%20at%2022.39.30.png?raw=true)
 
-Bu nedenle makine öğrenmesi ile ilgilenenler için MLOps isminde bir seri başlatıyorum. Her hafta makine öğrenmesi operasyonları ile ilgili İngilizce yazılmış çok başarılı bir internet günlüğünü Türkçe'ye çevirip paylaşacağım. 
+Bu nedenle makine öğrenmesi ile ilgilenenler için MLOps (makine öğrenmesi operasyonları) isminde bir seri başlatıyorum. Her hafta MLOps ile ilgili İngilizce yazılmış çok başarılı bir internet günlüğünü Türkçe'ye çevirip paylaşacağım. Böylelikle bir makine öğrenmesi modelini servis ederken ve dağıtırken veya makine öğrenmesi tabanlı bir yazılım geliştirirken nelere dikkat edilmesi gerektiği ile MLOps ilkelerini ve alt yapısını daha iyi anlayabiliriz.
 
 Serinin ilk çevirisi konuyla ilgili üst düzey bir tanıtım yapan Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından yazılmış "An Overview of the End-to-End Machine Learning Workflow" isimli yazı. https://ml-ops.org/content/end-to-end-ml-workflow
 
