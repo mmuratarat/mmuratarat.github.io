@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MLOps Serisi I - Accuracy/AUC"
+title:  "[TR] MLOps Serisi I - Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması"
 author: "MMA"
 comments: true
 ---
