@@ -47,8 +47,8 @@ Makine öğrenmesi iş akışının temeli, bir makine öğrenmesi modeli elde e
 
 1. **Modelin Eğitilmesi (İng. Model Training)** - Bir makine öğrenmesi modelini eğitmek için bir makine öğrenmesi algoritmasını eğitim verilerine uygulama süreci. Ayrıca, modelin eğitimi için gerekli olan özellik mühendisliği (İng. feature engineering) ve modelin hiperparametrelerini ayarlama adımlarını içerir.
 2. **Modelin Değerlendirilmesi (İng. Model Evaluation)** - Bir makine öğrenmesi modelini üretimde (prodüksiyonda) son kullanıcıya sunmadan önce, bu modelin orijinal kodlanmış hedefleri karşıladığından emin olmak için eğitilmiş modelin doğrulanması.
-3. **Modelin Testi Edilmesi (İng. Model Testing)** - Eğitim ve doğrulama kümeleri dışında bulunan diğer tüm veri noktalarını kullanarak son "Model Kabul Testi"ni gerçekleştirme.
-4. **Modeli Paketleme (İng. Model Packaging**) - İş uygulaması tarafından kullanılsın diye, nihai makine öğrenmesi modelinin belirli bir formata (örneğin PMML, PFA veya ONNX) aktarılması işlemi.
+3. **Modelin Test Edilmesi (İng. Model Testing)** - Eğitim ve doğrulama kümeleri dışında bulunan diğer tüm veri noktalarını kullanarak son "Model Kabul Testi"ni gerçekleştirme.
+4. **Modeli Paketleme (İng. Model Packaging**) - Bir iş uygulaması tarafından kullanılsın diye, nihai makine öğrenmesi modelinin belirli bir formata (örneğin PMML, PFA veya ONNX) aktarılması işlemi.
 
 ## Model Dağıtımı
 
