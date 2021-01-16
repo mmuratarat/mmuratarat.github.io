@@ -19,7 +19,7 @@ Makine Öğrenmesi operasyonları, makine öğrenmesi modellerinin gelişimini d
 
 # Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması
 
-Bu bölümde, makine öğrenmesi tabanlı bir yazılım geliştirmek için gerçekleşmesi gereken tipik bir iş akışını üst düzey bir biçimde gözden geçireceğiz. Genel olarak, bir makine öğrenmesi projesinin hedefi toplanmış veriyi kullanarak ve bu veriye makine öğrenmesi algoritmalarını uygulayarak istatistiksel bir model elde etmektir. Bu nedenle, makine öğrenmesi tabanlı her yazılımın üç ana bileşeni vardır: Veri, bir makine öğrenmesi modeli ve kod. Bu bileşenlere karşılık olarak tipik bir makine öğrenmesi iş akışı üç ana aşamadan oluşmaktadır: 
+Bu bölümde, makine öğrenmesi tabanlı bir yazılım geliştirmek için gerçekleşmesi gereken tipik bir iş akışını üst düzey bir biçimde gözden geçireceğiz. Genel olarak, bir makine öğrenmesi projesinin hedefi toplanmış veriyi kullanarak ve bu veriye makine öğrenmesi algoritmalarını uygulayarak istatistiksel bir model elde etmektir. Bu nedenle, makine öğrenmesi tabanlı her yazılımın üç ana bileşeni vardır: Veri, bir makine öğrenmesi modeli ve kod. Tipik bir makine öğrenmesi iş akışı bu bileşenlere karşılık gelen üç ana aşamadan oluşmaktadır: 
 
 * **Veri Mühendisliği:** veri toplama & veri hazırlama,
 * **Makine Öğrenmesi Model Mühendisliği:** bir makine öğrenmesi modelinin eğitilmesi & servis edilmesi, ve
