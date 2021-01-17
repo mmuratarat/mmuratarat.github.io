@@ -88,7 +88,7 @@ which will return:
 
 which is what we expect. The products will be grouped by their name, i.e., Laptop, Smartphone, table and the window function will compute the average for each of these product group and place the same average value for each record.
 
-Bu sometimes, you might need to compute the running average on the same partition, instead of overall average. In this case, `ORDER BY` clause comes to help. It sorts the rows within the window, and processes them in that order including only the current and previously seen rows, ignoring rows that are after current or not in the window.
+But sometimes, you might need to compute the running average on the same partition, instead of overall average. In this case, `ORDER BY` clause comes to help. It sorts the rows within the window, and processes them in that order including only the current and previously seen rows, ignoring rows that are after current or not in the window.
 
 ```sql
 SELECT
