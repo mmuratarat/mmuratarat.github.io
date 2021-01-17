@@ -11,9 +11,9 @@ permalink: /about/
 <img src="/assets/2017-09-03-23.35.54.jpg" alt="MMA" align="right" style="width: 35%; height: 35%; margin:15px">
 </center> 
 
-Hello! I'm Murat, PhD-level educated, bilingual statistician and data scientist, who design, develop and implement advanced predictive methods, powered by machine learning and deep learning algorithms, in order to provide actionable insights from large volumes of real-world, structured and unstructured data in order to satisfy the business needs for decision making. My research interests include but are not limited to the following areas: machine learning and deep learning algorithms, supervised learning, and unsupervised learning methods, time series forecasting and modeling, big data, distribution theory, statistical analysis, optimization and operational research. 
+Hello! I'm Murat, PhD-level educated, bilingual statistician and data scientist, who works to design, develop and implement advanced data-driven predictive methods, powered by machine learning and deep learning algorithms, to provide actionable insights from large volumes of real-world, structured and unstructured data in order to satisfy the business needs / goals for decision making across different industries and roles. I have a deep understanding of best data analytic practices to solve complex problems and I continuously improve myself and learn new emerging technologies, tools, and platforms to add new skills to my skill set.  My research interests include but are not limited to the following areas: machine learning and deep learning algorithms, supervised learning and unsupervised learning methods, time series forecasting and modeling, big data, distribution theory, statistical analysis, optimization and operational research. 
 
-I completed my Ph.D. dissertation, titled ”Advances and Applications in Deep Learning” under the supervision of [Dr. Michel Ballings](http://ballings.co/){:target="_blank"} (mb@utk.edu).
+I completed my Ph.D. dissertation, titled ”Advances and Applications in Deep Learning” under the supervision of [Dr. Michel Ballings](http://ballings.co/){:target="_blank"} (mb@utk.edu) at Department of [Business Analytics & Statistics](https://haslam.utk.edu/business-analytics-statistics){:target="_blank"} of the [University of Tennessee, Knoxville](https://utk.edu/){:target="_blank"}.
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/){:target="_blank"} of [Hacettepe University](https://www.hacettepe.edu.tr/){:target="_blank"} in Ankara, Turkey. I received my degree at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. 
 
@@ -30,7 +30,7 @@ Faculty of Science<br>
 Hacettepe University<br>
 Ankara, Turkey 06800<br>
 
-If you are interested in collaborating and doing some great work, please reach out to me via:
+If you are interested in collaborating and doing some great work together, please reach out to me via:
 
 <div class="contact-buttons" style="line-height:160%;margin-left:30px;margin-top:10px">
 <p>
