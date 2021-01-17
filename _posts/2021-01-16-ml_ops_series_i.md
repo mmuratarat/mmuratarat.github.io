@@ -37,7 +37,7 @@ Bir Veri Mühendisliği iletim hattı (İng. Pipeline), makine öğrenmesi algor
 
 1. **Veri Alınımı (İng. Data Ingestion)** - Spark, HDFS, CSV, vb. gibi çeşitli programlar ve formatlar kullanarak veri toplama. Bu adım, sentetik veri oluşturmayı veya veri zenginleştirmeyi de içerebilir.
 2. **Keşif ve Doğrulama (İng. Exploration and Validation)** - Verilerin içeriği ve yapısı hakkında bilgi almak için veri profili oluşturmayı içerir. Bu adımın çıktısı, maksimum, minimum, ortalama değerler gibi bir meta veri kümesidir. Veri doğrulama operasyonları, bazı hataları tespit etmek için veri setini tarayan, kullanıcı tanımlı hata tespit fonksiyonlarıdır.
-3. **Veri Düzenleme (Temizleme) (İng. Data Wrangling (Cleaning))** - Verideki belirli nitelikleri (değişkenleri) yeniden biçimlendirme ve verilerdeki hataları düzeltme süreci (örneğin kayıp değer ataması).
+3. **Veri Düzenleme (Temizleme) (İng. Data Wrangling (Cleaning) ÇN: data munging de denir)** - Verideki belirli nitelikleri (değişkenleri) yeniden biçimlendirme ve verilerdeki hataları düzeltme süreci (örneğin kayıp değer ataması).
 4. **Veri Etiketleme (İng. Data Labeling)** - Her veri noktasının belirli bir kategoriye atandığı Veri Mühendisliği iletim hattının bir operasyonudur.
 5. **Veri Ayırma (İng. Data Splitting)** - Bir makine öğrenmesi modeli elde etmek için temel makine öğrenmesi aşamaları sırasında kullanılmak üzere, mevcut veri kümesini eğitim, doğrulama ve test veri kümeleri olarak üçe ayırma. 
 
