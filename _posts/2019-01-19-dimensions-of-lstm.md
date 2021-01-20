@@ -12,7 +12,7 @@ A general LSTM cell can be shown as given below ([source](https://medium.com/mlr
 Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for **a single instance** (the equations for a whole mini-batch are very similar).
 
 1. Input gate:
-$$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$$
+$ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$
 
 2. Forget gate:
 $$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \cdot h_{t-1} + b_{f})$$
