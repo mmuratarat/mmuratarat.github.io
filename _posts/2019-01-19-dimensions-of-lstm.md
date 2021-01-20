@@ -46,7 +46,7 @@ $ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$
 $ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + b_{f})$
 
 3. New Candidate:
-$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$
+$ \widetilde{C_{t}}  = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$
 
 4. Cell State:
 $ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
@@ -66,7 +66,7 @@ $ i_{t} = \sigma ( [X_{t} h_{t-1}] \cdot W_{i}  + b_{i})$
 $ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$
 
 3. New Candidate:
-$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$
+$ \widetilde{C_{t}}  = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$
 
 4. Cell State:
 $ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
@@ -176,7 +176,7 @@ $ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + C_{t-1}\circ W_{ci
 $ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + C_{t-1}\circ W_{cf}  + b_{f})$
 
 3. New Candidate:
-$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$
+$ \widetilde{C_{t}}  = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$
 
 4. Cell State:
 $ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
