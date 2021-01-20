@@ -15,19 +15,19 @@ Equations below summarizes how to compute the cell’s long-term state, its shor
 $ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$
 
 2. Forget gate:
-$$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \cdot h_{t-1} + b_{f})$$
+$ f_{t} = \sigma (W_{xf}^{T} \cdot X_{t} + W_{hf}^{T} \cdot h_{t-1} + b_{f})$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (W_{xc} \cdot X_{t} + W_{hc} \cdot h_{t-1} + b_{c})$$
+$ \widetilde{C}_{t} = tanh (W_{xc} \cdot X_{t} + W_{hc} \cdot h_{t-1} + b_{c})$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
 
 5. Output gate:
-$$ o_{t} = \sigma (W_{xo} \cdot X_{t} + W_{ho} \cdot h_{t-1} + b_{o})$$
+$ o_{t} = \sigma (W_{xo} \cdot X_{t} + W_{ho} \cdot h_{t-1} + b_{o})$
 
 6. Hidden State:
-$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+$ h_{t} = o_{t}\circ tanh(C_{t})$
 
 *  $W_{xi}$, $W_{xf}$, $W_{xc}$, $W_{xo}$ are the weight matrices of each of the three gates and block input for their connection to the input vector $X_{t}$.
 *  $W_{hi}$, $W_{hf}$, $W_{hc}$, $W_{ho}$ are the weight matrices of each of the three gates and block input  for their connection to the previous short-term state $h_{t-1}$.
@@ -40,42 +40,42 @@ $$ h_{t} = o_{t}\circ tanh(C_{t})$$
 Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$$
+$ i_{t} = \sigma (X_{t}\cdot W_{xi} + h_{t-1} \cdot W_{hi} + b_{i})$
 
 2. Forget gate:
-$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + b_{f})$$
+$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + b_{f})$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$$
+$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot W_{hc} + b_{c})$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
 
 5. Output gate:
-$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + b_{o})$$
+$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + b_{o})$
 
 6. Hidden State:
-$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+$ h_{t} = o_{t}\circ tanh(C_{t})$
 
 We can concatenate the weight matrices for $X_{t}$ and $h_{t-1}$ horizontally, we can rewrite the equations above as the following:
 
 1. Input gate:
-$$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cdot W_{i}  + b_{i})$$
+$ i_{t} = \sigma ( [X_{t} h_{t-1}] \cdot W_{i}  + b_{i})$
 
 2. Forget gate:
-$$ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$$
+$ f_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{f} + b_{f})$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$$
+$ \widetilde{C}_{t} = tanh ( [X_{t} h_{t-1}] \cdot W_{c} + b_{c})$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
 
 5. Output gate:
-$$ o_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{o}+ b_{o})$$
+$ o_{t} = \sigma ([X_{t} h_{t-1}] \cdot W_{o}+ b_{o})$
 
 6. Hidden State:
-$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+$ h_{t} = o_{t}\circ tanh(C_{t})$
 
 # Tensorflow Dimensions
 In Tensorflow, LSTM variables are defined in `LSTMCell.build` method. The source code can be found in [rnn_cell_impl.py](https://github.com/tensorflow/tensorflow/blob/f52351444551016d7dd949a5aa599da489a97045/tensorflow/python/ops/rnn_cell_impl.py#L728){:target="_blank"}:
@@ -170,22 +170,22 @@ In a basic LSTM cell, the gate controllers can look only at the input $X_{t}$, a
 Based on the information above, if we write down the equations for **all instances in a mini-batch**, we will have:
 
 1. Input gate:
-$$ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + C_{t-1}\circ W_{ci}  + b_{i})$$
+$ i_{t} = \sigma (X_{t} \cdot W_{xi} + h_{t-1} \cdot W_{hi} + C_{t-1}\circ W_{ci}  + b_{i})$
 
 2. Forget gate:
-$$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + C_{t-1}\circ W_{cf}  + b_{f})$$
+$ f_{t} = \sigma (X_{t} \cdot W_{xf} + h_{t-1} \cdot W_{hf} + C_{t-1}\circ W_{cf}  + b_{f})$
 
 3. New Candidate:
-$$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$$
+$ \widetilde{C}_{t} = tanh (X_{t} \cdot W_{xc} + h_{t-1} \cdot  W_{hc}+ b_{c})$
 
 4. Cell State:
-$$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$$
+$ C_{t} = f_{t}\circ C_{t-1} + i_{t}  \circ \widetilde{C}_{t}$
 
 5. Output gate:
-$$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + C_{t}\circ W_{co}  + b_{o})$$
+$ o_{t} = \sigma (X_{t} \cdot W_{xo} + h_{t-1} \cdot W_{ho} + C_{t}\circ W_{co}  + b_{o})$
 
 6. Hidden State:
-$$ h_{t} = o_{t}\circ tanh(C_{t})$$
+$ h_{t} = o_{t}\circ tanh(C_{t})$
 
 Here, $\circ$ represents the Hadamard product (elementwise product).
 
