@@ -27,7 +27,9 @@ Bu bölümde, makine öğrenmesi tabanlı bir yazılım geliştirmek için gerç
 
 Aşağıdaki şekil tipik bir makine öğrenmesi iş akışında olan temel adımları göstermektedir.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml-engineering.jpg?raw=true)
+| ![space-1.jpg](![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml-engineering.png?raw=true)) | 
+|:--:| 
+| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
 
 ## Veri Mühendisliği 
 
@@ -58,4 +60,4 @@ Bir makine öğrenmesi modelini eğittikten sonra bu modeli bir mobil veya masa�
 2. **Modelin Performansını İzleme (İng. Model Performance Monitoring)** - Bir makine öğrenmesi modelinin performansını, tahmin yaparak veya öneri sunarak canlı (İng. live) ve önceden görülmemiş verilere (İng. previously unseen data) dayalı olarak gözlemleme süreci. Özellikle, önceki modelin performansından tahmin sapması gibi makine öğrenmesine özgü göstergeler ile ilgileniyoruz. Bu göstergeler, modelin yeniden eğitilmesi için bize uyarı niteliğinde olabilir.
 3. **Model Performansı Günlüğü (İng. Model Performance Logging)** - Her çıkarım talebi günlük (İng. log) kaydı ile sonuçlanır.
 
-**Bu çevirinin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
+**Bu çevirinin ve çevirideki grafiklerin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
