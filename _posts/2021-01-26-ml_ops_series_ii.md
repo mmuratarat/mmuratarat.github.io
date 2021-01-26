@@ -102,10 +102,10 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Denetimli öğrenme kullanılacaksa, ne tür bir makine öğrenmesi görevi seçilmelidir: sınıflandırma, regresyon veya sıralama (İng. ranking)?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sınıflandırma yapılacak ise, ikili veya çok sınıflı sınıflandırma görevi mi olacak?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Bir tahmin görevinin girdisi nedir?<br>
-&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahmin görevinin çıktısı nedir?
-&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahmin görevinin çıktısı nedir?<br>
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?
 örneğin. modelimiz diğer makine öğrenimi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
