@@ -148,7 +148,7 @@ Bu tür bilgiler daha sonra bu Makine Öğrenmesi modelinin nasıl dağıtılaca
 
 Bu blok, yeni girdiler üzerinde ne zaman bir tahmin yapmamız gerektiğine ilişkin bilgileri içerir.
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman mevcut olmalı?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman elde edilmelidir?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Bir zamanlama çizelgesine göre yeni tahminler yapılır.
