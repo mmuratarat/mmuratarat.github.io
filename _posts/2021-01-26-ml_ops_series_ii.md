@@ -136,8 +136,8 @@ Bir Makine Öğrenmesi modelinin eğitiminin herhangi bir uygulamasından önce,
 
 Makine Öğrenmesi görevini, Öznitelik mühendisliğini ve değerlendirme detaylarını tamamladıktan sonra, bir sonraki adım şunları belirlemektir:
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermek için tahminler nasıl kullanılır?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Son kullanıcı veya sistem, model tahminleriyle nasıl etkileşim kurar?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermek için tahminler nasıl kullanılır?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Son kullanıcı veya sistem, model tahminleriyle nasıl etkileşim kurar?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin. Kullanıcı bir ürün önerileri listesi alırsa ne olur? Gelen e-posta "istenmeyen posta" olarak sınıflandırılırsa ne olur?
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermede işleminde herhangi bir gizli maliyet var mıdır? örneğin işin içinde olan bir insan faktörü.
@@ -149,55 +149,55 @@ Bu tür bilgiler daha sonra bu Makine Öğrenmesi modelinin nasıl dağıtılaca
 Bu blok, yeni girdiler üzerinde ne zaman bir tahmin yapmamız gerektiğine ilişkin bilgileri içerir.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman mevcut olmalı?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Bir zamanlama çizelgesine göre yeni tahminler yapılır.
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler her veri noktası için mi yoksa girdi verilerinin bir yığını için mi _anında_ yapılıyor mu?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Uygulamada, _model çıkarsaması_ hesaplama açısından ne kadar karmaşıklaşır?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler her veri noktası için mi yoksa girdi verilerinin bir yığını için mi _anında_ yapılıyor mu?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Uygulamada, _model çıkarsaması_ hesaplama açısından ne kadar karmaşıklaşır?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> İşin içinde tahminlerde bulunmayı destekleyen bir insan var mı?
 
 ## Veri Toplama
 
 Tahmin Yapma ile ilişkili olarak Veri Toplama bloğu, Makine Öğrenmesi modelini yeniden eğitmek için toplanması gereken yeni veriler hakkında bilgi toplar. Böylelikle, bu makine öğrenmesi modelinin bozulmasını nasıl önlediğimizi belirliyoruz. Bu blokta cevaplanacak diğer sorular şunlardır:
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Yeni veriyi nasıl etiketleriz?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Yeni veri toplamak ne kadar masraflıdır?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Görüntü, ses veya video gibi zengin medya formatlarını işlemek ne kadar masraflıdır?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Yeni veriyi nasıl etiketleriz?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Yeni veri toplamak ne kadar masraflıdır?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Görüntü, ses veya video gibi zengin medya formatlarını işlemek ne kadar masraflıdır?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Gelen verilerin manuel olarak temizlenmesi ve etiketlenmesi için kullanılan bir insan faktörü var mı?
 
 ## Model Oluşturma
 
 Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, Makine Öğrenmesi modellerini güncellemeyle ilgili soruları yanıtlar çünkü farklı Makine Öğrenmesi görevleri için bir modelin yeniden eğitilmesi farklı sıklıklarla gerçekleşebilir:
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator){target="_blank"}, [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html){target="_blank"}, [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/){target="_blank"}'dir
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Teknoloji yığınında değişiklik yapmayı planlıyor muyuz?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Teknoloji yığınında değişiklik yapmayı planlıyor muyuz?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, Modern Yapay Zekada yeni araçlar ve geliştirme iş akışları ortaya çıktıkça teknoloji yığını evrimiyle nasıl başa çıkabiliriz?
 
 ## Anlık Değerlendirme ve İzleme
 
 Dağıtımdan sonra, bir makine öğrenmesi modeli değerlendirilmeli ve burada birbiriyle ilişkili olması gereken hem model hem de iş ölçütlerini (metrikler) belirlememiz gerekir. Genel olarak, bu ölçütler S.M.A.R.T metodolojisini takip etmeli ve: Spesifik (İng. Specific), Ölçülebilir (İng. Measurable), Ulaşılabilir (İng. Achievable), İlgili (İng. Relevant) ve Zamana bağlı (İng. Time-bound) olmalıdır.
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Sistemin performansını nasıl takip ederiz?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, A/B testi
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Değer yaratmayı (İng. value creation) nasıl değerlendiririz?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Sistemin performansını nasıl takip ederiz?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, A/B testi<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Değer yaratmayı (İng. value creation) nasıl değerlendiririz?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, kullanıcılar gelen kutusunda daha az zaman harcadı.
 
 
 
 Bu aşamadaki çıktı, tamamlanmış Makine Öğrenmesi Şablonu'dur. Bu şablonu doldurma çabası, makine öğrenmesi tabanlı yazılımının gerçek amacına ve gizli maliyetlerine ilişkin varoluşsal bir tartışma başlatabilir. Böyle bir tartışma, Yapay Zeka'yı / Makine Öğrenmesi'ni hiç uygulamama kararıyla sonuçlanabilir. Olası nedenler aşağıdakiler gibi olabilir:
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Sorunumuzun çözümü yanlış tahminlere müsamaha göstermez.
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka'yı / Makine Öğrenmesi'ni uygulamak düşük yatırım karı (İng. ROI - Return On Investment) yaratacaktır.
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Sorunumuzun çözümü yanlış tahminlere müsamaha göstermez.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka'yı / Makine Öğrenmesi'ni uygulamak düşük yatırım karı (İng. ROI - Return On Investment) yaratacaktır.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka / Makine Öğrenmesi projesinin bakımı garanti edilmez
 
 
