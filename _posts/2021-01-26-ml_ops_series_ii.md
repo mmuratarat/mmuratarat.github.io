@@ -80,7 +80,7 @@ Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir m
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Web kazıma.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Diğer (Makine Öğrenmesi) sistemlerin çıktısı.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Açık kaynak veri kümeleri.<br>
-&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri){target="_blank"}, [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması){target="_blank"}, [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu){target="_blank"} veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi){target="_blank"}.
+&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri), [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması), [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu) veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi).
 
 
 Bunlara ek olarak, bir makine öğrenmesi uygulamasının gizli maliyetlerine de bakmamız gerekir.
@@ -177,7 +177,7 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator){target="_blank"}, [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html){target="_blank"}, [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/){target="_blank"}'dir
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator), [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html), [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/)'dir
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
