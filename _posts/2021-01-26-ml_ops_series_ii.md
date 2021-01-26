@@ -182,7 +182,7 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Teknoloji yığınında değişiklik yapmayı planlıyor muyuz?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, Modern Yapay Zekada yeni araçlar ve geliştirme iş akışları ortaya çıktıkça teknoloji yığını evrimiyle nasıl başa çıkabiliriz?
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, Modern Yapay Zekada yeni araçlar ve geliştirme iş akışları ortaya çıktıkça teknoloji yığını evrimiyle nasıl başa çıkabiliriz?
 
 ## Anlık Değerlendirme ve İzleme
 
