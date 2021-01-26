@@ -138,7 +138,7 @@ Makine Öğrenmesi görevini, Öznitelik mühendisliğini ve değerlendirme deta
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermek için tahminler nasıl kullanılır?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Son kullanıcı veya sistem, model tahminleriyle nasıl etkileşim kurar?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin. Kullanıcı bir ürün önerileri listesi alırsa ne olur? Gelen e-posta "istenmeyen posta" olarak sınıflandırılırsa ne olur?
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin. Kullanıcı bir ürün önerileri listesi alırsa ne olur? Gelen e-posta "istenmeyen posta" olarak sınıflandırılırsa ne olur?
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermede işleminde herhangi bir gizli maliyet var mıdır? örneğin işin içinde olan bir insan faktörü.
 
