@@ -29,7 +29,7 @@ Yapılacak tahminin (Makine Öğrenmesi modelinin) nerede uygulanabileceğini g�
 5. Her **görev** için ayrı ayrı hesaplanan yatırım karlarına göre Yapay Zeka / Makine Öğrenmesi uygulamalarını sıralayın.
 6. Listenin en başından başlayın ve her bir görev için Yapay Zeka Şablonunu veya Makine Öğrenmesi Şablonunu tamamlayarak Yapay Zeka / Makine Öğrenmesi uygulamasını yapılandırın.
 
-Yapay Zeka Şablonu veya alternatifi Makine Öğrenimi Şablonu, parçalanma sürecini yapılandırmaya destek ve yardımcı olur. Ayrıca, tahmin yapmak için tam olarak neyin gerekli olduğunu ve tahmin algoritması tarafından yapılan hatalara nasıl tepki vereceğimizi ifade etmeye yardımcı olurlar.
+Yapay Zeka Şablonu veya alternatifi Makine Öğrenmesi Şablonu, parçalanma sürecini yapılandırmaya destek ve yardımcı olur. Ayrıca, tahmin yapmak için tam olarak neyin gerekli olduğunu ve tahmin algoritması tarafından yapılan hatalara nasıl tepki vereceğimizi ifade etmeye yardımcı olurlar.
 
 ## Yapay Zeka Şablonu
 
@@ -46,7 +46,7 @@ Başlangıçta, "tahmini sistemin son kullanıcıları için neyi başarmak isti
 
 Şablonun merkezi kısmı, müşteriler için bir miktar değer yaratan ürün veya hizmetleri tanımlayan _Değer Önerisi_ yapı taşıdır. Tipik olarak şu soruları yanıtlarız: _Hangi_ sorunları çözmeye çalışıyoruz? Gerçekleştireceğimiz görev _neden_ önemlidir? Sistemimizin son kullanıcısı _kimdir_? Bu Makine Öğrenmesi projesi son kullanıcıya hangi değeri sağlar? Çıktılarınızı / tahminlerinizi bu kullanıcılar nasıl kullanacaklar?
 
-Şablonun gerı kalanı üç geniş kategoriye ayrılmıştır: _Öğrenme_, _Tahmin_ ve _Değerlendirme_. Öğrenme kategorisi, Makine Öğrenmesi modelinin nasıl öğrenileceğini belirlemekten sorumludur. Tahmin bölümü tahminin nasıl yapıldığını açıklar. Son olarak, Değerlendirme kategorisi, makine öğrenimi modelinde ve sistem değerlendirmesinde kullanılacak yöntemleri ve metrikleri içerir. Aşağıdaki Makine Öğrenmesi Şablonu, Louis Dorard tarafından sağlanan bir örnektir:
+Şablonun gerı kalanı üç geniş kategoriye ayrılmıştır: _Öğrenme_, _Tahmin_ ve _Değerlendirme_. Öğrenme kategorisi, Makine Öğrenmesi modelinin nasıl öğrenileceğini belirlemekten sorumludur. Tahmin bölümü tahminin nasıl yapıldığını açıklar. Son olarak, Değerlendirme kategorisi, makine öğrenmesi modelinde ve sistem değerlendirmesinde kullanılacak yöntemleri ve metrikleri içerir. Aşağıdaki Makine Öğrenmesi Şablonu, Louis Dorard tarafından sağlanan bir örnektir:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ML_canvas_v04.jpg?raw=true)
 
@@ -108,7 +108,7 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?
-örneğin. modelimiz diğer makine öğrenimi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
+örneğin. modelimiz diğer makine öğrenmesi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yukarıdaki modeller için eğitim ve çıkarım süresi gibi karmaşıklık maliyetleri nelerdir?
 
@@ -123,7 +123,7 @@ Her Makine Öğrenmesi algoritmasına verilen verinin satırlarda gözlemler sü
 
 Bir Makine Öğrenmesi modelinin eğitiminin herhangi bir uygulamasından önce, modelin dağıtımı (İng. deployment) önce sistemi değerlendirmek için eldeki metodları ve metrikleri belirlememiz ve ayarlamamız gerekir. Burada şunları belirlememiz gerekir:
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine öğrenimi modelinin dağıtımını doğrulayan, alana özgü metrikler. Örneğin, eğitim ve test verileriyle simüle edildiğinde, modelin tahmini, "geleneksel" yolla elde edilen hasılattan daha fazla hasılat sağlar.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine öğrenmesi modelinin dağıtımını doğrulayan alana özgü metrikler. Örneğin, eğitim ve test verileriyle simüle edildiğinde, modelin tahmini, "geleneksel" yolla elde edilen hasılattan daha fazla hasılat sağlar.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Hangi teknik değerlendirme ölçütleri kullanılmalıdır?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kesinlik (İng. Precision), Duyarlılık (İng. Recall/Sensitivity), F-1 ölçütü.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Doğruluk oranı.
