@@ -148,7 +148,7 @@ Bu tür bilgiler daha sonra bu Makine Öğrenmesi modelinin nasıl dağıtılaca
 
 Bu blok, yeni girdiler üzerinde ne zaman bir tahmin yapmamız gerektiğine ilişkin bilgileri içerir.
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman mevcut olmalı?
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman mevcut olmalı?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Bir zamanlama çizelgesine göre yeni tahminler yapılır.
@@ -173,10 +173,10 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator){target="_blank"}, [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html){target="_blank"}, [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/){target="_blank"}'dir
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator){target="_blank"}, [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html){target="_blank"}, [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/){target="_blank"}'dir
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
