@@ -172,6 +172,7 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.<br>
+
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
