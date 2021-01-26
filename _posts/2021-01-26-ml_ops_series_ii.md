@@ -19,6 +19,7 @@ Yapılacak tahminin (Makine Öğrenmesi modelinin) nerede uygulanabileceğini g�
 |:--:| 
 | Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
 
+
 "Yapay Zeka / Makine Öğrenmesi nasıl uygulanır" sorusunu yanıtlamak için aşağıdaki adımları izleriz:
 
 1. Yapay Zeka / Makine Öğrenmesi tarafından güçlendirilebilecek somut **süreci** tanımlayın (yukarıdaki Şekil'e bakınız).
