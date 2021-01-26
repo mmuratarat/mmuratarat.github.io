@@ -80,7 +80,7 @@ Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir m
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Web kazıma.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Diğer (Makine Öğrenmesi) sistemlerin çıktısı.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Açık kaynak veri kümeleri.<br>
-&nbsp;Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri){target="_blank"}, [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması){target="_blank"}, [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu){target="_blank"} veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi){target="_blank"}.
+&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri){target="_blank"}, [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması){target="_blank"}, [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu){target="_blank"} veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi){target="_blank"}.
 
 
 Bunlara ek olarak, bir makine öğrenmesi uygulamasının gizli maliyetlerine de bakmamız gerekir.
@@ -102,10 +102,10 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Denetimli öğrenme kullanılacaksa, ne tür bir makine öğrenmesi görevi seçilmelidir: sınıflandırma, regresyon veya sıralama (İng. ranking)?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sınıflandırma yapılacak ise, ikili veya çok sınıflı sınıflandırma görevi mi olacak?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Bir tahmin görevinin girdisi nedir?<br>
-örneğin, E-posta metini.<br>
+&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahmin görevinin çıktısı nedir?
-örneğin, "İstenmeyen e-posta" ve "normal"<br>
+&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?
 örneğin. modelimiz diğer makine öğrenimi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
