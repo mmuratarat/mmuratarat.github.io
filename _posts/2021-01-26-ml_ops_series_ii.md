@@ -171,7 +171,7 @@ Tahmin Yapma ile ilişkili olarak Veri Toplama bloğu, Makine Öğrenmesi modeli
 Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, Makine Öğrenmesi modellerini güncellemeyle ilgili soruları yanıtlar çünkü farklı Makine Öğrenmesi görevleri için bir modelin yeniden eğitilmesi farklı sıklıklarla gerçekleşebilir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.
+&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
