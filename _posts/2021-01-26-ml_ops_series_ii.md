@@ -86,7 +86,7 @@ Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir m
 Bunlara ek olarak, bir makine öğrenmesi uygulamasının gizli maliyetlerine de bakmamız gerekir.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Bu verileri depolamak ne kadar masraflı olacaktır?<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Dış (harici) veri satın almalı mıyız?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Dışarıdan (harici) veri satın almalı mıyız?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Veriyi diğer sistemlerden erişilebilir kılmak için hangi veri değerlendirme araçları ve süreçleri mevcuttur?
 
 ## Tahmin Görevi 
