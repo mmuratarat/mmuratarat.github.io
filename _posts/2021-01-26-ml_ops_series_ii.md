@@ -18,6 +18,7 @@ Yapılacak tahminin (Makine Öğrenmesi modelinin) nerede uygulanabileceğini g�
 | ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml_workflow_decomposition.png?raw=true) | 
 |:--:| 
 | Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+
 <br>
 "Yapay Zeka / Makine Öğrenmesi nasıl uygulanır" sorusunu yanıtlamak için aşağıdaki adımları izleriz:
 
