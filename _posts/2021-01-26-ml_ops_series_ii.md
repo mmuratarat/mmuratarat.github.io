@@ -80,7 +80,7 @@ Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir m
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Web kazıma.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Diğer (Makine Öğrenmesi) sistemlerin çıktısı.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Açık kaynak veri kümeleri.<br>
-&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri), [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması), [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu) veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi).
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri), [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması), [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu) veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi).
 
 
 Bunlara ek olarak, bir makine öğrenmesi uygulamasının gizli maliyetlerine de bakmamız gerekir.
@@ -102,13 +102,13 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Denetimli öğrenme kullanılacaksa, ne tür bir makine öğrenmesi görevi seçilmelidir: sınıflandırma, regresyon veya sıralama (İng. ranking)?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sınıflandırma yapılacak ise, ikili veya çok sınıflı sınıflandırma görevi mi olacak?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Bir tahmin görevinin girdisi nedir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahmin görevinin çıktısı nedir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?
-örneğin. modelimiz diğer makine öğrenmesi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?<br>
+> örneğin. modelimiz diğer makine öğrenmesi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yukarıdaki modeller için eğitim ve çıkarım süresi gibi karmaşıklık maliyetleri nelerdir?
 
@@ -125,8 +125,8 @@ Bir Makine Öğrenmesi modelinin eğitiminin herhangi bir uygulamasından önce,
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine öğrenmesi modelinin dağıtımını doğrulayan alana özgü metrikler. Örneğin, eğitim ve test verileriyle simüle edildiğinde, modelin tahmini, "geleneksel" yolla elde edilen hasılattan daha fazla hasılat sağlar.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Hangi teknik değerlendirme ölçütleri kullanılmalıdır?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kesinlik (İng. Precision), Duyarlılık (İng. Recall/Sensitivity), F-1 ölçütü.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Doğruluk oranı.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Kesinlik (İng. Precision), Duyarlılık (İng. Recall/Sensitivity), F-1 ölçütü.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Doğruluk oranı.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yalancı pozitifler (İng. false positives) ve yalancı negatifler (İng. false negatives) gibi model tahmin hatalarının anlamı nedir?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Test verimiz nedir?<br>
@@ -138,7 +138,7 @@ Makine Öğrenmesi görevini, Öznitelik mühendisliğini ve değerlendirme deta
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermek için tahminler nasıl kullanılır?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Son kullanıcı veya sistem, model tahminleriyle nasıl etkileşim kurar?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin. Kullanıcı bir ürün önerileri listesi alırsa ne olur? Gelen e-posta "istenmeyen posta" olarak sınıflandırılırsa ne olur?
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin. Kullanıcı bir ürün önerileri listesi alırsa ne olur? Gelen e-posta "istenmeyen posta" olarak sınıflandırılırsa ne olur?
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Karar vermede işleminde herhangi bir gizli maliyet var mıdır? örneğin işin içinde olan bir insan faktörü.
 
@@ -149,9 +149,9 @@ Bu tür bilgiler daha sonra bu Makine Öğrenmesi modelinin nasıl dağıtılaca
 Bu blok, yeni girdiler üzerinde ne zaman bir tahmin yapmamız gerektiğine ilişkin bilgileri içerir.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler ne zaman elde edilmelidir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Bir zamanlama çizelgesine göre yeni tahminler yapılır.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Kullanıcı uygulamayı her açtığı zaman yeni tahminler yapılır, örneğin  bir ürün önerileri listesi.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Talep üzerine yeni tahminler yapılır.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Bir zamanlama çizelgesine göre yeni tahminler yapılır.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahminler her veri noktası için mi yoksa girdi verilerinin bir yığını için mi _anında_ yapılıyor mu?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Uygulamada, _model çıkarsaması_ hesaplama açısından ne kadar karmaşıklaşır?<br>
@@ -171,7 +171,7 @@ Tahmin Yapma ile ilişkili olarak Veri Toplama bloğu, Makine Öğrenmesi modeli
 Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, Makine Öğrenmesi modellerini güncellemeyle ilgili soruları yanıtlar çünkü farklı Makine Öğrenmesi görevleri için bir modelin yeniden eğitilmesi farklı sıklıklarla gerçekleşebilir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model ne sıklıkla yeniden eğitilmelidir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, buu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
@@ -182,16 +182,16 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Teknoloji yığınında değişiklik yapmayı planlıyor muyuz?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, Modern Yapay Zekada yeni araçlar ve geliştirme iş akışları ortaya çıktıkça teknoloji yığını evrimiyle nasıl başa çıkabiliriz?
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, Modern Yapay Zekada yeni araçlar ve geliştirme iş akışları ortaya çıktıkça teknoloji yığını evrimiyle nasıl başa çıkabiliriz?
 
 ## Anlık Değerlendirme ve İzleme
 
 Dağıtımdan sonra, bir makine öğrenmesi modeli değerlendirilmeli ve burada birbiriyle ilişkili olması gereken hem model hem de iş ölçütlerini (metrikler) belirlememiz gerekir. Genel olarak, bu ölçütler S.M.A.R.T metodolojisini takip etmeli ve: Spesifik (İng. Specific), Ölçülebilir (İng. Measurable), Ulaşılabilir (İng. Achievable), İlgili (İng. Relevant) ve Zamana bağlı (İng. Time-bound) olmalıdır.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sistemin performansını nasıl takip ederiz?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, A/B testi<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, A/B testi<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Değer yaratmayı (İng. value creation) nasıl değerlendiririz?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, kullanıcılar gelen kutusunda daha az zaman harcadı.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, kullanıcılar gelen kutusunda daha az zaman harcadı.
 
 
 
