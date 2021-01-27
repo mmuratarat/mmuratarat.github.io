@@ -174,10 +174,10 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> Örneğin, saatlik, haftalık veya yeni bir veri noktası geldiği her an.<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modelin yeniden eğitiminin _gizli maliyetleri_ nelerdir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
-&nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator), [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html), [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/)'dir
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin Bu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator), [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html), [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/)'dir
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
