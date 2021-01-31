@@ -13,8 +13,9 @@ Bu nedenle makine öğrenmesi ile ilgilenenler için MLOps (makine öğrenmesi o
 
 Serinin ilk çevirisi konuyla ilgili üst düzey bir tanıtım yapan Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından INNOQ için yazılmış "[An Overview of the End-to-End Machine Learning Workflow](https://ml-ops.org/content/end-to-end-ml-workflow){:target="_blank"}" isimli yazı. 
 
-
 MLOps sözcüğü makine öğrenmesi ve operasyon (İng. Operations) sözcüklerinin birleşimidir ve üretime (İng. production) sokulan bir Makine Öğrenmesi (veya Derin Öğrenme) modelinin yaşam döngüsünü yönetmeye yardımcı olmak için veri bilimcileri ve operasyon uzmanları arasında iletişim ve işbirliği sağlayan bir uygulamadır. DevOps (Developer Operations - Geliştirici Operasyonları) veya DataOps (Data Operations - Veri Operasyonları)'na çok benzer. Naif bir bakış açısıyla, MLOps sadece makine öğrenimi alanına uygulanan DevOps'tur.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/mlops.png?raw=true)
 
 Makine Öğrenmesi operasyonları, makine öğrenmesi modellerinin gelişimini daha güvenilir ve verimli yapmak için gerekli olan tüm süreçleri tanımlayarak makine öğrenmesi modellerinin geliştirilmesine ve dağıtımına (İng. deployment) yardımcı olmak için gerekli ilkelerin belirlenmesi üzerine odaklanır.
 
