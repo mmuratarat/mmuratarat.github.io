@@ -194,7 +194,6 @@ Dağıtımdan sonra, bir makine öğrenmesi modeli değerlendirilmeli ve burada 
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, kullanıcılar gelen kutusunda daha az zaman harcadı.
 
 
-
 Bu aşamadaki çıktı, tamamlanmış Makine Öğrenmesi Şablonu'dur. Bu şablonu doldurma çabası, makine öğrenmesi tabanlı yazılımının gerçek amacına ve gizli maliyetlerine ilişkin varoluşsal bir tartışma başlatabilir. Böyle bir tartışma, Yapay Zeka'yı / Makine Öğrenmesi'ni hiç uygulamama kararıyla sonuçlanabilir. Olası nedenler aşağıdakiler gibi olabilir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sorunumuzun çözümü yanlış tahminlere müsamaha göstermez.<br>
