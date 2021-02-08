@@ -177,7 +177,7 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, buu tür görevleri gerçekleştirmek için bulut kaynaklarını kullanıyor muyuz?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> bulut hizmetini sağlayanın şirketin fiyat politikası nedir?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> donanımsal maliyetlerin tahminini nasıl yapmalıyız?<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator), [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html), [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/)'dir
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> yaygın Bulut Fiyatlandırma Hesaplayıcıları; [Google Cloud Calculator](https://cloud.google.com/products/calculator){:target="_blank"}, [Amazon ML Pricing](https://docs.aws.amazon.com/machine-learning/latest/dg/pricing.html){:target="_blank"}, [Microsoft Azure Calculator](https://azure.microsoft.com/en-in/pricing/calculator/){:target="_blank"}'dir
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Modeli yeniden eğitmek ne kadar sürer?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha karmaşık ve maliyetli olabileceğinden, bulut operasyonlarının ölçeklendirme sorunlarıyla nasıl başa çıkacağız?<br>
