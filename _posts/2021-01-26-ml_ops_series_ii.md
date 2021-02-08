@@ -80,7 +80,7 @@ Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir m
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Web kazıma.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Diğer (Makine Öğrenmesi) sistemlerin çıktısı.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Açık kaynak veri kümeleri.<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [https://www.kaggle.com/datasets](Kaggle Veri Kümeleri), [https://datasetsearch.research.google.com/](Google'ın Veri Kümesi Araması), [https://archive.ics.uci.edu/ml/datasets.php](UCI Veri Havuzu) veya [https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research](makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi).
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Herkese açık faydalı veri kümeleri: [Kaggle Veri Kümeleri](https://www.kaggle.com/datasets), [Google'ın Veri Kümesi Arama Motoru](https://datasetsearch.research.google.com/), [UCI Veri Havuzu](https://archive.ics.uci.edu/ml/datasets.php) veya [makine öğrenmesi araştırması için Wikipedia'nın veri kümeleri listesi](https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research).
 
 
 Bunlara ek olarak, bir makine öğrenmesi uygulamasının gizli maliyetlerine de bakmamız gerekir.
