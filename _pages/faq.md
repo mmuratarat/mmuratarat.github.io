@@ -11892,4 +11892,4 @@ Big data analytics can be time-consuming, complicated, and computationally deman
 
 - Basically, `pip` comes with python itself.Therefore it carries no meaning for using pip itself to install or upgrade python. `pip` is designed to upgrade python packages and not to upgrade python itself. `pip` shouldn't try to upgrade python when you ask it to do so. Don't type `pip install python` but use an installer instead.
 
-- `python3 --version` will print out the version of Python3 on Terminal window. `which -a python` will print out all the Python versions you have.
+- `python3 --version` will print out the version of Python3 on Terminal window. `which -a python` (or `which python3`) will print out all the Python versions you have.
