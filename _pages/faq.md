@@ -11892,7 +11892,7 @@ Big data analytics can be time-consuming, complicated, and computationally deman
 
 - Basically, `pip` comes with python itself.Therefore it carries no meaning for using pip itself to install or upgrade python. `pip` is designed to upgrade python packages and not to upgrade python itself. `pip` shouldn't try to upgrade python when you ask it to do so. Don't type `pip install python` but use an installer instead.
 
-- `python3 --version` will print out the version of Python3 on Terminal window. `which -a python` (or `which python3`) will print out all the Python versions you have.
+- `python3 --version` will print out the version of Python3 on Terminal window. `which -a python python3` will print out all the Python versions you have.
 
 - `pip` is associated with Python 2.7 and `pip3` is with Python 3. So if you want to upgrade `pip3`, try running `pip3 install --upgrade pip`.
 
@@ -11917,4 +11917,47 @@ will give you the interpreter. You can select the interpreter you want when you 
   Note that this works if you do not add an alias to python3 (see below)
   
 - In order to switch Python versions in Terminal, the simplest way would be to add an alias to python3 to always point to the native python installed. Add this line to the `.bash_profile` file in your `$HOME` directory at the last and source `.bash_profile` by doing `source ~/.bash_profile`. Doing so makes the changes to be reflected on every interactive shell opened.
+
+- Some Python installations come with Apple MacOSX. Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
+
+```shell
+Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Dec 21 2020, 23:00:36) 
+[GCC Apple LLVM 12.0.0 (clang-1200.0.30.4) [+internal-os, ptrauth-isa=sign+stri on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python2
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Dec 21 2020, 23:00:36) 
+[GCC Apple LLVM 12.0.0 (clang-1200.0.30.4) [+internal-os, ptrauth-isa=sign+stri on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python2.7
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Dec 21 2020, 23:00:36) 
+[GCC Apple LLVM 12.0.0 (clang-1200.0.30.4) [+internal-os, ptrauth-isa=sign+stri on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python3
+Python 3.7.3 (default, Mar  6 2020, 22:34:30) 
+[Clang 11.0.3 (clang-1103.0.32.29)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+```
 
