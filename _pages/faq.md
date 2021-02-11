@@ -11893,3 +11893,26 @@ Big data analytics can be time-consuming, complicated, and computationally deman
 - Basically, `pip` comes with python itself.Therefore it carries no meaning for using pip itself to install or upgrade python. `pip` is designed to upgrade python packages and not to upgrade python itself. `pip` shouldn't try to upgrade python when you ask it to do so. Don't type `pip install python` but use an installer instead.
 
 - `python3 --version` will print out the version of Python3 on Terminal window. `which -a python` (or `which python3`) will print out all the Python versions you have.
+
+- `pip` is associated with Python 2.7 and `pip3` is with Python 3. So if you want to upgrade `pip3`, try running `pip3 install --upgrade pip`.
+
+- How to know which is running in Jupyter notebook? 
+ ``` python
+ import sys
+print(sys.executable)
+print(sys.version)
+print(sys.version_info)
+```
+will give you the interpreter. You can select the interpreter you want when you create a new notebook.
+
+- You can just specify the python version when running a program: 
+  for python 2: 
+  `python filename.py` 
+  
+  and 
+  
+  for python 3:
+  `python3 filename.py`
+  
+- In order to switch Python versions in Terminal, the simplest way would be to add an alias to python3 to always point to the native python installed. Add this line to the `.bash_profile` file in your `$HOME` directory at the last and source `.bash_profile` by doing `source ~/.bash_profile`. Doing so makes the changes to be reflected on every interactive shell opened.
+
