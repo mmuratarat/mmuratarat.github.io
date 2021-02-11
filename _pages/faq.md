@@ -11886,3 +11886,10 @@ https://stackoverflow.com/questions/9152890/what-would-cause-an-algorithm-to-hav
 #### What is Big Data?
 
 Big data analytics can be time-consuming, complicated, and computationally demanding, without the proper tools, frameworks, and techniques. When the volume of data is too high to process and analyze on a single machine, Apache Spark and Apache Hadoop can simplify the task through parallel processing and distributed processing. To understand the need for parallel processing and distributed processing in big data analytics, it is important to first understand what “big data” is. The high-velocity at which big data is generated requires that the data also be processed very quickly and the variety of big data means it contains various types of data, including structured, semi-structured, and unstructured data. The volume, velocity, and variety of big data calls for new, innovative techniques and frameworks for collecting, storing, and processing the data, which is why Apache Hadoop and Apache Spark were created.
+
+
+# SOME NOTES
+
+- Basically, `pip` comes with python itself.Therefore it carries no meaning for using pip itself to install or upgrade python. `pip` is designed to upgrade python packages and not to upgrade python itself. `pip` shouldn't try to upgrade python when you ask it to do so. Don't type `pip install python` but use an installer instead.
+
+- `python3 --version` will print out the version of Python3 on Terminal window. `which -a python` will print out all the Python versions you have.
