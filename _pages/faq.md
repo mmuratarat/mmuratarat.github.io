@@ -11918,7 +11918,9 @@ will give you the interpreter. You can select the interpreter you want when you 
   
 - In order to switch Python versions in Terminal, the simplest way would be to add an alias to python3 to always point to the native python installed. Add this line to the `.bash_profile` file in your `$HOME` directory at the last and source `.bash_profile` by doing `source ~/.bash_profile`. Doing so makes the changes to be reflected on every interactive shell opened.
 
-- Some Python installations come with Apple MacOSX. Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
+- Some Python installations come with Apple MacOSX. The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.
+
+Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
 
 ```shell
 Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python
