@@ -51,9 +51,9 @@ _Keşif ve Doğrulama_ - Verilerin içeriği ve yapısı hakkında bilgi edinmek
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Kayıp değerlerin miktarı (veya "kayıp değer oranı" = kayıp değerlerin sayısı / Kayıt sayısı)<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Dağılım türü (Gauss, uniform (tekdüze), logaritmik, vb.)<br>
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Etiket (Label) Özniteliği Tanımlama: Denetimli öğrenme görevleri için hedef öznitelik(ler)i tanımlayın.
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Veri Görselleştirme: Değer dağılımı için görsel bir temsil oluşturun.
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Nitelik Korelasyonu: Nitelikler arasındaki korelasyonları hesaplayın ve analiz edin.
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Etiket (Label) Özniteliği Tanımlama: Denetimli öğrenme görevleri için hedef öznitelik(ler)i tanımlayın.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Veri Görselleştirme: Değer dağılımı için görsel bir temsil oluşturun.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Nitelik Korelasyonu: Nitelikler arasındaki korelasyonları hesaplayın ve analiz edin.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Ek Veriler: Modeli oluşturmak için yararlı olacak verileri tanımlayın ("Veri Alınımı" adımına geri dönün).
 
 ### Veri Düzenleme (Temizleme)(Data Wrangling (Cleaning))
