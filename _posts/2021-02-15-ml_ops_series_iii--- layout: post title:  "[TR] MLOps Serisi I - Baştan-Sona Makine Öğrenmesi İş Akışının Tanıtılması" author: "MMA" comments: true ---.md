@@ -154,9 +154,10 @@ Makine öğrenmesi modellerinin dağıtımı için en yaygın biçimde kullanıl
 
 Aşağıdaki şekil, eğitilmiş modelleri dağıtılabilir hizmetler olarak sarmalamak için kullanılabilecek mimariyi göstermektedir. Dağıtım Stratejileri Bölümünde eğitilmiş makine öğrenmesi modellerini dağıtılabilir hizmetler olarak sarmalamak için kullanılabilecek yöntemlerini tartıştığımızı lütfen unutmayın.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-serving-microservices.png?raw=true) | 
-|:--:| 
-| Burada "GET" bir HTTPS fiilidir. Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-serving-microservices.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Burada "GET" bir HTTPS fiilidir. Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 #### Çevrimiçi Öğrenme
 
@@ -168,9 +169,10 @@ Teknik olarak, bu tür bir makine öğrenmesi sistemi, büyük veri sistemlerind
 
 Genellikle, girdi verileri olayların bir akışıdır ve makine öğrenmesi modeli, verileri sisteme girerken alır, bu yeni veriler üzerinde tahminler sağlar ve daha sonra bu yeni verileri de kullanarak öğrenmeyi yeniden başlatır. Model tipik olarak bir Kubernetes kümesi veya benzeri bir sistem üzerinde bir servis olarak çalışır. Üretimdeki bir çevrimiçi öğrenme sistemi ile ilgili büyük bir zorluk, sisteme kalitesiz veriler girerse, makine öğrenmesi modelinin yanı sıra tüm sistem performansının giderek azalacak olmasıdır.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/online_learning.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch01.html){:target="_blank"}|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/online_learning.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. <a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch01.html" target="_blank">Orijinal şeklin kaynağı</a>.</small></figcaption>
+</figure>
 
 #### AutoML
 
@@ -253,25 +255,28 @@ Aşağıdaki sınıflandırma bu yaklaşımları göstermektedir:
 
 Servis-Olarak-Model, bir makine öğrenmesi modelini bağımsız bir servis olacak biçimde sarmalayarak gerçekleştirilen yaygın bir kalıptır. Makine öğrenmesi modelini ve yorumlayıcıyı, uygulamaların, bir REST API aracılığıyla istek gönderebileceği veya bir gRPC hizmeti olarak kullanabileceği özel bir web hizmeti içine alabiliriz. Bu kalıp, Tahmin, Web Hizmeti, Çevrimiçi Öğrenme gibi çeşitli makine öğrenmesi iş akışları için kullanılabilir.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-as-service.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch02.html#project_chapter){:target="_blank"}|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-as-service.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. <a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch02.html#project_chapter" target="_blank">Orijinal şeklin kaynağı</a>.</small></figcaption>
+</figure>
 
 #### Bağımlılık-Olarak-Model
 
 Bağımlılık-Olarak-Model, bir makine öğrenmesi modelini paketlemenin muhtemelen en basit yoludur. Paketlenmiş bir ML modeli, yazılım uygulaması içinde bir bağımlılık (diğer bir deyişle destek dosyası - İng. dependency) olarak kabul edilir. Örneğin uygulama, bir makine öğrenmesi modelini, tahmin yöntemini çağırıp değerleri geri döndüren geleneksel bir _jar_ dosyası gibi kullanır. Bu tür bir yöntem uygulamasının döndürdüğü değer, önceden eğitilmiş bir makine öğrenmesi modeli tarafından gerçekleştirilen bazı tahminlerdir. Bağımlılık-Olarak-Model yaklaşımı çoğunlukla sadece Tahmin elde etmek için kullanılır.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-as-dependency.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch02.html#project_chapter){:target="_blank"}|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-as-dependency.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. <a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/ch02.html#project_chapter" target="_blank">Orijinal şeklin kaynağı</a>.</small></figcaption>
+</figure>
 
 #### Önhesaplamalı Servis
 
 Bu tür bir makine öğrenimi modeli hizmeti, Tahmin MÖ iş akışıyla sıkı bir şekilde ilişkilidir. Önhesaplamalı servis kalıbıyla, önceden eğitilmiş bir makine öğrenmesi modeli kullanır ve gelen veri yığını için tahminleri önceden hesaplarız. Elde edilen tahminler veritabanında saklanır. Bu nedenle, herhangi bir girdi isteği için, tahmin sonucunu almak üzere veritabanını sorgularız.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/precompute-serving-pattern.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/precompute-serving-pattern.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 [Daha fazla okuma için: Makine Öğrenimini Üretime Getirme (Slaytlar)](https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020){:target="_blank"}
 
@@ -281,9 +286,10 @@ Bu tür bir makine öğrenimi modeli hizmeti, Tahmin MÖ iş akışıyla sıkı 
 
 Mesaj-aracı (İng. message-broker) mimarisi genellikle bu tür isteğe bağlı model servisi için kullanılır. Mesaj-aracı topoloji mimari kalıbı iki ana mimari bileşen türü içerir: bir _aracı_ (İng. broker) bileşeni ve bir _olay işlemcisi_ (İng. event processor) bileşeni. Aracı bileşeni, olay akışı (İng. event flow) içinde kullanılan olay kanallarını (İng. event channels) içeren merkezi kısımdır. Aracı bileşeninde bulunan olay kanalları mesaj kuyruklarıdır (İng. message queues). Girdi ve çıktı kuyrukları içeren böyle bir mimariyi hayal edebiliriz. Bir mesaj aracısı, bir işlemin bir girdi kuyruğuna _tahmin istekleri_ (İng. prediction-requests) yazmasına izin verir. _Olay işlemcisi_, model servisi çalışma zamanını ve makine öğrenmesi modelini içerir. Bu işlemci aracıya bağlanır, bu istekleri toplu olarak kuyruktan okur ve tahminlerde bulunmak için bunları modele gönderir. Model servisi süreci, tahmin oluşturmayı girdi verileri üzerinde çalıştırır ve sonuçlanan tahminleri çıktı kuyruğuna yazar. Daha sonra, kuyruğa alınmış tahmin sonuçları, tahmin talebini başlatan tahmin servisine gönderilir.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-on-demand.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-on-demand.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 **Daha fazla okuma için**<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> [Olay odaklı mimari](https://learning.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html){:target="_blank"} <br>
@@ -295,9 +301,10 @@ Hibrit servis olarak da bilinen Birleştirilmiş Öğrenme (Federe Öğrenme de 
 
 Bu öğrenme türünün en büyük yararı, son derece kişisel olan eğitim ve test için kullanılan verilerin, kullanıcı hakkındaki mevcut tüm bilgiyi yakalarken hiçbir zaman cihazlardan dışarı çıkmamasıdır. Bu şekilde, bulutta tonlarca (muhtemelen kişisel) veri depolamak zorunda kalmadan yüksek doğrulukta modeller eğitmek mümkündür. Ancak bedava öğle yemeği diye bir şey yoktur, normal makine öğrenmesi algoritmaları, her zaman eğitim için mevcut olan güçlü donanım üzerinde homojen ve büyük veri kümeleriyle oluşturulur. Federe Öğrenme ile başka koşullar da vardır, mobil cihazlar daha az güçlüdür, eğitim verileri milyonlarca cihaza dağıtılır ve bu cihazlar her zaman eğitim için müsait olmayabilir. Tam olarak bunun için TensorFlow Federated ([TFF](https://medium.com/tensorflow/introducing-tensorflow-federated-a4147aa20041){:target="_blank"}) oluşturulmuştur. TFF, Birleştirilmiş Öğrenme için oluşturulmuş hafif bir TensorFlow türüdür.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/federated-learning.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://ai.googleblog.com/2017/04/federated-learning-collaborative.html){:target="_blank"}|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/federated-learning.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. <a href="https://ai.googleblog.com/2017/04/federated-learning-collaborative.html" target="_blank">Orijinal şeklin kaynağı</a>.</small></figcaption>
+</figure>
 
 ### Dağıtım Stratejileri
 
@@ -309,9 +316,10 @@ Günümüzde bir makine öğrenmesi modelinin dağıtımına yönelik standart, 
 
 Her zaman gerçekleştirebileceğiniz bir yol, tüm makine öğrenmesi teknoloji yığınını (destek dosyaları dahil) ve makine öğrenmesi modelinden tahmin yapan kodu bir Docker konteynerinde paketlemektir. Ardından, Kubernetes veya bir başka alternatifi (ör. AWS Fargate) gerekli düzenlemeleri (İng. orchestration) gerçekleştirir. Tahmin elde etme gibi bir makine öğrenmesi modelinden elde edilecek fonksiyonellik, daha sonra bir REST API aracılığıyla kullanılabilir (örneğin, [Flask uygulaması](https://flask.palletsprojects.com/en/1.1.x/){:target="_blank"} olarak gerçekleştirilebilir).
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/infra-cloud.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/infra-cloud.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 #### Makine Öğrenmesi Modellerini Sunucusuz Fonksiyonlar Olarak Dağıtma
 
@@ -319,6 +327,7 @@ Her zaman gerçekleştirebileceğiniz bir yol, tüm makine öğrenmesi teknoloji
 
 Bir makine öğrenmesi modelini sunucusuz bir fonksiyon (İng. serverless function) olarak dağıtmak için, uygulama kodu ve destek dosyaları tek bir giriş noktası fonksiyonu ile .zip dosyaları halinde paketlenir. Bu fonksiyon daha sonra Azure Functions, AWS Lambda veya Google Cloud Functions gibi büyük bulut sağlayıcıları tarafından yönetilebilir. Ancak, nesnenin büyüklüğü gibi dağıtılan nesnelerin olası kısıtlamalarına dikkat edilmelidir.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/infra-lambda.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/infra-lambda.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
