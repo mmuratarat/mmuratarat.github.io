@@ -81,7 +81,7 @@ Makine öğrenmesi iş akışının temeli, bir makine öğrenmesi modeli elde e
 
 ### Modelin Eğitimi
 
-_Modelin Eğitimi_ - Bir Makine Öğrenmesi algoritmasını bir modelini eğitmek için eğitim verilerine uygulama süreci. Ayrıca, modelin eğitimi sırasında uygulanması gereken hiperparametrelere ince ayar verilmesi ve öznitelik mühendisliği adımlarını da içerir. Aşağıdaki liste, Aurélien Géron tarafından "[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/app02.html#project_checklist_appendix){:target="_blank"}" yazılan kitaptan alınmıştır.
+_Modelin Eğitimi_ - Bir Makine Öğrenmesi algoritmasını bir modelini eğitmek için eğitim verilerine uygulama süreci. Ayrıca, modelin eğitimi sırasında uygulanması gereken hiperparametrelere ince ayar verilmesi ve öznitelik mühendisliği adımlarını da içerir. Aşağıdaki liste, Aurélien Géron tarafından yazılan "[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/app02.html#project_checklist_appendix){:target="_blank"}" isimli kitaptan alınmıştır.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Öznitelik mühendisliği şunları içerebilir:
 
