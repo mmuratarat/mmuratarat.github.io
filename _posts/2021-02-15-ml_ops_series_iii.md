@@ -74,7 +74,7 @@ _Veri Düzenleme (Temizleme)_ - Verilerin şemasının biçimini değiştirebile
 
 ### Veri Ayırma (Data Splitting)
 
-Veri Ayırma - Makine Öğrenmesi modelini oluşturmak için temel makine öğrenmesi aşamalarında kullanılacak verileri eğitim kümesine  (% 80), doğrulamaya ve test veri kümelerine bölme.
+Veri Ayırma - Makine Öğrenmesi modelini oluşturmak için temel makine öğrenmesi aşamalarında kullanılacak verileri eğitim (%80), doğrulama ve test kümesi olmak üzere üçe ayırın.
 
 ## Model: Makine Öğrenmesi İletim Hattı
 
