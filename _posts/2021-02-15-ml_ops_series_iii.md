@@ -9,7 +9,7 @@ MLOps (Makine Öğrenmesi operasyonları) isimli serinin üçüncü kısımı, i
 
 # Bir Makine Öğrenmesi Yazılımının Üç Aşaması
 
-Makine Öğrenmesi / Yapay Zeka, yeni uygulamalar ve endüstriler tarafından hızla benimsenmektedir. Daha önce bahsedildiği gibi, bir makine öğrenmesi projesinin amacı, toplanmış verileri kullanarak ve bu verilere makine öğrenmesi algoritmalarını uygulayarak istatistiksel bir model oluşturmaktır. Ancak, başarılı makine öğrenmesi tabanlı yazılım projeleri oluşturmak halen zordur çünkü her makine öğrenmesi tabanlı yazılımın üç ana bileşeni yönetmesi gerekir: **Veri**, **Model** ve **Kod**. Makine Öğrenmesi Modeli Operasyonelleştirme Yönetimi - **MLOps**, bir DevOps uzantısı olarak, Makine Öğremesi modellerini tasarlama, oluşturma ve üretime dağıtma konusunda etkili uygulamalar ve süreçler sunar. Burada, Makine Öğrenmesi tabanlı yazılımın geliştirilmesinde yer alan temel teknik metodolojileri, yani Veri Mühendisliği, Makine Öğrenmesi Model Mühendisliği ve Yazılım Mühendisliği'ni tanımlayacağız. 
+Makine Öğrenmesi / Yapay Zeka, yeni uygulamalar ve endüstriler tarafından hızla benimsenmektedir. Daha önce bahsedildiği gibi, bir makine öğrenmesi projesinin amacı, toplanmış verileri kullanarak ve bu verilere makine öğrenmesi algoritmalarını uygulayarak istatistiksel bir model oluşturmaktır. Ancak, başarılı makine öğrenmesi tabanlı yazılım projeleri oluşturmak halen zordur çünkü her makine öğrenmesi tabanlı yazılımın üç ana bileşeni yönetmesi gerekir: **Veri**, **Model** ve **Kod**. Makine Öğrenmesi Modeli Operasyonelleştirme Yönetimi - **MLOps**, bir DevOps uzantısı olarak, Makine Öğrenmesi modellerini tasarlama, oluşturma ve üretime dağıtma konusunda etkili uygulamalar ve süreçler sunar. Burada, Makine Öğrenmesi tabanlı yazılımın geliştirilmesinde yer alan temel teknik metodolojileri, yani Veri Mühendisliği, Makine Öğrenmesi Model Mühendisliği ve Yazılım Mühendisliği'ni tanımlayacağız. 
 
 Oluşturacağınız iletim hattının her adımında öğrendiğiniz her şeyi **belgelemenizi** öneririz.
 
@@ -19,10 +19,9 @@ Herhangi bir makine öğrenmesi iş akışının temel parçasının Veri olduğ
 
 "Çöp içeri çöp dışarı (Garbage In, Garbage Out)",
 
-makine öğrenmesi bağlamında, bir makine öğrenmesi modelinin yalnızca elinizdeki verileriniz kadar iyi olduğu anlamına gelir. Bu nedenle, bir makine öğrenmesi modelinin eğitilmesi için kullanılan veriler dolaylı olarak üretim sisteminin genel performansını etkilemektedir. Veri setinin miktarı ve kalitesi genellikle elinizdeki probleme göre değişebilir ve deneysel olarak incelemesi yapılabilir.
+makine öğrenmesi bağlamında, bir makine öğrenmesi modelinin yalnızca elinizdeki verileriniz kadar iyi olduğu anlamına gelir. Bu nedenle, bir makine öğrenmesi modelinin eğitilmesi için kullanılan veriler dolaylı olarak üretim sisteminin genel performansını etkilemektedir. Veri kümesinin miktarı ve kalitesi genellikle elinizdeki probleme göre değişebilir ve deneysel olarak incelemesi yapılabilir.
 
-
-Önemli bir adım olan Veri mühendisliğinin çok zaman alıcı olduğu bildirilmektedir. bir makine öğrenmesi projesinde zamanımızın çoğunu veri kümeleri oluşturmak, verileri temizlemek ve dönüştürmek için harcayabiliriz. 
+Önemli bir adım olan _veri mühendisliği_nin çok zaman alıcı olduğu bildirilmektedir. Bir makine öğrenmesi projesinde zamanımızın çoğunu veri kümeleri oluşturmak, verileri temizlemek ve dönüştürmek için harcayabiliriz. 
 
 Veri mühendisliği iletim hattı, mevcut veriler üzerinde bir işlemler dizisi oluşturmak için yaratılır. Bu işlemlerin nihai amacı, makine öğrenmesi algoritmaları için eğitim ve test veri kümeleri oluşturmaktır. Aşağıda, Veri Alınımı (Data Ingestion), Keşif ve Doğrulama (Exploration and Validation), Veri Düzenleme (Temizleme)(Data Wrangling (Cleaning)) ve Veri Ayırma (Data Splitting) gibi veri mühendisliği iletim hattı oluştururken takip edilmesi gereken her aşamayı açıklayacağız.
 
