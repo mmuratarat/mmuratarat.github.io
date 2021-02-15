@@ -90,7 +90,7 @@ _Modelin Eğitimi_ - Bir Makine Öğrenmesi algoritmasını bir modelini eğitme
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Özniteliklerin dönüşümlerini ekleyin (örneğin, log (x), sqrt (x), x2, vb.)<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Öznitelikleri birleştirerek kullanışlı yeni özellikler elde edin<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Öznitelik ölçekleme: Öznitelikleri standartlaştırın veya normalleştirin<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Üretime koymak istediğimiz yeni bir özelliğe hızlı bir şekilde geçiş yapmak için yeni öznitelikler hızla eklenmelidir. Daha fazla bilgi için Alice Zheng ve Amanda Casari tarafından yazılan "[Feature Engineering for Machine Learning. Principles and Techniques for Data Scientists](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/){:target="_blank"}" kitaba göz atınız.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Üretime koymak istediğimiz yeni bir özelliğe hızlı bir şekilde geçiş yapmak için yeni öznitelikler hızla eklenmelidir. Daha fazla bilgi için Alice Zheng ve Amanda Casari tarafından yazılan "[Feature Engineering for Machine Learning. Principles and Techniques for Data Scientists](https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/){:target="_blank"}" isimli kitaba göz atınız.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model Mühendisliği, yinelemeli bir süreç olabilir ve aşağıdaki iş akışını içerebilir:
 
@@ -101,7 +101,7 @@ _Modelin Eğitimi_ - Bir Makine Öğrenmesi algoritmasını bir modelini eğitme
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha fazla öznitelik seçimi ve mühendisliği gerçekleştirin.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Farklı türde hatalar yapan modelleri tercih ederek, en umut vadeden ilk üç ila beş modeli belirleyin.
 Çapraz doğrulama kullanarak hiperparametrelerin ayarlanması. Lütfen veri dönüştürme seçeneklerinin de hiperparametreler olduğunu unutmayın. Hiperparametreler için rastgele arama (İng. random search), ızgara aramasına (İng. grid search) tercih edilir.<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> _Çoğunluk oylaması_ (İng. majority vote), _torbalama_ (İng. bagging), _hızlandırma_ (İng. boosting) veya _istifleme_ (İng. stacking) gibi Topluluk yöntemlerini (İng. Ensemble methods) göz önünde bulundurun. Makine öğrenmesi modellerini birleştirmek, onları ayrı ayrı çalıştırmaktan daha iyi performans üretmelidir. Daha fazla bilgi için Zhi-Hua Zhou tarafından yazılan "[Ensemble Methods: Foundations and Algorithms](https://www.amazon.com/exec/obidos/ASIN/1439830037/acmorg-20){:target="_blank"}" kitaba göz atınız.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> _Çoğunluk oylaması_ (İng. majority vote), _torbalama_ (İng. bagging), _hızlandırma_ (İng. boosting) veya _istifleme_ (İng. stacking) gibi Topluluk yöntemlerini (İng. Ensemble methods) göz önünde bulundurun. Makine öğrenmesi modellerini birleştirmek, onları ayrı ayrı çalıştırmaktan daha iyi performans üretmelidir. Daha fazla bilgi için Zhi-Hua Zhou tarafından yazılan "[Ensemble Methods: Foundations and Algorithms](https://www.amazon.com/exec/obidos/ASIN/1439830037/acmorg-20){:target="_blank"}" isimli kitaba göz atınız.
 
 ### Modelin Değerlendirilmesi
 
