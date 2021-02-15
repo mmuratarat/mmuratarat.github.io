@@ -115,7 +115,6 @@ _Modelin Test Edilmesi_ - Nihai Makine Öğrenmesi modeli eğitildikten sonra, s
 
 _Modelin Paketlenmesi_ - Nihai makine öğrenmesi modelini, herhangi bir uygulama tarafından tüketilecek modeli tanımlayan belirli bir biçime (ör. PMML, PFA veya ONNX) aktarma işlemi. Makine öğrenmesi modelinin nasıl paketlenebileceğini aşağıdaki "Makine Öğrenmesi Modeli serileştirme formatları" bölümünde ele alıyoruz.
 
-
 #### Makine öğrenmesi iş akışlarının farklı biçimleri
 
 Bir makine öğrenmesi modelinin çalıştırılması, birkaç mimari stil gerektirebilir. Aşağıda, iki boyutta sınıflandırılan dört mimari deseni tartışıyoruz:
@@ -124,7 +123,6 @@ Bir makine öğrenmesi modelinin çalıştırılması, birkaç mimari stil gerek
 
 2. **Makine Öğrenmesi Modelinden Tahmin Yapma**
 
-
 Konuyu daha basit tutabilmek için, denetimli öğrenme (İng. supervised), denetimsiz öğrenme (İng. unsupervised), yarı denetimli öğrenme (İng. semi-supervised) ve Pekiştirmeli Öğrenme (İng. reinforcement learning) gibi elimizdeki makine öğrenmesi algoritmasının türünü ifade eden üçüncü boyut olan **3. Makine Öğrenmesi Modelinin Türü**'nü göz ardı ettiğimizi lütfen unutmayın.
 
 **Bir Makine Öğrenmesi Modelinin Eğitimi**ni gerçekleştirmenin iki yolu vardır:
@@ -132,19 +130,17 @@ Konuyu daha basit tutabilmek için, denetimli öğrenme (İng. supervised), dene
 1. Çevrimdışı öğrenme (diğer bir deyişle _yığın_ veya _statik öğrenme_): Model, önceden toplanmış bir dizi veri üzerinde eğitilir. Üretim ortamına dağıtıldıktan sonra, elimizdeki makine öğrenmesi modeli yeniden eğitilene kadar değişmez çünkü model çok sayıda gerçek canlı veri görecek ve kaba tabiri ile _eskiyecektir_. Bu fenomen, "_modelin bozunması_" (İng. model decay) olarak adlandırılır ve model dikkatle takip edilmelidir.
 2. Çevrimiçi öğrenme (diğer adıyla _dinamik öğrenme_): Yeni veriler geldikçe model düzenli olarak yeniden eğitilmektedir, örneğin veri akarak yani durmaksızın eş zamanlı geliyorsa. Bu genellikle, makine öğrenmesi modelindeki zamansal etkileri analiz edebilmek için sensör veya hisse senedi alım satım verileri gibi zaman serisi verilerini kullanan makine öğrenmesi sistemleri için geçerlidir.
 
-
 İkinci boyut, bir makine öğrenmesi modelinin tahminde bulunmak için gerekli mekaniği tanımlayan **Makine Öğrenmesi Modelinden Tahmin Yapma**tır. Burada ayrıca iki modu ayırıyoruz:
 
 1. Yığın tahminler: Üretime dağıtılmış bir makine öğrenmesi modeli, geçmiş girdi verilerine dayalı bir dizi tahmin yapar. Bu genellikle zamana bağlı olmayan veriler için veya çıktı olarak gerçek zamanlı tahminler elde etmenin kritik olmadığı durumlarda yeterlidir.
 2. Gerçek zamanlı tahminler (diğer adıyla isteğe bağlı (İng. on-demand) tahminler): Tahminler, talep anında mevcut olan girdi verileri kullanılarak gerçek zamanlı olarak oluşturulur.
 
-
 Bu iki boyuta karar verdikten sonra, makine öğrenmesi modellerinin operasyonel hale getirilmesini dört farklı makine öğrenmesi mimarisine sınıflandırabiliriz:
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model_serving_patterns.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://www.quora.com/How-do-you-take-a-machine-learning-model-to-production){:target="_blank"}|
-
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model_serving_patterns.png?raw=true" alt="my alt text"/>
+  <figcaption>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://www.quora.com/How-do-you-take-a-machine-learning-model-to-production){:target="_blank"}.</figcaption>
+</figure>
 
 Aşağıda Tahmin (Öngörü), İnternet (Web) hizmeti, Çevrimiçi Öğrenme ve AutoML (Otomatikleştirilmiş Makine Öğrenmesi) gibi model mimari türlerinin açıklamasını sunuyoruz.
 
