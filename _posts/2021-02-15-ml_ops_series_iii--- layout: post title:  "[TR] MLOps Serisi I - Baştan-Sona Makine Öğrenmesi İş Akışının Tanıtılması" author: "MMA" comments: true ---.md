@@ -145,6 +145,7 @@ Bu iki boyuta karar verdikten sonra, makine öğrenmesi modellerinin operasyonel
 |:--:| 
 | Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://www.quora.com/How-do-you-take-a-machine-learning-model-to-production){:target="_blank"}|
 
+
 Aşağıda Tahmin (Öngörü), İnternet (Web) hizmeti, Çevrimiçi Öğrenme ve AutoML (Otomatikleştirilmiş Makine Öğrenmesi) gibi model mimari türlerinin açıklamasını sunuyoruz.
 
 #### Tahmin (Öngörü)
