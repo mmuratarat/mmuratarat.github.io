@@ -249,19 +249,9 @@ Modelin servis edilmesi, bir makine öğrenmesi modelini bir yazılım sistemine
 
 Aşağıdaki sınıflandırma bu yaklaşımları göstermektedir:
 
-\begin{table}[]
-\begin{tabular}{|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{Makine Öğrenmesi Modelini Servis Etme Sınıflandırması}                                                                                                     \\ \hline
-                                            & \multicolumn{3}{l|}{Makine Öğrenmesi Modeli}                                                                                      \\ \hline
-Servis ve Versiyonlama                      & Tüketici uygulama ile birlikte   & \multicolumn{2}{l|}{Tüketici uygulamadan bağımsız}                                             \\ \hline
-Derleme / Çalışma Zamanı Kullanılabilirliği & Derleme ve çalışma zamanı mevcut & REST API / RPC aracılığıyla uzaktan   kullanılabilir & Çalışma zamanı kapsamında mevcuttur     \\ \hline
-Servis Etme Kalıpları                       & "Bağımlılık-Olarak-Model"        & "Servis-Olarak-Model"                                & "Önhesaplamalı" ve "İsteğe-Bağlı-Model" \\ \hline
-                                            & \multicolumn{2}{l|}{Hibrit Model   Servisi (Birleştirilmiş Öğrenme)}                    &                                         \\ \hline
-\end{tabular}
-\end{table}
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202021-02-15%20at%2022.01.01.png?raw=true)
 
-Şimdi, Servis-Olarak-Model, Bağımlılık-Olarak-Model, Önhesaplamalı, İsteğe-Bağlı-Model ve Hibrit-Servis gibi bir makine öğrenmesi modelini üretmeye yönelik kullanılabilecek servis etme kalıplarını göstereceğiz.
+Şimdi, **Servis-Olarak-Model**, **Bağımlılık-Olarak-Model**, **Önhesaplamalı**, **İsteğe-Bağlı-Model** ve **Hibrit-Servis** gibi bir makine öğrenmesi modelini üretmeye yönelik kullanılabilecek servis etme kalıplarını göstereceğiz.
 
 #### Servis-Olarak-Model
 
