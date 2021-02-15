@@ -5,6 +5,8 @@ author: "MMA"
 comments: true
 ---
 
+MLOps (Makine Öğrenmesi operasyonları) isimli serinin üçüncü kısımı, ilk yazıda olduğu gibi, Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından INNOQ için yazılmış "[Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software){:target="_blank"}" isimli yazı. İyi Okumalar!
+
 # Bir Makine Öğrenmesi Yazılımının Üç Aşaması
 
 Makine Öğrenmesi / Yapay Zeka, yeni uygulamalar ve endüstriler tarafından hızla benimsenmektedir. Daha önce bahsedildiği gibi, bir makine öğrenmesi projesinin amacı, toplanmış verileri kullanarak ve bu verilere makine öğrenmesi algoritmalarını uygulayarak istatistiksel bir model oluşturmaktır. Ancak, başarılı makine öğrenmesi tabanlı yazılım projeleri oluşturmak halen zordur çünkü her makine öğrenmesi tabanlı yazılımın üç ana bileşeni yönetmesi gerekir: **Veri**, **Model** ve **Kod**. Makine Öğrenmesi Modeli Operasyonelleştirme Yönetimi - **MLOps**, bir DevOps uzantısı olarak, Makine Öğremesi modellerini tasarlama, oluşturma ve üretime dağıtma konusunda etkili uygulamalar ve süreçler sunar. Burada, Makine Öğrenmesi tabanlı yazılımın geliştirilmesinde yer alan temel teknik metodolojileri, yani Veri Mühendisliği, Makine Öğrenmesi Model Mühendisliği ve Yazılım Mühendisliği'ni tanımlayacağız. 
