@@ -15,9 +15,10 @@ Herhangi bir yazılım projesinde en önemli aşama, iş problemini (İng. Busin
 
 Yapılacak tahminin (Makine Öğrenmesi modelinin) nerede uygulanabileceğini görmek için tüm iş sürecinin her bir görevinin kurucu unsurlarına parçalanması gerekir
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml_workflow_decomposition.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml_workflow_decomposition.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 <br>
 "Yapay Zeka / Makine Öğrenmesi nasıl uygulanır" sorusunu yanıtlamak için aşağıdaki adımları izleriz:
@@ -203,9 +204,10 @@ Bu aşamadaki çıktı, tamamlanmış Makine Öğrenmesi Şablonu'dur. Bu şablo
 
 Sorulması gereken başka bir soru da gerçekleştirilen Yapay Zeka / Makine Öğrenmesi uygulamasının ne zaman dağıtılması gerektiğidir. Aşağıdaki Şekil, bir Makine Öğrenmesi modelinin erken ve geç dağıtımının dengesini göstermektedir.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/When-to-deploy-ai.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/When-to-deploy-ai.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 <br><br>
 Daha fazla okuma
