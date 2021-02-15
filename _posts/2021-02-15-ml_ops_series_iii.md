@@ -62,7 +62,7 @@ _Veri Düzenleme (Temizleme)_ - Verilerin şemasının biçimini değiştirebile
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Dönüşümler: Uygulamak isteyebileceğiniz gelecek vaat eden dönüşümleri tanımlayın.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Aykırı Değerler: Aykırı değerleri düzeltin veya bu aykırı değerlerden kurtulun (isteğe bağlı).<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Kayıp Değerler: Kayıp değerleri (örneğin, sıfır, ortalama, veya medyan ile) doldurun veya kayıp değer içeren satırlarını veya sütunlarını silin.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Kayıp Değerler: Kayıp değerleri (örneğin, sıfır, ortalama, veya medyan ile) doldurun veya kayıp değer içeren satırları veya sütunları silin.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Alakasız Veriler: Görev için yararlı bilgiler sağlamayan özniteliklerden kurtulun (öznitelik mühendisliği ile ilgili).<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Verileri Yeniden Yapılandırma: Aşağıdaki işlemleri içerebilir ("[Principles of Data Wrangling](https://learning.oreilly.com/library/view/principles-of-data/9781491938911/){:target="_blank"}" kitabından):<br>
 
