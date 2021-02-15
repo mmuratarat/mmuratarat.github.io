@@ -225,7 +225,7 @@ Aşağıdaki Tablo, tüm makine öğrenmesi modeli serileştirme formatlarını 
 | Torch Script                 	|      <i class="fas fa-times"></i>       	|           	| .pt            	|        	| PyTorch                                 	|                <i class="fas fa-check"></i>                	|     <i class="fas fa-check"></i>       	|
 | Apple .mlmodel               	|      <i class="fas fa-times"></i>       	| Apple     	| .mlmodel       	|        	| TensorFlow, scikit-learn, Core ML       	|                  -              	|      <i class="fas fa-check"></i>      	|
 
-
+<br>
 **Daha fazla okuma için**<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> [MÖ Modelleri eğitim dosyası formatları](https://towardsdatascience.com/guide-to-file-formats-for-machine-learning-columnar-training-inferencing-and-the-feature-store-2e0c3d18d4f9/){:target="_blank"} <br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> [Açık Standart Modeller](https://github.com/adbreind/open-standard-models-2019){:target="_blank"}
