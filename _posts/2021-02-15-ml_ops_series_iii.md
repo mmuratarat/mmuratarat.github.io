@@ -60,11 +60,11 @@ _Keşif ve Doğrulama_ - Verilerin içeriği ve yapısı hakkında bilgi edinmek
 
 _Veri Düzenleme (Temizleme)_ - Verilerin şemasının biçimini değiştirebilecek belirli öznitelikleri yeniden biçimlendirerek veya yeniden yapılandırarak, verileri programatik olarak düzenlediğiniz veri hazırlama adımı. Tüm bu fonksiyonellikleri gelecekteki verilerde yeniden kullanmak için veri iletim hattındaki tüm veri dönüşümleri için komut dosyaları (betikler) veya fonksiyonları yazmanızı öneririz.
 
-Dönüşümler: Uygulamak isteyebileceğiniz gelecek vaat eden dönüşümleri tanımlayın.
-Aykırı değerler: Aykırı değerleri düzeltin veya bu aykırı değerlerden kurtulun (isteğe bağlı).
-Kayıp Değerler: Kayıp değerleri (örneğin, sıfır, ortalama, veya medyan ile) doldurun veya kayıp değer içeren satırlarını veya sütunlarını silin.
-Alakasız Veriler: Görev için yararlı bilgiler sağlamayan özniteliklerden kurtulun (özellik mühendisliği ile ilgili).
-Verileri Yeniden Yapılandırma: Aşağıdaki işlemleri içerebilir ("[Principles of Data Wrangling](https://learning.oreilly.com/library/view/principles-of-data/9781491938911/){:target="_blank"}" kitabından):
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Dönüşümler: Uygulamak isteyebileceğiniz gelecek vaat eden dönüşümleri tanımlayın.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Aykırı değerler: Aykırı değerleri düzeltin veya bu aykırı değerlerden kurtulun (isteğe bağlı).<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Kayıp Değerler: Kayıp değerleri (örneğin, sıfır, ortalama, veya medyan ile) doldurun veya kayıp değer içeren satırlarını veya sütunlarını silin.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Alakasız Veriler: Görev için yararlı bilgiler sağlamayan özniteliklerden kurtulun (özellik mühendisliği ile ilgili).<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Verileri Yeniden Yapılandırma: Aşağıdaki işlemleri içerebilir ("[Principles of Data Wrangling](https://learning.oreilly.com/library/view/principles-of-data/9781491938911/){:target="_blank"}" kitabından):<br>
 
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Sütunları taşıyarak kayıt alanlarını yeniden sıralama<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Değerleri ayıklayarak yeni kayıt alanları oluşturma<br>
