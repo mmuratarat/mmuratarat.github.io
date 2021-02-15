@@ -71,7 +71,7 @@ Verileri Yeniden Yapılandırma: Aşağıdaki işlemleri içerebilir ("[Principl
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Değerleri ayıklayarak yeni kayıt alanları oluşturma<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Birden çok kayıt alanını tek bir kayıt alanında birleştirme<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Kayıtların bazılarını silerek veri kümelerini filtreleme<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Veri kümesinin ve kayıtlarla ilişkili alanların ayrıntı düzeyini (granularity) birleştirme (aggregation) ve pivotlama yaparak değiştirme.
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Veri kümesinin ve kayıtlarla ilişkili alanların ayrıntı düzeyini (granularity), birleştirme (aggregation) ve pivotlama yaparak değiştirme.
 
 ### Veri Ayırma (Data Splitting)
 
