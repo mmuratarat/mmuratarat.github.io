@@ -324,7 +324,7 @@ Her zaman gerçekleştirebileceğiniz bir yol, tüm makine öğrenmesi teknoloji
 
 #### Makine Öğrenmesi Modellerini Sunucusuz Fonksiyonlar Olarak Dağıtma
 
-Çeşitli bulut tedarikçileri halihazırda makine öğrenmesi platformları sağlamaktadır. Böylelikle modelinizi servisleriyle birlikte kolayca dağıtabilirsiniz. Amazon AWS Sagemaker, Google Cloud AI Platformu, Azure Machine Learning Studio ve IBM Watson Machine Learning verilebilecek bazı örneklerdir. Ticari bulut hizmetleri, AWS Lambda ve Google App Engine servlet host gibi servisler kullanarak ML modellerinin konteynerleştirmesini de sağlar.
+Çeşitli bulut tedarikçileri halihazırda makine öğrenmesi platformları sağlamaktadır. Böylelikle modelinizi servisleriyle birlikte kolayca dağıtabilirsiniz. Amazon AWS Sagemaker, Google Cloud AI Platform, Azure Machine Learning Studio ve IBM Watson Machine Learning verilebilecek bazı örneklerdir. Ticari bulut hizmetleri, AWS Lambda ve Google App Engine servlet host gibi servisler kullanarak ML modellerinin konteynerleştirmesini de sağlar.
 
 Bir makine öğrenmesi modelini sunucusuz bir fonksiyon (serverless function) olarak dağıtmak için, uygulama kodu ve destek dosyaları tek bir giriş noktası fonksiyonu ile .zip dosyaları halinde paketlenir. Bu fonksiyon daha sonra Azure Functions, AWS Lambda veya Google Cloud Functions gibi büyük bulut sağlayıcıları tarafından yönetilebilir. Ancak, nesnenin büyüklüğü gibi dağıtılan nesnelerin olası kısıtlamalarına dikkat edilmelidir.
 
