@@ -119,7 +119,7 @@ _Modelin Paketlenmesi_ - Nihai makine öğrenmesi modelini, herhangi bir uygulam
 
 Bir makine öğrenmesi modelinin çalıştırılması, birkaç mimari stil gerektirebilir. Aşağıda, iki boyutta sınıflandırılan dört mimari deseni tartışıyoruz:
 
-1. **Makine Öğrenmesi Modelinin Eğitimi** and
+1. **Makine Öğrenmesi Modelinin Eğitimi** ve
 
 2. **Makine Öğrenmesi Modelinden Tahmin Yapma**
 
