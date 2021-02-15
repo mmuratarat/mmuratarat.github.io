@@ -139,8 +139,9 @@ Bu iki boyuta karar verdikten sonra, makine öğrenmesi modellerinin operasyonel
 
 <figure>
   <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model_serving_patterns.png?raw=true" alt="my alt text"/>
-  <figcaption>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır. [Orijinal şeklin kaynağı](https://www.quora.com/How-do-you-take-a-machine-learning-model-to-production){:target="_blank"}.</figcaption>
+  <figcaption>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.<a href="https://www.quora.com/How-do-you-take-a-machine-learning-model-to-production" target="_blank">Orijinal şeklin kaynağı</a>.</figcaption>
 </figure>
+
 
 Aşağıda Tahmin (Öngörü), İnternet (Web) hizmeti, Çevrimiçi Öğrenme ve AutoML (Otomatikleştirilmiş Makine Öğrenmesi) gibi model mimari türlerinin açıklamasını sunuyoruz.
 
