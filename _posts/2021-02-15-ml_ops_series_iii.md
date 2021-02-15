@@ -331,3 +331,5 @@ Bir makine öğrenmesi modelini sunucusuz bir fonksiyon (İng. serverless functi
   <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/infra-lambda.png?raw=true" alt="my alt text"/>
   <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
 </figure>
+
+**Bu çevirinin ve çevirideki grafiklerin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
