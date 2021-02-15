@@ -124,7 +124,7 @@ Bir makine öğrenmesi modelinin çalıştırılması, birkaç mimari stil gerek
 
 2. **Makine Öğrenmesi Modelinden Tahmin Yapma**
 
-Konuyu daha basit tutabilmek için, denetimli öğrenme (supervised), denetimsiz öğrenme (unsupervised), yarı denetimli öğrenme (semi-supervised) ve Pekiştirmeli Öğrenme (reinforcement learning) gibi elimizdeki makine öğrenmesi algoritmasının türünü ifade eden üçüncü boyut olan **3. Makine Öğrenmesi Modelinin Türü**'nü göz ardı ettiğimizi lütfen unutmayın.
+Konuyu daha basit tutabilmek için, denetimli öğrenme (supervised), denetimsiz öğrenme (unsupervised), yarı denetimli öğrenme (semi-supervised) ve Pekiştirmeli Öğrenme (reinforcement learning) gibi elimizdeki makine öğrenmesi algoritmasının türünü ifade eden üçüncü boyutu yani **3. Makine Öğrenmesi Modelinin Türü**'nü göz ardı ettiğimizi lütfen unutmayın.
 
 **Bir Makine Öğrenmesi Modelinin Eğitimi**ni gerçekleştirmenin iki yolu vardır:
 
