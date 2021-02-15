@@ -134,7 +134,7 @@ Konuyu daha basit tutabilmek için, denetimli öğrenme (supervised), denetimsiz
 İkinci boyut, bir makine öğrenmesi modelinden tahminde bulunmak için gerekli mekaniği tanımlayan **Makine Öğrenmesi Modelinden Tahmin Yapma**dır. Bu seçeneği de iki kısıma ayırabiliriz:
 
 1. Yığın tahminler: Üretime dağıtılmış bir makine öğrenmesi modeli, geçmiş girdi verilerine dayalı bir dizi tahmin yapar. Bu genellikle zamana bağlı olmayan veriler için veya çıktı olarak gerçek zamanlı tahminler elde etmenin kritik olmadığı durumlarda yeterlidir.
-2. Gerçek zamanlı tahminler (diğer adıyla isteğe bağlı (on-demand) tahminler): Tahminler, talep anında mevcut olan girdi verileri kullanılarak gerçek zamanlı olarak oluşturulur.
+2. Gerçek zamanlı tahminler (diğer adıyla isteğe bağlı (on-demand) tahminler): Tahminler, talep anında (yani isteğe bağlı olarak) mevcut girdi verileri kullanılarak gerçek zamanlı olarak oluşturulur.
 
 Bu iki boyuta karar verdikten sonra, makine öğrenmesi modellerinin operasyonel hale getirilmesini dört farklı makine öğrenmesi mimarisine sınıflandırabiliriz:
 
