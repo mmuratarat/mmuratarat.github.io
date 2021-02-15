@@ -29,9 +29,10 @@ Bu bölümde, makine öğrenmesi tabanlı bir yazılım geliştirmek için gerç
 
 Aşağıdaki şekil tipik bir makine öğrenmesi iş akışında olan temel adımları göstermektedir.
 
-| ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml_engineering.png?raw=true) | 
-|:--:| 
-| Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.|
+<figure>
+  <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ml_engineering.png?raw=true" alt="my alt text"/>
+  <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
+</figure>
 
 ## Veri Mühendisliği 
 
