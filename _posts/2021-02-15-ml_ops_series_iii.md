@@ -279,7 +279,7 @@ Bu tür bir makine öğrenmesi modeli hizmeti, Tahmin MÖ iş akışıyla sıkı
   <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
 </figure>
 
-[Daha fazla okuma için: Makine Öğrenmesi Üretime Getirme (Slaytlar)](https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020){:target="_blank"}
+[Daha fazla okuma için: Makine Öğrenmesini Üretime Getirme (Slaytlar)](https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020){:target="_blank"}
 
 #### İsteğe-Bağlı-Model
 
