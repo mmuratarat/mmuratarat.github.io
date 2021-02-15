@@ -263,7 +263,7 @@ Servis-Olarak-Model, bir makine öğrenmesi modelini bağımsız bir servis olac
 
 #### Bağımlılık-Olarak-Model
 
-Bağımlılık-Olarak-Model, bir makine öğrenmesi modelini paketlemenin muhtemelen en basit yoludur. Paketlenmiş bir ML modeli, yazılım uygulaması içinde bir bağımlılık (diğer bir deyişle destek dosyası - dependency) olarak kabul edilir. Örneğin uygulama, bir makine öğrenmesi modelini, tahmin yöntemini çağırıp değerleri geri döndüren geleneksel bir _jar_ dosyası gibi kullanır. Bu tür bir yöntem uygulamasının döndürdüğü değer, önceden eğitilmiş bir makine öğrenmesi modeli tarafından gerçekleştirilen bazı tahminlerdir. Bağımlılık-Olarak-Model yaklaşımı çoğunlukla sadece Tahmin elde etmek için kullanılır.
+Bağımlılık-Olarak-Model, bir makine öğrenmesi modelini paketlemenin muhtemelen en basit yoludur. Paketlenmiş bir ML modeli, yazılım uygulaması içinde bir bağımlılık (diğer bir deyişle destek dosyası - dependency) olarak kabul edilir. Örneğin uygulama, tahmin yöntemini çağırıp değerleri geri döndürerek bir makine öğrenmesi modelini geleneksel bir _jar_ dosyası gibi kullanabilir. Bu tür bir yöntem uygulamasının döndürdüğü değer, önceden eğitilmiş bir makine öğrenmesi modeli tarafından gerçekleştirilen bazı tahminlerdir. Bağımlılık-Olarak-Model yaklaşımı çoğunlukla sadece Tahmin elde etmek için kullanılır.
 
 <figure>
   <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/model-as-dependency.png?raw=true" alt="my alt text"/>
