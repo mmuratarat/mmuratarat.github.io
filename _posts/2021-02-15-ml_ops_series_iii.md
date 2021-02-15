@@ -73,11 +73,11 @@ Verileri Yeniden Yapılandırma: Aşağıdaki işlemleri içerebilir ("[Principl
 
 ### Veri Ayırma (İng. Data Splitting)
 
-Veri Ayırma - Makine Öğrenmesi modelini oluşturmak için temel makine öğrenimi aşamalarında kullanılacak verileri eğitim kümesine  (% 80), doğrulamaya ve test veri kümelerine bölme.
+Veri Ayırma - Makine Öğrenmesi modelini oluşturmak için temel makine öğrenmesi aşamalarında kullanılacak verileri eğitim kümesine  (% 80), doğrulamaya ve test veri kümelerine bölme.
 
 ## Model: Makine Öğrenmesi İletim Hattı
 
-Makine öğrenimi iş akışının temeli, bir makine öğrenmesi modeli elde etmek için makine öğrenmesi algoritmalarını yazma ve çalıştırma aşamasıdır. Model mühendisliği iletim hattı genellikle bir veri bilimi ekibi tarafından kullanılır ve nihai bir modele götüren bir dizi işlemi içerir. Bu işlemler, _Modelin Eğitimi_, _Modelin Değerlendirilmesi_, _Modelin Test Edilmesi_ ve _Modelin Paketlenmesi_ adımlarını içerir. Bu adımları olabildiğince otomatikleştirmenizi öneririz.
+Makine öğrenmesi iş akışının temeli, bir makine öğrenmesi modeli elde etmek için makine öğrenmesi algoritmalarını yazma ve çalıştırma aşamasıdır. Model mühendisliği iletim hattı genellikle bir veri bilimi ekibi tarafından kullanılır ve nihai bir modele götüren bir dizi işlemi içerir. Bu işlemler, _Modelin Eğitimi_, _Modelin Değerlendirilmesi_, _Modelin Test Edilmesi_ ve _Modelin Paketlenmesi_ adımlarını içerir. Bu adımları olabildiğince otomatikleştirmenizi öneririz.
 
 ### Modelin Eğitimi
 
@@ -192,7 +192,7 @@ Makine öğrenmesi modellerini dağıtmak için çeşitli formatlar vardır. Da�
 
 ##### Kullanılan programlama dilinden bağımsız değişim formatları
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Birleştirme olarak Türkçe'ye çevrilebilecek olan _Amalgamation_ yöntemi, bir makine öğrenimi modelini dışa aktarmanın en basit yoludur. Model ve çalıştırılması gereken tüm kodlar tek bir paket olarak birleştirilmiştir. Genellikle, hemen hemen her platformda bağımsız bir program olarak derlenebilen tek bir kaynak kod dosyasıdır. Örneğin, [SKompiler](https://pypi.org/project/SKompiler/){:target="_blank"} kullanarak bir Makine Öğrenmesi modelinin bağımsız bir versiyonunu oluşturabiliriz. Bu python paketi, eğitilmiş Scikit-learn modellerini, SQL sorguları, Excel formülleri, Portable Format for Analytics (PFA) dosyaları veya SymPy ifadeleri gibi diğer formlara  dönüştürmek için bir araç sağlar. Sonuncusu, C, Javascript, Rust, Julia ve bunun gibi çeşitli programlama dillerinde çalıştırılabilecek koda çevrilebilir. Birleştirme (Amalgamation) basit bir kavramdır ve dışa aktarılan makine öğrenmesi modelleri taşınabilirdir. Lojistik regresyon veya karar ağacı gibi bazı kolay makine öğrenmesi algoritmaları için bu biçim kompakttır ve iyi bir performans gösterebilir, bu da kısıtlı gömülü ortamlar için çok kullanışlıdır. Ancak, Bir Makine Öğrenmesi algoritmasına ait model kodun ve bu modelin parametrelerinin birlikte yönetilmesi gerekir.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Birleştirme olarak Türkçe'ye çevrilebilecek olan _Amalgamation_ yöntemi, bir makine öğrenmesi modelini dışa aktarmanın en basit yoludur. Model ve çalıştırılması gereken tüm kodlar tek bir paket olarak birleştirilmiştir. Genellikle, hemen hemen her platformda bağımsız bir program olarak derlenebilen tek bir kaynak kod dosyasıdır. Örneğin, [SKompiler](https://pypi.org/project/SKompiler/){:target="_blank"} kullanarak bir Makine Öğrenmesi modelinin bağımsız bir versiyonunu oluşturabiliriz. Bu python paketi, eğitilmiş Scikit-learn modellerini, SQL sorguları, Excel formülleri, Portable Format for Analytics (PFA) dosyaları veya SymPy ifadeleri gibi diğer formlara  dönüştürmek için bir araç sağlar. Sonuncusu, C, Javascript, Rust, Julia ve bunun gibi çeşitli programlama dillerinde çalıştırılabilecek koda çevrilebilir. Birleştirme (Amalgamation) basit bir kavramdır ve dışa aktarılan makine öğrenmesi modelleri taşınabilirdir. Lojistik regresyon veya karar ağacı gibi bazı kolay makine öğrenmesi algoritmaları için bu biçim kompakttır ve iyi bir performans gösterebilir, bu da kısıtlı gömülü ortamlar için çok kullanışlıdır. Ancak, Bir Makine Öğrenmesi algoritmasına ait model kodun ve bu modelin parametrelerinin birlikte yönetilmesi gerekir.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> PMML, .pmml dosya uzantısına sahip XML tabanlı bir model servis formatıdır. PMML, [Veri Madenciliği Grubu (DMG)](http://dmg.org/dmg-members.html){:target="_blank"} tarafından standartlaştırılmıştır. Temel olarak .ppml dosya uzantisi, XML'de bir model ve iletim hattını tanımlar. PMML, tüm makine öğrenmesi algoritmalarını desteklemez ve açık kaynak odaklı araçlarda kullanımı lisans sorunları nedeniyle sınırlıdır.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> PFA (Portable Format for Analytics), PMML'nin yerini alacak şekilde tasarlanmıştır. DMG'den: "_Bir PFA belgesi, skorlama motoru adı verilen bir çalıştırılabilir dosyayı tanımlayan JSON biçimli bir metin dizisidir. Her motorun iyi tanımlanmış bir girdisi, iyi tanımlanmış bir çıktısı ve çıktıyı, ifade merkezli bir sözdizimi ağacında (İng. syntax tree) oluşturmak için girdileri birleştiren fonksiyonları vardır._" (1) , koşul, döngü ve kullanıcı tanımlı fonksiyonlar gibi kontrol yapılarına sahiptir, (2) JSON içerisinde ifade edildiği için, bir PFA formatı, diğer programlar tarafından kolayca oluşturulabilir ve değiştirilebilir, (3) PFA, genişletilebilirlik geri çağırmaları (İng. extensibility callbacks) destekleyen ayrıntılı bir fonksiyon kütüphanesine sahiptir. Makine Öğrenmesi modellerini PFA dosyaları olarak çalıştırmak için PFA'nın etkin olduğu bir ortama ihtiyacımız vardır.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> ONNX (Open Neural Network eXchange), Makine Öğrenmesi modelinin elde edildiği programdan bağımsız bir dosya formatıdır. ONNX, herhangi bir makine öğrenmesi aracının tek bir model formatını paylaşmasına izin vermek için oluşturulmuştur. Bu format Microsoft, Facebook ve Amazon gibi birçok büyük teknoloji şirketi tarafından desteklenmektedir. Makine öğrenmesi modeli ONNX formatında serileştirildikten sonra, onnx-etkinleştirilmiş çalışma zamanı (İng. runtime) kütüphaneleri (çıkarsama motorları da denir) tarafından tüketilebilir ve ardından tahminlerde bulunabilir. 
@@ -271,14 +271,14 @@ Bağımlılık-Olarak-Model, bir makine öğrenmesi modelini paketlemenin muhtem
 
 #### Önhesaplamalı Servis
 
-Bu tür bir makine öğrenimi modeli hizmeti, Tahmin MÖ iş akışıyla sıkı bir şekilde ilişkilidir. Önhesaplamalı servis kalıbıyla, önceden eğitilmiş bir makine öğrenmesi modeli kullanır ve gelen veri yığını için tahminleri önceden hesaplarız. Elde edilen tahminler veritabanında saklanır. Bu nedenle, herhangi bir girdi isteği için, tahmin sonucunu almak üzere veritabanını sorgularız.
+Bu tür bir makine öğrenmesi modeli hizmeti, Tahmin MÖ iş akışıyla sıkı bir şekilde ilişkilidir. Önhesaplamalı servis kalıbıyla, önceden eğitilmiş bir makine öğrenmesi modeli kullanır ve gelen veri yığını için tahminleri önceden hesaplarız. Elde edilen tahminler veritabanında saklanır. Bu nedenle, herhangi bir girdi isteği için, tahmin sonucunu almak üzere veritabanını sorgularız.
 
 <figure>
   <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/precompute-serving-pattern.png?raw=true" alt="my alt text"/>
   <figcaption><small>Bu diagram Dr. Larysa Visengeriyeva tarafından yaratılmış olup, kendisinin izniyle tarafımdan Türkçe'ye çevrilmiştir. İzinsiz kullanılması yasaktır.</small></figcaption>
 </figure>
 
-[Daha fazla okuma için: Makine Öğrenimini Üretime Getirme (Slaytlar)](https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020){:target="_blank"}
+[Daha fazla okuma için: Makine Öğrenmesi Üretime Getirme (Slaytlar)](https://www.slideshare.net/mikiobraun/bringing-ml-to-production-what-is-missing-amld-2020){:target="_blank"}
 
 #### İsteğe-Bağlı-Model
 
@@ -293,7 +293,7 @@ Mesaj-aracı (İng. message-broker) mimarisi genellikle bu tür isteğe bağlı 
 
 **Daha fazla okuma için**<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> [Olay odaklı mimari](https://learning.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html){:target="_blank"} <br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> [Gerçek zamanlı makine öğrenimi uç noktaları için web hizmetleri ve akış karşılaştırması](https://towardsdatascience.com/web-services-vs-streaming-for-real-time-machine-learning-endpoints-c08054e2b18e){:target="_blank"}
+<i class="fa fa-arrow-right" aria-hidden="true"></i> [Gerçek zamanlı makine öğrenmesi uç noktaları için web hizmetleri ve akış karşılaştırması](https://towardsdatascience.com/web-services-vs-streaming-for-real-time-machine-learning-endpoints-c08054e2b18e){:target="_blank"}
 
 #### Hibrit-Servis (Birleştirilmiş Öğrenme)
 
@@ -323,7 +323,7 @@ Her zaman gerçekleştirebileceğiniz bir yol, tüm makine öğrenmesi teknoloji
 
 #### Makine Öğrenmesi Modellerini Sunucusuz Fonksiyonlar Olarak Dağıtma
 
-Çeşitli bulut tedarikçileri halihazırda makine öğrenimi platformları sağlamaktadır. Böylelikle modelinizi servisleriyle birlikte kolayca dağıtabilirsiniz. Amazon AWS Sagemaker, Google Cloud AI Platformu, Azure Machine Learning Studio ve IBM Watson Machine Learning verilebilecek bazı örneklerdir. Ticari bulut hizmetleri, AWS Lambda ve Google App Engine servlet host gibi servisler kullanarak ML modellerinin konteynerleştirmesini de sağlar.
+Çeşitli bulut tedarikçileri halihazırda makine öğrenmesi platformları sağlamaktadır. Böylelikle modelinizi servisleriyle birlikte kolayca dağıtabilirsiniz. Amazon AWS Sagemaker, Google Cloud AI Platformu, Azure Machine Learning Studio ve IBM Watson Machine Learning verilebilecek bazı örneklerdir. Ticari bulut hizmetleri, AWS Lambda ve Google App Engine servlet host gibi servisler kullanarak ML modellerinin konteynerleştirmesini de sağlar.
 
 Bir makine öğrenmesi modelini sunucusuz bir fonksiyon (İng. serverless function) olarak dağıtmak için, uygulama kodu ve destek dosyaları tek bir giriş noktası fonksiyonu ile .zip dosyaları halinde paketlenir. Bu fonksiyon daha sonra Azure Functions, AWS Lambda veya Google Cloud Functions gibi büyük bulut sağlayıcıları tarafından yönetilebilir. Ancak, nesnenin büyüklüğü gibi dağıtılan nesnelerin olası kısıtlamalarına dikkat edilmelidir.
 
