@@ -131,7 +131,7 @@ Konuyu daha basit tutabilmek için, denetimli öğrenme (supervised), denetimsiz
 1. Çevrimdışı öğrenme (diğer bir deyişle _yığın_ veya _statik öğrenme_): Model, önceden toplanmış bir dizi veri üzerinde eğitilir. Üretim ortamına dağıtıldıktan sonra, elimizdeki makine öğrenmesi modeli yeniden eğitilene kadar değişmez çünkü model çok sayıda gerçek canlı veri görecek ve kaba tabiri ile _eskiyecektir_. Bu fenomen, "_modelin bozunması_" (model decay) olarak adlandırılır ve model dikkatle takip edilmelidir.
 2. Çevrimiçi öğrenme (diğer adıyla _dinamik öğrenme_): Yeni veriler geldikçe model düzenli olarak yeniden eğitilmektedir, örneğin veri akarak yani durmaksızın eş zamanlı geliyorsa. Bu genellikle, makine öğrenmesi modelindeki zamansal etkileri analiz edebilmek için sensör veya hisse senedi alım satım verileri gibi zaman serisi verilerini kullanan makine öğrenmesi sistemleri için geçerlidir.
 
-İkinci boyut, bir makine öğrenmesi modelinin tahminde bulunmak için gerekli mekaniği tanımlayan **Makine Öğrenmesi Modelinden Tahmin Yapma**tır. Burada ayrıca iki modu ayırıyoruz:
+İkinci boyut, bir makine öğrenmesi modelinden tahminde bulunmak için gerekli mekaniği tanımlayan **Makine Öğrenmesi Modelinden Tahmin Yapma**dır. Bu seçeneği de iki kısıma ayırabiliriz:
 
 1. Yığın tahminler: Üretime dağıtılmış bir makine öğrenmesi modeli, geçmiş girdi verilerine dayalı bir dizi tahmin yapar. Bu genellikle zamana bağlı olmayan veriler için veya çıktı olarak gerçek zamanlı tahminler elde etmenin kritik olmadığı durumlarda yeterlidir.
 2. Gerçek zamanlı tahminler (diğer adıyla isteğe bağlı (on-demand) tahminler): Tahminler, talep anında mevcut olan girdi verileri kullanılarak gerçek zamanlı olarak oluşturulur.
