@@ -9,7 +9,7 @@ MLOps (Makine Öğrenmesi operasyonları) isimli serinin ikinci kısımı, ilk y
 
 # "Burada çözmeye çalıştığımız iş sorunu nedir?"
 
-Herhangi bir yazılım projesinde en önemli aşama, iş problemini (İng. Business Problem) anlamak ve gereksinimleri oluşturmaktır. Makine Öğrenmesi tabanlı bir yazılım geliştirirken de bu durum çok da farklı değildir. İlk adım iş sorunlarının ve gereksinimlerinin kapsamlı bir incelemesini içerir. Bu gereksinimler, model hedeflerine ve model çıktılarına dönüştürülür. Modelin yayınlanması ve piyasaya sürülmesi için olası hatalar ve minimum başarı belirlenmelidir. Yapay Zeka / Makine Öğrenmesi çözümü üzerinde çalışmaya devam etmek için sorulması gereken en yararlı soru "***Yanlış tahminler ne kadar maliyetlidir?***" Bu soruyu yanıtlamak, bir Makine Öğrenmesi projesinin fizibilitesini tanımlayacaktır.
+Herhangi bir yazılım projesinde en önemli aşama, iş problemini (business Problem) anlamak ve gereksinimleri oluşturmaktır. Makine Öğrenmesi tabanlı bir yazılım geliştirirken de bu durum çok da farklı değildir. İlk adım iş sorunlarının ve gereksinimlerinin kapsamlı bir incelemesini içerir. Bu gereksinimler, model hedeflerine ve model çıktılarına dönüştürülür. Modelin yayınlanması ve piyasaya sürülmesi için olası hatalar ve minimum başarı belirlenmelidir. Yapay Zeka / Makine Öğrenmesi çözümü üzerinde çalışmaya devam etmek için sorulması gereken en yararlı soru "***Yanlış tahminler ne kadar maliyetlidir?***" Bu soruyu yanıtlamak, bir Makine Öğrenmesi projesinin fizibilitesini tanımlayacaktır.
 
 ## İş Akışı'nın Parçalanması
 
@@ -26,7 +26,7 @@ Yapılacak tahminin (Makine Öğrenmesi modelinin) nerede uygulanabileceğini g�
 1. Yapay Zeka / Makine Öğrenmesi tarafından güçlendirilebilecek somut **süreci** tanımlayın (yukarıdaki Şekil'e bakınız).
 2. Bu süreci yönlendirilmiş bir **görevler** grafiğine parçalayın.
 3. İnsan etkisinin görevin neresinden çıkarılabileceğini belirleyin, yani, Makine Öğrenmesi modeli gibi bir tahmin öğesi hangi görevin yerini alabilir?
-4. Her bir görevi gerçekleştirmek üzere bir Yapay Zeka / Makine Öğrenmesi aracı uygulamak için Yatırım Karını (İng. ROI - Return On Investment) hesaplayın
+4. Her bir görevi gerçekleştirmek üzere bir Yapay Zeka / Makine Öğrenmesi aracı uygulamak için Yatırım Karını (ROI - Return On Investment) hesaplayın
 5. Her **görev** için ayrı ayrı hesaplanan yatırım karlarına göre Yapay Zeka / Makine Öğrenmesi uygulamalarını sıralayın.
 6. Listenin en başından başlayın ve her bir görev için Yapay Zeka Şablonunu veya Makine Öğrenmesi Şablonunu tamamlayarak Yapay Zeka / Makine Öğrenmesi uygulamasını yapılandırın.
 
@@ -74,7 +74,7 @@ Etkili bir Değer Önerisi ifadesi oluşturmak için [Geoffrey Moore’un değer
 Veri, Makine Öğrenmesi modellerini eğitmek için gereklidir. Bu blokta, bir makine öğrenmesi görevi için kullanılabilecek tüm mevcut ve olası veri kaynaklarına açıklık getiriz. Örnek olarak aşağıdaki kaynakları kullanmayı düşünebiliriz:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Dahili/Harici veritabanları.,<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Veri reyonları, OLAP küpleri (İng. Data marts), veri ambarları, OLTP sistemleri.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Veri reyonları (data marts), OLAP küpleri, veri ambarları (data warehouses), OLTP sistemleri.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Hadoop kümeleri,<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Veri toplamak için kullanılabilecek REST API'leri.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Statik dosyalar, elektronik tablolar.<br>
@@ -100,7 +100,7 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sürekli bir değer tahmin etmemiz gerekiyor mu? (regresyon)<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Hangi kategorinin tahmin edilmesi gerekiyor? (sınıflandırma)<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Verilerimizi gruplamamız gerekiyor mu? (kümeleme)<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Denetimli öğrenme kullanılacaksa, ne tür bir makine öğrenmesi görevi seçilmelidir: sınıflandırma, regresyon veya sıralama (İng. ranking)?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Denetimli öğrenme kullanılacaksa, ne tür bir makine öğrenmesi görevi seçilmelidir: sınıflandırma, regresyon veya sıralama (ranking)?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sınıflandırma yapılacak ise, ikili veya çok sınıflı sınıflandırma görevi mi olacak?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Bir tahmin görevinin girdisi nedir?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, E-posta metini.<br>
@@ -108,8 +108,8 @@ Elimizde hangi verilerin mevcut olduğunu netleştirdikten sonra, ne tür makine
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Tahmin görevinin çıktısı nedir?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, "İstenmeyen e-posta" ve "normal"<br>
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (İng. degree of complexity) nedir?<br>
-> örneğin. modelimiz diğer makine öğrenmesi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (İng. Ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Makine Öğrenmesi modelimizin alabileceği karmaşıklık derecesi (degree of complexity) nedir?<br>
+> örneğin. modelimiz diğer makine öğrenmesi modellerinin bir kombinasyonu mu? Topluluk öğrenmesi (ensemble Learning) kullanıyor muyuz? Derin öğrenme modelinde kaç tane gizli katman var?<br>
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yukarıdaki modeller için eğitim ve çıkarım süresi gibi karmaşıklık maliyetleri nelerdir?
 
@@ -122,14 +122,14 @@ Her Makine Öğrenmesi algoritmasına verilen verinin satırlarda gözlemler sü
 
 ## Çevrimdışı Değerlendirme
 
-Bir Makine Öğrenmesi modelinin eğitiminin herhangi bir uygulamasından önce, modelin dağıtımı (İng. deployment) önce sistemi değerlendirmek için eldeki metodları ve metrikleri belirlememiz ve ayarlamamız gerekir. Burada şunları belirlememiz gerekir:
+Bir Makine Öğrenmesi modelinin eğitiminin herhangi bir uygulamasından önce, modelin dağıtımı (deployment) önce sistemi değerlendirmek için eldeki metodları ve metrikleri belirlememiz ve ayarlamamız gerekir. Burada şunları belirlememiz gerekir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine öğrenmesi modelinin dağıtımını doğrulayan alana özgü metrikler. Örneğin, eğitim ve test verileriyle simüle edildiğinde, modelin tahmini, "geleneksel" yolla elde edilen hasılattan daha fazla hasılat sağlar.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Hangi teknik değerlendirme ölçütleri kullanılmalıdır?<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Kesinlik (İng. Precision), Duyarlılık (İng. Recall/Sensitivity), F-1 ölçütü.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Kesinlik (Precision), Duyarlılık (Recall/Sensitivity), F-1 ölçütü.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Doğruluk oranı.
 
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Yalancı pozitifler (İng. false positives) ve yalancı negatifler (İng. false negatives) gibi model tahmin hatalarının anlamı nedir?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Yanlış pozitifler (false positives) ve yanlış negatifler (false negatives) gibi model tahmin hatalarının anlamı nedir?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Test verimiz nedir?<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Makine öğrenmesi modelinin iyi performans gösterdiğinden emin olmak için ne kadar büyüklükte test verisine ihtiyacımız var?
 
@@ -187,18 +187,18 @@ Bir önceki blokla sıkı bir şekilde ilişkili olan Model Oluşturmak bloğu, 
 
 ## Anlık Değerlendirme ve İzleme
 
-Dağıtımdan sonra, bir makine öğrenmesi modeli değerlendirilmeli ve burada birbiriyle ilişkili olması gereken hem model hem de iş ölçütlerini (metrikler) belirlememiz gerekir. Genel olarak, bu ölçütler S.M.A.R.T metodolojisini takip etmeli ve: Spesifik (İng. Specific), Ölçülebilir (İng. Measurable), Ulaşılabilir (İng. Achievable), İlgili (İng. Relevant) ve Zamana bağlı (İng. Time-bound) olmalıdır.
+Dağıtımdan sonra, bir makine öğrenmesi modeli değerlendirilmeli ve burada birbiriyle ilişkili olması gereken hem model hem de iş ölçütlerini (metrikler) belirlememiz gerekir. Genel olarak, bu ölçütler S.M.A.R.T metodolojisini takip etmeli ve: Spesifik (Specific), Ölçülebilir (Measurable), Ulaşılabilir (Achievable), İlgili (Relevant) ve Zamana bağlı (Time-bound) olmalıdır.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sistemin performansını nasıl takip ederiz?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, A/B testi<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Değer yaratmayı (İng. value creation) nasıl değerlendiririz?<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Değer yaratmayı (value creation) nasıl değerlendiririz?<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> örneğin, kullanıcılar gelen kutusunda daha az zaman harcadı.
 
 
 Bu aşamadaki çıktı, tamamlanmış Makine Öğrenmesi Şablonu'dur. Bu şablonu doldurma çabası, makine öğrenmesi tabanlı yazılımının gerçek amacına ve gizli maliyetlerine ilişkin varoluşsal bir tartışma başlatabilir. Böyle bir tartışma, Yapay Zeka'yı / Makine Öğrenmesi'ni hiç uygulamama kararıyla sonuçlanabilir. Olası nedenler aşağıdakiler gibi olabilir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Sorunumuzun çözümü yanlış tahminlere müsamaha göstermez.<br>
-<i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka'yı / Makine Öğrenmesi'ni uygulamak düşük yatırım karı (İng. ROI - Return On Investment) yaratacaktır.<br>
+<i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka'yı / Makine Öğrenmesi'ni uygulamak düşük yatırım karı (ROI - Return On Investment) yaratacaktır.<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Yapay Zeka / Makine Öğrenmesi projesinin bakımı garanti edilmez
 
 
