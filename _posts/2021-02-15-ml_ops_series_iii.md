@@ -168,7 +168,9 @@ Bu tür bir makine öğrenmesi iş akışında, bir öğrenme algoritması, veri
 
 Teknik olarak, bu tür bir makine öğrenmesi sistemi, büyük veri sistemlerinde _lambda mimarisiyle_ (lambda architecture) iyi çalışır.
 
-Genellikle, girdi verileri olayların bir akışıdır ve makine öğrenmesi modeli, verileri sisteme girerken alır, bu yeni veriler üzerinde tahminler sağlar ve daha sonra bu yeni verileri de kullanarak öğrenmeyi yeniden başlatır. Model tipik olarak bir Kubernetes kümesi veya benzeri bir sistem üzerinde bir servis olarak çalışır. Üretimdeki bir çevrimiçi öğrenme sistemi ile ilgili büyük bir zorluk, sisteme kalitesiz veriler girerse, makine öğrenmesi modelinin yanı sıra tüm sistem performansının giderek azalacak olmasıdır.
+Genellikle, girdi verileri olayların bir akışıdır ve makine öğrenmesi modeli, verileri sisteme girerken alır, bu yeni veriler üzerinde tahminler sağlar ve daha sonra bu yeni verileri de kullanarak öğrenmeyi yeniden başlatır. Model tipik olarak bir Kubernetes kümesi veya benzeri bir sistem üzerinde bir servis olarak çalışır. 
+
+Üretimdeki bir çevrimiçi öğrenme sistemi ile ilgili büyük bir zorluk, sisteme kalitesiz veriler girerse, makine öğrenmesi modelinin yanı sıra tüm sistem performansının giderek azalacak olmasıdır.
 
 <figure>
   <img src="https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/online_learning.png?raw=true" alt="my alt text"/>
