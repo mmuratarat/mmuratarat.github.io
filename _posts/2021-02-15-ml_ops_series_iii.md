@@ -95,7 +95,7 @@ _Modelin Eğitimi_ - Bir modeli eğitmek amacıyla, makine öğrenmesi algoritma
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Model Mühendisliği, yinelemeli bir süreç olabilir ve aşağıdaki iş akışını içerebilir:
 
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Her Makine Öğrenmesi modeli spesifikasyonu (bir ML modeli oluşturan kod) bir kod incelemesinden geçmeli ve versiyonlanmalıdır.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Her Makine Öğrenmesi modelinin spesifikasyonu (bu modeli oluşturan kod) bir kod incelemesinden geçmeli ve versiyonlanmalıdır.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Standart parametreleri kullanarak farklı kategorilerden (örneğin, doğrusal regresyon, lojistik regresyon, k-ortalamalar, naif Bayes, Destek Vektör Makineleri, Rastgele Ağaçlar, vb.) birçok Makine Öğrenmesi modelini eğitin.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Performanslarını ölçün ve karşılaştırın. Her model için, N-parça çapraz doğrulama kullanın ve N parça üzerinde performans ölçüsünün ortalamasını ve standart sapmasını hesaplayın.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Hata Analizi: Makine öğrenmesi modellerinin yaptığı hata türlerini analiz edin.<br>
