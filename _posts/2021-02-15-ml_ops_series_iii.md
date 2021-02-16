@@ -100,8 +100,8 @@ _Modelin Eğitimi_ - Bir modeli eğitmek amacıyla, makine öğrenmesi algoritma
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Performanslarını ölçün ve karşılaştırın. Her model için, N-parça çapraz doğrulama kullanın ve performans ölçüsünün ortalamasını ve standart sapmasını N parça üzerinde hesaplayın.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Hata Analizi: Makine öğrenmesi modellerinin yaptığı hata türlerini analiz edin.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> Daha fazla öznitelik seçimi ve mühendisliği gerçekleştirin.<br>
-> <i class="fa fa-arrow-right" aria-hidden="true"></i> Farklı türde hatalar yapan modelleri tercih ederek, en umut vadeden ilk üç ila beş modeli belirleyin.
-Çapraz doğrulama kullanarak hiperparametrelerin ayarlanması. Lütfen veri dönüştürme seçeneklerinin de hiperparametreler olduğunu unutmayın. Hiperparametreler için rastgele arama (random search), ızgara aramasına (grid search) tercih edilir.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Farklı türde hatalar yapan modelleri tercih ederek, en umut vadeden ilk üç ila beş modeli belirleyin.<br>
+> <i class="fa fa-arrow-right" aria-hidden="true"></i> Çapraz doğrulama kullanarak hiperparametrelerin ayarlanması. Lütfen veri dönüştürme seçeneklerinin de hiperparametreler olduğunu unutmayın. Hiperparametreler için rastgele arama (random search), ızgara aramasına (grid search) tercih edilir.<br>
 > <i class="fa fa-arrow-right" aria-hidden="true"></i> _Çoğunluk oylaması_ (majority vote), _torbalama_ (bagging), _hızlandırma_ (boosting) veya _istifleme_ (stacking) gibi Topluluk yöntemlerini (Ensemble methods) göz önünde bulundurun. Makine öğrenmesi modellerini birleştirmek, onları ayrı ayrı çalıştırmaktan daha iyi performans üretmelidir. Daha fazla bilgi için Zhi-Hua Zhou tarafından yazılan "[Ensemble Methods: Foundations and Algorithms](https://www.amazon.com/exec/obidos/ASIN/1439830037/acmorg-20){:target="_blank"}" isimli kitaba göz atınız.
 
 ### Modelin Değerlendirilmesi
