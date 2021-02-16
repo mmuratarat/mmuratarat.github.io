@@ -21,7 +21,7 @@ Herhangi bir makine öğrenmesi iş akışının temel parçasının Veri olduğ
 
 makine öğrenmesi bağlamında, bir makine öğrenmesi modelinin yalnızca elinizdeki verileriniz kadar iyi olduğu anlamına gelir. Bu nedenle, bir makine öğrenmesi modelinin eğitilmesi için kullanılan veriler dolaylı olarak üretim sisteminin genel performansını etkilemektedir. Veri kümesinin miktarı ve kalitesi genellikle elinizdeki probleme göre değişebilir ve deneysel olarak incelemesi yapılabilir.
 
-Önemli bir adım olan _veri mühendisliği_nin çok zaman alıcı olduğu bildirilmektedir. Bir makine öğrenmesi projesinde zamanımızın çoğunu veri kümeleri oluşturmak, verileri temizlemek ve dönüştürmek için harcayabiliriz. 
+Önemli bir adım olan veri mühendisliğinin çok zaman alıcı olduğu bildirilmektedir. Bir makine öğrenmesi projesinde zamanımızın çoğunu veri kümeleri oluşturmak, verileri temizlemek ve dönüştürmek için harcayabiliriz. 
 
 Veri mühendisliği iletim hattı, mevcut veriler üzerinde bir işlemler dizisi oluşturmak için yaratılır. Bu işlemlerin nihai amacı, makine öğrenmesi algoritmaları için eğitim ve test veri kümeleri oluşturmaktır. Aşağıda, Veri Alınımı (Data Ingestion), Keşif ve Doğrulama (Exploration and Validation), Veri Düzenleme (Temizleme)(Data Wrangling (Cleaning)) ve Veri Ayırma (Data Splitting) gibi veri mühendisliği iletim hattı oluştururken takip edilmesi gereken her aşamayı açıklayacağız.
 
@@ -82,7 +82,7 @@ Makine öğrenmesi iş akışının temeli, bir makine öğrenmesi modeli elde e
 
 ### Modelin Eğitimi
 
-_Modelin Eğitimi_ - Bir Makine Öğrenmesi algoritmasını bir modelini eğitmek için eğitim verilerine uygulama süreci. Ayrıca, modelin eğitimi sırasında uygulanması gereken hiperparametrelere ince ayar verilmesi ve öznitelik mühendisliği adımlarını da içerir. Aşağıdaki liste, Aurélien Géron tarafından yazılan "[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/app02.html#project_checklist_appendix){:target="_blank"}" isimli kitaptan alınmıştır.
+_Modelin Eğitimi_ - Bir modeli eğitmek amacıyla, makine öğrenmesi algoritmasını eğitim verilerine uygulama süreci. Ayrıca, modelin eğitimi sırasında uygulanması gereken hiperparametrelere ince ayar verilmesi ve öznitelik mühendisliği adımlarını da içerir. Aşağıdaki liste, Aurélien Géron tarafından yazılan "[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://learning.oreilly.com/library/view/hands-on-machine-learning/9781492032632/app02.html#project_checklist_appendix){:target="_blank"}" isimli kitaptan alınmıştır.
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Öznitelik mühendisliği şunları içerebilir:
 
