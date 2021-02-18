@@ -9033,6 +9033,30 @@ The magic of deep neural networks lies in finding the set of weights for each la
 
 During the training process, batches of data are passed through the network and the output is compared to the ground truth. The error in the prediction is then propagated backward through the network, adjusting each set of weights a small amount in the direction that improves the prediction most significantly. This process is appropriately called backpropagation. Gradually each unit becomes skilled at identifying a particular feature that ultimately helpt the network to make better predictions.
 
+#### What isthe difference between stochastic gradient descent and backpropagation?
+
+[Source](https://machinelearningmastery.com/difference-between-backpropagation-and-stochastic-gradient-descent/){:target="_blank"}
+
+Stochastic Gradient Descent is an optimization algorithm that can be used to train neural network models.
+
+The algorithm is referred to as “stochastic” because the gradients of the target function with respect to the input variables are noisy (e.g. a probabilistic approximation). This means that the evaluation of the gradient may have statistical noise that may obscure the true underlying gradient signal, caused because of the sparseness and noise in the training dataset.
+
+The Stochastic Gradient Descent algorithm requires gradients to be calculated for each variable in the model so that new values for the variables can be calculated.
+
+Stochastic gradient descent can be used to train (optimize) many different model types, like linear regression and logistic regression, although often more efficient optimization algorithms have been discovered and should probably be used instead.
+
+Back-propagation is an automatic differentiation algorithm that can be used to calculate the gradients for the parameters in neural networks.
+
+Together, the back-propagation algorithm and Stochastic Gradient Descent algorithm can be used to train a neural network. We might call this “Stochastic Gradient Descent with Back-propagation.”
+
+It is common for practitioners to say they train their model using back-propagation. Technically, this is incorrect. Even as a short-hand, this would be incorrect. Back-propagation is not an optimization algorithm and cannot be used to train a model.
+
+As Page 204 of the book "Deep Learning" tells: "The term back-propagation is often misunderstood as meaning the whole learning algorithm for multi-layer neural networks. Actually, back-propagation refers only to the method for computing the gradient, while another algorithm, such as stochastic gradient descent, is used to perform learning using this gradient."
+
+It would be fair to say that a neural network is trained or learns using Stochastic Gradient Descent as a shorthand, as it is assumed that the back-propagation algorithm is used to calculate gradients as part of the optimization procedure.
+
+That being said, a different algorithm can be used to optimize the parameter of a neural network, such as a genetic algorithm that does not require gradients. If the Stochastic Gradient Descent optimization algorithm is used, a different algorithm can be used to calculate the gradients for the loss function with respect to the model parameters, such as alternate algorithms that implement the chain rule.
+
 #### What is gradient checking? Why it is important?
 
 When implementing a neural network from scratch, Backpropagation is more prone to mistakes. Therefore, a method to debug this step could potentially save a lot of time and headaches when debugging a neural network. This is what we call gradient checking.
