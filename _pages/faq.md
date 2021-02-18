@@ -11896,7 +11896,9 @@ Big data analytics can be time-consuming, complicated, and computationally deman
 
 - `pip` is associated with Python 2.7 and `pip3` is with Python 3. So if you want to upgrade `pip3`, try running `pip3 install --upgrade pip`.
 
-- How to know which is running in Jupyter notebook? 
+- You can list all the installed packages with pip either using `pip list` or `pip3 list`. 
+
+- How to know which Python is running in Jupyter notebook? 
  ``` python
  import sys
 print(sys.executable)
@@ -11920,9 +11922,9 @@ will give you the interpreter. You can select the interpreter you want when you 
 
 - Some Python installations come with Apple MacOSX. The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.
 
-Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
+  Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
 
-```shell
+  ```shell
 Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python
 
 WARNING: Python 2.7 is not recommended. 
@@ -11961,5 +11963,5 @@ Python 3.7.3 (default, Mar  6 2020, 22:34:30)
 [Clang 11.0.3 (clang-1103.0.32.29)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
-```
+  ```
 
