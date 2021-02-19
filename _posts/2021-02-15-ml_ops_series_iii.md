@@ -337,3 +337,9 @@ Bir makine öğrenmesi modelini sunucusuz bir fonksiyon (serverless function) ol
 </figure>
 
 **Bu çevirinin ve çevirideki grafiklerin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
+
+## Serinin diğer yazıları
+
+* [MLOps Serisi I - Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması](https://mmuratarat.github.io/2021-01-16/ml_ops_series_i){:target="_blank"}
+* [MLOps Serisi II - Burada çözmeye çalıştığımız iş sorunu nedir?](https://mmuratarat.github.io/2021-01-26/ml_ops_series_ii){:target="_blank"}
+* MLOps Serisi III - Bir Makine Öğrenmesi Yazılımının Üç Aşaması
