@@ -15,8 +15,6 @@ Serinin ilk çevirisi konuyla ilgili üst düzey bir tanıtım yapan Dr. Larysa 
 
 MLOps sözcüğü makine öğrenmesi ve operasyon (operations) sözcüklerinin birleşimidir ve üretime (production) sokulan bir Makine Öğrenmesi (veya Derin Öğrenme) modelinin yaşam döngüsünü yönetmeye yardımcı olmak için veri bilimcileri ve operasyon uzmanları arasında iletişim ve işbirliği sağlayan bir uygulamadır. DevOps (Developer Operations - Geliştirici Operasyonları) veya DataOps (Data Operations - Veri Operasyonları)'na çok benzer. Naif bir bakış açısıyla, MLOps sadece makine öğrenmesi alanına uygulanan DevOps'tur.
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/mlops.png?raw=true)
-
 Makine Öğrenmesi operasyonları, makine öğrenmesi modellerinin gelişimini daha güvenilir ve verimli yapmak için gerekli olan tüm süreçleri tanımlayarak makine öğrenmesi modellerinin geliştirilmesine ve dağıtımına (deployment) yardımcı olmak için gerekli ilkelerin belirlenmesi üzerine odaklanır.
 
 # Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması
@@ -64,3 +62,9 @@ Bir makine öğrenmesi modelini eğittikten sonra bu modeli bir mobil veya masa�
 3. **Model Performansı Günlüğü (İng. Model Performance Logging)** - Her çıkarım talebi günlük (İng. log) kaydı ile sonuçlanır.
 
 **Bu çevirinin ve çevirideki grafiklerin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
+
+## Serinin diğer yazıları
+
+* MLOps Serisi I - Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması
+* [MLOps Serisi II - Burada çözmeye çalıştığımız iş sorunu nedir?](https://mmuratarat.github.io/2021-01-26/ml_ops_series_ii){:target="_blank"}
+* [MLOps Serisi III - Bir Makine Öğrenmesi Yazılımının Üç Aşaması](https://mmuratarat.github.io/2021-02-15/ml_ops_series_iii){:target="_blank"}
