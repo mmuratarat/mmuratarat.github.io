@@ -216,3 +216,9 @@ Daha fazla okuma
 <i class="fa fa-arrow-right" aria-hidden="true"></i> [The New Business of AI (and How It’s Different From Traditional Software)](https://a16z.com/2020/02/16/the-new-business-of-ai-and-how-its-different-from-traditional-software/){:target="_blank"}
 
 **Bu çevirinin ve çevirideki grafiklerin izinsiz ve kaynak gösterilmeden kullanılması yasaktır.**
+
+## Serinin diğer yazıları
+
+* [MLOps Serisi I - Baştan-Sona Makine Öğrenmesi İş Akışının Tanıtılması](https://mmuratarat.github.io/2021-01-16/ml_ops_series_i){:target="_blank"}
+* MLOps Serisi II - Burada çözmeye çalıştığımız iş sorunu nedir?
+* [MLOps Serisi III - Bir Makine Öğrenmesi Yazılımının Üç Aşaması](https://mmuratarat.github.io/2021-02-15/ml_ops_series_iii){:target="_blank"}
