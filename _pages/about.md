@@ -12,7 +12,7 @@ permalink: /about/
 </center> 
 
 # Welcome!
-If you’ve managed to stumble across this blog it means you share an interest in all things machine learning, deep learning, and software engineering just like I do! I appreciate any and all feedback on any of the content I post. If I've made an error or if you have a suggestion, please, do not hesitate to send me an email!
+If you’ve managed to stumble across this blog it means you share an interest in all things statistics, data science/analytics, machine learning, deep learning, and software engineering just like I do! I appreciate any and all feedback on any of the content I post. If I've made an error or if you have a suggestion, please, do not hesitate to send me an email!
 
 # Background & Bio
 
