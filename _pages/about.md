@@ -16,18 +16,6 @@ If you’ve managed to stumble across this blog it means you share an interest i
 
 # Background & Bio
 
-<div class="text-xl subpixel-antialiased words leading-relaxed">
-    
-
-<div class="float-right w-100 lg:w-1/3 pb-16 lg:ml-16">
-  <img src="/assets/2017-09-03-23.35.54.jpg" class="transform lg:rotate-3">
-</div>
-
-<div class="">
-  BLA
-</div>
-  </div>
-
 Hello! I'm Murat, PhD-level educated, bilingual statistician and data scientist, who works to design, develop and implement advanced data-driven predictive methods, powered by machine learning and deep learning algorithms, to provide actionable insights from large volumes of real-world, structured and unstructured data in order to satisfy the business needs / goals for decision making across different industries and roles. I have a deep understanding of best data analytic practices to solve complex problems and I continuously improve myself and learn new emerging technologies, tools, and platforms to add new skills to my skill set. 
 
 I completed my Ph.D. dissertation, titled ”Advances and Applications in Deep Learning” under the supervision of [Dr. Michel Ballings](http://ballings.co/){:target="_blank"} (mb@utk.edu) at Department of [Business Analytics & Statistics](https://haslam.utk.edu/business-analytics-statistics){:target="_blank"} of the [University of Tennessee, Knoxville](https://utk.edu/){:target="_blank"}.
