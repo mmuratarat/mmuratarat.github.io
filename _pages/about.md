@@ -50,7 +50,6 @@ Faculty of Science<br>
 Hacettepe University<br>
 Ankara, Turkey 06800<br>
 
-
 <br>
 <P CLASS="footnote" style="line-height:0.75; font-size:15px">
 <i class="fa fa-asterisk" style="font-size:1em"></i> <i>All opinions and views are my own and do not represent my employer(s).</i>
