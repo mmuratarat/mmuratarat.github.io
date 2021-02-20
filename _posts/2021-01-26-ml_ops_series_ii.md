@@ -3,6 +3,7 @@ layout: post
 title:  "[TR] MLOps Serisi II - Burada çözmeye çalıştığımız iş sorunu nedir?"
 author: "MMA"
 comments: true
+tags: [MLOps, Machine Learning, Software Development, Turkish]
 ---
 
 MLOps (Makine Öğrenmesi operasyonları) isimli serinin ikinci kısımı, ilk yazıda olduğu gibi, Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından INNOQ için yazılmış "[What is the business problem that we are trying to solve here?](https://ml-ops.org/content/phase-zero){:target="_blank"}" isimli yazı. İyi Okumalar!
