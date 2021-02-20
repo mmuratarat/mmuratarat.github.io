@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "About Me"
-author: MMA
 social: true
 comments: false
 permalink: /about/
