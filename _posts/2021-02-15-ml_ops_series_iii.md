@@ -3,6 +3,7 @@ layout: post
 title:  "[TR] MLOps Serisi III - Bir Makine Öğrenmesi Yazılımının Üç Aşaması"
 author: "MMA"
 comments: true
+tags: [MLOps, Machine Learning, Software Development, Turkish]
 ---
 
 MLOps (Makine Öğrenmesi operasyonları) isimli serinin üçüncü kısımı, ilk yazıda olduğu gibi, Dr. Larysa Visengeriyeva, Anja Kammer, Isabel Bär, Alexander Kniesz, ve Michael Plöd tarafından INNOQ için yazılmış "[Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software){:target="_blank"}" isimli yazı. İyi Okumalar!
