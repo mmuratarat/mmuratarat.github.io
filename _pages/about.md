@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "About Me"
+author: MMA
 social: true
 comments: false
 permalink: /about/
@@ -34,7 +35,7 @@ If you are interested in collaborating and doing some great work together, pleas
 
 <div class="contact-buttons" style="line-height:160%;margin-left:30px;margin-top:10px">
 <p>
-<a href="https://scholar.google.com/citations?user=TnkvSpsAAAAJ" target="_blank" style="color:#515151;"><i class="fa fa-graduation-cap"></i> &nbsp; Google Scholar<br></a> 
+<i class="fa fa-graduation-cap"></i> &nbsp; <a href="https://scholar.google.com/citations?user=TnkvSpsAAAAJ" target="_blank" style="color:#515151;">Google Scholar<br></a> 
 <a href="https://stackexchange.com/users/1720655/mustafa-murat-arat" target="_blank" style="color:#515151;"><i class="fa fa-stack-exchange"></i> &nbsp; Stack Exchange<br></a> 
 <a href="mailto:arat.murat@gmail.com" target="_blank" style="color:#515151;"><i class="fa fa-envelope" style="font-size:1em"></i> &nbsp; Email<br></a> 
 <a href="https://github.com/mmuratarat" target="_blank" style="color:#515151;"><i class="fa fa-github" style="font-size:1em"></i> &nbsp; GitHub<br></a> 
