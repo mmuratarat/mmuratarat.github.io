@@ -23,7 +23,7 @@ Burada kullanacağımız kütüphanelerden biri `tensorflow-io`. Bu nedenle bu k
 import tensorflow_io as tfio
 ```
 
-Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Ogrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml) indirebilecegeniz [Hava Kalitesi Veri Kumesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality). Aşağıda, Hava Kalitesi Veri Kümesinin bir alt kümesinin kısa bir önizlemesi bulunmaktadır:
+Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Öğrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml) indirebileceğiniz [Hava Kalitesi Veri Kümesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality). Aşağıda, Hava Kalitesi Veri Kümesinin bir alt kümesinin kısa bir önizlemesi bulunmaktadır:
 
 Date|Time|CO(GT)|PT08.S1(CO)|NMHC(GT)|C6H6(GT)|PT08.S2(NMHC)|NOx(GT)|PT08.S3(NOx)|NO2(GT)|PT08.S4(NO2)|PT08.S5(O3)|T|RH|AH|
 ----|----|------|-----------|--------|--------|-------------|----|----------|-------|------------|-----------|-|--|--|
