@@ -23,15 +23,7 @@ Burada kullanacağımız kütüphanelerden biri `tensorflow-io`. Bu nedenle bu k
 import tensorflow_io as tfio
 ```
 
-Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Öğrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml) indirebileceğiniz [Hava Kalitesi Veri Kümesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality). Aşağıda, Hava Kalitesi Veri Kümesinin bir alt kümesinin kısa bir önizlemesi bulunmaktadır:
-
-Date|Time|CO(GT)|PT08.S1(CO)|NMHC(GT)|C6H6(GT)|PT08.S2(NMHC)|NOx(GT)|PT08.S3(NOx)|NO2(GT)|PT08.S4(NO2)|PT08.S5(O3)|T|RH|AH|
-----|----|------|-----------|--------|--------|-------------|----|----------|-------|------------|-----------|-|--|--|
-10/03/2004|18.00.00|2,6|1360|150|11,9|1046|166|1056|113|1692|1268|13,6|48,9|0,7578|
-10/03/2004|19.00.00|2|1292|112|9,4|955|103|1174|92|1559|972|13,3|47,7|0,7255|
-10/03/2004|20.00.00|2,2|1402|88|9,0|939|131|1140|114|1555|1074|11,9|54,0|0,7502|
-10/03/2004|21.00.00|2,2|1376|80|9,2|948|172|1092|122|1584|1203|11,0|60,0|0,7867|
-10/03/2004|22.00.00|1,6|1272|51|6,5|836|131|1205|116|1490|1110|11,2|59,6|0,7888|
+Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Öğrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml) indirebileceğiniz [Hava Kalitesi Veri Kümesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality).
 
 Bu veri setini öncelikle kişisel bilgisayarınızda kurulu olan PostgreSQL veri tabanına eklemeniz gerekmektedir. Tabloyu  `CREATE TABLE` komutuyla oluşturunuz ve değişkenleri tanımlayınız (bir veri tabanında tablo yaratma ile ilgili daha fazla bilgi için [buraya](https://www.postgresqltutorial.com/postgresql-create-table/) tıklayınız.):
 
