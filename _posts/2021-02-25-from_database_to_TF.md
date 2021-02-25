@@ -74,13 +74,15 @@ INSERT INTO AirQualityUCI (Date, Time, CO, PT08S1, NMHC, C6H6, PT08S2, NOx, PT08
 .
 ```
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ss3_psql.png?raw=true)
+
 Veri girişi tamamlandıktan sonra pgAdmin 4 kullanarak sorgulama yaptığınızda veri setini görmeniz gerekmektedir:
 
 ```sql
 SELECT co, pt08s1 FROM AirQualityUCI;
 ```
 
-![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ss3_psql.png?raw=true)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ss4_psql.png?raw=true)
 
 Veri hazırlamayı basitleştirmeye yardımcı olmak için, Hava Kalitesi Veri Kümesinin bir sql versiyonu hazırlanmıştır ve bu `.sql` formatlı dosyayı kullanarak da yukarıdaki tüm işlemleri tek bir adımda gerçekleştirebilirsiniz. Dosya [AirQualityUCI.sql](https://github.com/tensorflow/io/blob/master/docs/tutorials/postgresql/AirQualityUCI.sql) olarak hazırdır.
 
