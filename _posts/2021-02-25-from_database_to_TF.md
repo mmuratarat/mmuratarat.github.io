@@ -6,7 +6,7 @@ comments: true
 tags: [TensorFlow, TensorFlow-IO, PostgreSQL, Turkish]
 ---
 
-[PostgreSQL ve pgAdmin4 Grafik Ara yüzü Kurulumu](https://mmuratarat.github.io/2020-11-18/TR_how_to_install_postgresql_pgadmin4) isimli yazımda kişisel bilgisayarınızda `localhost` üzerinde nasıl kendi PostgreSQL sunucunuzu yaratacağınızdan ve kendi veri tabanlarınızı oluşturup, bu veri tabanlarına nasıl veri yükleyeceğinizden bahsetmiştim. Bu kısa eğiticide ise  kişisel bilgisayarınızdaki veri tabanına verilerinizi girip, Python ortamına bu verileri nasıl aktaracağınızı TensorFlow ve TensorFlow-IO kütüphanelerini kullanarak göstereceğim. Yaparak öğrenme veri biliminde kendinizi geliştirmeniz için en iyi yöntemdir. Artık bir veri tabanından verilerinizi çekip tf.data.Dataset kullanarak elde edeceğiniz veri iletim hattını, eğitim veya çıkarsama amacıyla doğrudan tf.keras’a aktararak istediğiniz derin öğrenme algoritmasını uygulayabilirsiniz.
+[PostgreSQL ve pgAdmin4 Grafik Ara yüzü Kurulumu](https://mmuratarat.github.io/2020-11-18/TR_how_to_install_postgresql_pgadmin4){:target="_blank"} isimli yazımda kişisel bilgisayarınızda `localhost` üzerinde nasıl kendi PostgreSQL sunucunuzu yaratacağınızdan ve kendi veri tabanlarınızı oluşturup, bu veri tabanlarına nasıl veri yükleyeceğinizden bahsetmiştim. Bu kısa eğiticide ise  kişisel bilgisayarınızdaki veri tabanına verilerinizi girip, Python ortamına bu verileri nasıl aktaracağınızı TensorFlow ve [TensorFlow-IO](https://www.tensorflow.org/io){:target="_blank"} kütüphanelerini kullanarak göstereceğim. Yaparak öğrenme veri biliminde kendinizi geliştirmeniz için en iyi yöntemdir. Artık bir veri tabanından verilerinizi çekip tf.data.Dataset kullanarak elde edeceğiniz veri iletim hattını, eğitim veya çıkarsama amacıyla doğrudan tf.keras’a aktararak istediğiniz derin öğrenme algoritmasını uygulayabilirsiniz.
 
 İlk olarak gerekli kütüphaneleri içe aktararak ise başlayalım.
 
@@ -23,9 +23,9 @@ Burada kullanacağımız kütüphanelerden biri `tensorflow-io`. Bu nedenle bu k
 import tensorflow_io as tfio
 ```
 
-Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Öğrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml) indirebileceğiniz [Hava Kalitesi Veri Kümesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality).
+Demo amaçlı bu eğitim, bir veritabanı oluşturacak ve veritabanını bazı verilerle dolduracaktır. Bu eğiticide kullanılan veriler [UCI Makine Öğrenmesi Deposundan (UCI Machine Learning Repository)](http://archive.ics.uci.edu/ml){:target="_blank"} indirebileceğiniz [Hava Kalitesi Veri Kümesidir (Air Quality Dataset)](https://archive.ics.uci.edu/ml/datasets/Air+Quality){:target="_blank"}.
 
-Bu veri setini öncelikle kişisel bilgisayarınızda kurulu olan PostgreSQL veri tabanına eklemeniz gerekmektedir. Tabloyu  `CREATE TABLE` komutuyla oluşturunuz ve değişkenleri tanımlayınız (bir veri tabanında tablo yaratma ile ilgili daha fazla bilgi için [buraya](https://www.postgresqltutorial.com/postgresql-create-table/) tıklayınız.):
+Bu veri setini öncelikle kişisel bilgisayarınızda kurulu olan PostgreSQL veri tabanına eklemeniz gerekmektedir. Tabloyu  `CREATE TABLE` komutuyla oluşturunuz ve değişkenleri tanımlayınız (bir veri tabanında tablo yaratma ile ilgili daha fazla bilgi için [buraya](https://www.postgresqltutorial.com/postgresql-create-table/){:target="_blank"} tıklayınız.):
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ss1_psql.png?raw=true)
 
@@ -76,7 +76,7 @@ SELECT co, pt08s1 FROM AirQualityUCI;
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/ss4_psql.png?raw=true)
 
-Veri hazırlamayı basitleştirmeye yardımcı olmak için, Hava Kalitesi Veri Kümesinin bir sql versiyonu hazırlanmıştır ve bu `.sql` formatlı dosyayı kullanarak da yukarıdaki tüm işlemleri tek bir adımda gerçekleştirebilirsiniz. Dosya [AirQualityUCI.sql](https://github.com/tensorflow/io/blob/master/docs/tutorials/postgresql/AirQualityUCI.sql) olarak hazırdır.
+Veri hazırlamayı basitleştirmeye yardımcı olmak için, Hava Kalitesi Veri Kümesinin bir sql versiyonu hazırlanmıştır ve bu `.sql` formatlı dosyayı kullanarak da yukarıdaki tüm işlemleri tek bir adımda gerçekleştirebilirsiniz. Dosya [AirQualityUCI.sql](https://github.com/tensorflow/io/blob/master/docs/tutorials/postgresql/AirQualityUCI.sql){:target="_blank"} olarak hazırdır.
 
 Peki bu sql dosyasını kullanarak yukarıda yaptığımız tüm işlemleri tek bir adımda nasıl gerçekleştirebiliriz?
 
