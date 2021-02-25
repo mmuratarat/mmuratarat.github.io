@@ -6,7 +6,7 @@ comments: true
 tags: [TensorFlow, TensorFlow-IO, PostgreSQL, Turkish]
 ---
 
-[PostgreSQL ve pgAdmin4 Grafik Ara yüzü Kurulumu](https://mmuratarat.github.io/2020-11-18/TR_how_to_install_postgresql_pgadmin4) isimli yazımda kişisel bilgisayarınızda `localhost` üzerinde nasıl kendi PostgreSQL sunucunuzu yaratacağınız ve kendi veri tabanlarınızı oluşturup, bu veri tabanlarına tablo yükleyeceğinizden bahsetmiştim. Bu yazımda ise kişisel bilgisayarınızdaki veri tabanına verilerinizi okutup Python ortamına bu verileri nasıl aktaracağınızı TensorFlow ve TensorFlow-IO kütüphanelerini kullanarak göstereceğim. Yaparak öğrenme veri biliminde kendinizi geliştirmeniz için en iyi yöntemdir. Artık veri tabanım yok, nasıl verileri okutup bir derin öğrenme algoritması çalıştırayım derdiniz olmayacak. 
+[PostgreSQL ve pgAdmin4 Grafik Ara yüzü Kurulumu](https://mmuratarat.github.io/2020-11-18/TR_how_to_install_postgresql_pgadmin4) isimli yazımda kişisel bilgisayarınızda `localhost` üzerinde nasıl kendi PostgreSQL sunucunuzu yaratacağınızdan ve kendi veri tabanlarınızı oluşturup, bu veri tabanlarına tablo yükleyeceğinizden bahsetmiştim. Bu kısa eğiticide ise kişisel bilgisayarınızdaki veri tabanına verilerinizi okutup Python ortamına bu verileri nasıl aktaracağınızı TensorFlow ve TensorFlow-IO kütüphanelerini kullanarak göstereceğim. Yaparak öğrenme veri biliminde kendinizi geliştirmeniz için en iyi yöntemdir. Artık bir veri tabanım yok, nasıl verileri okutup bir derin öğrenme algoritması çalıştıracağım derdiniz olmayacak. 
 
 İlk olarak gerekli kütüphaneleri içe aktararak ise başlayalım.
 
