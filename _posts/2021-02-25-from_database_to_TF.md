@@ -100,7 +100,7 @@ Bu komutta bulunan her parametrenin kullanım amacı şu şekildedir:
 * `-h` : PostgreSQL sunucusunun IP adresi
 * `-d` : Veri tabanının ismi
 * `-U` : Kullanıcı ismi
-* `-p` : PostgreSQL sunucusunun dinlediği port
+* `-p` : PostgreSQL sunucusunun dinlediği port (bağlantı noktası)
 * `-f` : SQL betiğinin bulunduğu yol
 
 Komutu çalıştırdığınızda sizden şifrenizi girmeniz istenecektir. Kullanıcı adınıza ait şifreyi girdikten sonra tablonuz veri tabanınızda oluşacak ve veriler tabloya eklenecektir. 
