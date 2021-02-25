@@ -120,8 +120,10 @@ Bu yöntemi de gördükten sonra JupyterLab not defteri üzerinden bu veriyi Pos
 %env DATABASE_HOST=localhost
 %env DATABASE_PORT=5432
 %env DATABASE_USER=postgres
-%env DATABASE_PASS=quake7446632
+%env DATABASE_PASS=<PASSWORD>
 ```
+
+Burada gerekli tüm değişkenlere sisteminizde tanımladığınız değerleri vermeniz gerekmektedir. Ben PostgreSQL kurulumunda varsayılan değerleri kullandığım için `DATABASE_NAME`, `DATABASE_HOST`, `DATABASE_PORT`, ve `DATABASE_USER` aynı olabilir. Ancak, `DATABASE_PASS` ortam değişkenine ait değer olan `<PASSWORD>` kullanıcı adınıza ait sizin belirlediğiniz şifredir.
 
 PostgreSQL sunucusundan bir `Dataset` (Veri Kümesi) oluşturmak, `query` (sorgu) ve `endpoint` (bitis noktasi) argümanları ile `tfio.experimental.IODataset.from_sql`'yi çağırmak kadar kolaydır. `query`, tablolardaki seçilen sütunlar için SQL sorgusudur ve `endpoint` argümanı, adres ve veritabanı adıdır:
 
@@ -135,8 +137,12 @@ endpoint="postgresql://{}:{}@{}?port={}&dbname={}".format(
 )
 
 #endpoint
-#'postgresql://postgres:quake7446632@localhost?port=5432&dbname=postgres'
+#'postgresql://postgres:<PASSWORD>@localhost?port=5432&dbname=postgres'
+```
 
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tensorflowio_endpoint.jpeg?raw=true)
+
+```python
 dataset = tfio.experimental.IODataset.from_sql(
     query="SELECT pt08s1, nmhc, c6h6, co FROM AirQualityUCI;",
     endpoint=endpoint)
