@@ -131,6 +131,7 @@ endpoint="postgresql://{}:{}@{}?port={}&dbname={}".format(
 #endpoint
 #'postgresql://postgres:<PASSWORD>@localhost?port=5432&dbname=postgres'
 ```
+PostgreSQL veritabanı motoru için URL'nin biçimi aşağıdaki gibidir:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/tensorflowio_endpoint.jpeg?raw=true)
 
