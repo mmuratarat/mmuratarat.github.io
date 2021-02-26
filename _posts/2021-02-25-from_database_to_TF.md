@@ -168,8 +168,3 @@ for i in dataset.as_numpy_iterator():
 ```
 
 Oluşturulan `Dataset`, eğitim veya çıkarsama amacıyla doğrudan `tf.keras`'a aktarılmaya hazırdır.
-
-
-$$
-x_{ij} = \sum_{i=1}^{n} x_{i}
-$$
