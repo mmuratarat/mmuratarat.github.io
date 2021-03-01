@@ -447,6 +447,8 @@ dataset
 
 Bu veri seti 20 gözlemden ve 3 bağımsız değişkenden oluşmaktadır. İki sınıflandırma problemi için kullanılır. İlk sütun (yani indeksi 0) sınıfların bulunduğu değişkendir.
 
+Siz, herhangi bir sınıflandırma problemi için istediğiniz veri setini kullanabilirsiniz.
+
 Şimdi model aramaya başlayabiliriz. İlk olarak bir `trainer` örneği (instance) oluşturup csv dosyasındaki verileri `csv_data.Provider` fonksiyonuna gönderin:
 
 ```python
