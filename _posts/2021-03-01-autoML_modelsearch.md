@@ -392,6 +392,8 @@ import os
 print(os.getcwd())
 #/Users/mustafamuratarat/tutorial1
 
+import pandas as pd
+
 os.chdir('./model_search')
 print(os.getcwd())
 #/Users/mustafamuratarat/tutorial1/model_search
@@ -433,6 +435,21 @@ from model_search.data import csv_data
 Bu eğitici için `model_search` paketinde bunan `csv_random_data.csv` örnek verisini kullanalım.
 
 ```python
+dataset = pd.read_csv("../model_search/data/testdata/csv_random_data.csv")
+
+dataset.shape
+#(20, 4)
+
+dataset
+```
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/dataset_modelsearch.png?raw=true)
+
+Bu veri seti 20 gözlemden ve 3 bağımsız değişkenden oluşmaktadır. İki sınıflandırma problemi için kullanılır. İlk sütun (yani indeksi 0) sınıfların bulunduğu değişkendir.
+
+Şimdi model aramaya başlayabiliriz. İlk olarak bir `trainer` örneği (instance) oluşturup csv dosyasındaki verileri `csv_data.Provider` fonksiyonuna gönderin:
+
+```python
 trainer =  single_trainer.SingleTrainer(data=csv_data.Provider(label_index=0,
                                                               logits_dimension=2,
                                                               record_defaults=[0, 0, 0, 0],
@@ -440,7 +457,7 @@ trainer =  single_trainer.SingleTrainer(data=csv_data.Provider(label_index=0,
                                         spec= "model_search/configs/dnn_config.pbtxt") 
 ```
 
-Buradaki `SingleTrainer` fonksiyonunun argümanları şu şekilde özetlenebilir: ilk olarak bir `trainer` örneği oluşturup csv dosyasındaki verileri `csv_data.Provider` fonksiyonuna gönderin. `label_index`, etiketlerin (labels) dataframe'de bulunduğu sütun numarasını gösterir. `logit_dimension`, sınıflandırma için kullanılacak verideki sınıfların sayısını temsil eder. Burada ikili sınıflandırma yaptığımız için 2 olarak değer verilmiştir. `record_default` argümanı, sütunlarda herhangi bir boş değer (null value) olduğu zaman, o değerin 0 ile değiştirilmesi gerektiğini söyleyen ve boyutu, öznitelik sayısına eşit olan diziyi temsil eder. `filename`, verilerin bulunduğu dosyanın yolunu tanımlar. Son olarak, `spec`, arama alanını temsil eder, aşağıda belirtildiği gibi kendi alanınızı oluşturabilir veya varsayılan arama alanını kullanabilirsiniz.
+Buradaki `SingleTrainer` fonksiyonunun argümanları şu şekilde özetlenebilir: `label_index`, etiketlerin (labels) dataframe'de bulunduğu sütun numarasını gösterir. `logit_dimension`, sınıflandırma için kullanılacak verideki sınıfların sayısını temsil eder. Burada ikili sınıflandırma yaptığımız için 2 olarak değer verilmiştir. `record_default` argümanı, sütunlarda herhangi bir boş değer (null value) olduğu zaman, o değerin 0 ile değiştirilmesi gerektiğini söyleyen ve boyutu, öznitelik sayısına eşit olan diziyi temsil eder. `filename`, verilerin bulunduğu dosyanın yolunu tanımlar. Son olarak, `spec`, arama alanını temsil eder, aşağıda belirtildiği gibi kendi alanınızı oluşturabilir veya varsayılan arama alanını kullanabilirsiniz.
 
 Model aramaya geçmeden önce `tutorial1` klasöründe sonuçların kaydedileceği bir dizin yaratalım:
 
