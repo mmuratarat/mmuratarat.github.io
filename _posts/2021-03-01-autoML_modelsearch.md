@@ -63,9 +63,9 @@ Arat-MacBook-Pro:tutorial1 mustafamuratarat$ source venv/bin/activate
 
 Burada dikkat etmeniz gereken nokta, komut satırının bilgisayarınızın adından, yeni oluşturduğunuz sanal ortamın ismine dönüşmesidir. Proje üzerinde her çalışmak istediğinizde bu sanal ortamı aktive etmelisiniz. Bu nedenle `source venv/bin/activate` kodunu çalıştırmayı unutmayın. Ancak, her seferinde bu kodu yazmak istemediğinizde ve bilgisayarınız başlar başlamaz, sanal ortamınızın aktive olmasını istiyorsanız [şu sayfada](https://askubuntu.com/a/1175106/1187527){:target="_blank"} bulunan adımları takip ederek bir betik yazabilirsiniz.
 
-Artık bu ortamda istediğiniz paketleri ve bu paketlerin versiyonlarını global sisteminizi etkilemeden kurabilirsiniz. Burada Google'un Github sayfasında bulunan `model_search` paketini kullanacağımız için, bu paket için gerekli tüm modülleri ve bu modüllerin versiyonlarını [requirements.txt](https://github.com/google/model_search/blob/master/requirements.txt){:target="_blank"} dosyasında bulabilirsiniz:
+Artık bu ortamda istediğiniz paketleri ve bu paketlerin versiyonlarını global sisteminizi etkilemeden kurabilirsiniz. Burada Google'un Github sayfasında bulunan `model_search` paketini kullanacağımız için, bu paket için gerekli tüm paketleri ve bu paketlerin versiyonlarını [requirements.txt](https://github.com/google/model_search/blob/master/requirements.txt){:target="_blank"} dosyasında bulabilirsiniz:
 
-`model_search` modülü, PyPI'de henüz mevcut değildir, bu nedenle git kullanılarak klonlanabilir. Klonlama işlemi terminal penceresinde sanal ortamımızda yapılır:
+`model_search` paketi, PyPI'de henüz mevcut değildir, bu nedenle `git` kullanılarak klonlanabilir. Klonlama işlemi terminal penceresinde sanal ortamımızda yapılır:
 
 ```
 (venv) Arat-MacBook-Pro:tutorial1 mustafamuratarat$ git clone https://github.com/google/model_search.git
