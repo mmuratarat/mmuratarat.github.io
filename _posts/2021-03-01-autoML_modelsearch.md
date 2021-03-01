@@ -333,15 +333,15 @@ Bu klasörde, her şeyi doğru yaptıysanız aşağıdaki şekilde görünmesi g
 
 Hepsi bu kadar! Artık `venv` sanal ortamını Jupyter'de çekirdek olarak seçebilirsiniz. JupyterLab'de bunun nasıl görüneceği aşağıda görülmektedir:
 
-![](venv_kernel.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/venv_kernel.png?raw=true)
 
 Yeni bir Jupyter not defteri başlattığınızda, sağ üst köşedeki daire içerisinde çekirdeğinizin ismi yazmalıdır:
 
-![](venv_kernel_empty_Jupyternotebook.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/venv_kernel_empty_Jupyternotebook.png?raw=true)
 
 Sistemimiz hazır. Şimdi Google'ın Model Search paketinin uygulamasını görebilir ve JupyterLab üzerinde çalışmaya başlayabiliriz. 
 
-![](automl_model_search.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/automl_model_search.png?raw=true)
 
 Son yıllarda, otomatikleştirilmiş makine öğrenmesi veya kısaca AutoML, araştırmacıların ve geliştiricilerin insan müdahalesi olmadan yüksek kaliteli derin öğrenme modelleri oluşturmalarına ve kullanılabilirliğini genişletmelerine gerçekten yardımcı oldu. Bu nedenle, Google, `Model Search` (Model Arama) adlı yeni bir iskelet geliştirdi.
 
