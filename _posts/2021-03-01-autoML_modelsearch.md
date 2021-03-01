@@ -576,7 +576,8 @@ Her model için, `tuner-1` dizini model mimarisi, farklı kontrol noktaları, de
 # model.ckpt-0.index
 ```
 
-ve aşağıdaki komut model 1in grafiğini verecektir
+ve aşağıdaki komut model 1'in grafiğini verecektir. Bu grafik dosyasının çıktısı çok uzun olduğu için yazdırmıyorum. Onun yerine, TensorBoard kullanarak görselleştirebilirim.
+
 ```
 ! cat ../output/tuner-1/1/graph.pbtxt
 ```
