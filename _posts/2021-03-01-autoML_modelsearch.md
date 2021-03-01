@@ -1,5 +1,6 @@
 ---
-layout: postModel Aramaya Yönelik Uygulamalı Kılavuz: AutoML için Tensorflow tabanlı bir ÇerçeveTensorFlow IO'dan PostgreSQL veritabanını okuma"
+layout: post
+title:  "[TR] Model Aramaya Yönelik Uygulamalı Kılavuz: AutoML için Tensorflow tabanlı bir Çerçeve"
 author: "MMA"
 comments: true
 tags: [TensorFlow, AutoML, Turkish]
@@ -557,6 +558,7 @@ Her model için, `tuner-1` dizini model mimarisi, farklı kontrol noktaları, de
 # model.ckpt-0.index
 ```
 
+ve aşağıdaki komut model 1in grafiğini verecektir
 ```
 ! cat ../output/tuner-1/1/graph.pbtxt
 ```
