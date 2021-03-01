@@ -563,6 +563,27 @@ ve aşağıdaki komut model 1in grafiğini verecektir
 ! cat ../output/tuner-1/1/graph.pbtxt
 ```
 
+### Tensorboard ile grafik nesnesini görüntüleme
+Tensorboard kullanarak, bir `.pbtxt` formatlı dosyadan TensorFlow grafiğini görüntüleyebilirsiniz. Önce TensorBoard servisini başlatmalısınız.
+
+1. Komut istemini (Windows) veya terminali (Ubuntu / Mac) açın
+2. Projenizin olduğu ana dizine gidin.
+3. Python'un `virtualenv` paketini kullanıyorsanız, TensorFlow'u kurduğunuz sanal ortamı etkinleştirin.
+4. Python aracılığıyla TensorFlow kütüphanesini görebildiğinizden emin olun
+  * Python3 yazın, `>>>` görünümlü bir bilgi istemi alacaksınız
+  * `import tensorflow as tf` deneyin.
+  * Yukaridaki kodu başarılı bir şekilde çalıştırabilirseniz, devam edebilirsiniz.
+5. `exit()` yazarak Python isteminden (yani `>>>`) çıkın ve aşağıdaki komutu yazın:
+  * `tensorboard --logdir=output`
+  * `--logdir`, görselleştirmek istediğimiz AutoML modellerin çıktısının bulunduğu dizindir.
+  * İsteğe bağlı olarak, TensorBoard'un çalıştığı bağlantı noktasını değiştirmek için `--port = <port_you_like>` kullanabilirsiniz.
+6. Şimdi şu mesajı almalısınız: `TensorBoard 2.2.2 at http://localhost:6006/ (Press CTRL+C to quit)`.
+7. `http://localhost:6006/`'yı web tarayıcısına girin. Artık `graph.pbtxt` dosyasını tüm modeller için görüntüleyebilirsiniz!
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/Screen%20Shot%202021-03-01%20at%2009.19.01.png?raw=true)
+
+### Sanal ortamı devre dışı bırakmak ve silmek
+
 Çalışmalarınız tamamlandıktan sonra yarattığınız sanal ortamı silmek için yapmanız gereken pek bir şey yoktur.
 
 Sanal ortamı devre dışı bırakmak için `deactivate` komutunu çalıştırabilirsiniz. 
@@ -573,6 +594,8 @@ Arat-MacBook-Pro:tutorial1 mustafamuratarat$
 ```
 
 Daha sonra uygulamanızı yinelemeli olarak (`rm -rf venv`) kaldırarak artık dosyalardan kurtulabilirsiniz. 
+
+### Jupyter çekirdeğini kaldırmak
 
 Sanal ortamınızı sildikten sonra, onu Jupyter'den çekirdek kaldırmak isteyeceksiniz. İlk olarak JupyterLab'de hangi çekirdeklerin mevcut olduğunu görelim. Bunları şu şekilde listeleyebilirsiniz:
 
