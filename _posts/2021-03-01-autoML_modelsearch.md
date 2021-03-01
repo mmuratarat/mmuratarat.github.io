@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "[TR] Model Aramaya Yönelik Uygulamalı Kılavuz: AutoML için Tensorflow tabanlı bir Çerçeve"
+title:  "[TR] Model Aramaya Yönelik Uygulamalı Kılavuz: AutoML için Tensorflow tabanlı bir Yazılım İskeleti"
 author: "MMA"
 comments: true
 tags: [TensorFlow, AutoML, Turkish]
 ---
 
-Derin Sinir ağları söz konusu olduğunda, belirli bir problem için uygun mimariyi (katman türleri, katman sayısı, optimizasyon türü vb.) seçmek zor ve yorucu bir süreç olabilir. Bu nedenle, son yıllarda Otomatik makine öğrenmesi (AutoML) derin öğrenme alanındaki en sıcak araştırma alanlarından biri haline geldi. AutoML, makine öğrenmesi modellerinin oluşturulmasını otomatikleştirmek için  makine öğrenmesi kullanma fikridir. Bu nedenle, Google, araştırmacıların makine öğrenimi modellerini verimli ve otomatik olarak geliştirmelerine yardımcı olmak için AutoML çerçevesini [açık kaynaklı](https://github.com/google/model_search){:target="_blank"} hale getirdi. Herhangi bir sınıflandırma problemi için doğru model mimarisini hızlı ve uygun maliyetli bir şekilde otomatik olarak bulur. Çerçeve, uygun hiperparametreleri bulmak için Bayes optimizasyonunu kullanır ve modellerin bir topluluğunu (ensemble) oluşturabilir. Hem yapılandırılmış hem de görüntü verileri için çalışır.
+Derin Sinir ağları söz konusu olduğunda, belirli bir problem için uygun mimariyi (katman türleri, katman sayısı, optimizasyon türü vb.) seçmek zor ve yorucu bir süreç olabilir. Bu nedenle, son yıllarda Otomatik makine öğrenmesi (AutoML) derin öğrenme alanındaki en sıcak araştırma alanlarından biri haline geldi. AutoML, makine öğrenmesi modellerinin oluşturulmasını otomatikleştirmek için  makine öğrenmesi kullanma fikridir. Bu nedenle, Google, araştırmacıların makine öğrenimi modellerini verimli ve otomatik olarak geliştirmelerine yardımcı olmak için AutoML iskeletini [açık kaynaklı](https://github.com/google/model_search){:target="_blank"} hale getirdi. Herhangi bir sınıflandırma problemi için doğru model mimarisini hızlı ve uygun maliyetli bir şekilde otomatik olarak bulur. Bu yazılım iskeleti, uygun hiperparametreleri bulmak için Bayes optimizasyonunu kullanır ve modellerin bir topluluğunu (ensemble) oluşturabilir. Hem yapılandırılmış hem de görüntü verileri için çalışır.
 
 ### Sanal Ortam Oluşturmak
 
@@ -343,9 +343,9 @@ Sistemimiz hazır. Şimdi Google'ın Model Search paketinin uygulamasını göre
 
 ![](automl_model_search.png)
 
-Son yıllarda, otomatikleştirilmiş makine öğrenmesi veya kısaca AutoML, araştırmacıların ve geliştiricilerin insan müdahalesi olmadan yüksek kaliteli derin öğrenme modelleri oluşturmalarına ve kullanılabilirliğini genişletmelerine gerçekten yardımcı oldu. Bu nedenle, Google, `Model Search` (Model Arama) adlı yeni bir çerçeve geliştirdi.
+Son yıllarda, otomatikleştirilmiş makine öğrenmesi veya kısaca AutoML, araştırmacıların ve geliştiricilerin insan müdahalesi olmadan yüksek kaliteli derin öğrenme modelleri oluşturmalarına ve kullanılabilirliğini genişletmelerine gerçekten yardımcı oldu. Bu nedenle, Google, `Model Search` (Model Arama) adlı yeni bir iskelet geliştirdi.
 
-`Model Search` (Model Arama), büyük ölçekte AutoML algoritmaları oluşturmak için açık kaynaklı, TensorFlow tabanlı bir Python çerçevesidir. Bu çerçeve,
+`Model Search` (Model Arama), büyük ölçekte AutoML algoritmaları oluşturmak için açık kaynaklı, TensorFlow tabanlı bir Python iskeletidir. Bu yazılım iskeleti,
 
 * doğru model mimarisinin araştırılmasından, en iyi damıtılmış modellere kadar birçok AutoML algoritmasını çalıştırmak için,
 * arama uzayında bulunan farklı algoritmaları karşılaştırmak için, ve
