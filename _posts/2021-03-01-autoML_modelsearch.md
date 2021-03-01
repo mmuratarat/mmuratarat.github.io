@@ -6,7 +6,7 @@ comments: true
 tags: [TensorFlow, AutoML, Turkish]
 ---
 
-Derin Sinir ağları söz konusu olduğunda, belirli bir problem için uygun mimariyi (katman türleri, katman sayısı, optimizasyon türü vb.) seçmek zor ve yorucu bir süreç olabilir. Bu nedenle, son yıllarda Otomatik makine öğrenmesi (AutoML) derin öğrenme alanındaki en sıcak araştırma alanlarından biri haline geldi. AutoML, makine öğrenmesi modellerinin oluşturulmasını otomatikleştirmek için  makine öğrenmesi kullanma fikridir. Bu nedenle, Google, araştırmacıların makine öğrenimi modellerini verimli ve otomatik olarak geliştirmelerine yardımcı olmak için AutoML çerçevesini [açık kaynaklı](https://github.com/google/model_search) hale getirdi. Herhangi bir sınıflandırma problemi için doğru model mimarisini hızlı ve uygun maliyetli bir şekilde otomatik olarak bulur. Çerçeve, uygun hiperparametreleri bulmak için Bayes optimizasyonunu kullanır ve modellerin bir topluluğunu (ensemble) oluşturabilir. Hem yapılandırılmış hem de görüntü verileri için çalışır.
+Derin Sinir ağları söz konusu olduğunda, belirli bir problem için uygun mimariyi (katman türleri, katman sayısı, optimizasyon türü vb.) seçmek zor ve yorucu bir süreç olabilir. Bu nedenle, son yıllarda Otomatik makine öğrenmesi (AutoML) derin öğrenme alanındaki en sıcak araştırma alanlarından biri haline geldi. AutoML, makine öğrenmesi modellerinin oluşturulmasını otomatikleştirmek için  makine öğrenmesi kullanma fikridir. Bu nedenle, Google, araştırmacıların makine öğrenimi modellerini verimli ve otomatik olarak geliştirmelerine yardımcı olmak için AutoML çerçevesini [açık kaynaklı](https://github.com/google/model_search){:target="_blank"} hale getirdi. Herhangi bir sınıflandırma problemi için doğru model mimarisini hızlı ve uygun maliyetli bir şekilde otomatik olarak bulur. Çerçeve, uygun hiperparametreleri bulmak için Bayes optimizasyonunu kullanır ve modellerin bir topluluğunu (ensemble) oluşturabilir. Hem yapılandırılmış hem de görüntü verileri için çalışır.
 
 ### Sanal Ortam Oluşturmak
 
@@ -61,9 +61,9 @@ Arat-MacBook-Pro:tutorial1 mustafamuratarat$ source venv/bin/activate
 (venv) Arat-MacBook-Pro:tutorial1 mustafamuratarat$ 
 ```
 
-Burada dikkat etmeniz gereken nokta, komut satırının bilgisayarınızın adından, yeni oluşturduğunuz sanal ortamın ismine dönüşmesidir. Proje üzerinde her çalışmak istediğinizde bu sanal ortamı aktive etmelisiniz. Bu nedenle `source venv/bin/activate` kodunu çalıştırmayı unutmayın. Ancak, her seferinde bu kodu yazmak istemediğinizde ve bilgisayarınız başlar başlamaz, sanal ortamınızın aktive olmasını istiyorsanız [şu sayfada](https://askubuntu.com/a/1175106/1187527) bulunan adımları takip ederek bir betik yazabilirsiniz.
+Burada dikkat etmeniz gereken nokta, komut satırının bilgisayarınızın adından, yeni oluşturduğunuz sanal ortamın ismine dönüşmesidir. Proje üzerinde her çalışmak istediğinizde bu sanal ortamı aktive etmelisiniz. Bu nedenle `source venv/bin/activate` kodunu çalıştırmayı unutmayın. Ancak, her seferinde bu kodu yazmak istemediğinizde ve bilgisayarınız başlar başlamaz, sanal ortamınızın aktive olmasını istiyorsanız [şu sayfada](https://askubuntu.com/a/1175106/1187527){:target="_blank"} bulunan adımları takip ederek bir betik yazabilirsiniz.
 
-Artık bu ortamda istediğiniz paketleri ve bu paketlerin versiyonlarını global sisteminizi etkilemeden kurabilirsiniz. Burada Google'un Github sayfasında bulunan `model_search` paketini kullanacağımız için, bu paket için gerekli tüm modülleri ve bu modüllerin versiyonlarını [requirements.txt](https://github.com/google/model_search/blob/master/requirements.txt) dosyasında bulabilirsiniz:
+Artık bu ortamda istediğiniz paketleri ve bu paketlerin versiyonlarını global sisteminizi etkilemeden kurabilirsiniz. Burada Google'un Github sayfasında bulunan `model_search` paketini kullanacağımız için, bu paket için gerekli tüm modülleri ve bu modüllerin versiyonlarını [requirements.txt](https://github.com/google/model_search/blob/master/requirements.txt){:target="_blank"} dosyasında bulabilirsiniz:
 
 `model_search` modülü, PyPI'de henüz mevcut değildir, bu nedenle git kullanılarak klonlanabilir. Klonlama işlemi terminal penceresinde sanal ortamımızda yapılır:
 
@@ -353,7 +353,7 @@ Son yıllarda, otomatikleştirilmiş makine öğrenmesi veya kısaca AutoML, ara
 
 kullanılır.
 
-`Model Search` (Model Arama) fikri, Google Interspeech 2019'da, Hanna Mazzawi, Javier Gonzalvo, Aleks Kracun, Prashant Sridhar, Niranjan Subrahmanya, Ignacio Lopez Moreno, Hyun Jin Park, Patrick Violette tarafından yazılan [Improving Keyword Spotting and Language Identification via Neural Architecture Search at Scale](https://www.isca-speech.org/archive/Interspeech_2019/abstracts/1916.html) adlı çalışmayla sunuldu. `Model Search` (Model Arama)'ün ana fikri, aşağıdakileri hedefleyen yeni bir Sinir Mimarisi araştırması geliştirmektir:
+`Model Search` (Model Arama) fikri, Google Interspeech 2019'da, Hanna Mazzawi, Javier Gonzalvo, Aleks Kracun, Prashant Sridhar, Niranjan Subrahmanya, Ignacio Lopez Moreno, Hyun Jin Park, Patrick Violette tarafından yazılan [Improving Keyword Spotting and Language Identification via Neural Architecture Search at Scale](https://www.isca-speech.org/archive/Interspeech_2019/abstracts/1916.html){:target="_blank"} adlı çalışmayla sunuldu. `Model Search` (Model Arama)'ün ana fikri, aşağıdakileri hedefleyen yeni bir Sinir Mimarisi araştırması geliştirmektir:
 
 * Artımlı bir arama tanımlama.
 * Transfer eğitimden yararlanma.
@@ -373,7 +373,7 @@ Bunu başarmak için herkesin, genellikle kendi ana dilinde olan düşüncelerin
 
 Aynı kavram bilgisayar sistemlerinde ve bileşenlerinde de mevcuttur. Doğrudan neden bahsettiklerini anlamamıza gerek yoksa verileri neden XML, JSON veya başka herhangi bir insan tarafından okunabilir formatta göndermeliyiz? Açıkça ihtiyaç duyulursa, bunu insan tarafından okunabilir bir biçime çevirebildiğimiz sürece.
 
-Protokol Tamponları, veri bloklarını verimli bir şekilde küçülten ve dolayısıyla bu verileri gönderirken hızı artıran, taşıma öncesi verileri kodlamanın bir yoludur. Verileri dil ve platformdan bağımsız bir biçimde özetler.
+[Protokol Tamponları](https://developers.google.com/protocol-buffers/?hl=en){:target="_blank"}, veri bloklarını verimli bir şekilde küçülten ve dolayısıyla bu verileri gönderirken hızı artıran, taşıma öncesi verileri kodlamanın bir yoludur. Verileri dil ve platformdan bağımsız bir biçimde özetler.
 
 Protokol Tamponları (Protobuf), insan tarafından okunabilen formatlar olan JSON ve XML gibi, yapılandırılmış verileri serileştirme yöntemidir. Google tarafından geliştirilmiştir. Serileştirilecek verilerin tanımı, `proto` dosyaları adı verilen yapılandırma dosyalarına yazılır. Yani, bir `proto` dosyası, Google'ın Protokol Tamponu formatında oluşturulmuş geliştirici dosyasıdır.`.proto` dosyasını seçtiğimiz dil sınıfına derlemek için, proto derleyici olan `protoc`'u kullanabiliriz.
 
@@ -404,7 +404,7 @@ protoc --python_out=../ model_search/proto/ensembling_spec.proto
 protoc --python_out=../ model_search/proto/transfer_learning_spec.proto
 ```
 
-`model_search` paketini içe aktarırken herhangi bir hata (örneğin, _unparsed flag_ hatası) alırsanız [flag'leri](https://abseil.io/docs/python/guides/flags) yükleyebilirsiniz. Kod parçacığı aşağıda mevcuttur:
+`model_search` paketini içe aktarırken herhangi bir hata (örneğin, _unparsed flag_ hatası) alırsanız [flag'leri](https://abseil.io/docs/python/guides/flags){:target="_blank"} yükleyebilirsiniz. Kod parçacığı aşağıda mevcuttur:
 
 ```python
 import sys
