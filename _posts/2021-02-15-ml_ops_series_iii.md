@@ -28,7 +28,7 @@ Veri mühendisliği iletim hattı, mevcut veriler üzerinde bir işlemler dizisi
 
 ### Veri Alınımı (Data Ingestion)
 
-_Veri Alınımı_ - Dahili / harici veritabanları, veri reyonları, OLAP küpleri, veri ambarları, OLTP sistemleri, Spark, HDFS ve bunlar gibi çeşitli sistemleri, çerçeveleri ve formatları kullanarak veri toplama. Bu adım, sentetik veri oluşturmayı veya veri zenginleştirmeyi de içerebilir. Bu adım için en iyi uygulamalar, maksimum düzeyde otomatikleştirilmesi gereken aşağıdaki eylemleri içerir:
+_Veri Alınımı_ - Dahili / harici veritabanları, veri reyonları, OLAP küpleri, veri ambarları, OLTP sistemleri, Spark, HDFS ve bunlar gibi çeşitli sistemleri, yazılım iskeletlerini ve formatları kullanarak veri toplama. Bu adım, sentetik veri oluşturmayı veya veri zenginleştirmeyi de içerebilir. Bu adım için en iyi uygulamalar, maksimum düzeyde otomatikleştirilmesi gereken aşağıdaki eylemleri içerir:
 
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Veri Kaynaklarını Tanımlama: Veriyi bulun ve kaynağını belgeleyin<br>
 <i class="fa fa-arrow-right" aria-hidden="true"></i> Alan Tahmini: verinin depolama alanında ne kadar yer kaplayacağını kontrol edin.<br>
