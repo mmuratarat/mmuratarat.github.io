@@ -7,7 +7,7 @@ comments: true
 
 Just imagine that you have an application which is fully developed and you do not want to make any changes to the libraries it is using but at the same time you start developing another application which requires the updated versions of those libraries. What will you do ? It is where virtual environments come into play...
 
-A Virtual Environment, put simply, is an isolated isolated working copy of Python which allows you to work on a specific project without worry of affecting other projects. It enables multiple side-by-side installations of Python, one for each project. It doesn’t actually install separate copies of Python, but it does provide a clever way to keep different project environments isolated because it isolates environmental variables and packages. It is the cure to error messages that complain about the wrong python package version.
+A Virtual Environment, put simply, is an isolated working copy of Python which allows you to work on a specific project without worry of affecting other projects. It enables multiple side-by-side installations of Python, one for each project. It doesn’t actually install separate copies of Python, but it does provide a clever way to keep different project environments isolated because it isolates environmental variables and packages. It is the cure to error messages that complain about the wrong python package version.
 
 Here are some popular libraries/tools for you to create virtual environment in Python: `virtualenv`, `virtualenvwrapper`, `pvenv` and `venv`. Here, we are going to focus on `virtualenv` package.
 
