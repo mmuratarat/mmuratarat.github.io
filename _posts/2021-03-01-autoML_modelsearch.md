@@ -379,7 +379,7 @@ Protokol Tamponları (Protobuf), insan tarafından okunabilen formatlar olan JSO
 
 Bu nedenle bu modülün de bilgisayarınızda yüklü olması gerekmektedir.
 
-MacOS kullanıcıları için Homebrew üzerinden aşağıdaki komutu kullanarak yükleme yapabilirsiniz:
+MacOS kullanıcıları için Homebrew üzerinden aşağıdaki komutu kullanarak `protoc` paketini kişisel bilgisayarınıza kurabilirsiniz:
 
 ```bash
 brew install protobuf
