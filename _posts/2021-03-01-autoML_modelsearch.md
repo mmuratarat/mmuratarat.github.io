@@ -436,7 +436,8 @@ Bu eğitici için `model_search` paketinde bunan `csv_random_data.csv` örnek ve
 trainer =  single_trainer.SingleTrainer(data=csv_data.Provider(label_index=0,
                                                               logits_dimension=2,
                                                               record_defaults=[0, 0, 0, 0],
-                                                              filename="model_search/data/testdata/csv_random_data.csv"),spec= "model_search/configs/dnn_config.pbtxt") 
+                                                              filename="model_search/data/testdata/csv_random_data.csv"),
+                                        spec= "model_search/configs/dnn_config.pbtxt") 
 ```
 
 Buradaki `SingleTrainer` fonksiyonunun argümanları şu şekilde özetlenebilir: ilk olarak bir `trainer` örneği oluşturup csv dosyasındaki verileri `csv_data.Provider` fonksiyonuna gönderin. `label_index`, etiketlerin (labels) dataframe'de bulunduğu sütun numarasını gösterir. `logit_dimension`, sınıflandırma için kullanılacak verideki sınıfların sayısını temsil eder. Burada ikili sınıflandırma yaptığımız için 2 olarak değer verilmiştir. `record_default` argümanı, sütunlarda herhangi bir boş değer (null value) olduğu zaman, o değerin 0 ile değiştirilmesi gerektiğini söyleyen ve boyutu, öznitelik sayısına eşit olan diziyi temsil eder. `filename`, verilerin bulunduğu dosyanın yolunu tanımlar. Son olarak, `spec`, arama alanını temsil eder, aşağıda belirtildiği gibi kendi alanınızı oluşturabilir veya varsayılan arama alanını kullanabilirsiniz.
