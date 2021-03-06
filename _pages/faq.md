@@ -8462,6 +8462,15 @@ A number of other techniques exist for validating K, including cross-validation,
 
 One of the biggest issue with cluster analysis is that we may happen to have to derive different conclusion when base on different clustering methods used (including different linkage methods in hierarchical clustering).You cannot know in advance which clustering algorithm would be better. There are many clustering algorithms in the literature because the notion of the notion "cluster" cannot be defined precisely. Clustering is in the eye of beholder. It totally depends on domain specific knowledge. 
 
+#### What is the exact difference between error and residual?
+
+For all practical purposes, and in a machine learning context, these two terms are treated as synonyms. The term "residual" is due to the origins of linear regression from statistics; since the term "error" in statistics had (has) a different meaning that in today's ML, a different term was needed to declare the difference between the estimated (predicted) values of a dependent variable and its observed ones, hence the "residual".
+
+You can find more details in the Wikipedia entry for [Errors and residuals](Errors and residuals) (notice the plural); quoting:
+
+> In statistics and optimization, errors and residuals are two closely related and easily confused measures of the deviation of an observed value of an element of a statistical sample from its "theoretical value". The **error** (or disturbance) of an observed value is the deviation of the observed value from the (unobservable) true value of a quantity of interest (for example, a population mean), and the **residual** of an observed value is the difference between the observed value and the estimated value of the quantity of interest (for example, a sample mean). The distinction is most important in regression analysis, where the concepts are sometimes called the regression errors and regression residuals and where they lead to the concept of studentized residuals.
+
+Keep in mind that the above come from the statistics realm; in a ML context, we use the term "error" (singular) to mean the difference between predicted and observed values, and the term "residual(s)" is practically almost never used ...
 
 
 ## Deep Learning
