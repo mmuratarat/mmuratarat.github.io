@@ -9934,6 +9934,23 @@ Batch norm can also be considered of the regularization methods. During training
 
 * Get more data if you can, which can lead to a performance improvement.
 
+#### What is an activation layer in Keras?
+
+As stated in the [docs](https://keras.io/activations/), the activation layer in Keras is equivalent to a dense layer with the same activation passed as an argument.
+
+What is given below
+
+```
+x = Dense(64)(x)
+x = Activation('relu')(x)
+```
+
+is equivalent to
+
+```
+x = Dense(8, activation='relu')(x)
+```
+
 
 ## SQL
 
