@@ -12014,4 +12014,4 @@ Python 3.7.3 (default, Mar  6 2020, 22:34:30)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
   ```
-
+- Each pixel typically consists of 8 bits (1 byte) for a Black and White (B&W) image or 24 bits (3 bytes) for a color image-- one byte each for Red, Green, and Blue. 8 bits represents 28 = 256 tonal levels (0-255).
