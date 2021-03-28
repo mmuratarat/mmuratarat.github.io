@@ -33,7 +33,7 @@ UBUNTU_CODENAME=bionic
 
 Installing Apache Spark on any operating system can be a bit cumbersome but there is a lot of tutorials online. If you follow the steps, you will be just fine.
 
-# How to install PostgreSQL and pgAdmin4 on Linux
+## How to install PostgreSQL and pgAdmin4 on Linux
 
 PostgreSQL is a free and open source cross-platform Relational Database Management System (RDBMS). It is widely used by developers in the development environment and in production environments as well. Ubuntu’s default repositories contain PostgreSQL packages, so you can install these using the `apt` packaging system. [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04){:target="_blank"} explains it so well!
 
@@ -47,7 +47,7 @@ sudo apt-get update && sudo apt-get install pgadmin4
 
 in order to install pgAdmin4 on your system. Now we both have locally installed PostgreSQL database and its GUI pgAdmin4. Go ahead and locate pgAdmin4 application and launch it. You will see a new tab open on your browser and Voila! It is working! Let's create some tables!
 
-# Creating a Server in the pgAdmin Dashboard
+## Creating a Server in the pgAdmin Dashboard
 
 Before creating tables, first, we need to create a new server. From the pgAdmin dashboard, locate the Browser menu on the left-hand side of the window. Right-click on Servers to open a context menu, hover your mouse over Create, and click Server….
 
@@ -71,7 +71,7 @@ Similarly, we will create a new Database named `database_example`:
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/4_pgadmin4.png?raw=true)
 
-# Creating a Table in the pgAdmin
+## Creating a Table in the pgAdmin
 
 Now, let's create two toy tables, `Employee` and `Department`. 
 
@@ -187,7 +187,7 @@ jdbcDF3.select('*').collect()
 #  Row(id=5, name='Max', salary=90000, departmentid=1)]
 ```
 
-# How to use a subquery in JDBC data source?
+## How to use a subquery in JDBC data source?
 
 You can also use Spark to process some data from a JDBC source. But to begin with, instead of reading original tables from JDBC, you can run some queries on the JDBC side to filter columns and join tables, and load the query result as a table in Spark SQL.
 
@@ -216,7 +216,7 @@ spark.sql('select * from tbl').show() #or use .collect() to get Rows
 # +---+-------------+------+------------+---------------+
 ```
 
-# How to fetch multiple tables using spark sql
+## How to fetch multiple tables using spark sql
 
 In order to fetch multiple tables from PostgreSQL into Spark environment, you need somehow to acquire the list of the tables you have in PostgreSQL, which is similarly to what's given below:
 
