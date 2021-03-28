@@ -7270,7 +7270,7 @@ Selecting the proper class weights can sometimes be complicated (doing a simple 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/resampling_unbalaned_classes.png?raw=true)
 
-Undersampling means we will select only some of the data from the majority class, only using as many examples as the minority class has. This selection should be done to maintain the probability distribution of the class. Random under-sampling balances the dataset by reducing the size of the abundant class. This method is used when quantity of data is sufficient (tens or hundreds of thousands of instances or more). By keeping all samples in the rare class and randomly selecting an equal number of samples in the abundant class, a balanced new dataset can be retrieved for further modelling. This selection should be done to maintain the probability distribution of the majority class
+Undersampling means we will select only some of the data from the majority class, only using as many examples as the minority class has. This selection should be done to maintain the probability distribution of the majority class. Random under-sampling balances the dataset by reducing the size of the abundant class. This method is used when quantity of data is sufficient (tens or hundreds of thousands of instances or more). 
 
 On the contrary, random oversampling is used when the quantity of data is insufficient (tens of thousands of records or less). It tries to balance dataset by increasing the size of rare samples. The copies will be made such that the distribution of the minority class is maintained.
 
