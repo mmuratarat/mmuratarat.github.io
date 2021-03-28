@@ -35,7 +35,7 @@ R, G, B = fix_img[:,:,0], fix_img[:,:,1],fix_img[:,:,2]
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/original_image.png?raw=true)
 
-# Weighted average
+## Weighted average
 
 This is the grayscale conversion algorithm that OpenCV's `cvtColor()` use (see the [documentation](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html#void%20cvtColor%28InputArray%20src,%20OutputArray%20dst,%20int%20code,%20int%20dstCn%29){:target="_blank"})
 
@@ -81,8 +81,7 @@ plt.savefig('image_weighted_average_OPENCV.png')
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/image_weighted_average_OPENCV.png?raw=true)
 
-
-# Average method
+## Average method
 
 Average method is the most simple one. You just have to take the average of three colors. Since its an RGB image, so it means that you have add R with G with B and then divide it by 3 to get your desired grayscale image.
 
@@ -112,7 +111,7 @@ plt.savefig('image_average_method.png')
 
 Since the three different colors have three different wavelength and have their own contribution in the formation of image, so we have to take average according to their contribution, not done it averagely using average method. Right now what we are doing is 33% of Red, 33% of Green, 33% of Blue. We are taking 33% of each, that means, each of the portion has same contribution in the image. But in reality that is not the case. The solution to this has been given by luminosity method.
 
-# The luminosity method 
+## The luminosity method 
 
 This method is a more sophisticated version of the average method. It also averages the values, but it forms a weighted average to account for human perception. Through many repetitions of carefully designed experiments, psychologists have figured out how different we perceive the luminance or red, green, and blue to be. They have provided us a different set of weights for our channel averaging to get total luminance. The formula for luminosity is:
 
