@@ -8,7 +8,7 @@ permalink: /about/
 ---
 
 <center>
-<img src="/assets/2017-09-03-23.35.54.jpg" alt="MMA" align="right" style="width: 35%; height: 35%; margin:15px">
+<img src="/assets/circle-cropped.png" alt="MMA" align="right" style="width: 35%; height: 35%; margin:15px">
 </center> 
 
 # Welcome!
