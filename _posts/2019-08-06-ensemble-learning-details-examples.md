@@ -608,7 +608,7 @@ One way for a new predictor to correct its predecessor is to pay a bit more atte
 We begin by describing the algorithm itself. Consider a two-class problem, with the output variable coded as $Y \in \\{−1, 1\\}$. Given a vector of predictor variables $X$, a classifier $G(X)$ produces a prediction taking one of the two values $\{−1, 1\}$. The error rate on the training sample is:
 
 $$
-err = \frac{1}{N} \sum_{i=1}^{N} I(y_{i} \neq G(x_{i}))$
+err = \frac{1}{N} \sum_{i=1}^{N} I(y_{i} \neq G(x_{i}))
 $$
 
 A weak classifier is one whose error rate is only slightly better than random guessing. The purpose of boosting is to sequentially apply the weak classification algorithm to repeatedly modified versions of the data, thereby producing a sequence of weak classifiers $G_{m}(x), m = 1, 2, \cdots , M$. The algorithm belows shows the steps:
