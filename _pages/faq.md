@@ -11974,7 +11974,7 @@ will give you the interpreter. You can select the interpreter you want when you 
 
   Items in `/usr/bin` should always be or link to files supplied by Apple in OS X, unless someone has been ill-advisedly changing things there. 
 
-  ```shell
+```shell
 Arat-MacBook-Pro:~ mustafamuratarat$ /usr/bin/python
 
 WARNING: Python 2.7 is not recommended. 
@@ -12013,5 +12013,6 @@ Python 3.7.3 (default, Mar  6 2020, 22:34:30)
 [Clang 11.0.3 (clang-1103.0.32.29)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
-  ```
+```
+
 - Each pixel typically consists of 8 bits (1 byte) for a Black and White (B&W) image or 24 bits (3 bytes) for a color image-- one byte each for Red, Green, and Blue. 8 bits represents 28 = 256 tonal levels (0-255).
