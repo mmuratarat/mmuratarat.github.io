@@ -6146,7 +6146,7 @@ We can create a graphical visualization of bias and variance using a bulls-eye d
 
 The error due to bias taken as the difference between the expected (or average) prediction of our model and the correct value which we are trying to predict. Of course you only have one model so talking about expected or average prediction values might seem a little strange. However, imagine you could repeat the whole model building process more than once: each time you gather new data and run a new analysis creating a new model. Due to randomness in the underlying data sets, the resulting models will have a range of predictions. Bias measures how far off in general these models' predictions are from the correct value.
 
-![](https://elitedatascience.com/wp-content/uploads/2017/05/noisy-sine-linear.png)
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/noisy-sine-linear.png?raw=true)
 
 It refers to an error from an estimator that is general and does not learn signal in the data that would allow it to make better predictions. This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data. There could be several reasons for underfitting, the most important of which are: (1) your model is too simple for the data (for example a linear model can often underfit), (2) the features you engineered are not informative enough. The solution to the problem of underfitting is to try a more complex model (either through more layers/ tree or different architecture) or to engineer features with higher predictive power. An inflexible model is said to have a high bias because it makes assumptions about the training data (it is biased toward the pre-conceived ideas of the data, we have imposed more rules on the target function). For example, a linear classifier makes the assumption that data is linear, and does not have enough flexibility to fit non-linear relationships. An inflexible model may not have enough capacity to fit even the training data (cannot learn the signal from the data) and the model is not able to generalize well to a new data. 
 
@@ -6383,8 +6383,7 @@ Feature scaling is the method used to standardize the range of features of data.
  You should scale your data,
  
 * when your algorithm will weight each input, e.g. gradient descent used by many neural networks, or use distance metrics, e.g., kNN, model performance can often be improved by normalizing, standardizing, otherwise scaling your data so that each feature is given relatively equal weight.
-* It is also important when features are measured in different units, e.g. feature A is measured in inches, feature B is measured in feet, and feature C is measured in dollars, that they are scaled in a way that they are weighted and/or represented equally.
-     In some cases, efficacy will not change but perceived feature importance might change, e.g., coefficients in a linear regression.
+* It is also important when features are measured in different units, e.g. feature A is measured in inches, feature B is measured in feet, and feature C is measured in dollars, that they are scaled in a way that they are weighted and/or represented equally. In some cases, efficacy will not change but perceived feature importance might change, e.g., coefficients in a linear regression.
 * Scaling your data typically does not change the performance or feature importance for tree-based models which are not distance based models, since the split points will simply shift to compensate for the scaled data. 
 
 Note that when you standardize all your variables, the intercept will be zero.
@@ -6420,13 +6419,13 @@ You can always check the model performance after adding or removing a features, 
 
 #### What are the hyperparameter tuning methods?
 
-Hyperparameters are not optimized by the learning algorithm itself. The researcher has to tune the hyperparameters by experimentally finding the best combination o fvalues, one per hyper parameter.
+Hyperparameters are not optimized by the learning algorithm itself. The researcher has to tune the hyperparameters by experimentally finding the best combination of values, one per hyper parameter.
 
 One typical way to do that, when you have enough data to have a decent validation set and the number of hyperparameters and their range is not too large is to use __grid search__.
 
 Grid search is the most simple hyperparameter tuning technique. It builds a model for every combination of hyperparameters specified and evaluates each model. Finally, you keep the model that performs the best according to the metric. Once the best pair of hyperparameters is found, you can try to explore the values close to the best ones in some region around them. Sometimes, this can result in an even better model. Finally you assess the selected model using the test set.
 
-However, trying all combinations of hyperparameters, especially if there are more than a couple of them, could be time-consuming, especially for large datasets. There are more efficient techniques seuch as __random search__ and __Bayesian hyperparameter optimization__. 
+However, trying all combinations of hyperparameters, especially if there are more than a couple of them, could be time-consuming, especially for large datasets. There are more efficient techniques such as __random search__ and __Bayesian hyperparameter optimization__. 
 
 Random search differs from grid search in that you no longer provide a discrete set of values to explore for each hyperparameter. Instead, you provide a statistical distribution for each hyperparameter from which values are randomly sampled and set the total number of combinations (number of iterations) you want to try.
 
@@ -6737,10 +6736,9 @@ idx = np.arange(n)
 d = np.array([np.sum((yhat - model.fit(X[idx!=i], y[idx!=i]).predict(X))**2.0) for i in range(n)])/denom
 ```
 
-
 #### What is the difference between norm and distance?
 
-A norm is a distance from origin. A distance function (alsp known as a metric) is a distance between two points. 
+A norm is a distance from origin. A distance function (also known as a metric) is a distance between two points. 
 
 The distance is a two vectors function $d(x,y)$ ($d: X \times X \longrightarrow \mathbb{R_{+}}$) while the norm is a one vector function $\lVert x \rVert$ ($\lVert \cdot \rVert : X \longrightarrow \mathbb{R_{+}}$), meaning that you can take the norm of _one element_. However, frequently one can use the norm to calculate the distance by means of the difference of two vectors $\lVert x - y \rVert$. So a norm always induces a distance by:
 
