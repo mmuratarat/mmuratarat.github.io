@@ -138,4 +138,4 @@ plt.savefig('image_luminosity_method.png')
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/image_luminosity_method.png?raw=true)
 
-As you can see here, that the image has now been properly converted to grayscale using weighted method. As compare to the result of average method, this image is more brighter thank average method.
+As you can see here, that the image has now been properly converted to grayscale using the luminosity method. As compare to the result of average method, this image is more brighter than average method.
