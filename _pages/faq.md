@@ -7076,7 +7076,6 @@ The kernel is effectively a distance and if different features vary on different
 The SVM as defined so far works for binary classification. What happens if the number of classes is more than two?
 
 * **One-versus-All**: If the number of classes is $K > 2$ then $K$ different 2-class SVM classifiers are fitted where one class is compared with the rest of the classes combined. A new observation is classified according to where the classifier value is the largest.
-
 * **One-versus-One**: All ${K\choose 2}$ pairwise classifiers are fitted and a test observation is classified in the class which wins in the majority of the cases.
 
 The latter method is preferable but if $K$ is too large, the former is to be used.
@@ -7842,11 +7841,8 @@ There are several major unknowns that are almost impossible to guess with confid
 1. whether the required accuracy level (or the value of any other metric important to you) is attainable in practice,
 2. how much data you will need to reach the required accuracy level,
 3. what features and how many features are needed so that the model can learn and generalize sufficiently well,
-4. how large the model should be (especially relevant for neural networks and ensemble
-architectures),
-5. how long will it take to train one model (in other words, how much time is needed to
-run one experiment) and how many experiments will be needed to reach the desired
-level of performance.
+4. how large the model should be (especially relevant for neural networks and ensemble architectures),
+5. how long will it take to train one model (in other words, how much time is needed to run one experiment) and how many experiments will be needed to reach the desired level of performance.
 
 #### What are the properties of a successful model?
 
@@ -7857,7 +7853,7 @@ A successful model has the following four properties:
 3. it benefits the user (measured via productivity, engagement, and sentiment),
 4. it is scientifically rigorous
 
-A scientifically rigorous model is characterized by a predictable behavior (for the input examples that are similar to the examples that were used for training) and is reproducible. The former property (predictability) means that if input feature vectors come from the same distribution of values as the training data, then the model, on average, has to make the same amount of errors as was observed on the holdout data when the model was trained. The latter property (reproducibility) means that a model with similar properties can be easily built once again from the same training data using the same algorithm and values of hyperparameters. The word “easily” means that no additional analysis, labeling, or coding is necessary to rebuild the model, only the compute power.
+A scientifically rigorous model is characterized by a predictable behavior (for the input examples that are similar to the examples that were used for training) and is reproducible. The former property (predictability) means that if input feature vectors come from the same distribution of values as the training data, then the model, on average, has to make the same amount of errors as was observed on the holdout data when the model was trained. The latter property (reproducibility) means that a model with similar properties can be easily built once again from the same training data using the same algorithm and values of hyperparameters. The word "easily" means that no additional analysis, labeling, or coding is necessary to rebuild the model, only the compute power.
 
 #### How to convert an RGB image to grayscale?
 
@@ -8183,8 +8179,7 @@ df.plot.scatter('sin_time','cos_time').set_aspect('equal');
 
 Bootstrap aggregating, also called bagging, is one of the first ensemble algorithms machine learning practitioners learn and is designed to improve the stability and accuracy of regression and classification algorithms. By model averaging, bagging helps to reduce variance and minimize overfitting. Although it is usually applied to decision tree methods, it can be used with any type of method. Some models have larger variance than others. Bagging works especially well for unstable, high variance base learners—algorithms whose predicted output undergoes major changes in response to small changes in the training data. This includes algorithms such as decision trees and KNN (when k is sufficiently small). However, for algorithms that are more stable or have high bias, bagging offers less improvement on predicted outputs since there is less variability (e.g., bagging a linear regression model will effectively just return the original predictions for large enough ensemble). 
 
-Normal equations produce the estimates for the coefficient of a linear regression using ordinary least squares (OLS) method. Gauss-Markov Theorem states that these estimates are already BLUE which  is an acronym for best linear unbiased estimator.
-In other words, the sampling distributions of regression coefficients are centered on the actual population value and are the tightest possible distributions. Therefore, the estimates, if the assumptions of the linear model are satisfied (homoskedasticity of the error term, no serial correlation of the errors, no exact multicollinearity, etc.) are already minimum variance and unbiased (in fact they are the maximum likelihood estimates.) Bagging is a procedure used to "balance out" the bias-variance tradeoff, but if OLS is BLUE, there is no need to employ a method like bagging.
+Normal equations produce the estimates for the coefficient of a linear regression using ordinary least squares (OLS) method. Gauss-Markov Theorem states that these estimates are already BLUE which  is an acronym for best linear unbiased estimator. In other words, the sampling distributions of regression coefficients are centered on the actual population value and are the tightest possible distributions. Therefore, the estimates, if the assumptions of the linear model are satisfied (homoskedasticity of the error term, no serial correlation of the errors, no exact multicollinearity, etc.) are already minimum variance and unbiased (in fact they are the maximum likelihood estimates.) Bagging is a procedure used to "balance out" the bias-variance tradeoff, but if OLS is BLUE, there is no need to employ a method like bagging.
 
 #### Is decision tree a linear model?
 
