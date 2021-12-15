@@ -188,7 +188,7 @@ Hyperparameter $\lambda > 0$ (the shrinkage parameter) is a complexity parameter
 
 The ridge solutions are not equivariant under scaling of the inputs, and so one normally standardizes the inputs before solving the equation above. In addition, do not forget that the intercept $\theta_{0}$ should be left out of the penalty term. We estimate $\theta_{0}$ by $\hat{y} = \frac{1}{m} \sum_{i=1}^{m} y_{i}$. The remaining coefficients get estimated by a ridge regression without intercept, using the centered $x_{j}^{(i)}, \,\,\, i=1,2,...,n\,\, \text{and}\,\, j=1,2,...,m$. Henceforth we assume that this centering has been done, so that the input matrix $\mathbf{X}$ has $n$ (rather than $n + 1$) columns.
 
-This cost function is convex and has a unique solution. One can minimize this criterion using straightforward applications of matrix calculus, as was conducted for the classical OLS criterion for multiple regression. That is, setting to zero and taking the first derivative, we obtain
+This cost function is convex and has a unique solution. One can minimize this criterion using straightforward applications of matrix calculus, as was conducted for the classical OLS criterion for multiple regression. That is, taking the first derivative and setting to zero, we obtain
 
 $$
 \begin{split}
