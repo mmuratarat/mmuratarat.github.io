@@ -614,7 +614,7 @@ Train and fine-tune a Decision Tree for the moons dataset.
 
 * Generate a moons dataset using make_moons(n_samples=10000, noise=0.4).
 * Split it into a training set and a test set using train_test_split().
-* Use grid search with cross-validation (with the help of the `GridSearchCV` class) to find good hyperparameter values for a `DecisionTreeClassifier`s. Hint: try various values for `max_leaf_nodes`.
+* Use grid search with cross-validation (with the help of the `GridSearchCV` class) to find good hyperparameter values for a `DecisionTreeClassifier`. Hint: try various values for `max_leaf_nodes`.
 * Train it on the full training set using these hyperparameters, and measure your model's performance on the test set. You should get roughly 85% to 87% accuracy.
 
 {% highlight python %}
