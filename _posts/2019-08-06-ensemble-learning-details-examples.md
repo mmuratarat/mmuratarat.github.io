@@ -588,7 +588,7 @@ plt.show()
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/feature_importances_irisdata.png?raw=true)
 
 # BOOSTING
-Originally caled _hypothesis boosting_, boosting refers to any Ensemble method that can combine several "weak" learners with low variance but high bias (The weak learners in AdaBoost are decision trees with a single split, called decision stumps (1-level decision trees)) into a strong learner with a lower bias than its components. A weak learner is a constrained model (i.e. you could limit the max depth of each decision tree). Those weak learners are very basic classifiers doing only slightly better than a random guess.
+Originally called _hypothesis boosting_, boosting refers to any Ensemble method that can combine several "weak" learners with low variance but high bias (The weak learners in AdaBoost are decision trees with a single split, called decision stumps (1-level decision trees)) into a strong learner with a lower bias than its components. A weak learner is a constrained model (i.e. you could limit the max depth of each decision tree). Those weak learners are very basic classifiers doing only slightly better than a random guess.
 
 The general idea of most boosting methods is that new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made (each trying to correct its predecessor). 
 
