@@ -374,10 +374,13 @@ where $v$ stands for value or class!
 This is a new sentence: "I hated the poor acting":
 
 * if $v_{j} = + $, we will have:
+
   $$
   P(+)P( I \mid + )P( hated \mid + )P( the \mid + )P( poor \mid + )P( acting \mid + ) = 6.03 \times 10^{-7}
   $$
+  
 * if $v_{j} = - $, we will have:
+
   $$
   P(-)P( I \mid - )P( hated \mid - )P( the \mid - )P( poor \mid - )P( acting \mid - ) = 1.22 \times 10^{-5}
   $$
