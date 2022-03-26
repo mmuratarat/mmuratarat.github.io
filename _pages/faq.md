@@ -35,7 +35,7 @@ permalink: /faq/
 23. Why is multiplication by diagonal matrix computationally cheap? How is the multiplication different for square vs. non-square diagonal matrix?
 24. At what conditions does the inverse of a diagonal matrix exist?
 25. [What is a symmetric matrix?](#what-is-a-symmetric-matrix)
-26. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-a-symmetric-matrix)](#what-is-the-moore-penrose-pseudo-inverse-and-how-to-calculate-it)
+26. [What is the Moore Penrose pseudo inverse and how to calculate it?](#what-is-a-symmetric-matrix)]
 27. When are two vectors x and y orthogonal?
 28. At $\mathbb{R}^n$ what is the maximum possible number of orthogonal vectors with non-zero norm?
 29. When are two vectors x and y orthonormal?
