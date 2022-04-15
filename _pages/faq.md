@@ -8377,7 +8377,7 @@ $$
 D\left(X,Y\right) = \left(\sum_{i=1}^{n} \mid x_{i} - y_{i}\mid^{p}\right)^{\frac {1}{p}}
 $$
 
-Minkowski distance is typically used with {\displaystyle p}p being 1 or 2, which correspond to the Manhattan distance and the Euclidean distance, respectively. 
+Minkowski distance is typically used with $p$ being 1 or 2, which correspond to the Manhattan distance and the Euclidean distance, respectively. 
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/2880px-2D_unit_balls.svg.png?raw=true)
 
