@@ -5,11 +5,11 @@ author: "MMA"
 comments: true
 ---
 
-A general LSTM cell can be shown as given below ([source](https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714){:target="_blank"}).
+A general LSTM unit (not a cell! An LSTM cell consists of multiple units. Several LSTM cells form one LSTM layer.) can be shown as given below ([source](https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714){:target="_blank"}).
 
 ![Placeholder Image](https://raw.githubusercontent.com/mmuratarat/mmuratarat.github.io/master/_posts/images/lstm.png)
 
-Equations below summarizes how to compute the cell’s long-term state, its short-term state, and its output at each time step for **a single instance** (the equations for a whole mini-batch are very similar).
+Equations below summarizes how to compute the unit’s long-term state, its short-term state, and its output at each time step for **a single instance** (the equations for a whole mini-batch are very similar).
 
 1. Input gate:
 $ i_{t} = \sigma (W_{xi}^{T} \cdot X_{t} +  W_{hi}^{T} \cdot h_{t-1}  + b_{i})$
@@ -36,6 +36,9 @@ $ h_{t} = o_{t}\circ tanh(C_{t})$
 *  $\circ$ represents the Hadamard product (elementwise product).
 
 **NOTE**: Sometimes, $h_t$ is called as the outgoing state and $c_t$ is called as the internal cell state.
+
+![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/0Poch.png?raw=true)
+source: https://stackoverflow.com/a/53760729
 
 Just like for feedforward neural networks, we can compute all these in one shot for a whole mini-batch by placing all the inputs at time step $t$ in an input matrix $X_{t}$. If we write down the equations for **all instances in a mini-batch**, we will have:
 
