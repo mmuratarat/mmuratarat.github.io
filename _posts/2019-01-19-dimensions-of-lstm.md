@@ -263,6 +263,8 @@ It can be hard to understand what number of units in an LSTM cell stands for. Mo
 
 ![](https://github.com/mmuratarat/mmuratarat.github.io/blob/master/_posts/images/num_units.png?raw=true)
 
+https://stackoverflow.com/questions/37901047/what-is-num-units-in-tensorflow-basiclstmcell#:~:text=Tensorflow's%20num_units%20is%20the%20size,memory%20units%20in%20the%20cell.
+
 # NOTES 
 
 Dot product can be confusing so I am hoping that these definitions might help. The hypothesis of each data point can be vectorized using following formula:
