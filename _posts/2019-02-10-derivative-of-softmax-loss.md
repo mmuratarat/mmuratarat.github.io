@@ -21,7 +21,7 @@ The loss for a single instance can be computed by,
 
 $$ L = - \sum_{j}^{K} \left[y_{j} \log (p_{j}) \right]$$
 
-Most of the time, $p_{j} = softmax(o_{i})$ where $o_{i}$ is the unscaled score (logit), which is also a vector. 
+Most of the time, $p_{j} = softmax(o_{j})$ where $o_{j}$ is the unscaled score (logit), which is also a vector. 
 
 Since we know the derivative of softmax function with respect to its vector input, we can compute the derivative of the loss with respect to unscaled logit vector $o_{i}$. We have two options here: $i = j$ and $i \neq j$.
 
