@@ -11281,7 +11281,26 @@ You can just create one , if you really want to:
 CREATE TABLE dual();
 ```
 
+# How to drop all the tables in a PostgreSQL database?
 
+If all of your tables are in a single schema, this approach could work (below code assumes that the name of your schema is `public`):
+
+```
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+```
+
+If you are using PostgreSQL 9.3 or greater, you may also need to restore the default grants.
+
+```
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;
+```
+
+Note that this will also delete all functions, views, etc defined in the public schema.
+
+Note that this will not remove the system tables (such as those that begin with `pg_`) as they are in a different schema, `pg_catalog`.
+.
 ## Miscellaneous
 
 #### What is a good code?
