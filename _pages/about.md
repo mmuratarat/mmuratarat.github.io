@@ -42,7 +42,7 @@ If you are interested in collaborating and doing some great work together, pleas
 </div>
 
 <br>
-**Mustafa Murat ARAT** (M.Sc.)<br>
+**Mustafa Murat ARAT** (Ph.D.)<br>
 Department of Statistics<br>
 Faculty of Science<br>
 Hacettepe University<br>
