@@ -24,9 +24,9 @@ I was a Master of Science student at [Department of Statistics](http://www.stat.
 
 My passion resides in machine learning and deep learning algorithms, supervised learning and unsupervised learning methods, time series forecasting and modeling, big data, distribution theory, statistical analysis, optimization and operational research. 
 
-You can find my CV below:
+You can find my CV below as PDF:
 
-[Full](https://mmuratarat.github.io/files/cv/CV.pdf){:target="_blank"}
+[Full Resume](https://mmuratarat.github.io/files/cv/CV.pdf){:target="_blank"} (6 pages)
 
 # Contact me
 If you are interested in collaborating and doing some great work together, please reach out to me via:
