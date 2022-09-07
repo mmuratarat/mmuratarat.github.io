@@ -325,4 +325,6 @@ UNIQUE (ID, FirstName);
 
 Primary key cannot have NULL value, the unique constraints can have NULL values. There is only one primary key in a table, but there can be multiple unique constraints. The primary key creates the cluster index automatically but the Unique key does not.
 
+### What is the difference between a relation and a relationship in SQL?
 
+The term relation is sometimes used to refer to a table with columns and rows in a relational database and relationship is association between relations/tables. 
