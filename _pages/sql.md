@@ -3,7 +3,7 @@ layout: post
 title: "Frequently Asked Questions (and Answers)"
 author: MMA
 comments: false
-permalink: /faq/
+permalink: /sql/
 ---
 
 #### What is SQL?
