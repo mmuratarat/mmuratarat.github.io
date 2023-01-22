@@ -26,7 +26,7 @@ My passion resides in machine learning and deep learning algorithms, supervised 
 
 You can find my CV below as PDF:
 
-[Full Resume](https://mmuratarat.github.io/files/cv/CV.pdf){:target="_blank"} (6 pages)
+[Full Resume](https://mmuratarat.github.io/files/cv/CV.pdf){:target="_blank"} (5 pages)
 
 # Contact me
 If you are interested in collaborating and doing some great work together, please reach out to me via:
