@@ -92,16 +92,16 @@ There are multiple example-based metrics to be used. We will look at couple of t
   #0.4166666666666667
   {% endhighlight %}
   
-* **Precision**
+* **Recall**
 
   It is the proportion of predicted correct labels to the total number of actual labels, averaged over all instances.
   
   \begin{equation}
-  \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert y_{i}\rvert}
+  \text{Recall} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert y_{i}\rvert}
   \end{equation}
   
   {% highlight python %}
-  def Precision(y_true, y_pred):
+  def Recall(y_true, y_pred):
       temp = 0
       for i in range(y_true.shape[0]):
           if sum(y_true[i]) == 0:
@@ -111,16 +111,16 @@ There are multiple example-based metrics to be used. We will look at couple of t
    #0.5
    {% endhighlight %}
   
-* **Recall**
+* **Precision**
 
   It is the propotion of predicted correct labels to the total number of predicted labels, averaged over all instances.
   
   \begin{equation}
-  \text{Recall} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert \hat{y_{i}}\rvert}
+  \text{Precision} = \frac{1}{n} \sum_{i=1}^{n} \frac{\lvert y_{i} \cap \hat{y_{i}}\rvert}{\lvert \hat{y_{i}}\rvert}
   \end{equation}
   
   {% highlight python %}
-  def Recall(y_true, y_pred):
+  def Precision(y_true, y_pred):
       temp = 0
       for i in range(y_true.shape[0]):
           if sum(y_pred[i]) == 0:
