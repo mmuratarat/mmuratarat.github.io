@@ -22,7 +22,7 @@ I completed my Ph.D. dissertation, titled ”Advances and Applications in Deep L
 
 I was a Master of Science student at [Department of Statistics](http://www.stat.hacettepe.edu.tr/){:target="_blank"} of [Hacettepe University](https://www.hacettepe.edu.tr/){:target="_blank"} in Ankara, Turkey. I received my degree at the same department in the division of Operational Research. I completed my thesis entitled "Support Vector Machines/Regression" under the supervision of Prof. Dr. Turhan Menteş. 
 
-My passion resides in machine learning and deep learning algorithms, supervised learning and unsupervised learning methods, time series forecasting and modeling, big data, distribution theory, statistical analysis, optimization and operational research. 
+My passion currently resides in modeling big data using supervised learning and unsupervised learning methods (such as machine learning and deep learning algorithms), Machine Learning Operations (MLOps), Transformer-based models on Hugging Face, Large Language Models (LLMs), Computer Vision and Natural Language Processing (NLP) and so on.
 
 You can find my CV below as PDF:
 
