@@ -10,7 +10,7 @@ Backpropagation is a common method for training a neural network. It is nothing 
 For this tutorial, we’re going to use a neural network with two numeric features and one categorical variable, three hidden neurons, one output neuron, since we are doing a regression analysis. We will have 4 observations. Each observations has two numeric features and one categorical variable. Therefore, design matrix is given by
 
 $$
-X= \begin{bmatrix}x_{11} & x_{12} & x_{13} \\  x_{21} & x_{22} & x_{23} \\ x_{31} & x_{32} & x_{33} \\ x_{41} & x_{42} & x_{43}\end{bmatrix} = \begin{bmatrix}0.5 & 0.1 & 0 \\  0.3 & 0.2 & 1 \\ 0.7 & 0.9 & 2\\ 0.8 & 0.1 & 0\end{bmatrix}
+X= \begin{bmatrix} x_{11} & x_{12} & x_{13} \\  x_{21} & x_{22} & x_{23} \\ x_{31} & x_{32} & x_{33} \\ x_{41} & x_{42} & x_{43}\end{bmatrix} = \begin{bmatrix}0.5 & 0.1 & 0 \\  0.3 & 0.2 & 1 \\ 0.7 & 0.9 & 2\\ 0.8 & 0.1 & 0\end{bmatrix}
 $$
 
 We one-hot encode the categorical variable.
